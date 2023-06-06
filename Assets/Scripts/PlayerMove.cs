@@ -5,9 +5,9 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour
 {
     public int jumpPower;
-    private bool isJump=false; // 이중 점프 방지 확인용 bool값 변수 (기본값 : false)
+    private bool isJump = false; // 이중 점프 방지 확인용 bool값 변수 (기본값 : false)
     Rigidbody2D rigid;
-    
+
     void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
@@ -16,12 +16,7 @@ public class PlayerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Jump
-        if (Input.GetButtonDown("Jump") && isJump == false)
-        {
-            rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
-            isJump = true;
-        }
+
     }
 
     void FixedUpdate()
@@ -35,6 +30,14 @@ public class PlayerMove : MonoBehaviour
             {
                 isJump = false;
             }
+        }
+    }
+    public void Jump()
+    {
+        if (isJump == false)
+        {
+            rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
+            isJump = true;
         }
     }
 }
