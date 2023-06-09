@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - obstacles
+  - cow
   layers:
   - Default
   - TransparentFX
@@ -16,7 +17,7 @@ TagManager:
   - Ground
   - Player
   - obstacle
-  - 
+  - cow
   - 
   - 
   - 

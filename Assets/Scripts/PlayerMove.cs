@@ -25,10 +25,15 @@ public class PlayerMove : MonoBehaviour
         if (rigid.velocity.y < 0) //내려갈 때만 스캔
         {
             Debug.DrawRay(rigid.position, Vector3.down, new Color(0, 1, 0));
-            RaycastHit2D rayHit = Physics2D.Raycast(rigid.position, Vector3.down, 1.2f, LayerMask.GetMask("Ground"));
+            RaycastHit2D rayHit = Physics2D.Raycast(rigid.position, Vector3.down, 1.2f, LayerMask.GetMask("Ground", "cow"));
             if (rayHit.collider != null) // 바닥과 접촉해 있을 경우
             {
                 isJump = false;
+                // 소를 밟았을 경우 플레이어가 바운스된다.
+                if (rayHit.collider.CompareTag("cow"))
+                {
+                    rigid.AddForce(Vector2.up * 40, ForceMode2D.Impulse);
+                }
             }
         }
     }
@@ -38,6 +43,7 @@ public class PlayerMove : MonoBehaviour
         {
             rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
             isJump = true;
+            Debug.Log("button pressed");
         }
     }
 }
