@@ -271,10 +271,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aebe3854d93205744abc562dcdb3a920, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cow:
-  - {fileID: 1850516849}
+  obstacle: []
   objs:
   - {fileID: 1850516849}
+  - {fileID: 1247520202}
+  - {fileID: 1382514020}
   objCnt: 2
 --- !u!1 &558370560
 GameObject:
@@ -558,8 +559,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1235725324}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
-  m_LocalScale: {x: 10, y: 10, z: 1}
+  m_LocalPosition: {x: 0.58, y: 0.26, z: 1}
+  m_LocalScale: {x: 8, y: 8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -598,7 +599,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ca74e052374c1a4c970224cda0e07b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpPower: 12
+  jumpPower: 30
 --- !u!50 &1235725329
 Rigidbody2D:
   serializedVersion: 4
@@ -611,15 +612,15 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_Mass: 2
+  m_LinearDrag: 1
+  m_AngularDrag: 1
   m_GravityScale: 3
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!70 &1235725330
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -646,6 +647,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1247520203}
   - component: {fileID: 1247520204}
+  - component: {fileID: 1247520205}
   m_Layer: 0
   m_Name: poop
   m_TagString: Untagged
@@ -661,8 +663,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1247520202}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.78, y: -2.17, z: -0.9420303}
-  m_LocalScale: {x: 7, y: 7, z: 1}
+  m_LocalPosition: {x: 3.7799997, y: -2.17, z: -0.9420303}
+  m_LocalScale: {x: 6, y: 6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 512693405}
@@ -720,6 +722,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1247520205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1247520202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f73b7610960d29d409e289a90923935a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objSpeed: 3
+  startPosition: {x: 15, y: 0}
 --- !u!1 &1335927806
 GameObject:
   m_ObjectHideFlags: 0
@@ -732,7 +748,7 @@ GameObject:
   - component: {fileID: 1335927807}
   - component: {fileID: 1335927809}
   m_Layer: 6
-  m_Name: ground
+  m_Name: Ground
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -798,8 +814,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1335927806}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.4417, y: -2.4868, z: 0}
-  m_LocalScale: {x: 26.227247, y: 3.0114884, z: 1}
+  m_LocalPosition: {x: 4.4417, y: -2.2399, z: 0}
+  m_LocalScale: {x: 26.227247, y: 3.5053728, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -814,7 +830,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1335927806}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 540c08b9159b7224cb0da640df7a4442, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -841,6 +857,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1382514021}
   - component: {fileID: 1382514022}
+  - component: {fileID: 1382514023}
   m_Layer: 0
   m_Name: jelly
   m_TagString: Untagged
@@ -857,7 +874,7 @@ Transform:
   m_GameObject: {fileID: 1382514020}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 5.16, y: -2.39, z: -0.9420303}
-  m_LocalScale: {x: 7, y: 7, z: 1}
+  m_LocalScale: {x: 6, y: 6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 512693405}
@@ -915,6 +932,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1382514023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1382514020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f73b7610960d29d409e289a90923935a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objSpeed: 3
+  startPosition: {x: 15, y: 2.5}
 --- !u!1 &1784171469
 GameObject:
   m_ObjectHideFlags: 0
@@ -1011,7 +1042,6 @@ GameObject:
   - component: {fileID: 1850516853}
   - component: {fileID: 1850516855}
   - component: {fileID: 1850516852}
-  - component: {fileID: 1850516851}
   - component: {fileID: 1850516850}
   m_Layer: 0
   m_Name: cow
@@ -1046,27 +1076,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.26, y: 0.18}
   m_EdgeRadius: 0
---- !u!50 &1850516851
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1850516849}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!95 &1850516852
 Animator:
   serializedVersion: 5
@@ -1149,7 +1158,7 @@ Transform:
   m_GameObject: {fileID: 1850516849}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 7.316928, y: -2.2214453, z: -0.9420303}
-  m_LocalScale: {x: 7, y: 7, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 512693405}
@@ -1167,5 +1176,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f73b7610960d29d409e289a90923935a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cowSpeed: 1
+  objSpeed: 3
   startPosition: {x: 15, y: 0}

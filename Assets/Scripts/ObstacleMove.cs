@@ -4,41 +4,25 @@ using UnityEngine;
 
 public class ObstacleMove : MonoBehaviour
 {
-    public Vector2 spawnPosition = new Vector2(15, 0); // 복제본 생성 위치
-    //public GameObject obstaclePrefab; // 장애물 프리팹
-    public float spawnInterval = 3f; // 장애물 생성 간격
+    public float objSpeed;
+    public Vector2 startPosition;
 
-    public GameObject[] clonePrefabs; // 복제본 프리팹들
-    private GameObject clone; // 생성된 복제본 오브젝트
-
-    // 1초 ~ 2초 사이에 복제본 (cow, poop, jelly) 중 하나 랜덤 생성 (시간도 랜덤)
-    public float cloneSpawnDelayMin = 1f;
-    public float cloneSpawnDelayMax = 2f;
-
-
-    private float spawnTimer; // 장애물 생성 타이머
-
-    void Start()
+    // 오브젝트가 다시 활성화될 때마다 초기 위치로 이동
+    void OnEnable()
     {
-        spawnTimer = spawnInterval;
-        //clonePrefabs.SetActive(true);
+        transform.position = startPosition;
     }
 
+    
     void Update()
     {
-        spawnTimer -= Time.deltaTime;
+        // 왼쪽으로 이동
+        transform.Translate(Vector2.left * Time.deltaTime * objSpeed);
 
-        if (spawnTimer <= 0)
+        // 왼쪽으로 넘어가면 비활성화
+        if (transform.position.x < -5.5f)
         {
-            SpawnObstacle();
-            spawnTimer = spawnInterval;
+            gameObject.SetActive(false);
         }
-    }
-
-    private void SpawnObstacle()
-    {
-        int randomIndex = Random.Range(0, clonePrefabs.Length);
-        GameObject clonePrefab = clonePrefabs[randomIndex];
-        Instantiate(clonePrefab, spawnPosition, Quaternion.identity);
     }
 }
