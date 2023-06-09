@@ -234,7 +234,6 @@ GameObject:
   m_Component:
   - component: {fileID: 512693405}
   - component: {fileID: 512693406}
-  - component: {fileID: 512693407}
   m_Layer: 0
   m_Name: obstacles
   m_TagString: Untagged
@@ -267,26 +266,6 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 512693403}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a179ad0a086098f45a2be827313021e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnPosition: {x: 15, y: 0}
-  spawnInterval: 3
-  clonePrefabs:
-  - {fileID: 1850516849}
-  - {fileID: 1247520202}
-  - {fileID: 1382514020}
-  cloneSpawnDelayMin: 1
-  cloneSpawnDelayMax: 2
---- !u!114 &512693407
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 512693403}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aebe3854d93205744abc562dcdb3a920, type: 3}
@@ -294,8 +273,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cow:
   - {fileID: 1850516849}
-  cows: []
-  cowsCnt: 1
+  objs:
+  - {fileID: 1850516849}
+  objCnt: 2
 --- !u!1 &558370560
 GameObject:
   m_ObjectHideFlags: 0
@@ -681,7 +661,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1247520202}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.923072, y: -1.8114454, z: -0.9420303}
+  m_LocalPosition: {x: 3.78, y: -2.17, z: -0.9420303}
   m_LocalScale: {x: 7, y: 7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -876,7 +856,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1382514020}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.923072, y: -1.8114454, z: -0.9420303}
+  m_LocalPosition: {x: 5.16, y: -2.39, z: -0.9420303}
   m_LocalScale: {x: 7, y: 7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

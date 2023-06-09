@@ -5,7 +5,7 @@ using UnityEngine;
 public class CowObstacle : MonoBehaviour
 {
     public float cowSpeed = 1;
-    public Vector2 startPosition = new Vector2(15, 0);
+    public Vector2 startPosition;
 
     // 소 오브젝트가 다시 활성화될 때마다 초기 위치로 이동
     void OnEnable()
