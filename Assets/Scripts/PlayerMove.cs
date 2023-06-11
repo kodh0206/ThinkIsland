@@ -43,7 +43,7 @@ public class PlayerMove : MonoBehaviour
         {
             rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
             isJump = true;
-            Debug.Log("button pressed");
+            Debug.Log("");
         }
     }
 }
