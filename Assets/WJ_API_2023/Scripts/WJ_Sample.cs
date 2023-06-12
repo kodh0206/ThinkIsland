@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using WjChallenge;
-
+using TexDrawLib;
 public enum CurrentStatus { WAITING, DIAGNOSIS, LEARNING }
 public class WJ_Sample : MonoBehaviour
 {
@@ -12,13 +12,13 @@ public class WJ_Sample : MonoBehaviour
     public CurrentStatus                CurrentStatus => currentStatus;
 
     [Header("Panels")]
-    [SerializeField] GameObject         panel_diag_chooseDiff;  //³­ÀÌµµ ¼±ÅÃ ÆÐ³Î
-    [SerializeField] GameObject         panel_question;         //¹®Á¦ ÆÐ³Î(Áø´Ü,ÇÐ½À)
+    [SerializeField] GameObject         panel_diag_chooseDiff;  //ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ð³ï¿½
+    [SerializeField] GameObject         panel_question;         //ï¿½ï¿½ï¿½ï¿½ ï¿½Ð³ï¿½(ï¿½ï¿½ï¿½ï¿½,ï¿½Ð½ï¿½)
 
-    [SerializeField] Text   textDescription;        //¹®Á¦ ¼³¸í ÅØ½ºÆ®
-    [SerializeField] Text   textEquation;           //¹®Á¦ ÅØ½ºÆ®(¡ØTextDraw·Î º¯°æ ÇÊ¿ä)
-    [SerializeField] Button[]           btAnsr = new Button[4]; //Á¤´ä ¹öÆ°µé
-    Text[]                textAnsr;                  //Á¤´ä ¹öÆ°µé ÅØ½ºÆ®(¡ØTextDraw·Î º¯°æ ÇÊ¿ä)
+    [SerializeField] TEXDraw   textDescription;        //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ø½ï¿½Æ®
+    [SerializeField] TEXDraw   textEquation;           //ï¿½ï¿½ï¿½ï¿½ ï¿½Ø½ï¿½Æ®(ï¿½ï¿½TextDrawï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½)
+    [SerializeField] Button[]           btAnsr = new Button[4]; //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ°ï¿½ï¿½
+    TEXDraw[]                textAnsr;                  //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ°ï¿½ï¿½ ï¿½Ø½ï¿½Æ®(ï¿½ï¿½TextDrawï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½)
 
     [Header("Status")]
     int     currentQuestionIndex;
@@ -26,17 +26,17 @@ public class WJ_Sample : MonoBehaviour
     float   questionSolveTime;
 
     [Header("For Debug")]
-    [SerializeField] WJ_DisplayText     wj_displayText;         //ÅØ½ºÆ® Ç¥½Ã¿ë(ÇÊ¼öX)
-    [SerializeField] Button             getLearningButton;      //¹®Á¦ ¹Þ¾Æ¿À±â ¹öÆ°
+    [SerializeField] WJ_DisplayText     wj_displayText;         //ï¿½Ø½ï¿½Æ® Ç¥ï¿½Ã¿ï¿½(ï¿½Ê¼ï¿½X)
+    [SerializeField] Button             getLearningButton;      //ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¾Æ¿ï¿½ï¿½ï¿½ ï¿½ï¿½Æ°
 
     private void Awake()
     {
-        textAnsr = new Text[btAnsr.Length];
+        textAnsr = new TEXDraw[btAnsr.Length];
         for (int i = 0; i < btAnsr.Length; ++i)
 
-            textAnsr[i] = btAnsr[i].GetComponentInChildren<Text>();
+            textAnsr[i] = btAnsr[i].GetComponentInChildren<TEXDraw>();
 
-        wj_displayText.SetState("´ë±âÁß", "", "", "");
+        wj_displayText.SetState("ï¿½ï¿½ï¿½ï¿½ï¿½", "", "", "");
     }
 
     private void OnEnable()
@@ -67,7 +67,7 @@ public class WJ_Sample : MonoBehaviour
     }
 
     /// <summary>
-    /// Áø´ÜÆò°¡ ¹®Á¦ ¹Þ¾Æ¿À±â
+    /// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¾Æ¿ï¿½ï¿½ï¿½
     /// </summary>
     private void GetDiagnosis()
     {
@@ -78,11 +78,11 @@ public class WJ_Sample : MonoBehaviour
                             wj_conn.cDiagnotics.data.qstCn, 
                             wj_conn.cDiagnotics.data.qstCransr, 
                             wj_conn.cDiagnotics.data.qstWransr);
-                wj_displayText.SetState("Áø´ÜÆò°¡ Áß", "", "", "");
+                wj_displayText.SetState("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½", "", "", "");
                 break;
             case "E":
-                Debug.Log("Áø´ÜÆò°¡ ³¡! ÇÐ½À ´Ü°è·Î ³Ñ¾î°©´Ï´Ù.");
-                wj_displayText.SetState("Áø´ÜÆò°¡ ¿Ï·á", "", "", "");
+                Debug.Log("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½! ï¿½Ð½ï¿½ ï¿½Ü°ï¿½ï¿½ ï¿½Ñ¾î°©ï¿½Ï´ï¿½.");
+                wj_displayText.SetState("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½", "", "", "");
                 currentStatus = CurrentStatus.LEARNING;
                 getLearningButton.interactable = true;
                 break;
@@ -90,7 +90,7 @@ public class WJ_Sample : MonoBehaviour
     }
 
     /// <summary>
-    ///  n ¹øÂ° ÇÐ½À ¹®Á¦ ¹Þ¾Æ¿À±â
+    ///  n ï¿½ï¿½Â° ï¿½Ð½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¾Æ¿ï¿½ï¿½ï¿½
     /// </summary>
     private void GetLearning(int _index)
     {
@@ -103,7 +103,7 @@ public class WJ_Sample : MonoBehaviour
     }
 
     /// <summary>
-    /// ¹Þ¾Æ¿Â µ¥ÀÌÅÍ¸¦ °¡Áö°í ¹®Á¦¸¦ Ç¥½Ã
+    /// ï¿½Þ¾Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½
     /// </summary>
     private void MakeQuestion(string textCn, string qstCn, string qstCransr, string qstWransr)
     {
@@ -145,7 +145,7 @@ public class WJ_Sample : MonoBehaviour
     }
 
     /// <summary>
-    /// ´äÀ» °í¸£°í ¸Â¾Ò´Â Áö Ã¼Å©
+    /// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Â¾Ò´ï¿½ ï¿½ï¿½ Ã¼Å©
     /// </summary>
     public void SelectAnswer(int _idx)
     {
@@ -162,7 +162,7 @@ public class WJ_Sample : MonoBehaviour
 
                 wj_conn.Diagnosis_SelectAnswer(textAnsr[_idx].text, ansrCwYn, (int)(questionSolveTime * 1000));
 
-                wj_displayText.SetState("Áø´ÜÆò°¡ Áß", textAnsr[_idx].text, ansrCwYn, questionSolveTime + " ÃÊ");
+                wj_displayText.SetState("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½", textAnsr[_idx].text, ansrCwYn, questionSolveTime + " ï¿½ï¿½");
 
                 panel_question.SetActive(false);
                 questionSolveTime = 0;
@@ -177,12 +177,12 @@ public class WJ_Sample : MonoBehaviour
 
                 wj_conn.Learning_SelectAnswer(currentQuestionIndex, textAnsr[_idx].text, ansrCwYn, (int)(questionSolveTime * 1000));
 
-                wj_displayText.SetState("¹®Á¦Ç®ÀÌ Áß", textAnsr[_idx].text, ansrCwYn, questionSolveTime + " ÃÊ");
+                wj_displayText.SetState("ï¿½ï¿½ï¿½ï¿½Ç®ï¿½ï¿½ ï¿½ï¿½", textAnsr[_idx].text, ansrCwYn, questionSolveTime + " ï¿½ï¿½");
 
                 if (currentQuestionIndex >= 8) 
                 {
                     panel_question.SetActive(false);
-                    wj_displayText.SetState("¹®Á¦Ç®ÀÌ ¿Ï·á", "", "", "");
+                    wj_displayText.SetState("ï¿½ï¿½ï¿½ï¿½Ç®ï¿½ï¿½ ï¿½Ï·ï¿½", "", "", "");
                 }
                 else GetLearning(currentQuestionIndex);
 
@@ -207,7 +207,7 @@ public class WJ_Sample : MonoBehaviour
     public void ButtonEvent_GetLearning()
     {
         wj_conn.Learning_GetQuestion();
-        wj_displayText.SetState("¹®Á¦Ç®ÀÌ Áß", "-", "-", "-");
+        wj_displayText.SetState("ï¿½ï¿½ï¿½ï¿½Ç®ï¿½ï¿½ ï¿½ï¿½", "-", "-", "-");
     }
     #endregion
 }
