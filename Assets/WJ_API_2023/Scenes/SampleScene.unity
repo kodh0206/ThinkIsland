@@ -123,18 +123,88 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &433572740 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6267151148641848536, guid: 6e1c8663740837a4a812c18cd81db6c5,
+--- !u!1 &146355345 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6267151148570187974, guid: 6e1c8663740837a4a812c18cd81db6c5,
     type: 3}
   m_PrefabInstance: {fileID: 6267151148527732572}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+--- !u!114 &433572743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 146355345}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Script: {fileID: 11500000, guid: a11dd23e08e5cb942a6a6b4da8d43711, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Alignment: {x: 0.5, y: 0.5}
+  m_Text: $$TEXDraw$$
+  m_Size: 36
+  m_ScrollArea:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 0
+    height: 0
+  m_Padding:
+    left: 2
+    right: 2
+    top: 2
+    bottom: 2
+  m_Overflow: 0
+--- !u!1 &481122706 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6267151148196584835, guid: 6e1c8663740837a4a812c18cd81db6c5,
+    type: 3}
+  m_PrefabInstance: {fileID: 6267151148527732572}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &481122710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 481122706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a11dd23e08e5cb942a6a6b4da8d43711, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Alignment: {x: 0.5, y: 0.5}
+  m_Text: $$TEXDraw$$
+  m_Size: 36
+  m_ScrollArea:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 0
+    height: 0
+  m_Padding:
+    left: 2
+    right: 2
+    top: 2
+    bottom: 2
+  m_Overflow: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -342,18 +412,47 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 6267151148527732572}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1078298406 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6267151147457888378, guid: 6e1c8663740837a4a812c18cd81db6c5,
+--- !u!1 &1158094451 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6267151147454514695, guid: 6e1c8663740837a4a812c18cd81db6c5,
     type: 3}
   m_PrefabInstance: {fileID: 6267151148527732572}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+--- !u!114 &1158094455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1158094451}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Script: {fileID: 11500000, guid: a11dd23e08e5cb942a6a6b4da8d43711, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Alignment: {x: 0.5, y: 0.5}
+  m_Text: $$TEXDraw$$
+  m_Size: 36
+  m_ScrollArea:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 0
+    height: 0
+  m_Padding:
+    left: 2
+    right: 2
+    top: 2
+    bottom: 2
+  m_Overflow: 0
 --- !u!1 &1196351080 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6267151147541436724, guid: 6e1c8663740837a4a812c18cd81db6c5,
@@ -372,6 +471,47 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f222a755a1f27a409d74896f0d32186, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1342281075 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6267151147805563875, guid: 6e1c8663740837a4a812c18cd81db6c5,
+    type: 3}
+  m_PrefabInstance: {fileID: 6267151148527732572}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1342281079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1342281075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a11dd23e08e5cb942a6a6b4da8d43711, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Alignment: {x: 0.5, y: 0.5}
+  m_Text: $$TEXDraw$$
+  m_Size: 36
+  m_ScrollArea:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 0
+    height: 0
+  m_Padding:
+    left: 2
+    right: 2
+    top: 2
+    bottom: 2
+  m_Overflow: 0
 --- !u!114 &1368829485 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6267151147698219377, guid: 6e1c8663740837a4a812c18cd81db6c5,
@@ -384,6 +524,47 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1422885624 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6267151147457888376, guid: 6e1c8663740837a4a812c18cd81db6c5,
+    type: 3}
+  m_PrefabInstance: {fileID: 6267151148527732572}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1422885627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1422885624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a11dd23e08e5cb942a6a6b4da8d43711, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Alignment: {x: 0.5, y: 0.5}
+  m_Text: $$TEXDraw$$
+  m_Size: 36
+  m_ScrollArea:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 0
+    height: 0
+  m_Padding:
+    left: 2
+    right: 2
+    top: 2
+    bottom: 2
+  m_Overflow: 0
 --- !u!114 &1443323691 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7725118856631171443, guid: 39a68949e68ca944795904d0459cd2b9,
@@ -414,6 +595,47 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 6267151148527732572}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1973487958 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6267151148248148743, guid: 6e1c8663740837a4a812c18cd81db6c5,
+    type: 3}
+  m_PrefabInstance: {fileID: 6267151148527732572}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1973487962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1973487958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a11dd23e08e5cb942a6a6b4da8d43711, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Alignment: {x: 0.5, y: 0.5}
+  m_Text: $$TEXDraw$$
+  m_Size: 36
+  m_ScrollArea:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 0
+    height: 0
+  m_Padding:
+    left: 2
+    right: 2
+    top: 2
+    bottom: 2
+  m_Overflow: 0
 --- !u!1 &2071617867
 GameObject:
   m_ObjectHideFlags: 0
@@ -697,7 +919,13 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1443323691}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6267151148641848536, guid: 6e1c8663740837a4a812c18cd81db6c5, type: 3}
+    - {fileID: 6267151147457888378, guid: 6e1c8663740837a4a812c18cd81db6c5, type: 3}
+    - {fileID: 6267151147805563802, guid: 6e1c8663740837a4a812c18cd81db6c5, type: 3}
+    - {fileID: 6267151147454514750, guid: 6e1c8663740837a4a812c18cd81db6c5, type: 3}
+    - {fileID: 6267151148196584890, guid: 6e1c8663740837a4a812c18cd81db6c5, type: 3}
+    - {fileID: 6267151148248148798, guid: 6e1c8663740837a4a812c18cd81db6c5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6e1c8663740837a4a812c18cd81db6c5, type: 3}
 --- !u!1001 &7725118857537087064
 PrefabInstance:
@@ -710,7 +938,7 @@ PrefabInstance:
         type: 3}
       propertyPath: textEquation
       value: 
-      objectReference: {fileID: 1078298406}
+      objectReference: {fileID: 1422885627}
     - target: {fileID: 7725118856631171443, guid: 39a68949e68ca944795904d0459cd2b9,
         type: 3}
       propertyPath: panel_question
@@ -725,7 +953,7 @@ PrefabInstance:
         type: 3}
       propertyPath: textDescription
       value: 
-      objectReference: {fileID: 433572740}
+      objectReference: {fileID: 433572743}
     - target: {fileID: 7725118856631171443, guid: 39a68949e68ca944795904d0459cd2b9,
         type: 3}
       propertyPath: getLearningButton
