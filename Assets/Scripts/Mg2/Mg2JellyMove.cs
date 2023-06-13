@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Mg2BallMove : MonoBehaviour
+public class Mg2JellyMove : MonoBehaviour
 {
     private Mg2ObjectManager objectManager; // Mg2ObjectManager 스크립트 참조
 
@@ -14,7 +14,7 @@ public class Mg2BallMove : MonoBehaviour
     private float elapsedTime = 0f;
     private bool isMoving = false;
 
-    public int colliderCheck = 0; // 충돌 체크 변수 (난이도 조절)
+    public int score = 0; // 점수 변수
 
     private void Start()
     {
@@ -44,8 +44,8 @@ public class Mg2BallMove : MonoBehaviour
                     if (collider.gameObject.CompareTag("Player"))
                     {
                         // 'Player' 오브젝트와 충돌한 경우
-                        colliderCheck += 1; // colliderCheck 변수에 1 추가 (난이도 조절)
-                        Debug.Log("아야..." + colliderCheck);
+                        score += 1; // score 변수에 1 추가
+                        Debug.Log("Player와 충돌! 현재 스코어: " + score);
                     }
                 }
             }
@@ -92,6 +92,6 @@ public class Mg2BallMove : MonoBehaviour
         elapsedTime = 0f;
         isMoving = true;
         RandomizeEndPoint(); // endPoint를 랜덤하게 변경
-        objectManager.ballArrival += 1; //Mg2ObjectManager의 ballArrival 변수 증가
+        objectManager.jellyArrival += 1; //Mg2ObjectManager의 jellyArrival 변수 증가
     }
 }
