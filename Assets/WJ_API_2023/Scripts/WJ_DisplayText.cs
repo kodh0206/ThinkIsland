@@ -19,12 +19,12 @@ public class WJ_DisplayText : MonoBehaviour
     }
 
     /// <summary>
-    /// ÇöÀç ¹®Á¦Ç®ÀÌ »óÅÂ¸¦ UI¿¡ Ç¥½Ã
+    /// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç®ï¿½ï¿½ ï¿½ï¿½ï¿½Â¸ï¿½ UIï¿½ï¿½ Ç¥ï¿½ï¿½
     /// </summary>
-    /// <param name="state">ÇöÀç »óÅÂ</param>
-    /// <param name="myAnswer">³»°¡ ¸¶Áö¸·À¸·Î °í¸¥ Á¤´ä</param>
-    /// <param name="isCorrect">¸¶Áö¸·À¸·Î °í¸¥ °ÍÀÌ Á¤´äÀÎÁö</param>
-    /// <param name="svTime">Ç®ÀÌ½Ã°£</param>
+    /// <param name="state">ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½</param>
+    /// <param name="myAnswer">ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½</param>
+    /// <param name="isCorrect">ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</param>
+    /// <param name="svTime">Ç®ï¿½Ì½Ã°ï¿½</param>
     public void SetState(string state, string myAnswer, string isCorrect, string svTime)
     {
         this.state      = state       != ""   ? state     : this.state ;
@@ -33,9 +33,9 @@ public class WJ_DisplayText : MonoBehaviour
         this.svTime     = svTime      != ""   ? svTime    : this.svTime ;
 
         textCurrentState.text =
-            $"ÇöÀç »óÅÂ : {this.state}\n" +
-            $"ÃÖ±Ù ¼±ÅÃÇÑ ´ä : {this.myAnswer}\n" +
-            $"ÃÖ±Ù Á¤´ä ¿©ºÎ : {this.isCorrect}\n" +
-            $"ÃÖ±Ù Ç®ÀÌ ½Ã°£ : {this.svTime}\n";
+            $"ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : {this.state}\n" +
+            $"ï¿½Ö±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ : {this.myAnswer}\n" +
+            $"ï¿½Ö±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : {this.isCorrect}\n" +
+            $"ï¿½Ö±ï¿½ Ç®ï¿½ï¿½ ï¿½Ã°ï¿½ : {this.svTime}\n";
     }
 }
