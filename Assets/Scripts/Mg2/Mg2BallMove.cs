@@ -7,7 +7,7 @@ public class Mg2BallMove : MonoBehaviour
     private Mg2ObjectManager objectManager; // Mg2ObjectManager 스크립트 참조
 
     private float height = 2f; // 포물선의 높이
-    private float duration = 1f; // 포물선 이동에 걸리는 시간
+    private float duration = 0.8f; // 포물선 이동에 걸리는 시간
 
     private Vector2 startPoint;
     private Vector2 endPoint;
@@ -22,7 +22,6 @@ public class Mg2BallMove : MonoBehaviour
 
         startPoint = new Vector2(0f, -4f);
         RandomizeEndPoint(); // endPoint를 랜덤하게 설정
-        InvokeRepeating("StartMovement", 0f, 1.5f); // 1.5초마다 StartMovement() 실행
     }
 
     private void Update()
@@ -41,11 +40,11 @@ public class Mg2BallMove : MonoBehaviour
                 Collider2D[] colliders = Physics2D.OverlapCircleAll(endPoint, 0.5f);
                 foreach (Collider2D collider in colliders)
                 {
-                    if (collider.gameObject.CompareTag("Player"))
+                    if (!collider.gameObject.CompareTag("Player"))
                     {
                         // 'Player' 오브젝트와 충돌한 경우
                         colliderCheck += 1; // colliderCheck 변수에 1 추가 (난이도 조절)
-                        Debug.Log("아야..." + colliderCheck);
+                        Debug.Log("못 막았다...!" + colliderCheck);
                     }
                 }
             }
@@ -92,6 +91,5 @@ public class Mg2BallMove : MonoBehaviour
         elapsedTime = 0f;
         isMoving = true;
         RandomizeEndPoint(); // endPoint를 랜덤하게 변경
-        objectManager.ballArrival += 1; //Mg2ObjectManager의 ballArrival 변수 증가
     }
 }
