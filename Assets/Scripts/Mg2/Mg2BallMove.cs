@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Mg2BallMove : MonoBehaviour
 {
-    private Mg2ObjectManager objectManager; // Mg2ObjectManager 스크립트 참조
-
     private float height = 2f; // 포물선의 높이
     private float duration = 0.8f; // 포물선 이동에 걸리는 시간
 
@@ -14,12 +12,11 @@ public class Mg2BallMove : MonoBehaviour
     private float elapsedTime = 0f;
     private bool isMoving = false;
 
+    private bool isCollisionDetected = false; // 충돌 여부 체크
     public int colliderCheck = 0; // 충돌 체크 변수 (난이도 조절)
 
     private void Start()
     {
-        objectManager = FindObjectOfType<Mg2ObjectManager>(); // Mg2ObjectManager 스크립트를 찾아 할당
-
         startPoint = new Vector2(0f, -4f);
         RandomizeEndPoint(); // endPoint를 랜덤하게 설정
     }
@@ -40,12 +37,18 @@ public class Mg2BallMove : MonoBehaviour
                 Collider2D[] colliders = Physics2D.OverlapCircleAll(endPoint, 0.5f);
                 foreach (Collider2D collider in colliders)
                 {
-                    if (!collider.gameObject.CompareTag("Player"))
+                    if (collider.gameObject.CompareTag("Player"))
                     {
                         // 'Player' 오브젝트와 충돌한 경우
-                        colliderCheck += 1; // colliderCheck 변수에 1 추가 (난이도 조절)
-                        Debug.Log("못 막았다...!" + colliderCheck);
+                        isCollisionDetected = true;
+                        break;
                     }
+                }
+
+                if (!isCollisionDetected)
+                {
+                    // 충돌하지 않았을 경우
+                    Debug.Log("방어 실패");
                 }
             }
             else
@@ -90,6 +93,7 @@ public class Mg2BallMove : MonoBehaviour
     {
         elapsedTime = 0f;
         isMoving = true;
+        isCollisionDetected = false; // 충돌 여부 초기화
         RandomizeEndPoint(); // endPoint를 랜덤하게 변경
     }
 }

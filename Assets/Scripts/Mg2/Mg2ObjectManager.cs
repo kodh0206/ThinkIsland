@@ -47,7 +47,6 @@ public class Mg2ObjectManager : MonoBehaviour
 
                 ballArrival = 0; // ball 도착 횟수 초기화
             }
-
             else if (jelly.activeSelf && jellyArrival < 1)
             {
                 jellyMove.StartMovement();
@@ -59,6 +58,16 @@ public class Mg2ObjectManager : MonoBehaviour
                 ball.SetActive(true);
                 jelly.SetActive(false);
 
+                jellyArrival = 0; // jelly 도착 횟수 초기화
+            }
+            // jelly와 Player가 충돌한 직후 ball과 jelly가 모두 비활성화된 상태일 경우
+            else if (!ball.activeSelf && !jelly.activeSelf)
+            {
+                timer = 0;
+                ball.SetActive(true);
+                ballMove.StartMovement();
+
+                ballArrival += 1; // StartMovement() 실행 후 ball 도착 횟수 +1
                 jellyArrival = 0; // jelly 도착 횟수 초기화
             }
         }
