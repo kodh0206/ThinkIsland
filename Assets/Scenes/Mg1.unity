@@ -1603,6 +1603,7 @@ GameObject:
   - component: {fileID: 1784171472}
   - component: {fileID: 1784171471}
   - component: {fileID: 1784171470}
+  - component: {fileID: 1784171473}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1676,6 +1677,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!225 &1784171473
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1784171469}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1850516849
 GameObject:
   m_ObjectHideFlags: 0

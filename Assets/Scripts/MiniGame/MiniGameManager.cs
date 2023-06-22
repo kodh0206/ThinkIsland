@@ -15,6 +15,8 @@ public class MiniGameManager : MonoBehaviour
     private float gameChangeInterval = 10f; // 미니게임 변경 간격
     private float timer = 0f;
 
+    private bool isMiniGameScene = false; // 현재 씬이 미니게임 씬인지 여부를 확인하기 위한 플래그
+
     private void Awake()
     {
         if (_instance != null && _instance != this)
@@ -37,7 +39,7 @@ public class MiniGameManager : MonoBehaviour
     private void Update()
     {
         // 미니게임 변경 시간 간격 체크
-        if (currentMiniGameScene != null && !string.IsNullOrEmpty(currentMiniGameScene))
+        if (isMiniGameScene)
         {
             timer += Time.deltaTime;
             if (timer >= gameChangeInterval)
@@ -55,6 +57,11 @@ public class MiniGameManager : MonoBehaviour
             // Beta Scene이 로드되었을 때 remainingMiniGameScenes 초기화
             remainingMiniGameScenes.Clear();
             remainingMiniGameScenes.AddRange(miniGameScenes);
+            isMiniGameScene = false; // 미니게임 씬이 아님을 표시
+        }
+        else
+        {
+            isMiniGameScene = true; // 미니게임 씬임을 표시
         }
     }
 
