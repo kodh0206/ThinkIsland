@@ -49,8 +49,36 @@ public class Player : MonoBehaviour
         animator.SetBool("isRunning", false);
     }
 }
-    public void GetPoop() 
+    public void GetPoop()
     {
-        GetComponent<SpriteRenderer>().color = new Color(0.77f,0.52f,0f);
+        StartCoroutine(DisableControlAndResetColor());
+    }
+
+    private IEnumerator DisableControlAndResetColor()
+    {
+        // 조작 비활성화
+        enabled = false;
+
+        // 색상 변경
+        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.color = new Color(0.77f, 0.52f, 0f);
+        }
+
+        // 2초간 대기
+        yield return new WaitForSeconds(2f);
+
+        // 조작 활성화
+        enabled = true;
+
+        // 1초간 poop 영향 받지 않음
+        yield return new WaitForSeconds(1f);
+
+        // 색상 원래대로 복구
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.color = Color.white;
+        }
     }
 }
