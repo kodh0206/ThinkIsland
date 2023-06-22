@@ -1,35 +1,35 @@
 namespace WjChallenge
 {
-    #region Áø´ÜÆò°¡ Å¬·¡½º (Diagnostic Class)
+    #region ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ (Diagnostic Class)
     using System.Collections.Generic;
     /// <summary>
-    /// °ÔÀÓ Áø´Ü ¹®Ç×¿äÃ»¿¡ º¸³»´Â °ª(Áø´ÜÆò°¡ Ã¹ ½ÇÇà ½Ã)
+    /// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½×¿ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¹ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½)
     /// </summary>
     public class Request_DN_Setting
     {
-        public string gameCd;       //°ÔÀÓÄÚµå
-        public string mbrId;        //È¸¿øID
-        public string deviceNm;     //µğ¹ÙÀÌ½º ÀÌ¸§
-        public string gameVer;      //°ÔÀÓ ¹öÀü
-        public string osScnCd;      //OS ±¸ºĞ
-        public string langCd;       //ÇĞ½À ¾ğ¾îÄÚµå
-        public int timeZone;        //ÇÑ±¹ +9
-        public string bgnLvl;       //½ÃÀÛ ¼öÁØ(A,B,C,D)
+        public string gameCd;      //ê²Œì„ë²ˆí˜¸
+        public string mbrId;        //ë§´ë²„ì•„ì´ë””
+        public string deviceNm;     //ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½Ì¸ï¿½
+        public string gameVer;      //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+        public string osScnCd;      //OS ï¿½ï¿½ï¿½ï¿½
+        public string langCd;       //ï¿½Ğ½ï¿½ ï¿½ï¿½ï¿½ï¿½Úµï¿½
+        public int timeZone;        //ï¿½Ñ±ï¿½ +9
+        public string bgnLvl;       //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(A,B,C,D)
     }
 
     /// <summary>
-    /// °ÔÀÓ Áø´Ü ¹®Á¦Ç®ÀÌ½Ã º¸³»´Â °ª(Áø´ÜÆò°¡ ¼öÇà Áß)
+    /// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç®ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½)
     /// </summary>
     public class Request_DN_Progress
     {
-        public string gameCd;       //°ÔÀÓÄÚµå
-        public string mbrId;        //È¸¿øID
-        public string prgsCd;       //ÁøÇàÄÚµå(W : Áø´ÜÁøÇà, E : Áø´Ü¿Ï·á, X : ±âÅ¸Ãë¼Ò)
-        public long sid;            //Áø´ÜID
-        public string qstCd;        //Ç¬ ¹®Á¦ÀÇ ¹®Ç× ÄÚµå
-        public string qstCransr;    //ÀÔ·ÂÇÑ ´ä ³»¿ë
-        public string ansrCwYn;     //Á¤¿À´ä ¿©ºÎ-Y/N
-        public long slvTime;        //¹®Á¦ Ç®ÀÌ ½Ã°£(ms)
+        public string gameCd;       //ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½
+        public string mbrId;        //È¸ï¿½ï¿½ID
+        public string prgsCd;       //ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½(W : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, E : ï¿½ï¿½ï¿½Ü¿Ï·ï¿½, X : ï¿½ï¿½Å¸ï¿½ï¿½ï¿½)
+        public long sid;            //ï¿½ï¿½ï¿½ï¿½ID
+        public string qstCd;        //Ç¬ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Úµï¿½
+        public string qstCransr;    //ï¿½Ô·ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+        public string ansrCwYn;     //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½-Y/N
+        public long slvTime;        //ï¿½ï¿½ï¿½ï¿½ Ç®ï¿½ï¿½ ï¿½Ã°ï¿½(ms)
 
         public Request_DN_Progress()
         {
@@ -38,7 +38,7 @@ namespace WjChallenge
     }
 
     /// <summary>
-    /// Áø´ÜÆò°¡ ½Ã ¹Ş¾Æ¿À´Â °ª(Áø´ÜÆò°¡ Ã¹½ÇÇà, ¼öÇàÁß µ¿ÀÏ)
+    /// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ş¾Æ¿ï¿½ï¿½ï¿½ ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¹ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
     /// </summary>
     [System.Serializable]
     public class DN_Response
@@ -54,28 +54,28 @@ namespace WjChallenge
     }
 
     /// <summary>
-    /// Áø´ÜÆò°¡ ÀÀ´ä ½Ã ¹Ş¾Æ¿À´Â ¹®Á¦ µ¥ÀÌÅÍ
+    /// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ş¾Æ¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     /// </summary>
     [System.Serializable]
     public class Diagnotics_Data
     {
         public long sid;
-        public string prgsCd;       //ÁøÇà ÄÚµå(W : Áø´ÜÁøÇà, E : Áø´Ü¿Ï·á)
-        public string qstCd;        //¹®Ç×ÄÚµå
-        public string qstCn;        //¹®Ç×³»¿ë
-        public string textCn;       //Áö¹®³»¿ë
-        public string qstCransr;    //¹®Ç×Á¤´ä
-        public string qstWransr;    //¹®Ç×¿À´ä
-        public int accuracy;        //Áø´Ü Á¤È®µµ ¼öÁØ
-        public int estQstNowNo;     //ÇöÀç±îÁö ¹®Ç× ¼ö(ÇöÀç ¹®Ç× Æ÷ÇÔ)
-        public string estPreStgCd;  //ÀûÁ¤ ½ÃÀÛ ÁöÁ¡ÀÇ ½ºÅ×ÀÌÁö ÄÚµå
+        public string prgsCd;       //ï¿½ï¿½ï¿½ï¿½ ï¿½Úµï¿½(W : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, E : ï¿½ï¿½ï¿½Ü¿Ï·ï¿½)
+        public string qstCd;        //ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½
+        public string qstCn;        //ï¿½ï¿½ï¿½×³ï¿½ï¿½ï¿½
+        public string textCn;       //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        public string qstCransr;    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        public string qstWransr;    //ï¿½ï¿½ï¿½×¿ï¿½ï¿½ï¿½
+        public int accuracy;        //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+        public int estQstNowNo;     //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
+        public string estPreStgCd;  //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Úµï¿½
     }
 
     #endregion
 
-    #region ÇĞ½À Å¬·¡½º (Learning Class)
+    #region ï¿½Ğ½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ (Learning Class)
     /// <summary>
-    /// ¹®Á¦Ç®ÀÌ(ÇĞ½À) ½Ã ¹®Ç×¿äÃ»¿¡ º¸³»´Â °ª
+    /// ï¿½ï¿½ï¿½ï¿½Ç®ï¿½ï¿½(ï¿½Ğ½ï¿½) ï¿½ï¿½ ï¿½ï¿½ï¿½×¿ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
     /// </summary>
     [System.Serializable]
     public class Request_Learning_Setting
@@ -91,7 +91,7 @@ namespace WjChallenge
     }
 
     /// <summary>
-    /// ¹®Á¦Ç®ÀÌ(ÇĞ½À) ¿äÃ» ½Ã ¹Ş¾Æ¿À´Â °ª
+    /// ï¿½ï¿½ï¿½ï¿½Ç®ï¿½ï¿½(ï¿½Ğ½ï¿½) ï¿½ï¿½Ã» ï¿½ï¿½ ï¿½Ş¾Æ¿ï¿½ï¿½ï¿½ ï¿½ï¿½
     /// </summary>
     [System.Serializable]
     public class Response_Learning_Setting
@@ -110,7 +110,7 @@ namespace WjChallenge
     }
 
     /// <summary>
-    /// ¹®Á¦Ç®ÀÌ(ÇĞ½À) ¿Ï·á ½Ã º¸³»´Â °ª
+    /// ï¿½ï¿½ï¿½ï¿½Ç®ï¿½ï¿½(ï¿½Ğ½ï¿½) ï¿½Ï·ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
     /// </summary>
     public class Request_Learning_Progress
     {
@@ -136,7 +136,7 @@ namespace WjChallenge
     }
 
     /// <summary>
-    /// ¹®Á¦Ç®ÀÌ °á°ú
+    /// ï¿½ï¿½ï¿½ï¿½Ç®ï¿½ï¿½ ï¿½ï¿½ï¿½
     /// </summary>
     [System.Serializable]
     public class Response_Learning_ProgressData
@@ -149,7 +149,7 @@ namespace WjChallenge
     }
 
     /// <summary>
-    /// ¹®Á¦Ç®ÀÌ ¿äÃ» ½Ã ¹Ş¾Æ¿À´Â °³º° ¹®Á¦
+    /// ï¿½ï¿½ï¿½ï¿½Ç®ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½ï¿½ ï¿½Ş¾Æ¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     /// </summary>
     [System.Serializable]
     public class Learning_Question
@@ -162,7 +162,7 @@ namespace WjChallenge
     }
 
     /// <summary>
-    /// ¹®Á¦Ç®ÀÌ ¿Ï·á ½Ã º¸³»´Â °³º° ´ä¾È
+    /// ï¿½ï¿½ï¿½ï¿½Ç®ï¿½ï¿½ ï¿½Ï·ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
     /// </summary>
     [System.Serializable]
     public class Learning_MyAnsr

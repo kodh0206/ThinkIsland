@@ -2,7 +2,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameSaveManager : MonoBehaviour
-{
+{   public string mbrId;
+    public string prgsCd;
     public int jellyCount;
     public int goldCount;
     public int actionPoints;

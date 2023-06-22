@@ -51,6 +51,9 @@ public class WJ_Sample : MonoBehaviour
             case CurrentStatus.WAITING:
                 panel_diag_chooseDiff.SetActive(true);
                 break;
+            case CurrentStatus.LEARNING:
+                panel_question.SetActive(true);
+                break;
         }
 
         if (wj_conn != null)
@@ -71,22 +74,21 @@ public class WJ_Sample : MonoBehaviour
     /// </summary>
     private void GetDiagnosis()
     {
-        switch (wj_conn.cDiagnotics.data.prgsCd)
-        {
-            case "W":
-                MakeQuestion(wj_conn.cDiagnotics.data.textCn, 
-                            wj_conn.cDiagnotics.data.qstCn, 
-                            wj_conn.cDiagnotics.data.qstCransr, 
-                            wj_conn.cDiagnotics.data.qstWransr);
-                wj_displayText.SetState("������ ��", "", "", "");
-                break;
-            case "E":
-                Debug.Log("������ ��! �н� �ܰ�� �Ѿ�ϴ�.");
-                wj_displayText.SetState("������ �Ϸ�", "", "", "");
-                currentStatus = CurrentStatus.LEARNING;
-                getLearningButton.interactable = true;
-                break;
-        }
+    switch (wj_conn.cDiagnotics.data.prgsCd)
+    {
+        case "W":
+            MakeQuestion(wj_conn.cDiagnotics.data.textCn,
+                        wj_conn.cDiagnotics.data.qstCn,
+                        wj_conn.cDiagnotics.data.qstCransr,
+                        wj_conn.cDiagnotics.data.qstWransr);
+            wj_displayText.SetState("진단평가 완료", "", "", "");
+            break;
+        case "E":
+            Debug.Log("진단평가 완료! 학습 과정으로 이동합니다.");
+            wj_displayText.SetState("진단평가 완료", "", "", "");
+            currentStatus = CurrentStatus.LEARNING;
+            break;
+    }
     }
 
     /// <summary>

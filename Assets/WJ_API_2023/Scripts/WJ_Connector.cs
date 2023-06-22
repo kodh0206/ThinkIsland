@@ -52,7 +52,7 @@ public class WJ_Connector : MonoBehaviour
         strGameVer      = Application.version;
 
         if (strOsScnCd.Length >= 15) strOsScnCd = strOsScnCd.Substring(0, 14);
-
+        
         Make_MBR_ID();
     }
 
