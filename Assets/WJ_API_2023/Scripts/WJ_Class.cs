@@ -59,7 +59,7 @@ namespace WjChallenge
     [System.Serializable]
     public class Diagnotics_Data
     {
-        public long sid; //진단 ID
+        public long sid;            //진단 ID
         public string prgsCd;       //진행코드 W:진단진행 E:진단완료
         public string qstCd;        //문항코드
         public string qstCn;        //문항내용

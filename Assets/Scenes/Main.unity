@@ -198,6 +198,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8568531993772909538, guid: cb1effd25b4147b488109dc79ce41383,
+        type: 3}
+      propertyPath: miniGameScenes.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8568531993772909538, guid: cb1effd25b4147b488109dc79ce41383,
+        type: 3}
+      propertyPath: miniGameScenes.Array.data[2]
+      value: Mg3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8568531993772909538, guid: cb1effd25b4147b488109dc79ce41383,
+        type: 3}
+      propertyPath: miniGameScenes.Array.data[3]
+      value: Mg4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8568531993772909538, guid: cb1effd25b4147b488109dc79ce41383,
+        type: 3}
+      propertyPath: miniGameScenes.Array.data[4]
+      value: Mg5
+      objectReference: {fileID: 0}
     - target: {fileID: 8568531993772909539, guid: cb1effd25b4147b488109dc79ce41383,
         type: 3}
       propertyPath: m_RootOrder
