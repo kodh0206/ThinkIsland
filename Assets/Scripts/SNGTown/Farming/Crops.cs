@@ -1,32 +1,38 @@
-using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-
-
-public class Crops:MonoBehaviour{
-
+public class Crop : MonoBehaviour
+{
     private CropData curCrop;
-    private float plantDay;
+    private float timePlanted;
     public SpriteRenderer sr;
     public static event UnityAction<CropData> onPlantCrop;
     public static event UnityAction<CropData> onHarvestCrop;
+
     public void Plant (CropData crop)
     {
         curCrop = crop;
-        //plantDay = GameManager.instance.curDay;//생성된 시간
-        //daysSinceLastWatered = 1;
+        timePlanted = Time.time;
         UpdateCropSprite();
         onPlantCrop?.Invoke(crop);
     }
-    float CropProgress ()
-    {   return 0f;
-        //return GameManager.instance.curDay - plantDay;
-    }
-    // Can we currently harvest the crop?
-    public bool CanHarvest ()
-    {   return false;
-        //return CropProgress() >= curCrop.daysToGrow;
+
+    void UpdateCropSprite ()
+    {
+        float cropProg = CropProgress();
+        int spriteIndex = Mathf.FloorToInt((cropProg / curCrop.TimesToGrow) * curCrop.growProgressSprites.Length);
+        spriteIndex = Mathf.Min(spriteIndex, curCrop.growProgressSprites.Length - 1);
+        
+        if(cropProg < curCrop.TimesToGrow)
+        {
+            sr.sprite = curCrop.growProgressSprites[spriteIndex];
+        }
+        else
+        {
+            sr.sprite = curCrop.readyToHarvestSprite;
+        }
     }
 
     public void Harvest ()
@@ -38,31 +44,16 @@ public class Crops:MonoBehaviour{
         }
     }
 
-
-    void UpdateCropSprite ()
+    float CropProgress ()
     {
-        /*
-        void UpdateCropSprite ()
-        {
-            int cropProg = CropProgress();
-            if(cropProg < curCrop.daysToGrow)
-            {
-                sr.sprite = curCrop.growProgressSprites[cropProg];
-            }
-            else
-            {
-                sr.sprite = curCrop.readyToHarvestSprite;
-            }
-    }
-        
-        
-        
-        
-        */
+        return Time.time - timePlanted;
     }
 
+    public bool CanHarvest ()
+    {
+        return CropProgress() >= curCrop.TimesToGrow;
+    }
 }
-
 
 
 
