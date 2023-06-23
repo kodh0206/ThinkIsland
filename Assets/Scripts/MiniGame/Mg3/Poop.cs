@@ -30,12 +30,12 @@ public class Poop : MonoBehaviour
             
         } else if (other.gameObject.tag == "Player" && this.gameObject.tag =="poop")
         {
-            GameManager.instance.SetGameOver();
+            MiniGame3Manager.instance.SetGameOver();
             other.gameObject.GetComponent<Player>().GetPoop();
         }
         else if (other.gameObject.tag == "Player" && this.gameObject.tag == "poop2") //poop2 is jelly
         {
-            GameManager.instance.AddScore();
+            MiniGame3Manager.instance.AddScore();
         }
 
         else if (other.gameObject.tag == "poop" || other.gameObject.tag == "poop2")

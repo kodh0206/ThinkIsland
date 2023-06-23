@@ -4,11 +4,13 @@ using UnityEngine;
 using UnityEngine.UI;
 using WjChallenge;
 using TexDrawLib;
+
+
 public enum CurrentStatus { WAITING, DIAGNOSIS, LEARNING }
 public class WJ_Sample : MonoBehaviour
 {
     [SerializeField] WJ_Connector       wj_conn;
-    [SerializeField] CurrentStatus      currentStatus;
+    [SerializeField] CurrentStatus      currentStatus;//진단평가 통과 여부
     public CurrentStatus                CurrentStatus => currentStatus;
 
     [Header("Panels")]
@@ -37,29 +39,34 @@ public class WJ_Sample : MonoBehaviour
             textAnsr[i] = btAnsr[i].GetComponentInChildren<TEXDraw>();
 
         wj_displayText.SetState("�����", "", "", "");
+    
+      
     }
 
     private void OnEnable()
-    {
+    {   Debug.Log("현재상태"+currentStatus);
         Setup();
     }
 
     private void Setup()
-    {
+    {    
         switch (currentStatus)
         {
             case CurrentStatus.WAITING:
                 panel_diag_chooseDiff.SetActive(true);
                 break;
             case CurrentStatus.LEARNING:
-                panel_question.SetActive(true);
+                Debug.Log("진단 평가 완료");
                 break;
+
         }
 
         if (wj_conn != null)
         {
             wj_conn.onGetDiagnosis.AddListener(() => GetDiagnosis());
             wj_conn.onGetLearning.AddListener(() => GetLearning(0));
+
+            
         }
         else Debug.LogError("Cannot find Connector");
     }
@@ -67,6 +74,10 @@ public class WJ_Sample : MonoBehaviour
     private void Update()
     {
         if (isSolvingQuestion) questionSolveTime += Time.deltaTime;
+        Debug.Log("현재 회원 :"+ wj_conn.strMBR_ID);
+        
+        Debug.Log("토큰 여부"+wj_conn.strAuthorization);
+       
     }
 
     /// <summary>
@@ -74,21 +85,26 @@ public class WJ_Sample : MonoBehaviour
     /// </summary>
     private void GetDiagnosis()
     {
-    switch (wj_conn.cDiagnotics.data.prgsCd)
-    {
-        case "W":
-            MakeQuestion(wj_conn.cDiagnotics.data.textCn,
-                        wj_conn.cDiagnotics.data.qstCn,
-                        wj_conn.cDiagnotics.data.qstCransr,
-                        wj_conn.cDiagnotics.data.qstWransr);
-            wj_displayText.SetState("진단평가 완료", "", "", "");
-            break;
-        case "E":
-            Debug.Log("진단평가 완료! 학습 과정으로 이동합니다.");
-            wj_displayText.SetState("진단평가 완료", "", "", "");
-            currentStatus = CurrentStatus.LEARNING;
-            break;
-    }
+        switch (wj_conn.cDiagnotics.data.prgsCd)
+        {
+            case "W"://학습 미완료
+                MakeQuestion(wj_conn.cDiagnotics.data.textCn, 
+                            wj_conn.cDiagnotics.data.qstCn, 
+                            wj_conn.cDiagnotics.data.qstCransr, 
+                            wj_conn.cDiagnotics.data.qstWransr);
+                wj_displayText.SetState("������ ��", "", "", "");
+                break;
+            case "E":
+                Debug.Log("������ ��! �н� �ܰ�� �Ѿ�ϴ�.");
+                wj_displayText.SetState("������ �Ϸ�", "", "", "");
+                currentStatus = CurrentStatus.LEARNING;
+                Debug.Log("진단 통과여부"+wj_conn.cDiagnotics.data.prgsCd);
+                Debug.Log("진단후 token?"+wj_conn.strAuthorization);
+                PlayerPrefs.SetString("strAuthorization", wj_conn.strAuthorization);
+                PlayerPrefs.Save();
+                getLearningButton.interactable = true;
+                break;
+        }
     }
 
     /// <summary>
@@ -98,7 +114,8 @@ public class WJ_Sample : MonoBehaviour
     {
         if (_index == 0) currentQuestionIndex = 0;
 
-        MakeQuestion(wj_conn.cLearnSet.data.qsts[_index].textCn,
+        MakeQuestion(
+                    wj_conn.cLearnSet.data.qsts[_index].textCn,
                     wj_conn.cLearnSet.data.qsts[_index].qstCn,
                     wj_conn.cLearnSet.data.qsts[_index].qstCransr,
                     wj_conn.cLearnSet.data.qsts[_index].qstWransr);

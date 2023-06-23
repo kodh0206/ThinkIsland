@@ -5,20 +5,19 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Networking;
 using WjChallenge;
-
 public class WJ_Connector : MonoBehaviour
 {
     [Header("My Info")]
     public string strGameCD;        //�����ڵ�
     public string strGameKey;       //����Ű(Api Key)
 
-    private string strAuthorization;
+    public string strAuthorization;
 
     public string strMBR_ID;       //��� ID
     public string strDeviceNm;     //����̽� �̸�
     public string strOsScnCd;      //OS
     public string strGameVer;      //���� ����
-
+    public bool isPassed; //진단평가 통과여부
     #region StoredData
     [HideInInspector]
     public DN_Response                  cDiagnotics     = null; //���� - ���� Ǯ���ִ� ������ ����
@@ -43,17 +42,51 @@ public class WJ_Connector : MonoBehaviour
 
     private void Awake()
     {
-        if (SystemInfo.deviceType == DeviceType.Desktop) 
-            strDeviceNm = "PC";
-        else 
-            strDeviceNm = SystemInfo.deviceModel;
+        if (SystemInfo.deviceType == DeviceType.Desktop)
+        strDeviceNm = "PC";
+    else
+        strDeviceNm = SystemInfo.deviceModel;
 
-        strOsScnCd      = SystemInfo.operatingSystem;
-        strGameVer      = Application.version;
+    strOsScnCd = SystemInfo.operatingSystem;
+    strGameVer = Application.version;
 
-        if (strOsScnCd.Length >= 15) strOsScnCd = strOsScnCd.Substring(0, 14);
-        
+    if (strOsScnCd.Length >= 15) strOsScnCd = strOsScnCd.Substring(0, 14);
+
+    // 저장된 값 읽어오기
+    string savedMBR_ID = PlayerPrefs.GetString("MBR_ID", string.Empty);
+    if (!string.IsNullOrEmpty(savedMBR_ID))
+    {
+        // 저장된 값이 있는 경우 처리
+        strMBR_ID = savedMBR_ID;
+    }
+    else
+    {
+        // 저장된 값이 없는 경우 새로운 값 생성
         Make_MBR_ID();
+
+        // 생성된 값 저장하기
+        PlayerPrefs.SetString("MBR_ID", strMBR_ID);
+        PlayerPrefs.Save();
+    }
+
+    //토킁 있는지 확인
+    string savedToken = PlayerPrefs.GetString("strAuthorization",string.Empty);
+     if (!string.IsNullOrEmpty(savedToken))
+    {
+        // 저장된 값이 있는 경우 처리
+        Debug.Log("토큰있다! "+savedToken);
+        strAuthorization = savedToken;
+        StartCoroutine(Send_Learning());
+    }
+    else
+    {
+        strAuthorization ="";
+
+
+
+    }
+   
+
     }
 
     //���� �ð��� �������� MBR ID ����
