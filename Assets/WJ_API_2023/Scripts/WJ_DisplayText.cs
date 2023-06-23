@@ -33,9 +33,9 @@ public class WJ_DisplayText : MonoBehaviour
         this.svTime     = svTime      != ""   ? svTime    : this.svTime ;
 
         textCurrentState.text =
-            $"���� ���� : {this.state}\n" +
-            $"�ֱ� ������ �� : {this.myAnswer}\n" +
-            $"�ֱ� ���� ���� : {this.isCorrect}\n" +
-            $"�ֱ� Ǯ�� �ð� : {this.svTime}\n";
+            $"상태 : {this.state}\n" +
+            $"내 정답 : {this.myAnswer}\n" +
+            $"정답여부: {this.isCorrect}\n" +
+            $"풀이시간 : {this.svTime}\n";
     }
 }
