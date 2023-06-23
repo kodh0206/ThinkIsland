@@ -8,16 +8,16 @@ public class FieldManager : MonoBehaviour {
     public int height;
 
     void Start() {
-        farmTiles = new Tile[width, height];
+        farmTiles = new Field[width, height];
         for (int x = 0; x < width; x++) {
             for (int y = 0; y < height; y++) {
                 GameObject tileObj = Instantiate(tilePrefab, new Vector3(x, y, 0), Quaternion.identity);
-                farmTiles[x, y] = tileObj.GetComponent<Tile>();
+                farmTiles[x, y] = tileObj.GetComponent<Field>();
             }
         }
         money = 0;
     }
-
+/*
     // method to plant a crop on a tile
     public void PlantCrop(int x, int y, Crop crop) {
         farmTiles[x, y].PlantCrop(crop);
@@ -30,4 +30,6 @@ public class FieldManager : MonoBehaviour {
             money += harvestedCrop.price;
         }
     }
+    ]
+    */
 }
