@@ -1,30 +1,66 @@
 using System;
 using UnityEngine;
-[SerializeField]
+using UnityEngine.Events;
 
-public enum CropState
-{
-    Seed,  // 빈 상태 (작물이 심어지지 않음)
-    Sprout,  // 작물이 심어진 상태
-    Growing,  // 작물이 자라는 상태
-    Harvestable  // 작물 수확 가능한 상태
-}
 
-public class Crops{
-    public string type;
-    public int growthTime;
-    public int seedPrice;
-    public int harvestPrice;
 
-    public Sprite GrowthImage;
+public class Crops:MonoBehaviour{
 
-    public Crops(string type, int growthTime, int seedPrice, int harvestPrice)
+    private CropData curCrop;
+    private float plantDay;
+    public SpriteRenderer sr;
+    public static event UnityAction<CropData> onPlantCrop;
+    public static event UnityAction<CropData> onHarvestCrop;
+    public void Plant (CropData crop)
     {
-        this.type = type;
-        this.growthTime = growthTime;
-        this.seedPrice = seedPrice;
-        this.harvestPrice = harvestPrice;
+        curCrop = crop;
+        //plantDay = GameManager.instance.curDay;//생성된 시간
+        //daysSinceLastWatered = 1;
+        UpdateCropSprite();
+        onPlantCrop?.Invoke(crop);
     }
+    float CropProgress ()
+    {   return 0f;
+        //return GameManager.instance.curDay - plantDay;
+    }
+    // Can we currently harvest the crop?
+    public bool CanHarvest ()
+    {   return false;
+        //return CropProgress() >= curCrop.daysToGrow;
+    }
+
+    public void Harvest ()
+    {
+        if(CanHarvest())
+        {
+            onHarvestCrop?.Invoke(curCrop);
+            Destroy(gameObject);
+        }
+    }
+
+
+    void UpdateCropSprite ()
+    {
+        /*
+        void UpdateCropSprite ()
+        {
+            int cropProg = CropProgress();
+            if(cropProg < curCrop.daysToGrow)
+            {
+                sr.sprite = curCrop.growProgressSprites[cropProg];
+            }
+            else
+            {
+                sr.sprite = curCrop.readyToHarvestSprite;
+            }
+    }
+        
+        
+        
+        
+        */
+    }
+
 }
 
 
