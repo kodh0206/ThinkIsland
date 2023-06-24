@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
 
     public Player()
     {
-        level = 1; ///ÃÊ±âÈ­½Ã ´Ù¸¥ °÷¿¡¼­ °¡Á®¿Ã ¼ö ÀÖÀ¸¸é µÉµí.
+        level = 1; ///ï¿½Ê±ï¿½È­ï¿½ï¿½ ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Éµï¿½.
     }
 
     void Start()
@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
 {
-    if (GameManager.instance.isGameOver == false)
+    if (MiniGame3Manager.instance.isGameOver == false)
     {
         if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
         {
@@ -56,26 +56,26 @@ public class Player : MonoBehaviour
 
     private IEnumerator DisableControlAndResetColor()
     {
-        // Á¶ÀÛ ºñÈ°¼ºÈ­
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È°ï¿½ï¿½È­
         enabled = false;
 
-        // »ö»ó º¯°æ
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
         if (spriteRenderer != null)
         {
             spriteRenderer.color = new Color(0.77f, 0.52f, 0f);
         }
 
-        // 2ÃÊ°£ ´ë±â
+        // 2ï¿½Ê°ï¿½ ï¿½ï¿½ï¿½
         yield return new WaitForSeconds(2f);
 
-        // Á¶ÀÛ È°¼ºÈ­
+        // ï¿½ï¿½ï¿½ï¿½ È°ï¿½ï¿½È­
         enabled = true;
 
-        // 1ÃÊ°£ poop ¿µÇâ ¹ÞÁö ¾ÊÀ½
+        // 1ï¿½Ê°ï¿½ poop ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         yield return new WaitForSeconds(1f);
 
-        // »ö»ó ¿ø·¡´ë·Î º¹±¸
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         if (spriteRenderer != null)
         {
             spriteRenderer.color = Color.white;
