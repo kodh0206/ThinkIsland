@@ -12,8 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fedf1e690f3d094db849e0c4d2f0ab6, type: 3}
   m_Name: BlueStar
   m_EditorClassIdentifier: 
-  TimesToGrow: 0
-  growProgressSprites: []
-  readyToHarvestSprite: {fileID: 0}
-  purchasePrice: 0
-  sellPrice: 0
+  TimesToGrow: 15
+  growProgressSprites:
+  - {fileID: -973526963, guid: bb0f7b59851f5fc4f8b9385370147b59, type: 3}
+  - {fileID: -984947611, guid: bb0f7b59851f5fc4f8b9385370147b59, type: 3}
+  - {fileID: 1193340621, guid: bb0f7b59851f5fc4f8b9385370147b59, type: 3}
+  readyToHarvestSprite: {fileID: 824670044, guid: bb0f7b59851f5fc4f8b9385370147b59,
+    type: 3}
+  purchasePrice: 150
+  sellPrice: 450
