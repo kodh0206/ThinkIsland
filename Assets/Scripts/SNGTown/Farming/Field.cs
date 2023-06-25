@@ -1,5 +1,16 @@
 using System;
 using UnityEngine;
+/*
+농작물 심는 방법
+1. 타일 클릭시 상점 UI 생성
+2. 상점 UI에서 농작물 선택
+3. 그러면 농작물 선택 되고
+4.그리고 심기 
+
+
+*/
+
+
 public class Field : MonoBehaviour
 {
     public enum PlotState {LOCKED, EMPTY, PLANTING};
@@ -12,11 +23,14 @@ public class Field : MonoBehaviour
     private float timeLeft;
     private int stage;
 
+    public GameObject vegetablePanel;
     private void Awake()
-    {
+    {   vegetablePanel =GameObject.Find("VegetableShop");
+        Debug.Log(vegetablePanel.name);
         plotSprite = GetComponent<SpriteRenderer>();
         cropSprite = transform.GetChild(0).GetComponent<SpriteRenderer>();
         ChangeState(state);
+
     }
 
     private void Update()
@@ -40,23 +54,38 @@ public class Field : MonoBehaviour
                         timeLeft = currentCropData.TimesToGrow;
                         cropSprite.sprite = currentCropData.growProgressSprites[stage];
                     }
-                    else
-                    {
-                        Harvest();
-                    }
+
                 }
                 break;
         }
     }
 
     private void OnMouseDown()
-    {
+    {   Debug.Log("클릭!");
         if (state == PlotState.PLANTING)
         {
             Harvest();
         }
-    }
 
+        if(state == PlotState.EMPTY)
+        {
+            OpenStorePanel();
+        }
+
+        if(state ==PlotState.LOCKED)
+        {
+            /*
+                돈이있으면 unlock 
+
+            */
+
+        }
+    }
+    private void OpenStorePanel()
+    {
+        vegetablePanel.transform.GetChild(0).gameObject.SetActive(true);
+        Debug.Log("씨앗 상점 활성화");
+    }
     private void Plant(CropData cropData)
     {
         if (state == PlotState.EMPTY)

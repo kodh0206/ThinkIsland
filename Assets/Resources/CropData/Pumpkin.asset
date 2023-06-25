@@ -12,11 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fedf1e690f3d094db849e0c4d2f0ab6, type: 3}
   m_Name: Pumpkin
   m_EditorClassIdentifier: 
+  plantName: Pumpkin
   TimesToGrow: 14
   growProgressSprites:
   - {fileID: -428733692, guid: bb0f7b59851f5fc4f8b9385370147b59, type: 3}
   - {fileID: -1019932619, guid: bb0f7b59851f5fc4f8b9385370147b59, type: 3}
   - {fileID: -274450489, guid: bb0f7b59851f5fc4f8b9385370147b59, type: 3}
+  - {fileID: 1046357815, guid: bb0f7b59851f5fc4f8b9385370147b59, type: 3}
   readyToHarvestSprite: {fileID: 1046357815, guid: bb0f7b59851f5fc4f8b9385370147b59,
     type: 3}
   purchasePrice: 120

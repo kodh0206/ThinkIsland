@@ -12,11 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fedf1e690f3d094db849e0c4d2f0ab6, type: 3}
   m_Name: Tomato
   m_EditorClassIdentifier: 
+  plantName: Tomato
   TimesToGrow: 12
   growProgressSprites:
   - {fileID: 1950920952, guid: bb0f7b59851f5fc4f8b9385370147b59, type: 3}
   - {fileID: 1382492055, guid: bb0f7b59851f5fc4f8b9385370147b59, type: 3}
   - {fileID: 326583127, guid: bb0f7b59851f5fc4f8b9385370147b59, type: 3}
+  - {fileID: 561821944, guid: bb0f7b59851f5fc4f8b9385370147b59, type: 3}
   readyToHarvestSprite: {fileID: 561821944, guid: bb0f7b59851f5fc4f8b9385370147b59,
     type: 3}
   purchasePrice: 50

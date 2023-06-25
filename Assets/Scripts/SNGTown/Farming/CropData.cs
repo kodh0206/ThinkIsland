@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 [CreateAssetMenu(fileName = "Crop Data", menuName = "New Crop Data")]
 public class CropData : ScriptableObject
-{
+{   public string plantName;
     public float TimesToGrow;
     public Sprite[] growProgressSprites;
-    public Sprite readyToHarvestSprite;
     public int purchasePrice;
     public int sellPrice;
 

@@ -5,6 +5,6 @@ using UnityEngine;
 public class CropsCollection : ScriptableObject
 {
     [SerializeField]
-    public List<Crops> objects;
+    public List<CropData> objects;
 
 }
