@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class LogoMovement : MonoBehaviour
+public class ImageMovement : MonoBehaviour
 {
     public Sprite[] animationFrames; // 4컷 이미지를 저장할 배열
     public float frameRate = 0.2f; // 프레임 속도 조절

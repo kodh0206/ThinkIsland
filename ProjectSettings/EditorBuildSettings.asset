@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/BetaScene.unity
+    path: Assets/Scenes/GameScene/BetaScene.unity
     guid: e176ef4c1ffb8934ebf7e7728f2fe5b2
   - enabled: 1
     path: Assets/Scenes/MiniGames/Mg1.unity
