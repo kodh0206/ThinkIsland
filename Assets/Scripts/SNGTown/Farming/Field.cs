@@ -2,18 +2,17 @@ using System;
 using UnityEngine;
 public enum FieldState
 {
-    Empty,  // 빈 상태 (작물이 심어지지 않음)
-    Planted,  // 작물이 심어진 상태
-    Growing,  // 작물이 자라는 상태
-    Harvestable  // 작물 수확 가능한 상태
+    Locked,  // 빈 상태 (작물이 심어지지 않음)
+    Empty,  // 작물이 심어진 상태
+    Planted  // 작물 수확 가능한 상태
 }
-[SerializeField]
-public class Field
+
+public class Field:MonoBehaviour
 {
     public int serialNo;
     public Crops crops;
     public FieldState fieldState;
-    
+
     //새 밭
     public Field(int serialNo, Crops crops, int seedPrice, int harvestPrice )
     {

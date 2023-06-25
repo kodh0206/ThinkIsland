@@ -1,22 +1,59 @@
-using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-[SerializeField]
-public class Crops
-{
-    public string name;
-    public int growthTime;
-    public int seedPrice;
-    public int harvestPrice;
+using UnityEngine.Events;
 
-    public Crops(string name, int growthTime, int seedPrice, int harvestPrice)
+public class Crop : MonoBehaviour
+{
+    private CropData curCrop;
+    private float timePlanted;
+    public SpriteRenderer sr;
+    public static event UnityAction<CropData> onPlantCrop;
+    public static event UnityAction<CropData> onHarvestCrop;
+
+    public void Plant (CropData crop)
     {
-        this.name = name;
-        this.growthTime = growthTime;
-        this.seedPrice = seedPrice;
-        this.harvestPrice = harvestPrice;
+        curCrop = crop;
+        timePlanted = Time.time;
+        UpdateCropSprite();
+        onPlantCrop?.Invoke(crop);
+    }
+
+    void UpdateCropSprite ()
+    {
+        float cropProg = CropProgress();
+        int spriteIndex = Mathf.FloorToInt((cropProg / curCrop.TimesToGrow) * curCrop.growProgressSprites.Length);
+        spriteIndex = Mathf.Min(spriteIndex, curCrop.growProgressSprites.Length - 1);
+        
+        if(cropProg < curCrop.TimesToGrow)
+        {
+            sr.sprite = curCrop.growProgressSprites[spriteIndex];
+        }
+        else
+        {
+            sr.sprite = curCrop.readyToHarvestSprite;
+        }
+    }
+
+    public void Harvest ()
+    {
+        if(CanHarvest())
+        {
+            onHarvestCrop?.Invoke(curCrop);
+            Destroy(gameObject);
+        }
+    }
+
+    float CropProgress ()
+    {
+        return Time.time - timePlanted;
+    }
+
+    public bool CanHarvest ()
+    {
+        return CropProgress() >= curCrop.TimesToGrow;
     }
 }
-
 
 
 
