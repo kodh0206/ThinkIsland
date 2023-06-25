@@ -12,8 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fedf1e690f3d094db849e0c4d2f0ab6, type: 3}
   m_Name: Colabi
   m_EditorClassIdentifier: 
-  TimesToGrow: 0
-  growProgressSprites: []
-  readyToHarvestSprite: {fileID: 0}
-  purchasePrice: 0
-  sellPrice: 0
+  TimesToGrow: 7
+  growProgressSprites:
+  - {fileID: -1980226585, guid: bb0f7b59851f5fc4f8b9385370147b59, type: 3}
+  - {fileID: 1328996305, guid: bb0f7b59851f5fc4f8b9385370147b59, type: 3}
+  - {fileID: 371683734, guid: bb0f7b59851f5fc4f8b9385370147b59, type: 3}
+  readyToHarvestSprite: {fileID: 33956524, guid: bb0f7b59851f5fc4f8b9385370147b59,
+    type: 3}
+  purchasePrice: 20
+  sellPrice: 100

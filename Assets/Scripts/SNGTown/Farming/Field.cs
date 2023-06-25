@@ -1,34 +1,105 @@
 using System;
 using UnityEngine;
-public enum FieldState
+public class Field : MonoBehaviour
 {
-    Locked,  // 빈 상태 (작물이 심어지지 않음)
-    Empty,  // 작물이 심어진 상태
-    Planted  // 작물 수확 가능한 상태
-}
+    public enum PlotState {LOCKED, EMPTY, PLANTING};
+    public PlotState state = PlotState.EMPTY;
+    public Sprite lockedSprite;
+    public Sprite emptySprite;
+    public CropData currentCropData;
+    public SpriteRenderer plotSprite;
+    public SpriteRenderer cropSprite;
+    private float timeLeft;
+    private int stage;
 
-public class Field:MonoBehaviour
-{
-    public int serialNo;
-    public Crops crops;
-    public FieldState fieldState;
-
-    //새 밭
-    public Field(int serialNo, Crops crops, int seedPrice, int harvestPrice )
+    private void Awake()
     {
-        this.serialNo = serialNo;
-        this.crops = crops;
-        this.fieldState =FieldState.Empty;
+        plotSprite = GetComponent<SpriteRenderer>();
+        cropSprite = transform.GetChild(0).GetComponent<SpriteRenderer>();
+        ChangeState(state);
     }
 
-    /*구현해야될 함수
-    1.상태에 따라 다른 스프라이트 보여주기
-        crops의 남은 시간에 따라 시간을 3/1씩 나눠서 
+    private void Update()
+    {
+        switch (state)
+        {
+            case PlotState.EMPTY:
+                /*if (GameManager.instance.selectedCropData != null)
+                {
+                    Plant(GameManager.instance.selectedCropData);
+                }
+                */
+                break;
+            case PlotState.PLANTING:
+                timeLeft -= Time.deltaTime;
+                if (timeLeft <= 0)
+                {
+                    stage++;
+                    if (stage < currentCropData.growProgressSprites.Length)
+                    {
+                        timeLeft = currentCropData.TimesToGrow;
+                        cropSprite.sprite = currentCropData.growProgressSprites[stage];
+                    }
+                    else
+                    {
+                        Harvest();
+                    }
+                }
+                break;
+        }
+    }
 
+    private void OnMouseDown()
+    {
+        if (state == PlotState.PLANTING)
+        {
+            Harvest();
+        }
+    }
 
+    private void Plant(CropData cropData)
+    {
+        if (state == PlotState.EMPTY)
+        {
+            state = PlotState.PLANTING;
+            currentCropData = cropData;
+            timeLeft = cropData.TimesToGrow;
+            stage = 0;
+            cropSprite.sprite = cropData.growProgressSprites[stage];
+            //GameManager.instance.ChangeMoney(-cropData.buyPrice);
+        }
+    }
 
+    private void Harvest()
+    {
+        if (state == PlotState.PLANTING)
+        {
+            //GameManager.instance.ChangeMoney(currentCropData.sellPrice);
+            currentCropData = null;
+            cropSprite.sprite = null;
+            ChangeState(PlotState.EMPTY);
+        }
+    }
 
-    */
+    private void ChangeState(PlotState newState)
+    {
+        state = newState;
+        switch (state)
+        {
+            case PlotState.LOCKED:
+                plotSprite.sprite = lockedSprite;
+                break;
+            case PlotState.EMPTY:
+                plotSprite.sprite = emptySprite;
+                break;
+            case PlotState.PLANTING:
+                plotSprite.sprite = emptySprite;
+                break;
+        }
+    }
 }
+
+    
+
 
 
