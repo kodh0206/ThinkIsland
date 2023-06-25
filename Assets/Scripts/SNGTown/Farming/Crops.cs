@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Crop : MonoBehaviour
+public class Crops : MonoBehaviour
 {
     private CropData curCrop;
     private float timePlanted;

@@ -7,18 +7,18 @@ public class Mg2ObjectManager : MonoBehaviour
     float timer;
     float waitingTime;
 
-    private Mg2BallMove ballMove; // Mg2BallMove ½ºÅ©¸³Æ® ÂüÁ¶
-    private Mg2JellyMove jellyMove; // Mg2JellyMove ½ºÅ©¸³Æ® ÂüÁ¶
+    //private Mg2BallMove ballMove; // Mg2BallMove ï¿½ï¿½Å©ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
+    private Mg2JellyMove jellyMove; // Mg2JellyMove ï¿½ï¿½Å©ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
 
-    public int ballArrival = 0; // ball µµÂø È½¼ö¸¦ ³ªÅ¸³»´Â º¯¼ö
-    public int jellyArrival = 0; // jelly µµÂø È½¼ö¸¦ ³ªÅ¸³»´Â º¯¼ö
+    public int ballArrival = 0; // ball ï¿½ï¿½ï¿½ï¿½ È½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    public int jellyArrival = 0; // jelly ï¿½ï¿½ï¿½ï¿½ È½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
     public GameObject ball;
     public GameObject jelly;
 
     private void Start()
     {
-        ballMove = ball.GetComponent<Mg2BallMove>();
+        //ballMove = ball.GetComponent<Mg2BallMove>();
         jellyMove = jelly.GetComponent<Mg2JellyMove>();
 
         ball.SetActive(true);
@@ -33,10 +33,10 @@ public class Mg2ObjectManager : MonoBehaviour
 
         if (timer > waitingTime)
         {
-            // °ø°ú Á©¸® µîÀå ºñÀ²ÀÌ 2:1ÀÌ µÇµµ·Ï ¼³Á¤ (½Ã°£)
+            // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 2:1ï¿½ï¿½ ï¿½Çµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ (ï¿½Ã°ï¿½)
             if (ball.activeSelf && ballArrival < 2)
             {
-                ballMove.StartMovement();
+                //ballMove.StartMovement();
                 timer = 0;
                 ballArrival += 1;
             }
@@ -45,7 +45,7 @@ public class Mg2ObjectManager : MonoBehaviour
                 ball.SetActive(false);
                 jelly.SetActive(true);
 
-                ballArrival = 0; // ball µµÂø È½¼ö ÃÊ±âÈ­
+                ballArrival = 0; // ball ï¿½ï¿½ï¿½ï¿½ È½ï¿½ï¿½ ï¿½Ê±ï¿½È­
             }
             else if (jelly.activeSelf && jellyArrival < 1)
             {
@@ -58,17 +58,17 @@ public class Mg2ObjectManager : MonoBehaviour
                 ball.SetActive(true);
                 jelly.SetActive(false);
 
-                jellyArrival = 0; // jelly µµÂø È½¼ö ÃÊ±âÈ­
+                jellyArrival = 0; // jelly ï¿½ï¿½ï¿½ï¿½ È½ï¿½ï¿½ ï¿½Ê±ï¿½È­
             }
-            // jelly¿Í Player°¡ Ãæµ¹ÇÑ Á÷ÈÄ ball°ú jelly°¡ ¸ðµÎ ºñÈ°¼ºÈ­µÈ »óÅÂÀÏ °æ¿ì
+            // jellyï¿½ï¿½ Playerï¿½ï¿½ ï¿½æµ¹ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ballï¿½ï¿½ jellyï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½È°ï¿½ï¿½È­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
             else if (!ball.activeSelf && !jelly.activeSelf)
             {
                 timer = 0;
                 ball.SetActive(true);
-                ballMove.StartMovement();
+                //ballMove.StartMovement();
 
-                ballArrival += 1; // StartMovement() ½ÇÇà ÈÄ ball µµÂø È½¼ö +1
-                jellyArrival = 0; // jelly µµÂø È½¼ö ÃÊ±âÈ­
+                ballArrival += 1; // StartMovement() ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ball ï¿½ï¿½ï¿½ï¿½ È½ï¿½ï¿½ +1
+                jellyArrival = 0; // jelly ï¿½ï¿½ï¿½ï¿½ È½ï¿½ï¿½ ï¿½Ê±ï¿½È­
             }
         }
     }
