@@ -17,6 +17,7 @@ public class Field : MonoBehaviour
     
     FarmManager fm;
 
+    bool isDry =true; //처음에는 땅이 말라져있음
     public GameObject vegetablePanel;
     private void Awake()
     {   fm = FindObjectOfType<FarmManager>();
@@ -32,8 +33,11 @@ public class Field : MonoBehaviour
     switch (state)
         {
             case PlotState.EMPTY:
+                Debug.Log("비어있음");
                 break;
             case PlotState.PLANTING:
+            if(!isDry)
+            {
                 timeLeft -= Time.deltaTime;
                 if (timeLeft <= 0)
                 {   
@@ -49,6 +53,11 @@ public class Field : MonoBehaviour
                         cropSprite.sprite = currentCropData.growProgressSprites[stage-1];
                     }
                 }
+            }
+            else
+            {
+                Debug.Log("물좀.....");
+            }
                 break;
         }
     
@@ -57,7 +66,11 @@ public class Field : MonoBehaviour
     private void OnMouseDown()
     {   
     Debug.Log("클릭!");
-    
+     if(state == PlotState.LOCKED)
+    {
+        fm.UnlockPlot(this, 200); // Unlock this plot for 200 dollars
+        Debug.Log("토지해금");
+    }
     if(state == PlotState.EMPTY)
     {   fm.selectPlot =this;
         Debug.Log("선택한 타일 이름"+this.name);
@@ -69,13 +82,6 @@ public class Field : MonoBehaviour
     }
     }
 
-    private void UnlockTile()
-    {
-        if(fm.money>200 && this.state ==PlotState.LOCKED)
-        {
-            ChangeState(PlotState.EMPTY);
-        }
-    }
 
     private void OpenStorePanel()
     {
@@ -84,7 +90,7 @@ public class Field : MonoBehaviour
     }
    public void Plant(CropData cropData)
 {
-    if (state == PlotState.EMPTY && fm.money >= cropData.purchasePrice)
+    if (state == PlotState.EMPTY)
     {
         state = PlotState.PLANTING;
         currentCropData = cropData;
@@ -124,6 +130,14 @@ public class Field : MonoBehaviour
                 break;
         }
     }
+
+    public void Unlock()
+{
+    if (state == PlotState.LOCKED)
+    {
+        ChangeState(PlotState.EMPTY);
+    }
+}
 }
 
     

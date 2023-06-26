@@ -130,4 +130,17 @@ public void PlantSelectedCrop()
     }
 }
 
+public void UnlockPlot(Field plot, int unlockCost)
+{
+    if (money >= unlockCost)
+    {
+        Transaction(-unlockCost); // Pay for unlocking the plot
+        plot.Unlock();
+    }
+    else
+    {
+        Debug.Log("Not enough money to unlock this plot");
+    }
+}
+
 }
