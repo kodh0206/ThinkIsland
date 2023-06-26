@@ -1100,6 +1100,8 @@ MonoBehaviour:
   normalButton: {fileID: 0}
   selectedButton: {fileID: 0}
   storeManager: {fileID: 255940585}
+  WaterButton: {fileID: 1023161277}
+  isWaterSelected: 0
 --- !u!1 &1449413918
 GameObject:
   m_ObjectHideFlags: 0
@@ -1503,6 +1505,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1105356109}
     m_Modifications:
+    - target: {fileID: 6378956686452150529, guid: aaf48d85609da574ca8488b681ecd5ab,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.47
+      objectReference: {fileID: 0}
     - target: {fileID: 6378956686927972745, guid: aaf48d85609da574ca8488b681ecd5ab,
         type: 3}
       propertyPath: m_Name

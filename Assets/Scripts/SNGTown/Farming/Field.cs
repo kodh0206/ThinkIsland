@@ -80,6 +80,16 @@ public class Field : MonoBehaviour
     {       Debug.Log("수확 완료!");
             Harvest();
     }
+
+    if(fm.isWaterSelected)
+    {
+        if(isDry)
+        {
+           GiveWater();
+            Debug.Log("아 시원해");
+
+        }   
+    }
     }
 
 
@@ -107,6 +117,7 @@ public class Field : MonoBehaviour
             fm.Transaction(currentCropData.sellPrice);
             currentCropData = null;
             cropSprite.sprite = null;
+            isDry = true;
             ChangeState(PlotState.EMPTY);
         }
     }
@@ -137,6 +148,11 @@ public class Field : MonoBehaviour
     {
         ChangeState(PlotState.EMPTY);
     }
+}
+
+public void GiveWater()
+{
+   isDry=false;
 }
 }
 

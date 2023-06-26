@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,18 +24,22 @@ public class FarmManager : MonoBehaviour
     public Sprite selectedButton;
     public StoreManager storeManager;
 
-    
+    public Button WaterButton;
+    public bool isWaterSelected = false;
     // Start is called before the first frame update
     void Start()
     {
         moneyTxt.text = "$" + money;
+        WaterButton.onClick.AddListener(SelectWater);
     }
 
+
     private void Update()
-    {
+    {   Debug.Log("물이 선택된 "+isWaterSelected);
         Debug.Log("선택된 작물"+selectPlant.name);
         Debug.Log("선택된 기술"+selectPlot.name);
     }
+    
 
     public void SelectPlant(CropData newPlant)
     {
@@ -141,6 +146,13 @@ public void UnlockPlot(Field plot, int unlockCost)
     {
         Debug.Log("Not enough money to unlock this plot");
     }
+
+
+}
+
+private void  SelectWater()
+{   Debug.Log("물 선택!");
+  isWaterSelected = !isWaterSelected;  
 }
 
 }
