@@ -47,6 +47,7 @@ public class SceneController : MonoBehaviour
             fadeGroup.alpha += Time.deltaTime * fadeSpeed;
             yield return null;
         }        
+        DG.Tweening.DOTween.KillAll(); // DOTween 삭제
         yield return new WaitForSeconds(delayBeforeLoading); // 설정한 시간 동안 대기
         SceneManager.LoadScene(sceneToLoad); // 씬 로드
     }
