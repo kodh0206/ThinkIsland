@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class FarmManager : MonoBehaviour
 {
-    public VegetableItem selectPlant;
+    public CropData selectPlant = null; // The selected plant
+    public Field selectPlot = null; // The selected plot
     public bool isPlanting = false;
     public int money=100;
     public Text moneyTxt;
@@ -20,6 +21,8 @@ public class FarmManager : MonoBehaviour
     public Image[] buttonsImg;
     public Sprite normalButton;
     public Sprite selectedButton;
+    public StoreManager storeManager;
+
     
     // Start is called before the first frame update
     void Start()
@@ -27,7 +30,13 @@ public class FarmManager : MonoBehaviour
         moneyTxt.text = "$" + money;
     }
 
-    public void SelectPlant(VegetableItem newPlant)
+    private void Update()
+    {
+        Debug.Log("선택된 작물"+selectPlant.name);
+        Debug.Log("선택된 기술"+selectPlot.name);
+    }
+
+    public void SelectPlant(CropData newPlant)
     {
         if(selectPlant == newPlant)
         {
@@ -38,10 +47,6 @@ public class FarmManager : MonoBehaviour
         {
             CheckSelection();
             selectPlant = newPlant;
-            /*
-            selectPlant.btnImage.color = cancelColor;
-            selectPlant.btnTxt.text = "Cancel";
-            */
             isPlanting = true;
         }
     }
@@ -92,5 +97,37 @@ public class FarmManager : MonoBehaviour
         money += value;
         moneyTxt.text = "$" + money;
     }
+
+     public void SelectPlot(Field plot)
+    {
+        selectPlot = plot;
+        storeManager.OpenStore();
+    }
+public void PlantSelectedCrop()
+{
+    // Ensure a crop and a plot have been selected
+    if (selectPlant != null && selectPlot != null)
+    {
+        // Check that the player has enough money
+        if (money >= selectPlant.purchasePrice)
+        {
+            // Subtract the cost from the player's money
+            Transaction(-selectPlant.purchasePrice);
+
+            // Plant the crop in the selected plot
+            selectPlot.Plant(selectPlant);
+
+            // Deselect the crop and plot
+            selectPlant = null;
+            selectPlot = null;
+
+            storeManager.storePanel.SetActive(false);
+        }
+        else
+        {
+            Debug.Log("Not enough money to plant this crop");
+        }
+    }
+}
 
 }

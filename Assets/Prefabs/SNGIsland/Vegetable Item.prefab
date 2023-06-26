@@ -94,7 +94,9 @@ MonoBehaviour:
   nameTxt: {fileID: 6985071480703819088}
   priceTxt: {fileID: 6985071479704507466}
   icon: {fileID: 6985071479911442133}
+  selectionIndicator: {fileID: 0}
   buybutton: {fileID: 6985071480514429840}
+  fm: {fileID: 0}
 --- !u!1 &6985071479704507464
 GameObject:
   m_ObjectHideFlags: 0
@@ -343,7 +345,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00000095367, y: -39}
+  m_AnchoredPosition: {x: -0, y: -39}
   m_SizeDelta: {x: 54.3408, y: 10.189}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6985071480514429842

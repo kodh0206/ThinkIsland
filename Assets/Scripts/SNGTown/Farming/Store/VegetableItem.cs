@@ -3,41 +3,49 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+
 public class VegetableItem : MonoBehaviour
 {
     public CropData plant;
 
-    public TMP_Text  nameTxt;
+    public TMP_Text nameTxt;
     public TMP_Text priceTxt;
     public Image icon;
+    public Image selectionIndicator; // New UI element to show selection
 
     public Button buybutton;
 
-    FarmManager fm;
+    public FarmManager fm;
 
     // Start is called before the first frame update
     void Start()
     {
-        //fm = FindObjectOfType<FarmManager>();
+        fm = FindObjectOfType<FarmManager>();
         InitializeUI();
         buybutton.onClick.AddListener(BuyButton);
     }
 
-    public void BuyPlant()
-    {
-        Debug.Log("Bought " + plant.plantName);
-        //fm.SelectPlant(this);
-    }
 
     void InitializeUI()
     {
         nameTxt.text = plant.plantName;
         priceTxt.text = "$" + plant.purchasePrice;
         icon.sprite = plant.growProgressSprites[3];
+        //selectionIndicator.enabled = false; // Start with selection indicator off
     }
 
-    void BuyButton()
-    {
+  void BuyButton()
+{
+    if(fm.money >= plant.purchasePrice) // if the player has enough money
+    {   fm.SelectPlant(plant);
+        fm.PlantSelectedCrop();// Plant the vegetable
         Debug.Log(plant.plantName+"구매!"+"수익 : "+plant.sellPrice);
+        
+        //selectionIndicator.enabled = true;
     }
+    else
+    {
+        Debug.Log("Not enough money to buy this plant");
+    }
+}
 }

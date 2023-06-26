@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class StoreManager : MonoBehaviour
 {
     public GameObject plantItem;
+    public FarmManager farmManager;
     List<CropData> plantObjects = new List<CropData>();
     public Button clsoeButton;
     public RectTransform content;
@@ -23,6 +24,7 @@ public class StoreManager : MonoBehaviour
         {
             VegetableItem newPlant = Instantiate(plantItem, content).GetComponent<VegetableItem>();
             newPlant.plant = plant;
+            newPlant.fm = farmManager;
         }
     }
 
@@ -34,6 +36,11 @@ public class StoreManager : MonoBehaviour
     int SortByTime(CropData plantObject1, CropData plantObject2)
     {
         return plantObject1.TimesToGrow.CompareTo(plantObject2.TimesToGrow);
+    }
+
+    public void OpenStore()
+    {
+        storePanel.SetActive(true);
     }
 
     void CloseButton()
