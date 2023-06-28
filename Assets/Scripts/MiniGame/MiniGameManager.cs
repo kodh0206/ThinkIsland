@@ -33,12 +33,13 @@ public class MiniGameManager : MonoBehaviour
 
         SceneManager.sceneLoaded += OnSceneLoaded;
         
-        LoadTotalJelly();
+        //LoadTotalJelly();
     }
 
     private void Start()
     {
         LoadMainMenu();
+        
     }
 
     private void Update()
@@ -57,7 +58,7 @@ public class MiniGameManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-           if (scene.name == "MiniGameTrain")
+    if (scene.name == "MiniGameTrain")
     {
         // Beta Scene이 로드되었을 때 remainingMiniGameScenes 초기화
         remainingMiniGameScenes.Clear();
@@ -78,7 +79,8 @@ public class MiniGameManager : MonoBehaviour
     }
 
     public void LoadMainMenu()
-    {
+    {  
+        Debug.Log("로딩완료");
         SceneManager.LoadScene("MiniGameTrain");
     }
     public void StartMiniGame()
@@ -88,7 +90,7 @@ public class MiniGameManager : MonoBehaviour
     {
         // 모든 미니게임을 클리어한 경우
         LoadMainMenu();
-        SaveTotalJelly();
+        //SaveTotalJelly();
         return;
     }
     minigameUI.gameObject.SetActive(true);
@@ -105,10 +107,13 @@ public void StartNextMiniGame()
 {
     // 다음 미니게임 시작
     if (remainingMiniGameScenes.Count == 0)
-    {
+    {    Debug.Log("total jellies"+totalJelly);
+        totalJelly =0;
         // 모든 미니게임을 클리어한 경우
+       
         LoadMainMenu();
-        SaveTotalJelly();
+        Debug.Log("얻은 젤리 수"+totalJelly);
+        //SaveTotalJelly();
         return;
     }
 
@@ -124,7 +129,7 @@ public void AddJelly()
 {
     totalJelly += 1;
     minigameUI.GetComponent<MIniGameUI>().UpdateJellyText();  // UI 업데이트
-    SaveTotalJelly();  // 변경된 젤리 수 저장
+      // 변경된 젤리 수 저장
 }
 public void MiniGameFinished()
 {  
@@ -132,7 +137,8 @@ public void MiniGameFinished()
 }
     public void SaveTotalJelly()
     {
-        PlayerPrefs.SetInt("totalJelly", totalJelly);
+        //PlayerPrefs.SetInt("totalJelly", totalJelly);
+        Debug.Log("얻은 젤리 수"+totalJelly);
     }
 
     public void LoadTotalJelly()
