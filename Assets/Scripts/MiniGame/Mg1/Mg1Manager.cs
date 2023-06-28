@@ -56,6 +56,7 @@ public class Mg1Manager : MonoBehaviour
         }
     }
 
+    /*
     public void StunPlayer()
     {
         isStunned = true;
@@ -66,5 +67,5 @@ public class Mg1Manager : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         isStunned = false;
-    }
+    }*/
 }

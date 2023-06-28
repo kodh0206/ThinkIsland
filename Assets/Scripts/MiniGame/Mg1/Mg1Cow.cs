@@ -6,17 +6,23 @@ public class Mg1Cow : MonoBehaviour
 {
     [SerializeField]
     private float cowSpeed = 5.0f;
+    private Mg1Player mg1Player;
+
+    private void Start()
+    {
+        mg1Player = GameObject.FindObjectOfType<Mg1Player>();  
+    }
 
     void Update()
     {
         transform.position += Vector3.left * cowSpeed * Time.deltaTime;
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.tag == "Player" && this.gameObject.tag =="poop")
+        if (other.gameObject.tag == "Player" && this.gameObject.tag =="cow")
         {
-            Mg1Manager.instance.StunPlayer();
+            mg1Player.StunPlayer();
             other.gameObject.GetComponent<Mg1Player>().GetObstacle();
             Destroy(gameObject);
         }

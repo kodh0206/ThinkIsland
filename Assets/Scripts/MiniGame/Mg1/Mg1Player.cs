@@ -10,6 +10,7 @@ public class Mg1Player : MonoBehaviour
     public float jumpPower = 15.0f;
     bool isJump = false;
     private bool isGrounded = true;
+    public bool isStunned = false;
 
     public int level;
     public Mg1Player()
@@ -55,7 +56,7 @@ public class Mg1Player : MonoBehaviour
 
     public void Jump()
     {
-        if (Mg1Manager.instance.isStunned == false)
+        if (isStunned == false)
         {
             if (isGrounded && !isJump)
             {
@@ -76,6 +77,7 @@ public class Mg1Player : MonoBehaviour
         if (spriteRenderer != null)
         {
             spriteRenderer.color = new Color(0.77f, 0.52f, 0f);
+            //StunPlayer();
         }
 
         // Wait for 2 seconds
@@ -86,5 +88,18 @@ public class Mg1Player : MonoBehaviour
         {
             spriteRenderer.color = Color.white;
         }
+    }
+
+
+    public void StunPlayer()
+    {
+        isStunned = true;
+        StartCoroutine(RecoverFromStun());
+    }
+
+    private IEnumerator RecoverFromStun()
+    {
+        yield return new WaitForSeconds(2f);
+        isStunned = false;
     }
 }
