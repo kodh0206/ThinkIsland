@@ -15,6 +15,8 @@ public class MiniGameManager : MonoBehaviour
     private float gameChangeInterval = 10f; // 미니게임 변경 간격
     private float timer = 0f;
 
+    public int totalJelly; //먹은 젤리의 갯수 
+
     private bool isMiniGameScene = false; // 현재 씬이 미니게임 씬인지 여부를 확인하기 위한 플래그
 
     private void Awake()
@@ -29,6 +31,8 @@ public class MiniGameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         SceneManager.sceneLoaded += OnSceneLoaded;
+        
+        LoadTotalJelly();
     }
 
     private void Start()
@@ -52,7 +56,7 @@ public class MiniGameManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (scene.name == "BetaScene")
+        if (scene.name == "MiniGameTrain")
         {
             // Beta Scene이 로드되었을 때 remainingMiniGameScenes 초기화
             remainingMiniGameScenes.Clear();
@@ -67,7 +71,7 @@ public class MiniGameManager : MonoBehaviour
 
     public void LoadMainMenu()
     {
-        SceneManager.LoadScene("BetaScene");
+        SceneManager.LoadScene("MiniGameTrain");
     }
 
     public void StartMiniGame()
@@ -76,6 +80,7 @@ public class MiniGameManager : MonoBehaviour
         {
             // 모든 미니게임을 클리어한 경우
             LoadMainMenu();
+            SaveTotalJelly();
             return;
         }
 
@@ -89,5 +94,15 @@ public class MiniGameManager : MonoBehaviour
     public void MiniGameFinished()
     {
         StartMiniGame();
+    }
+
+    public void SaveTotalJelly()
+    {
+        PlayerPrefs.SetInt("totalJelly", totalJelly);
+    }
+
+    public void LoadTotalJelly()
+    {
+        totalJelly = PlayerPrefs.GetInt("totalJelly", 0);
     }
 }

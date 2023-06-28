@@ -1,8 +1,11 @@
 using System;
 using UnityEngine;
+
+
+
 public class Field : MonoBehaviour
 {
-    public enum PlotState {LOCKED, EMPTY, PLANTING};
+    public enum PlotState {LOCKED, EMPTY, PLANTING,HARVEST};
     public PlotState state = PlotState.EMPTY;
     public Sprite lockedSprite;
     public Sprite emptySprite;
@@ -11,72 +14,110 @@ public class Field : MonoBehaviour
     public SpriteRenderer cropSprite;
     private float timeLeft;
     private int stage;
+    
+    FarmManager fm;
 
+    bool isDry =true; //처음에는 땅이 말라져있음
+    public GameObject vegetablePanel;
     private void Awake()
-    {
+    {   fm = FindObjectOfType<FarmManager>();
+        vegetablePanel = GameObject.Find("VegetableShop");
         plotSprite = GetComponent<SpriteRenderer>();
         cropSprite = transform.GetChild(0).GetComponent<SpriteRenderer>();
         ChangeState(state);
+
     }
 
     private void Update()
     {
-        switch (state)
+    switch (state)
         {
             case PlotState.EMPTY:
-                /*if (GameManager.instance.selectedCropData != null)
-                {
-                    Plant(GameManager.instance.selectedCropData);
-                }
-                */
+                Debug.Log("비어있음");
                 break;
             case PlotState.PLANTING:
+            if(!isDry)
+            {
                 timeLeft -= Time.deltaTime;
                 if (timeLeft <= 0)
-                {
+                {   
                     stage++;
                     if (stage < currentCropData.growProgressSprites.Length)
                     {
-                        timeLeft = currentCropData.TimesToGrow;
-                        cropSprite.sprite = currentCropData.growProgressSprites[stage];
+                        timeLeft = currentCropData.TimesToGrow / currentCropData.growProgressSprites.Length;
+                        cropSprite.sprite = currentCropData.growProgressSprites[stage-1];
                     }
                     else
                     {
-                        Harvest();
+                        state = PlotState.HARVEST;
+                        cropSprite.sprite = currentCropData.growProgressSprites[stage-1];
                     }
                 }
+            }
+            else
+            {
+                Debug.Log("물좀.....");
+            }
                 break;
         }
+    
     }
 
     private void OnMouseDown()
+    {   
+    Debug.Log("클릭!");
+     if(state == PlotState.LOCKED)
     {
-        if (state == PlotState.PLANTING)
-        {
+        fm.UnlockPlot(this, 200); // Unlock this plot for 200 dollars
+        Debug.Log("토지해금");
+    }
+    if(state == PlotState.EMPTY)
+    {   fm.selectPlot =this;
+        Debug.Log("선택한 타일 이름"+this.name);
+        OpenStorePanel();
+    }
+    else if(state == PlotState.HARVEST)
+    {       Debug.Log("수확 완료!");
             Harvest();
-        }
     }
 
-    private void Plant(CropData cropData)
+    if(fm.isWaterSelected)
     {
-        if (state == PlotState.EMPTY)
+        if(isDry)
         {
-            state = PlotState.PLANTING;
-            currentCropData = cropData;
-            timeLeft = cropData.TimesToGrow;
-            stage = 0;
-            cropSprite.sprite = cropData.growProgressSprites[stage];
-            //GameManager.instance.ChangeMoney(-cropData.buyPrice);
-        }
+           GiveWater();
+            Debug.Log("아 시원해");
+
+        }   
     }
+    }
+
+
+    private void OpenStorePanel()
+    {
+        vegetablePanel.transform.GetChild(0).gameObject.SetActive(true);
+        Debug.Log("씨앗 상점 활성화");
+    }
+   public void Plant(CropData cropData)
+{
+    if (state == PlotState.EMPTY)
+    {
+        state = PlotState.PLANTING;
+        currentCropData = cropData;
+        timeLeft = cropData.TimesToGrow;
+        stage = 0;
+        cropSprite.sprite = cropData.growProgressSprites[stage];
+    }
+}
 
     private void Harvest()
     {
-        if (state == PlotState.PLANTING)
+        if (state == PlotState.HARVEST)
         {
-            //GameManager.instance.ChangeMoney(currentCropData.sellPrice);
+            fm.Transaction(currentCropData.sellPrice);
             currentCropData = null;
             cropSprite.sprite = null;
+            isDry = true;
             ChangeState(PlotState.EMPTY);
         }
     }
@@ -95,8 +136,24 @@ public class Field : MonoBehaviour
             case PlotState.PLANTING:
                 plotSprite.sprite = emptySprite;
                 break;
+            case PlotState.HARVEST:
+                plotSprite.sprite = cropSprite.sprite = currentCropData.growProgressSprites[stage];
+                break;
         }
     }
+
+    public void Unlock()
+{
+    if (state == PlotState.LOCKED)
+    {
+        ChangeState(PlotState.EMPTY);
+    }
+}
+
+public void GiveWater()
+{
+   isDry=false;
+}
 }
 
     

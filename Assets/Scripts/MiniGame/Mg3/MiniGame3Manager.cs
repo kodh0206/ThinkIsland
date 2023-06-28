@@ -8,14 +8,8 @@ public class MiniGame3Manager : MonoBehaviour
 {
     public static MiniGame3Manager instance = null;
     
-
-    [SerializeField]
-    private TextMeshProUGUI scoreText;
-
-    [SerializeField]
-    private GameObject GameOverPanel;
-    private int score = 0; // score=jelly ���ھ ���� ������ �������� ������ �ӵ� ��������
-    public bool isGameOver = false;
+    private int score = 0;
+    public bool isStunned = false; // 물체가 현재 스턴 상태인지를 나타내는 부울 값입니다.
 
     void Awake()
     {
@@ -24,8 +18,6 @@ public class MiniGame3Manager : MonoBehaviour
             instance = this;
         }
     }
-
-
 
     // Start is called before the first frame update
     void Start()
@@ -42,7 +34,6 @@ public class MiniGame3Manager : MonoBehaviour
     public void AddScore() 
     {
         score += 1;
-        scoreText.text = "Eat jelly " + score; //score= jelly
 
         if (score % 5 == 0)
         {
@@ -53,23 +44,17 @@ public class MiniGame3Manager : MonoBehaviour
             }
         }
     }
-    public void SetGameOver()
+    
+    public void StunPlayer()
     {
-         if(isGameOver == false)
-        {
-            isGameOver = true;
-            PoopSpawner spawner = FindObjectOfType <PoopSpawner> ();
-
-            if (spawner != null)
-            {
-                spawner.StopSpawning();
-            } 
-
-            GameOverPanel.SetActive(true);
-        }
-    }   
-    public void Restart()
-    {
-        SceneManager.LoadScene("GameScene");
+        isStunned = true;
+        StartCoroutine(RecoverFromStun());
     }
+
+    private IEnumerator RecoverFromStun()
+    {
+        yield return new WaitForSeconds(2f);
+        isStunned = false;
+    }
+    
 }

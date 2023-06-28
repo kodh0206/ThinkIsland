@@ -31,7 +31,7 @@ public class Crops : MonoBehaviour
         }
         else
         {
-            sr.sprite = curCrop.readyToHarvestSprite;
+            //sr.sprite = curCrop.readyToHarvestSprite;
         }
     }
 
