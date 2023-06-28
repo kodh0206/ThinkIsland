@@ -35,9 +35,9 @@ public class FarmManager : MonoBehaviour
 
 
     private void Update()
-    {   Debug.Log("물이 선택된 "+isWaterSelected);
-        Debug.Log("선택된 작물"+selectPlant.name);
-        Debug.Log("선택된 기술"+selectPlot.name);
+    {   //Debug.Log("물이 선택된 "+isWaterSelected);
+        //Debug.Log("선택된 작물"+selectPlant.name);
+        //Debug.Log("선택된 기술"+selectPlot.name);
     }
     
 

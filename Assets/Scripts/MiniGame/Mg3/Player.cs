@@ -7,13 +7,12 @@ public class Player : MonoBehaviour
     private Animator animator;
     [SerializeField]
     private float moveSpeed = 5f;
-    // Start is called before the first frame update
 
     public int level;
 
     public Player()
     {
-        level = 1; ///�ʱ�ȭ�� �ٸ� ������ ������ �� ������ �ɵ�.
+        level = 1; 
     }
 
     void Start()
@@ -21,34 +20,36 @@ public class Player : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
     void Update()
-{
-    if (MiniGame3Manager.instance.isGameOver == false)
     {
-        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
+        if (MiniGame3Manager.instance.isStunned == false)
         {
-            Vector3 currScale = transform.localScale;
-            transform.localScale = new Vector3(-Mathf.Abs(currScale.x),currScale.y,currScale.z);
-            transform.position += Vector3.left * moveSpeed * Time.deltaTime;
-            animator.SetBool("isRunning", true);
+            if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
+            {
+                Vector3 currScale = transform.localScale;
+                transform.localScale = new Vector3(-Mathf.Abs(currScale.x),currScale.y,currScale.z);
+                transform.position += Vector3.left * moveSpeed * Time.deltaTime;
+                animator.SetBool("isRunning", true);
+            }
+            else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
+            {
+                Vector3 currScale = transform.localScale;
+                transform.localScale = new Vector3(Mathf.Abs(currScale.x),currScale.y,currScale.z);        
+                transform.position += Vector3.right * moveSpeed * Time.deltaTime;
+                animator.SetBool("isRunning", true);
+            }else
+            {
+                animator.SetBool("isRunning", false);
+            }
+            
         }
-        else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
+        else
         {
-            Vector3 currScale = transform.localScale;
-            transform.localScale = new Vector3(Mathf.Abs(currScale.x),currScale.y,currScale.z);        
-            transform.position += Vector3.right * moveSpeed * Time.deltaTime;
-            animator.SetBool("isRunning", true);
-        }else
-        {
-        animator.SetBool("isRunning", false);
+            animator.SetBool("isRunning", false);
         }
-        
-    }else
-    {
-        animator.SetBool("isRunning", false);
     }
-}
+
+    // When the player gets hit by poop, call this function
     public void GetPoop()
     {
         StartCoroutine(DisableControlAndResetColor());
@@ -56,26 +57,17 @@ public class Player : MonoBehaviour
 
     private IEnumerator DisableControlAndResetColor()
     {
-        // ���� ��Ȱ��ȭ
-        enabled = false;
-
-        // ���� ����
+        // Change color to brown
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
         if (spriteRenderer != null)
         {
             spriteRenderer.color = new Color(0.77f, 0.52f, 0f);
         }
 
-        // 2�ʰ� ���
+        // Wait for 2 seconds
         yield return new WaitForSeconds(2f);
 
-        // ���� Ȱ��ȭ
-        enabled = true;
-
-        // 1�ʰ� poop ���� ���� ����
-        yield return new WaitForSeconds(1f);
-
-        // ���� ������� ����
+        // Change color back to white
         if (spriteRenderer != null)
         {
             spriteRenderer.color = Color.white;
