@@ -13,7 +13,7 @@ public class SceneController : MonoBehaviour
     public CanvasGroup fadeGroup; // 화면을 어둡게 만들 CanvasGroup
     public float fadeSpeed = 1f; // 화면이 어두워지는 속도
      
-        private void Start()
+    private void Start()
     {
         // 게임 시작시에 Play 버튼을 비활성화합니다.
         playButton.interactable = false;

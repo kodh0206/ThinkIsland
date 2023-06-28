@@ -17,4 +17,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameScene/MiniGameTrain.unity
     guid: 2fec13a40a5328b40aa2405544087764
+  - enabled: 1
+    path: Assets/Scenes/MiniGames/Mg3.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/MiniGames/Mg4.unity
+    guid: 38763765a44e71847bee6450c74ae857
+  - enabled: 1
+    path: Assets/Scenes/MiniGames/Mg5.unity
+    guid: 69b54f37abbd9f442bd74173a6110fb3
   m_configObjects: {}

@@ -23,6 +23,7 @@ void Start()
     public void addjellyScore()
     {
         jelly_Score += 1;
+      
     }
 
 }
