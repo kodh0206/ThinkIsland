@@ -95,7 +95,7 @@ public class MiniGameManager : MonoBehaviour
     string nextMiniGameScene = remainingMiniGameScenes[0];
     remainingMiniGameScenes.RemoveAt(0);
 
-    SceneManager.LoadScene(nextMiniGameScene, LoadSceneMode.Single);
+    SceneManager.LoadScene(nextMiniGameScene, LoadSceneMode.Single);//미니게임 로드
     currentMiniGameScene = nextMiniGameScene;
 
     Debug.Log("첫 미니게임 시작: " + currentMiniGameScene);
@@ -115,12 +115,17 @@ public void StartNextMiniGame()
     string nextMiniGameScene = remainingMiniGameScenes[0];
     remainingMiniGameScenes.RemoveAt(0);
 
-    SceneManager.LoadScene(nextMiniGameScene, LoadSceneMode.Single);
+    SceneManager.LoadScene(nextMiniGameScene, LoadSceneMode.Single);//미니게임 전환 
     currentMiniGameScene = nextMiniGameScene;
 
     Debug.Log("다음 미니게임 시작: " + currentMiniGameScene);
 }
-
+public void AddJelly()
+{
+    totalJelly += 1;
+    minigameUI.GetComponent<MIniGameUI>().UpdateJellyText();  // UI 업데이트
+    SaveTotalJelly();  // 변경된 젤리 수 저장
+}
 public void MiniGameFinished()
 {  
     StartNextMiniGame();

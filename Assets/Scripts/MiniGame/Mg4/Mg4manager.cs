@@ -37,25 +37,23 @@ public class Mg4manager : MonoBehaviour
 
     public void AddScore()
     {
-        score += 1;
-        scoreText.text = "Eat jelly " + score; //score= jelly
+    score += 1;
+    MiniGameManager.Instance.AddJelly();  // 젤리 추가 및 UI 업데이트
+    scoreText.text = "Eat jelly " + score;
 
-        if (score % 5 == 0)
+    if (score % 5 == 0)
+    {
+        makejelly spawner = FindObjectOfType<makejelly>();
+        Makebirdpoop spawner2 = FindObjectOfType<Makebirdpoop>();
+        jelly jell = FindObjectOfType<jelly>();
+        birdpoop poop = FindObjectOfType<birdpoop>();
+        
+        if (spawner != null)
         {
-            makejelly spawner = FindObjectOfType<makejelly>();
-            Makebirdpoop spawner2 = FindObjectOfType<Makebirdpoop>();
-            jelly jell = FindObjectOfType<jelly>();
-            birdpoop poop = FindObjectOfType<birdpoop>();
-            if (spawner != null)
-            {
-                spawner.IncreaseSpeed();  // decrease interval
-                spawner2.IncreaseSpeed();
-
-
-            }
+            spawner.IncreaseSpeed();
+            spawner2.IncreaseSpeed();
         }
-
-        MiniGameManager.Instance.totalJelly += 1;
     }
 
+}
 }

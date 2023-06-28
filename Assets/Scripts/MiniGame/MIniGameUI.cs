@@ -23,9 +23,8 @@ public class MIniGameUI : MonoBehaviour
 
    
   
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public void UpdateJellyText()
+{
+    totalJelly.text = miniGameManager.totalJelly.ToString();
+}
 }

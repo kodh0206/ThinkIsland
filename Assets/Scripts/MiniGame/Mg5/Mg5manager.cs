@@ -36,22 +36,19 @@ public class Mg5manager : MonoBehaviour
     }
 
     public void AddScore()
+{
+    score += 1;
+    MiniGameManager.Instance.AddJelly();  // 젤리 추가 및 UI 업데이트
+    scoreText.text = "Eat jelly " + score;
+
+    if (score % 5 == 0)
     {
-        score += 1;
-        scoreText.text = "Eat jelly " + score; //score= jelly
-        MiniGameManager.Instance.totalJelly += 1;
-        
-        if (score % 5 == 0)
+        ObstacleSpawner spawner2 = FindObjectOfType<ObstacleSpawner>();
+
+        if (spawner2 != null)
         {
-            ObstacleSpawner spawner2 = FindObjectOfType<ObstacleSpawner>();
-
-            if (spawner2 != null)
-            {
-                spawner2.IncreaseSpeed();  // decrease interval
-
-
-
-            }
+            spawner2.IncreaseSpeed();
         }
     }
+}
 }
