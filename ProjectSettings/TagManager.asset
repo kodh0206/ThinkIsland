@@ -11,6 +11,9 @@ TagManager:
   - jelly
   - poop2
   - obstacle
+  - egg
+  - Obstacle
+  - Rock
   layers:
   - Default
   - TransparentFX
@@ -18,7 +21,7 @@ TagManager:
   - Ground
   - Water
   - UI
-  - 
+  - Player
   - 
   - 
   - 

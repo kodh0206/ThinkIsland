@@ -14,9 +14,11 @@ public class Mg1Poop : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player" && this.gameObject.tag =="poop")
         {
-            Mg1Manager.instance.AddScore();
+            Debug.Log("되나?");
+            Mg1Manager.instance.StunPlayer();
+            other.gameObject.GetComponent<Mg1Player>().GetObstacle();
             Destroy(gameObject);
         }
     }

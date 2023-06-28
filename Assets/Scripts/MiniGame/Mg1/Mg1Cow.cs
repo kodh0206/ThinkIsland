@@ -14,9 +14,10 @@ public class Mg1Cow : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player" && this.gameObject.tag =="poop")
         {
-            Mg1Manager.instance.AddScore();
+            Mg1Manager.instance.StunPlayer();
+            other.gameObject.GetComponent<Mg1Player>().GetObstacle();
             Destroy(gameObject);
         }
     }

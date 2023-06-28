@@ -4,14 +4,22 @@ using UnityEngine;
 
 public class Mg1Player : MonoBehaviour
 {
+
+    private Vector2 startPosition;
     Rigidbody2D rigid;
     public float jumpPower = 15.0f;
     bool isJump = false;
+    private bool isGrounded = true;
 
     public int level;
     public Mg1Player()
     {
         level = 1;
+    }
+
+    void Start()
+    {
+        startPosition = transform.position;
     }
 
     void Awake()
@@ -28,20 +36,55 @@ public class Mg1Player : MonoBehaviour
         }
     }*/
 
-    void OnCollisionEnter(Collision collision) // 충돌 감지
+    private void OnCollisionEnter2D(Collision2D collision) // 충돌 감지
     {
-        Debug.Log("점프");
-        if (collision.gameObject.tag == "Ground")
+        if (collision.gameObject.CompareTag("Ground"))
         {
+            isGrounded = true;
             isJump = false;
         }
     }
 
-    public void Jump(){
-        if (!isJump)
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
         {
-            rigid.AddForce (new Vector3(0, jumpPower, 0), ForceMode2D.Impulse);
-            //isJump = true;
+            isGrounded = false;
+        }
+    }
+
+    public void Jump()
+    {
+        if (Mg1Manager.instance.isStunned == false)
+        {
+            if (isGrounded && !isJump)
+            {
+                rigid.AddForce (new Vector3(0, jumpPower, 0), ForceMode2D.Impulse);
+                isJump = true;
+            }
+        }
+    }
+
+    public void GetObstacle()
+    {
+        StartCoroutine(DisableControlAndResetColor());
+    }
+
+    private IEnumerator DisableControlAndResetColor()
+    {
+        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.color = new Color(0.77f, 0.52f, 0f);
+        }
+
+        // Wait for 2 seconds
+        yield return new WaitForSeconds(2f);
+
+        // Change color back to white
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.color = Color.white;
         }
     }
 }

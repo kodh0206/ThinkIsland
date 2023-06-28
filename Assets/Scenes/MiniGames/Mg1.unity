@@ -325,8 +325,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 98558367}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0176, y: -3.0336, z: 0}
-  m_LocalScale: {x: 23.367624, y: 3.939151, z: 1}
+  m_LocalPosition: {x: 1.7884, y: -3.0336, z: 0}
+  m_LocalScale: {x: 26.909893, y: 3.939151, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -657,7 +657,7 @@ GameObject:
   - component: {fileID: 509400645}
   - component: {fileID: 509400644}
   - component: {fileID: 509400648}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -801,7 +801,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e4552fd9284ef64bb4200ab73ec5b5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpPower: 15
+  jumpPower: 10
   level: 1
 --- !u!1 &593591163
 GameObject:
@@ -862,7 +862,7 @@ GameObject:
   - component: {fileID: 771597123}
   m_Layer: 0
   m_Name: poopGenerator
-  m_TagString: Untagged
+  m_TagString: poop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -909,11 +909,11 @@ GameObject:
   - component: {fileID: 805262001}
   m_Layer: 0
   m_Name: cowGenerator
-  m_TagString: Untagged
+  m_TagString: cow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &805262000
 Transform:
   m_ObjectHideFlags: 0
@@ -1478,3 +1478,4 @@ MonoBehaviour:
   scoreText: {fileID: 812997077}
   GameOverPanel: {fileID: 0}
   isGameOver: 0
+  isStunned: 0

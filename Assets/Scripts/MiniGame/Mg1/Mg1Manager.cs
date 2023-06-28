@@ -15,6 +15,7 @@ public class Mg1Manager : MonoBehaviour
     private GameObject GameOverPanel;
     private int score = 0;
     public bool isGameOver = false;
+    public bool isStunned = false;
  
     void Awake()
     {
@@ -53,5 +54,17 @@ public class Mg1Manager : MonoBehaviour
                 spawnerCow.IncreaseSpeed();
             }
         }
+    }
+
+    public void StunPlayer()
+    {
+        isStunned = true;
+        StartCoroutine(RecoverFromStun());
+    }
+
+    private IEnumerator RecoverFromStun()
+    {
+        yield return new WaitForSeconds(2f);
+        isStunned = false;
     }
 }
