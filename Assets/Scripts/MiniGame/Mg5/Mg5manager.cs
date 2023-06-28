@@ -13,7 +13,7 @@ public class Mg5manager : MonoBehaviour
 
     [SerializeField]
     private GameObject GameOverPanel;
-    private int score = 0; // score=jelly ½ºÄÚ¾î¿¡ ÀÌÀü °ÔÀÓÀÇ Á©¸®°ªÀ» ³ÖÀ¸¸é ¼Óµµ Á¶Á¤°¡´É
+    private int score = 0; // score=jelly ï¿½ï¿½ï¿½Ú¾î¿¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Óµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     public bool isGameOver = false;
 
     void Awake()
@@ -36,21 +36,19 @@ public class Mg5manager : MonoBehaviour
     }
 
     public void AddScore()
+{
+    score += 1;
+    MiniGameManager.Instance.AddJelly();  // ì ¤ë¦¬ ì¶”ê°€ ë° UI ì—…ë°ì´íŠ¸
+    scoreText.text = "Eat jelly " + score;
+
+    if (score % 5 == 0)
     {
-        score += 1;
-        scoreText.text = "Eat jelly " + score; //score= jelly
+        ObstacleSpawner spawner2 = FindObjectOfType<ObstacleSpawner>();
 
-        if (score % 5 == 0)
+        if (spawner2 != null)
         {
-            ObstacleSpawner spawner2 = FindObjectOfType<ObstacleSpawner>();
-
-            if (spawner2 != null)
-            {
-                spawner2.IncreaseSpeed();  // decrease interval
-
-
-
-            }
+            spawner2.IncreaseSpeed();
         }
     }
+}
 }
