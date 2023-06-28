@@ -185,7 +185,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 1
   lockedSprite: {fileID: 1273471806, guid: 7340ca638330a5540a897dc2ca7de8ce, type: 3}
-  emptySprite: {fileID: -350043033, guid: 2d153e4350910e7408e5b9119dbe2902, type: 3}
+  emptySprite: {fileID: -1358469379, guid: bb06ebb8623be9e40befcbd742d97cc0, type: 3}
   currentCropData: {fileID: 0}
   plotSprite: {fileID: 0}
   cropSprite: {fileID: 0}
