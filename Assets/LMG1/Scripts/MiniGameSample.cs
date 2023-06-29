@@ -6,8 +6,8 @@ using WjChallenge;
 using TexDrawLib;
 
 
-public enum CurrentStatus { WAITING, DIAGNOSIS, LEARNING }
-public class WJ_Sample : MonoBehaviour
+
+public class LMG1 : MonoBehaviour
 {
     [SerializeField] WJ_Connector       wj_conn;
     [SerializeField] CurrentStatus      currentStatus;//진단평가 통과 여부

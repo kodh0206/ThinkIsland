@@ -32,7 +32,7 @@ public class Mg6jelly : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            Mg6manager.instance.AddScore();
+            MiniGameManager.Instance.AddJelly();
             Destroy(gameObject);
         }
     }

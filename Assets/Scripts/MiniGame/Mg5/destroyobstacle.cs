@@ -9,7 +9,7 @@ public class destroyobstacle : MonoBehaviour
     private bool obstacleEntered = false;
     private Rigidbody2D playerRigidbody;
 
-    public GameObject Mg5obstaclePrefab; // Player ÇÁ¸®ÆÕÀ» ÇÒ´çÇÏ¼¼¿ä
+    public GameObject Mg5obstaclePrefab; // Player ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò´ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½
 
     void Start()
     {
@@ -19,7 +19,7 @@ public class destroyobstacle : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Obstacle"))
+        if (other.gameObject.CompareTag("obstacle"))
         {
             ResetPlayerPosition();
         }
@@ -27,14 +27,14 @@ public class destroyobstacle : MonoBehaviour
 
     public void  ResetPlayerPosition()
     {
-        // Player ¿ÀºêÁ§Æ®¸¦ Ã£½À´Ï´Ù.
-        GameObject obstacle = GameObject.FindGameObjectWithTag("Obstacle");
+        // Player ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ Ã£ï¿½ï¿½ï¿½Ï´ï¿½.
+        GameObject obstacle = GameObject.FindGameObjectWithTag("obstacle");
 
-        // Player ÄÄÆ÷³ÍÆ®¸¦ ºñÈ°¼ºÈ­ÇÏ¿© Á¶ÀÛ ºÒ°¡´É »óÅÂ·Î ¸¸µì´Ï´Ù.
+        // Player ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½È°ï¿½ï¿½È­ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â·ï¿½ ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
 
 
 
-        // ¿ÀºêÁ§Æ®¸¦ ºÎ¼ö°í 2ÃÊ ´ë±âÇÕ´Ï´Ù.
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Î¼ï¿½ï¿½ï¿½ 2ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
         Destroy(obstacle);
 
 

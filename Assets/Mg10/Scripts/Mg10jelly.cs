@@ -24,7 +24,7 @@ public class Mg10jelly : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            Mg10manager.instance.AddScore();
+            MiniGameManager.Instance.AddJelly();
             Destroy(gameObject);
         }
     }

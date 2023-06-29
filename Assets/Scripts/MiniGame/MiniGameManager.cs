@@ -58,7 +58,7 @@ public class MiniGameManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-    if (scene.name == "MiniGameTrain")
+    if (scene.name == "MiniGameTrain")  
     {
         // Beta Scene이 로드되었을 때 remainingMiniGameScenes 초기화
         remainingMiniGameScenes.Clear();

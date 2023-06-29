@@ -9,7 +9,7 @@ public class Mg14jelly : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Mg14manager.instance.AddScore();
+            MiniGameManager.Instance.AddJelly();
             Destroy(gameObject);
         }
     }
