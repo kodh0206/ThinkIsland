@@ -34,18 +34,19 @@ public class Mg2BallMove : MonoBehaviour
                 transform.position = endPoint;
                 isMoving = false;
                 Collider2D[] colliders = Physics2D.OverlapCircleAll(endPoint, 0.5f);
+                bool defenseSuccess = false; // 방어 성공 여부를 나타내는 변수 추가
                 foreach (Collider2D collider in colliders)
                 {
                     if (collider.gameObject.CompareTag("Player") && this.gameObject.CompareTag("Obstacle"))
                     {
-                        Debug.Log("방어 성공");
+                        defenseSuccess = true; // 방어 성공 표시
+                        break;
                     }
-                    else// if (!collider.gameObject.CompareTag("Obstacle"))
-                    {
-                        mg2PlayerMove.StunPlayer();
-                        //collider.gameObject.GetComponent<Mg2PlayerMove>().GetObstacle();
-                        Debug.Log("방어 실패");
-                    }
+                }
+                if (!defenseSuccess)
+                {
+                    // 캐릭터 스턴(버튼 비활성화) + 캐릭터 색 변경
+                    mg2PlayerMove.GetObstacle();
                 }
             }
             else
@@ -56,6 +57,7 @@ public class Mg2BallMove : MonoBehaviour
             }
         }
     }
+    // 포물선 그리는 함수
     private Vector2 ParabolicInterpolation(Vector2 start, Vector2 end, float height, float t)
     {
         float parabolicT = Mathf.Sin(t * Mathf.PI);
@@ -64,6 +66,7 @@ public class Mg2BallMove : MonoBehaviour
         return pos;
     }
 
+    // endPoint 랜덤 설정 (셋 중 하나로 공 이동)
     private void RandomizeEndPoint()
     {
         int randomIndex = Random.Range(0, 3);

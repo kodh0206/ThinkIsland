@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Mg2PlayerMove : MonoBehaviour
 {
     public bool isStunned = false;
+    public Button button1;
+    public Button button2;
 
     private void Start()
     {
@@ -46,38 +49,39 @@ public class Mg2PlayerMove : MonoBehaviour
     public void GetObstacle()
     {
         StartCoroutine(DisableControlAndResetColor());
+        StartCoroutine(StunPlayer());
     }
 
     private IEnumerator DisableControlAndResetColor()
     {
+        button1.interactable = false;
+        button2.interactable = false;
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
         if (spriteRenderer != null)
         {
-            //spriteRenderer.color = new Color(0.77f, 0.52f, 0f);
-            spriteRenderer.color = new Color(0f, 0f, 0f);
-            //StunPlayer();
+            spriteRenderer.color = new Color(0.77f, 0.52f, 0f);
         }
 
         // Wait for 2 seconds
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.5f);
 
         // Change color back to white
         if (spriteRenderer != null)
         {
             spriteRenderer.color = Color.white;
         }
+
+        button1.interactable = true;
+        button2.interactable = true;
     }
 
 
-    public void StunPlayer()
+    // 플레이어 스턴
+    public IEnumerator StunPlayer()
     {
         isStunned = true;
-        StartCoroutine(RecoverFromStun());
-    }
 
-    private IEnumerator RecoverFromStun()
-    {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.5f);
         isStunned = false;
     }
 
