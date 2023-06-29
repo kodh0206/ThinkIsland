@@ -10,20 +10,39 @@ public class Mg1MakeCow : MonoBehaviour
     private float cowSpeed = 5.0f;
 
     [SerializeField]
-    private float time_diff = 1.5f;
+    private float interval = 1f;
 
     float time = 0;
+    private int count = 1;
+    private bool isCowSpawned = false;
+
 
     void Update()
     {
         time += Time.deltaTime;
-        if (time > time_diff)
+        
+        if (time > interval)
+        {
+            time = 0;
+            count++;
+        }
+
+        if (count > 3)
+        {
+            count = 1;
+        }
+        
+        if (count == 2 && !isCowSpawned)
         {
             GameObject new_cow = Instantiate(cow);
             new_cow.transform.position = new Vector3(15f, -0.5590893f, 0);
             new_cow.GetComponent<Mg1Cow>().SetSpeed(cowSpeed);
-            time = 0;
             Destroy(new_cow, 10.0f);
+            isCowSpawned = true;
+        }
+        else if (count != 2)
+        {
+            isCowSpawned = false;
         }
     }
 

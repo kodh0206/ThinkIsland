@@ -10,20 +10,39 @@ public class Mg1MakePoop : MonoBehaviour
     private float poopSpeed = 5.0f;
 
     [SerializeField]
-    private float time_diff = 1.5f;
+    private float interval = 1f;
 
-    float time = 0;
 
-    void Update()
+    private float time = 0;
+    private int count = 1;
+    private bool isPoopSpawned = false;
+
+    private void Update()
     {
         time += Time.deltaTime;
-        if (time > time_diff)
+
+        if (time > interval)
+        {
+            time = 0;
+            count++;
+        }
+
+        if (count > 3)
+        {
+            count = 1;
+        }
+
+        if (count == 1 && !isPoopSpawned)
         {
             GameObject new_poop = Instantiate(poop);
             new_poop.transform.position = new Vector3(15f, -0.5590893f, 0);
             new_poop.GetComponent<Mg1Poop>().SetSpeed(poopSpeed);
-            time = 0;
             Destroy(new_poop, 10.0f);
+            isPoopSpawned = true;
+        }
+        else if (count != 1)
+        {
+            isPoopSpawned = false;
         }
     }
 

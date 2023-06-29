@@ -802,6 +802,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpPower: 10
+  isStunned: 0
   level: 1
 --- !u!1 &593591163
 GameObject:
@@ -827,13 +828,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 593591163}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 6, y: -0.43211877, z: -0.07599332}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &593591165
 MonoBehaviour:
@@ -849,7 +850,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jelly: {fileID: 6489747932364302737, guid: f41646c355b374b499c981548ff1ac51, type: 3}
   jellySpeed: 5
-  time_diff: 1.5
+  time_diff: 1.6
 --- !u!1 &771597121
 GameObject:
   m_ObjectHideFlags: 0
@@ -896,7 +897,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poop: {fileID: 6522693930463838674, guid: d9c299251013ad14ab5b0a1877a158dc, type: 3}
   poopSpeed: 5
-  time_diff: 1.5
+  interval: 1
 --- !u!1 &805261999
 GameObject:
   m_ObjectHideFlags: 0
@@ -943,7 +944,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cow: {fileID: 6489747932364302737, guid: 1c82b239a69d20c489998e0e54518a76, type: 3}
   cowSpeed: 5
-  time_diff: 1.5
+  interval: 1
 --- !u!1 &812997075
 GameObject:
   m_ObjectHideFlags: 0
@@ -1442,7 +1443,7 @@ GameObject:
   - component: {fileID: 2104702452}
   - component: {fileID: 2104702453}
   m_Layer: 0
-  m_Name: Mg1manager
+  m_Name: Mg1Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1461,7 +1462,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2104702453
 MonoBehaviour:
