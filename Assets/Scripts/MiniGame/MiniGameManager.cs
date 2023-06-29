@@ -59,16 +59,15 @@ public class MiniGameManager : MonoBehaviour
 
     private void Update()
     {
-        // 미니게임 변경 시간 간격 체크
         if (isMiniGameScene)
+    {
+        timer += Time.deltaTime;
+        if (timer >= gameChangeInterval)
         {
-            timer += Time.deltaTime;
-            if (timer >= gameChangeInterval)
-            {
-                timer = 0f;
-                StartMiniGame();
-            }
+            timer = 0f;
+            StartNextMiniGame();
         }
+    }
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -104,8 +103,10 @@ public class MiniGameManager : MonoBehaviour
 }
     public void LoadMainMenu()
     {  
-    Debug.Log("로딩완료");
+     Debug.Log("로딩완료");
     SceneManager.LoadScene("BetaScene");
+
+    isMiniGameScene = false; // 미니게임 씬이 아님을 표시
 
     // Initialize the remaining games
     remainingMiniGameScenes.Clear();
@@ -126,11 +127,10 @@ public class MiniGameManager : MonoBehaviour
     public void StartMiniGame()
     {
         // 첫 미니게임 시작
-    if (remainingMiniGameScenes.Count == 0)
+     if (remainingMiniGameScenes.Count == 0)
     {
         // 모든 미니게임을 클리어한 경우
         LoadMainMenu();
-        //SaveTotalJelly();
         return;
     }
     minigameUI.gameObject.SetActive(true);
@@ -139,6 +139,8 @@ public class MiniGameManager : MonoBehaviour
 
     SceneManager.LoadScene(nextMiniGameScene, LoadSceneMode.Single);//미니게임 로드
     currentMiniGameScene = nextMiniGameScene;
+
+    isMiniGameScene = true; // 미니게임 씬임을 표시
 
     Debug.Log("첫 미니게임 시작: " + currentMiniGameScene);
     }
