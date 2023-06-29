@@ -9,7 +9,7 @@ public class SceneController : MonoBehaviour
     public Button playButton;
     public LogoMovement logoMovement;
     public float delayBeforeLoading = 2f; // 로딩 전 대기 시간 (애니메이션이 끝나는 시간과 맞추어 설정)
-    public string sceneToLoad = "BetaScene"; // 로드할 씬의 이름
+    public string sceneToLoad = "Main"; // 로드할 씬의 이름
     public CanvasGroup fadeGroup; // 화면을 어둡게 만들 CanvasGroup
     public float fadeSpeed = 1f; // 화면이 어두워지는 속도
      

@@ -39,19 +39,15 @@ public class MiniGameManager : MonoBehaviour
 
     private void Start()
     {
-       LoadMainMenu();
-
+    LoadMainMenu();
     // Initialize the remaining games
     remainingMiniGameScenes.Clear();
-
     // Decide how many games you want to play in one session
-   
     // While we don't have selected games to play
     while (remainingMiniGameScenes.Count < gamesToPlay)
     {
         // Pick a random game
         int randomIndex = UnityEngine.Random.Range(0, miniGameScenes.Count);
-
         // If it's not already in our list, add it
         if (!remainingMiniGameScenes.Contains(miniGameScenes[randomIndex]))
         {
@@ -77,28 +73,39 @@ public class MiniGameManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-    if (scene.name == "MiniGameTrain")
+    if (scene.name == "Main")
     {
         // Beta Scene이 로드되었을 때 remainingMiniGameScenes 초기화
 
         // minigameUI.gameObject.SetActive(false); 이 코드를 삭제하고 아래 코드를 추가합니다.
-        minigameUI.enabled = false;
+    if (scene.name == "BetaScene")
+    {
+        // Beta Scene이 로드되었을 때 remainingMiniGameScenes 초기화
+        remainingMiniGameScenes.Clear();
+        remainingMiniGameScenes.AddRange(miniGameScenes);
+
+        if(minigameUI != null) 
+        {
+            minigameUI.enabled = false;
+        }
 
         isMiniGameScene = false; // 미니게임 씬이 아님을 표시
     }
     else
     {
+        if(minigameUI != null) 
+        {
+            minigameUI.enabled = true;
+        }
+
         isMiniGameScene = true; // 미니게임 씬임을 표시
-        // minigameUI.gameObject.SetActive(true); 이 코드를 삭제하고 아래 코드를 추가합니다.
-        minigameUI.enabled = true;
+        }
     }
-
-    }
-
+}
     public void LoadMainMenu()
     {  
-         Debug.Log("로딩완료");
-    SceneManager.LoadScene("MiniGameTrain");
+    Debug.Log("로딩완료");
+    SceneManager.LoadScene("BetaScene");
 
     // Initialize the remaining games
     remainingMiniGameScenes.Clear();

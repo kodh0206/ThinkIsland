@@ -45,10 +45,10 @@ public class MobileTouch : MonoBehaviour
             prePos = Input.mousePosition;
         }
         //zoom 처리
-        float scroollWheel = Input.GetAxis("Mouse ScrollWheel"); //get axis는 -1 ~ 1 까지 반환함
-        fieldOfView = fieldOfView + scroollWheel * 20;
-        fieldOfView = Mathf.Clamp(fieldOfView, 20.0f, 200.0f); // 최대는 200, 최소는 20으로 더이상 증가 혹은 감소가 되지 않도록 합니다.
-        Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, fieldOfView, Time.deltaTime * 5);  // 확대 / 축소가 갑자기 되지않도록 보간
+        //float scroollWheel = Input.GetAxis("Mouse ScrollWheel"); //get axis는 -1 ~ 1 까지 반환함
+        //fieldOfView = fieldOfView + scroollWheel * 20;
+        //fieldOfView = Mathf.Clamp(fieldOfView, 20.0f, 200.0f); // 최대는 200, 최소는 20으로 더이상 증가 혹은 감소가 되지 않도록 합니다.
+        //Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, fieldOfView, Time.deltaTime * 5);  // 확대 / 축소가 갑자기 되지않도록 보간
     }
     // 터치를 이용한 zoom in/out 및 화면 이동
     void TouchMove_Zoom()
