@@ -2,22 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Mg2JellyMove : MonoBehaviour
+public class Mg2BallMove : MonoBehaviour
 {
-    private float height = 2f; // Æ÷¹°¼±ÀÇ ³ôÀÌ
-    private float duration = 0.8f; // Æ÷¹°¼± ÀÌµ¿¿¡ °É¸®´Â ½Ã°£
+    private float height = 2f;
+    private float duration = 0.8f;
 
     private Vector2 startPoint;
     private Vector2 endPoint;
     private float elapsedTime = 0f;
     private bool isMoving = false;
 
-    public int score = 0; // Á¡¼ö º¯¼ö
+    private Mg2PlayerMove mg2PlayerMove;
+
+    public int score = 0;
 
     private void Start()
     {
+        mg2PlayerMove = GameObject.FindObjectOfType<Mg2PlayerMove>();
         startPoint = new Vector2(0f, -4f);
-        RandomizeEndPoint(); // endPoint¸¦ ·£´ýÇÏ°Ô ¼³Á¤
+        RandomizeEndPoint();
     }
 
     private void Update()
@@ -28,38 +31,31 @@ public class Mg2JellyMove : MonoBehaviour
 
             if (elapsedTime >= duration)
             {
-                // ÀÌµ¿ ¿Ï·á
                 transform.position = endPoint;
                 isMoving = false;
-
-                // endPoint¿¡ µµ´ÞÇßÀ» ¶§ 'Player' ¿ÀºêÁ§Æ®¿Í Ãæµ¹ Ã¼Å©
                 Collider2D[] colliders = Physics2D.OverlapCircleAll(endPoint, 0.5f);
                 foreach (Collider2D collider in colliders)
                 {
-                    if (collider.gameObject.CompareTag("Player"))
+                    if (collider.gameObject.CompareTag("Player") && this.gameObject.CompareTag("Obstacle"))
                     {
-                        // 'Player' ¿ÀºêÁ§Æ®¿Í Ãæµ¹ÇÑ °æ¿ì
-                        score += 1; // score º¯¼ö¿¡ 1 Ãß°¡
-                        Debug.Log("Á©¸®¸¦ ¸Ô¾ú½À´Ï´Ù. Á¡¼ö : " + score);
-
-                        // Ãæµ¹ ½Ã gameObject ºñÈ°¼ºÈ­
-                        gameObject.SetActive(false);
-
-                        break;
+                        Debug.Log("ë°©ì–´ ì„±ê³µ");
+                    }
+                    else// if (!collider.gameObject.CompareTag("Obstacle"))
+                    {
+                        mg2PlayerMove.StunPlayer();
+                        //collider.gameObject.GetComponent<Mg2PlayerMove>().GetObstacle();
+                        Debug.Log("ë°©ì–´ ì‹¤íŒ¨");
                     }
                 }
             }
             else
             {
-                // Æ÷¹°¼± ÀÌµ¿
                 float t = elapsedTime / duration;
                 Vector2 currentPos = ParabolicInterpolation(startPoint, endPoint, height, t);
                 transform.position = currentPos;
             }
         }
     }
-
-    // Æ÷¹°¼±À» ±×¸®´Â º¸°£ ÇÔ¼ö
     private Vector2 ParabolicInterpolation(Vector2 start, Vector2 end, float height, float t)
     {
         float parabolicT = Mathf.Sin(t * Mathf.PI);
@@ -68,7 +64,6 @@ public class Mg2JellyMove : MonoBehaviour
         return pos;
     }
 
-    // endPoint¸¦ ·£´ýÇÏ°Ô ¼³Á¤ÇÏ´Â ¸Þ¼­µå
     private void RandomizeEndPoint()
     {
         int randomIndex = Random.Range(0, 3);
@@ -86,11 +81,10 @@ public class Mg2JellyMove : MonoBehaviour
         }
     }
 
-    // ÀÌµ¿ ½ÃÀÛÀ» È£ÃâÇÏ´Â ¸Þ¼­µå
     public void StartMovement()
     {
         elapsedTime = 0f;
         isMoving = true;
-        RandomizeEndPoint(); // endPoint¸¦ ·£´ýÇÏ°Ô º¯°æ
+        RandomizeEndPoint();
     }
 }

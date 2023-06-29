@@ -7,7 +7,7 @@ public class Mg2ObjectManager : MonoBehaviour
     float timer;
     float waitingTime;
 
-    //private Mg2BallMove ballMove; // Mg2BallMove ��ũ��Ʈ ����
+    private Mg2BallMove ballMove; // Mg2BallMove ��ũ��Ʈ ����
     private Mg2JellyMove jellyMove; // Mg2JellyMove ��ũ��Ʈ ����
 
     public int ballArrival = 0; // ball ���� Ƚ���� ��Ÿ���� ����
@@ -18,7 +18,7 @@ public class Mg2ObjectManager : MonoBehaviour
 
     private void Start()
     {
-        //ballMove = ball.GetComponent<Mg2BallMove>();
+        ballMove = ball.GetComponent<Mg2BallMove>();
         jellyMove = jelly.GetComponent<Mg2JellyMove>();
 
         ball.SetActive(true);
@@ -36,7 +36,7 @@ public class Mg2ObjectManager : MonoBehaviour
             // ���� ���� ���� ������ 2:1�� �ǵ��� ���� (�ð�)
             if (ball.activeSelf && ballArrival < 2)
             {
-                //ballMove.StartMovement();
+                ballMove.StartMovement();
                 timer = 0;
                 ballArrival += 1;
             }
@@ -65,7 +65,7 @@ public class Mg2ObjectManager : MonoBehaviour
             {
                 timer = 0;
                 ball.SetActive(true);
-                //ballMove.StartMovement();
+                ballMove.StartMovement();
 
                 ballArrival += 1; // StartMovement() ���� �� ball ���� Ƚ�� +1
                 jellyArrival = 0; // jelly ���� Ƚ�� �ʱ�ȭ
