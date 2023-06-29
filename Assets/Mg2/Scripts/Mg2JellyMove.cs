@@ -38,7 +38,7 @@ public class Mg2JellyMove : MonoBehaviour
                     if (collider.gameObject.CompareTag("Player"))
                     {
                         score += 1;
-                        //MiniGameManager.Instance.AddJelly();
+                        MiniGameManager.Instance.AddJelly();
                         gameObject.SetActive(false);
 
                         break;
