@@ -206,7 +206,7 @@ PrefabInstance:
     - target: {fileID: 8568531993772909538, guid: cb1effd25b4147b488109dc79ce41383,
         type: 3}
       propertyPath: miniGameScenes.Array.size
-      value: 3
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 8568531993772909538, guid: cb1effd25b4147b488109dc79ce41383,
         type: 3}
@@ -216,12 +216,12 @@ PrefabInstance:
     - target: {fileID: 8568531993772909538, guid: cb1effd25b4147b488109dc79ce41383,
         type: 3}
       propertyPath: miniGameScenes.Array.data[1]
-      value: Mg4
+      value: Mg2
       objectReference: {fileID: 0}
     - target: {fileID: 8568531993772909538, guid: cb1effd25b4147b488109dc79ce41383,
         type: 3}
       propertyPath: miniGameScenes.Array.data[2]
-      value: Mg5
+      value: Mg3
       objectReference: {fileID: 0}
     - target: {fileID: 8568531993772909538, guid: cb1effd25b4147b488109dc79ce41383,
         type: 3}
@@ -232,6 +232,51 @@ PrefabInstance:
         type: 3}
       propertyPath: miniGameScenes.Array.data[4]
       value: Mg5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8568531993772909538, guid: cb1effd25b4147b488109dc79ce41383,
+        type: 3}
+      propertyPath: miniGameScenes.Array.data[5]
+      value: Mg6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8568531993772909538, guid: cb1effd25b4147b488109dc79ce41383,
+        type: 3}
+      propertyPath: miniGameScenes.Array.data[6]
+      value: Mg7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8568531993772909538, guid: cb1effd25b4147b488109dc79ce41383,
+        type: 3}
+      propertyPath: miniGameScenes.Array.data[7]
+      value: Mg8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8568531993772909538, guid: cb1effd25b4147b488109dc79ce41383,
+        type: 3}
+      propertyPath: miniGameScenes.Array.data[8]
+      value: Mg9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8568531993772909538, guid: cb1effd25b4147b488109dc79ce41383,
+        type: 3}
+      propertyPath: miniGameScenes.Array.data[9]
+      value: Mg10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8568531993772909538, guid: cb1effd25b4147b488109dc79ce41383,
+        type: 3}
+      propertyPath: miniGameScenes.Array.data[10]
+      value: Mg11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8568531993772909538, guid: cb1effd25b4147b488109dc79ce41383,
+        type: 3}
+      propertyPath: miniGameScenes.Array.data[11]
+      value: Mg12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8568531993772909538, guid: cb1effd25b4147b488109dc79ce41383,
+        type: 3}
+      propertyPath: miniGameScenes.Array.data[12]
+      value: Mg13
+      objectReference: {fileID: 0}
+    - target: {fileID: 8568531993772909538, guid: cb1effd25b4147b488109dc79ce41383,
+        type: 3}
+      propertyPath: miniGameScenes.Array.data[13]
+      value: Mg14
       objectReference: {fileID: 0}
     - target: {fileID: 8568531993772909539, guid: cb1effd25b4147b488109dc79ce41383,
         type: 3}

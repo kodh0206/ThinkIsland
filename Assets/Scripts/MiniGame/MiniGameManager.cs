@@ -12,12 +12,13 @@ public class MiniGameManager : MonoBehaviour
     public bool minigameUIActive;
     [SerializeField] private List<string> miniGameScenes = new List<string>();
     private string currentMiniGameScene;
-    private List<string> remainingMiniGameScenes = new List<string>();
+    public List<string> remainingMiniGameScenes = new List<string>();
 
     private float gameChangeInterval = 10f; // 미니게임 변경 간격
     private float timer = 0f;
     public int totalJelly; //먹은 젤리의 갯수 
 
+    private int gamesToPlay=5;
     private bool isMiniGameScene = false; // 현재 씬이 미니게임 씬인지 여부를 확인하기 위한 플래그
 
     private void Awake()
@@ -38,7 +39,25 @@ public class MiniGameManager : MonoBehaviour
 
     private void Start()
     {
-        LoadMainMenu();
+       LoadMainMenu();
+
+    // Initialize the remaining games
+    remainingMiniGameScenes.Clear();
+
+    // Decide how many games you want to play in one session
+   
+    // While we don't have selected games to play
+    while (remainingMiniGameScenes.Count < gamesToPlay)
+    {
+        // Pick a random game
+        int randomIndex = UnityEngine.Random.Range(0, miniGameScenes.Count);
+
+        // If it's not already in our list, add it
+        if (!remainingMiniGameScenes.Contains(miniGameScenes[randomIndex]))
+        {
+            remainingMiniGameScenes.Add(miniGameScenes[randomIndex]);
+        }
+    }
         
     }
 
@@ -58,11 +77,9 @@ public class MiniGameManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-    if (scene.name == "MiniGameTrain")  
+    if (scene.name == "MiniGameTrain")
     {
         // Beta Scene이 로드되었을 때 remainingMiniGameScenes 초기화
-        remainingMiniGameScenes.Clear();
-        remainingMiniGameScenes.AddRange(miniGameScenes);
 
         // minigameUI.gameObject.SetActive(false); 이 코드를 삭제하고 아래 코드를 추가합니다.
         minigameUI.enabled = false;
@@ -80,8 +97,24 @@ public class MiniGameManager : MonoBehaviour
 
     public void LoadMainMenu()
     {  
-        Debug.Log("로딩완료");
-        SceneManager.LoadScene("MiniGameTrain");
+         Debug.Log("로딩완료");
+    SceneManager.LoadScene("MiniGameTrain");
+
+    // Initialize the remaining games
+    remainingMiniGameScenes.Clear();
+
+    // While we don't have selected games to play
+    while (remainingMiniGameScenes.Count < gamesToPlay)
+    {
+        // Pick a random game
+        int randomIndex = UnityEngine.Random.Range(0, miniGameScenes.Count);
+
+        // If it's not already in our list, add it
+        if (!remainingMiniGameScenes.Contains(miniGameScenes[randomIndex]))
+        {
+            remainingMiniGameScenes.Add(miniGameScenes[randomIndex]);
+        }
+    }
     }
     public void StartMiniGame()
     {
