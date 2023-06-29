@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/GameScene/BetaScene.unity
     guid: e176ef4c1ffb8934ebf7e7728f2fe5b2
   - enabled: 1
-    path: Assets/Scenes/MiniGames/Mg1.unity
+    path: Assets/Scenes/MiniGames/Mg1_del.unity
     guid: bc480765b35942743995f2730d6f2f7b
   - enabled: 1
     path: Assets/Scenes/MiniGames/Mg2.unity

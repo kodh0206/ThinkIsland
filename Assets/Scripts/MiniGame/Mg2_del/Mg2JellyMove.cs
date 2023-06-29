@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class Mg2JellyMove : MonoBehaviour
 {
-    private Mg2ObjectManager objectManager; // Mg2ObjectManager 스크립트 참조
-
     private float height = 2f; // 포물선의 높이
-    private float duration = 1f; // 포물선 이동에 걸리는 시간
+    private float duration = 0.8f; // 포물선 이동에 걸리는 시간
 
     private Vector2 startPoint;
     private Vector2 endPoint;
@@ -18,11 +16,8 @@ public class Mg2JellyMove : MonoBehaviour
 
     private void Start()
     {
-        objectManager = FindObjectOfType<Mg2ObjectManager>(); // Mg2ObjectManager 스크립트를 찾아 할당
-
         startPoint = new Vector2(0f, -4f);
         RandomizeEndPoint(); // endPoint를 랜덤하게 설정
-        InvokeRepeating("StartMovement", 0f, 1.5f); // 1.5초마다 StartMovement() 실행
     }
 
     private void Update()
@@ -45,7 +40,12 @@ public class Mg2JellyMove : MonoBehaviour
                     {
                         // 'Player' 오브젝트와 충돌한 경우
                         score += 1; // score 변수에 1 추가
-                        Debug.Log("Player와 충돌! 현재 스코어: " + score);
+                        Debug.Log("젤리를 먹었습니다. 점수 : " + score);
+
+                        // 충돌 시 gameObject 비활성화
+                        gameObject.SetActive(false);
+
+                        break;
                     }
                 }
             }
@@ -92,6 +92,5 @@ public class Mg2JellyMove : MonoBehaviour
         elapsedTime = 0f;
         isMoving = true;
         RandomizeEndPoint(); // endPoint를 랜덤하게 변경
-        objectManager.jellyArrival += 1; //Mg2ObjectManager의 jellyArrival 변수 증가
     }
 }

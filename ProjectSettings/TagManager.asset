@@ -7,14 +7,21 @@ TagManager:
   - Ground
   - cow
   - Manager
+  - poop
+  - jelly
+  - poop2
+  - obstacle
+  - egg
+  - Obstacle
+  - Rock
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
-  - 
+  - Player
   - 
   - 
   - 
