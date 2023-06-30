@@ -29,7 +29,7 @@ public class VegetableItem : MonoBehaviour
     {
         
         priceTxt.text = "$" + plant.purchasePrice;
-        icon.sprite = plant.growProgressSprites[3];
+        icon.sprite = plant.storeIcons;
         //selectionIndicator.enabled = false; // Start with selection indicator off
     }
 

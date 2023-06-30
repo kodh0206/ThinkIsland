@@ -215,7 +215,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   plant: {fileID: 0}
   priceTxt: {fileID: 8760764839971751264}
-  icon: {fileID: 0}
+  icon: {fileID: 8760764839702229104}
   selectionIndicator: {fileID: 0}
   buybutton: {fileID: 8760764839702229111}
   fm: {fileID: 0}
