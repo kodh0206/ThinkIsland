@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class Mg12Spawner : MonoBehaviour
 {
-    public GameObject Mg12shell;
+    public GameObject[] Mg12shell; // 0, 1, 2, 3
+    
 
     [SerializeField]
-    private float Mg12shellSpeed = 5.0f; // »ý¼º¹°ÀÇ ÃÊ±â ½ºÇÇµå
+    private float Mg12shellSpeed = 5.0f; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½ ï¿½ï¿½ï¿½Çµï¿½
 
     [SerializeField]
-    private float time_diff = 1.5f; // Àå¾Ö¹° »ý¼º °£°Ý
+    private float time_diff = 1.5f; // ï¿½ï¿½Ö¹ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     [SerializeField]
-    private int minNumObstaclesToSpawn = 1; // ÃÖ¼Ò »ý¼º Àå¾Ö¹° °³¼ö
+    private int minNumObstaclesToSpawn = 1; // ï¿½Ö¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ö¹ï¿½ ï¿½ï¿½ï¿½ï¿½
     [SerializeField]
-    private int maxNumObstaclesToSpawn = 3; // ÃÖ´ë »ý¼º Àå¾Ö¹° °³¼ö
+    private int maxNumObstaclesToSpawn = 3; // ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ö¹ï¿½ ï¿½ï¿½ï¿½ï¿½
 
     float time = 0;
 
@@ -34,13 +35,14 @@ public class Mg12Spawner : MonoBehaviour
 
             for (int i = 0; i < numObstaclesToSpawn; i++)
             {
-                GameObject new_Mg12shell = Instantiate(Mg12shell);
+                int index = Random.Range(0, Mg12shell.Length);
+                GameObject new_Mg12shell = Instantiate(Mg12shell[index]);
 
-                // ÁÂÇ¥¸¦ ·£´ýÇÏ°Ô ¼±ÅÃÇÏ¿© ¼³Á¤
+                // ï¿½ï¿½Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½
                 Vector2 spawnPosition = new Vector2(9.4f, Random.Range(-1.6f, 6.0f));
                 new_Mg12shell.transform.position = spawnPosition;
 
-                new_Mg12shell.GetComponent<Mg12shell>().SetSpeed(Mg12shellSpeed); // Àå¾Ö¹°ÀÇ ½ºÇÇµå ¼³Á¤
+                new_Mg12shell.GetComponent<Mg12shell>().SetSpeed(Mg12shellSpeed); // ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Çµï¿½ ï¿½ï¿½ï¿½ï¿½
                 Destroy(new_Mg12shell, 5.0f);
             }
 
@@ -50,7 +52,7 @@ public class Mg12Spawner : MonoBehaviour
 
     public void IncreaseSpeed()
     {
-        Mg12shellSpeed += 2.0f; // Àå¾Ö¹°ÀÇ ½ºÇÇµå Áõ°¡
-        time_diff -= 0.1f; // Àå¾Ö¹°ÀÇ »ý¼º °£°Ý °¨¼Ò
+        Mg12shellSpeed += 2.0f; // ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Çµï¿½ ï¿½ï¿½ï¿½ï¿½
+        time_diff -= 0.1f; // ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     }
 }

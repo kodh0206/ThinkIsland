@@ -43,36 +43,36 @@ public class Mg12Player : MonoBehaviour
 
     public void GetHit()
     {
-        // ¿òÁ÷ÀÓ ¸ØÃã
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         rb.velocity = Vector2.zero;
 
-        // ºñµ¿±â Ã³¸® ½ÃÀÛ
+        // ï¿½ñµ¿±ï¿½ Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         StartCoroutine(DisableControlAndResetColor());
     }
 
     private IEnumerator DisableControlAndResetColor()
     {
-        // Á¶ÀÛ ºñÈ°¼ºÈ­
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È°ï¿½ï¿½È­
         enabled = false;
 
-        // »ö»ó º¯°æ
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
         if (spriteRenderer != null)
         {
             spriteRenderer.color = new Color(0.77f, 0.52f, 0f);
         }
 
-        // 2ÃÊ°£ ´ë±â
+        // 2ï¿½Ê°ï¿½ ï¿½ï¿½ï¿½
         yield return new WaitForSeconds(2f);
 
-        // Á¶ÀÛ È°¼ºÈ­
+        // ï¿½ï¿½ï¿½ï¿½ È°ï¿½ï¿½È­
         enabled = true;
 
-        // 1ÃÊ°£ poop ¿µÇâ ¹ÞÁö ¾ÊÀ½
+        // 1ï¿½Ê°ï¿½ poop ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         yield return new WaitForSeconds(1f);
 
-        // »ö»ó ¿ø·¡´ë·Î º¹±¸
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         if (spriteRenderer != null)
         {
             spriteRenderer.color = Color.white;
