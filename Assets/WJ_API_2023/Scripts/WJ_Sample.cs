@@ -20,13 +20,14 @@ public class WJ_Sample : MonoBehaviour
     [SerializeField] TEXDraw   textDescription;        //���� ���� �ؽ�Ʈ
     [SerializeField] TEXDraw   textEquation;           //���� �ؽ�Ʈ(��TextDraw�� ���� �ʿ�)
     [SerializeField] Button[]           btAnsr = new Button[4]; //���� ��ư��
+    [SerializeField] Text Level; //레벨 
     TEXDraw[]                textAnsr;                  //���� ��ư�� �ؽ�Ʈ(��TextDraw�� ���� �ʿ�)
 
     [Header("Status")]
     int     currentQuestionIndex;
     bool    isSolvingQuestion;
     float   questionSolveTime;
-
+    int currentLevel;
     [Header("For Debug")]
     [SerializeField] WJ_DisplayText     wj_displayText;         //�ؽ�Ʈ ǥ�ÿ�(�ʼ�X)
     [SerializeField] Button             getLearningButton;      //���� �޾ƿ��� ��ư
@@ -39,14 +40,13 @@ public class WJ_Sample : MonoBehaviour
             textAnsr[i] = btAnsr[i].GetComponentInChildren<TEXDraw>();
 
         wj_displayText.SetState("�����", "", "", "");
-    
+        //PlayerPrefs.DeleteAll();
       
     }
 
     private void OnEnable()
     {   Debug.Log("현재상태"+currentStatus);
         Setup();
-        
     }
 
     private void Setup()
@@ -199,7 +199,7 @@ public class WJ_Sample : MonoBehaviour
 
                 wj_displayText.SetState("����Ǯ�� ��", textAnsr[_idx].text, ansrCwYn, questionSolveTime + " ��");
 
-                if (currentQuestionIndex >= 2) 
+                if (currentQuestionIndex >= 8) 
                 {
                     panel_question.SetActive(false);
                     wj_displayText.SetState("����Ǯ�� �Ϸ�", "", "", "");
@@ -223,6 +223,7 @@ public class WJ_Sample : MonoBehaviour
     {
         currentStatus = CurrentStatus.DIAGNOSIS;
         wj_conn.FirstRun_Diagnosis(a);
+        Level.text ="LV"+a.ToString();
     }
     public void ButtonEvent_GetLearning()
     {

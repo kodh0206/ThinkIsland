@@ -20,7 +20,9 @@ public class MiniGameManager : MonoBehaviour
 
     private int gamesToPlay=5;
     private bool isMiniGameScene = false; // 현재 씬이 미니게임 씬인지 여부를 확인하기 위한 플래그
-
+    private float deltaTime = 0.0f;
+private float fpsUpdateInterval = 1.0f;
+private float fpsNextUpdate = 0.0f;
     private void Awake()
     {
         if (_instance != null && _instance != this)
@@ -33,7 +35,7 @@ public class MiniGameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         SceneManager.sceneLoaded += OnSceneLoaded;
-        
+        Application.targetFrameRate = 60; //frame rate 설정
         //LoadTotalJelly();
     }
 
@@ -67,6 +69,15 @@ public class MiniGameManager : MonoBehaviour
             timer = 0f;
             StartNextMiniGame();
         }
+    }
+
+    deltaTime += (Time.unscaledDeltaTime - deltaTime) * 0.1f;
+    float fps = 1.0f / deltaTime;
+
+    if (Time.unscaledTime > fpsNextUpdate)
+    {
+        fpsNextUpdate = Time.unscaledTime + fpsUpdateInterval;
+        Debug.Log("FPS: " + fps);
     }
     }
 
