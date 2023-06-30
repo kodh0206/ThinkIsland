@@ -5,7 +5,6 @@ using UnityEngine;
 public class Mg2JellyMove : MonoBehaviour
 {
 
-    //MiniGameManager miniGameManager;
     private float height = 2f;
     private float duration = 0.8f;
 
