@@ -17,6 +17,8 @@ public class WJ_Connector : MonoBehaviour
     public string strDeviceNm;     //����̽� �̸�
     public string strOsScnCd;      //OS
     public string strGameVer;      //���� ����
+
+    public string level;
     public bool isPassed; //진단평가 통과여부
     #region StoredData
     [HideInInspector]
@@ -143,7 +145,7 @@ public class WJ_Connector : MonoBehaviour
         request.ansrCwYn = _ansrCwYn;//"Y"; // ���� ����
         request.sid = _sid;                 // ���� ID
         request.slvTime = _nQstDelayTime;//5000;
-
+        
         yield return StartCoroutine(UWR_Post<Request_DN_Progress, DN_Response>(request, "https://prd-brs-relay-model.mathpid.com/api/v1/contest/diagnosis/progress", true));
 
         onGetDiagnosis.Invoke();

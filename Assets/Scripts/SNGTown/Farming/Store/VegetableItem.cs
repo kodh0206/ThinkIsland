@@ -8,7 +8,6 @@ public class VegetableItem : MonoBehaviour
 {
     public CropData plant;
 
-    public TMP_Text nameTxt;
     public TMP_Text priceTxt;
     public Image icon;
     public Image selectionIndicator; // New UI element to show selection
@@ -28,7 +27,7 @@ public class VegetableItem : MonoBehaviour
 
     void InitializeUI()
     {
-        nameTxt.text = plant.plantName;
+        
         priceTxt.text = "$" + plant.purchasePrice;
         icon.sprite = plant.growProgressSprites[3];
         //selectionIndicator.enabled = false; // Start with selection indicator off
