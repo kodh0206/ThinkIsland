@@ -9,6 +9,7 @@ public class BetaManager : MonoBehaviour
     MiniGameManager miniGame;
     public Button exit;
 
+    public Button RadioButton;
     void Awake()
     {
         miniGame =GameObject.Find("MiniGameManager").GetComponent<MiniGameManager>();
@@ -18,9 +19,12 @@ public class BetaManager : MonoBehaviour
     {
         play1.onClick.AddListener(miniGame.StartMiniGame);
         exit.onClick.AddListener(ExitGame);
+        RadioButton.onClick.AddListener(gotoRadio);
     }   
-    void gotoGame1()
-    {   
+    
+    void gotoRadio()
+    {
+        SceneManager.LoadScene("RadioScene");
     }
 
   
