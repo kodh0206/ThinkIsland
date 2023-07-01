@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using WjChallenge;
 using TexDrawLib;
-
+using UnityEngine.SceneManagement;
 
 public enum CurrentStatus { WAITING, DIAGNOSIS, LEARNING }
 public class WJ_Sample : MonoBehaviour
@@ -21,6 +21,7 @@ public class WJ_Sample : MonoBehaviour
     [SerializeField] TEXDraw   textEquation;           //���� �ؽ�Ʈ(��TextDraw�� ���� �ʿ�)
     [SerializeField] Button[]           btAnsr = new Button[4]; //���� ��ư��
     [SerializeField] Text Level; //레벨 
+    [SerializeField] Button quitButton; //홈메뉴 가는 버튼 
     TEXDraw[]                textAnsr;                  //���� ��ư�� �ؽ�Ʈ(��TextDraw�� ���� �ʿ�)
 
     [Header("Status")]
@@ -41,7 +42,16 @@ public class WJ_Sample : MonoBehaviour
 
         wj_displayText.SetState("�����", "", "", "");
         //PlayerPrefs.DeleteAll();
-      
+
+        string savedToken = PlayerPrefs.GetString("strAuthorization",string.Empty);
+        if (!string.IsNullOrEmpty(savedToken))
+        {
+            currentStatus = CurrentStatus.LEARNING;
+            //getLearningButton.interactable = true;
+        }
+
+        quitButton.onClick.AddListener(GoBackToMainMenu);
+       
     }
 
     private void OnEnable()
@@ -210,7 +220,10 @@ public class WJ_Sample : MonoBehaviour
                 break;
         }
     }
-
+    void GoBackToMainMenu()
+    {
+        SceneManager.LoadScene("BetaScene");
+    }
     public void DisplayCurrentState(string state, string myAnswer, string isCorrect, string svTime)
     {
         if (wj_displayText == null) return;
@@ -228,7 +241,7 @@ public class WJ_Sample : MonoBehaviour
     public void ButtonEvent_GetLearning()
     {
         wj_conn.Learning_GetQuestion();
-        wj_displayText.SetState("����Ǯ�� ��", "-", "-", "-");
+        wj_displayText.SetState("문제받기~", "-", "-", "-");
     }
     #endregion
 }
