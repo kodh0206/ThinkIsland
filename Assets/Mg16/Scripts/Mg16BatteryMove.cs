@@ -38,11 +38,11 @@ public class Mg16BatteryMove : MonoBehaviour
         }
     }
 
-    public void IncreaseSpeed()
+    /*public void IncreaseSpeed()
     {
         batterySpeed += 2.0f;
         time_diff -= 0.1f;
-    }
+    }*/
 
 /*
     public void GetHit()
