@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7920273609820697290}
   - component: {fileID: 7920273609820697289}
   - component: {fileID: 982333834122923134}
+  - component: {fileID: 3377294226435577528}
   m_Layer: 0
   m_Name: Mg16Battery
   m_TagString: Rock
@@ -76,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -760125084, guid: 68ece833a6011cf49b345dabaebf739a, type: 3}
+  m_Sprite: {fileID: -815594598, guid: 11656aa966d997542a3b3c7096999fdc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -125,7 +126,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.875, y: 0.875}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -146,7 +147,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9af6a836c90c5744bad248e54d81d6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   player: {fileID: 0}
   batterySpeed: 2
+  positionPlayer: 0
   minY: -3.5
-  maxY: 2.5
+  topY: 3.5
+  topArrived: 0
+  maxY: 1.7
+--- !u!95 &3377294226435577528
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7920273609820697293}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5d834d24bb7f7f34581cddfddc07b294, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

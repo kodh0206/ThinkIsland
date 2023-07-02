@@ -14,7 +14,7 @@ public class Mg16Fish : MonoBehaviour
 
     // y값이 -3.5에서 2.5로 일직선 이동
     public float minY = -3.5f;
-    public float maxY = 2.5f;
+    public float maxY = 1.7f;
     // x값 랜덤
     private float randomX;
 

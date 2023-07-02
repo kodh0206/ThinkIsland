@@ -41,6 +41,7 @@ public class Mg16Manager : MonoBehaviour
         mg16Jelly = FindObjectOfType<Mg16Jelly>();
         // 배터리만 활성화, object 비활성화
         battery.SetActive(true);
+        //battery.transform.position = new Vector2(playerPositionScript.positionPlayer, maxY);
         fish1.SetActive(false);
         fish2.SetActive(false);
         jelly.SetActive(false);

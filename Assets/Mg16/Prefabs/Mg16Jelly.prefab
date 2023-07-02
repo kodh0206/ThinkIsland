@@ -158,6 +158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e2e536d34166d24d85e25ee88a4ca95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   jellySpeed: 2
   minY: -3.5
-  maxY: 2.5
+  maxY: 1.7
