@@ -189,6 +189,7 @@ public void StartNextMiniGame()
 public void AddJelly()
 {
     totalJelly += 1;
+    GameController.Instance.currentjellyCount +=1;
     minigameUI.GetComponent<MIniGameUI>().UpdateJellyText();  // UI 업데이트
       // 변경된 젤리 수 저장
 }
