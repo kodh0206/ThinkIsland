@@ -53,7 +53,6 @@ public class Mg12Player : MonoBehaviour
         if (mg12RockSpawner.rockThrow)
         {
             anim.SetTrigger("Shoot");
-            Debug.Log(".");
         }
 
     }

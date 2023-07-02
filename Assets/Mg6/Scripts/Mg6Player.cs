@@ -5,24 +5,26 @@ using UnityEngine;
 public class Mg6Player : MonoBehaviour
 {
     [SerializeField]
-    private float jumpForce = 3.0f; // ÃÊ±â Á¡ÇÁ Èû
+    private float jumpForce = 3.0f; // ï¿½Ê±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
     [SerializeField]
-    private float maxJumpForce = 15.0f; // ÃÖ´ë Á¡ÇÁ Èû
+    private float maxJumpForce = 15.0f; // ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
     [SerializeField]
-    private float jumpForceIncrement = 5.0f; // Á¡ÇÁ Èû Áõ°¡·®
+    private float jumpForceIncrement = 5.0f; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
     [SerializeField]
     public int level=1;
 
-    private bool isJumping = false; // Á¡ÇÁ ÁßÀÎÁö ¿©ºÎ Ã¼Å©
+    private bool isJumping = false; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã¼Å©
     private bool nowJumping = false;
-    private float currentJumpForce = 0.0f; // ÇöÀç Á¡ÇÁ Èû
+    private float currentJumpForce = 0.0f; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 
     private Rigidbody2D rb;
+    Animator anim;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
     private void Update()
@@ -31,11 +33,14 @@ public class Mg6Player : MonoBehaviour
         {
             isJumping = true;
             currentJumpForce = jumpForce;
+            anim.SetBool("isSitting", true);
         }
         else if (Input.GetKey(KeyCode.Space) && isJumping )
         {
             currentJumpForce += jumpForceIncrement * Time.deltaTime;
             currentJumpForce = Mathf.Clamp(currentJumpForce, 0.0f, maxJumpForce);
+
+            // ìŠ¤í”„ë¼ì´íŠ¸ ì ì‹œ ë°”ê¾¸ê¸°
         }
 
         if (Input.GetKeyUp(KeyCode.Space) && isJumping && !nowJumping)
@@ -49,6 +54,7 @@ public class Mg6Player : MonoBehaviour
     private void Jump()
     {
         rb.velocity = new Vector2(rb.velocity.x, currentJumpForce);
+        anim.SetBool("isJumping", true);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -56,6 +62,15 @@ public class Mg6Player : MonoBehaviour
         if (other.gameObject.tag == "Ground")
         {
             nowJumping = false;
+            anim.SetBool("isJumping", false);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+         if (other.CompareTag("Ground"))
+        {
+            anim.SetBool("isSitting", false);
         }
     }
 
@@ -66,26 +81,26 @@ public class Mg6Player : MonoBehaviour
 
     private IEnumerator DisableControlAndResetColor()
     {
-        // Á¶ÀÛ ºñÈ°¼ºÈ­
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È°ï¿½ï¿½È­
         enabled = false;
 
-        // »ö»ó º¯°æ
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
         if (spriteRenderer != null)
         {
             spriteRenderer.color = new Color(0.77f, 0.52f, 0f);
         }
 
-        // 2ÃÊ°£ ´ë±â
+        // 2ï¿½Ê°ï¿½ ï¿½ï¿½ï¿½
         yield return new WaitForSeconds(2f);
 
-        // Á¶ÀÛ È°¼ºÈ­
+        // ï¿½ï¿½ï¿½ï¿½ È°ï¿½ï¿½È­
         enabled = true;
 
-        // 1ÃÊ°£ poop ¿µÇâ ¹ŞÁö ¾ÊÀ½
+        // 1ï¿½Ê°ï¿½ poop ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         yield return new WaitForSeconds(1f);
 
-        // »ö»ó ¿ø·¡´ë·Î º¹±¸
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         if (spriteRenderer != null)
         {
             spriteRenderer.color = Color.white;
