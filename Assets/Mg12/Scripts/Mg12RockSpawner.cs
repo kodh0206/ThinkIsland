@@ -17,10 +17,13 @@ public class Mg12RockSpawner : MonoBehaviour
 
     float time = 0;
 
-    // Start is called before the first frame update
-    void Start()
-    {
+    // 애니메이션
+    public bool rockThrow = false;
 
+    // Start is called before the first frame update
+    void Awake()
+    {
+        
     }
 
     // Update is called once per frame
@@ -30,6 +33,7 @@ public class Mg12RockSpawner : MonoBehaviour
         if (time > time_diff)
         {
             GameObject new_Rock = Instantiate(Rock);
+            rockThrow = true;
 
             // ��ǥ�� �����ϰ� �����Ͽ� ����
             Vector2 spawnPosition = new Vector2(player.position.x , player.position.y); //�÷��̾ �������� ����

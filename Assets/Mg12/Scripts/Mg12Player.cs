@@ -5,6 +5,9 @@ using UnityEngine;
 public class Mg12Player : MonoBehaviour
 {
     Rigidbody2D rigidbody2D;
+    Animator anim;
+
+    Mg12RockSpawner mg12RockSpawner;
   
     [SerializeField]
     private float moveSpeed = 5f;
@@ -18,7 +21,11 @@ public class Mg12Player : MonoBehaviour
     void Start()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
-
+        mg12RockSpawner = FindObjectOfType<Mg12RockSpawner>();
+    }
+    private void Awake()
+    {
+        anim = GetComponent<Animator>();
     }
 
     void Update()
@@ -41,6 +48,12 @@ public class Mg12Player : MonoBehaviour
         else if (moveDown)
         {
             transform.position += Vector3.down * moveSpeed * Time.deltaTime;
+        }
+
+        if (mg12RockSpawner.rockThrow)
+        {
+            anim.SetTrigger("Shoot");
+            Debug.Log(".");
         }
 
     }
