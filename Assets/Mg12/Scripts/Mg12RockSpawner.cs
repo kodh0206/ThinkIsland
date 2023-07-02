@@ -7,9 +7,11 @@ public class Mg12RockSpawner : MonoBehaviour
     public GameObject Rock;
 
     public Transform player;
+    public Mg12Player playerScript; // Mg12Player ìŠ¤í¬ë¦½íŠ¸ë¥¼ ì°¸ì¡°í•˜ëŠ” ë³€ìˆ˜ë¥¼ ì¶”ê°€í•©ë‹ˆë‹¤.
+
 
     [SerializeField]
-    private float RockSpeed = 5.0f; // ¹ÙÀ§ÀÇ ÃÊ±â ½ºÇÇµå
+    private float RockSpeed = 5.0f; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½ ï¿½ï¿½ï¿½Çµï¿½
 
     [SerializeField]
     private float time_diff = 1.5f;
@@ -30,22 +32,27 @@ public class Mg12RockSpawner : MonoBehaviour
         {
             GameObject new_Rock = Instantiate(Rock);
 
-            // ÁÂÇ¥¸¦ ·£´ıÇÏ°Ô ¼±ÅÃÇÏ¿© ¼³Á¤
-            Vector2 spawnPosition = new Vector2(player.position.x , player.position.y); //ÇÃ·¹ÀÌ¾î¸¦ ±âÁØÀ¸·Î »ı¼º
+            // ï¿½ï¿½Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½
+            Vector2 spawnPosition = new Vector2(player.position.x , player.position.y); //ï¿½Ã·ï¿½ï¿½Ì¾î¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             new_Rock.transform.position = spawnPosition;
 
-
-
-            new_Rock.GetComponent<Mg12Rock>().SetSpeed(RockSpeed); // Á©¸®ÀÇ ½ºÇÇµå ¼³Á¤
+            
+            
+            new_Rock.GetComponent<Mg12Rock>().SetSpeed(RockSpeed); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Çµï¿½ ï¿½ï¿½ï¿½ï¿½
             time = 0;
+            
             Destroy(new_Rock, 5.0f);
+            playerScript.PlayShootAnimation(); // Mg12player ê°€ì„œ ëŒì´ ë°œì‚¬
+            
+
+
         }
     }
 
     public void IncreaseSpeed()
     {
-        RockSpeed += 2.0f; // ¹ÙÀ§ÀÇ ½ºÇÇµå Áõ°¡
-        time_diff -= 0.1f; // ¹ÙÀ§ÀÇ »ı¼º °£°İ °¨¼Ò
+        RockSpeed += 2.0f; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Çµï¿½ ï¿½ï¿½ï¿½ï¿½
+        time_diff -= 0.1f; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     }
 
     public void GetHit()
@@ -55,13 +62,13 @@ public class Mg12RockSpawner : MonoBehaviour
 
     private IEnumerator DisableSpawning()
     {
-        // »ı¼º ¸ØÃã
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         time_diff = Mathf.Infinity;
 
-        // ´ë±â ½Ã°£
+        // ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½
         yield return new WaitForSeconds(2f);
 
-        // »ı¼º Àç°³
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ç°³
         time_diff = 1.5f;
     }
 }
