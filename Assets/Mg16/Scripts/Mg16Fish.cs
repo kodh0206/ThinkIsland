@@ -18,6 +18,8 @@ public class Mg16Fish : MonoBehaviour
     // x값 랜덤
     private float randomX;
 
+    public bool playerIsTrigger = false;
+
     private void Start()
     {
         // Mg16manager 인스턴스 할당
@@ -39,6 +41,12 @@ public class Mg16Fish : MonoBehaviour
             // 1.5초 후 battery 비활성화 (함수 호출)
             Invoke("FishSetActiveFalse", 1.5f);
         }
+
+        if (playerIsTrigger)
+        {
+            Time.timeScale = 0;
+            StartCoroutine(InvokeStunAndResetTrigger());
+        }
     }
 
     public void FishSetActiveFalse()
@@ -49,22 +57,29 @@ public class Mg16Fish : MonoBehaviour
         transform.position = new Vector2(randomX, minY);
     }
 
-/*
-    private void FishMovement()
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        isMoving = true;
-        randomX = Random.Range(-9.5f, 9.5f);
-        transform.position = new Vector2(randomX, minY);
-    }*/
-
-    /*private void OnTriggerEnter2D(Collider2D other)
-    {
-        Debug.Log("Trigger 발생");
         if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("플레이어와 충돌");
-            gameObject.SetActive(false);
-            //Destroy(gameObject);
+            playerIsTrigger = true;
         }
-    }*/
+    }
+
+    private void StunAndResetTrigger()
+    {
+        Stun();
+        playerIsTrigger = false;
+    }
+
+    public void Stun()
+    {
+        Debug.Log("Stun");
+        Time.timeScale = 1;
+    }
+    private IEnumerator InvokeStunAndResetTrigger()
+    {
+        yield return new WaitForSecondsRealtime(1f);
+        StunAndResetTrigger();
+        Time.timeScale = 1;
+    }
 }

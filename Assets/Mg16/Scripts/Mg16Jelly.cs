@@ -49,13 +49,6 @@ public class Mg16Jelly : MonoBehaviour
         randomX = Random.Range(-9.5f, 9.5f);
         transform.position = new Vector2(randomX, minY);
         manager.jellyIsArrived = true;
-        
-        /*if (manager.jellyIsMoving == true)
-        {
-            gameObject.SetActive(false);
-            randomX = Random.Range(-9.5f, 9.5f);
-            transform.position = new Vector2(randomX, minY);
-        }*/
     }
 
     private void OnTriggerEnter2D(Collider2D other)
