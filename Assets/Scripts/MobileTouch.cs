@@ -12,6 +12,8 @@ public class MobileTouch : MonoBehaviour
     float touchPrevDist;
     float dragSpeed = 30.0f;
 
+    public Vector2 minPos = new Vector2(-10, -10);
+    public Vector2 maxPos = new Vector2(10, 10);
     public float scrollSpeed = 2000.0f;
 
     void LateUpdate()
@@ -34,22 +36,24 @@ public class MobileTouch : MonoBehaviour
     }
 
     void MouseMove_Zoom()
+{
+    if (Input.GetMouseButtonDown(0)) prePos = Input.mousePosition;
+    if (Input.GetMouseButton(0))
     {
-        // move 처리
-        if (Input.GetMouseButtonDown(0)) prePos = Input.mousePosition;
-        if (Input.GetMouseButton(0))
-        {
-            curPos = Input.mousePosition;
-            movePosDiff = (Vector2)(prePos - curPos) * Time.deltaTime;
-            Camera.main.transform.position -= new Vector3(movePosDiff.x, 0, movePosDiff.y);
-            prePos = Input.mousePosition;
-        }
-        //zoom 처리
-        //float scroollWheel = Input.GetAxis("Mouse ScrollWheel"); //get axis는 -1 ~ 1 까지 반환함
-        //fieldOfView = fieldOfView + scroollWheel * 20;
-        //fieldOfView = Mathf.Clamp(fieldOfView, 20.0f, 200.0f); // 최대는 200, 최소는 20으로 더이상 증가 혹은 감소가 되지 않도록 합니다.
-        //Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, fieldOfView, Time.deltaTime * 5);  // 확대 / 축소가 갑자기 되지않도록 보간
+        curPos = Input.mousePosition;
+        movePosDiff = (Vector2)(prePos - curPos) * Time.deltaTime;
+        
+        Vector3 newPosition = Camera.main.transform.position - new Vector3(movePosDiff.x, movePosDiff.y, 0);
+        newPosition.x = Mathf.Clamp(newPosition.x, 0, 15);  // x 범위 제한
+        newPosition.y = Mathf.Clamp(newPosition.y, -13, 0);  // y 범위 제한
+        newPosition.z = Mathf.Clamp(newPosition.z, -20, 20);  // z 범위 제한
+        
+        Camera.main.transform.position = newPosition;
+        
+        prePos = Input.mousePosition;
     }
+}
+
     // 터치를 이용한 zoom in/out 및 화면 이동
     void TouchMove_Zoom()
     {
@@ -67,17 +71,25 @@ public class MobileTouch : MonoBehaviour
             touchDistanceOld = touchDistance;
         }
         //움직이기위한 기타 터치 처리
-        else if (Input.touchCount == 1)
+       else if (Input.touchCount == 1)
+    {
+        Touch touch = Input.GetTouch(0);
+        if (touch.phase == TouchPhase.Began)
         {
-            Touch touch = Input.GetTouch(0);
-            if (touch.phase == TouchPhase.Began)
-            {
-                prePos = touch.position - touch.deltaPosition;
-            }
-            else if (touch.phase == TouchPhase.Moved)
-            {
-                curPos = touch.position - touch.deltaPosition;
-                movePosDiff = (Vector2)(prePos - curPos) * Time.deltaTime;
-                prePos = touch.position - touch.deltaPosition;
-                Camera.main.transform.position -= new Vector3(movePosDiff.x, 0, movePosDiff.y);
-}}}}
+            prePos = touch.position - touch.deltaPosition;
+        }
+        else if (touch.phase == TouchPhase.Moved)
+        {
+            curPos = touch.position - touch.deltaPosition;
+            movePosDiff = (Vector2)(prePos - curPos) * Time.deltaTime;
+            prePos = touch.position - touch.deltaPosition;
+
+            Vector3 newPosition = Camera.main.transform.position - new Vector3(movePosDiff.x, 0, movePosDiff.y);
+            newPosition.x = Mathf.Clamp(newPosition.x, minPos.x, maxPos.x);
+            newPosition.z = Mathf.Clamp(newPosition.z, minPos.y, maxPos.y);
+
+            Camera.main.transform.position = newPosition;
+        }
+    }
+    }
+}
