@@ -50,7 +50,7 @@ public class WJ_Sample : MonoBehaviour
         if (!string.IsNullOrEmpty(savedToken))
         {
             currentStatus = CurrentStatus.LEARNING;
-            getLearningButton.interactable = true;
+            //getLearningButton.interactable = true;
            
         }
 

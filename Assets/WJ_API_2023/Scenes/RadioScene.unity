@@ -1914,6 +1914,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 243354163}
+    - target: {fileID: 6267151148014058618, guid: 6e1c8663740837a4a812c18cd81db6c5,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ButtonEvent_GetLearning
       objectReference: {fileID: 0}
     - target: {fileID: 6267151148178300346, guid: 6e1c8663740837a4a812c18cd81db6c5,
         type: 3}
