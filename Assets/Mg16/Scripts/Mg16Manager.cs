@@ -76,22 +76,16 @@ public class Mg16Manager : MonoBehaviour
     {
         score += 1;
         //MiniGameManager.Instance.AddJelly();
-        
-        //scoreText.text = "Eat jelly " + score; //score= jelly
-
         if (score % 5 == 0)
         {
-            /*
-            Mg12Spawner spawner = FindObjectOfType<Mg12Spawner>();
-            Mg12RockSpawner spawner2= FindAnyObjectByType<Mg12RockSpawner>();
+            Mg16FishManager fish = FindObjectOfType<Mg16FishManager>();
+            Mg16Jelly jelly = FindObjectOfType<Mg16Jelly>();
+            Mg16Player player = FindObjectOfType<Mg16Player>();
+            Mg16Battery battery = FindObjectOfType<Mg16Battery>();
 
-            if (spawner != null)
-            {
-                spawner.IncreaseSpeed();
-                spawner2.IncreaseSpeed();
-
-
-            }*/
+            fish.IncreaseSpeed();
+            jelly.IncreaseSpeed();
+            player.IncreaseSpeed();
         }
     }
 }

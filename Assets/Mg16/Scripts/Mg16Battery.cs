@@ -50,8 +50,12 @@ public class Mg16Battery : MonoBehaviour
         gameObject.SetActive(false);
         transform.position = new Vector2(player.position.x, maxY);
     }
-    public void SetSpeed(float speed)
+
+    public void IncreaseSpeed()
     {
-        batterySpeed = speed;
+        if (batterySpeed <= 8.0f)
+        {
+            batterySpeed += 2.0f;
+        }
     }
 }

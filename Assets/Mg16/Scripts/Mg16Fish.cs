@@ -73,7 +73,6 @@ public class Mg16Fish : MonoBehaviour
 
     public void Stun()
     {
-        Debug.Log("Stun");
         Time.timeScale = 1;
     }
     private IEnumerator InvokeStunAndResetTrigger()

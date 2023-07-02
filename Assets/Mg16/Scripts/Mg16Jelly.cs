@@ -56,7 +56,20 @@ public class Mg16Jelly : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             //MiniGameManager.Instance.AddJelly();
+            manager.AddScore();
             gameObject.SetActive(false);
+        }
+    }
+
+    public void IncreaseSpeed()
+    {
+        if (jellySpeed <= 10.0f)
+        {
+            jellySpeed += 2.0f;
+        }
+        else
+        {
+            jellySpeed = 10.0f;
         }
     }
 }
