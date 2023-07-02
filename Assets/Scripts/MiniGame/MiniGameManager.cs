@@ -20,6 +20,7 @@ public class MiniGameManager : MonoBehaviour
 
     private int gamesToPlay=5;
     private bool isMiniGameScene = false; // 현재 씬이 미니게임 씬인지 여부를 확인하기 위한 플래그
+    private float deltaTime = 0.0f;
 
     private void Awake()
     {
@@ -33,7 +34,12 @@ public class MiniGameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         SceneManager.sceneLoaded += OnSceneLoaded;
-        
+        int minigameCounts = GameController.Instance.unlockedMiniGames.Count;
+
+        for(int i=0; i<minigameCounts; i++)
+        {
+            miniGameScenes.Add(GameController.Instance.unlockedMiniGames[i]);//미니게임추가 
+        }
         //LoadTotalJelly();
     }
 
@@ -68,6 +74,8 @@ public class MiniGameManager : MonoBehaviour
             StartNextMiniGame();
         }
     }
+
+ 
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -77,82 +85,93 @@ public class MiniGameManager : MonoBehaviour
         // Beta Scene이 로드되었을 때 remainingMiniGameScenes 초기화
 
         // minigameUI.gameObject.SetActive(false); 이 코드를 삭제하고 아래 코드를 추가합니다.
-    if (scene.name == "BetaScene")
-    {
-        // Beta Scene이 로드되었을 때 remainingMiniGameScenes 초기화
-        remainingMiniGameScenes.Clear();
-        remainingMiniGameScenes.AddRange(miniGameScenes);
-
-        if(minigameUI != null) 
+       if (scene.name == "BetaScene")
         {
-            minigameUI.enabled = false;
-        }
+            // Beta Scene이 로드되었을 때 remainingMiniGameScenes 초기화
+            remainingMiniGameScenes.Clear();
+            remainingMiniGameScenes.AddRange(miniGameScenes);
 
-        isMiniGameScene = false; // 미니게임 씬이 아님을 표시
-    }
-    else
-    {
-        if(minigameUI != null) 
+            if(minigameUI != null) 
+            {
+                minigameUI.gameObject.SetActive(false);
+            }
+
+            isMiniGameScene = false; // 미니게임 씬이 아님을 표시
+        }
+        else
         {
-            minigameUI.enabled = true;
-        }
+            if(minigameUI != null) 
+            {
+                minigameUI.gameObject.SetActive(true);
+            }
 
-        isMiniGameScene = true; // 미니게임 씬임을 표시
+            isMiniGameScene = true; // 미니게임 씬임을 표시
         }
     }
 }
     public void LoadMainMenu()
     {  
-     Debug.Log("로딩완료");
-    SceneManager.LoadScene("BetaScene");
+       Debug.Log("로딩완료");
+        SceneManager.LoadScene("BetaScene");
 
-    isMiniGameScene = false; // 미니게임 씬이 아님을 표시
+        isMiniGameScene = false; // 미니게임 씬이 아님을 표시
 
-    // Initialize the remaining games
-    remainingMiniGameScenes.Clear();
+        // Initialize the remaining games
+        remainingMiniGameScenes.Clear();
 
-    // While we don't have selected games to play
-    while (remainingMiniGameScenes.Count < gamesToPlay)
-    {
-        // Pick a random game
-        int randomIndex = UnityEngine.Random.Range(0, miniGameScenes.Count);
-
-        // If it's not already in our list, add it
-        if (!remainingMiniGameScenes.Contains(miniGameScenes[randomIndex]))
+        // While we don't have selected games to play
+        while (remainingMiniGameScenes.Count < gamesToPlay)
         {
-            remainingMiniGameScenes.Add(miniGameScenes[randomIndex]);
+            // Pick a random game
+            int randomIndex = UnityEngine.Random.Range(0, miniGameScenes.Count);
+
+            // If it's not already in our list, add it
+            if (!remainingMiniGameScenes.Contains(miniGameScenes[randomIndex]))
+            {
+                remainingMiniGameScenes.Add(miniGameScenes[randomIndex]);
+            }
         }
-    }
+
+        if(minigameUI != null) 
+        {
+            minigameUI.gameObject.SetActive(false);
+        }
     }
     public void StartMiniGame()
     {
-        // 첫 미니게임 시작
-     if (remainingMiniGameScenes.Count == 0)
-    {
-        // 모든 미니게임을 클리어한 경우
-        LoadMainMenu();
-        return;
-    }
-    minigameUI.gameObject.SetActive(true);
-    string nextMiniGameScene = remainingMiniGameScenes[0];
-    remainingMiniGameScenes.RemoveAt(0);
+   // 첫 미니게임 시작
+        if (remainingMiniGameScenes.Count == 0)
+        {   
+            // 모든 미니게임을 클리어한 경우
+            LoadMainMenu();
+            return;
+        }
 
-    SceneManager.LoadScene(nextMiniGameScene, LoadSceneMode.Single);//미니게임 로드
-    currentMiniGameScene = nextMiniGameScene;
+        if(minigameUI != null) 
+        {
+            minigameUI.gameObject.SetActive(true);
+        }
 
-    isMiniGameScene = true; // 미니게임 씬임을 표시
+        string nextMiniGameScene = remainingMiniGameScenes[0];
+        remainingMiniGameScenes.RemoveAt(0);
 
-    Debug.Log("첫 미니게임 시작: " + currentMiniGameScene);
+        SceneManager.LoadScene(nextMiniGameScene, LoadSceneMode.Single);//미니게임 로드
+        currentMiniGameScene = nextMiniGameScene;
+
+        isMiniGameScene = true; // 미니게임 씬임을 표시
+
+        Debug.Log("첫 미니게임 시작: " + currentMiniGameScene);
     }
 
 public void StartNextMiniGame()
 {
     // 다음 미니게임 시작
     if (remainingMiniGameScenes.Count == 0)
-    {    Debug.Log("total jellies"+totalJelly);
+    {   
+        Debug.Log("total jellies"+totalJelly);
         totalJelly =0;
         // 모든 미니게임을 클리어한 경우
-       
+        SaveTotalJelly();
         LoadMainMenu();
         Debug.Log("얻은 젤리 수"+totalJelly);
         //SaveTotalJelly();
@@ -164,27 +183,34 @@ public void StartNextMiniGame()
 
     SceneManager.LoadScene(nextMiniGameScene, LoadSceneMode.Single);//미니게임 전환 
     currentMiniGameScene = nextMiniGameScene;
-
+    Debug.Log("총젤리 갯수"+totalJelly);
     Debug.Log("다음 미니게임 시작: " + currentMiniGameScene);
 }
 public void AddJelly()
 {
     totalJelly += 1;
+    GameController.Instance.currentjellyCount +=1;
     minigameUI.GetComponent<MIniGameUI>().UpdateJellyText();  // UI 업데이트
       // 변경된 젤리 수 저장
 }
 public void MiniGameFinished()
-{  
+{   
     StartNextMiniGame();
 }
     public void SaveTotalJelly()
     {
-        //PlayerPrefs.SetInt("totalJelly", totalJelly);
+        GameController.Instance.currentjellyCount +=totalJelly;
         Debug.Log("얻은 젤리 수"+totalJelly);
     }
 
     public void LoadTotalJelly()
     {
         totalJelly = PlayerPrefs.GetInt("totalJelly", 0);
+    }
+    
+
+    private void OnApplicationQuit()
+    {
+        miniGameScenes.Clear();
     }
 }

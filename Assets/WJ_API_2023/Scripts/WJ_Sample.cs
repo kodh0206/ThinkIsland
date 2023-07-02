@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using WjChallenge;
 using TexDrawLib;
-
+using UnityEngine.SceneManagement;
 
 public enum CurrentStatus { WAITING, DIAGNOSIS, LEARNING }
 public class WJ_Sample : MonoBehaviour
@@ -20,13 +20,15 @@ public class WJ_Sample : MonoBehaviour
     [SerializeField] TEXDraw   textDescription;        //���� ���� �ؽ�Ʈ
     [SerializeField] TEXDraw   textEquation;           //���� �ؽ�Ʈ(��TextDraw�� ���� �ʿ�)
     [SerializeField] Button[]           btAnsr = new Button[4]; //���� ��ư��
+    [SerializeField] Text Level; //레벨 
+    [SerializeField] Button quitButton; //홈메뉴 가는 버튼 
     TEXDraw[]                textAnsr;                  //���� ��ư�� �ؽ�Ʈ(��TextDraw�� ���� �ʿ�)
 
     [Header("Status")]
     int     currentQuestionIndex;
     bool    isSolvingQuestion;
     float   questionSolveTime;
-
+    int currentLevel;
     [Header("For Debug")]
     [SerializeField] WJ_DisplayText     wj_displayText;         //�ؽ�Ʈ ǥ�ÿ�(�ʼ�X)
     [SerializeField] Button             getLearningButton;      //���� �޾ƿ��� ��ư
@@ -39,14 +41,22 @@ public class WJ_Sample : MonoBehaviour
             textAnsr[i] = btAnsr[i].GetComponentInChildren<TEXDraw>();
 
         wj_displayText.SetState("�����", "", "", "");
-    
-      
+        //PlayerPrefs.DeleteAll();
+
+        string savedToken = PlayerPrefs.GetString("strAuthorization",string.Empty);
+        if (!string.IsNullOrEmpty(savedToken))
+        {
+            currentStatus = CurrentStatus.LEARNING;
+           
+        }
+
+        quitButton.onClick.AddListener(GoBackToMainMenu);
+       
     }
 
     private void OnEnable()
     {   Debug.Log("현재상태"+currentStatus);
         Setup();
-        
     }
 
     private void Setup()
@@ -57,7 +67,7 @@ public class WJ_Sample : MonoBehaviour
                 panel_diag_chooseDiff.SetActive(true);
                 break;
             case CurrentStatus.LEARNING:
-                Debug.Log("진단 평가 완료");
+                panel_question.SetActive(true);
                 break;
 
         }
@@ -199,10 +209,11 @@ public class WJ_Sample : MonoBehaviour
 
                 wj_displayText.SetState("����Ǯ�� ��", textAnsr[_idx].text, ansrCwYn, questionSolveTime + " ��");
 
-                if (currentQuestionIndex >= 2) 
+                if (currentQuestionIndex >= 8) 
                 {
                     panel_question.SetActive(false);
                     wj_displayText.SetState("����Ǯ�� �Ϸ�", "", "", "");
+                    getLearningButton.interactable = true;
                 }
                 else GetLearning(currentQuestionIndex);
 
@@ -210,7 +221,10 @@ public class WJ_Sample : MonoBehaviour
                 break;
         }
     }
-
+    void GoBackToMainMenu()
+    {
+        SceneManager.LoadScene("BetaScene");
+    }
     public void DisplayCurrentState(string state, string myAnswer, string isCorrect, string svTime)
     {
         if (wj_displayText == null) return;
@@ -223,11 +237,12 @@ public class WJ_Sample : MonoBehaviour
     {
         currentStatus = CurrentStatus.DIAGNOSIS;
         wj_conn.FirstRun_Diagnosis(a);
+        Level.text ="LV"+a.ToString();
     }
     public void ButtonEvent_GetLearning()
     {
         wj_conn.Learning_GetQuestion();
-        wj_displayText.SetState("����Ǯ�� ��", "-", "-", "-");
+        wj_displayText.SetState("문제받기~", "-", "-", "-");
     }
     #endregion
 }

@@ -19,7 +19,9 @@ MonoBehaviour:
   - {fileID: 1382492055, guid: bb0f7b59851f5fc4f8b9385370147b59, type: 3}
   - {fileID: 326583127, guid: bb0f7b59851f5fc4f8b9385370147b59, type: 3}
   - {fileID: 561821944, guid: bb0f7b59851f5fc4f8b9385370147b59, type: 3}
-  readyToHarvestSprite: {fileID: 561821944, guid: bb0f7b59851f5fc4f8b9385370147b59,
-    type: 3}
   purchasePrice: 50
   sellPrice: 150
+  storeIcons: {fileID: 1545067156, guid: f6ea1f6459d8be74f97c67100560193b, type: 3}
+  pressedStoreIcon: {fileID: -1607860431, guid: f6ea1f6459d8be74f97c67100560193b,
+    type: 3}
+  unlocklevel: 0

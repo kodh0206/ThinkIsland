@@ -21,7 +21,7 @@ public class Field : MonoBehaviour
     public GameObject vegetablePanel;
     private void Awake()
     {   fm = FindObjectOfType<FarmManager>();
-        vegetablePanel = GameObject.Find("VegetableShop");
+        vegetablePanel = GameObject.Find("StorePanel");
         plotSprite = GetComponent<SpriteRenderer>();
         cropSprite = transform.GetChild(0).GetComponent<SpriteRenderer>();
         ChangeState(state);

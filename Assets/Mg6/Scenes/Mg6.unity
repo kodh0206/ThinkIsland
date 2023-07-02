@@ -783,7 +783,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 2049590714, guid: 18380ea9a2f9e684cae3bd162b2305c1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1137,6 +1137,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3491924343428118033, guid: 1377135896eb73145a2b9560f197acd3,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3491924343428118039, guid: 1377135896eb73145a2b9560f197acd3,
         type: 3}
       propertyPath: m_Name
@@ -1210,6 +1215,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Mg6jelly
+      objectReference: {fileID: 0}
+    - target: {fileID: 7534726903062561971, guid: 1bea28bd445673d40a55ce6f1675a1c9,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1bea28bd445673d40a55ce6f1675a1c9, type: 3}
