@@ -43,7 +43,7 @@ public class Mg16Fish : MonoBehaviour
 
     public void FishSetActiveFalse()
     {
-        manager.objectIsArrived = true;
+        manager.fishIsArrived = true;
         gameObject.SetActive(false);
         randomX = Random.Range(-9.5f, 9.5f);
         transform.position = new Vector2(randomX, minY);

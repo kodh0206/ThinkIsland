@@ -401,6 +401,8 @@ MonoBehaviour:
   fish1: {fileID: 2002778018}
   fish2: {fileID: 1444164634}
   jelly: {fileID: 261162748}
+  batteryIsArrived: 0
+  objectIsArrived: 0
   scoreText: {fileID: 0}
   GameOverPanel: {fileID: 0}
   isGameOver: 0
@@ -1249,6 +1251,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wallBounceForce: 10
+  rb: {fileID: 0}
 --- !u!1001 &1301756918
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1541,6 +1544,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jelly: {fileID: 261162748}
   jellySpeed: 2
+  time: 0
+  time_diff: 5
+  minX: -9.5
+  maxX: 9.5
 --- !u!4 &1662456918
 Transform:
   m_ObjectHideFlags: 0
@@ -1627,6 +1634,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Mg16Fish2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8504779270882488024, guid: 7dd9bffa6026f8546a2161904b33918d,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7dd9bffa6026f8546a2161904b33918d, type: 3}
@@ -1728,6 +1740,7 @@ MonoBehaviour:
   player: {fileID: 1968178133}
   batterySpeed: 5
   time_diff: 5
+  time: 0
 --- !u!1001 &1948006987
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1799,6 +1812,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Mg16Fish1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8504779270882488024, guid: 7dd9bffa6026f8546a2161904b33918d,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7dd9bffa6026f8546a2161904b33918d, type: 3}

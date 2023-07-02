@@ -33,31 +33,31 @@ public class Mg16Jelly : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector2.up * jellySpeed * Time.deltaTime);
+        manager.jellyIsMoving = true;
         if (transform.position.y > maxY)
         {
             transform.position = new Vector2(transform.position.x, maxY);
-            // 1.5초 후 battery 비활성화 (함수 호출)
+            manager.jellyIsMoving = false;
+            // 1.5초 후 jelly 비활성화 (함수 호출)
             Invoke("JellySetActiveFalse", 1.5f);
         }
     }
 
     public void JellySetActiveFalse()
     {
-        manager.objectIsArrived = true;
         gameObject.SetActive(false);
         randomX = Random.Range(-9.5f, 9.5f);
         transform.position = new Vector2(randomX, minY);
+        manager.jellyIsArrived = true;
+        
+        /*if (manager.jellyIsMoving == true)
+        {
+            gameObject.SetActive(false);
+            randomX = Random.Range(-9.5f, 9.5f);
+            transform.position = new Vector2(randomX, minY);
+        }*/
     }
 
-/*
-    private void JellyMovement()
-    {
-        isMoving = true;
-        randomX = Random.Range(-9.5f, 9.5f);
-        transform.position = new Vector2(randomX, minY);
-    }*/
-
-/*
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -65,5 +65,5 @@ public class Mg16Jelly : MonoBehaviour
             //MiniGameManager.Instance.AddJelly();
             gameObject.SetActive(false);
         }
-    }*/
+    }
 }
