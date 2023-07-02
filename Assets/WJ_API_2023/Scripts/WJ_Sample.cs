@@ -47,7 +47,7 @@ public class WJ_Sample : MonoBehaviour
         if (!string.IsNullOrEmpty(savedToken))
         {
             currentStatus = CurrentStatus.LEARNING;
-            //getLearningButton.interactable = true;
+           
         }
 
         quitButton.onClick.AddListener(GoBackToMainMenu);
@@ -67,7 +67,7 @@ public class WJ_Sample : MonoBehaviour
                 panel_diag_chooseDiff.SetActive(true);
                 break;
             case CurrentStatus.LEARNING:
-                Debug.Log("진단 평가 완료");
+                panel_question.SetActive(true);
                 break;
 
         }
@@ -213,6 +213,7 @@ public class WJ_Sample : MonoBehaviour
                 {
                     panel_question.SetActive(false);
                     wj_displayText.SetState("����Ǯ�� �Ϸ�", "", "", "");
+                    getLearningButton.interactable = true;
                 }
                 else GetLearning(currentQuestionIndex);
 

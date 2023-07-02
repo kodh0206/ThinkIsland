@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/GameScene/BetaScene.unity
     guid: e176ef4c1ffb8934ebf7e7728f2fe5b2
   - enabled: 1
-    path: Assets/LMG1/Mg1/Scenes/Mg1.unity
+    path: Assets/Mg1/Scenes/Mg1.unity
     guid: 576e29bbcb37af94794edf1cac2df40e
   - enabled: 1
     path: Assets/Mg2/Scenes/Mg2.unity
