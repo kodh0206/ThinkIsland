@@ -45,8 +45,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddb3664b4ffee2b4399e95fb8b9fabc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  strGameCD: 
-  strGameKey: 
+  strGameCD: E27
+  strGameKey: RmEMVd5ttxCqNzNmxvmMPt7N0a2U0-E6WimV0Bbchw8
+  strAuthorization: 
+  strMBR_ID: 
+  strDeviceNm: 
+  strOsScnCd: 
+  strGameVer: 
+  level: 
+  isPassed: 0
   cDiagnotics:
     result: 0
     msg: 
@@ -108,5 +115,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  Level: {fileID: 0}
+  quitButton: {fileID: 0}
   wj_displayText: {fileID: 0}
   getLearningButton: {fileID: 0}

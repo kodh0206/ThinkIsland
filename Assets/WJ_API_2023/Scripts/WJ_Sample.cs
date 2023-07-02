@@ -14,15 +14,18 @@ public class WJ_Sample : MonoBehaviour
     public CurrentStatus                CurrentStatus => currentStatus;
 
     [Header("Panels")]
+    [SerializeField] GameObject AnimationPanel;
     [SerializeField] GameObject         panel_diag_chooseDiff;  //���̵� ���� �г�
     [SerializeField] GameObject         panel_question;         //���� �г�(����,�н�)
+    [SerializeField] GameObject RadioPanel;
 
     [SerializeField] TEXDraw   textDescription;        //���� ���� �ؽ�Ʈ
     [SerializeField] TEXDraw   textEquation;           //���� �ؽ�Ʈ(��TextDraw�� ���� �ʿ�)
-    [SerializeField] Button[]           btAnsr = new Button[4]; //���� ��ư��
+    [SerializeField] Button[]      btAnsr = new Button[4]; //���� ��ư��
     [SerializeField] Text Level; //레벨 
     [SerializeField] Button quitButton; //홈메뉴 가는 버튼 
-    TEXDraw[]                textAnsr;                  //���� ��ư�� �ؽ�Ʈ(��TextDraw�� ���� �ʿ�)
+    [SerializeField] Button solving;
+    TEXDraw[] textAnsr;                  //���� ��ư�� �ؽ�Ʈ(��TextDraw�� ���� �ʿ�)
 
     [Header("Status")]
     int     currentQuestionIndex;
@@ -47,6 +50,7 @@ public class WJ_Sample : MonoBehaviour
         if (!string.IsNullOrEmpty(savedToken))
         {
             currentStatus = CurrentStatus.LEARNING;
+            getLearningButton.interactable = true;
            
         }
 
@@ -136,7 +140,7 @@ public class WJ_Sample : MonoBehaviour
     /// �޾ƿ� �����͸� ������ ������ ǥ��
     /// </summary>
     private void MakeQuestion(string textCn, string qstCn, string qstCransr, string qstWransr)
-    {
+    {   Debug.Log("질문 만드는중");
         panel_diag_chooseDiff.SetActive(false);
         panel_question.SetActive(true);
 
@@ -178,7 +182,7 @@ public class WJ_Sample : MonoBehaviour
     /// ���� ������ �¾Ҵ� �� üũ
     /// </summary>
     public void SelectAnswer(int _idx)
-    {
+    {   
         bool isCorrect;
         string ansrCwYn = "N";
 
@@ -199,6 +203,7 @@ public class WJ_Sample : MonoBehaviour
                 break;
 
             case CurrentStatus.LEARNING:
+                Debug.Log("답 누르는중");
                 isCorrect   = textAnsr[_idx].text.CompareTo(wj_conn.cLearnSet.data.qsts[currentQuestionIndex].qstCransr) == 0 ? true : false;
                 ansrCwYn    = isCorrect ? "Y" : "N";
 
@@ -243,6 +248,14 @@ public class WJ_Sample : MonoBehaviour
     {
         wj_conn.Learning_GetQuestion();
         wj_displayText.SetState("문제받기~", "-", "-", "-");
+    }
+
+    public void SetUpOn()
+    {   
+        solving.gameObject.SetActive(false);
+        RadioPanel.SetActive(true);
+        Setup();
+        Debug.Log("문제 풀기 on");
     }
     #endregion
 }
