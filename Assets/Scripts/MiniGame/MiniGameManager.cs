@@ -21,8 +21,7 @@ public class MiniGameManager : MonoBehaviour
     private int gamesToPlay=5;
     private bool isMiniGameScene = false; // 현재 씬이 미니게임 씬인지 여부를 확인하기 위한 플래그
     private float deltaTime = 0.0f;
-private float fpsUpdateInterval = 1.0f;
-private float fpsNextUpdate = 0.0f;
+
     private void Awake()
     {
         if (_instance != null && _instance != this)
@@ -35,7 +34,12 @@ private float fpsNextUpdate = 0.0f;
         DontDestroyOnLoad(gameObject);
 
         SceneManager.sceneLoaded += OnSceneLoaded;
-        Application.targetFrameRate = 60; //frame rate 설정
+        int minigameCounts = GameController.Instance.unlockedMiniGames.Count;
+
+        for(int i=0; i<minigameCounts; i++)
+        {
+            miniGameScenes.Add(GameController.Instance.unlockedMiniGames[i]);//미니게임추가 
+        }
         //LoadTotalJelly();
     }
 
@@ -71,14 +75,7 @@ private float fpsNextUpdate = 0.0f;
         }
     }
 
-    deltaTime += (Time.unscaledDeltaTime - deltaTime) * 0.1f;
-    float fps = 1.0f / deltaTime;
-
-    if (Time.unscaledTime > fpsNextUpdate)
-    {
-        fpsNextUpdate = Time.unscaledTime + fpsUpdateInterval;
-        Debug.Log("FPS: " + fps);
-    }
+ 
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -144,7 +141,7 @@ private float fpsNextUpdate = 0.0f;
     {
    // 첫 미니게임 시작
         if (remainingMiniGameScenes.Count == 0)
-        {
+        {   
             // 모든 미니게임을 클리어한 경우
             LoadMainMenu();
             return;
@@ -170,10 +167,11 @@ public void StartNextMiniGame()
 {
     // 다음 미니게임 시작
     if (remainingMiniGameScenes.Count == 0)
-    {    Debug.Log("total jellies"+totalJelly);
+    {   
+        Debug.Log("total jellies"+totalJelly);
         totalJelly =0;
         // 모든 미니게임을 클리어한 경우
-       
+        SaveTotalJelly();
         LoadMainMenu();
         Debug.Log("얻은 젤리 수"+totalJelly);
         //SaveTotalJelly();
@@ -185,7 +183,7 @@ public void StartNextMiniGame()
 
     SceneManager.LoadScene(nextMiniGameScene, LoadSceneMode.Single);//미니게임 전환 
     currentMiniGameScene = nextMiniGameScene;
-
+    Debug.Log("총젤리 갯수"+totalJelly);
     Debug.Log("다음 미니게임 시작: " + currentMiniGameScene);
 }
 public void AddJelly()
@@ -195,12 +193,12 @@ public void AddJelly()
       // 변경된 젤리 수 저장
 }
 public void MiniGameFinished()
-{  
+{   
     StartNextMiniGame();
 }
     public void SaveTotalJelly()
     {
-        //PlayerPrefs.SetInt("totalJelly", totalJelly);
+        GameController.Instance.currentjellyCount +=totalJelly;
         Debug.Log("얻은 젤리 수"+totalJelly);
     }
 
@@ -209,4 +207,9 @@ public void MiniGameFinished()
         totalJelly = PlayerPrefs.GetInt("totalJelly", 0);
     }
     
+
+    private void OnApplicationQuit()
+    {
+        miniGameScenes.Clear();
+    }
 }
