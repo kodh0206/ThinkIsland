@@ -33,7 +33,7 @@ public class GameController : MonoBehaviour
         _instance = this;
         DontDestroyOnLoad(gameObject);
 
-        
+        Application.targetFrameRate = 60;
     }
         
     
