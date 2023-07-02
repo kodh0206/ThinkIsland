@@ -5,7 +5,7 @@ using UnityEngine;
 public class Mg12Player : MonoBehaviour
 {
     Rigidbody2D rigidbody2D;
-    Animator animator;
+  
     [SerializeField]
     private float moveSpeed = 5f;
 
@@ -18,7 +18,7 @@ public class Mg12Player : MonoBehaviour
     void Start()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
+
     }
 
     void Update()
@@ -45,29 +45,8 @@ public class Mg12Player : MonoBehaviour
 
     }
 
-    IEnumerator shootCoroutine;
 
-    public void PlayShootAnimation()
-    {
-        // 이전에 실행중인 Coroutine이 있다면 중지
-        if (shootCoroutine != null)
-        {
-            StopCoroutine(shootCoroutine);
-        }
 
-        // 새로운 Coroutine을 시작
-        shootCoroutine = ShootAnimationRoutine();
-        StartCoroutine(shootCoroutine);
-    }
-
-    private IEnumerator ShootAnimationRoutine()
-    {
-        animator.SetBool("Shoot", true);
-
-        yield return new WaitForSeconds(0.2f);
-
-        animator.SetBool("Shoot", false);
-    }
     public void GetHit()
     {
         // ������ ����

@@ -7,7 +7,6 @@ public class Mg12RockSpawner : MonoBehaviour
     public GameObject Rock;
 
     public Transform player;
-    public Mg12Player playerScript; // Mg12Player 스크립트를 참조하는 변수를 추가합니다.
 
 
     [SerializeField]
@@ -42,8 +41,6 @@ public class Mg12RockSpawner : MonoBehaviour
             time = 0;
             
             Destroy(new_Rock, 5.0f);
-            playerScript.PlayShootAnimation(); // Mg12player 가서 돌이 발사
-            
 
 
         }
