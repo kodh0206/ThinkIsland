@@ -56,6 +56,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Mg14/Scenes/Mg14.unity
     guid: 730e58ca029e12e43b1297d266369d11
+  - enabled: 1
+    path: Assets/Mg15/Scenes/Mg15.unity
+    guid: cc1df706d7f308b43a852ad7ee6759e7
+  - enabled: 1
+    path: Assets/Mg16/Scenes/Mg16.unity
+    guid: a799b517858d2f743a3873fce7d6cbc6
+  - enabled: 1
+    path: Assets/Mg17/Scene/Mg17.unity
+    guid: 040fc5275625bbe4fac3c7c6398acba9
+  - enabled: 1
+    path: Assets/Mg18/Scene/Mg18.unity
+    guid: 3f3d51b74e0c3e74ba8a5b788074f49b
   - enabled: 0
     path: Assets/Scenes/GameScene/MiniGameTrain.unity
     guid: 2fec13a40a5328b40aa2405544087764

@@ -5,11 +5,6 @@ using UnityEngine;
 public class Mg14jellySpawner : MonoBehaviour
 {
     public GameObject jelly;
-
-
-
-
-
     [SerializeField]
     private float time_diff = 1.5f;
 
@@ -29,7 +24,7 @@ public class Mg14jellySpawner : MonoBehaviour
         {
             GameObject new_jelly = Instantiate(jelly);
 
-            // ÁÂÇ¥¸¦ ·£´ýÇÏ°Ô ¼±ÅÃÇÏ¿© ¼³Á¤
+            // ï¿½ï¿½Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½
             Vector2 spawnPosition = new Vector2(Random.Range(-3.0f, 3.0f), 5f);
             new_jelly.transform.position = spawnPosition;
 
@@ -39,13 +34,9 @@ public class Mg14jellySpawner : MonoBehaviour
             Destroy(new_jelly, 5.0f);
         }
     }
-
-
-
-
     public void IncreaseSpeed()
     {
-        time_diff -= 0.1f; // Á©¸®ÀÇ »ý¼º °£°Ý °¨¼Ò
+        time_diff -= 0.1f; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     }
 
 

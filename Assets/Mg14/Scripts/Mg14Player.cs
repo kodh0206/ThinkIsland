@@ -4,22 +4,21 @@ using UnityEngine;
 
 public class Mg14Player : MonoBehaviour
 {
-    public float moveSpeed = 5f; // ÀÌµ¿ ¼Óµµ
-    public float jumpForce = 10f; // Á¡ÇÁ Èû (¼öÁ¤µÈ ºÎºÐ)
-    public float jumpGravityScale = 0.5f; // Á¡ÇÁ ÁßÀÎ µ¿¾ÈÀÇ gravityScale
-
-    private bool isFacingRight = true; // ÇöÀç ¿À¸¥ÂÊ ¹æÇâÀ» ÇâÇÏ°í ÀÖ´ÂÁö ¿©ºÎ
-
+    public float moveSpeed = 5f; // ï¿½Ìµï¿½ ï¿½Óµï¿½
+    public float jumpForce = 10f; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îºï¿½)
+    public float jumpGravityScale = 0.5f; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ gravityScale
+    private bool isFacingRight = true; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½Ö´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    
     [SerializeField]
-    private bool isJumping = false; // ÇöÀç Á¡ÇÁ ÁßÀÎÁö ¿©ºÎ
+    private bool isJumping = false; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    
     [SerializeField]
-    private bool canJump = true; // Á¡ÇÁ °¡´É ¿©ºÎ
-
+    private bool canJump = true; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
-
     private bool monkey_right=false;
     private bool monkey_left = true;
+
 
     private void Start()
     {
@@ -29,9 +28,7 @@ public class Mg14Player : MonoBehaviour
 
     private void Update()
     {
-
-
-        // ¿À¸¥ÂÊ ´ë°¢¼± À§·Î Á¡ÇÁ
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ë°¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         if (monkey_left && canJump && Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D) )
         {
             FlipSprite();
@@ -39,7 +36,6 @@ public class Mg14Player : MonoBehaviour
             monkey_left = false;
             monkey_right = true;
         }
-
         if (monkey_right&& canJump && Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A) )
         {
             FlipSprite();
@@ -47,14 +43,12 @@ public class Mg14Player : MonoBehaviour
             monkey_left = true;
             monkey_right = false;
         }
-
-
     }
 
     private void FixedUpdate()
     {
 
-        // Á¡ÇÁ ÁßÀÎ µ¿¾È gravityScale Á¶Á¤
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ gravityScale ï¿½ï¿½ï¿½ï¿½
         if (isJumping)
         {
             rb.gravityScale = jumpGravityScale;
@@ -67,7 +61,7 @@ public class Mg14Player : MonoBehaviour
 
     private void FlipSprite()
     {
-        // ½ºÇÁ¶óÀÌÆ® ÁÂ¿ì ¹ÝÀü
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Â¿ï¿½ ï¿½ï¿½ï¿½ï¿½
         isFacingRight = !isFacingRight;
         spriteRenderer.flipX = !isFacingRight;
     }
@@ -96,50 +90,44 @@ public class Mg14Player : MonoBehaviour
 
 
 
-    public void GetTree()  //³ª¹«¸¦ Àâ¾ÒÀ»¶§.
+    public void GetTree()  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
     {
-        // ¿òÁ÷ÀÓ ¸ØÃã
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         rb.velocity = Vector2.zero;
         rb.gravityScale = 0.01f;
         isJumping = false;
         canJump = false;
 
-        // ºñµ¿±â Ã³¸® ½ÃÀÛ
+        // ï¿½ñµ¿±ï¿½ Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         StartCoroutine(DisableControlAndResetColor());
         canJump = true;
     }
 
     private IEnumerator DisableControlAndResetColor()
     {
-        // Á¶ÀÛ ºñÈ°¼ºÈ­
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È°ï¿½ï¿½È­
         enabled = false;
-
         
         
-        // 1ÃÊ°£ ´ë±â
+        // 1ï¿½Ê°ï¿½ ï¿½ï¿½ï¿½
         yield return new WaitForSeconds(0.1f);
-
-        // Á¶ÀÛ È°¼ºÈ­
+        // ï¿½ï¿½ï¿½ï¿½ È°ï¿½ï¿½È­
         enabled = true;
-
-        // 1ÃÊ°£ poop ¿µÇâ ¹ÞÁö ¾ÊÀ½
+        // 1ï¿½Ê°ï¿½ poop ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         yield return new WaitForSeconds(0.1f);
-
-        // »ö»ó ¿ø·¡´ë·Î º¹±¸
-
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     }
 
-    public void GetHit()  //µ¹ ¸Â¾ÒÀ»¶§
+    public void GetHit()  //ï¿½ï¿½ ï¿½Â¾ï¿½ï¿½ï¿½ï¿½ï¿½
     {
-        // ¿òÁ÷ÀÓ ¸ØÃã
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         rb.velocity = Vector2.zero;
         rb.gravityScale = 0.01f;
         isJumping = true;
         canJump = false;
-
-        // ºñµ¿±â Ã³¸® ½ÃÀÛ
+        // ï¿½ñµ¿±ï¿½ Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         StartCoroutine(DisableControlAndResetColor());
     }
 
