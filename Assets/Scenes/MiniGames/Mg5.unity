@@ -669,8 +669,8 @@ MonoBehaviour:
   minNumMg5ObstacleToSpawn: 3
   maxNumMg5ObstacleToSpawn: 5
   Mg5ObstacleSpeed: 4
-  minTimeDiff: 2
-  maxTimeDiff: 3
+  minTimeDiff: 1
+  maxTimeDiff: 2
 --- !u!1 &412972509
 GameObject:
   m_ObjectHideFlags: 0
