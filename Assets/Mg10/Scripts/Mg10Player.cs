@@ -32,13 +32,11 @@ public class Mg10Player : MonoBehaviour
     {
         RightButton = false;
         LeftButton = true;
-
     }
 
     public void LeftClickOff()
     {
         LeftButton = false;
-
     }
 
     private void Start()

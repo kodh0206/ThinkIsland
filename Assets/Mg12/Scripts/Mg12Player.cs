@@ -13,11 +13,36 @@ public class Mg12Player : MonoBehaviour
     private float moveSpeed = 5f;
 
     private bool moveUp = false;
-        private bool moveDown = false;
+    private bool moveDown = false;
+
+    private bool RightButton = false;
+    private bool LeftButton = false;
+
+    public void RightClick()
+    {
+        LeftButton = false;
+        RightButton = true;
+
+    }
+
+    public void RightClickOff()
+    {
+        RightButton = false;
+
+    }
+
+    public void LeftClick()
+    {
+        RightButton = false;
+        LeftButton = true;
+    }
+
+    public void LeftClickOff()
+    {
+        LeftButton = false;
+    }
 
 
-
-    
     void Start()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
@@ -30,12 +55,12 @@ public class Mg12Player : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.LeftArrow) || LeftButton)
         {
             moveUp = true;
             moveDown = false;
         }
-        else if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
+        else if (Input.GetKeyDown(KeyCode.RightArrow) || RightButton)
         {
             moveUp = false;
             moveDown = true;
