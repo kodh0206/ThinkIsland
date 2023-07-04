@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Mg5obstacle : MonoBehaviour
+public class Mg5Obstacle : MonoBehaviour
 {
     [SerializeField]
     private float obstacleSpeed = 2.0f;

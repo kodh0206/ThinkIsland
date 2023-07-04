@@ -21,21 +21,54 @@ public class Mg6Player : MonoBehaviour
     private Rigidbody2D rb;
     Animator anim;
 
+    private bool RightButton = false;
+    private bool LeftButton = false;
+    private bool PushingButton = false;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
     }
 
+    public void RightClick()
+    {
+        LeftButton = false;
+        RightButton = true;
+        PushingButton = true;
+
+    }
+
+    public void RightClickOff()
+    {
+        
+        PushingButton = false;
+    }
+
+    public void LeftClick()
+    {
+        RightButton = false;
+        LeftButton = true;
+        PushingButton = true;
+
+    }
+
+    public void LeftClickOff()
+    {
+        LeftButton = false;
+        PushingButton = false;
+
+    }
+
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && !isJumping )
+        if ((Input.GetKeyDown(KeyCode.Space)|| (RightButton &&PushingButton)) && !isJumping )
         {
             isJumping = true;
             currentJumpForce = jumpForce;
             anim.SetBool("isSitting", true);
         }
-        else if (Input.GetKey(KeyCode.Space) && isJumping )
+        else if ((Input.GetKey(KeyCode.Space) || (RightButton && PushingButton)) && isJumping )
         {
             currentJumpForce += jumpForceIncrement * Time.deltaTime;
             currentJumpForce = Mathf.Clamp(currentJumpForce, 0.0f, maxJumpForce);
@@ -43,11 +76,13 @@ public class Mg6Player : MonoBehaviour
             // 스프라이트 잠시 바꾸기
         }
 
-        if (Input.GetKeyUp(KeyCode.Space) && isJumping && !nowJumping)
+        if (((Input.GetKeyUp(KeyCode.Space) || (RightButton && !PushingButton))) && isJumping && !nowJumping)
         {
             Jump();
             nowJumping = true;
             isJumping = false;
+            RightButton = false;
+
         }
     }
 

@@ -10,12 +10,40 @@ public class Mg8Player : MonoBehaviour
     public int level;
     private Rigidbody2D rb;
 
-
+    private bool RightButton = false;
+    private bool LeftButton = false;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
     }
+
+    public void RightClick()
+    {
+        LeftButton = false;
+        RightButton = true;
+
+    }
+
+    public void RightClickOff()
+    {
+        RightButton = false;
+
+    }
+
+    public void LeftClick()
+    {
+        RightButton = false;
+        LeftButton = true;
+
+    }
+
+    public void LeftClickOff()
+    {
+        LeftButton = false;
+
+    }
+
     public Mg8Player()
     {
         level = 1;
@@ -32,13 +60,15 @@ public class Mg8Player : MonoBehaviour
             moveDirection.Normalize();
         }
 
-        if (Input.GetKey(KeyCode.X))
+        if (Input.GetKeyDown(KeyCode.X) || RightButton)
         {
             moveDirection = new Vector2(1f, 1f);
+            
         }
-        else if (Input.GetKey(KeyCode.Z))
+        else if (Input.GetKeyDown(KeyCode.Z) || LeftButton)
         {
             moveDirection = new Vector2(-1f, -1f);
+            
         }
 
         rb.velocity = moveDirection * speed * (Mathf.Abs(horizontalInput) > 0.5f || Mathf.Abs(verticalInput) > 0.5f ? diagonalSpeedMultiplier : 1f);
