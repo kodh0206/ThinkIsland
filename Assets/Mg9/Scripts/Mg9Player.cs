@@ -10,6 +10,35 @@ public class Mg9Player : MonoBehaviour
     private Rigidbody2D rb;
     private bool isSlowFalling = false;
 
+    private bool RightButton = false;
+    private bool LeftButton = false;
+
+    public void RightClick()
+    {
+        LeftButton = false;
+        RightButton = true;
+
+    }
+
+    public void RightClickOff()
+    {
+        RightButton = false;
+
+    }
+
+    public void LeftClick()
+    {
+        RightButton = false;
+        LeftButton = true;
+
+    }
+
+    public void LeftClickOff()
+    {
+        LeftButton = false;
+
+    }
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -18,17 +47,18 @@ public class Mg9Player : MonoBehaviour
     private void Update()
     {
         // Jump
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) || RightButton)
         {
             Jump();
+            RightButton = false;
         }
 
         // Slow Fall
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.Z) ||LeftButton)
         {
             StartSlowFall();
         }
-        else if (Input.GetKeyUp(KeyCode.Z))
+        else if (Input.GetKeyUp(KeyCode.Z)||LeftButton)
         {
             StopSlowFall();
         }
