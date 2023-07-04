@@ -205,6 +205,11 @@ PrefabInstance:
       objectReference: {fileID: 1164479919}
     - target: {fileID: 8568531993772909538, guid: cb1effd25b4147b488109dc79ce41383,
         type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8568531993772909538, guid: cb1effd25b4147b488109dc79ce41383,
+        type: 3}
       propertyPath: FadeInOutPanel
       value: 
       objectReference: {fileID: 218552851}
@@ -213,6 +218,106 @@ PrefabInstance:
       propertyPath: fadeCanvasGroup
       value: 
       objectReference: {fileID: 218552851}
+    - target: {fileID: 8568531993772909538, guid: cb1effd25b4147b488109dc79ce41383,
+        type: 3}
+      propertyPath: jellySoundEffect
+      value: 
+      objectReference: {fileID: 8300000, guid: 160fe1c5ab236744599db5c373e4a3d8, type: 3}
+    - target: {fileID: 8568531993772909538, guid: cb1effd25b4147b488109dc79ce41383,
+        type: 3}
+      propertyPath: bgmClips.Array.size
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 8568531993772909538, guid: cb1effd25b4147b488109dc79ce41383,
+        type: 3}
+      propertyPath: bgmClips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: b722789512672df4385da6d1a8636641, type: 3}
+    - target: {fileID: 8568531993772909538, guid: cb1effd25b4147b488109dc79ce41383,
+        type: 3}
+      propertyPath: bgmClips.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 563967bfca830a6468aaa12863d8faec, type: 3}
+    - target: {fileID: 8568531993772909538, guid: cb1effd25b4147b488109dc79ce41383,
+        type: 3}
+      propertyPath: bgmClips.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 08905031d91af924cbbdcb3567ef7400, type: 3}
+    - target: {fileID: 8568531993772909538, guid: cb1effd25b4147b488109dc79ce41383,
+        type: 3}
+      propertyPath: bgmClips.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 9d7a44747e55f7140869a9f10c8ec0f7, type: 3}
+    - target: {fileID: 8568531993772909538, guid: cb1effd25b4147b488109dc79ce41383,
+        type: 3}
+      propertyPath: bgmClips.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: 1c3c9df981fe02946a8b4ac8680a5d69, type: 3}
+    - target: {fileID: 8568531993772909538, guid: cb1effd25b4147b488109dc79ce41383,
+        type: 3}
+      propertyPath: bgmClips.Array.data[5]
+      value: 
+      objectReference: {fileID: 8300000, guid: 548555ca1002fcc47b9da8eb1724c6bb, type: 3}
+    - target: {fileID: 8568531993772909538, guid: cb1effd25b4147b488109dc79ce41383,
+        type: 3}
+      propertyPath: bgmClips.Array.data[6]
+      value: 
+      objectReference: {fileID: 8300000, guid: 1782fae2f71609246b32f5885fa887e6, type: 3}
+    - target: {fileID: 8568531993772909538, guid: cb1effd25b4147b488109dc79ce41383,
+        type: 3}
+      propertyPath: bgmClips.Array.data[7]
+      value: 
+      objectReference: {fileID: 8300000, guid: 157121e4726932a4288271cb745de93a, type: 3}
+    - target: {fileID: 8568531993772909538, guid: cb1effd25b4147b488109dc79ce41383,
+        type: 3}
+      propertyPath: bgmClips.Array.data[8]
+      value: 
+      objectReference: {fileID: 8300000, guid: 5ef1b43375b81c24e93c6a85b951e888, type: 3}
+    - target: {fileID: 8568531993772909538, guid: cb1effd25b4147b488109dc79ce41383,
+        type: 3}
+      propertyPath: bgmClips.Array.data[9]
+      value: 
+      objectReference: {fileID: 8300000, guid: 3a2e560f85a75724c88d4816c3a47c63, type: 3}
+    - target: {fileID: 8568531993772909538, guid: cb1effd25b4147b488109dc79ce41383,
+        type: 3}
+      propertyPath: bgmClips.Array.data[10]
+      value: 
+      objectReference: {fileID: 8300000, guid: 11920d75e4a6c944d93ec497eccd9e8d, type: 3}
+    - target: {fileID: 8568531993772909538, guid: cb1effd25b4147b488109dc79ce41383,
+        type: 3}
+      propertyPath: bgmClips.Array.data[11]
+      value: 
+      objectReference: {fileID: 8300000, guid: b72f23a6cfcc45d46b3c0e6e2b993231, type: 3}
+    - target: {fileID: 8568531993772909538, guid: cb1effd25b4147b488109dc79ce41383,
+        type: 3}
+      propertyPath: bgmClips.Array.data[12]
+      value: 
+      objectReference: {fileID: 8300000, guid: 35e057415feb0e3418d0e63839b6d0d3, type: 3}
+    - target: {fileID: 8568531993772909538, guid: cb1effd25b4147b488109dc79ce41383,
+        type: 3}
+      propertyPath: bgmClips.Array.data[13]
+      value: 
+      objectReference: {fileID: 8300000, guid: 891f3344e8a3c664c86a8a702add84e6, type: 3}
+    - target: {fileID: 8568531993772909538, guid: cb1effd25b4147b488109dc79ce41383,
+        type: 3}
+      propertyPath: bgmClips.Array.data[14]
+      value: 
+      objectReference: {fileID: 8300000, guid: 44544d3e9b8b30649baaeb6735bb8bf0, type: 3}
+    - target: {fileID: 8568531993772909538, guid: cb1effd25b4147b488109dc79ce41383,
+        type: 3}
+      propertyPath: bgmClips.Array.data[15]
+      value: 
+      objectReference: {fileID: 8300000, guid: 428f6d49b844e8f4b9a8185bbee6fe65, type: 3}
+    - target: {fileID: 8568531993772909538, guid: cb1effd25b4147b488109dc79ce41383,
+        type: 3}
+      propertyPath: bgmClips.Array.data[16]
+      value: 
+      objectReference: {fileID: 8300000, guid: 349a6a2015c4d82459c3e37f592cb452, type: 3}
+    - target: {fileID: 8568531993772909538, guid: cb1effd25b4147b488109dc79ce41383,
+        type: 3}
+      propertyPath: bgmClips.Array.data[17]
+      value: 
+      objectReference: {fileID: 8300000, guid: 39d2574dcea542042b5daa3c9cb5c9ca, type: 3}
     - target: {fileID: 8568531993772909538, guid: cb1effd25b4147b488109dc79ce41383,
         type: 3}
       propertyPath: miniGameScenes.Array.size
