@@ -12,7 +12,35 @@ public class Player : MonoBehaviour
 
     public Player()
     {
-        level = 1; 
+        level = 1;
+    }
+
+
+    private bool RightButton = false;
+    private bool LeftButton = false;
+
+    public void RightClick()
+    {
+        LeftButton = false;
+        RightButton = true;
+
+    }
+
+    public void RightClickOff()
+    {
+        RightButton = false;
+
+    }
+
+    public void LeftClick()
+    {
+        RightButton = false;
+        LeftButton = true;
+    }
+
+    public void LeftClickOff()
+    {
+        LeftButton = false;
     }
 
     void Start()
@@ -24,24 +52,25 @@ public class Player : MonoBehaviour
     {
         if (MiniGame3Manager.instance.isStunned == false)
         {
-            if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
+            if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A) || LeftButton)
             {
                 Vector3 currScale = transform.localScale;
-                transform.localScale = new Vector3(-Mathf.Abs(currScale.x),currScale.y,currScale.z);
+                transform.localScale = new Vector3(-Mathf.Abs(currScale.x), currScale.y, currScale.z);
                 transform.position += Vector3.left * moveSpeed * Time.deltaTime;
                 animator.SetBool("isRunning", true);
             }
-            else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
+            else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D) || RightButton)
             {
                 Vector3 currScale = transform.localScale;
-                transform.localScale = new Vector3(Mathf.Abs(currScale.x),currScale.y,currScale.z);        
+                transform.localScale = new Vector3(Mathf.Abs(currScale.x), currScale.y, currScale.z);
                 transform.position += Vector3.right * moveSpeed * Time.deltaTime;
                 animator.SetBool("isRunning", true);
-            }else
+            }
+            else
             {
                 animator.SetBool("isRunning", false);
             }
-            
+
         }
         else
         {
