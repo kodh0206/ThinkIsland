@@ -321,10 +321,10 @@ TextureImporter:
       name: Basic Furniture_12
       rect:
         serializedVersion: 2
-        x: 48
+        x: 0
         y: 48
         width: 16
-        height: 16
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -342,10 +342,10 @@ TextureImporter:
       name: Basic Furniture_13
       rect:
         serializedVersion: 2
-        x: 64
+        x: 16
         y: 48
         width: 16
-        height: 16
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -363,10 +363,10 @@ TextureImporter:
       name: Basic Furniture_14
       rect:
         serializedVersion: 2
-        x: 80
+        x: 32
         y: 48
         width: 16
-        height: 16
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -384,7 +384,7 @@ TextureImporter:
       name: Basic Furniture_15
       rect:
         serializedVersion: 2
-        x: 96
+        x: 48
         y: 48
         width: 16
         height: 16
@@ -405,7 +405,7 @@ TextureImporter:
       name: Basic Furniture_16
       rect:
         serializedVersion: 2
-        x: 112
+        x: 64
         y: 48
         width: 16
         height: 16
@@ -423,73 +423,10 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Basic Furniture_20
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8d3ac16c9c7a0284fbe9841cd1dc7075
-      internalID: -1790511033
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Basic Furniture_21
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 87d23cf1fce970e4cb7d092b08853470
-      internalID: -77499669
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Basic Furniture_22
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 971458266a171004da989768012f7cf2
-      internalID: 1189862802
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Basic Furniture_23
       rect:
         serializedVersion: 2
-        x: 96
+        x: 48
         y: 32
         width: 16
         height: 16
@@ -510,7 +447,7 @@ TextureImporter:
       name: Basic Furniture_24
       rect:
         serializedVersion: 2
-        x: 112
+        x: 64
         y: 32
         width: 16
         height: 16
@@ -531,8 +468,8 @@ TextureImporter:
       name: Basic Furniture_25
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
+        x: 80
+        y: 32
         width: 16
         height: 16
       alignment: 0
@@ -552,8 +489,8 @@ TextureImporter:
       name: Basic Furniture_26
       rect:
         serializedVersion: 2
-        x: 48
-        y: 0
+        x: 96
+        y: 32
         width: 16
         height: 16
       alignment: 0
@@ -573,8 +510,8 @@ TextureImporter:
       name: Basic Furniture_27
       rect:
         serializedVersion: 2
-        x: 80
-        y: 0
+        x: 112
+        y: 32
         width: 16
         height: 16
       alignment: 0
@@ -594,10 +531,10 @@ TextureImporter:
       name: Basic Furniture_28
       rect:
         serializedVersion: 2
-        x: 112
-        y: 0
+        x: 0
+        y: 16
         width: 16
-        height: 16
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -615,10 +552,10 @@ TextureImporter:
       name: Basic Furniture_29
       rect:
         serializedVersion: 2
-        x: 0
-        y: 48
+        x: 16
+        y: 16
         width: 16
-        height: 22
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -636,10 +573,10 @@ TextureImporter:
       name: Basic Furniture_30
       rect:
         serializedVersion: 2
-        x: 16
-        y: 48
+        x: 32
+        y: 16
         width: 16
-        height: 22
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -657,10 +594,10 @@ TextureImporter:
       name: Basic Furniture_31
       rect:
         serializedVersion: 2
-        x: 32
-        y: 48
+        x: 0
+        y: 0
         width: 16
-        height: 22
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -678,10 +615,10 @@ TextureImporter:
       name: Basic Furniture_32
       rect:
         serializedVersion: 2
-        x: 0
-        y: 16
+        x: 16
+        y: 0
         width: 16
-        height: 22
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -699,10 +636,10 @@ TextureImporter:
       name: Basic Furniture_33
       rect:
         serializedVersion: 2
-        x: 16
-        y: 16
+        x: 32
+        y: 0
         width: 16
-        height: 22
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -720,10 +657,10 @@ TextureImporter:
       name: Basic Furniture_34
       rect:
         serializedVersion: 2
-        x: 32
-        y: 16
-        width: 16
-        height: 22
+        x: 48
+        y: 0
+        width: 32
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -738,33 +675,12 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Basic Furniture_35
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9981d082fdac91d498cb30407de95084
-      internalID: -1997158200
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Basic Furniture_36
       rect:
         serializedVersion: 2
-        x: 32
+        x: 80
         y: 0
-        width: 16
+        width: 32
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -780,33 +696,12 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Basic Furniture_37
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7224628a503034446949adf13a689294
-      internalID: 421868179
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Basic Furniture_38
       rect:
         serializedVersion: 2
-        x: 96
+        x: 112
         y: 0
-        width: 16
+        width: 32
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -822,11 +717,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Basic Furniture_39
+      name: Basic Furniture_17
       rect:
         serializedVersion: 2
-        x: 128
-        y: 0
+        x: 80
+        y: 48
         width: 16
         height: 16
       alignment: 0
@@ -836,8 +731,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ea0405f3c6121054f9054b5d7e1ede7c
-      internalID: 829106798
+      spriteID: cc2d483b5f783374cba92244311dc8bb
+      internalID: 2022334779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basic Furniture_18
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ade40dd57798bb49904acb4179c61d3
+      internalID: -293965156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basic Furniture_19
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4c3a9ff8b9ed0d44afea970d35a224e
+      internalID: -1692498168
       vertices: []
       indices: 
       edges: []
@@ -888,7 +825,6 @@ TextureImporter:
       Basic Furniture_38: -995248390
       Basic Furniture_39: 829106798
       Basic Furniture_4: -758282255
-      Basic Furniture_40: 1904801249
       Basic Furniture_5: 249198982
       Basic Furniture_6: 363039119
       Basic Furniture_7: -1443048463
