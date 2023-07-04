@@ -2526,6 +2526,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mg19Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6220064884522582389, guid: 84813535ae398d74398510e7ca67c21e,
+        type: 3}
+      propertyPath: jumpForce
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6220064884522582390, guid: 84813535ae398d74398510e7ca67c21e,
         type: 3}
       propertyPath: m_RootOrder
