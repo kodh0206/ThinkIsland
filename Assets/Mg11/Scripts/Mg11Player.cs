@@ -17,6 +17,33 @@ public class Mg11Player : MonoBehaviour
     private bool clock = false;
     private bool unclock=false;
 
+    private bool RightButton = false;
+    private bool LeftButton = false;
+
+    public void RightClick()
+    {
+        LeftButton = false;
+        RightButton = true;
+
+    }
+
+    public void RightClickOff()
+    {
+        RightButton = false;
+
+    }
+
+    public void LeftClick()
+    {
+        RightButton = false;
+        LeftButton = true;
+    }
+
+    public void LeftClickOff()
+    {
+        LeftButton = false;
+    }
+
     private void Start()
     {
         // 시작 각도 설정
@@ -26,13 +53,13 @@ public class Mg11Player : MonoBehaviour
     private void Update()
     {
         // 오른쪽 버튼 입력 처리
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.RightArrow) || RightButton)
         {
             unclock = false;
             clock= true;
         }
         // 왼쪽 버튼 입력 처리
-        else if (Input.GetKey(KeyCode.LeftArrow))
+        else if (Input.GetKey(KeyCode.LeftArrow) || LeftButton)
         {
             clock = false;
             unclock = true;
