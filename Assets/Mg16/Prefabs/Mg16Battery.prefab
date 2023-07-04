@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 7920273609820697294}
   - component: {fileID: 7920273609820697290}
   - component: {fileID: 7920273609820697289}
-  - component: {fileID: 982333834122923134}
   - component: {fileID: 3377294226435577528}
+  - component: {fileID: 5060015112284970629}
   m_Layer: 0
   m_Name: Mg16Battery
   m_TagString: Rock
@@ -135,26 +135,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.95154333, y: 0.7646398}
   m_EdgeRadius: 0
---- !u!114 &982333834122923134
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7920273609820697293}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9af6a836c90c5744bad248e54d81d6d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  manager: {fileID: 0}
-  player: {fileID: 0}
-  batterySpeed: 2
-  positionPlayer: 0
-  minY: -3.5
-  topY: 3.5
-  topArrived: 0
-  maxY: 1.7
 --- !u!95 &3377294226435577528
 Animator:
   serializedVersion: 5
@@ -176,3 +156,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5060015112284970629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7920273609820697293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09c26c933fbc0624e96c32d9d35e69ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startY: 1.7
+  topY: 2.5
+  stopY: -2.5
+  moveDuration: 1.5
+  stopSprite: {fileID: 1885792089, guid: 11656aa966d997542a3b3c7096999fdc, type: 3}

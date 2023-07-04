@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Mg16FishManager : MonoBehaviour
+public class dMg16FishManager : MonoBehaviour
 {
-    public Mg16Fish mg16Fish;
+    public dMg16Fish mg16Fish;
     void Start()
     {
-        mg16Fish = FindObjectOfType<Mg16Fish>();
+        mg16Fish = FindObjectOfType<dMg16Fish>();
     }
 
     public void IncreaseSpeed()

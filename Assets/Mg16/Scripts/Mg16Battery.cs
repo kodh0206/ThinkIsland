@@ -1,80 +1,67 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class Mg16Battery : MonoBehaviour
 {
-    public Mg16Manager manager;
-    public Mg16Player playerPositionScript;
-    public Transform player;
-    public float batterySpeed = 2.0f;
 
-    // y값이 -3.5에서 2.5로 일직선 이동
-    public float minY = -3.5f;
-    public float topY = 3f;
-    public bool topArrived = false;
-    public float maxY = 1.7f;
+    Mg16BatterySpawner mg16BatterySpawner;
+    public Sprite batterySprite;  // 던질 때 스프라이트 이미지
+    public Sprite waterBatterySprite;  // 물에 빠진 배터리 스프라이트 이미지
+    public Animator animator;  // 애니메이터 컴포넌트
+    public Tween movementTween;  // Tween 변수 추가
 
-    private float time_diff = 5f;
-    float time = 0;
+    private SpriteRenderer spriteRenderer;
+
+    public float startY = 1.7f;
+    public float topY = 2.5f;
+    // 배터리 끝 위치
+    public float stopY = -3.5f;
+    // 해당 위치까지 이동하는 데 걸리는 시간
+    public float moveDuration = 1.5f;
+    
 
     private void Start()
     {
-        // Mg16manager 인스턴스 할당
-        manager = FindObjectOfType<Mg16Manager>();
-        playerPositionScript = FindObjectOfType<Mg16Player>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();  // 애니메이터 컴포넌트 가져오기
+        mg16BatterySpawner = GetComponent<Mg16BatterySpawner>();
+        spriteRenderer.sprite = batterySprite;  // 초기 스프라이트를 물에 안 빠진 배터리로 설정
+        StartMovement();
     }
 
-    private void Awake()
+    private void Update()
     {
-        transform.position = new Vector2(player.position.x, maxY);
-    }
-
-    void Update()
-    {
-
-        if (!topArrived && transform.position.y <= topY)
-            transform.Translate(Vector2.up * batterySpeed * Time.deltaTime);
-
-        else if (transform.position.y > topY)
+        if (transform.position.y < stopY+1f)
         {
-            topArrived = true;
-            transform.position = new Vector2(playerPositionScript.positionPlayer, topY);
-            //Invoke("BatteryDownMove", 0.5f);
-        }
-
-        else if (transform.position.y > minY && topArrived)
-        {
-            transform.Translate(Vector2.down * batterySpeed * Time.deltaTime);
-        }
-
-        else if (transform.position.y < minY)
-        {
-            transform.position = new Vector2(transform.position.x, minY);
-            // 1.5초 후 battery 비활성화 (함수 호출)
-            Invoke("BatterySetActiveFalse", 1f);
+            animator.SetBool("BatteryInWater", true); // 기존 애니메이션 재생 정지
+            ChangeSprite();  // 스프라이트 변화 함수 호출
+            // 한 세트 - 이동 시간만큼 시간 지연
+            //Invoke("StopMovement", 1f);//mg16BatterySpawner.time_diff - (moveDuration*2));
         }
     }
 
-    public void BatterySetActiveFalse()
+    private void ChangeSprite()
     {
-        manager.batteryIsArrived = true;
-        gameObject.SetActive(false);
-        transform.position = new Vector2(playerPositionScript.positionPlayer, maxY);
-        topArrived = false;
+        spriteRenderer.sprite = waterBatterySprite;  // 물에 빠진 배터리 스프라이트로 변경
     }
 
-    public void IncreaseSpeed()
+    private void StartMovement()
     {
-        if (batterySpeed <= 8.0f)
+        transform.DOMoveY(topY, moveDuration).SetEase(Ease.Linear).OnComplete(ReverseMovement);
+    }
+
+    private void ReverseMovement()
+    {
+        transform.DOMoveY(stopY, moveDuration).SetEase(Ease.Linear);
+    }
+
+    private void StopMovement()
+    {
+        if (gameObject != null)
         {
-            batterySpeed += 2.0f;
+            Destroy(gameObject);
         }
-    }
-
-    public void BatteryDownMove()
-    {
-        Debug.Log("t");
-        transform.Translate(Vector2.down * batterySpeed * Time.deltaTime);
     }
 }

@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class Mg16Manager : MonoBehaviour
+public class dMg16Manager : MonoBehaviour
 {
-    public static Mg16Manager instance = null;
-    Mg16Jelly mg16Jelly;
+    public static dMg16Manager instance = null;
+    dMg16Jelly mg16Jelly;
 
     public GameObject battery;
     public GameObject fish1;
@@ -38,7 +38,7 @@ public class Mg16Manager : MonoBehaviour
     }
     void Start()
     {
-        mg16Jelly = FindObjectOfType<Mg16Jelly>();
+        mg16Jelly = FindObjectOfType<dMg16Jelly>();
         // 배터리만 활성화, object 비활성화
         battery.SetActive(true);
         //battery.transform.position = new Vector2(playerPositionScript.positionPlayer, maxY);
@@ -79,10 +79,10 @@ public class Mg16Manager : MonoBehaviour
         //MiniGameManager.Instance.AddJelly();
         if (score % 5 == 0)
         {
-            Mg16FishManager fish = FindObjectOfType<Mg16FishManager>();
-            Mg16Jelly jelly = FindObjectOfType<Mg16Jelly>();
-            Mg16Player player = FindObjectOfType<Mg16Player>();
-            Mg16Battery battery = FindObjectOfType<Mg16Battery>();
+            dMg16FishManager fish = FindObjectOfType<dMg16FishManager>();
+            dMg16Jelly jelly = FindObjectOfType<dMg16Jelly>();
+            dMg16Player player = FindObjectOfType<dMg16Player>();
+            dMg16Battery battery = FindObjectOfType<dMg16Battery>();
 
             fish.IncreaseSpeed();
             jelly.IncreaseSpeed();

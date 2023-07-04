@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1537494613662276502}
   - component: {fileID: 8504779270882488024}
   - component: {fileID: 2294656865261961225}
-  - component: {fileID: 2003448115794538560}
+  - component: {fileID: 2605794110833411044}
   m_Layer: 0
   m_Name: Mg16Fish
   m_TagString: Untagged
@@ -142,7 +142,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &2003448115794538560
+--- !u!114 &2605794110833411044
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -151,11 +151,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6047894818161730383}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19d151fe230561c4184a1757355e704a, type: 3}
+  m_Script: {fileID: 11500000, guid: 56aa7f0304a415040b1065802b7cc5df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  manager: {fileID: 0}
-  fishSpeed: 2
-  minY: -3.5
-  maxY: 1.7
-  playerIsTrigger: 0
+  startY: -3.5
+  topY: 2.5
+  stopY: 1.7
+  moveDuration: 1.5
