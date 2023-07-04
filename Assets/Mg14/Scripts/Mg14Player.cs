@@ -20,6 +20,35 @@ public class Mg14Player : MonoBehaviour
     private bool monkey_left = true;
 
 
+    private bool RightButton = false;
+    private bool LeftButton = false;
+
+    public void RightClick()
+    {
+        LeftButton = false;
+        RightButton = true;
+
+    }
+
+    public void RightClickOff()
+    {
+        RightButton = false;
+
+    }
+
+    public void LeftClick()
+    {
+        RightButton = false;
+        LeftButton = true;
+    }
+
+    public void LeftClickOff()
+    {
+        LeftButton = false;
+    }
+
+
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -29,19 +58,21 @@ public class Mg14Player : MonoBehaviour
     private void Update()
     {
         // ������ �밢�� ���� ����
-        if (monkey_left && canJump && Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D) )
+        if (monkey_left && canJump && (Input.GetKeyDown(KeyCode.RightArrow)|| RightButton))
         {
             FlipSprite();
             RightJump();
             monkey_left = false;
             monkey_right = true;
+            RightButton=false;
         }
-        if (monkey_right&& canJump && Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A) )
+        if (monkey_right&& canJump && (Input.GetKeyDown(KeyCode.LeftArrow) ||LeftButton))
         {
             FlipSprite();
             LeftJump();
             monkey_left = true;
             monkey_right = false;
+            LeftButton = false;
         }
     }
 
