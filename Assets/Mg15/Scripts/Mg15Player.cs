@@ -9,6 +9,34 @@ public class Mg15Player : MonoBehaviour
     private Rigidbody2D rb;
     private BoxCollider2D boxCollider;
 
+
+    private bool RightButton = false;
+    private bool LeftButton = false;
+
+    public void RightClick()
+    {
+        LeftButton = false;
+        RightButton = true;
+
+    }
+
+    public void RightClickOff()
+    {
+        RightButton = false;
+
+    }
+
+    public void LeftClick()
+    {
+        RightButton = false;
+        LeftButton = true;
+    }
+
+    public void LeftClickOff()
+    {
+        LeftButton = false;
+    }
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -17,9 +45,18 @@ public class Mg15Player : MonoBehaviour
 
     private void Update()
     {
-        float horizontalInput = Input.GetAxis("Horizontal");
+        float horizontalInput = 0f;
 
-        // 움직임 계산
+        if (Input.GetKey(KeyCode.RightArrow) || RightButton)
+        {
+            horizontalInput = 1f;
+        }
+        else if(Input.GetKey(KeyCode.LeftArrow) || LeftButton)
+        {
+            horizontalInput = -1f;
+        }
+
+            // 움직임 계산
         float moveX = horizontalInput * moveSpeed;
         Vector2 movement = new Vector2(moveX, rb.velocity.y);
 
