@@ -9,14 +9,51 @@ public class Mg13Player : MonoBehaviour
     public float rotateSpeed = 180.0f;
     private float currentRotation;
 
+
+    private bool RightButton = false;
+    private bool LeftButton = false;
+
+    public void RightClick()
+    {
+        LeftButton = false;
+        RightButton = true;
+
+    }
+
+    public void RightClickOff()
+    {
+        RightButton = false;
+
+    }
+
+    public void LeftClick()
+    {
+        RightButton = false;
+        LeftButton = true;
+    }
+
+    public void LeftClickOff()
+    {
+        LeftButton = false;
+    }
+
     private void Update()
     {
-        float horizontalInput = Input.GetAxis("Horizontal");
+        
 
-        if (horizontalInput != 0)
+        if (Input.GetKey(KeyCode.RightArrow) || RightButton)
         {
             // 입력이 있는 경우 회전
-            currentRotation -= horizontalInput * rotateSpeed * Time.deltaTime;
+            float rotationAmount = rotateSpeed * Time.deltaTime;
+            currentRotation -= rotationAmount;
+            transform.eulerAngles = new Vector3(0f, 0f, currentRotation);
+        }
+
+        else if (Input.GetKey(KeyCode.LeftArrow) || LeftButton)
+        {
+            // 입력이 있는 경우 회전
+            float rotationAmount = rotateSpeed * Time.deltaTime;
+            currentRotation += rotationAmount;
             transform.eulerAngles = new Vector3(0f, 0f, currentRotation);
         }
 
