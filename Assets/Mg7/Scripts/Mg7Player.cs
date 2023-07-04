@@ -8,6 +8,34 @@ public class Mg7Player : MonoBehaviour
     public float jumpPower = 5.0f;
     public int level;
 
+
+    private bool RightButton = false;
+    private bool LeftButton = false;
+
+    public void RightClick()
+    {
+        LeftButton = false;
+        RightButton = true;
+
+    }
+
+    public void RightClickOff()
+    {
+        RightButton = false;
+
+    }
+
+    public void LeftClick()
+    {
+        RightButton = false;
+        LeftButton = true;
+    }
+
+    public void LeftClickOff()
+    {
+        LeftButton = false;
+    }
+
     public Mg7Player()
     {
         level = 1;
@@ -20,13 +48,15 @@ public class Mg7Player : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        if (Input.GetKeyDown(KeyCode.LeftArrow) || LeftButton)
         {
             JumpWithAngle(135f);
+            LeftButton = false;
         }
-        else if (Input.GetKeyDown(KeyCode.RightArrow))
+        else if (Input.GetKeyDown(KeyCode.RightArrow)||RightButton)
         {
             JumpWithAngle(45f);
+            RightButton = false;
         }
     }
 
