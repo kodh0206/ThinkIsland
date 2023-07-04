@@ -113,6 +113,18 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -120,10 +132,10 @@ TextureImporter:
       name: MG7_0
       rect:
         serializedVersion: 2
-        x: 10
-        y: 5
-        width: 27
-        height: 39
+        x: 0
+        y: 48
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,50 +143,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b585778feb2baa74382e84b6c404e6bf
-      internalID: -682396390
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MG7_1
-      rect:
-        serializedVersion: 2
-        x: 58
-        y: 5
-        width: 27
-        height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 61c14c39395aacf47b4fa39839496a78
-      internalID: 1782485781
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MG7_2
-      rect:
-        serializedVersion: 2
-        x: 106
-        y: 5
-        width: 27
-        height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a7a96c84ea26a044488c6374c7865db4
-      internalID: -139934924
+      spriteID: f237fd6c754ae764f9085cdb7d64f8a2
+      internalID: -1788446424
       vertices: []
       indices: 
       edges: []
@@ -183,10 +153,10 @@ TextureImporter:
       name: MG7_3
       rect:
         serializedVersion: 2
-        x: 147
-        y: 32
-        width: 9
-        height: 14
+        x: 48
+        y: 80
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,8 +164,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 16eb75a4e9395964d96a47d4cd72cee7
-      internalID: 154758174
+      spriteID: f59a383c170aa724b9324d3848ded42b
+      internalID: -987591767
       vertices: []
       indices: 
       edges: []
@@ -204,10 +174,10 @@ TextureImporter:
       name: MG7_4
       rect:
         serializedVersion: 2
-        x: 144
-        y: 3
-        width: 14
-        height: 9
+        x: 64
+        y: 80
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -215,20 +185,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: da0c376921f386c44833a7ac6e29c4a3
-      internalID: 384256441
+      spriteID: 02efd1ce13386694b9a23c6f5920dd80
+      internalID: 565207067
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MG7_5
+      name: MG7_11
       rect:
         serializedVersion: 2
-        x: 160
-        y: 3
-        width: 14
-        height: 10
+        x: 80
+        y: 48
+        width: 48
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -236,8 +206,134 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2af51b5c657882a4e8f759e28d6f27e7
-      internalID: -135444334
+      spriteID: 834a6685339fec147bdc82fe023c3adc
+      internalID: -862607400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MG7_14
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 48
+        width: 64
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a095cb11a0ca7da41b674e1464e4f32b
+      internalID: -496142269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MG7_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2906fd1dbbc31f14e9594face04a51df
+      internalID: -1679205847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MG7_21
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 407f33551b1e0f74d91959df15ba471c
+      internalID: 76338045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MG7_24
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 691857be3d3ec064ab2a26c769838144
+      internalID: 1766566561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MG7_27
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 0
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a7585e667f8cb740b154d3e0898f86c
+      internalID: 85133462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MG7_30
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fedefc4432e0258459972ab74e87e958
+      internalID: -86970763
       vertices: []
       indices: 
       edges: []
@@ -253,12 +349,69 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      MG7_0: -682396390
-      MG7_1: 1782485781
-      MG7_2: -139934924
-      MG7_3: 154758174
-      MG7_4: 384256441
-      MG7_5: -135444334
+      MG7_0: -1788446424
+      MG7_1: 1681727173
+      MG7_10: -741725775
+      MG7_11: -862607400
+      MG7_12: 1769499354
+      MG7_13: -839799914
+      MG7_14: -496142269
+      MG7_15: 1659802307
+      MG7_16: -1933448933
+      MG7_17: -262590593
+      MG7_18: -1679205847
+      MG7_19: 213375246
+      MG7_2: 993871735
+      MG7_20: -859910905
+      MG7_21: 76338045
+      MG7_22: -641905793
+      MG7_23: 1769183160
+      MG7_24: 1766566561
+      MG7_25: -2005223386
+      MG7_26: 751401780
+      MG7_27: 85133462
+      MG7_28: -712961676
+      MG7_29: -2009259425
+      MG7_3: -987591767
+      MG7_30: -86970763
+      MG7_31: -353987524
+      MG7_32: 334802705
+      MG7_33: 2012028236
+      MG7_34: -1809365399
+      MG7_35: 1829728695
+      MG7_36: -1030459385
+      MG7_37: 445222733
+      MG7_38: 2101451676
+      MG7_39: -1235786276
+      MG7_4: 565207067
+      MG7_40: -511987242
+      MG7_41: -1162711150
+      MG7_42: -1250984895
+      MG7_43: 896535156
+      MG7_44: -101756246
+      MG7_45: 884090880
+      MG7_46: 18201066
+      MG7_47: 346257989
+      MG7_48: 1635004084
+      MG7_49: -367449497
+      MG7_5: 1284084847
+      MG7_50: -168180340
+      MG7_51: -1784582776
+      MG7_52: -888029441
+      MG7_53: -1255749128
+      MG7_54: -1648258989
+      MG7_55: -1141773811
+      MG7_56: 1651080638
+      MG7_57: -791390489
+      MG7_58: 826390545
+      MG7_59: -1941462737
+      MG7_6: 396279792
+      MG7_60: -267947152
+      MG7_61: -1056731747
+      MG7_62: 316065405
+      MG7_7: -1062299947
+      MG7_8: -606673419
+      MG7_9: 215719601
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
