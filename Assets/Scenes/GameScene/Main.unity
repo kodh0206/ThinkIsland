@@ -326,27 +326,27 @@ PrefabInstance:
     - target: {fileID: 8568531993772909538, guid: cb1effd25b4147b488109dc79ce41383,
         type: 3}
       propertyPath: miniGameScenes.Array.data[0]
-      value: Mg1
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8568531993772909538, guid: cb1effd25b4147b488109dc79ce41383,
         type: 3}
       propertyPath: miniGameScenes.Array.data[1]
-      value: Mg2
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8568531993772909538, guid: cb1effd25b4147b488109dc79ce41383,
         type: 3}
       propertyPath: miniGameScenes.Array.data[2]
-      value: Mg3
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8568531993772909538, guid: cb1effd25b4147b488109dc79ce41383,
         type: 3}
       propertyPath: miniGameScenes.Array.data[3]
-      value: Mg4
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8568531993772909538, guid: cb1effd25b4147b488109dc79ce41383,
         type: 3}
       propertyPath: miniGameScenes.Array.data[4]
-      value: Mg5
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8568531993772909538, guid: cb1effd25b4147b488109dc79ce41383,
         type: 3}
@@ -702,6 +702,14 @@ MonoBehaviour:
   - Mg10
   - Mg11
   - Mg12
+  - Mg13
+  - Mg14
+  - Mg15
+  - Mg16
+  - Mg17
+  - Mg18
+  - Mg19
+  - Mg20
 --- !u!1 &1164479916
 GameObject:
   m_ObjectHideFlags: 0
