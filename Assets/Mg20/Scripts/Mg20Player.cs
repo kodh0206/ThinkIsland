@@ -9,22 +9,55 @@ public class Mg20Player : MonoBehaviour
     
 
     private Rigidbody2D rb;
-    
 
+    private bool RightButton = false;
+    private bool LeftButton = false;
+
+    public void RightClick()
+    {
+        LeftButton = false;
+        RightButton = true;
+
+    }
+
+    public void RightClickOff()
+    {
+        RightButton = false;
+
+    }
+
+    public void LeftClick()
+    {
+        RightButton = false;
+        LeftButton = true;
+    }
+
+    public void LeftClickOff()
+    {
+        LeftButton = false;
+    }
 
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         
-
-       
-        
     }
+
 
     private void Update()
     {
         float horizontalInput = Input.GetAxis("Horizontal");
+
+
+        if (RightButton)
+        {
+            horizontalInput = 1f;
+        }
+        else if (LeftButton)
+        {
+            horizontalInput = -1f;
+        }
 
         // 움직임 계산
         float moveX = horizontalInput * moveSpeed;

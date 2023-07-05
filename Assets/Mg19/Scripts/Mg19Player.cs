@@ -53,7 +53,7 @@ public class Mg19Player : MonoBehaviour
 
     private void Update()
     {
-        rb.gravityScale = 1f;
+        
         float horizontalInput = Input.GetAxis("Horizontal");
         if (RightButton)
         {
@@ -112,7 +112,7 @@ public class Mg19Player : MonoBehaviour
         // 충돌 무시 해제
         Physics2D.IgnoreLayerCollision(gameObject.layer, blockLayerMask, false);
 
-        rb.gravityScale = 1.5f;
+        
 
         isJumping = true;
     }
