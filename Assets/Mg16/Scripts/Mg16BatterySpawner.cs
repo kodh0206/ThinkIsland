@@ -22,7 +22,8 @@ public class Mg16BatterySpawner : MonoBehaviour
     {
         
     }
-    private void Start() {
+    private void Start() 
+    {
         mg16Battery = GetComponent<Mg16Battery>();
     }
 

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1537494613662276502}
   - component: {fileID: 8504779270882488024}
   - component: {fileID: 2294656865261961225}
-  - component: {fileID: 2605794110833411044}
+  - component: {fileID: 4652311353878406985}
   m_Layer: 0
   m_Name: Mg16Fish
   m_TagString: Untagged
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: -9275308, guid: 11656aa966d997542a3b3c7096999fdc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -142,7 +142,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &2605794110833411044
+--- !u!114 &4652311353878406985
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -151,10 +151,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6047894818161730383}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56aa7f0304a415040b1065802b7cc5df, type: 3}
+  m_Script: {fileID: 11500000, guid: 0be8179ac78249d43b24e663dc033840, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   startY: -3.5
   topY: 2.5
   stopY: 1.7
   moveDuration: 1.5
+  playerIsTrigger: 0

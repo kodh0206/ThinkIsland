@@ -39,4 +39,12 @@ public class Mg16Player : MonoBehaviour
             transform.position += Vector3.right * moveSpeed * Time.deltaTime;
         }
     }
+
+    public void SpeedTime()
+    {
+        if (moveSpeed <= 3.9f)
+        {
+            moveSpeed += 0.3f;
+        }
+    }
 }
