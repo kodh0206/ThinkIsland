@@ -14,6 +14,34 @@ public class Mg19Player : MonoBehaviour
 
     private int blockLayerMask; // Block 레이어의 마스크
 
+
+    private bool RightButton = false;
+    private bool LeftButton = false;
+
+    public void RightClick()
+    {
+        LeftButton = false;
+        RightButton = true;
+
+    }
+
+    public void RightClickOff()
+    {
+        RightButton = false;
+
+    }
+
+    public void LeftClick()
+    {
+        RightButton = false;
+        LeftButton = true;
+    }
+
+    public void LeftClickOff()
+    {
+        LeftButton = false;
+    }
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -25,7 +53,16 @@ public class Mg19Player : MonoBehaviour
 
     private void Update()
     {
+        rb.gravityScale = 1f;
         float horizontalInput = Input.GetAxis("Horizontal");
+        if (RightButton)
+        {
+            horizontalInput = 1f;
+        }
+        else if (LeftButton)
+        {
+            horizontalInput = -1f;
+        }
 
         // 움직임 계산
         float moveX = horizontalInput * moveSpeed;
@@ -56,6 +93,8 @@ public class Mg19Player : MonoBehaviour
         StartCoroutine(DisableColliderForJump());
 
         rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+
+        
     }
 
     private IEnumerator DisableColliderForJump()
@@ -72,6 +111,8 @@ public class Mg19Player : MonoBehaviour
 
         // 충돌 무시 해제
         Physics2D.IgnoreLayerCollision(gameObject.layer, blockLayerMask, false);
+
+        rb.gravityScale = 1.5f;
 
         isJumping = true;
     }
