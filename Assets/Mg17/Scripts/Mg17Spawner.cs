@@ -53,4 +53,21 @@ public class Mg17Spawner : MonoBehaviour
         Mg17shellSpeed += 2.0f; // 장애물의 스피드 증가
         time_diff -= 0.1f; // 장애물의 생성 간격 감소
     }
+
+    public void GetHit()
+    {
+        StartCoroutine(DisableSpawning());
+    }
+
+    private IEnumerator DisableSpawning()
+    {
+        // 생성 멈춤
+        time_diff = Mathf.Infinity;
+
+        // 대기 시간
+        yield return new WaitForSeconds(2f);
+
+        // 생성 재개
+        time_diff = 1.5f;
+    }
 }
