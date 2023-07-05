@@ -10,11 +10,11 @@ public class Mg18GroundSpawner : MonoBehaviour
     private float Mg18movigGroundSpeed = 5.0f; // 생성물의 초기 스피드
 
     [SerializeField]
-    private float time_diff = 1.5f; // 장애물 생성 간격
+    private float time_diff = 1.0f; // 발판 생성 간격
     [SerializeField]
-    private int minNumObstaclesToSpawn = 1; // 최소 생성 장애물 개수
+    private int minNumObstaclesToSpawn = 1; // 최소 생성 발판 개수
     [SerializeField]
-    private int maxNumObstaclesToSpawn = 3; // 최대 생성 장애물 개수
+    private int maxNumObstaclesToSpawn = 1; // 최대 생성 발판 개수
 
     float time = 0;
 
