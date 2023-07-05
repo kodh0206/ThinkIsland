@@ -46,6 +46,7 @@ MonoBehaviour:
     - MoreMountains.Interface
     - MoreMountains.InventoryEngine
     - MoreMountains.Tools
+    - ParticleImage
     - Plugins.Baedrick.ColoredHeaderCreator
     showAdvancedSettings: 0
   addMgrToSceneAutomatically: 0
