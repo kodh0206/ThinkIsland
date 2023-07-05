@@ -161,7 +161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   breakEffect: {fileID: 0}
-  moveSpeed: 2
+  moveSpeed: 3
 --- !u!1 &7178641936550655551
 GameObject:
   m_ObjectHideFlags: 0
@@ -288,7 +288,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   breakEffect: {fileID: 0}
-  moveSpeed: 2
+  moveSpeed: 3
 --- !u!1 &7178641936699561521
 GameObject:
   m_ObjectHideFlags: 0
@@ -415,7 +415,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   breakEffect: {fileID: 0}
-  moveSpeed: 2
+  moveSpeed: 3
 --- !u!1 &7178641937982071059
 GameObject:
   m_ObjectHideFlags: 0
@@ -542,4 +542,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   breakEffect: {fileID: 0}
-  moveSpeed: 2
+  moveSpeed: 3
