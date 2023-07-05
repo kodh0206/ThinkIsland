@@ -20,7 +20,34 @@ public class Mg18Player : MonoBehaviour
     private bool nowJumping = false;
 
     private Rigidbody2D rb;
-    
+
+
+    private bool RightButton = false;
+    private bool LeftButton = false;
+
+    public void RightClick()
+    {
+        LeftButton = false;
+        RightButton = true;
+
+    }
+
+    public void RightClickOff()
+    {
+        RightButton = false;
+
+    }
+
+    public void LeftClick()
+    {
+        RightButton = false;
+        LeftButton = true;
+    }
+
+    public void LeftClickOff()
+    {
+        LeftButton = false;
+    }
 
     private void Start()
     {
@@ -30,7 +57,7 @@ public class Mg18Player : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.RightArrow) || RightButton)
         {
             transform.Translate(Vector2.down * moveSpeed * Time.deltaTime);
             rb.gravityScale = Mathf.Clamp(rb.gravityScale, 0f, maxGravityScale);
@@ -49,10 +76,10 @@ public class Mg18Player : MonoBehaviour
             rb.gravityScale = 1.0f;
         }
 
-        if (!(isHit) &&  Input.GetKey(KeyCode.LeftArrow) && !nowJumping) // ¶¥À» ¹â¾Ò°Å³ª ¹° ¼Ó ÀÏ¶§.
+        if ((Input.GetKey(KeyCode.LeftArrow) || LeftButton) &&!(isHit)  && !nowJumping ) // ¶¥À» ¹â¾Ò°Å³ª ¹° ¼Ó ÀÏ¶§.
         {
             Jump();
-            nowJumping = true;
+            LeftButton= false;
             
         }
 
@@ -74,15 +101,18 @@ public class Mg18Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Ground" )
+        if (other.gameObject.tag == "Ground" || other.gameObject.tag == "water")
         {
             nowJumping = false;
         }
-        if (other.gameObject.tag == "water")
-        {
-            nowJumping = false;
-        }
+    }
 
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Ground" || other.gameObject.tag == "water")
+        {
+            nowJumping = true;
+        }
     }
 
     public void GetHit()
