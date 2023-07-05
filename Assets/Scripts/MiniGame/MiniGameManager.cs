@@ -12,6 +12,8 @@ public class MiniGameManager : MonoBehaviour
     public static MiniGameManager Instance { get { return _instance; } }
     public static event Action OnMiniGameStart;
     public static event Action OnMiniGameEnd;
+
+    private AudioManager audio;
     public Canvas minigameUI;
     public CanvasGroup fadeCanvasGroup; // 페이드 효과를 위한 CanvasGroup
     public bool minigameUIActive;
@@ -21,7 +23,7 @@ public class MiniGameManager : MonoBehaviour
     //public TextMeshProUGUI remaingames;
     private float gameChangeInterval = 10f; // 미니게임 변경 간격
     private float timer = 0f;
-    public int totalJelly; //먹은 젤리의 갯수 
+    public int totalJelly=0; //먹은 젤리의 갯수 
 
     private int gamesToPlay=5;
     public bool isMiniGameScene = false; // 현재 씬이 미니게임 씬인지 여부를 확인하기 위한 플래그
