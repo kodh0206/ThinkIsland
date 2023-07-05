@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8383466083460080303}
   m_Layer: 0
   m_Name: Mg17Obstacle
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: c0ea1d816272c1444a6a35b36de30ed2, type: 2}
+  m_Sprite: {fileID: 485938735, guid: cb13617983471a140b1f17310afbb22e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -151,3 +151,9 @@ MonoBehaviour:
     type: 3}
   ObstacleinRock: {fileID: 1163599836936205690, guid: 6dd99d8e6a33a6c4080458bfb3fd83d9,
     type: 3}
+  sprites:
+  - {fileID: -530016245, guid: cb13617983471a140b1f17310afbb22e, type: 3}
+  - {fileID: 1278580904, guid: cb13617983471a140b1f17310afbb22e, type: 3}
+  - {fileID: -1020430630, guid: cb13617983471a140b1f17310afbb22e, type: 3}
+  sprite: {fileID: 0}
+  HItCount: 0

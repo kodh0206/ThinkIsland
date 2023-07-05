@@ -9,19 +9,58 @@ public class Mg17Player : MonoBehaviour
     private Rigidbody2D rb;
     private BoxCollider2D boxCollider;
 
+    Animator animator;
+
+    private bool RightButton = false;
+    private bool LeftButton = false;
 
 
+    public void RightClick()
+    {
+        LeftButton = false;
+        RightButton = true;
+
+    }
+
+    public void RightClickOff()
+    {
+        RightButton = false;
+
+    }
+
+    public void LeftClick()
+    {
+        RightButton = false;
+        LeftButton = true;
+
+    }
+
+    public void LeftClickOff()
+    {
+        LeftButton = false;
+
+    }
 
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         boxCollider = GetComponent<BoxCollider2D>();
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
     {
         float horizontalInput = Input.GetAxis("Horizontal");
+
+        if (RightButton)
+        {
+            horizontalInput = 1f;
+        }
+        else if (LeftButton)
+        {
+            horizontalInput = -1f;
+        }
 
         // 움직임 계산
         float moveX = horizontalInput * moveSpeed;
@@ -35,6 +74,7 @@ public class Mg17Player : MonoBehaviour
     public void GetHit()
     {
         // 움직임 멈춤
+        animator.speed = 0f;
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         rb.velocity = Vector2.zero;
 
@@ -51,7 +91,7 @@ public class Mg17Player : MonoBehaviour
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
         if (spriteRenderer != null)
         {
-            spriteRenderer.color = new Color(0.77f, 0.52f, 0f);
+            spriteRenderer.color = new Color(0.5f, 0.5f, 0.5f);
         }
 
         // 2초간 대기
@@ -59,6 +99,8 @@ public class Mg17Player : MonoBehaviour
 
         // 조작 활성화
         enabled = true;
+        animator.Play("ShottongRmg", 0, 0);
+        animator.speed = 1f;
 
         // 1초간 poop 영향 받지 않음
         yield return new WaitForSeconds(1f);

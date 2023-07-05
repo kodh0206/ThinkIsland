@@ -12,9 +12,9 @@ public class Mg17RockSpawner : MonoBehaviour
     private float RockSpeed = 5.0f; // 바위의 초기 스피드
 
     [SerializeField]
-    private float time_diff = 0.5f;
+    private float time_diff = 0.35f;
 
-    float time = 0;
+    float time = -0.24f;
 
     // Start is called before the first frame update
     void Start()
@@ -31,7 +31,7 @@ public class Mg17RockSpawner : MonoBehaviour
             GameObject new_Rock = Instantiate(Rock);
 
             // 좌표를 랜덤하게 선택하여 설정
-            Vector2 spawnPosition = new Vector2(player.position.x , player.position.y); //플레이어를 기준으로 생성
+            Vector2 spawnPosition = new Vector2(player.position.x-0.1f , player.position.y+0.1f); //플레이어를 기준으로 생성
             new_Rock.transform.position = spawnPosition;
 
 
