@@ -9,7 +9,7 @@ public class Mg15Player : MonoBehaviour
     private Rigidbody2D rb;
     private BoxCollider2D boxCollider;
 
-
+    Animator animator;
 
     private bool RightButton = false;
     private bool LeftButton = false;
@@ -42,6 +42,7 @@ public class Mg15Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         boxCollider = GetComponent<BoxCollider2D>();
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -51,10 +52,20 @@ public class Mg15Player : MonoBehaviour
         if (Input.GetKey(KeyCode.RightArrow) || RightButton)
         {
             horizontalInput = 1f;
+            animator.SetBool("MoveRight", true);
+            animator.SetBool("MoveLeft", false);
         }
         else if(Input.GetKey(KeyCode.LeftArrow) || LeftButton)
         {
+            
             horizontalInput = -1f;
+            animator.SetBool("MoveRight", false);
+            animator.SetBool("MoveLeft", true);
+        }
+        else
+        {
+            animator.SetBool("MoveRight", false);
+            animator.SetBool("MoveLeft", false);
         }
 
             // ������ ���

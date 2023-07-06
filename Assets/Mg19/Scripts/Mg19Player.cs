@@ -4,20 +4,21 @@ using UnityEngine;
 
 public class Mg19Player : MonoBehaviour
 {
-    public float jumpForce = 10f; // Á¡ÇÁ Èû
-    public float moveSpeed = 5f; // ¿òÁ÷ÀÓ ¼Óµµ
-    public float disableColliderTime = 0.3f; // Á¡ÇÁ Àü Collider ºñÈ°¼ºÈ­ ½Ã°£
+    public float jumpForce = 10f; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+    public float moveSpeed = 5f; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Óµï¿½
+    public float disableColliderTime = 0.3f; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ Collider ï¿½ï¿½È°ï¿½ï¿½È­ ï¿½Ã°ï¿½
     public bool isJumping = true;
 
     private Rigidbody2D rb;
     private BoxCollider2D boxCollider;
 
-    private int blockLayerMask; // Block ·¹ÀÌ¾îÀÇ ¸¶½ºÅ©
+    private int blockLayerMask; // Block ï¿½ï¿½ï¿½Ì¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å©
 
 
     private bool RightButton = false;
     private bool LeftButton = false;
-
+    private AudioSource audioSource;
+    public AudioClip jump;
     public void RightClick()
     {
         LeftButton = false;
@@ -47,8 +48,9 @@ public class Mg19Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         boxCollider = GetComponent<BoxCollider2D>();
 
-        // Block ·¹ÀÌ¾îÀÇ ¸¶½ºÅ© ¼³Á¤
+        // Block ï¿½ï¿½ï¿½Ì¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å© ï¿½ï¿½ï¿½ï¿½
         blockLayerMask = LayerMask.NameToLayer("Block");
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -64,18 +66,19 @@ public class Mg19Player : MonoBehaviour
             horizontalInput = -1f;
         }
 
-        // ¿òÁ÷ÀÓ °è»ê
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
         float moveX = horizontalInput * moveSpeed;
         Vector2 movement = new Vector2(moveX, rb.velocity.y);
 
-        // ¿òÁ÷ÀÓ Àû¿ë
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         rb.velocity = movement;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Ground") && isJumping)
-        {
+        {   
+            audioSource.PlayOneShot(jump);
             Jump();
         }
     }
@@ -101,15 +104,15 @@ public class Mg19Player : MonoBehaviour
     {
         isJumping = false;
 
-        // Block ·¹ÀÌ¾î¿ÍÀÇ Ãæµ¹ ¹«½Ã
+        // Block ï¿½ï¿½ï¿½Ì¾ï¿½ï¿½ï¿½ï¿½ ï¿½æµ¹ ï¿½ï¿½ï¿½ï¿½
         Physics2D.IgnoreLayerCollision(gameObject.layer, blockLayerMask, true);
 
         yield return new WaitForSeconds(disableColliderTime);
 
-        // Ãæµ¹ ¹«½Ã ¼³Á¤À» ÇØÁ¦ÇÏ±â À§ÇØ Àá½Ã ´ë±â
+        // ï¿½æµ¹ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
         yield return new WaitUntil(() => rb.velocity.y <= 0f);
 
-        // Ãæµ¹ ¹«½Ã ÇØÁ¦
+        // ï¿½æµ¹ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         Physics2D.IgnoreLayerCollision(gameObject.layer, blockLayerMask, false);
 
         

@@ -21,8 +21,10 @@ public class Mg18Player : MonoBehaviour
     private bool nowJumping = false;
 
     private Rigidbody2D rb;
-
-
+    public AudioClip walkSound;     // 걷는 소리 오디오 클립
+    public AudioClip splashSound;   // 첨벙소리 오디오 클립
+    public AudioClip jumpSound;     // 점프 소리 오디오 클립
+    public AudioSource audioSource;
     private bool RightButton = false;
     private bool LeftButton = false;
 
@@ -55,6 +57,8 @@ public class Mg18Player : MonoBehaviour
         animator = GetComponent<Animator>();  // 애니메이터 컴포넌트 가져오기
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 0f; // ������ �� gravity scale�� 0�� ����
+        audioSource = GetComponent<AudioSource>();
+        boxCollider =GetComponent<BoxCollider2D>();
     }
 
     private void Update()
@@ -67,20 +71,42 @@ public class Mg18Player : MonoBehaviour
 
         // y ��ǥ�� ������ ��� gravity scale ����
         if (!(isHit) && transform.position.y <= 0 )
-        {
+        {   
+             audioSource.clip = splashSound;
+            if (!audioSource.isPlaying)
+            {
+                audioSource.Play();
+            }
             float gravityScale = transform.position.y; // y ��ǥ�� ������ gravity scale�� ���
             gravityScale = Mathf.Clamp(gravityScale, -maxGravityScale, 0f ); // �ִ밪 ����
             rb.gravityScale = gravityScale/ Random.Range(1f,3f);
             animator.SetBool("PlayerIsWater", true);
         }
         else
+        {   
+        if (!(nowJumping))
         {
+            audioSource.clip = walkSound;
+            if (!audioSource.isPlaying)
+            {
+                audioSource.Play();
+            }
+            }
+            else{
+                audioSource.Stop();
+            }
             rb.gravityScale = 1.0f;
             animator.SetBool("PlayerIsWater", false);
         }
 
         if ((Input.GetKey(KeyCode.LeftArrow) || LeftButton) &&!(isHit)  && !nowJumping ) // ���� ��Ұų� �� �� �϶�.
-        {
+        {   
+
+            audioSource.clip = jumpSound;
+            if (!audioSource.isPlaying)
+            {
+                audioSource.Play();
+            }
             Jump();
             LeftButton= false;
             

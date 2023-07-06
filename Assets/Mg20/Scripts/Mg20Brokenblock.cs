@@ -4,33 +4,33 @@ using UnityEngine;
 
 public class Mg20Brokenblock : MonoBehaviour
 {
-    public GameObject breakEffect; // ºÎ¼­Áú ¶§ Àç»ýµÉ ÆÄÆ¼Å¬ È¿°ú
+    public GameObject breakEffect; // ï¿½Î¼ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ¼Å¬ È¿ï¿½ï¿½
 
-    public float blockspeed = 3f; // ¿ÀºêÁ§Æ®ÀÇ ¼Óµµ
+    public float blockspeed = 3f; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Óµï¿½
 
     private void Update()
     {
-        // ¿ÀºêÁ§Æ®¸¦ À§·Î ÀÌµ¿½ÃÅ´
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½Å´
         transform.Translate(Vector3.up * blockspeed * Time.deltaTime);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
-        {
+        {   
             BreakObject();
         }
     }
 
     private void BreakObject()
-    {
-        // ÆÄÆ¼Å¬ È¿°ú Àç»ý
+    {   AudioManager.Instance.BreakPlatform();
+        // ï¿½ï¿½Æ¼Å¬ È¿ï¿½ï¿½ ï¿½ï¿½ï¿½
         if (breakEffect != null)
         {
             Instantiate(breakEffect, transform.position, Quaternion.identity);
         }
 
-        // 0.5ÃÊ Áö¿¬ ÈÄ ¿ÀºêÁ§Æ® Á¦°Å
+        // 0.5ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
         Invoke("DestroyObject", 0.5f);
     }
 

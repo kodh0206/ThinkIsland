@@ -70,7 +70,10 @@ public class MiniGameManager : MonoBehaviour
     fadeCanvasGroup.alpha = 0f;
     }
 
-   
+      public void StartMiniGameWithAudio()
+    {
+        AudioManager.Instance.PlayMiniGameAudio();
+    }
 
     private void Update()
     {
@@ -155,7 +158,8 @@ private IEnumerator ShowBlackScreen()
 }
 
    public void StartMiniGame()
-    {
+    {   
+        
         if (remainingMiniGameScenes.Count == 0)
         {   
             LoadMainMenu();
@@ -166,6 +170,7 @@ private IEnumerator ShowBlackScreen()
         {
             minigameUI.gameObject.SetActive(true);
         }
+      
         AudioManager.Instance.audioSource.Stop(); // Stop BGM
         StartCoroutine(FadeAndLoadScene());
     }
