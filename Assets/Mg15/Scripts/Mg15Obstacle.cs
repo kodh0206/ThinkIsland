@@ -39,7 +39,7 @@ public class Mg15Obstacle : MonoBehaviour
         if (other.gameObject.CompareTag("stair"))
         {
             rb.gravityScale = 1.0f;
-            transform.localScale = Vector3.one; // �������� (1, 1, 1)�� ����
+            transform.localScale = new Vector3(1, -1, 1); // �������� (1, -1, 1)�� ����
             isScaleChanged = true; // ������ ���� ���¸� ǥ��
         }
 
