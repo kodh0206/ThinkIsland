@@ -15,15 +15,15 @@ public class AudioManager : MonoBehaviour
     private void Awake()
     {
     if (_instance != null && _instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
+    {
+        Destroy(gameObject);
+        return;
+    }
 
         _instance = this;
         audioSource = GetComponent<AudioSource>();
-        audioSource.clip = MainBgm;
-        audioSource.Play();
+        StartMainBgm();
+        Debug.Log("메인 배경음 실행");
         DontDestroyOnLoad(gameObject); 
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
@@ -51,7 +51,17 @@ public class AudioManager : MonoBehaviour
     
     }
       
-    
+    private void Start()
+    {
+    Invoke("StartAudio", 0.5f);
+    }
+
+    private void StartAudio()
+    {
+    audioSource = GetComponent<AudioSource>();
+    audioSource.clip = MainBgm;
+    audioSource.Play();
+    }
 
     private void StopMainBgm()
     {
