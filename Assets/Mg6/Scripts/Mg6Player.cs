@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class Mg6Player : MonoBehaviour
 {
+    // 버튼 누르는 시간에 비례해 바뀌는 개구리 색상(더 빨개지도록)
+    public SpriteRenderer spriteRenderer;
+    public float duration = 2.0f; // 변화에 걸리는 시간
+    private bool isPressed = false;
+    private float elapsedTime = 0.0f;
+    private Color startColor;
+    private Color targetColor;
+
+
     [SerializeField]
     private float jumpForce = 3.0f; // �ʱ� ���� ��
     [SerializeField]
@@ -39,6 +48,12 @@ public class Mg6Player : MonoBehaviour
         {
             audioSource = gameObject.AddComponent<AudioSource>();
         }
+    }
+
+    private void Start()
+    {
+        startColor = Color.white;
+        targetColor = Color.red;
     }
 
     public void RightClick()
@@ -77,6 +92,8 @@ public class Mg6Player : MonoBehaviour
             isJumping = true;
             currentJumpForce = jumpForce;
             anim.SetBool("isSitting", true);
+            isPressed = true;
+            elapsedTime = 0.0f;
         }
         else if ((Input.GetKey(KeyCode.Space) || (RightButton && PushingButton)) && isJumping )
         {
@@ -92,8 +109,29 @@ public class Mg6Player : MonoBehaviour
             nowJumping = true;
             isJumping = false;
             RightButton = false;
+            isPressed = false;
+            elapsedTime = 0.0f;
 
         }
+
+        // 개구리 색상 변화
+        if (isPressed)
+        {
+            elapsedTime += Time.deltaTime;
+            float t = Mathf.Clamp01(elapsedTime / duration);
+
+            // 보간된 색상 계산
+            Color lerpedColor = Color.Lerp(startColor, targetColor, t);
+
+            // SpriteRenderer의 색상 변경
+            spriteRenderer.color = lerpedColor;
+        }
+        else if (spriteRenderer.color != startColor)
+        {
+            // 버튼을 누르지 않은 경우 즉시 흰색으로 변경
+            spriteRenderer.color = startColor;
+        }
+
     }
 
     private void Jump()
