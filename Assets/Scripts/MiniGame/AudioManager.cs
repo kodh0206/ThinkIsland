@@ -23,7 +23,11 @@ public class AudioManager : MonoBehaviour
     public AudioClip rock1;//돌이랑 부딧힘2
     public AudioClip shellBreak; //조개껍질 깨지는소리  
     public AudioClip obstacleFly;//장애물날라가기
+
+    public AudioClip capsulebreak;
+    public AudioClip breakPlatform;
     public AudioClip minigamebegin;
+    
     private void Awake()
     {
     if (_instance != null && _instance != this)
@@ -146,6 +150,21 @@ public class AudioManager : MonoBehaviour
     public void ObstacleFly()
     {
         audioSource.PlayOneShot(obstacleFly);
+    }
+
+    public void CapsuleBreak()
+    {
+        audioSource.PlayOneShot(capsulebreak);
+    }
+
+    public void BreakPlatform()
+    {
+        audioSource.PlayOneShot(breakPlatform);
+    }
+
+    public void StartMiniGame()
+    {
+        audioSource.PlayOneShot(minigamebegin);
     }
 }
     

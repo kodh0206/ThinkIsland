@@ -155,7 +155,8 @@ private IEnumerator ShowBlackScreen()
 }
 
    public void StartMiniGame()
-    {
+    {   
+        AudioManager.Instance.StartMiniGame();
         if (remainingMiniGameScenes.Count == 0)
         {   
             LoadMainMenu();

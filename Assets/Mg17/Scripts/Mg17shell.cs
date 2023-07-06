@@ -35,7 +35,8 @@ public class Mg17shell : MonoBehaviour
         }
 
         if (other.gameObject.CompareTag("Rock"))
-        {
+        {   
+            AudioManager.Instance.CapsuleBreak();
             Hit();
             SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
             spriteRenderer.sprite = sprites[HItCount];
@@ -68,11 +69,11 @@ public class Mg17shell : MonoBehaviour
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
         Color originalColor = spriteRenderer.color;
 
-        spriteRenderer.color = new Color(0f, 0f, 0f); // º¯°æÇÒ »ö
+        spriteRenderer.color = new Color(0f, 0f, 0f); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 
-        yield return new WaitForSeconds(0.5f); // º¯°æµÈ »öÀ» À¯ÁöÇÒ ½Ã°£
+        yield return new WaitForSeconds(0.5f); // ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½
 
-        spriteRenderer.color = originalColor; // ¿ø·¡ »öÀ¸·Î µÇµ¹¸®±â
+        spriteRenderer.color = originalColor; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Çµï¿½ï¿½ï¿½ï¿½ï¿½
     }
 
     public void SetSpeed(float speed)
