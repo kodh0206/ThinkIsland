@@ -5,13 +5,13 @@ using UnityEngine;
 public class Mg8Obstacle : MonoBehaviour
 {
     [SerializeField]
-    public float obstacleSpeed = 5.0f;
+    public float obstacleSpeed = 0f;
     // Start is called before the first frame update
 
-
+    Animator animator;
     void Start()
     {
-
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -26,6 +26,7 @@ public class Mg8Obstacle : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            animator.SetBool("PlayerHit", true);
             other.gameObject.GetComponent<Mg8Player>().GetHit();
         }
     }
