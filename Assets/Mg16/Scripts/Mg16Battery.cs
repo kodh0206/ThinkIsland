@@ -12,6 +12,13 @@ public class Mg16Battery : MonoBehaviour
     public Animator animator;  // 애니메이터 컴포넌트
     public Tween movementTween;  // Tween 변수 추가
 
+    // 전기
+    public GameObject electricity1;
+    public GameObject electricity2;
+    public GameObject electricity3;
+    public GameObject electricity4;
+    public GameObject electricity5;
+
     private SpriteRenderer spriteRenderer;
 
     public float startY = 1.7f;
@@ -28,6 +35,10 @@ public class Mg16Battery : MonoBehaviour
         animator = GetComponent<Animator>();  // 애니메이터 컴포넌트 가져오기
         mg16BatterySpawner = GetComponent<Mg16BatterySpawner>();
         spriteRenderer.sprite = batterySprite;  // 초기 스프라이트를 물에 안 빠진 배터리로 설정
+
+        // 배터리 비활성화 함수
+        ElectricitySetActiveFalse();
+
         StartMovement();
     }
 
@@ -37,8 +48,12 @@ public class Mg16Battery : MonoBehaviour
         {
             animator.SetBool("BatteryInWater", true); // 기존 애니메이션 재생 정지
             ChangeSprite();  // 스프라이트 변화 함수 호출
-            // 한 세트 - 이동 시간만큼 시간 지연
-            //Invoke("StopMovement", 1f);//mg16BatterySpawner.time_diff - (moveDuration*2));
+        }
+
+        if (transform.position.y < stopY+0.5f)
+        {
+            // 전기 활성화 함수
+            ElectricitySetActiveTrue();
         }
     }
 
@@ -59,9 +74,34 @@ public class Mg16Battery : MonoBehaviour
 
     private void StopMovement()
     {
-        if (gameObject != null)
-        {
-            Destroy(gameObject);
-        }
+        
+    }
+
+    void ElectricitySetActiveFalse()
+    {
+        electricity1.SetActive(false);
+        electricity2.SetActive(false);
+        electricity3.SetActive(false);
+        electricity4.SetActive(false);
+        electricity5.SetActive(false);
+    }
+
+    void ElectricitySetActiveTrue()
+    {
+        electricity1.SetActive(true);
+        electricity2.SetActive(true);
+        electricity3.SetActive(true);
+        electricity4.SetActive(true);
+        electricity5.SetActive(true);
+    }
+
+    public void BatterySetBoolTrueRepeat()
+    {
+        animator.SetBool("BatteryRepeat", true);
+    }
+
+    public void BatterySetBoolFalseRepeat()
+    {
+        animator.SetBool("BatteryRepeat", false);
     }
 }

@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Mg16_Battery
+  m_Name: Mg16_Jelly
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,13 +20,9 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: -815594598, guid: 11656aa966d997542a3b3c7096999fdc, type: 3}
+      value: {fileID: 828650760, guid: 51fec387e50248e428e6fe2f0abfb456, type: 3}
     - time: 0.083333336
-      value: {fileID: 133073565, guid: 11656aa966d997542a3b3c7096999fdc, type: 3}
-    - time: 0.16666667
-      value: {fileID: -607003378, guid: 11656aa966d997542a3b3c7096999fdc, type: 3}
-    - time: 0.25
-      value: {fileID: -1437846845, guid: 11656aa966d997542a3b3c7096999fdc, type: 3}
+      value: {fileID: -321429975, guid: 51fec387e50248e428e6fe2f0abfb456, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -46,16 +42,14 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: -815594598, guid: 11656aa966d997542a3b3c7096999fdc, type: 3}
-    - {fileID: 133073565, guid: 11656aa966d997542a3b3c7096999fdc, type: 3}
-    - {fileID: -607003378, guid: 11656aa966d997542a3b3c7096999fdc, type: 3}
-    - {fileID: -1437846845, guid: 11656aa966d997542a3b3c7096999fdc, type: 3}
+    - {fileID: 828650760, guid: 51fec387e50248e428e6fe2f0abfb456, type: 3}
+    - {fileID: -321429975, guid: 51fec387e50248e428e6fe2f0abfb456, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.33333334
+    m_StopTime: 0.16666667
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

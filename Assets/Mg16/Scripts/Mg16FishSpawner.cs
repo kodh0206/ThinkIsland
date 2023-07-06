@@ -7,9 +7,14 @@ public class Mg16FishSpawner : MonoBehaviour
 
     Mg16Fish1 mg16Fish1;
     Mg16Fish2 mg16Fish2;
+
+    Mg16Battery mg16Battery;
+
     public GameObject fish1;
     public GameObject fish2;
     public Transform player;
+
+    public Animator animator;  // 애니메이터 컴포넌트
 
     [SerializeField]
 
@@ -26,6 +31,9 @@ public class Mg16FishSpawner : MonoBehaviour
     {
         mg16Fish1 = GetComponent<Mg16Fish1>();
         mg16Fish2 = GetComponent<Mg16Fish2>();
+        mg16Battery = FindObjectOfType<Mg16Battery>();
+
+        animator = GetComponent<Animator>();  // 애니메이터 컴포넌트 가져오기
 
         randomX1 = Random.Range(-9.5f, 9.5f);
         randomX2 = Random.Range(-9.5f, 9.5f);
@@ -67,10 +75,32 @@ public class Mg16FishSpawner : MonoBehaviour
             {
                 Destroy(new_fish1, time_diff);
                 Destroy(new_fish2, time_diff);
+                Invoke("RepeatAnimation", time_diff);
             }
         }
     }
 
+/*
+    private void RepeatAnimation()
+    {
+        Invoke("BatterySetBoolRepeat", 1f);
+    }
+
+    private void BatterySetBoolFalseRepeat()
+    {
+        mg16Battery.BatterySetBoolFalseRepeat();
+    }
+
+    private void BatterySetBoolTrueRepeat()
+    {
+        mg16Battery.BatterySetBoolTrueRepeat();
+    }
+
+    private void BatterySetBoolRepeat() // 사용
+    {
+        mg16Battery.BatterySetBoolTrueRepeat();
+    }
+*/
     public void SpeedTime()
     {
         if (time_diff >= 3.1f)
