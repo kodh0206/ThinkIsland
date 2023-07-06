@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ExBattery
+  m_Name: Mg16_Jelly
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,9 +20,9 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 1885792089, guid: 11656aa966d997542a3b3c7096999fdc, type: 3}
+      value: {fileID: 828650760, guid: 51fec387e50248e428e6fe2f0abfb456, type: 3}
     - time: 0.083333336
-      value: {fileID: -347348058, guid: 11656aa966d997542a3b3c7096999fdc, type: 3}
+      value: {fileID: -321429975, guid: 51fec387e50248e428e6fe2f0abfb456, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -42,8 +42,8 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 1885792089, guid: 11656aa966d997542a3b3c7096999fdc, type: 3}
-    - {fileID: -347348058, guid: 11656aa966d997542a3b3c7096999fdc, type: 3}
+    - {fileID: 828650760, guid: 51fec387e50248e428e6fe2f0abfb456, type: 3}
+    - {fileID: -321429975, guid: 51fec387e50248e428e6fe2f0abfb456, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}

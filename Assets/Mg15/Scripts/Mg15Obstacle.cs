@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Mg15Obstacle : MonoBehaviour
 {
-    public float gravityScaleIncreaseRate = 1f; // gravity scaleÀÌ »ó½ÂÇÏ´Â ºñÀ²
-    public float maxGravityScale = 1f; // ÃÖ´ë gravity scale °ª
+    public float gravityScaleIncreaseRate = 1f; // gravity scaleï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½
+    public float maxGravityScale = 1f; // ï¿½Ö´ï¿½ gravity scale ï¿½ï¿½
 
     private Rigidbody2D rb;
     private bool isScaleChanged = false;
@@ -13,22 +13,22 @@ public class Mg15Obstacle : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.gravityScale = -1f; // ½ÃÀÛÇÒ ¶§ gravity scaleÀ» -1·Î ¼³Á¤
+        rb.gravityScale = -1f; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ gravity scaleï¿½ï¿½ -1ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     }
 
     private void Update()
     {
-        // gravity scaleÀ» »ó½Â½ÃÅ´
+        // gravity scaleï¿½ï¿½ ï¿½ï¿½Â½ï¿½Å´
         //rb.gravityScale += gravityScaleIncreaseRate * Time.deltaTime;
 
-        // ÃÖ´ë gravity scale °ªÀ» ÃÊ°úÇÏÁö ¾Êµµ·Ï Á¦ÇÑ
+        // ï¿½Ö´ï¿½ gravity scale ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Êµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         //rb.gravityScale = Mathf.Clamp(rb.gravityScale, -1f, maxGravityScale);
 
-        // gravity scaleÀÌ 0ÀÌ µÇ¸é ½ºÄÉÀÏ º¯°æ
+        // gravity scaleï¿½ï¿½ 0ï¿½ï¿½ ï¿½Ç¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         //if (rb.gravityScale >= 0f && !isScaleChanged)
        // {
-            //transform.localScale = Vector3.one; // ½ºÄÉÀÏÀ» (1, 1, 1)·Î º¯°æ
-            //isScaleChanged = true; // ½ºÄÉÀÏ º¯°æ »óÅÂ¸¦ Ç¥½Ã
+            //transform.localScale = Vector3.one; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ (1, 1, 1)ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+            //isScaleChanged = true; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â¸ï¿½ Ç¥ï¿½ï¿½
        // }
     }
 
@@ -39,12 +39,13 @@ public class Mg15Obstacle : MonoBehaviour
         if (other.gameObject.CompareTag("stair"))
         {
             rb.gravityScale = 1.0f;
-            transform.localScale = Vector3.one; // ½ºÄÉÀÏÀ» (1, 1, 1)·Î º¯°æ
-            isScaleChanged = true; // ½ºÄÉÀÏ º¯°æ »óÅÂ¸¦ Ç¥½Ã
+            transform.localScale = new Vector3(1, -1, 1); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ (1, -1, 1)ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+            isScaleChanged = true; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â¸ï¿½ Ç¥ï¿½ï¿½
         }
 
         if (other.gameObject.CompareTag("Player"))
-        {
+        {   
+            AudioManager.Instance.ObstacleFly();
             other.gameObject.GetComponent<Mg15Player>().GetHit();
         }
     }

@@ -47,4 +47,24 @@ public class Mg16Player : MonoBehaviour
             moveSpeed += 0.3f;
         }
     }
+
+    public void PlayerColorChange()
+    {
+        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.color = new Color(0.77f, 0.52f, 0f);
+            //StunPlayer();
+        }
+    }
+
+    public void PlayerColorChangeBack()
+    {
+        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        // Change color back to white
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.color = Color.white;
+        }
+    }
 }

@@ -22,7 +22,8 @@ public class Mg1Poop : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Player") && this.gameObject.CompareTag("poop"))
-        {
+        {   
+            AudioManager.Instance.PlayPoop();
             mg1Player.StunPlayer();
             other.gameObject.GetComponent<Mg1Player>().GetObstacle();
             Destroy(gameObject);
