@@ -31,7 +31,7 @@ public class Mg6Obstacle : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Player")
-        {
+        {   AudioManager.Instance.Spider();
             other.gameObject.GetComponent<Mg6Player>().GetHit();
         }
     }

@@ -13,6 +13,10 @@ public class Mg1Player : MonoBehaviour
     public bool isStunned = false;
 
     public int level;
+
+    public AudioClip walkingSound; // 걷는소리 
+    public AudioClip jumpSound;    // 점프소리
+    private  AudioSource audioSource;
     public Mg1Player()
     {
         level = 1;
@@ -26,6 +30,12 @@ public class Mg1Player : MonoBehaviour
     void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
+
+        audioSource = GetComponent<AudioSource>();
+    if (audioSource == null)
+    {
+        audioSource = gameObject.AddComponent<AudioSource>();   
+    }
     }
 /*
     void Update()
@@ -59,7 +69,8 @@ public class Mg1Player : MonoBehaviour
         if (isStunned == false)
         {
             if (isGrounded && !isJump)
-            {
+            {   
+                audioSource.PlayOneShot(jumpSound);
                 rigid.AddForce (new Vector3(0, jumpPower, 0), ForceMode2D.Impulse);
                 isJump = true;
             }

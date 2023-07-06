@@ -12,6 +12,12 @@ public class AudioManager : MonoBehaviour
     public AudioClip jellySoundEffect; // 젤리 효과음
     public AudioClip MainBgm; //메인 배경음
 
+    public AudioClip poop; //똥에 부딪히는 소리
+    public AudioClip cow; //소에 부딪히는 소리 
+
+    public AudioClip goalKeep;//골막음
+    public AudioClip goal;//골먹힘
+    public AudioClip spider;
     private void Awake()
     {
     if (_instance != null && _instance != this)
@@ -22,8 +28,8 @@ public class AudioManager : MonoBehaviour
 
         _instance = this;
         audioSource = GetComponent<AudioSource>();
-        StartMainBgm();
-        Debug.Log("메인 배경음 실행");
+        //StartMainBgm();
+        //Debug.Log("메인 배경음 실행");
         DontDestroyOnLoad(gameObject); 
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
@@ -88,4 +94,28 @@ public class AudioManager : MonoBehaviour
         audioSource.PlayOneShot(jellySoundEffect);
         audioSource.volume =1.0f;
     }
+
+    public void PlayPoop()
+    {
+        audioSource.PlayOneShot(poop);
+    }
+
+    public void PlayCow() 
+    {
+        audioSource.PlayOneShot(cow);
+    }
+
+    public void GoalKeep()
+    {
+        audioSource.PlayOneShot(goalKeep);
+    }
+    public void Goal()
+    {
+        audioSource.PlayOneShot(goal);
+    }
+    public void Spider()
+    {
+        audioSource.PlayOneShot(spider);
+    }
 }
+    
