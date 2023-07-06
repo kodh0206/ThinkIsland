@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Mg13Obstacle : MonoBehaviour
 {
-    public float obstacleSpeed = 5f; // ¿òÁ÷ÀÓ ¼Óµµ
-    private Transform target; // ¸ñÇ¥ ¿ÀºêÁ§Æ®ÀÇ Transform
+    public float obstacleSpeed = 5f; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Óµï¿½
+    private Transform target; // ï¿½ï¿½Ç¥ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ Transform
     private bool getTarget = false;
     public Vector2 direction;
 
     private void Start()
     {
-        // Player ÅÂ±×¸¦ °¡Áø ¿ÀºêÁ§Æ®¸¦ Ã£¾Æ ¸ñÇ¥·Î ¼³Á¤
+        // Player ï¿½Â±×¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ Ã£ï¿½ï¿½ ï¿½ï¿½Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if ((player != null) && !(getTarget))
         {
@@ -26,7 +26,7 @@ public class Mg13Obstacle : MonoBehaviour
     {
         if (target != null)
         {
-            // ¿òÁ÷ÀÓ Àû¿ë
+            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             transform.Translate(direction * obstacleSpeed * Time.deltaTime);
         }
     }
@@ -34,7 +34,8 @@ public class Mg13Obstacle : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
-        {
+        {   
+            AudioManager.Instance.Rock2();
             other.gameObject.GetComponent<Mg13Player>().GetHit();
         }
 

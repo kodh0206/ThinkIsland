@@ -33,8 +33,9 @@ public class Mg16Jelly : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
-        {
-            mg16Manager?.AddScore();
+        {   
+            MiniGameManager.Instance.AddJelly();
+            //mg16Manager?.AddScore();
             gameObject.SetActive(false);
         }
     }

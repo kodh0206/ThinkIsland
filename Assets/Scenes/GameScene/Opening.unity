@@ -1985,7 +1985,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.0005493164, y: -0.0004272461}
+  m_AnchoredPosition: {x: -0.00061035156, y: -0.0004272461}
   m_SizeDelta: {x: 32, y: 32}
   m_Pivot: {x: 1, y: 1}
 --- !u!213 &1071677474
@@ -3823,8 +3823,17 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 428f6d49b844e8f4b9a8185bbee6fe65, type: 3}
   - {fileID: 8300000, guid: 349a6a2015c4d82459c3e37f592cb452, type: 3}
   audioSource: {fileID: 1910548228}
-  jellySoundEffect: {fileID: 8300000, guid: 160fe1c5ab236744599db5c373e4a3d8, type: 3}
+  jellySoundEffect: {fileID: 8300000, guid: ec97987466c95c049a6099899beb61fd, type: 3}
   MainBgm: {fileID: 8300000, guid: f97a3512173ed80458f0e91e857be1fe, type: 3}
+  poop: {fileID: 8300000, guid: 68436fe82aaf2e649b00f13ac54d68c0, type: 3}
+  cow: {fileID: 8300000, guid: 6f9bbd7334b39e040a063579033146d8, type: 3}
+  goalKeep: {fileID: 8300000, guid: c248d9768307440479674e678705d0b6, type: 3}
+  goal: {fileID: 8300000, guid: 6e446f0416529dd41951607036351bf0, type: 3}
+  spider: {fileID: 8300000, guid: e09cec36fbe8cde4291526c1f5e31600, type: 3}
+  rock: {fileID: 8300000, guid: ced743e5213d9664aaec92972c2676fa, type: 3}
+  rock1: {fileID: 8300000, guid: 084ef55fb3fc4fe44bbfde7b7758b867, type: 3}
+  shellBreak: {fileID: 8300000, guid: 74fb1653bc323ae4983ca4a0696d3ea7, type: 3}
+  minigamebegin: {fileID: 8300000, guid: 0ef7ef6422d9c44449bc07608215af09, type: 3}
 --- !u!1 &1976378925
 GameObject:
   m_ObjectHideFlags: 0

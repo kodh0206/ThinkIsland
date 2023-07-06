@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Mg15Player : MonoBehaviour
 {
-    public float moveSpeed = 5f; // ¿òÁ÷ÀÓ ¼Óµµ
+    public float moveSpeed = 5f; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Óµï¿½
 
     private Rigidbody2D rb;
     private BoxCollider2D boxCollider;
+
 
 
     private bool RightButton = false;
@@ -56,20 +57,21 @@ public class Mg15Player : MonoBehaviour
             horizontalInput = -1f;
         }
 
-            // ¿òÁ÷ÀÓ °è»ê
+            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
         float moveX = horizontalInput * moveSpeed;
         Vector2 movement = new Vector2(moveX, rb.velocity.y);
 
-        // ¿òÁ÷ÀÓ Àû¿ë
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         rb.velocity = movement;
     }
 
     public void GetHit()
-    {
-        // BoxCollider2D¸¦ ºñÈ°¼ºÈ­
+    {   
+
+        // BoxCollider2Dï¿½ï¿½ ï¿½ï¿½È°ï¿½ï¿½È­
         boxCollider.enabled = false;
 
-        // 0.5ÃÊ ÈÄ¿¡ BoxCollider2D¸¦ È°¼ºÈ­
+        // 0.5ï¿½ï¿½ ï¿½Ä¿ï¿½ BoxCollider2Dï¿½ï¿½ È°ï¿½ï¿½È­
         StartCoroutine(EnableBoxColliderAfterDelay(0.5f));
     }
 

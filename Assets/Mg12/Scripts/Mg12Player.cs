@@ -18,6 +18,12 @@ public class Mg12Player : MonoBehaviour
     private bool RightButton = false;
     private bool LeftButton = false;
 
+    private AudioSource audioSource;
+
+    public AudioClip swimming;
+    public AudioClip throwing;
+
+    private float throwTimer = 0.1f;
     public void RightClick()
     {
         LeftButton = false;
@@ -48,50 +54,74 @@ public class Mg12Player : MonoBehaviour
         rigidbody2D = GetComponent<Rigidbody2D>();
         mg12RockSpawner = FindObjectOfType<Mg12RockSpawner>();
     }
-    private void Awake()
+    void Awake()
+{
+    anim = GetComponent<Animator>();
+    audioSource = GetComponent<AudioSource>();
+    if (audioSource == null) // If AudioSource is not attached to the gameObject
     {
-        anim = GetComponent<Animator>();
+        audioSource = gameObject.AddComponent<AudioSource>();
     }
+}
 
     void Update()
+    {   if (Input.GetKeyDown(KeyCode.LeftArrow) || LeftButton)
     {
-        if (Input.GetKeyDown(KeyCode.LeftArrow) || LeftButton)
-        {
-            moveUp = true;
-            moveDown = false;
-        }
-        else if (Input.GetKeyDown(KeyCode.RightArrow) || RightButton)
-        {
-            moveUp = false;
-            moveDown = true;
-        }
-
-        if (moveUp)
-        {
-            transform.position += Vector3.up * moveSpeed * Time.deltaTime;
-        }
-        else if (moveDown)
-        {
-            transform.position += Vector3.down * moveSpeed * Time.deltaTime;
-        }
-
-        if (mg12RockSpawner.rockThrow)
-        {
-            anim.SetTrigger("Shoot");
-        }
-
+        moveUp = true;
+        moveDown = false;
     }
+    else if (Input.GetKeyDown(KeyCode.RightArrow) || RightButton)
+    {
+        moveUp = false;
+        moveDown = true;
+    }
+
+    if (moveUp || moveDown)
+    {
+        if (!audioSource.isPlaying)
+        {
+            audioSource.loop = true;
+            audioSource.clip = swimming;
+            audioSource.Play();
+        }
+        transform.position += (moveUp ? Vector3.up : Vector3.down) * moveSpeed * Time.deltaTime;
+    }
+    else
+    {
+        audioSource.loop = false;
+        audioSource.Stop();
+    }
+
+    if (mg12RockSpawner.rockThrow)
+    { throwTimer += Time.deltaTime; // Increase timer.
+
+        // Check if it's time to play the sound.
+        if (throwTimer >= 1f)
+        {
+            audioSource.PlayOneShot(throwing); // Play throwing sound.
+            throwTimer = 0f; // Reset timer.
+        }
+
+        anim.SetTrigger("Shoot");
+    }
+    else
+    {
+        throwTimer = 0f; // Reset timer if not throwing.
+    }
+}
+    
 
 
 
     public void GetHit()
     {
-        // ������ ����
-        Rigidbody2D rb = GetComponent<Rigidbody2D>();
-        rb.velocity = Vector2.zero;
+    Rigidbody2D rb = GetComponent<Rigidbody2D>();
+    rb.velocity = Vector2.zero;
 
-        // �񵿱� ó�� ����
-        StartCoroutine(DisableControlAndResetColor());
+    audioSource.loop = false;
+    audioSource.Stop();
+
+    StartCoroutine(DisableControlAndResetColor());
     }
 
     private IEnumerator DisableControlAndResetColor()
@@ -119,6 +149,13 @@ public class Mg12Player : MonoBehaviour
         if (spriteRenderer != null)
         {
             spriteRenderer.color = Color.white;
+        }
+
+        if (!audioSource.isPlaying)
+        {
+            audioSource.loop = true;
+            audioSource.clip = swimming;
+            audioSource.Play();
         }
     }
 }

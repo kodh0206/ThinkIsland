@@ -17,6 +17,11 @@ public class Mg6Player : MonoBehaviour
     private bool isJumping = false; // ���� ������ ���� üũ
     private bool nowJumping = false;
     private float currentJumpForce = 0.0f; // ���� ���� ��
+    
+    public AudioClip shortJumpSound; // Assign the short jump sound in the Inspector
+    public AudioClip longJumpSound; // Assign the long jump sound in the Inspector
+
+    private AudioSource audioSource;
 
     private Rigidbody2D rb;
     Animator anim;
@@ -29,6 +34,11 @@ public class Mg6Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null) // If AudioSource is not attached to the gameObject
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
     }
 
     public void RightClick()
@@ -90,6 +100,15 @@ public class Mg6Player : MonoBehaviour
     {
         rb.velocity = new Vector2(rb.velocity.x, currentJumpForce);
         anim.SetBool("isJumping", true);
+
+    if (currentJumpForce > maxJumpForce / 2)
+    {
+        audioSource.PlayOneShot(longJumpSound);
+    }
+    else
+    {
+        audioSource.PlayOneShot(shortJumpSound);
+    }
     }
 
     private void OnTriggerEnter2D(Collider2D other)

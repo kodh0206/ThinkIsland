@@ -8,13 +8,12 @@ public class Mg12manager : MonoBehaviour
     public static Mg12manager instance = null;
 
 
-    [SerializeField]
-    private TextMeshProUGUI scoreText;
+
 
     [SerializeField]
     private GameObject GameOverPanel;
 
-    private int score = 0; // score=jelly ½ºÄÚ¾î¿¡ ÀÌÀü °ÔÀÓÀÇ Á©¸®°ªÀ» ³ÖÀ¸¸é ¼Óµµ Á¶Á¤°¡´É
+    private int score = 0; // score=jelly ï¿½ï¿½ï¿½Ú¾î¿¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Óµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     public bool isGameOver = false;
 
     void Awake()
@@ -25,21 +24,11 @@ public class Mg12manager : MonoBehaviour
         }
     }
     // Start is called before the first frame update
-    void Start()
-    {
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     public void AddScore()
     {
         score += 1;
-        scoreText.text = "Eat jelly " + score; //score= jelly
 
         if (score % 5 == 0)
         {
@@ -49,7 +38,7 @@ public class Mg12manager : MonoBehaviour
             if (spawner != null)
             {
                 spawner.IncreaseSpeed();  // decrease interval
-                spawner2.IncreaseSpeed(); //µ¹ ¹ß»ç ¼Óµµ Áõ°¡
+                spawner2.IncreaseSpeed(); //ï¿½ï¿½ ï¿½ß»ï¿½ ï¿½Óµï¿½ ï¿½ï¿½ï¿½ï¿½
 
 
             }
