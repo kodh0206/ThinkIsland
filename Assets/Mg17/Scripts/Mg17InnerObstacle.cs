@@ -24,7 +24,8 @@ public class Mg17InnerObstacle : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Player")
-        {
+        {   
+            AudioManager.Instance.PlayPoop();
             other.gameObject.GetComponent<Mg17Player>().GetHit();
             Destroy(gameObject);
             Mg17Spawner spawner1 = FindAnyObjectByType<Mg17Spawner>();

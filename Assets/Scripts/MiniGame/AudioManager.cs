@@ -166,5 +166,17 @@ public class AudioManager : MonoBehaviour
     {
         audioSource.PlayOneShot(minigamebegin);
     }
+
+     public void PlayMiniGameAudio()
+    {
+        audioSource.PlayOneShot(minigamebegin);
+        StartCoroutine(StartMiniGameDelayed());
+    }
+
+    private IEnumerator StartMiniGameDelayed()
+    {
+        yield return new WaitForSeconds(minigamebegin.length);
+        MiniGameManager.Instance.StartMiniGame();
+    }
 }
     

@@ -8,9 +8,10 @@ public class Mg4Player : MonoBehaviour
     Rigidbody2D rigidbody2D;
     public float jumpPower = 5.0f;
     public float moveSpeed = 5.0f;
-    public float targetXPosition = -5.4f; //¹Ð·Á³µÀ» ¶§ µ¹¾Æ¿Ã °÷
+    public float targetXPosition = -5.4f; //ï¿½Ð·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Æ¿ï¿½ ï¿½ï¿½
 
-
+    private AudioSource audioSource;
+    public AudioClip jump;
     private bool RightButton = false;
     private bool LeftButton = false;
 
@@ -48,20 +49,22 @@ public class Mg4Player : MonoBehaviour
     void Start()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Space) || RightButton) 
-        { 
+        {   
+            audioSource.PlayOneShot(jump);
             rigidbody2D.velocity = Vector2.up * jumpPower;
             RightButton = false;
         }
 
         if (transform.position.x != targetXPosition)
         {
-            // ÇöÀç À§Ä¡¿Í ¸ñÇ¥ À§Ä¡¸¦ ºñ±³ÇÏ¿© X À§Ä¡ ÀÌµ¿ Ã³¸®
+            // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½Ç¥ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½Ï¿ï¿½ X ï¿½ï¿½Ä¡ ï¿½Ìµï¿½ Ã³ï¿½ï¿½
             Vector2 targetPosition = new Vector2(targetXPosition, transform.position.y);
             transform.position = Vector2.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime / 4f);
         }
