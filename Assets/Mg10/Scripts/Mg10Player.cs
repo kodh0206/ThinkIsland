@@ -12,8 +12,11 @@ public class Mg10Player : MonoBehaviour
     private Rigidbody2D rb;
     private bool isInputEnabled = true;
 
-    private bool RightButton = false;
-    private bool LeftButton = false;
+    public bool RightButton = false;
+    public bool LeftButton = false;
+
+    public Sprite[] sprites = new Sprite[3];
+    public Sprite sprite;
 
     public void RightClick()
     {
@@ -43,10 +46,12 @@ public class Mg10Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         verticalSpeed = initialSpeed;
+        
     }
 
     private void Update()
     {
+        
         if (!isInputEnabled)
         {
             rb.velocity = new Vector2(rb.velocity.x, -verticalSpeed); // 아래로 움직임
@@ -56,11 +61,14 @@ public class Mg10Player : MonoBehaviour
         // 왼쪽키 입력 처리
         if (Input.GetKeyDown(KeyCode.LeftArrow) || LeftButton)
         {
+            StartCoroutine(ChangeSpriteWithDelay(sprites, 0.1f,1));
             rb.velocity = new Vector2(-horizontalSpeed, rb.velocity.y);
+            
         }
         // 오른쪽키 입력 처리
         else if (Input.GetKeyDown(KeyCode.RightArrow) ||RightButton)
         {
+            StartCoroutine(ChangeSpriteWithDelay(sprites, 0.1f,2));
             rb.velocity = new Vector2(horizontalSpeed, rb.velocity.y);
         }
 
@@ -109,4 +117,16 @@ public class Mg10Player : MonoBehaviour
             spriteRenderer.color = Color.white;
         }
     }
+
+    IEnumerator ChangeSpriteWithDelay(Sprite[] sprites, float delay , int direc)
+    {
+        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+
+        spriteRenderer.sprite = sprites[0];
+        yield return new WaitForSeconds(delay);
+
+        spriteRenderer.sprite = sprites[direc];
+    }
+
+
 }
