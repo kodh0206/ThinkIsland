@@ -34,7 +34,7 @@ public class Mg16Jelly : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {   
-            MiniGameManager.Instance.AddJelly();
+            //MiniGameManager.Instance.AddJelly();
             //mg16Manager?.AddScore();
             gameObject.SetActive(false);
         }

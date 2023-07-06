@@ -95,13 +95,14 @@ public class Mg16Battery : MonoBehaviour
         electricity5.SetActive(true);
     }
 
-    public void BatterySetBoolTrueRepeat()
+    public void BatterySetBoolFalse()
     {
-        animator.SetBool("BatteryRepeat", true);
+        animator.SetBool("FishSetActiveFalse", false);
     }
 
-    public void BatterySetBoolFalseRepeat()
+    public void BatterySetBoolTrue()
     {
-        animator.SetBool("BatteryRepeat", false);
+        animator.SetBool("FishSetActiveFalse", true);
     }
+
 }
