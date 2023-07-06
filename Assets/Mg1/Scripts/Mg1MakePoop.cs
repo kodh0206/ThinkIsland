@@ -35,7 +35,7 @@ public class Mg1MakePoop : MonoBehaviour
         if (count == 1 && !isPoopSpawned)
         {
             GameObject new_poop = Instantiate(poop);
-            new_poop.transform.position = new Vector3(15f, -0.5590893f, 0);
+            new_poop.transform.position = new Vector3(15f, -2, 0);
             new_poop.GetComponent<Mg1Poop>().SetSpeed(poopSpeed);
             Destroy(new_poop, 10.0f);
             isPoopSpawned = true;

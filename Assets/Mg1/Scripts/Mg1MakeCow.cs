@@ -35,7 +35,7 @@ public class Mg1MakeCow : MonoBehaviour
         if (count == 2 && !isCowSpawned)
         {
             GameObject new_cow = Instantiate(cow);
-            new_cow.transform.position = new Vector3(15f, -0.5590893f, 0);
+            new_cow.transform.position = new Vector3(15f, -2, 0);
             new_cow.GetComponent<Mg1Cow>().SetSpeed(cowSpeed);
             Destroy(new_cow, 10.0f);
             isCowSpawned = true;

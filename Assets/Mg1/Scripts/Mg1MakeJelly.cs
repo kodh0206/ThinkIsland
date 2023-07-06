@@ -20,7 +20,7 @@ public class Mg1MakeJelly : MonoBehaviour
         if (time > time_diff)
         {
             GameObject new_jelly = Instantiate(jelly);
-            new_jelly.transform.position = new Vector3(15f, Random.Range(-0.5590893f, 1.5f), 0);
+            new_jelly.transform.position = new Vector3(15f, Random.Range(-2, -0.5f), 0);
             new_jelly.GetComponent<Mg1Jelly>().SetSpeed(jellySpeed);
             time = 0;
             Destroy(new_jelly, 10.0f);
