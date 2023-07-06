@@ -27,6 +27,10 @@ public class Mg10jelly : MonoBehaviour
             MiniGameManager.Instance.AddJelly();
             Destroy(gameObject);
         }
+        else if (other.gameObject.tag == "obstacle")
+        {
+            Destroy(other.gameObject);
+        }
     }
 
 

@@ -15,7 +15,7 @@ public class Mg10Camera : MonoBehaviour
 
         if (player != null)
         {
-            transform.position = player.position + cameraPosition +new Vector3(0,-5,0);
+            transform.position = player.position + cameraPosition +new Vector3(0,-3,0);
         }
     }
 }

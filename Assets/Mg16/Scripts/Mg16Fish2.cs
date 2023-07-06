@@ -5,7 +5,7 @@ using DG.Tweening;
 
 public class Mg16Fish2 : MonoBehaviour
 {
-
+    Mg16Player mg16Player;
     public float startY = -3.5f;
     public float topY = 2.5f;
     // 복어 끝 위치
@@ -17,6 +17,7 @@ public class Mg16Fish2 : MonoBehaviour
 
     private void Start()
     {
+        mg16Player = GameObject.FindObjectOfType<Mg16Player>();
         StartMovement();
     }
 
@@ -49,6 +50,7 @@ public class Mg16Fish2 : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            mg16Player.PlayerColorChange();
             playerIsTrigger = true;
         }
     }
@@ -58,6 +60,7 @@ public class Mg16Fish2 : MonoBehaviour
         yield return new WaitForSecondsRealtime(1f);
         StunAndResetTrigger();
         Time.timeScale = 1;
+        mg16Player.PlayerColorChangeBack();
     }
 
     private void StunAndResetTrigger()
