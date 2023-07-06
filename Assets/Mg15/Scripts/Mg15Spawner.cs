@@ -11,17 +11,17 @@ public class Mg15Spawner : MonoBehaviour
 
 
     [SerializeField]
-    private float Mg15ObstacleSpeed = 1.0f; // »ý¼º¹°ÀÇ ÃÊ±â Áß·Â »ó½Â ¼Óµµ
+    private float Mg15ObstacleSpeed = 1.0f; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½ ï¿½ß·ï¿½ ï¿½ï¿½ï¿½ ï¿½Óµï¿½
 
     [SerializeField]
-    private float Mg15jellySpeed = 1.0f; // »ý¼º¹°ÀÇ ÃÊ±â Áß·Â »ó½Â ¼Óµµ
+    private float Mg15jellySpeed = 1.0f; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½ ï¿½ß·ï¿½ ï¿½ï¿½ï¿½ ï¿½Óµï¿½
 
     [SerializeField]
-    private float time_diff = 2.5f; // Àå¾Ö¹° »ý¼º °£°Ý
+    private float time_diff = 2.5f; // ï¿½ï¿½Ö¹ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     [SerializeField]
-    private int minNumObstaclesToSpawn = 3; // ÃÖ¼Ò »ý¼º Àå¾Ö¹° °³¼ö
+    private int minNumObstaclesToSpawn = 3; // ï¿½Ö¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ö¹ï¿½ ï¿½ï¿½ï¿½ï¿½
     [SerializeField]
-    private int maxNumObstaclesToSpawn = 5; // ÃÖ´ë »ý¼º Àå¾Ö¹° °³¼ö
+    private int maxNumObstaclesToSpawn = 5; // ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ö¹ï¿½ ï¿½ï¿½ï¿½ï¿½
 
     float time = 0;
 
@@ -47,20 +47,20 @@ public class Mg15Spawner : MonoBehaviour
                 if (Random.value < 0.7f)
                 {
                     GameObject new_Mg15Obstacle = Instantiate(Mg15Obstacle);
-                    // ·£´ýÇÏ°Ô À§Ä¡ ¼±ÅÃ
+                    // ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½
                     Vector2 spawnPosition = GetRandomSpawnPosition();
                     new_Mg15Obstacle.transform.position = spawnPosition;
-                    new_Mg15Obstacle.GetComponent<Mg15Obstacle>().SetSpeed(Mg15ObstacleSpeed); // Àå¾Ö¹°ÀÇ ½ºÇÇµå ¼³Á¤
-
+                    new_Mg15Obstacle.GetComponent<Mg15Obstacle>().SetSpeed(Mg15ObstacleSpeed); // ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Çµï¿½ ï¿½ï¿½ï¿½ï¿½
+                    
                     Destroy(new_Mg15Obstacle, 5.0f);
                 }
                 else
                 {
                     GameObject new_jelly = Instantiate(jelly);
-                    // ·£´ýÇÏ°Ô À§Ä¡ ¼±ÅÃ
+                    // ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½
                     Vector2 spawnPosition = GetRandomSpawnPosition();
                     new_jelly.transform.position = spawnPosition;
-                    new_jelly.GetComponent<Mg15jelly>().SetSpeed(Mg15jellySpeed); // Àå¾Ö¹°ÀÇ ½ºÇÇµå ¼³Á¤
+                    new_jelly.GetComponent<Mg15jelly>().SetSpeed(Mg15jellySpeed); // ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Çµï¿½ ï¿½ï¿½ï¿½ï¿½
 
                     Destroy(new_jelly, 5.0f);
 
@@ -74,10 +74,10 @@ public class Mg15Spawner : MonoBehaviour
 
     private Vector2 GetRandomSpawnPosition()
     {
-        // ·£´ýÇÑ À§Ä¡ ÀÎµ¦½º ¼±ÅÃ
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½Îµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         int randomIndex = Random.Range(0, 6);
 
-        // ¹Ì¸® Á¤ÀÇµÈ À§Ä¡µé ¹è¿­
+        // ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½Çµï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½è¿­
         Vector2[] spawnPositions = new Vector2[]
         {
         new Vector2(1.5f, 0.6f),
@@ -88,7 +88,7 @@ public class Mg15Spawner : MonoBehaviour
         new Vector2(-5.5f, 0.6f)
         };
 
-        // ¼±ÅÃµÈ ·£´ýÇÑ À§Ä¡ ¹ÝÈ¯
+        // ï¿½ï¿½ï¿½Ãµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½È¯
         return spawnPositions[randomIndex];
     }
 
@@ -96,7 +96,7 @@ public class Mg15Spawner : MonoBehaviour
     {
         minNumObstaclesToSpawn += 1;
         maxNumObstaclesToSpawn += 1;
-        time_diff -= 0.5f; // Àå¾Ö¹°ÀÇ »ý¼º °£°Ý °¨¼Ò
+        time_diff -= 0.5f; // ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     }
 
 

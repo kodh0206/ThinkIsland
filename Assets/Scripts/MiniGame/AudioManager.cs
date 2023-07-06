@@ -17,7 +17,13 @@ public class AudioManager : MonoBehaviour
 
     public AudioClip goalKeep;//골막음
     public AudioClip goal;//골먹힘
-    public AudioClip spider;
+    public AudioClip spider; //거미랑 부딪힘
+
+    public AudioClip rock; //돌이랑 부딧힘 
+    public AudioClip rock1;//돌이랑 부딧힘2
+    public AudioClip shellBreak; //조개껍질 깨지는소리  
+    public AudioClip obstacleFly;//장애물날라가기
+    public AudioClip minigamebegin;
     private void Awake()
     {
     if (_instance != null && _instance != this)
@@ -95,6 +101,10 @@ public class AudioManager : MonoBehaviour
         audioSource.volume =1.0f;
     }
 
+    public void startMiniGame()
+    {
+        audioSource.PlayOneShot(minigamebegin);
+    }
     public void PlayPoop()
     {
         audioSource.PlayOneShot(poop);
@@ -116,6 +126,26 @@ public class AudioManager : MonoBehaviour
     public void Spider()
     {
         audioSource.PlayOneShot(spider);
+    }
+
+    public void Rock()
+    {
+        audioSource.PlayOneShot(rock);
+    }
+    //MG13 14
+    public void Rock2()
+    {
+        audioSource.PlayOneShot(rock1);
+    }
+
+    public void ShellBreak()
+    {
+        audioSource.PlayOneShot(shellBreak);
+    }
+
+    public void ObstacleFly()
+    {
+        audioSource.PlayOneShot(obstacleFly);
     }
 }
     

@@ -23,6 +23,9 @@ public class Mg14Player : MonoBehaviour
     private bool RightButton = false;
     private bool LeftButton = false;
 
+    private AudioSource audioSource;
+    public AudioClip monkeyjump;
+    public AudioClip monkeyfall;
     public void RightClick()
     {
         LeftButton = false;
@@ -50,7 +53,7 @@ public class Mg14Player : MonoBehaviour
 
 
     private void Start()
-    {
+    {   audioSource =GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
@@ -100,9 +103,10 @@ public class Mg14Player : MonoBehaviour
     private void RightJump()
     {
         if (!isJumping)
-        {
+        {   
             float jumpForceX = jumpForce * Mathf.Cos(Mathf.PI / 6); 
             float jumpForceY = jumpForce * Mathf.Sin(Mathf.PI / 6); 
+            audioSource.PlayOneShot(monkeyjump);
             rb.AddForce(new Vector2(jumpForceX, jumpForceY), ForceMode2D.Impulse);
             isJumping = true;
         }
@@ -114,6 +118,7 @@ public class Mg14Player : MonoBehaviour
         {
             float jumpForceX = jumpForce * Mathf.Cos(Mathf.PI / 10);
             float jumpForceY = jumpForce * Mathf.Sin(Mathf.PI / 10);
+            audioSource.PlayOneShot(monkeyjump);
             rb.AddForce(new Vector2(-jumpForceX, jumpForceY), ForceMode2D.Impulse);
             isJumping = true;
         }
@@ -156,6 +161,7 @@ public class Mg14Player : MonoBehaviour
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         rb.velocity = Vector2.zero;
         rb.gravityScale = 0.01f;
+        audioSource.PlayOneShot(monkeyfall);
         isJumping = true;
         canJump = false;
         // �񵿱� ó�� ����
