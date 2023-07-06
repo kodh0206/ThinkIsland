@@ -27,9 +27,9 @@ public class Mg10Spawner : MonoBehaviour
     [SerializeField]
     private float time_diff = 1.5f; // 장애물 생성 간격
     [SerializeField]
-    private int minNumObstaclesToSpawn = 3; // 최소 생성 장애물 개수
+    private int minNumObstaclesToSpawn = 6; // 최소 생성 장애물 개수
     [SerializeField]
-    private int maxNumObstaclesToSpawn = 6; // 최대 생성 장애물 개수
+    private int maxNumObstaclesToSpawn = 8; // 최대 생성 장애물 개수
 
     float time = 0;
 
@@ -130,14 +130,14 @@ public class Mg10Spawner : MonoBehaviour
             if (Random.value < 0.5f)
             {
                 // 왼쪽에 장애물 생성
-                float spawnX = player.position.x + Random.Range(-10.0f, -3.0f);
+                float spawnX = player.position.x + Random.Range(-12.0f, -5.0f);
                 float spawnY = player.position.y - 12.5f;
                 spawnPosition = new Vector2(spawnX, spawnY);
             }
             else
             {
                 // 오른쪽에 장애물 생성
-                float spawnX = player.position.x + Random.Range(3f, 10.0f);
+                float spawnX = player.position.x + Random.Range(5f, 12.0f);
                 float spawnY = player.position.y - 12.5f;
                 spawnPosition = new Vector2(spawnX, spawnY);
             }
