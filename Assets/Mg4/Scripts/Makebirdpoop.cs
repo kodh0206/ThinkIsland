@@ -6,7 +6,7 @@ public class Makebirdpoop : MonoBehaviour
 {
     public GameObject birdpoop;
     public int minNumPoopsToSpawn = 1; // 최소 생성 배설물 개수
-    public int maxNumPoopsToSpawn = 3; // 최대 생성 배설물 개수
+    public int maxNumPoopsToSpawn = 1; // 최대 생성 배설물 개수
 
     [SerializeField]
     private float birdpoopSpeed = 5.0f; // 배설물의 초기 속도
@@ -41,7 +41,7 @@ public class Makebirdpoop : MonoBehaviour
                 Destroy(new_birdpoop, 10.0f);
             }
 
-            time = 0;
+            time = Random.Range(0f, 0.5f);
             SetRandomTimeDiff(); // 다음 생성 간격을 랜덤으로 설정
         }
     }
