@@ -673,7 +673,7 @@ MonoBehaviour:
   Mg17shellSpeed: 5
   time_diff: 1.5
   minNumObstaclesToSpawn: 1
-  maxNumObstaclesToSpawn: 3
+  maxNumObstaclesToSpawn: 1
 --- !u!4 &660476682
 Transform:
   m_ObjectHideFlags: 0

@@ -45,7 +45,7 @@ public class Mg13Spawner : MonoBehaviour
                 Destroy(new_Mg13Obstacle, 5.0f);
             }
 
-            time = 0;
+            time = Random.Range(0f, 0.5f);
         }
     }
 

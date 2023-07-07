@@ -14,7 +14,7 @@ public class Mg17Spawner : MonoBehaviour
     [SerializeField]
     private int minNumObstaclesToSpawn = 1; // 최소 생성 장애물 개수
     [SerializeField]
-    private int maxNumObstaclesToSpawn = 3; // 최대 생성 장애물 개수
+    private int maxNumObstaclesToSpawn = 1; // 최대 생성 장애물 개수
 
     float time = 0;
 
@@ -44,7 +44,7 @@ public class Mg17Spawner : MonoBehaviour
                 Destroy(new_Mg17shell, 5.0f);
             }
 
-            time = 0;
+            time = Random.Range(0f, 1.4f);
         }
     }
 

@@ -11,7 +11,7 @@ public class Mg12Spawner : MonoBehaviour
     private float Mg12shellSpeed = 5.0f; // �������� �ʱ� ���ǵ�
 
     [SerializeField]
-    private float time_diff = 1.5f; // ��ֹ� ���� ����
+    private float time_diff = 1.0f; // ��ֹ� ���� ����
     [SerializeField]
     private int minNumObstaclesToSpawn = 1; // �ּ� ���� ��ֹ� ����
     [SerializeField]
@@ -33,20 +33,19 @@ public class Mg12Spawner : MonoBehaviour
         {
             int numObstaclesToSpawn = Random.Range(minNumObstaclesToSpawn, maxNumObstaclesToSpawn + 1);
 
-            for (int i = 0; i < numObstaclesToSpawn; i++)
-            {
-                int index = Random.Range(0, Mg12shell.Length);
-                GameObject new_Mg12shell = Instantiate(Mg12shell[index]);
+            
+            int index = Random.Range(0, Mg12shell.Length);
+            GameObject new_Mg12shell = Instantiate(Mg12shell[index]);
 
-                // ��ǥ�� �����ϰ� �����Ͽ� ����
-                Vector2 spawnPosition = new Vector2(9.4f, Random.Range(-1.6f, 6.0f));
-                new_Mg12shell.transform.position = spawnPosition;
+            // ��ǥ�� �����ϰ� �����Ͽ� ����
+            Vector2 spawnPosition = new Vector2(9.4f, Random.Range(-1.6f, 5.0f));
+            new_Mg12shell.transform.position = spawnPosition;
 
-                new_Mg12shell.GetComponent<Mg12shell>().SetSpeed(Mg12shellSpeed); // ��ֹ��� ���ǵ� ����
-                Destroy(new_Mg12shell, 5.0f);
-            }
+            new_Mg12shell.GetComponent<Mg12shell>().SetSpeed(Mg12shellSpeed); // ��ֹ��� ���ǵ� ����
+            Destroy(new_Mg12shell, 5.0f);
+            
 
-            time = 0;
+            time = Random.Range(0f, 0.5f);
         }
     }
 
