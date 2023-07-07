@@ -8,14 +8,14 @@ public class Mg14Spawner : MonoBehaviour
 
 
     [SerializeField]
-    private float Mg13ObstacleSpeed = 5.0f; // »ý¼º¹°ÀÇ ÃÊ±â ½ºÇÇµå
+    private float Mg13ObstacleSpeed = 5.0f; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½ ï¿½ï¿½ï¿½Çµï¿½
 
     [SerializeField]
-    private float time_diff = 1.5f; // Àå¾Ö¹° »ý¼º °£°Ý
+    private float time_diff = 1.5f; // ï¿½ï¿½Ö¹ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     [SerializeField]
-    private int minNumObstaclesToSpawn = 1; // ÃÖ¼Ò »ý¼º Àå¾Ö¹° °³¼ö
+    private int minNumObstaclesToSpawn = 1; // ï¿½Ö¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ö¹ï¿½ ï¿½ï¿½ï¿½ï¿½
     [SerializeField]
-    private int maxNumObstaclesToSpawn = 1; // ÃÖ´ë »ý¼º Àå¾Ö¹° °³¼ö
+    private int maxNumObstaclesToSpawn = 1; // ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ö¹ï¿½ ï¿½ï¿½ï¿½ï¿½
 
     float time = 0;
 
@@ -37,8 +37,8 @@ public class Mg14Spawner : MonoBehaviour
             {
                 GameObject new_Mg14Obstacle = Instantiate(Mg14Obstacle);
 
-                // ·£´ýÇÏ°Ô À§Ä¡ ¼±ÅÃ
-                Vector2 spawnPosition = new Vector2(Random.Range(-3.0f, 3.0f), 5f);
+                // ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½
+                Vector2 spawnPosition = new Vector2(Random.Range(-3.4f, 2.97f), 5.5f);
                 new_Mg14Obstacle.transform.position = spawnPosition;
 
                 Destroy(new_Mg14Obstacle, 5.0f);
@@ -54,7 +54,7 @@ public class Mg14Spawner : MonoBehaviour
     public void IncreaseSpeed()
     {
         
-        time_diff -= 0.1f; // Àå¾Ö¹°ÀÇ »ý¼º °£°Ý °¨¼Ò
+        time_diff -= 0.1f; // ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     }
 
 
