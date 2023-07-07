@@ -7,9 +7,9 @@ public class Mg7BackgroundMove : MonoBehaviour
     public GameObject background1; // 제일 가까운 배경
     public GameObject background2; // 그 다음 배경
     public GameObject background3; // 제일 먼 배경
-    float background1Speed = 0.5f;
-    float background2Speed = 0.3f;
-    float background3Speed = 0.1f;
+    float background1Speed = 0.55f;
+    float background2Speed = 0.45f;
+    float background3Speed = 0.4f;
     public float minY = -3.5f;
     public float maxY = 1.7f;
     void Start()
