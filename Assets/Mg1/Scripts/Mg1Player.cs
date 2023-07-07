@@ -11,6 +11,7 @@ public class Mg1Player : MonoBehaviour
     bool isJump = false;
     private bool isGrounded = true;
     public bool isStunned = false;
+    public bool isTrigger = true;
 
     public int level;
 
@@ -53,6 +54,20 @@ public class Mg1Player : MonoBehaviour
         {
             isGrounded = true;
             isJump = false;
+        }
+
+        if (collision.gameObject.tag == "cow")
+        {
+            // 플레이어가 소보다 위에 있을 경우 (점프 + 밟음)
+            if(transform.position.y > collision.transform.position.y)
+            {
+                isTrigger = false;
+                rigid.AddForce (new Vector3(0, jumpPower, 0), ForceMode2D.Impulse);
+            }
+            else
+            {
+                isTrigger = true;
+            }
         }
     }
 
