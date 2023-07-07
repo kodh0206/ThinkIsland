@@ -19,7 +19,7 @@ public class Mg2BallMove : MonoBehaviour
     private void Start()
     {
         mg2PlayerMove = GameObject.FindObjectOfType<Mg2PlayerMove>();
-        startPoint = new Vector2(0f, -6f);
+        startPoint = new Vector2(0f, -4f);
         RandomizeEndPoint();
     }
 

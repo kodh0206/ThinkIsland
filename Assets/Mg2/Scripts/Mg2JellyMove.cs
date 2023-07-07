@@ -17,7 +17,7 @@ public class Mg2JellyMove : MonoBehaviour
 
     private void Start()
     {
-        startPoint = new Vector2(0f, -6f);
+        startPoint = new Vector2(0f, -4f);
         RandomizeEndPoint();
     }
 
