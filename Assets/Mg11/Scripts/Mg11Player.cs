@@ -14,11 +14,16 @@ public class Mg11Player : MonoBehaviour
 
     private float angle = 0.0f; // 현재 각도
 
+    private float rotationAngle = 0f;
+    private float lastAngle = 0f;
+
     private bool clock = false;
     private bool unclock=false;
 
     private bool RightButton = false;
     private bool LeftButton = false;
+
+    private SpriteRenderer spriteRenderer;
 
     public void RightClick()
     {
@@ -48,6 +53,8 @@ public class Mg11Player : MonoBehaviour
     {
         // 시작 각도 설정
         angle = startAngle;
+
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
@@ -56,7 +63,8 @@ public class Mg11Player : MonoBehaviour
         if (Input.GetKey(KeyCode.RightArrow) || RightButton)
         {
             unclock = false;
-            clock= true;
+            clock = true;
+           
         }
         // 왼쪽 버튼 입력 처리
         else if (Input.GetKey(KeyCode.LeftArrow) || LeftButton)
@@ -84,6 +92,11 @@ public class Mg11Player : MonoBehaviour
 
         // 이동
         transform.position = new Vector3(x, y, 0f);
+
+        // 스프라이트 회전
+        float rotationAngle = -angle;// 시계방향 또는 반시계방향으로 회전할 각도
+        Quaternion rotation = Quaternion.Euler(0f, 0f, rotationAngle);
+        transform.rotation = rotation;
     }
 
     public void GetHit()  //맞았을때
