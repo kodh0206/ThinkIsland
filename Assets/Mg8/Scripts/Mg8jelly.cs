@@ -25,6 +25,12 @@ public class Mg8jelly : MonoBehaviour
             MiniGameManager.Instance.AddJelly();
             Destroy(gameObject);
         }
+
+        if (other.gameObject.tag == "Obstacle")
+        {
+            
+            Destroy(gameObject);
+        }
     }
 
     public void SetSpeed(float speed)

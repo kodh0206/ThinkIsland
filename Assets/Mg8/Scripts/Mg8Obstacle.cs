@@ -29,6 +29,7 @@ public class Mg8Obstacle : MonoBehaviour
             animator.SetBool("PlayerHit", true);
             other.gameObject.GetComponent<Mg8Player>().GetHit();
         }
+        
     }
     public void SetSpeed(float speed)
     {
