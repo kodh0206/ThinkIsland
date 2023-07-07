@@ -148,7 +148,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 7
-  gethit: {fileID: 8300000, guid: e33b589599331e647b4adefa272dfff0, type: 3}
 --- !u!82 &3832757170803172018
 AudioSource:
   m_ObjectHideFlags: 0
