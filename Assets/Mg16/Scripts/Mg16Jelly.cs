@@ -5,6 +5,7 @@ using DG.Tweening;
 
 public class Mg16Jelly : MonoBehaviour
 {
+    Mg16Manager mg16Manager;
 
     public float startY = -3.5f;
     public float topY = 2.5f;
@@ -15,6 +16,7 @@ public class Mg16Jelly : MonoBehaviour
 
     private void Start()
     {
+        mg16Manager = FindObjectOfType<Mg16Manager>();
         StartMovement();
     }
 
@@ -26,5 +28,23 @@ public class Mg16Jelly : MonoBehaviour
     private void ReverseMovement()
     {
         transform.DOMoveY(stopY, moveDuration).SetEase(Ease.Linear);
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {   
+            MiniGameManager.Instance.AddJelly();
+            //mg16Manager?.AddScore();
+            gameObject.SetActive(false);
+        }
+    }
+
+    public void SpeedTime()
+    {
+        if (moveDuration >= 0.8f)
+        {
+            moveDuration -= 0.3f;
+        }
     }
 }

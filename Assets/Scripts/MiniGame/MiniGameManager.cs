@@ -12,6 +12,7 @@ public class MiniGameManager : MonoBehaviour
     public static MiniGameManager Instance { get { return _instance; } }
     public static event Action OnMiniGameStart;
     public static event Action OnMiniGameEnd;
+
     public Canvas minigameUI;
     public CanvasGroup fadeCanvasGroup; // 페이드 효과를 위한 CanvasGroup
     public bool minigameUIActive;
@@ -21,7 +22,7 @@ public class MiniGameManager : MonoBehaviour
     //public TextMeshProUGUI remaingames;
     private float gameChangeInterval = 10f; // 미니게임 변경 간격
     private float timer = 0f;
-    public int totalJelly; //먹은 젤리의 갯수 
+    public int totalJelly=0; //먹은 젤리의 갯수 
 
     private int gamesToPlay=5;
     public bool isMiniGameScene = false; // 현재 씬이 미니게임 씬인지 여부를 확인하기 위한 플래그
@@ -69,7 +70,10 @@ public class MiniGameManager : MonoBehaviour
     fadeCanvasGroup.alpha = 0f;
     }
 
-   
+      public void StartMiniGameWithAudio()
+    {
+        AudioManager.Instance.PlayMiniGameAudio();
+    }
 
     private void Update()
     {
@@ -108,10 +112,9 @@ public class MiniGameManager : MonoBehaviour
     }
     }
 
-    public void LoadMainMenu()
-    {   
-        Debug.Log("로딩완료");
-         Debug.Log("로딩완료");
+  public void LoadMainMenu()
+{   
+    Debug.Log("로딩완료");
 
     isMiniGameScene = false; // 미니게임 씬이 아님을 표시
 
@@ -132,15 +135,31 @@ public class MiniGameManager : MonoBehaviour
         }
     }
 
+    // Check if we have enough mini games to play
+    if(remainingMiniGameScenes.Count < gamesToPlay)
+    {
+        // If not, show a black screen (or any other error handling you want)
+        Debug.Log("Not enough mini games to play. Showing a black screen.");
+        StartCoroutine(ShowBlackScreen());
+        return;
+    }
+
     if(minigameUI != null) 
     {
         minigameUI.gameObject.SetActive(false);
     }
     StartCoroutine(FadeAndLoadScene("BetaScene"));
-    }
+}
+
+// A coroutine that makes the screen go black by using the fade effect
+private IEnumerator ShowBlackScreen()
+{
+    yield return StartCoroutine(Fade(1f));
+}
 
    public void StartMiniGame()
-    {
+    {   
+        
         if (remainingMiniGameScenes.Count == 0)
         {   
             LoadMainMenu();
@@ -151,6 +170,7 @@ public class MiniGameManager : MonoBehaviour
         {
             minigameUI.gameObject.SetActive(true);
         }
+      
         AudioManager.Instance.audioSource.Stop(); // Stop BGM
         StartCoroutine(FadeAndLoadScene());
     }
@@ -195,17 +215,17 @@ public class MiniGameManager : MonoBehaviour
 }
 
     private IEnumerator Fade(float finalAlpha)
+{
+    float fadeSpeed = Mathf.Abs(fadeCanvasGroup.alpha - finalAlpha) / 0.3f; // Try 0.3f here
+
+    while (!Mathf.Approximately(fadeCanvasGroup.alpha, finalAlpha))
     {
-        float fadeSpeed = Mathf.Abs(fadeCanvasGroup.alpha - finalAlpha) / 1f;
+        fadeCanvasGroup.alpha = Mathf.MoveTowards(fadeCanvasGroup.alpha, finalAlpha,
+            fadeSpeed * Time.deltaTime);
 
-        while (!Mathf.Approximately(fadeCanvasGroup.alpha, finalAlpha))
-        {
-            fadeCanvasGroup.alpha = Mathf.MoveTowards(fadeCanvasGroup.alpha, finalAlpha,
-                fadeSpeed * Time.deltaTime);
-
-            yield return null;
-        }
+        yield return null;
     }
+}
     
 
     public void MiniGameFinished()

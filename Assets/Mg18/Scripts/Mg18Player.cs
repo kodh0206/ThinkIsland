@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class Mg18Player : MonoBehaviour
 {
-    public float maxGravityScale = 1f; // ÃÖ´ë gravity scale °ª
+    public Animator animator;  // ì• ë‹ˆë©”ì´í„° ì»´í¬ë„ŒíŠ¸
+    public float maxGravityScale = 1f; // ï¿½Ö´ï¿½ gravity scale ï¿½ï¿½
 
-    public float moveSpeed = 5f; // ¿òÁ÷ÀÓ ¼Óµµ
+    public float moveSpeed = 5f; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Óµï¿½
 
-    private float jumpForce = 12.0f; // ÃÊ±â Á¡ÇÁ Èû
+    private float jumpForce = 12.0f; // ï¿½Ê±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 
-    public float targetXPosition = -7.5f; //¹Ğ·Á³µÀ» ¶§ µ¹¾Æ¿Ã °÷
+    public float targetXPosition = -7.5f; //ï¿½Ğ·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Æ¿ï¿½ ï¿½ï¿½
 
     private bool isHit = false;
 
@@ -20,8 +21,10 @@ public class Mg18Player : MonoBehaviour
     private bool nowJumping = false;
 
     private Rigidbody2D rb;
-
-
+    public AudioClip walkSound;     // ê±·ëŠ” ì†Œë¦¬ ì˜¤ë””ì˜¤ í´ë¦½
+    public AudioClip splashSound;   // ì²¨ë²™ì†Œë¦¬ ì˜¤ë””ì˜¤ í´ë¦½
+    public AudioClip jumpSound;     // ì í”„ ì†Œë¦¬ ì˜¤ë””ì˜¤ í´ë¦½
+    public AudioSource audioSource;
     private bool RightButton = false;
     private bool LeftButton = false;
 
@@ -51,8 +54,11 @@ public class Mg18Player : MonoBehaviour
 
     private void Start()
     {
+        animator = GetComponent<Animator>();  // ì• ë‹ˆë©”ì´í„° ì»´í¬ë„ŒíŠ¸ ê°€ì ¸ì˜¤ê¸°
         rb = GetComponent<Rigidbody2D>();
-        rb.gravityScale = 0f; // ½ÃÀÛÇÒ ¶§ gravity scaleÀ» 0·Î ¼³Á¤
+        rb.gravityScale = 0f; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ gravity scaleï¿½ï¿½ 0ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+        audioSource = GetComponent<AudioSource>();
+        boxCollider =GetComponent<BoxCollider2D>();
     }
 
     private void Update()
@@ -63,21 +69,44 @@ public class Mg18Player : MonoBehaviour
             rb.gravityScale = Mathf.Clamp(rb.gravityScale, 0f, maxGravityScale);
         }
 
-        // y ÁÂÇ¥°¡ À½¼öÀÎ °æ¿ì gravity scale Á¶Á¤
+        // y ï¿½ï¿½Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ gravity scale ï¿½ï¿½ï¿½ï¿½
         if (!(isHit) && transform.position.y <= 0 )
-        {
-            float gravityScale = transform.position.y; // y ÁÂÇ¥ÀÇ Àı´ñ°ªÀ» gravity scale·Î »ç¿ë
-            gravityScale = Mathf.Clamp(gravityScale, -maxGravityScale, 0f ); // ÃÖ´ë°ª Á¦ÇÑ
+        {   
+             audioSource.clip = splashSound;
+            if (!audioSource.isPlaying)
+            {
+                audioSource.Play();
+            }
+            float gravityScale = transform.position.y; // y ï¿½ï¿½Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ gravity scaleï¿½ï¿½ ï¿½ï¿½ï¿½
+            gravityScale = Mathf.Clamp(gravityScale, -maxGravityScale, 0f ); // ï¿½Ö´ë°ª ï¿½ï¿½ï¿½ï¿½
             rb.gravityScale = gravityScale/ Random.Range(1f,3f);
- 
+            animator.SetBool("PlayerIsWater", true);
         }
         else
+        {   
+        if (!(nowJumping))
         {
+            audioSource.clip = walkSound;
+            if (!audioSource.isPlaying)
+            {
+                audioSource.Play();
+            }
+            }
+            else{
+                audioSource.Stop();
+            }
             rb.gravityScale = 1.0f;
+            animator.SetBool("PlayerIsWater", false);
         }
 
-        if ((Input.GetKey(KeyCode.LeftArrow) || LeftButton) &&!(isHit)  && !nowJumping ) // ¶¥À» ¹â¾Ò°Å³ª ¹° ¼Ó ÀÏ¶§.
-        {
+        if ((Input.GetKey(KeyCode.LeftArrow) || LeftButton) &&!(isHit)  && !nowJumping ) // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ò°Å³ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½Ï¶ï¿½.
+        {   
+
+            audioSource.clip = jumpSound;
+            if (!audioSource.isPlaying)
+            {
+                audioSource.Play();
+            }
             Jump();
             LeftButton= false;
             
@@ -85,7 +114,7 @@ public class Mg18Player : MonoBehaviour
 
         if (!(isHit) && transform.position.x != targetXPosition)
         {
-            // ÇöÀç À§Ä¡¿Í ¸ñÇ¥ À§Ä¡¸¦ ºñ±³ÇÏ¿© X À§Ä¡ ÀÌµ¿ Ã³¸®
+            // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½Ç¥ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½Ï¿ï¿½ X ï¿½ï¿½Ä¡ ï¿½Ìµï¿½ Ã³ï¿½ï¿½
             Vector2 targetPosition = new Vector2(targetXPosition, transform.position.y);
             transform.position = Vector2.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime/4f);
         }
@@ -117,12 +146,12 @@ public class Mg18Player : MonoBehaviour
 
     public void GetHit()
     {
-        // ¿òÁ÷ÀÓ ¸ØÃã
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         rb.velocity = Vector2.zero;
         isHit= true;
 
-        // ºñµ¿±â Ã³¸® ½ÃÀÛ
+        // ï¿½ñµ¿±ï¿½ Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         StartCoroutine(DisableControlAndResetColor());
     }
 

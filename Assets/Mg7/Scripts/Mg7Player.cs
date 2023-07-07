@@ -8,6 +8,8 @@ public class Mg7Player : MonoBehaviour
     public float jumpPower = 5.0f;
     public int level;
 
+    private  AudioSource audioSource;
+    public AudioClip jump;
 
     private bool RightButton = false;
     private bool LeftButton = false;
@@ -40,7 +42,14 @@ public class Mg7Player : MonoBehaviour
     {
         level = 1;
     }
-
+    void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null) // If AudioSource is not attached to the gameObject
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+    }
     void Start()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
@@ -61,7 +70,8 @@ public class Mg7Player : MonoBehaviour
     }
 
     void JumpWithAngle(float angle)
-    {
+    {   
+        audioSource.PlayOneShot(jump);
         float radian = angle * Mathf.Deg2Rad;
         Vector2 jumpDirection = new Vector2(Mathf.Cos(radian), Mathf.Sin(radian));
         rigidbody2D.velocity = jumpDirection * jumpPower;

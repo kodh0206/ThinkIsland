@@ -22,7 +22,7 @@ public class Mg18Obstacle : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
-        {
+        {   AudioManager.Instance.Rock2();
             other.gameObject.GetComponent<Mg18Player>().GetHit();
         }
 

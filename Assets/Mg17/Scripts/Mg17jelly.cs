@@ -23,8 +23,9 @@ public class Mg17jelly : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Player")
-        {
-            Mg17manager.instance.AddScore();
+        {   
+            //MiniGameManager.Instance.AddJelly();
+            //Mg17manager.instance.AddScore();
             Destroy(gameObject);
         }
     }

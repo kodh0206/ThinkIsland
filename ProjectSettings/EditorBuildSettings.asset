@@ -17,9 +17,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Mg2/Scenes/Mg2.unity
     guid: 48f31d35f674e0d4596af7c437f16160
-  - enabled: 0
-    path: Assets/Mg2/Scenes/Mg2_del.unity
-    guid: ca678db4d8051da409a739de9636fd79
   - enabled: 1
     path: Assets/Scenes/MiniGames/Mg3.unity
     guid: 2cda990e2423bbf4892e6590ba056729
@@ -74,9 +71,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Mg20/Scenes/Mg20.unity
     guid: 7b8ac199ba5f38f49987fa96937928d7
-  - enabled: 0
-    path: Assets/Scenes/GameScene/MiniGameTrain.unity
-    guid: 2fec13a40a5328b40aa2405544087764
   - enabled: 1
     path: Assets/Scenes/GameScene/Main.unity
     guid: eb0da542e38417e4aae0a0a15a9026e6

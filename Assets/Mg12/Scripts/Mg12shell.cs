@@ -22,14 +22,14 @@ public class Mg12shell : MonoBehaviour
 
         if (other.gameObject.CompareTag("Rock"))
         {
-            // Àý¹ÝÀÇ È®·ü·Î jellyinShell »ý¼º
+            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ï¿½ï¿½ jellyinShell ï¿½ï¿½ï¿½ï¿½
             float randomValue = Random.value;
             if (randomValue < 0.5f)
             {
                 Vector3 shellPosition = transform.position;
                 Instantiate(jellyinShell, shellPosition, Quaternion.identity);
             }
-
+            AudioManager.Instance.ShellBreak();
             Destroy(gameObject);
         }
     }

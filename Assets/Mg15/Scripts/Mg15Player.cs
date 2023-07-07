@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Mg15Player : MonoBehaviour
 {
-    public float moveSpeed = 5f; // ¿òÁ÷ÀÓ ¼Óµµ
+    public float moveSpeed = 5f; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Óµï¿½
 
     private Rigidbody2D rb;
     private BoxCollider2D boxCollider;
 
+    Animator animator;
 
     private bool RightButton = false;
     private bool LeftButton = false;
@@ -41,6 +42,7 @@ public class Mg15Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         boxCollider = GetComponent<BoxCollider2D>();
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -50,26 +52,37 @@ public class Mg15Player : MonoBehaviour
         if (Input.GetKey(KeyCode.RightArrow) || RightButton)
         {
             horizontalInput = 1f;
+            animator.SetBool("MoveRight", true);
+            animator.SetBool("MoveLeft", false);
         }
         else if(Input.GetKey(KeyCode.LeftArrow) || LeftButton)
         {
+            
             horizontalInput = -1f;
+            animator.SetBool("MoveRight", false);
+            animator.SetBool("MoveLeft", true);
+        }
+        else
+        {
+            animator.SetBool("MoveRight", false);
+            animator.SetBool("MoveLeft", false);
         }
 
-            // ¿òÁ÷ÀÓ °è»ê
+            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
         float moveX = horizontalInput * moveSpeed;
         Vector2 movement = new Vector2(moveX, rb.velocity.y);
 
-        // ¿òÁ÷ÀÓ Àû¿ë
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         rb.velocity = movement;
     }
 
     public void GetHit()
-    {
-        // BoxCollider2D¸¦ ºñÈ°¼ºÈ­
+    {   
+
+        // BoxCollider2Dï¿½ï¿½ ï¿½ï¿½È°ï¿½ï¿½È­
         boxCollider.enabled = false;
 
-        // 0.5ÃÊ ÈÄ¿¡ BoxCollider2D¸¦ È°¼ºÈ­
+        // 0.5ï¿½ï¿½ ï¿½Ä¿ï¿½ BoxCollider2Dï¿½ï¿½ È°ï¿½ï¿½È­
         StartCoroutine(EnableBoxColliderAfterDelay(0.5f));
     }
 

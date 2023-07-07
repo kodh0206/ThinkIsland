@@ -4,46 +4,45 @@ using UnityEngine;
 
 public class Mg17Player : MonoBehaviour
 {
-    public float moveSpeed = 1f; // øÚ¡˜¿” º”µµ
+    public float moveSpeed = 1f;
 
     private Rigidbody2D rb;
     private BoxCollider2D boxCollider;
-
+    private AudioSource audioSource;
     Animator animator;
-
+    public AudioClip shooting;
     private bool RightButton = false;
     private bool LeftButton = false;
 
+    private bool canShoot = true;
+    private float shootTimer = 0;
+    private float shootInterval = 0.5f; // 0.5Ï¥àÏóê Ìïú Î≤àÏî© ÏÇ¨Ïö¥Îìú Ïû¨ÏÉù
 
     public void RightClick()
     {
         LeftButton = false;
         RightButton = true;
-
     }
 
     public void RightClickOff()
     {
         RightButton = false;
-
     }
 
     public void LeftClick()
     {
         RightButton = false;
         LeftButton = true;
-
     }
 
     public void LeftClickOff()
     {
         LeftButton = false;
-
     }
 
-
     private void Start()
-    {
+    {   
+        audioSource = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody2D>();
         boxCollider = GetComponent<BoxCollider2D>();
         animator = GetComponent<Animator>();
@@ -62,50 +61,56 @@ public class Mg17Player : MonoBehaviour
             horizontalInput = -1f;
         }
 
-        // øÚ¡˜¿” ∞ËªÍ
         float moveX = horizontalInput * moveSpeed;
         Vector2 movement = new Vector2(moveX, rb.velocity.y);
 
-        // øÚ¡˜¿” ¿˚øÎ
         rb.velocity = movement;
-    }
 
+        // Ï¥ùÏÜåÎ¶¨ Ïû¨ÏÉù Î°úÏßÅ
+        if (canShoot)
+        {
+            shootTimer += Time.deltaTime;
+            if (shootTimer >= shootInterval)
+            {
+                audioSource.PlayOneShot(shooting);
+                shootTimer = 0;
+            }
+        }
+    }
 
     public void GetHit()
     {
-        // øÚ¡˜¿” ∏ÿ√„
         animator.speed = 0f;
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         rb.velocity = Vector2.zero;
+        
+        canShoot = false;
 
-        // ∫Òµø±‚ √≥∏Æ Ω√¿€
         StartCoroutine(DisableControlAndResetColor());
     }
 
     private IEnumerator DisableControlAndResetColor()
     {
-        // ¡∂¿€ ∫Ò»∞º∫»≠
+        // disable control
         enabled = false;
 
-        // ªˆªÛ ∫Ø∞Ê
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
         if (spriteRenderer != null)
         {
             spriteRenderer.color = new Color(0.5f, 0.5f, 0.5f);
         }
 
-        // 2√ ∞£ ¥Î±‚
         yield return new WaitForSeconds(2f);
 
-        // ¡∂¿€ »∞º∫»≠
+        // re-enable control
         enabled = true;
         animator.Play("ShottongRmg", 0, 0);
         animator.speed = 1f;
 
-        // 1√ ∞£ poop øµ«‚ πﬁ¡ˆ æ ¿Ω
+        canShoot = true;
+
         yield return new WaitForSeconds(1f);
 
-        // ªˆªÛ ø¯∑°¥Î∑Œ ∫π±∏
         if (spriteRenderer != null)
         {
             spriteRenderer.color = Color.white;

@@ -22,7 +22,8 @@ public class Mg16BatterySpawner : MonoBehaviour
     {
         
     }
-    private void Start() {
+    private void Start() 
+    {
         mg16Battery = GetComponent<Mg16Battery>();
     }
 
@@ -36,7 +37,7 @@ public class Mg16BatterySpawner : MonoBehaviour
             Vector2 spawnPosition = new Vector2(player.position.x , player.position.y);
             new_battery.transform.position = spawnPosition;
 
-            new_battery.GetComponent<Mg12Rock>();
+            new_battery.GetComponent<Mg16Battery>();
             time = 0;
             
             if (new_battery != null)
