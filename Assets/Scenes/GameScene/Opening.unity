@@ -2091,7 +2091,7 @@ MonoBehaviour:
   rock: {fileID: 8300000, guid: ced743e5213d9664aaec92972c2676fa, type: 3}
   rock1: {fileID: 8300000, guid: 084ef55fb3fc4fe44bbfde7b7758b867, type: 3}
   shellBreak: {fileID: 8300000, guid: 74fb1653bc323ae4983ca4a0696d3ea7, type: 3}
-  obstacleFly: {fileID: 0}
+  obstacleFly: {fileID: 8300000, guid: f2438ecc7347ad943bc2ac8dc39df954, type: 3}
   capsulebreak: {fileID: 8300000, guid: 9d737f6c7df44a548bf445b89d67af0f, type: 3}
   breakPlatform: {fileID: 8300000, guid: b68f4ff3d7675034884650089be309d4, type: 3}
   minigamebegin: {fileID: 8300000, guid: 0ef7ef6422d9c44449bc07608215af09, type: 3}

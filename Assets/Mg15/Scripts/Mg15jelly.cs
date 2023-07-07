@@ -42,7 +42,7 @@ public class Mg15jelly : MonoBehaviour
         }
 
         if (other.gameObject.CompareTag("Player"))
-        {   MiniGameManager.Instance.AddJelly();
+        {   //MiniGameManager.Instance.AddJelly();
             //Mg15manager.instance.AddScore();
             Destroy(gameObject);
         }

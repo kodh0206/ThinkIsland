@@ -14,6 +14,7 @@ public class Mg15Obstacle : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = -1f; // ������ �� gravity scale�� -1�� ����
+    
     }
 
     private void Update()
@@ -45,7 +46,7 @@ public class Mg15Obstacle : MonoBehaviour
 
         if (other.gameObject.CompareTag("Player"))
         {   
-            AudioManager.Instance.ObstacleFly();
+            //AudioManager.Instance.ObstacleFly();
             other.gameObject.GetComponent<Mg15Player>().GetHit();
         }
     }
