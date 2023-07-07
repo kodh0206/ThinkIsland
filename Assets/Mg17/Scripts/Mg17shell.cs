@@ -24,7 +24,8 @@ public class Mg17shell : MonoBehaviour
         
 
         if (other.gameObject.CompareTag("Player"))
-        {
+        {   
+            AudioManager.Instance.Rock();
             other.gameObject.GetComponent<Mg17Player>().GetHit();
 
             Mg17Spawner spawner1 = FindAnyObjectByType<Mg17Spawner>();

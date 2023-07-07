@@ -50,6 +50,7 @@ public class Mg19Player : MonoBehaviour
 
         // Block ���̾��� ����ũ ����
         blockLayerMask = LayerMask.NameToLayer("Block");
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()

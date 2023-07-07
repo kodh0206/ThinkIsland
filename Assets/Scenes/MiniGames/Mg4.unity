@@ -1601,6 +1601,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -4052874852065449328, guid: 13389751379d6fc4fbc53dacbc8302ca,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2326193998242831592, guid: 13389751379d6fc4fbc53dacbc8302ca,
+        type: 3}
+      propertyPath: jump
+      value: 
+      objectReference: {fileID: 8300000, guid: 4f8e4708be6a71c4283f5f0db863b8ff, type: 3}
     - target: {fileID: 2326193998242831593, guid: 13389751379d6fc4fbc53dacbc8302ca,
         type: 3}
       propertyPath: m_GravityScale

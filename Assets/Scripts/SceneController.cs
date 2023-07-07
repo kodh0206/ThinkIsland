@@ -29,7 +29,7 @@ public class SceneController : MonoBehaviour
     }
     public void Play()
     {
-
+        AudioManager.Instance.StartMiniGame();
         playButton.interactable = false;
         logoMovement.StartPlay();
         StartCoroutine(LoadSceneAfterDelay());

@@ -17,13 +17,13 @@ public class Mg20Brokenblock : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
-        {   AudioManager.Instance.BreakPlatform();
+        {   
             BreakObject();
         }
     }
 
     private void BreakObject()
-    {
+    {   AudioManager.Instance.BreakPlatform();
         // ��ƼŬ ȿ�� ���
         if (breakEffect != null)
         {

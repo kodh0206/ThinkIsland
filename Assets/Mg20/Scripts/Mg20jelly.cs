@@ -20,8 +20,9 @@ public class Mg20jelly : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Player")
-        {
-            Mg20manager.instance.AddScore();
+        {   
+            MiniGameManager.Instance.AddJelly();
+            //Mg20manager.instance.AddScore();
             Destroy(gameObject);
         }
     }

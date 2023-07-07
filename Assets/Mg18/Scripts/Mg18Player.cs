@@ -25,7 +25,6 @@ public class Mg18Player : MonoBehaviour
     public AudioClip splashSound;   // 첨벙소리 오디오 클립
     public AudioClip jumpSound;     // 점프 소리 오디오 클립
     public AudioSource audioSource;
-
     private bool RightButton = false;
     private bool LeftButton = false;
 
@@ -59,6 +58,7 @@ public class Mg18Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 0f; // ������ �� gravity scale�� 0�� ����
         audioSource = GetComponent<AudioSource>();
+        boxCollider =GetComponent<BoxCollider2D>();
     }
 
     private void Update()
