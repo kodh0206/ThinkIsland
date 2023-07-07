@@ -44,7 +44,7 @@ public class Mg6Spawner : MonoBehaviour
             }
 
             new_Mg6Obstacle.GetComponent<Mg6Obstacle>().SetSpeed(Mg6ObstacleSpeed); // 장애물의 스피드 설정
-            time = 0;
+            time = Random.Range(0f,0.3f);
             Destroy(new_Mg6Obstacle, 10.0f);
         }
     }
