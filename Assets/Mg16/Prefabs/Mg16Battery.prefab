@@ -179,6 +179,8 @@ MonoBehaviour:
   electricity4: {fileID: 0}
   electricity5: {fileID: 0}
   dump: {fileID: 8300000, guid: a6ae402279d3dbd4dbca98c0d5f28aac, type: 3}
+  spalash: {fileID: 8300000, guid: 675a4f25dc95b164d8486ef05fc94378, type: 3}
+  electricity: {fileID: 8300000, guid: 43cc54c022860b34cba17f272202a871, type: 3}
   startY: 1.7
   topY: 2.5
   stopY: -2.5

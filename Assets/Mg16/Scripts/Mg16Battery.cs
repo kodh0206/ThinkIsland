@@ -23,13 +23,14 @@ public class Mg16Battery : MonoBehaviour
 
     public AudioClip dump;
     public AudioClip spalash;
+    public AudioClip electricity;
     public float startY = 1.7f;
     public float topY = 2.5f;
     // 배터리 끝 위치
     public float stopY = -3.5f;
     // 해당 위치까지 이동하는 데 걸리는 시간
     public float moveDuration = 1.5f;
-    
+      private bool hasPlayedSplashSound = false;  
 
     private void Start()
     {
@@ -56,6 +57,13 @@ public class Mg16Battery : MonoBehaviour
         {
             // 전기 활성화 함수
             ElectricitySetActiveTrue();
+
+              if (!hasPlayedSplashSound)
+            {
+                audioSource.PlayOneShot(spalash);
+                audioSource.PlayOneShot(electricity);
+                hasPlayedSplashSound = true;
+            }
         }
     }
 
@@ -72,6 +80,7 @@ public class Mg16Battery : MonoBehaviour
     private void ReverseMovement()
     {   audioSource.PlayOneShot(dump);
         transform.DOMoveY(stopY, moveDuration).SetEase(Ease.Linear);
+       
     }
 
     private void StopMovement()
@@ -89,7 +98,8 @@ public class Mg16Battery : MonoBehaviour
     }
 
     void ElectricitySetActiveTrue()
-    {
+    {   
+        
         electricity1.SetActive(true);
         electricity2.SetActive(true);
         electricity3.SetActive(true);
@@ -98,12 +108,12 @@ public class Mg16Battery : MonoBehaviour
     }
 
     public void BatterySetBoolFalse()
-    {
+    {   
         animator.SetBool("FishSetActiveFalse", false);
     }
 
     public void BatterySetBoolTrue()
-    {
+    {   
         animator.SetBool("FishSetActiveFalse", true);
     }
 
