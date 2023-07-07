@@ -8,10 +8,13 @@ public class Mg1Player : MonoBehaviour
     private Vector2 startPosition;
     Rigidbody2D rigid;
     public float jumpPower = 15.0f;
+    public float moveSpeed = 5f;  // 이동 속도
     bool isJump = false;
     private bool isGrounded = true;
     public bool isStunned = false;
     public bool isTrigger = true;
+    private bool RightButton = false;
+
 
     public int level;
 
@@ -38,15 +41,6 @@ public class Mg1Player : MonoBehaviour
         audioSource = gameObject.AddComponent<AudioSource>();   
     }
     }
-/*
-    void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.Space) && !isJump) 
-        { 
-            rigid.AddForce (new Vector3(0, jumpPower, 0), ForceMode2D.Impulse);
-            //isJump = true;
-        }
-    }*/
 
     private void OnCollisionEnter2D(Collision2D collision) // 충돌 감지
     {
@@ -127,5 +121,30 @@ public class Mg1Player : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         isStunned = false;
+    }
+
+    // rightButtonController
+    public void RightClick()
+    {
+        RightButton = true;
+    }
+    public void RightClickOff()
+    {
+        RightButton = false;
+    }
+
+    private void Update()
+    {
+        float horizontalInput = 0f;
+
+        if (Input.GetKey(KeyCode.RightArrow) || RightButton)
+        {
+            horizontalInput = 1f;
+        }
+
+        float moveX = horizontalInput * moveSpeed;
+        Vector2 movement = new Vector2(moveX, rigid.velocity.y);
+
+        rigid.velocity = movement;
     }
 }
