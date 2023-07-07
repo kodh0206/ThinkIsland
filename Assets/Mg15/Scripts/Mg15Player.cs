@@ -78,7 +78,7 @@ public class Mg15Player : MonoBehaviour
 
     public void GetHit()
     {   
-
+        AudioManager.Instance.Rock();
         // BoxCollider2D�� ��Ȱ��ȭ
         boxCollider.enabled = false;
 
