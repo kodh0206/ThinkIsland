@@ -50,10 +50,10 @@ public class PoopSpawner : MonoBehaviour
 
     private void SpawnPoop()
     {
-        float posX = Random.Range(-3f,2.85f);
+        float posX = Random.Range(-4f,4f);
         Vector3 position = new Vector3(posX,6,0);
         int index;
-        if (Random.value < 0.7f) // Adjust the probability here (e.g., 0.8f means 80% chance)
+        if (Random.value < 0.6f) // Adjust the probability here (e.g., 0.8f means 80% chance)
         {
             index = 0; // Set index to 0 more often 0==poop
         }
