@@ -23,7 +23,7 @@ public class BetaManager : MonoBehaviour
 
     private void Start()
     {
-        play1.onClick.AddListener(miniGame.StartMiniGameWithAudio);
+        play1.onClick.AddListener(StartMiniGame);
         exit.onClick.AddListener(ExitGame);
         RadioButton.onClick.AddListener(gotoRadio);
         money.text = gameController.curentgold.ToString();
@@ -33,9 +33,10 @@ public class BetaManager : MonoBehaviour
     }   
     
     void StartMiniGame()
-    {
+    {   play1.interactable=false;//여러 클릭 방지 
         AudioManager.Instance.StartMiniGame();
-        miniGame.StartMiniGame();
+        miniGame.StartMiniGameWithAudio();
+       
     }
     void gotoRadio()
     {

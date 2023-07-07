@@ -9,6 +9,7 @@ public class Mg10Player : MonoBehaviour
     public float horizontalSpeed = 10.0f;
     private float verticalSpeed;
 
+    private AudioSource audioSource;
     private Rigidbody2D rb;
     private bool isInputEnabled = true;
 
@@ -16,8 +17,9 @@ public class Mg10Player : MonoBehaviour
     public bool LeftButton = false;
 
     public Sprite[] sprites = new Sprite[3];
-    public Sprite sprite;
-
+    //public Sprite sprite;
+    public AudioClip skiing;
+    
     public void RightClick()
     {
         LeftButton = false;
@@ -46,7 +48,8 @@ public class Mg10Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         verticalSpeed = initialSpeed;
-        
+        audioSource =GetComponent<AudioSource>();
+
     }
 
     private void Update()
@@ -54,25 +57,25 @@ public class Mg10Player : MonoBehaviour
         
         if (!isInputEnabled)
         {
-            rb.velocity = new Vector2(rb.velocity.x, -verticalSpeed); // ¾Æ·¡·Î ¿òÁ÷ÀÓ
-            return; // ÀÔ·Â ºñÈ°¼ºÈ­ »óÅÂ¸é ¾÷µ¥ÀÌÆ® Á¾·á
+            rb.velocity = new Vector2(rb.velocity.x, -verticalSpeed); // ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+            return; // ï¿½Ô·ï¿½ ï¿½ï¿½È°ï¿½ï¿½È­ ï¿½ï¿½ï¿½Â¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
         }
 
-        // ¿ÞÂÊÅ° ÀÔ·Â Ã³¸®
+        // ï¿½ï¿½ï¿½ï¿½Å° ï¿½Ô·ï¿½ Ã³ï¿½ï¿½
         if (Input.GetKeyDown(KeyCode.LeftArrow) || LeftButton)
         {
             StartCoroutine(ChangeSpriteWithDelay(sprites, 0.1f,1));
             rb.velocity = new Vector2(-horizontalSpeed, rb.velocity.y);
             
         }
-        // ¿À¸¥ÂÊÅ° ÀÔ·Â Ã³¸®
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å° ï¿½Ô·ï¿½ Ã³ï¿½ï¿½
         else if (Input.GetKeyDown(KeyCode.RightArrow) ||RightButton)
         {
             StartCoroutine(ChangeSpriteWithDelay(sprites, 0.1f,2));
             rb.velocity = new Vector2(horizontalSpeed, rb.velocity.y);
         }
 
-        // ÀÔ·ÂÀÌ ¾øÀ» ¶§
+        // ï¿½Ô·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
         if (!Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.RightArrow))
         {
             rb.velocity = new Vector2(rb.velocity.x, -verticalSpeed);
@@ -80,38 +83,38 @@ public class Mg10Player : MonoBehaviour
     }
 
 
-    public void GetHit()  //¸Â¾ÒÀ»¶§
+    public void GetHit()  //ï¿½Â¾ï¿½ï¿½ï¿½ï¿½ï¿½
     {
-        // ¿òÁ÷ÀÓ ¸ØÃã
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         rb.velocity = Vector2.zero;
 
-        // ºñµ¿±â Ã³¸® ½ÃÀÛ
+        // ï¿½ñµ¿±ï¿½ Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         StartCoroutine(DisableControlAndResetColor());
     }
 
     private IEnumerator DisableControlAndResetColor()
     {
-        // Á¶ÀÛ ºñÈ°¼ºÈ­
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È°ï¿½ï¿½È­
         enabled = false;
 
-        // »ö»ó º¯°æ
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
         if (spriteRenderer != null)
         {
             spriteRenderer.color = new Color(0.77f, 0.52f, 0f);
         }
 
-        // 2ÃÊ°£ ´ë±â
+        // 2ï¿½Ê°ï¿½ ï¿½ï¿½ï¿½
         yield return new WaitForSeconds(2f);
 
-        // Á¶ÀÛ È°¼ºÈ­
+        // ï¿½ï¿½ï¿½ï¿½ È°ï¿½ï¿½È­
         enabled = true;
 
-        // 1ÃÊ°£ poop ¿µÇâ ¹ÞÁö ¾ÊÀ½
+        // 1ï¿½Ê°ï¿½ poop ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         yield return new WaitForSeconds(1f);
 
-        // »ö»ó ¿ø·¡´ë·Î º¹±¸
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         if (spriteRenderer != null)
         {
             spriteRenderer.color = Color.white;

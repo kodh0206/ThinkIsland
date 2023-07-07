@@ -9,12 +9,9 @@ public class Mg18manager : MonoBehaviour
 
 
     [SerializeField]
-    private TextMeshProUGUI scoreText;
-
-    [SerializeField]
     private GameObject GameOverPanel;
 
-    private int score = 0; // score=jelly ½ºÄÚ¾î¿¡ ÀÌÀü °ÔÀÓÀÇ Á©¸®°ªÀ» ³ÖÀ¸¸é ¼Óµµ Á¶Á¤°¡´É
+    private int score = 0; // score=jelly ï¿½ï¿½ï¿½Ú¾î¿¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Óµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     public bool isGameOver = false;
 
     void Awake()
@@ -39,7 +36,7 @@ public class Mg18manager : MonoBehaviour
     public void AddScore()
     {
         score += 1;
-        scoreText.text = "Eat jelly " + score; //score= jelly
+       
 
         if (score % 5 == 0)
         {
@@ -49,9 +46,9 @@ public class Mg18manager : MonoBehaviour
 
             if (spawner != null)
             {
-                spawner.IncreaseSpeed();  // Àå¾Ö¹° ¼Óµµ Áõ°¡
-                spawner2.IncreaseSpeed(); //¶¥ ¼Óµµ Áõ°¡
-                spawner3.IncreaseSpeed(); //Á©¸® ¼ÓµµÁõ°¡
+                spawner.IncreaseSpeed();  // ï¿½ï¿½Ö¹ï¿½ ï¿½Óµï¿½ ï¿½ï¿½ï¿½ï¿½
+                spawner2.IncreaseSpeed(); //ï¿½ï¿½ ï¿½Óµï¿½ ï¿½ï¿½ï¿½ï¿½
+                spawner3.IncreaseSpeed(); //ï¿½ï¿½ï¿½ï¿½ ï¿½Óµï¿½ï¿½ï¿½ï¿½ï¿½
 
             }
         }
