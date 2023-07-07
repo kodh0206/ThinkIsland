@@ -5,7 +5,8 @@ using UnityEngine;
 public class Mg11Spawner : MonoBehaviour
 {
     public GameObject Mg11Obstacle;
-    
+    public GameObject Mg11ObstacleL;
+
 
     [SerializeField]
     private float Mg11ObstacleSpeed = 5.0f; // 생성물의 초기 스피드
@@ -35,14 +36,28 @@ public class Mg11Spawner : MonoBehaviour
 
             for (int i = 0; i < numObstaclesToSpawn; i++)
             {
-                GameObject new_Mg11Obstacle = Instantiate(Mg11Obstacle);
+                Vector2 spawnPosition = GetRandomSpawnPosition();
+
+
+                if (spawnPosition.x > 0)
+                {
+                    GameObject new_Mg11Obstacle = Instantiate(Mg11Obstacle);
+                    new_Mg11Obstacle.transform.position = spawnPosition;
+                    new_Mg11Obstacle.GetComponent<Mg11Obstacle>().SetSpeed(Mg11ObstacleSpeed); // 장애물의 스피드 설정
+                    Destroy(new_Mg11Obstacle, 5.0f);
+                }
+                else
+                {
+                    GameObject new_Mg11Obstacle = Instantiate(Mg11ObstacleL);
+                    new_Mg11Obstacle.transform.position = spawnPosition;
+                    new_Mg11Obstacle.GetComponent<Mg11Obstacle>().SetSpeed(Mg11ObstacleSpeed); // 장애물의 스피드 설정
+                    Destroy(new_Mg11Obstacle, 5.0f);
+                }
 
                 // 랜덤하게 위치 선택
-                Vector2 spawnPosition = GetRandomSpawnPosition();
-                new_Mg11Obstacle.transform.position = spawnPosition;
 
-                new_Mg11Obstacle.GetComponent<Mg11Obstacle>().SetSpeed(Mg11ObstacleSpeed); // 장애물의 스피드 설정
-                Destroy(new_Mg11Obstacle, 5.0f);
+
+                
             }
 
             time = Random.Range(0f, 0.5f);
