@@ -11,7 +11,7 @@ public class Mg16Battery : MonoBehaviour
     public Sprite waterBatterySprite;  // 물에 빠진 배터리 스프라이트 이미지
     public Animator animator;  // 애니메이터 컴포넌트
     public Tween movementTween;  // Tween 변수 추가
-
+    public AudioSource audioSource;
     // 전기
     public GameObject electricity1;
     public GameObject electricity2;
@@ -21,6 +21,8 @@ public class Mg16Battery : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
 
+    public AudioClip dump;
+    public AudioClip spalash;
     public float startY = 1.7f;
     public float topY = 2.5f;
     // 배터리 끝 위치
@@ -35,7 +37,7 @@ public class Mg16Battery : MonoBehaviour
         animator = GetComponent<Animator>();  // 애니메이터 컴포넌트 가져오기
         mg16BatterySpawner = GetComponent<Mg16BatterySpawner>();
         spriteRenderer.sprite = batterySprite;  // 초기 스프라이트를 물에 안 빠진 배터리로 설정
-
+        audioSource =GetComponent<AudioSource>();
         // 배터리 비활성화 함수
         ElectricitySetActiveFalse();
 
@@ -45,7 +47,7 @@ public class Mg16Battery : MonoBehaviour
     private void Update()
     {
         if (transform.position.y < stopY+1f)
-        {
+        {   Debug.Log("입수");
             animator.SetBool("BatteryInWater", true); // 기존 애니메이션 재생 정지
             ChangeSprite();  // 스프라이트 변화 함수 호출
         }
@@ -68,7 +70,7 @@ public class Mg16Battery : MonoBehaviour
     }
 
     private void ReverseMovement()
-    {
+    {   audioSource.PlayOneShot(dump);
         transform.DOMoveY(stopY, moveDuration).SetEase(Ease.Linear);
     }
 
