@@ -5,18 +5,10 @@ using static Cinemachine.DocumentationSortingAttribute;
 
 public class Mg8Player : MonoBehaviour
 {
-    public float speed = 5.0f;
-    public float diagonalSpeedMultiplier = 0.7f;
-    public int level;
-    private Rigidbody2D rb;
-
     private bool RightButton = false;
     private bool LeftButton = false;
 
-    private void Awake()
-    {
-        rb = GetComponent<Rigidbody2D>();
-    }
+    private int Mushrooms = 0;
 
     public void RightClick()
     {
@@ -43,36 +35,30 @@ public class Mg8Player : MonoBehaviour
         LeftButton = false;
 
     }
-
-    public Mg8Player()
+    // Start is called before the first frame update
+    void Start()
     {
-        level = 1;
+
     }
-    private void Update()
+
+    // Update is called once per frame
+    void Update()
     {
-        float horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
-
-        Vector2 moveDirection = new Vector2(horizontalInput, verticalInput).normalized;
-
-        if (moveDirection.magnitude > 1f)
+        if ((Mushrooms != 4) && (Input.GetKeyDown(KeyCode.X) || RightButton))
         {
-            moveDirection.Normalize();
-        }
+            transform.position += Vector3.up * 1;
+            Mushrooms += 1;
+            RightButton=false;
 
-        if (Input.GetKeyDown(KeyCode.X) || RightButton)
-        {
-            moveDirection = new Vector2(1f, 1f);
-            
         }
-        else if (Input.GetKeyDown(KeyCode.Z) || LeftButton)
+        else if ((Mushrooms != 0) && (Input.GetKeyDown(KeyCode.Z) || LeftButton))
         {
-            moveDirection = new Vector2(-1f, -1f);
-            
+            transform.position += Vector3.down * 1;
+            Mushrooms -= 1;
+            LeftButton=false;
         }
-
-        rb.velocity = moveDirection * speed * (Mathf.Abs(horizontalInput) > 0.5f || Mathf.Abs(verticalInput) > 0.5f ? diagonalSpeedMultiplier : 1f);
     }
+
 
 
     public void GetHit()
