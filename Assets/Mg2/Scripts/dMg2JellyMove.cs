@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Mg2BallMove : MonoBehaviour
+public class dMg2JellyMove : MonoBehaviour
 {
+
     private float height = 2f;
     private float duration = 0.8f;
 
@@ -12,13 +13,10 @@ public class Mg2BallMove : MonoBehaviour
     private float elapsedTime = 0f;
     private bool isMoving = false;
 
-    private Mg2PlayerMove mg2PlayerMove;
-
     public int score = 0;
 
     private void Start()
     {
-        mg2PlayerMove = GameObject.FindObjectOfType<Mg2PlayerMove>();
         startPoint = new Vector2(0f, -6f);
         RandomizeEndPoint();
     }
@@ -34,21 +32,16 @@ public class Mg2BallMove : MonoBehaviour
                 transform.position = endPoint;
                 isMoving = false;
                 Collider2D[] colliders = Physics2D.OverlapCircleAll(endPoint, 0.5f);
-                bool defenseSuccess = false; // 방어 성공 여부를 나타내는 변수 추가
                 foreach (Collider2D collider in colliders)
                 {
-                    if (collider.gameObject.CompareTag("Player") && this.gameObject.CompareTag("Obstacle"))
-                    {   
-                        AudioManager.Instance.GoalKeep();
-                        defenseSuccess = true; // 방어 성공 표시
+                    if (collider.gameObject.CompareTag("Player"))
+                    {
+                        score += 1;
+                        //MiniGameManager.Instance.AddJelly();
+                        gameObject.SetActive(false);
+
                         break;
                     }
-                }
-                if (!defenseSuccess)
-                {
-                    // 캐릭터 스턴(버튼 비활성화) + 캐릭터 색 변경
-                    AudioManager.Instance.Goal();
-                    mg2PlayerMove.GetObstacle();
                 }
             }
             else
@@ -59,7 +52,6 @@ public class Mg2BallMove : MonoBehaviour
             }
         }
     }
-    // 포물선 그리는 함수
     private Vector2 ParabolicInterpolation(Vector2 start, Vector2 end, float height, float t)
     {
         float parabolicT = Mathf.Sin(t * Mathf.PI);
@@ -68,7 +60,6 @@ public class Mg2BallMove : MonoBehaviour
         return pos;
     }
 
-    // endPoint 랜덤 설정 (셋 중 하나로 공 이동)
     private void RandomizeEndPoint()
     {
         int randomIndex = Random.Range(0, 3);

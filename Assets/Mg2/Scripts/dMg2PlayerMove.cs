@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Mg2PlayerMove : MonoBehaviour
+public class dMg2PlayerMove : MonoBehaviour
 {
     public bool isStunned = false;
     public Button button1;

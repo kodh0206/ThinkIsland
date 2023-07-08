@@ -14,6 +14,7 @@ public class Mg1Player : MonoBehaviour
     public bool isGrounded = true;
     public bool isStunned = false;
     public bool isTrigger = true;
+    public bool isPlayerReset = false;
     private bool RightButton = false;
 
 
@@ -156,5 +157,18 @@ public class Mg1Player : MonoBehaviour
         Vector2 movement = new Vector2(moveX, rigid.velocity.y);
 
         rigid.velocity = movement;
+
+        if (transform.position.x < -12)
+        {
+            PlayerReset();
+        }
+    }
+
+    // 플레이어 위치 리셋
+    private void PlayerReset()
+    {
+        isPlayerReset = true;
+        transform.position = new Vector2 (-6.86f, -2f);
+        isPlayerReset = false;
     }
 }

@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Mg2ObjectManager : MonoBehaviour
+public class dMg2ObjectManager : MonoBehaviour
 {
     float timer;
     float waitingTime;
 
-    private Mg2BallMove ballMove; // Mg2BallMove ��ũ��Ʈ ����
-    private Mg2JellyMove jellyMove; // Mg2JellyMove ��ũ��Ʈ ����
+    private dMg2BallMove ballMove; // Mg2BallMove ��ũ��Ʈ ����
+    private dMg2JellyMove jellyMove; // Mg2JellyMove ��ũ��Ʈ ����
 
     public int ballArrival = 0; // ball ���� Ƚ���� ��Ÿ���� ����
     public int jellyArrival = 0; // jelly ���� Ƚ���� ��Ÿ���� ����
@@ -18,8 +18,8 @@ public class Mg2ObjectManager : MonoBehaviour
 
     private void Start()
     {
-        ballMove = ball.GetComponent<Mg2BallMove>();
-        jellyMove = jelly.GetComponent<Mg2JellyMove>();
+        ballMove = ball.GetComponent<dMg2BallMove>();
+        jellyMove = jelly.GetComponent<dMg2JellyMove>();
 
         ball.SetActive(true);
         jelly.SetActive(false);

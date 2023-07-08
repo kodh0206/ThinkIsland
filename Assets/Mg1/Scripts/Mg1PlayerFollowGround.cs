@@ -24,7 +24,7 @@ public class Mg1PlayerFollowGround : MonoBehaviour
         if (ground != null)
         {
             // 버튼이 눌리지 않은 경우 -> 꾹 눌렀을 때 문제 발생
-            if (mg1Player.isGrounded && !isRightButtonPressed && !isJumpButtonPressed)
+            if (!mg1Player.isPlayerReset && mg1Player.isGrounded && !isRightButtonPressed && !isJumpButtonPressed)
             {
                 // 캐릭터의 위치 = 밟고 있는 플랫폼과 distance 만큼 떨어진 위치
                 transform.position = ground.transform.position - distance;
@@ -64,7 +64,7 @@ public class Mg1PlayerFollowGround : MonoBehaviour
             distance = groundPosition - currentPosition;
         }
     }
-
+/*
     private void OnCollisionExit2D(Collision2D collision)
     {
         // 접촉한 오브젝트의 태그가 Ground 일 때,
@@ -80,5 +80,5 @@ public class Mg1PlayerFollowGround : MonoBehaviour
             // 접촉한 순간의 오브젝트 위치와 캐릭터 위치의 차이를 distance에 저장
             distance = groundPosition - currentPosition;
         }
-    }
+    }*/
 }
