@@ -6,11 +6,12 @@ public class Mg1Player : MonoBehaviour
 {
 
     private Vector2 startPosition;
+    Mg1PlayerFollowGround mg1PlayerFollowGround;
     Rigidbody2D rigid;
     public float jumpPower = 15.0f;
     public float moveSpeed = 5f;  // 이동 속도
-    bool isJump = false;
-    private bool isGrounded = true;
+    public bool isJump = false;
+    public bool isGrounded = true;
     public bool isStunned = false;
     public bool isTrigger = true;
     private bool RightButton = false;
@@ -33,6 +34,7 @@ public class Mg1Player : MonoBehaviour
 
     void Awake()
     {
+        mg1PlayerFollowGround = GetComponent<Mg1PlayerFollowGround>();
         rigid = GetComponent<Rigidbody2D>();
 
         audioSource = GetComponent<AudioSource>();
@@ -73,8 +75,9 @@ public class Mg1Player : MonoBehaviour
         }
     }
 
-    public void Jump()
+    public void JumpClick()
     {
+        mg1PlayerFollowGround.isJumpButtonPressed = true;
         if (isStunned == false)
         {
             if (isGrounded && !isJump)
@@ -84,6 +87,11 @@ public class Mg1Player : MonoBehaviour
                 isJump = true;
             }
         }
+    }
+
+    public void JumpClickOff()
+    {
+        mg1PlayerFollowGround.isJumpButtonPressed = false;
     }
 
     public void GetObstacle()
@@ -127,10 +135,12 @@ public class Mg1Player : MonoBehaviour
     public void RightClick()
     {
         RightButton = true;
+        mg1PlayerFollowGround.isRightButtonPressed = true;
     }
     public void RightClickOff()
     {
         RightButton = false;
+        mg1PlayerFollowGround.isRightButtonPressed = false;
     }
 
     private void Update()
