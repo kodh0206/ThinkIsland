@@ -2462,7 +2462,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03f0eff370c597b4288e2ffc03724c2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreText: {fileID: 0}
   GameOverPanel: {fileID: 0}
   isGameOver: 0
 --- !u!4 &1604309621
