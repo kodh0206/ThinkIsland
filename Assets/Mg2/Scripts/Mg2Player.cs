@@ -1,11 +1,16 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using DG.Tweening;
 
 public class Mg2Player : MonoBehaviour
 {
     private SpriteRenderer spriteRenderer;
     private Animator anim;
-    public float duration = 1.5f; // 이동에 걸리는 시간
+    public Button button1;
+    public Button button2;
+    public float duration = 1f; // 이동에 걸리는 시간
     public float height = 2f; // 포물선의 높이
 
     // 목표 좌표
@@ -17,6 +22,7 @@ public class Mg2Player : MonoBehaviour
 
     // 좌우 반전 관련 변수
     private bool isFacingRight = true;
+    public bool isStunned = false;
 
     private void Start()
     {
@@ -103,4 +109,44 @@ public class Mg2Player : MonoBehaviour
         // 스프라이트 렌더러의 flipX 속성을 변경하여 좌우 반전 효과를 적용
         spriteRenderer.flipX = !spriteRenderer.flipX;
     }
+
+    // 방어 실패
+    public void GetObstacle()
+    {
+        StartCoroutine(DisableControlAndResetColor());
+        StartCoroutine(StunPlayer());
+    }
+
+    private IEnumerator DisableControlAndResetColor()
+    {
+        button1.interactable = false;
+        button2.interactable = false;
+        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.color = new Color(0.77f, 0.52f, 0f);
+        }
+
+        // Wait for 2 seconds
+        yield return new WaitForSeconds(1.5f);
+
+        // Change color back to white
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.color = Color.white;
+        }
+
+        button1.interactable = true;
+        button2.interactable = true;
+    }
+
+    // 플레이어 스턴
+    public IEnumerator StunPlayer()
+    {
+        isStunned = true;
+
+        yield return new WaitForSeconds(1.5f);
+        isStunned = false;
+    }
+
 }

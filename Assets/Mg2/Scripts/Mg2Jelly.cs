@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class dMg2JellyMove : MonoBehaviour
+public class Mg2Jelly : MonoBehaviour
 {
 
     private float height = 2f;
-    private float duration = 0.8f;
+    private float duration = 1.5f;
 
     private Vector2 startPoint;
     private Vector2 endPoint;

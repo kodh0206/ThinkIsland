@@ -2,23 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class dMg2BallMove : MonoBehaviour
+public class Mg2Ball : MonoBehaviour
 {
     private float height = 2f;
-    private float duration = 0.8f;
+    private float duration = 1.5f;
 
     private Vector2 startPoint;
     private Vector2 endPoint;
     private float elapsedTime = 0f;
     private bool isMoving = false;
 
-    private dMg2PlayerMove mg2PlayerMove;
+    private Mg2Player mg2Player;
 
     public int score = 0;
 
     private void Start()
     {
-        mg2PlayerMove = GameObject.FindObjectOfType<dMg2PlayerMove>();
+        mg2Player = GameObject.FindObjectOfType<Mg2Player>();
         startPoint = new Vector2(0f, -6f);
         RandomizeEndPoint();
     }
@@ -48,7 +48,7 @@ public class dMg2BallMove : MonoBehaviour
                 {
                     // 캐릭터 스턴(버튼 비활성화) + 캐릭터 색 변경
                     //AudioManager.Instance.Goal();
-                    mg2PlayerMove.GetObstacle();
+                    mg2Player.GetObstacle();
                 }
             }
             else
