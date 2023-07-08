@@ -7,7 +7,10 @@ using DG.Tweening;
 public class Mg2Player : MonoBehaviour
 {
     private SpriteRenderer spriteRenderer;
+
+
     private Animator anim;
+    private float originalSpeed; // 기존 애니메이션 재생 속도
     public Button button1;
     public Button button2;
     public float duration = 1f; // 이동에 걸리는 시간
@@ -28,6 +31,7 @@ public class Mg2Player : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        originalSpeed = anim.speed; // 기존 애니메이션 재생 속도 저장
     }
 
     private void Update()
@@ -144,9 +148,23 @@ public class Mg2Player : MonoBehaviour
     public IEnumerator StunPlayer()
     {
         isStunned = true;
-
+        // 보더콜리 넘어지는 스프라이트로 1.5초 변경
+        SwapAnimation();
         yield return new WaitForSeconds(1.5f);
         isStunned = false;
     }
 
+    public void SwapAnimation()
+    {
+        StartCoroutine(SwapAnimationCoroutine());
+    }
+
+    private IEnumerator SwapAnimationCoroutine()
+    {
+        // 넘어지는 애니메이션으로 변경
+        anim.SetBool("isSlide", true);
+        yield return new WaitForSeconds(1.5f); // 1초 대기
+        // 기존 애니메이션으로 복원
+        anim.SetBool("isSlide", false);
+    }
 }
