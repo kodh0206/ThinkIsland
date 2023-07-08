@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Mg1Player : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class Mg1Player : MonoBehaviour
     private Vector2 startPosition;
     Mg1PlayerFollowGround mg1PlayerFollowGround;
     Rigidbody2D rigid;
+    public Button rightButton;
     public float jumpPower = 15.0f;
     public float moveSpeed = 5f;  // 이동 속도
     public bool isJump = false;
@@ -15,7 +17,7 @@ public class Mg1Player : MonoBehaviour
     public bool isStunned = false;
     public bool isTrigger = true;
     public bool isPlayerReset = false;
-    private bool RightButton = false;
+    public bool RightButton = false;
 
 
     public int level;
@@ -65,6 +67,8 @@ public class Mg1Player : MonoBehaviour
             {
                 isTrigger = true;
             }
+
+            rightButton.interactable = false;
         }
     }
 
@@ -73,6 +77,11 @@ public class Mg1Player : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = false;
+        }
+
+        if (collision.gameObject.tag == "cow")
+        {   
+            rightButton.interactable = true;
         }
     }
 
@@ -169,6 +178,11 @@ public class Mg1Player : MonoBehaviour
     {
         isPlayerReset = true;
         transform.position = new Vector2 (-6.86f, -2f);
+        Invoke("IsPlayerResetFalse", 1f);
+    }
+
+    private void IsPlayerResetFalse()
+    {
         isPlayerReset = false;
     }
 }
