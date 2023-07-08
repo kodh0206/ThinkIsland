@@ -40,7 +40,7 @@ public class Mg2Ball : MonoBehaviour
                 {
                     if (collider.gameObject.CompareTag("Player") && this.gameObject.CompareTag("Obstacle"))
                     {   
-                        //AudioManager.Instance.GoalKeep();
+                        AudioManager.Instance.GoalKeep();
                         defenseSuccess = true; // 방어 성공 표시
 
                         // 날아가는 공
@@ -55,7 +55,7 @@ public class Mg2Ball : MonoBehaviour
                 if (!defenseSuccess)
                 {
                     // 캐릭터 스턴(버튼 비활성화) + 캐릭터 색 변경
-                    //AudioManager.Instance.Goal();
+                    AudioManager.Instance.Goal();
                     mg2Player.GetObstacle();
                 }
             }
