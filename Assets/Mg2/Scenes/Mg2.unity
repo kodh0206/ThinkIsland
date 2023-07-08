@@ -4934,6 +4934,7 @@ GameObject:
   - component: {fileID: 407797140}
   - component: {fileID: 407797142}
   - component: {fileID: 407797138}
+  - component: {fileID: 407797143}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Obstacle
@@ -5037,6 +5038,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
+--- !u!50 &407797143
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 407797137}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &458796175
 GameObject:
   m_ObjectHideFlags: 0
@@ -5444,8 +5466,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f27b8acfc19a04468507f68f00cac9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  originalSprite: {fileID: -1069003723, guid: a52dfa295f7e965409950e0f6898dab7, type: 3}
-  alternateSprite: {fileID: -791911038, guid: a52dfa295f7e965409950e0f6898dab7, type: 3}
   button1: {fileID: 406923031}
   button2: {fileID: 1620551293}
   duration: 1

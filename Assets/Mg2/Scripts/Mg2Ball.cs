@@ -6,6 +6,7 @@ public class Mg2Ball : MonoBehaviour
 {
     private float height = 2f;
     private float duration = 1.5f;
+    private float upwardForce = 5f; // 위쪽으로 가할 힘의 크기
 
     private Vector2 startPoint;
     private Vector2 endPoint;
@@ -41,6 +42,13 @@ public class Mg2Ball : MonoBehaviour
                     {   
                         //AudioManager.Instance.GoalKeep();
                         defenseSuccess = true; // 방어 성공 표시
+
+                        // 날아가는 공
+                        // 공에 위쪽으로 힘을 가함
+                        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+                        rb.velocity = Vector2.zero;
+                        rb.AddForce(Vector2.up * upwardForce, ForceMode2D.Impulse);
+
                         break;
                     }
                 }
