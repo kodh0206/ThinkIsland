@@ -8,8 +8,6 @@ public class Mg5manager : MonoBehaviour
     public static Mg5manager instance = null;
 
 
-    [SerializeField]
-    private TextMeshProUGUI scoreText;
 
     [SerializeField]
     private GameObject GameOverPanel;
@@ -39,7 +37,6 @@ public class Mg5manager : MonoBehaviour
 {
     score += 1;
     MiniGameManager.Instance.AddJelly();  // 젤리 추가 및 UI 업데이트
-    scoreText.text = "Eat jelly " + score;
 
     if (score % 5 == 0)
     {
