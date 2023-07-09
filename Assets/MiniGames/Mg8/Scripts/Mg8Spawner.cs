@@ -1,4 +1,4 @@
-<<<<<<< HEAD:Assets/MiniGames/Mg8/Scripts/Mg8Spawner.cs
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,14 +11,14 @@ public class Mg8Spawner : MonoBehaviour
     public GameObject Mg8Obstacle4;
 
     [SerializeField]
-    private float Mg8ObstacleSpeed = 5.0f; // »ý¼º¹°ÀÇ ÃÊ±â ½ºÇÇµå
+    private float Mg8ObstacleSpeed = 5.0f; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½ ï¿½ï¿½ï¿½Çµï¿½
 
     [SerializeField]
-    private float time_diff = 1.5f; // Àå¾Ö¹° »ý¼º °£°Ý
+    private float time_diff = 1.5f; // ï¿½ï¿½Ö¹ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     [SerializeField]
-    private int minNumObstaclesToSpawn = 1; // ÃÖ¼Ò »ý¼º Àå¾Ö¹° °³¼ö
+    private int minNumObstaclesToSpawn = 1; // ï¿½Ö¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ö¹ï¿½ ï¿½ï¿½ï¿½ï¿½
     [SerializeField]
-    private int maxNumObstaclesToSpawn = 1; // ÃÖ´ë »ý¼º Àå¾Ö¹° °³¼ö
+    private int maxNumObstaclesToSpawn = 1; // ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ö¹ï¿½ ï¿½ï¿½ï¿½ï¿½
 
     float time = 0;
 
@@ -64,95 +64,11 @@ public class Mg8Spawner : MonoBehaviour
                 }
 
 
-                // ÁÂÇ¥¸¦ °íÁ¤
-                Vector2 spawnPosition = new Vector2(9.4f, -0.5f);
-                new_Mg8Obstacle.transform.position = spawnPosition;
-
-                //new_Mg8Obstacle.GetComponent<Mg8Obstacle>().SetSpeed(Mg8ObstacleSpeed); // Àå¾Ö¹°ÀÇ ½ºÇÇµå ¼³Á¤
-                Destroy(new_Mg8Obstacle, 5.0f);
-            }
-
-            time = 0;
-        }
-    }
-
-    public void IncreaseSpeed()
-    {
-       
-        time_diff -= 0.1f; // Àå¾Ö¹°ÀÇ »ý¼º °£°Ý °¨¼Ò
-    }
-}
-=======
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class Mg8Spawner : MonoBehaviour
-{
-    public GameObject Mg8Obstacle;
-    public GameObject Mg8Obstacle2;
-    public GameObject Mg8Obstacle3;
-    public GameObject Mg8Obstacle4;
-
-    [SerializeField]
-    private float Mg8ObstacleSpeed = 5.0f; // »ý¼º¹°ÀÇ ÃÊ±â ½ºÇÇµå
-
-    [SerializeField]
-    private float time_diff = 1.5f; // Àå¾Ö¹° »ý¼º °£°Ý
-    [SerializeField]
-    private int minNumObstaclesToSpawn = 1; // ÃÖ¼Ò »ý¼º Àå¾Ö¹° °³¼ö
-    [SerializeField]
-    private int maxNumObstaclesToSpawn = 1; // ÃÖ´ë »ý¼º Àå¾Ö¹° °³¼ö
-
-    float time = 0;
-
-    public int WhatObstacle;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        time += Time.deltaTime;
-        if (time > time_diff)
-        {
-            int numObstaclesToSpawn = Random.Range(minNumObstaclesToSpawn, maxNumObstaclesToSpawn + 1);
-
-            for (int i = 0; i < numObstaclesToSpawn; i++)
-            {
-                
-
-                WhatObstacle = Random.Range(0, 5);
-
-                GameObject new_Mg8Obstacle;
-                if (WhatObstacle == 0)
-                {
-                    new_Mg8Obstacle = Instantiate(Mg8Obstacle);
-                }
-
-                else if (WhatObstacle == 1)
-                {
-                    new_Mg8Obstacle = Instantiate(Mg8Obstacle2);
-                }
-                else if (WhatObstacle == 2)
-                {
-                    new_Mg8Obstacle = Instantiate(Mg8Obstacle3);
-                }
-                else
-                {
-                    new_Mg8Obstacle = Instantiate(Mg8Obstacle4);
-                }
-
-
-                // ÁÂÇ¥¸¦ °íÁ¤
+                // ï¿½ï¿½Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
                 Vector2 spawnPosition = new Vector2(12.4f, -0.5f);
                 new_Mg8Obstacle.transform.position = spawnPosition;
 
-                //new_Mg8Obstacle.GetComponent<Mg8Obstacle>().SetSpeed(Mg8ObstacleSpeed); // Àå¾Ö¹°ÀÇ ½ºÇÇµå ¼³Á¤
+                //new_Mg8Obstacle.GetComponent<Mg8Obstacle>().SetSpeed(Mg8ObstacleSpeed); // ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Çµï¿½ ï¿½ï¿½ï¿½ï¿½
                 Destroy(new_Mg8Obstacle, 8.0f);
             }
 
@@ -163,7 +79,7 @@ public class Mg8Spawner : MonoBehaviour
     public void IncreaseSpeed()
     {
        
-        time_diff -= 0.1f; // Àå¾Ö¹°ÀÇ »ý¼º °£°Ý °¨¼Ò
+        time_diff -= 0.1f; // ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     }
 }
->>>>>>> Lsm:Assets/Mg8/Scripts/Mg8Spawner.cs
+
