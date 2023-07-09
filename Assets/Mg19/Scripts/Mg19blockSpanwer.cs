@@ -47,7 +47,7 @@ public class Mg19blockSpanwer : MonoBehaviour
                 new_Mg19block.GetComponent<Mg19block>().SetSpeed(Mg19blockSpeed); // 장애물의 스피드 설정
                 Destroy(new_Mg19block, 7.0f);
 
-                if (Random.value < 0.5f)
+                if (Random.value < 0.3f)
                 {
                     GameObject new_jelly = Instantiate(jelly);
                     spawnPosition.y += 0.7f;
@@ -82,7 +82,7 @@ public class Mg19blockSpanwer : MonoBehaviour
     }
     public void IncreaseSpeed()
     {
-        Mg19blockSpeed += 2.0f; // 바닥의 스피드 증가
+        Mg19blockSpeed += 1.0f; // 바닥의 스피드 증가
 
     }
 }

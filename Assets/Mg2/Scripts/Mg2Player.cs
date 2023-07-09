@@ -98,10 +98,10 @@ public class Mg2Player : MonoBehaviour
         // DOTween을 사용하여 포물선 이동 애니메이션 생성
         transform.DOPath(new Vector3[] { startPos, midPos, new Vector3(targetX, startPos.y, startPos.z) }, duration, PathType.CatmullRom)
             .SetEase(Ease.OutQuad) // 애니메이션 이징 설정
-            .OnComplete(OnComplete); // 애니메이션 완료 후 호출될 콜백 함수 설정
+            .OnComplete(PlayerIsJumpFalse); // 애니메이션 완료 후 호출될 콜백 함수 설정
     }
 
-    private void OnComplete()
+    private void PlayerIsJumpFalse()
     {
         anim.SetBool("isJumping", false);
     }
