@@ -25,7 +25,8 @@ public class Mg8Obstacle : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Player")
-        {
+        {   
+            AudioManager.Instance.PlayBeehive();
             other.gameObject.GetComponent<Mg8Player>().GetHit();
             animator.SetBool("PlayerHit", true);
             

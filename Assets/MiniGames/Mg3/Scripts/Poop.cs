@@ -21,7 +21,7 @@ public class Poop : MonoBehaviour
         }
         else if (other.gameObject.tag == "Player" && this.gameObject.tag == "poop2") //poop2 is jelly
         {
-            MiniGame3Manager.instance.AddScore();
+            MiniGameManager.Instance.AddJelly();
         }
         else if (other.gameObject.tag == "poop" || other.gameObject.tag == "poop2")
         {
