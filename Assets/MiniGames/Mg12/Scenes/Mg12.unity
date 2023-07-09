@@ -10603,6 +10603,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mg12Shell
       objectReference: {fileID: 0}
+    - target: {fileID: 605031464808409760, guid: 4d7b7e4e99bf2324f84674014954b0d8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 605031464808409773, guid: 4d7b7e4e99bf2324f84674014954b0d8,
         type: 3}
       propertyPath: jellyinShell

@@ -4,9 +4,17 @@ using UnityEngine;
 
 public class Mg12shell : MonoBehaviour
 {
+    Animator anim;
     public float obstacleSpeed = 5.0f;
 
     public GameObject jellyinShell;
+
+    public int HItCount = 0;
+
+    private void Start()
+    {
+        anim = GetComponent<Animator>();
+    }
 
     void Update()
     {
@@ -22,15 +30,21 @@ public class Mg12shell : MonoBehaviour
 
         if (other.gameObject.CompareTag("Rock"))
         {
-            // ������ Ȯ���� jellyinShell ����
-            float randomValue = Random.value;
-            if (randomValue < 0.5f)
+            HItCount += 1;
+            anim.SetBool("isTrigger", true);
+
+            // 조개가 돌에 두 번 맞으면 부숴진다.
+            if (HItCount == 2)
             {
-                Vector3 shellPosition = transform.position;
-                Instantiate(jellyinShell, shellPosition, Quaternion.identity);
+                float randomValue = Random.value;
+                if (randomValue < 0.5f)
+                {
+                    Vector3 shellPosition = transform.position;
+                    Instantiate(jellyinShell, shellPosition, Quaternion.identity);
+                }
+                Destroy(gameObject);
             }
             AudioManager.Instance.ShellBreak();
-            Destroy(gameObject);
         }
     }
 

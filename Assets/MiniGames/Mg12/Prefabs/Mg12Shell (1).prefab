@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 590161156203885791}
   - component: {fileID: 590161156203885784}
   - component: {fileID: 590161156203885785}
+  - component: {fileID: 2075013384419004868}
   m_Layer: 0
   m_Name: Mg12Shell (1)
   m_TagString: Obstacle
@@ -149,3 +150,25 @@ MonoBehaviour:
   obstacleSpeed: 5
   jellyinShell: {fileID: 7303273743629567743, guid: 614c5e292efeee646a84d1ef5aef77c5,
     type: 3}
+  HItCount: 0
+--- !u!95 &2075013384419004868
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 590161156203885780}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ed2613fa309547d42845bb9fbd3fb092, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
