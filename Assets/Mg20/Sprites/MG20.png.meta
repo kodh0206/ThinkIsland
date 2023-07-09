@@ -1,0 +1,571 @@
+fileFormatVersion: 2
+guid: b20a2930bac662d439e6b2c9c1869a5d
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: MG20_0
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 96
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f58dc6c18e188d440a49c7b6eec01076
+      internalID: 1955975869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MG20_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 96
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a03a4c6f6b47cf409c76941ce7d64cf
+      internalID: -2126902552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MG20_4
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 96
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6a41ce04000b0a4492a3e935bd62396
+      internalID: -86778937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MG20_6
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 96
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3854e01e4d81f946a5462f5c579d31c
+      internalID: 818255663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MG20_8
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 0
+        width: 96
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0eeeae114cc37dc44a079425e2bcca3d
+      internalID: -1045441506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MG20_16
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 64
+        width: 96
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 241a8f654e26b014ca63b6a0039cce88
+      internalID: -1838863950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MG20_20
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed9d1615a40daf0458dfb8dd98099eaa
+      internalID: -13392820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MG20_22
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e893ad817a187484eb3d72e20332b05c
+      internalID: -1485515849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MG20_24
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3592302973427b1409b112c9c4e9471b
+      internalID: -1688432996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MG20_26
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: deb69dacc208f91479b2efffeef79e62
+      internalID: -276286704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MG20_40
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 680e816ece2b8b0428863f8cf891cbec
+      internalID: 769773143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MG20_41
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e1ea486d3b4dc649aa1d0915b896cdb
+      internalID: 1920876202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MG20_62
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 0
+        width: 96
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbc2ccc8949039c43a22f2acb7157ec4
+      internalID: -209808660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MG20_86
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 16
+        width: 64
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82a75b9d41b8e2d4386e1d98dbf4e607
+      internalID: 2041626910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      MG20_0: 1955975869
+      MG20_1: -1113203886
+      MG20_10: 974139481
+      MG20_100: 852421267
+      MG20_101: 730877670
+      MG20_102: -1546276552
+      MG20_103: 129290347
+      MG20_104: 1632002092
+      MG20_105: 688241312
+      MG20_106: -431405269
+      MG20_107: 105790487
+      MG20_108: 1118252071
+      MG20_109: 897619370
+      MG20_11: -672860707
+      MG20_110: 1209358281
+      MG20_111: -843398980
+      MG20_112: 1895785811
+      MG20_113: 1069834870
+      MG20_114: 654790033
+      MG20_115: -1813371977
+      MG20_116: -497576175
+      MG20_117: 823899320
+      MG20_118: 1257039
+      MG20_119: 1021663714
+      MG20_12: -531155779
+      MG20_120: -1814833586
+      MG20_121: -1186113112
+      MG20_122: 844294692
+      MG20_123: 1024685468
+      MG20_124: -876400248
+      MG20_125: 1831091879
+      MG20_126: 1278768198
+      MG20_127: -1897502685
+      MG20_128: 1960500024
+      MG20_129: -1338595066
+      MG20_13: -889326207
+      MG20_14: 1604042719
+      MG20_15: 628145220
+      MG20_16: -1838863950
+      MG20_17: -2061620234
+      MG20_18: -1281297983
+      MG20_19: 1762503151
+      MG20_2: -2126902552
+      MG20_20: -13392820
+      MG20_21: 1684653207
+      MG20_22: -1485515849
+      MG20_23: -513559587
+      MG20_24: -1688432996
+      MG20_25: -1585562878
+      MG20_26: -276286704
+      MG20_27: 1383771341
+      MG20_28: -256850137
+      MG20_29: -5776985
+      MG20_3: 1128144035
+      MG20_30: 1642611363
+      MG20_31: 1269248313
+      MG20_32: 1264930147
+      MG20_33: -1878814978
+      MG20_34: 110001461
+      MG20_35: -948951885
+      MG20_36: -2083148459
+      MG20_37: 2050200502
+      MG20_38: -2105339053
+      MG20_39: -283125729
+      MG20_4: -86778937
+      MG20_40: 769773143
+      MG20_41: 1920876202
+      MG20_42: 167994283
+      MG20_43: 187015028
+      MG20_44: -1734106984
+      MG20_45: 751980019
+      MG20_46: -846845287
+      MG20_47: -1965465152
+      MG20_48: -1452418726
+      MG20_49: 192524623
+      MG20_5: 102031659
+      MG20_50: 2005216705
+      MG20_51: -1954949880
+      MG20_52: 186110642
+      MG20_53: -1668898979
+      MG20_54: 485723483
+      MG20_55: 722209868
+      MG20_56: -2001586538
+      MG20_57: -1346249622
+      MG20_58: 1184526938
+      MG20_59: -2019564368
+      MG20_6: 818255663
+      MG20_60: -25454201
+      MG20_61: 1457235008
+      MG20_62: -209808660
+      MG20_63: -2057597304
+      MG20_64: 1879971183
+      MG20_65: -507183835
+      MG20_66: 1813664641
+      MG20_67: 1421180981
+      MG20_68: -1604224180
+      MG20_69: -441625219
+      MG20_7: -538412834
+      MG20_70: 247227367
+      MG20_71: 1064313551
+      MG20_72: 307956576
+      MG20_73: -1095723465
+      MG20_74: -1238977936
+      MG20_75: -340874446
+      MG20_76: -1003068895
+      MG20_77: 156127066
+      MG20_78: -1421467016
+      MG20_79: 302246319
+      MG20_8: -1045441506
+      MG20_80: 783450508
+      MG20_81: -150092297
+      MG20_82: 1649211945
+      MG20_83: -299072230
+      MG20_84: -90864370
+      MG20_85: -960220559
+      MG20_86: 2041626910
+      MG20_87: -624591909
+      MG20_88: -1139558104
+      MG20_89: 1175292094
+      MG20_9: 1930682950
+      MG20_90: 107016031
+      MG20_91: -1586601897
+      MG20_92: 1700331949
+      MG20_93: 1472243350
+      MG20_94: 893091719
+      MG20_95: -313416930
+      MG20_96: -1956866088
+      MG20_97: 298022674
+      MG20_98: 1509169616
+      MG20_99: -939567962
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
