@@ -35,7 +35,7 @@ public class Mg9Spawner : MonoBehaviour
             GameObject new_Mg9Obstacle = Instantiate(Mg9Obstacle);
 
                 // 좌표를 랜덤하게 선택하여 설정
-                Vector2 spawnPosition = new Vector2(9.4f, Random.Range(-1.6f, 6.0f));
+                Vector2 spawnPosition = new Vector2(9.4f, Random.Range(-1.6f, 5.0f));
             new_Mg9Obstacle.transform.position = spawnPosition;
 
             new_Mg9Obstacle.GetComponent<Mg9Obstacle>().SetSpeed(Mg9ObstacleSpeed); // 장애물의 스피드 설정
