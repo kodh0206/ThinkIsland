@@ -64,11 +64,11 @@ public class Mg8Spawner : MonoBehaviour
 
 
                 // 좌표를 고정
-                Vector2 spawnPosition = new Vector2(9.4f, -0.5f);
+                Vector2 spawnPosition = new Vector2(12.4f, -0.5f);
                 new_Mg8Obstacle.transform.position = spawnPosition;
 
                 //new_Mg8Obstacle.GetComponent<Mg8Obstacle>().SetSpeed(Mg8ObstacleSpeed); // 장애물의 스피드 설정
-                Destroy(new_Mg8Obstacle, 5.0f);
+                Destroy(new_Mg8Obstacle, 8.0f);
             }
 
             time = 0;

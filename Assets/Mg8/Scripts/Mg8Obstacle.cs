@@ -26,8 +26,9 @@ public class Mg8Obstacle : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            animator.SetBool("PlayerHit", true);
             other.gameObject.GetComponent<Mg8Player>().GetHit();
+            animator.SetBool("PlayerHit", true);
+            
         }
         
     }
