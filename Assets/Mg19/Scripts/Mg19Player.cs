@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Mg19Player : MonoBehaviour
 {
-    public float jumpForce = 10f; // ���� ��
+    public float jumpForce = 13f; // ���� ��
     public float moveSpeed = 5f; // ������ �ӵ�
     public float disableColliderTime = 0.3f; // ���� �� Collider ��Ȱ��ȭ �ð�
     public bool isJumping = true;
@@ -45,12 +45,16 @@ public class Mg19Player : MonoBehaviour
 
     private void Start()
     {
+        
         rb = GetComponent<Rigidbody2D>();
         boxCollider = GetComponent<BoxCollider2D>();
-
-        // Block ���̾��� ����ũ ����
         blockLayerMask = LayerMask.NameToLayer("Block");
-        audioSource = GetComponent<AudioSource>();
+        // Block 레이어와의 충돌 무시 해제
+        Physics2D.IgnoreLayerCollision(gameObject.layer, blockLayerMask, false);
+        isJumping = true;
+        // Block 레이어 마스크 설정
+        
+        //audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -66,19 +70,19 @@ public class Mg19Player : MonoBehaviour
             horizontalInput = -1f;
         }
 
-        // ������ ���
+
         float moveX = horizontalInput * moveSpeed;
         Vector2 movement = new Vector2(moveX, rb.velocity.y);
 
-        // ������ ����
         rb.velocity = movement;
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Ground") && isJumping)
         {   
-            audioSource.PlayOneShot(jump);
+            //audioSource.PlayOneShot(jump);
             Jump();
         }
     }
@@ -104,20 +108,18 @@ public class Mg19Player : MonoBehaviour
     {
         isJumping = false;
 
-        // Block ���̾���� �浹 ����
+        // Block 레이어와의 충돌 무시
         Physics2D.IgnoreLayerCollision(gameObject.layer, blockLayerMask, true);
 
         yield return new WaitForSeconds(disableColliderTime);
 
-        // �浹 ���� ������ �����ϱ� ���� ��� ���
-        yield return new WaitUntil(() => rb.velocity.y <= 0f);
-
-        // �浹 ���� ����
+        // 충돌 무시 해제
         Physics2D.IgnoreLayerCollision(gameObject.layer, blockLayerMask, false);
-
-        
-
         isJumping = true;
+        // 일정 시간이 경과한 후에 점프 상태를 체크하여 점프 가능하도록 함
+
+
+
     }
 
     private IEnumerator ResetJumping()
