@@ -5,12 +5,15 @@ using UnityEngine;
 public class Mg18GroundSpawner : MonoBehaviour
 {
     public GameObject Mg18movigGround;
+    public GameObject Mg18movigGround2;
+
+    public int GroundType;
 
     [SerializeField]
     private float Mg18movigGroundSpeed = 5.0f; // 생성물의 초기 스피드
 
     [SerializeField]
-    private float time_diff = 1.0f; // 발판 생성 간격
+    private float time_diff = 1.5f; // 발판 생성 간격
     [SerializeField]
     private int minNumObstaclesToSpawn = 1; // 최소 생성 발판 개수
     [SerializeField]
@@ -34,7 +37,17 @@ public class Mg18GroundSpawner : MonoBehaviour
 
             for (int i = 0; i < numObstaclesToSpawn; i++)
             {
-                GameObject new_Mg18movigGround = Instantiate(Mg18movigGround);
+                GameObject new_Mg18movigGround;
+
+                GroundType = Random.Range(0, 2);
+                if (GroundType == 0)
+                {
+                    new_Mg18movigGround = Instantiate(Mg18movigGround);
+                }
+                else
+                {
+                    new_Mg18movigGround = Instantiate(Mg18movigGround2);
+                }
 
                 // 좌표를 랜덤하게 선택하여 설정
                 Vector2 spawnPosition = GetRandomSpawnPosition();
@@ -57,8 +70,8 @@ public class Mg18GroundSpawner : MonoBehaviour
         // 미리 정의된 위치들 배열
         Vector2[] spawnPositions = new Vector2[]
         {
-        new Vector2(13f, -0.5f),
-        new Vector2(13f, 1f),
+        new Vector2(13f, 3f),
+        new Vector2(13f, 2.75f),
         new Vector2(13f, 2.5f),
         };
 
