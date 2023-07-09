@@ -24,12 +24,12 @@ public class Mg11jelly : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            
+            MiniGameManager.Instance.AddJelly();
             Destroy(gameObject);
         }
         if (other.gameObject.tag == "egg")
         {
-            MiniGameManager.Instance.AddJelly();
+            
             Destroy(gameObject);
         }
     }
