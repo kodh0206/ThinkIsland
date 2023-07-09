@@ -10,15 +10,15 @@ public class Mg20BlockSpawner : MonoBehaviour
     public GameObject jelly;
 
     [SerializeField]
-    private float BlockSpeed = 2.0f; // »ý¼º¹°ÀÇ ÃÊ±â ½ºÇÇµå
+    private float BlockSpeed = 2.0f; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½ ï¿½ï¿½ï¿½Çµï¿½
 
     [SerializeField]
     private float time_diff = 1.5f;
 
     [SerializeField]
-    private int minNumObstaclesToSpawn = 1; // ÃÖ¼Ò »ý¼º Àå¾Ö¹° ¼¼Æ® °³¼ö
+    private int minNumObstaclesToSpawn = 1; // ï¿½Ö¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ö¹ï¿½ ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
     [SerializeField]
-    private int maxNumObstaclesToSpawn = 1; // ÃÖ´ë »ý¼º Àå¾Ö¹° ¼¼Æ® °³¼ö
+    private int maxNumObstaclesToSpawn = 1; // ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ö¹ï¿½ ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
 
     float time = 0;
 
@@ -45,7 +45,7 @@ public class Mg20BlockSpawner : MonoBehaviour
 
                 Blockset = Random.Range(0, 4);
 
-                // ·£´ýÇÏ°Ô ÇÁ¸®ÆÕ ¼±ÅÃÇÏ¿© »ý¼º
+                // ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½
                 if (Blockset == 0)
                 {
                     GameObject new_LeftBlock = Instantiate(NomalBlock);
@@ -54,13 +54,13 @@ public class Mg20BlockSpawner : MonoBehaviour
                     spawnPosition.x += 0.73f;
                     new_LeftBlock.transform.position = spawnPosition;
 
-                    spawnPosition.x -= 1.46f;
+                    spawnPosition.x -= 1.12f;
                     new_RightBlock.transform.position = spawnPosition;
 
 
 
-                    new_LeftBlock.GetComponent<Mg20NomalBlock>().SetSpeed(BlockSpeed); // Àå¾Ö¹°ÀÇ ½ºÇÇµå ¼³Á¤
-                    new_RightBlock.GetComponent<Mg20NomalBlock>().SetSpeed(BlockSpeed); // Àå¾Ö¹°ÀÇ ½ºÇÇµå ¼³Á¤
+                    new_LeftBlock.GetComponent<Mg20NomalBlock>().SetSpeed(BlockSpeed); // ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Çµï¿½ ï¿½ï¿½ï¿½ï¿½
+                    new_RightBlock.GetComponent<Mg20NomalBlock>().SetSpeed(BlockSpeed); // ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Çµï¿½ ï¿½ï¿½ï¿½ï¿½
 
                     Destroy(new_LeftBlock, 5.0f);
                     Destroy(new_RightBlock, 5.0f);
@@ -75,14 +75,14 @@ public class Mg20BlockSpawner : MonoBehaviour
                     spawnPosition.x += 0.73f;
                     new_LeftBlock.transform.position = spawnPosition;
 
-                    spawnPosition.x -= 1.46f;
+                    spawnPosition.x -= 1.12f;
                     new_RightBlock.transform.position = spawnPosition;
 
 
 
 
-                    new_LeftBlock.GetComponent<Mg20NomalBlock>().SetSpeed(BlockSpeed); // Àå¾Ö¹°ÀÇ ½ºÇÇµå ¼³Á¤
-                    new_RightBlock.GetComponent<Mg20Brokenblock>().SetSpeed(BlockSpeed); // Àå¾Ö¹°ÀÇ ½ºÇÇµå ¼³Á¤
+                    new_LeftBlock.GetComponent<Mg20NomalBlock>().SetSpeed(BlockSpeed); // ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Çµï¿½ ï¿½ï¿½ï¿½ï¿½
+                    new_RightBlock.GetComponent<Mg20Brokenblock>().SetSpeed(BlockSpeed); // ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Çµï¿½ ï¿½ï¿½ï¿½ï¿½
 
                     Destroy(new_LeftBlock, 5.0f);
                     Destroy(new_RightBlock, 5.0f);
@@ -95,12 +95,12 @@ public class Mg20BlockSpawner : MonoBehaviour
                     spawnPosition.x += 0.73f;
                     new_LeftBlock.transform.position = spawnPosition;
 
-                    spawnPosition.x -= 1.46f;
+                    spawnPosition.x -= 1.12f;
                     new_RightBlock.transform.position = spawnPosition;
 
 
-                    new_LeftBlock.GetComponent<Mg20Brokenblock>().SetSpeed(BlockSpeed); // Àå¾Ö¹°ÀÇ ½ºÇÇµå ¼³Á¤
-                    new_RightBlock.GetComponent<Mg20NomalBlock>().SetSpeed(BlockSpeed); // Àå¾Ö¹°ÀÇ ½ºÇÇµå ¼³Á¤
+                    new_LeftBlock.GetComponent<Mg20Brokenblock>().SetSpeed(BlockSpeed); // ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Çµï¿½ ï¿½ï¿½ï¿½ï¿½
+                    new_RightBlock.GetComponent<Mg20NomalBlock>().SetSpeed(BlockSpeed); // ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Çµï¿½ ï¿½ï¿½ï¿½ï¿½
 
                     Destroy(new_LeftBlock, 5.0f);
                     Destroy(new_RightBlock, 5.0f);
@@ -113,18 +113,18 @@ public class Mg20BlockSpawner : MonoBehaviour
                     spawnPosition.x +=0.73f;
                     new_LeftBlock.transform.position = spawnPosition;
 
-                    spawnPosition.x -= 1.46f;
+                    spawnPosition.x -= 1.12f;
                     new_RightBlock.transform.position = spawnPosition;
 
-                    new_LeftBlock.GetComponent<Mg20Brokenblock>().SetSpeed(BlockSpeed); // Àå¾Ö¹°ÀÇ ½ºÇÇµå ¼³Á¤
-                    new_RightBlock.GetComponent<Mg20Brokenblock>().SetSpeed(BlockSpeed); // Àå¾Ö¹°ÀÇ ½ºÇÇµå ¼³Á¤
+                    new_LeftBlock.GetComponent<Mg20Brokenblock>().SetSpeed(BlockSpeed); // ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Çµï¿½ ï¿½ï¿½ï¿½ï¿½
+                    new_RightBlock.GetComponent<Mg20Brokenblock>().SetSpeed(BlockSpeed); // ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Çµï¿½ ï¿½ï¿½ï¿½ï¿½
 
                     Destroy(new_LeftBlock, 5.0f);
                     Destroy(new_RightBlock, 5.0f);
                 }
 
 
-                if (Random.value < 0.4f) //Á©¸® È®·ü
+                if (Random.value < 0.4f) //ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½
                 {
                     GameObject new_jelly = Instantiate(jelly);
                     spawnPosition.y += 0.7f;
@@ -134,7 +134,7 @@ public class Mg20BlockSpawner : MonoBehaviour
                     Destroy(new_jelly, 7.0f);
                 }
 
-                // ÁÂÇ¥¸¦ ·£´ýÇÏ°Ô ¼±ÅÃÇÏ¿© ¼³Á¤
+                // ï¿½ï¿½Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½
 
             }
 
@@ -144,10 +144,10 @@ public class Mg20BlockSpawner : MonoBehaviour
 
     private Vector2 GetRandomSpawnPosition()
     {
-        // ·£´ýÇÑ À§Ä¡ ÀÎµ¦½º ¼±ÅÃ
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½Îµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         int randomIndex = Random.Range(0, 3);
 
-        // ¹Ì¸® Á¤ÀÇµÈ À§Ä¡µé ¹è¿­
+        // ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½Çµï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½è¿­
         Vector2[] spawnPositions = new Vector2[]
         {
         new Vector2(0f, -5.5f),
@@ -155,14 +155,14 @@ public class Mg20BlockSpawner : MonoBehaviour
         new Vector2(-2.2f, -5.5f),
         };
 
-        // ¼±ÅÃµÈ ·£´ýÇÑ À§Ä¡ ¹ÝÈ¯
+        // ï¿½ï¿½ï¿½Ãµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½È¯
         return spawnPositions[randomIndex];
     }
 
 
     public void IncreaseSpeed()
     {
-        BlockSpeed += 2.0f; // Àå¾Ö¹°ÀÇ ½ºÇÇµå Áõ°¡
-        time_diff -= 0.1f; // Àå¾Ö¹°ÀÇ »ý¼º °£°Ý °¨¼Ò
+        BlockSpeed += 2.0f; // ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Çµï¿½ ï¿½ï¿½ï¿½ï¿½
+        time_diff -= 0.1f; // ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     }
 }
