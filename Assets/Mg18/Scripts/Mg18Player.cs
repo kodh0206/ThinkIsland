@@ -21,7 +21,7 @@ public class Mg18Player : MonoBehaviour
     private bool nowJumping = false;
 
     private Rigidbody2D rb;
-    public AudioClip walkSound;     // 걷는 소리 오디오 클립
+
     public AudioClip splashSound;   // 첨벙소리 오디오 클립
     public AudioClip jumpSound;     // 점프 소리 오디오 클립
     public AudioSource audioSource;
@@ -86,7 +86,7 @@ public class Mg18Player : MonoBehaviour
         {   
         if (!(nowJumping))
         {
-            audioSource.clip = walkSound;
+            
             if (!audioSource.isPlaying)
             {
                 audioSource.Play();

@@ -7,7 +7,7 @@ public class MIniGameUI : MonoBehaviour
     public MiniGameManager miniGameManager;
 
     public Text totalJelly;
-    public Text games_left;
+
 
     // Start is called before the first frame update
     /// <summary>
@@ -17,7 +17,7 @@ public class MIniGameUI : MonoBehaviour
     
     private void OnEnable()
     {
-       totalJelly.text = miniGameManager.totalJelly.ToString();
+       totalJelly.text = "Jellies"+miniGameManager.totalJelly.ToString();
        miniGameManager.minigameUIActive =true;
     }
 
