@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Mg9Player : MonoBehaviour
 {
+    public Animator animator;
+
     public float jumpForce = 6.0f;
     public float slowFallMultiplier = 0.5f;
 
@@ -15,6 +17,7 @@ public class Mg9Player : MonoBehaviour
 
     private AudioSource audioSource;
     public AudioClip jump;
+
     public void RightClick()
     {
         LeftButton = false;
@@ -43,6 +46,7 @@ public class Mg9Player : MonoBehaviour
 
     private void Start()
     {
+        animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         audioSource = GetComponent<AudioSource>();
         if (audioSource == null) // If AudioSource is not attached to the gameObject
@@ -65,7 +69,7 @@ public class Mg9Player : MonoBehaviour
         {
             StartSlowFall();
         }
-        else if (Input.GetKeyUp(KeyCode.Z)||LeftButton)
+        else if (Input.GetKeyUp(KeyCode.Z)||!LeftButton)
         {
             StopSlowFall();
         }
@@ -80,12 +84,14 @@ public class Mg9Player : MonoBehaviour
     private void StartSlowFall()
     {
         isSlowFalling = true;
+        animator.SetBool("PlayerIsWater", true);
         rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * slowFallMultiplier);
     }
 
     private void StopSlowFall()
     {
         isSlowFalling = false;
+        animator.SetBool("PlayerIsWater", false);
     }
 
     private void FixedUpdate()
@@ -133,4 +139,17 @@ public class Mg9Player : MonoBehaviour
             spriteRenderer.color = Color.white;
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Ground")
+        {
+            
+            animator.SetBool("PlayerIsWater", false);
+
+        }
+       
+
+    }
+
 }
