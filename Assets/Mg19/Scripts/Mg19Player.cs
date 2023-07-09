@@ -9,6 +9,8 @@ public class Mg19Player : MonoBehaviour
     public float disableColliderTime = 0.3f; // ���� �� Collider ��Ȱ��ȭ �ð�
     public bool isJumping = true;
 
+    Animator animator;
+
     private Rigidbody2D rb;
     private BoxCollider2D boxCollider;
 
@@ -45,7 +47,7 @@ public class Mg19Player : MonoBehaviour
 
     private void Start()
     {
-        
+        animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         boxCollider = GetComponent<BoxCollider2D>();
         blockLayerMask = LayerMask.NameToLayer("Block");
@@ -60,14 +62,24 @@ public class Mg19Player : MonoBehaviour
     private void Update()
     {
         
-        float horizontalInput = Input.GetAxis("Horizontal");
-        if (RightButton)
+        float horizontalInput =  0f;
+        if (Input.GetKey(KeyCode.RightArrow) || RightButton)
         {
             horizontalInput = 1f;
+            animator.SetBool("RightMove", true);
+            animator.SetBool("LeftMove", false);
         }
-        else if (LeftButton)
+        else if (Input.GetKey(KeyCode.LeftArrow) || LeftButton)
         {
+
             horizontalInput = -1f;
+            animator.SetBool("RightMove", false);
+            animator.SetBool("LeftMove", true);
+        }
+        else
+        {
+            animator.SetBool("RightMove", false);
+            animator.SetBool("LeftMove", false);
         }
 
 
