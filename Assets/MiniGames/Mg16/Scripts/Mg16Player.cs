@@ -12,8 +12,11 @@ public class Mg16Player : MonoBehaviour
     private bool moveLeft = false;
     private bool moveRight = false;
 
+    private AudioSource audioSource;
+    public AudioClip electricity;
     private void Start()
     {
+        audioSource =GetComponent<AudioSource>();
     }
 
     public void Button1Pressed()
@@ -62,6 +65,45 @@ public class Mg16Player : MonoBehaviour
     {
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
         // Change color back to white
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.color = Color.white;
+        }
+    }
+
+    public void GetHit()
+    {
+        // ������ ����
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        rb.velocity = Vector2.zero;
+
+        audioSource.PlayOneShot(electricity);
+        // �񵿱� ó�� ����
+        StartCoroutine(DisableControlAndResetColor());
+    }
+
+    private IEnumerator DisableControlAndResetColor()
+    {
+        // ���� ��Ȱ��ȭ
+        enabled = false;
+
+        // ���� ����
+        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.color = new Color(0.77f, 0.52f, 0f);
+        }
+
+        // 2�ʰ� ���
+        yield return new WaitForSeconds(1f);
+
+        // ���� Ȱ��ȭ
+        enabled = true;
+
+        // 1�ʰ� poop ���� ���� ����
+        //yield return new WaitForSeconds(1f);
+
+        // ���� ������� ����
         if (spriteRenderer != null)
         {
             spriteRenderer.color = Color.white;

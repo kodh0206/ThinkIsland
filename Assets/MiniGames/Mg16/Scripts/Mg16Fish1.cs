@@ -27,7 +27,7 @@ public class Mg16Fish1 : MonoBehaviour
     {
         if (playerIsTrigger)
         {
-            Time.timeScale = 0;
+            Time.timeScale = 1;
             StartCoroutine(InvokeStunAndResetTrigger());
         }
     }
@@ -52,7 +52,7 @@ public class Mg16Fish1 : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            mg16Player.PlayerColorChange();
+            mg16Player.GetHit();
             playerIsTrigger = true;
         }
     }
