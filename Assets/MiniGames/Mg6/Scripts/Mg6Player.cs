@@ -87,7 +87,7 @@ public class Mg6Player : MonoBehaviour
 
     private void Update()
     {
-        if ((Input.GetKeyDown(KeyCode.Space)|| (RightButton &&PushingButton)) && !isJumping )
+        if ((Input.GetKeyDown(KeyCode.Space)|| (RightButton &&PushingButton)) && !isJumping && !nowJumping)
         {
             isJumping = true;
             currentJumpForce = jumpForce;
@@ -95,7 +95,7 @@ public class Mg6Player : MonoBehaviour
             isPressed = true;
             elapsedTime = 0.0f;
         }
-        else if ((Input.GetKey(KeyCode.Space) || (RightButton && PushingButton)) && isJumping )
+        else if ((Input.GetKey(KeyCode.Space) || (RightButton && PushingButton)) && isJumping && !nowJumping)
         {
             currentJumpForce += jumpForceIncrement * Time.deltaTime;
             currentJumpForce = Mathf.Clamp(currentJumpForce, 0.0f, maxJumpForce);

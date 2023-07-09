@@ -77,8 +77,8 @@ public class Mg18Player : MonoBehaviour
             {
                 audioSource.Play();
             }
-            float gravityScale = transform.position.y; 
-            gravityScale = Mathf.Clamp(gravityScale, -maxGravityScale, 0f ); 
+            float gravityScale = transform.position.y; // y ��ǥ�� ������ gravity scale�� ���
+            gravityScale = Mathf.Clamp(gravityScale, -maxGravityScale, 0f ); // �ִ밪 ����
             rb.gravityScale = gravityScale/ Random.Range(1f,3f);
             animator.SetBool("PlayerIsWater", true);
         }
@@ -135,10 +135,9 @@ public class Mg18Player : MonoBehaviour
         {
             nowJumping = false;
         }
-        
     }
 
-  
+    
 
     public void GetHit()
     {
