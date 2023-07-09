@@ -24,7 +24,7 @@ public class Mg1PlayerFollowGround : MonoBehaviour
         if (ground != null)
         {
             // 버튼이 눌리지 않은 경우
-            if (!mg1Player.isPlayerReset && mg1Player.isGrounded && !isRightButtonPressed && !isJumpButtonPressed && mg1Player.rightButton)
+            if (!mg1Player.isPlayerReset && mg1Player.isGrounded && !isRightButtonPressed && !isJumpButtonPressed)// && mg1Player.rightButton)
             {
                 // 캐릭터의 위치 = 밟고 있는 플랫폼과 distance 만큼 떨어진 위치
                 transform.position = ground.transform.position - distance;

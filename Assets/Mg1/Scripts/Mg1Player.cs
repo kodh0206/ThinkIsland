@@ -9,7 +9,7 @@ public class Mg1Player : MonoBehaviour
     private Vector2 startPosition;
     Mg1PlayerFollowGround mg1PlayerFollowGround;
     Rigidbody2D rigid;
-    public Button rightButton;
+    //public Button rightButton;
     public float jumpPower = 15.0f;
     public float moveSpeed = 5f;  // 이동 속도
     public bool isJump = false;
@@ -68,7 +68,7 @@ public class Mg1Player : MonoBehaviour
                 isTrigger = true;
             }
 
-            rightButton.interactable = false;
+            //rightButton.interactable = false;
         }
     }
 
@@ -81,7 +81,7 @@ public class Mg1Player : MonoBehaviour
 
         if (collision.gameObject.tag == "cow")
         {   
-            rightButton.interactable = true;
+            //rightButton.interactable = true;
         }
     }
 
