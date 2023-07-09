@@ -27,7 +27,7 @@ public class makejelly : MonoBehaviour
         if (time > time_diff)
         {
             GameObject new_jelly = Instantiate(jelly);
-            new_jelly.transform.position = new Vector3(5.5f, Random.Range(-1.6f, 3.7f), 0);
+            new_jelly.transform.position = new Vector3(10.5f, Random.Range(-1.6f, 3.7f), 0);
             new_jelly.GetComponent<jelly>().SetSpeed(jellySpeed); // 젤리의 스피드 설정
             time = 0;
             Destroy(new_jelly, 10.0f);

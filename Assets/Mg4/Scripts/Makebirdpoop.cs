@@ -36,7 +36,7 @@ public class Makebirdpoop : MonoBehaviour
             for (int i = 0; i < numPoopsToSpawn; i++)
             {
                 GameObject new_birdpoop = Instantiate(birdpoop);
-                new_birdpoop.transform.position = new Vector3(5.5f, Random.Range(-1.6f, 3.7f), 0);
+                new_birdpoop.transform.position = new Vector3(10.5f, Random.Range(-1.6f, 3.7f), 0);
                 new_birdpoop.GetComponent<birdpoop>().SetSpeed(birdpoopSpeed);
                 Destroy(new_birdpoop, 10.0f);
             }
