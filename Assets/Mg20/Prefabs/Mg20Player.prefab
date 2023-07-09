@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7062386314139322830}
   - component: {fileID: 7062386314139322831}
   - component: {fileID: 4106838679995306045}
-  - component: {fileID: 6932918798240091263}
+  - component: {fileID: 6766335220823975830}
   m_Layer: 0
   m_Name: Mg20Player
   m_TagString: Player
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 4
   m_Sprite: {fileID: -13392820, guid: b20a2930bac662d439e6b2c9c1869a5d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -143,7 +143,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!70 &6932918798240091263
+--- !u!70 &6766335220823975830
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -157,5 +157,5 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.4}
-  m_Size: {x: 1, y: 1.5}
+  m_Size: {x: 1, y: 0.5}
   m_Direction: 0
