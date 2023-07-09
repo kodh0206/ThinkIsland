@@ -129,15 +129,22 @@ public class Mg18Player : MonoBehaviour
         rb.velocity = new Vector2(rb.velocity.x, jumpForce);
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    public void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.tag == "Ground" || other.gameObject.tag == "water")
+        if (other.gameObject.tag == "Ground" )
+        {
+            nowJumping = false;
+        }
+    }
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.gameObject.tag == "water")
         {
             nowJumping = false;
         }
     }
 
-    
+
 
     public void GetHit()
     {
