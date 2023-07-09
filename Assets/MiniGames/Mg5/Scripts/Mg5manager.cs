@@ -36,7 +36,7 @@ public class Mg5manager : MonoBehaviour
     public void AddScore()
 {
     score += 1;
-    MiniGameManager.Instance.AddJelly();  // 젤리 추가 및 UI 업데이트
+      // 젤리 추가 및 UI 업데이트
 
     if (score % 5 == 0)
     {
