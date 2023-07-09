@@ -4,8 +4,8 @@ using System;
 
 public class MobileTouch : MonoBehaviour
 {
-    private Vector3 minPosition = new Vector3(0, -10, -20);
-    private Vector3 maxPosition = new Vector3(15, 0, 20);
+    private Vector3 minPosition = new Vector3(-15, -30, -20);
+    private Vector3 maxPosition = new Vector3(15, 30, 20);
     private Vector3 springVelocity = Vector3.zero;
     public float moveSpeed = 5f;
     public float scrollSpeed = 2000.0f;
