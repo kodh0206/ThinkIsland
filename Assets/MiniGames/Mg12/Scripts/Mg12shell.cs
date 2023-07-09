@@ -44,7 +44,7 @@ public class Mg12shell : MonoBehaviour
                 }
                 Destroy(gameObject);
             }
-            AudioManager.Instance.ShellBreak();
+            //AudioManager.Instance.ShellBreak();
         }
     }
 
