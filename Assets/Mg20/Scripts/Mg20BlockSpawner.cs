@@ -128,7 +128,7 @@ public class Mg20BlockSpawner : MonoBehaviour
                 {
                     GameObject new_jelly = Instantiate(jelly);
                     spawnPosition.y += 0.7f;
-                    spawnPosition.x += 0.5f; // 0.73
+                    spawnPosition.x += 0.5f;
                     new_jelly.transform.position = spawnPosition;
                     new_jelly.GetComponent<Mg20jelly>().SetSpeed(BlockSpeed);
                     Destroy(new_jelly, 7.0f);
