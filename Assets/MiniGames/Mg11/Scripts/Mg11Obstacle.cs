@@ -6,7 +6,7 @@ public class Mg11Obstacle : MonoBehaviour
 {
 
 
-    public float obstacleSpeed = 5f; // ¿òÁ÷ÀÓ ¼Óµµ
+    public float obstacleSpeed = 5f; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Óµï¿½
 
     void Start()
     {
@@ -15,9 +15,9 @@ public class Mg11Obstacle : MonoBehaviour
 
     private void Update()
     {
-        Vector2 direction = -transform.position.normalized; // (0, 0)À¸·Î ÇâÇÏ´Â ¹æÇâ
+        Vector2 direction = -transform.position.normalized; // (0, 0)ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-        // ¿òÁ÷ÀÓ Àû¿ë
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         transform.Translate(direction * obstacleSpeed * Time.deltaTime);
     }
 
@@ -29,7 +29,7 @@ public class Mg11Obstacle : MonoBehaviour
         }
 
         else if (other.gameObject.tag == "egg")
-        {
+        {   AudioManager.Instance.PlayEggBreak();
             Mg11Player player = FindAnyObjectByType<Mg11Player>();
             if (player != null)
             {

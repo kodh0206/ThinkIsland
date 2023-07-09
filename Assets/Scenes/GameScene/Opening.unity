@@ -2095,6 +2095,7 @@ MonoBehaviour:
   capsulebreak: {fileID: 8300000, guid: 9d737f6c7df44a548bf445b89d67af0f, type: 3}
   breakPlatform: {fileID: 8300000, guid: b68f4ff3d7675034884650089be309d4, type: 3}
   minigamebegin: {fileID: 8300000, guid: 0ef7ef6422d9c44449bc07608215af09, type: 3}
+  eggBreak: {fileID: 8300000, guid: bf84d949641ed644db900b78db4eb0d2, type: 3}
 --- !u!1 &1976378925
 GameObject:
   m_ObjectHideFlags: 0

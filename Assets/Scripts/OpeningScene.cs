@@ -7,32 +7,68 @@ public class OpeningScene : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField]
     List<SpriteRenderer> Scene1;
+    [SerializeField]
+    Camera cam;
     private bool scene1IsPlayed=false;
-    void Scene1Sequence()
-    {       
-         if (Input.touchCount > 0)
-        {
-            // 첫 번째 터치 이벤트를 가져옴
-            Touch touch = Input.GetTouch(0);
+  
+    
 
-            // 터치가 시작된 경우
+    public delegate void Sequence();
+
+    private List<Sequence> sequences = new List<Sequence>();
+    private int currentSequence = 0;
+
+    private void Start()
+    {
+        // Add sequences
+        sequences.Add(Sequence1);
+        sequences.Add(Sequence2);
+        sequences.Add(Sequence3);
+    }
+
+    private void Update()
+    {
+        if (Input.touchCount > 0)
+        {
+            Touch touch = Input.GetTouch(0);
+            Debug.Log("touch!!");
             if (touch.phase == TouchPhase.Began)
             {
-                Debug.Log("Touch detected");
-                StartFadeIn(Scene1[1]);
+                // Execute current sequence and move to the next
+                if (currentSequence < sequences.Count)
+                {
+                    sequences[currentSequence].Invoke();
+                    currentSequence++;
+                }
+                else
+                {
+                    Debug.Log("All sequences completed");
+                }
             }
-
-            scene1IsPlayed=true;
         }
     }
 
-    void Update()
+    private void Sequence1()
     {
-        if(!scene1IsPlayed)
-        {   Debug.Log("Play");
-            Scene1Sequence();
-        }
+         // 첫 번째 터치 이벤트를 가져
+                Debug.Log("Touch detected");
+                StartFadeIn(Scene1[0]);
+            
+            scene1IsPlayed=true;
     }
+
+    private void Sequence2()
+    {
+        
+        // Code for sequence 2 goes here
+    }
+
+    private void Sequence3()
+    {
+        Debug.Log("Running Sequence 3");
+        // Code for sequence 3 goes here
+    }
+    
     public float fadeDuration = 1.0f;
 
         public void StartFadeOut(SpriteRenderer sprite)
