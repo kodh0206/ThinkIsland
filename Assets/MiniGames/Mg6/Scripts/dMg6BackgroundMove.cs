@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Mg19BackgroundMove : MonoBehaviour
+public class dMg6BackgroundMove : MonoBehaviour
 {
     Mg19Player mg19Player;
     public GameObject background1; // 제일 가까운 배경
