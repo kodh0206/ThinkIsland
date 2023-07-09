@@ -70,7 +70,7 @@ public class Mg18Player : MonoBehaviour
         }
 
         // y ��ǥ�� ������ ��� gravity scale ����
-        if (!(isHit) && transform.position.y <= 0 )
+        if (!(isHit) && transform.position.y <= 2.5f )
         {   
              audioSource.clip = splashSound;
             if (!audioSource.isPlaying)
@@ -125,6 +125,7 @@ public class Mg18Player : MonoBehaviour
     private void Jump()
     {
         rb.gravityScale = 0.5f;
+        nowJumping = true;
         rb.velocity = new Vector2(rb.velocity.x, jumpForce);
     }
 
@@ -136,13 +137,7 @@ public class Mg18Player : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.gameObject.tag == "Ground" || other.gameObject.tag == "water")
-        {
-            nowJumping = true;
-        }
-    }
+    
 
     public void GetHit()
     {
