@@ -23,7 +23,7 @@ public class Mg20Brokenblock : MonoBehaviour
     }
 
     private void BreakObject()
-    {   AudioManager.Instance.BreakPlatform();
+    {   //AudioManager.Instance.BreakPlatform();
         // ��ƼŬ ȿ�� ���
         if (breakEffect != null)
         {
