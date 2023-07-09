@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Mg1Cow : MonoBehaviour
 {
-
+    public Button rightButton;
     [SerializeField]
     private float cowSpeed = 5.0f;
     private Mg1Player mg1Player;
@@ -30,10 +31,8 @@ public class Mg1Cow : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.tag == "Player" && this.gameObject.tag =="cow")
-        {   //AudioManager.Instance.PlayCow();
-            //mg1Player.StunPlayer();
-            //other.gameObject.GetComponent<Mg1Player>().GetObstacle();
-            //Destroy(gameObject);
+        {   
+            //AudioManager.Instance.PlayCow();
         }
     }
 

@@ -48,7 +48,7 @@ public class Mg16Battery : MonoBehaviour
     private void Update()
     {
         if (transform.position.y < stopY+1f)
-        {   Debug.Log("입수");
+        {
             animator.SetBool("BatteryInWater", true); // 기존 애니메이션 재생 정지
             ChangeSprite();  // 스프라이트 변화 함수 호출
         }

@@ -7,14 +7,14 @@ public class Mg17Spawner : MonoBehaviour
     public GameObject Mg17shell;
 
     [SerializeField]
-    private float Mg17shellSpeed = 5.0f; // »ý¼º¹°ÀÇ ÃÊ±â ½ºÇÇµå
+    private float Mg17shellSpeed = 5.0f; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½ ï¿½ï¿½ï¿½Çµï¿½
 
     [SerializeField]
-    private float time_diff = 1.5f; // Àå¾Ö¹° »ý¼º °£°Ý
+    private float time_diff = 1.5f; // ï¿½ï¿½Ö¹ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     [SerializeField]
-    private int minNumObstaclesToSpawn = 1; // ÃÖ¼Ò »ý¼º Àå¾Ö¹° °³¼ö
+    private int minNumObstaclesToSpawn = 1; // ï¿½Ö¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ö¹ï¿½ ï¿½ï¿½ï¿½ï¿½
     [SerializeField]
-    private int maxNumObstaclesToSpawn = 1; // ÃÖ´ë »ý¼º Àå¾Ö¹° °³¼ö
+    private int maxNumObstaclesToSpawn = 1; // ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ö¹ï¿½ ï¿½ï¿½ï¿½ï¿½
 
     float time = 0;
 
@@ -36,11 +36,11 @@ public class Mg17Spawner : MonoBehaviour
             {
                 GameObject new_Mg17shell = Instantiate(Mg17shell);
 
-                // ÁÂÇ¥¸¦ ·£´ýÇÏ°Ô ¼±ÅÃÇÏ¿© ¼³Á¤
-                Vector2 spawnPosition = new Vector2(Random.Range(-3.0f, 3.0f), 5.4f);
+                // ï¿½ï¿½Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½
+                Vector2 spawnPosition = new Vector2(Random.Range(-3.5f, 2.5f), 5.6f);
                 new_Mg17shell.transform.position = spawnPosition;
 
-                new_Mg17shell.GetComponent<Mg17shell>().SetSpeed(Mg17shellSpeed); // Àå¾Ö¹°ÀÇ ½ºÇÇµå ¼³Á¤
+                new_Mg17shell.GetComponent<Mg17shell>().SetSpeed(Mg17shellSpeed); // ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Çµï¿½ ï¿½ï¿½ï¿½ï¿½
                 Destroy(new_Mg17shell, 5.0f);
             }
 
@@ -50,8 +50,8 @@ public class Mg17Spawner : MonoBehaviour
 
     public void IncreaseSpeed()
     {
-        Mg17shellSpeed += 2.0f; // Àå¾Ö¹°ÀÇ ½ºÇÇµå Áõ°¡
-        time_diff -= 0.1f; // Àå¾Ö¹°ÀÇ »ý¼º °£°Ý °¨¼Ò
+        Mg17shellSpeed += 2.0f; // ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Çµï¿½ ï¿½ï¿½ï¿½ï¿½
+        time_diff -= 0.1f; // ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     }
 
     public void GetHit()
@@ -61,13 +61,13 @@ public class Mg17Spawner : MonoBehaviour
 
     private IEnumerator DisableSpawning()
     {
-        // »ý¼º ¸ØÃã
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         time_diff = Mathf.Infinity;
 
-        // ´ë±â ½Ã°£
+        // ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½
         yield return new WaitForSeconds(2f);
 
-        // »ý¼º Àç°³
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ç°³
         time_diff = 1.5f;
     }
 }
