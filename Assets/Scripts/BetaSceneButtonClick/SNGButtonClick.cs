@@ -22,6 +22,5 @@ public class SNGButtonClick : MonoBehaviour
         gameObject.SetActive(false);
         shopCanvas.SetActive(true);
         mobileTouchScript.enabled = false;
-        Debug.Log("터치 안 됨.");
     }
 }
