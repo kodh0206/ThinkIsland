@@ -17437,7 +17437,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 439334486}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 541314966}
+        m_TargetAssemblyTypeName: SNGButtonClick, Assembly-CSharp
+        m_MethodName: ShopButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &439334486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17750,6 +17762,7 @@ GameObject:
   - component: {fileID: 541314962}
   - component: {fileID: 541314961}
   - component: {fileID: 541314965}
+  - component: {fileID: 541314966}
   m_Layer: 5
   m_Name: SNG Canvas
   m_TagString: Untagged
@@ -17860,6 +17873,20 @@ MonoBehaviour:
   money: {fileID: 1482183951}
   jelly: {fileID: 947140757}
   energy: {fileID: 899227112}
+--- !u!114 &541314966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 541314960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e2eb452552c2664b8c67dff2e23af16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shopCanvas: {fileID: 2074699611}
+  mobileTouchScript: {fileID: 1129654346}
 --- !u!1 &581754103
 GameObject:
   m_ObjectHideFlags: 0
@@ -18349,7 +18376,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 760131670}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2074699616}
+        m_TargetAssemblyTypeName: ShopButtonClick, Assembly-CSharp
+        m_MethodName: ShopCloseButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &760131670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22269,6 +22308,7 @@ GameObject:
   - component: {fileID: 2074699614}
   - component: {fileID: 2074699613}
   - component: {fileID: 2074699612}
+  - component: {fileID: 2074699616}
   m_Layer: 5
   m_Name: Shop Canvas
   m_TagString: Untagged
@@ -22359,6 +22399,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &2074699616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2074699611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79d6f28618ee3134eaf34bcf4a718c0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sngCanvas: {fileID: 541314960}
+  mobileTouchScript: {fileID: 1129654346}
 --- !u!1 &2091658397
 GameObject:
   m_ObjectHideFlags: 0
