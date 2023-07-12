@@ -12,7 +12,7 @@ public class Mg5Obstacle : MonoBehaviour
     void Start()
     {
         // ·£´ýÇÑ ¹æÇâ º¤ÅÍ »ý¼º
-        moveDirection = new Vector3(Random.Range(-1f, 1f), Random.Range(0, 1f), 0f).normalized;
+        moveDirection = new Vector3(Random.Range(-0.8f, 0.8f), Random.Range(0, 0.8f), 0f).normalized;
     }
 
     // Update is called once per frame
