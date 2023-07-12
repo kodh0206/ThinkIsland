@@ -8,9 +8,16 @@ public class PoopSpawner : MonoBehaviour
     private GameObject[] poops; // 0, 1
 
     [SerializeField]
+    private GameObject[] sign; // 0, 1
+
+    [SerializeField]
     private float poopInterval = 1f;
 
     private Player player;
+
+    public bool IsStun=false;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,9 +40,11 @@ public class PoopSpawner : MonoBehaviour
     IEnumerator SpawnPoopRoutine() 
     {
         yield return new WaitForSeconds(0.5f);
-        while (true)
+        while (!IsStun)
         {   
             SpawnPoop();
+
+
             yield return new WaitForSeconds(poopInterval);
         }
     }
@@ -45,7 +54,10 @@ public class PoopSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (!IsStun)
+        {
+
+        }
     }
 
     private void SpawnPoop()
@@ -64,6 +76,14 @@ public class PoopSpawner : MonoBehaviour
 
 
 
+        Vector3 sign_position = new Vector3(posX, 4.2f, 0);  // Create Warn and jelly sign
+
+        GameObject new_sign = Instantiate(sign[index], sign_position, Quaternion.identity);
+
+        Destroy(new_sign, 1.0f);
+
+
+
         GameObject newPoop = Instantiate(poops[index], position, Quaternion.identity);
         if (index == 1)
         {
@@ -74,11 +94,43 @@ public class PoopSpawner : MonoBehaviour
 
     public void DecreasePoopInterval()
     {
-        player.level += 1;
-        poopInterval -= (0.2f*player.level);
+        
+        poopInterval -= (0.2f);
         if (poopInterval < 0.2f) 
         {
-            poopInterval = 0.1f;
+            poopInterval = 0.2f;
         }
     }
+
+    public void IncreasePoopInterval()
+    {
+
+        poopInterval += (0.2f);
+       
+    }
+
+
+    public void GetHit()
+    {
+        StartCoroutine(DisableSpawning());
+    }
+
+    private IEnumerator DisableSpawning()
+    {
+
+        // 생성 멈춤
+        StopSpawning();
+
+        // 대기 시간
+        yield return new WaitForSeconds(1.5f);
+
+        // 생성 재개
+        StartSpawning();
+        
+
+
+    }
+
+
+
 }

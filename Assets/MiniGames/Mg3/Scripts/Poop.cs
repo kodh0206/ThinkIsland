@@ -17,11 +17,18 @@ public class Poop : MonoBehaviour
         {   
             AudioManager.Instance.PlayPoop();
             MiniGame3Manager.instance.StunPlayer();
+
+
+            MiniGame3Manager.instance.GameLevelDown(); // Hit and level Down
+
             other.gameObject.GetComponent<Player>().GetPoop();
         }
         else if (other.gameObject.tag == "Player" && this.gameObject.tag == "poop2") //poop2 is jelly
         {
             MiniGameManager.Instance.AddJelly();
+            MiniGame3Manager.instance.AddScore();
+            Destroy(this.gameObject);
+
         }
         else if (other.gameObject.tag == "poop" || other.gameObject.tag == "poop2")
         {
