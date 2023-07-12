@@ -5,10 +5,13 @@ using UnityEngine;
 public class ObstacleSpawner : MonoBehaviour
 {
     public GameObject Mg5Obstacle;
+
+    public GameObject Mg5Obstacle2;
+
     [SerializeField]
-    public int minNumMg5ObstacleToSpawn = 3; // 최소 생성 장애물 개수
+    public int minNumMg5ObstacleToSpawn = 6; // 최소 생성 장애물 개수
     [SerializeField]
-    public int maxNumMg5ObstacleToSpawn = 5; // 최대 생성 장애물 개수
+    public int maxNumMg5ObstacleToSpawn = 8; // 최대 생성 장애물 개수
 
     [SerializeField]
     private float Mg5ObstacleSpeed = 4.0f; // 장애물의 초기 속도
@@ -38,7 +41,19 @@ public class ObstacleSpawner : MonoBehaviour
 
             for (int i = 0; i < numMg5obstacleToSpawn; i++)
             {
-                GameObject new_Mg5obstacle = Instantiate(Mg5Obstacle);
+                float What = Random.Range(0f, 1f);
+                GameObject new_Mg5obstacle;
+
+                if (What < 0.5f)
+                {
+                    new_Mg5obstacle = Instantiate(Mg5Obstacle);
+                }
+                else
+                {
+                    new_Mg5obstacle = Instantiate(Mg5Obstacle2);
+                }
+
+
                 float posX = Random.Range(-5f, 7.85f); // x 좌표를 랜덤으로 설정
                 new_Mg5obstacle.transform.position = new Vector3(posX,-5f, 0);
                 new_Mg5obstacle.GetComponent<Mg5Obstacle>().SetSpeed(Mg5ObstacleSpeed);
@@ -72,5 +87,22 @@ public class ObstacleSpawner : MonoBehaviour
         {
             maxTimeDiff = 0.2f;
         }
+
+        minNumMg5ObstacleToSpawn -= 1;
+        maxNumMg5ObstacleToSpawn -= 1;
+
     }
+    public void DecreaseSpeed()
+    {
+
+
+        Mg5ObstacleSpeed -= 1.0f;
+
+        minTimeDiff += 0.2f;
+        maxTimeDiff += 0.2f;
+
+        minNumMg5ObstacleToSpawn += 1;
+        maxNumMg5ObstacleToSpawn += 1;
+    }
+
 }

@@ -10,6 +10,8 @@ public class FallOrSoup : MonoBehaviour
 
     public GameObject playerPrefab; // Player 프리팹을 할당하세요
 
+    public GameObject StartBlcok;
+
     void Start()
     {
         initialPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
@@ -47,11 +49,19 @@ public class FallOrSoup : MonoBehaviour
         Destroy(player);
         yield return new WaitForSeconds(2f);
 
+
+        // levelDown
+
+        Mg5manager.instance.GameLevelDown();
+
         if (playerEntered)
         {
             // Player를 프리팹을 사용하여 생성합니다.
             GameObject newPlayer = Instantiate(playerPrefab);
             newPlayer.transform.position = initialPosition;
+
+            GameObject newStartBlock = Instantiate(StartBlcok);
+            newStartBlock.transform.position = new Vector3(-0.08f,1.08f,0f);
 
             // Player 컴포넌트를 다시 활성화하여 조작 가능 상태로 만듭니다.
             Player newPlayerComponent = newPlayer.GetComponent<Player>();
