@@ -38,4 +38,12 @@ public class makejelly : MonoBehaviour
     {
         jellySpeed += 2.0f; // 젤리의 스피드 증가
     }
+
+
+
+
+    public void DecreaseSpeed()
+    {
+        jellySpeed -= 2.0f;
+    }
 }

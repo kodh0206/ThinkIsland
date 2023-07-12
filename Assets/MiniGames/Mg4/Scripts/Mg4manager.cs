@@ -7,13 +7,14 @@ public class Mg4manager : MonoBehaviour
 {
     public static Mg4manager instance = null;
 
+    public int level; //level 
 
     [SerializeField]
     private TextMeshProUGUI scoreText;
 
     [SerializeField]
     private GameObject GameOverPanel;
-    private int score = 0; // score=jelly ���ھ ���� ������ �������� ������ �ӵ� ��������
+    private int score = 0; // score=no death eat jelly 
     public bool isGameOver = false;
 
     void Awake()
@@ -23,10 +24,12 @@ public class Mg4manager : MonoBehaviour
             instance = this;
         }
     }
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        level= 0;
+        GameLevelsetting();
     }
 
     // Update is called once per frame
@@ -38,22 +41,58 @@ public class Mg4manager : MonoBehaviour
     public void AddScore()
     {
     score += 1;
-    MiniGameManager.Instance.AddJelly();  // 젤리 추가 및 UI 업데이트
+    //MiniGameManager.Instance.AddJelly();  // 젤리 추가 및 UI 업데이트
     scoreText.text = "Eat jelly " + score;
 
-    if (score % 5 == 0)
-    {
-        makejelly spawner = FindObjectOfType<makejelly>();
-        Makebirdpoop spawner2 = FindObjectOfType<Makebirdpoop>();
-        jelly jell = FindObjectOfType<jelly>();
-        birdpoop poop = FindObjectOfType<birdpoop>();
-        
-        if (spawner != null)
+        if (score % 5 == 0)
         {
-            spawner.IncreaseSpeed();
-            spawner2.IncreaseSpeed();
+            level += 1;
+            makejelly spawner = FindObjectOfType<makejelly>();
+            Makebirdpoop spawner2 = FindObjectOfType<Makebirdpoop>();
+
+        
+            if (spawner != null)
+            {
+                spawner.IncreaseSpeed();
+                spawner2.IncreaseSpeed();
+            }
         }
+
     }
 
-}
+
+    public void GameLevelsetting() //start and level setting
+    {
+
+        Makebirdpoop spawner = FindObjectOfType<Makebirdpoop>();
+        makejelly jellspawner= FindObjectOfType<makejelly>();
+        for (int i = 0; i < level; i++)
+        {
+
+            spawner.IncreaseSpeed(); // 게임 별로 난이도를 레벨에 따라 난이도 조절
+            jellspawner.IncreaseSpeed();
+        }
+
+    }
+
+    public void GameLevelDown() //when hit and level Down
+    {
+
+        score = 0;
+        Makebirdpoop spawner = FindObjectOfType<Makebirdpoop>();
+        makejelly jellspawner = FindObjectOfType<makejelly>();
+
+        if (level != 0)
+        {
+            level -= 1;
+
+            spawner.DecreaseSpeed(); //Down Level
+            jellspawner.DecreaseSpeed() ;
+        }
+
+
+    }
+
+
+
 }
