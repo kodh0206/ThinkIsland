@@ -43,6 +43,11 @@ public class YouDie : MonoBehaviour
             playerRigidbody.velocity = Vector2.zero;
         }
 
+        Mg4manager.instance.GameLevelDown(); // level Down
+
+
+
+
         // 오브젝트를 부수고 2초 대기합니다.
         Destroy(player);
         yield return new WaitForSeconds(2f);
