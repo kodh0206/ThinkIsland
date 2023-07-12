@@ -9,11 +9,12 @@ public class Mg6manager : MonoBehaviour
 
 
 
-    [SerializeField]
-    private GameObject GameOverPanel;
+    
 
-    private int score = 0; // score=jelly ���ھ ���� ������ �������� ������ �ӵ� ��������
-    public bool isGameOver = false;
+    public int level;
+
+    private int score = 0; 
+    
 
     void Awake()
     {
@@ -25,7 +26,8 @@ public class Mg6manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        level = 1;
+        GameLevelsetting();
     }
 
     // Update is called once per frame
@@ -40,15 +42,54 @@ public class Mg6manager : MonoBehaviour
         
         if (score % 5 == 0)
         {
+            level += 1;
             Mg6Spawner spawner = FindObjectOfType<Mg6Spawner>();
+            Mg6JellySpawner spawner2 = FindObjectOfType<Mg6JellySpawner>();
 
             if (spawner != null)
             {
                 spawner.IncreaseSpeed();  // decrease interval
-
+                spawner2.IncreaseSpeed();
 
 
             }
         }
     }
+
+
+
+    public void GameLevelsetting() //start and level setting
+    {
+
+        Mg6Spawner spawner = FindObjectOfType<Mg6Spawner>();
+        Mg6JellySpawner spawner2 = FindObjectOfType<Mg6JellySpawner>();
+        for (int i = 0; i < level; i++)
+        {
+
+            spawner.IncreaseSpeed(); // 게임 별로 난이도를 레벨에 따라 난이도 조절
+            spawner2.IncreaseSpeed();
+        }
+
+    }
+
+    public void GameLevelDown() //when hit and level Down
+    {
+
+        score = 0;
+        Mg6Spawner spawner = FindObjectOfType<Mg6Spawner>();
+        Mg6JellySpawner spawner2 = FindObjectOfType<Mg6JellySpawner>();
+
+
+        if (level != 0)
+        {
+            level -= 1;
+
+            spawner.DecreaseSpeed(); //Down Level
+            spawner2.DecreaseSpeed();
+        }
+
+
+    }
+
+
 }
