@@ -11,7 +11,7 @@ public class Mg5jelly : MonoBehaviour
 
     void Start()
     {
-        moveDirection = new Vector3(Random.Range(-1f, 1f), Random.Range(0, 1f), 0f).normalized;
+        moveDirection = new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(0, 0.7f), 0f).normalized;
     }
 
     // Update is called once per frame
@@ -24,7 +24,8 @@ public class Mg5jelly : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            MiniGameManager.Instance.AddJelly();
+            //MiniGameManager.Instance.AddJelly();
+            Mg5manager.instance.AddScore();
             Destroy(gameObject);
         }
     }

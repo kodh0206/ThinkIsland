@@ -6,17 +6,17 @@ public class Mg5jellyspawner : MonoBehaviour
 {
     public GameObject Mg5jelly;
     [SerializeField]
-    public int minNumMg5jellyToSpawn = 1; // 최소 생성 장애물 개수
+    public int minNumMg5jellyToSpawn = 3; // 최소 생성 젤리 개수
     [SerializeField]
-    public int maxNumMgMg5jellyToSpawn = 3; // 최대 생성 장애물 개수
+    public int maxNumMgMg5jellyToSpawn = 4; // 최대 생성 젤리 개수
 
     [SerializeField]
     private float Mg5jellySpeed = 4.0f; // 장애물의 초기 속도
 
     [SerializeField]
-    public float minTimeDiff = 3.0f; // 최소 생성 간격
+    public float minTimeDiff = 2.0f; // 최소 생성 간격
     [SerializeField]
-    public float maxTimeDiff = 5.0f; // 최대 생성 간격
+    public float maxTimeDiff = 3.0f; // 최대 생성 간격
 
 
     float time = 0;
@@ -73,4 +73,17 @@ public class Mg5jellyspawner : MonoBehaviour
             maxTimeDiff = 0.2f;
         }
     }
+
+
+    public void DecreaseSpeed()
+    {
+
+
+        Mg5jellySpeed -= 1.0f;
+
+        minTimeDiff += 0.2f;
+        maxTimeDiff += 0.2f;
+        
+    }
+
 }
