@@ -8,6 +8,19 @@ public class OpeningScene : MonoBehaviour
     [SerializeField]
     List<SpriteRenderer> Scene1;
     [SerializeField]
+    List<SpriteRenderer> Scene2;
+    [SerializeField]
+    List<SpriteRenderer> Scene3;
+    [SerializeField]
+    List<SpriteRenderer> Scene4;
+    [SerializeField]
+    List<SpriteRenderer> Scene5;
+    [SerializeField]
+    List<SpriteRenderer> Scene;
+
+
+
+    [SerializeField]
     Camera cam;
     private bool scene1IsPlayed=false;
   

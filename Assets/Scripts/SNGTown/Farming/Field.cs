@@ -15,13 +15,13 @@ public class Field : MonoBehaviour
     private float timeLeft;
     private int stage;
     
-    FarmManager fm;
+    BetaManager fm;
 
     bool isDry =true; //처음에는 땅이 말라져있음
     public GameObject vegetablePanel;
     private void Awake()
-    {   fm = FindObjectOfType<FarmManager>();
-        vegetablePanel = GameObject.Find("StorePanel");
+    {   fm = FindObjectOfType<BetaManager>();
+        vegetablePanel = GameObject.Find("FarmStore");
         plotSprite = GetComponent<SpriteRenderer>();
         cropSprite = transform.GetChild(0).GetComponent<SpriteRenderer>();
         ChangeState(state);

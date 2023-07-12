@@ -18,6 +18,7 @@ TagManager:
   - deadzone
   - RightButton
   - LeftButton
+  - FarmStore
   layers:
   - Default
   - TransparentFX
