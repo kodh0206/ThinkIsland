@@ -41,7 +41,7 @@ public class Mg4manager : MonoBehaviour
     public void AddScore()
     {
     score += 1;
-    //MiniGameManager.Instance.AddJelly();  // 젤리 추가 및 UI 업데이트
+    MiniGameManager.Instance.AddJelly();  // 젤리 추가 및 UI 업데이트
     scoreText.text = "Eat jelly " + score;
 
         if (score % 5 == 0)
