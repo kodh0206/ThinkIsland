@@ -14,12 +14,12 @@ public class VegetableItem : MonoBehaviour
 
     public Button buybutton;
 
-    public FarmManager fm;
+    public BetaManager fm;
 
     // Start is called before the first frame update
     void Start()
     {
-        fm = FindObjectOfType<FarmManager>();
+        fm = FindObjectOfType<BetaManager>();
         InitializeUI();
         buybutton.onClick.AddListener(BuyButton);
     }
@@ -35,7 +35,7 @@ public class VegetableItem : MonoBehaviour
 
   void BuyButton()
 {
-    if(fm.money >= plant.purchasePrice) // if the player has enough money
+    if(GameController.Instance.curentgold >= plant.purchasePrice) // if the player has enough money
     {   fm.SelectPlant(plant);
         fm.PlantSelectedCrop();// Plant the vegetable
         Debug.Log(plant.plantName+"구매!"+"수익 : "+plant.sellPrice);

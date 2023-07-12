@@ -268,7 +268,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 286733362}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.5747943, y: -2.470117, z: 0.085317895}
+  m_LocalPosition: {x: -5.147, y: -2.5, z: 0.085317895}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1120,6 +1120,29 @@ MonoBehaviour:
   Scene1:
   - {fileID: 335625842}
   - {fileID: 1628606125}
+  Scene2:
+  - {fileID: 286733364}
+  - {fileID: 1108993639}
+  Scene3:
+  - {fileID: 1169350122}
+  - {fileID: 1897823916}
+  Scene4:
+  - {fileID: 786691530}
+  - {fileID: 616700761}
+  Scene5:
+  - {fileID: 954869848}
+  - {fileID: 94495064}
+  - {fileID: 772643905}
+  - {fileID: 631204068}
+  - {fileID: 1322153757}
+  - {fileID: 1161680713}
+  - {fileID: 630575497}
+  Scene6:
+  - {fileID: 1136203837}
+  - {fileID: 739871290}
+  - {fileID: 1557664123}
+  - {fileID: 1903258887}
+  - {fileID: 587831514}
   cam: {fileID: 928121322}
   fadeDuration: 1
 --- !u!1 &954869846
@@ -1335,7 +1358,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1108993637}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.3737946, y: -2.470117, z: 0.085317895}
+  m_LocalPosition: {x: -7.93, y: -2.5, z: 0.085317895}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
