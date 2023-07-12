@@ -1128,37 +1128,37 @@ MonoBehaviour:
     weight: 0
   - icon: {fileID: 0}
     description: 2
-    chance: 12
+    chance: 88
     index: 0
     weight: 0
   - icon: {fileID: 0}
     description: 3
-    chance: 12
+    chance: 1
     index: 0
     weight: 0
   - icon: {fileID: 0}
     description: 4
-    chance: 12
+    chance: 1
     index: 0
     weight: 0
   - icon: {fileID: 0}
     description: 5
-    chance: 12
+    chance: 1
     index: 0
     weight: 0
   - icon: {fileID: 0}
     description: 6
-    chance: 12
+    chance: 1
     index: 0
     weight: 0
   - icon: {fileID: 0}
     description: 7
-    chance: 12
+    chance: 1
     index: 0
     weight: 0
   - icon: {fileID: 0}
     description: 8
-    chance: 12
+    chance: 1
     index: 0
     weight: 0
   spinDuration: 5
