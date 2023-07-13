@@ -6,12 +6,13 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MiningSystem : MonoBehaviour
-{
+{   private static MiningSystem _instance;
+    public static MiningSystem Instance { get { return _instance; } }
     public int jellyAccumulated;
-    public int jellyLimit;
-    public int jellyMiningTime = 1;
-    public int jellyMiningAmount = 1;
-    public int miningMachineLevel;
+    int jellyLimit =18;
+    private int jellyMiningTime = 1;
+    private int jellyMiningAmount = 1;
+    private int miningMachineLevel=0;
     public int[] jellyLimitPerLevel={18,20,23,27,31};
 
     public TextMeshProUGUI time;

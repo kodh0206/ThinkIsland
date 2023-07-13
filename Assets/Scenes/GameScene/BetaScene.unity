@@ -18187,10 +18187,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jellyAccumulated: 0
   jellyLimit: 0
-  jellyMiningTime: 10
+  jellyMiningTime: 1
   jellyMiningAmount: 0
   miningMachineLevel: 0
-  jellyLimitPerLevel: 
+  jellyLimitPerLevel: 1200000014000000170000001b0000001f000000
   time: {fileID: 1808780225}
   ajelly: {fileID: 1994883920}
 --- !u!1 &581754103
