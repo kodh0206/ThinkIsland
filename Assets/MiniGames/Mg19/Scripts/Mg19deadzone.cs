@@ -33,6 +33,8 @@ public class Mg19deadzone : MonoBehaviour
         // Player 오브젝트를 찾습니다.
         GameObject player = GameObject.FindGameObjectWithTag("Player");
 
+        Mg19manager.instance.GameLevelDown();
+
         // Player 컴포넌트를 비활성화하여 조작 불가능 상태로 만듭니다.
         Player playerComponent = player.GetComponent<Player>();
         if (playerComponent != null)

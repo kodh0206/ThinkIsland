@@ -80,7 +80,13 @@ public class Mg18GroundSpawner : MonoBehaviour
     }
     public void IncreaseSpeed()
     {
-        Mg18movigGroundSpeed += 2.0f; // 바닥의 스피드 증가
+        Mg18movigGroundSpeed += 1.0f; // 바닥의 스피드 증가
         
+    }
+
+    public void DecreaseSpeed()
+    {
+        Mg18movigGroundSpeed -= 1.0f; // 바닥의 스피드 증가
+
     }
 }
