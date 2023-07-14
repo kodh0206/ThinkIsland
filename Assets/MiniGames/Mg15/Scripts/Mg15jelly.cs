@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Mg15jelly : MonoBehaviour
 {
-    public float gravityScaleIncreaseRate = 1f; // gravity scale�� ����ϴ� ����
-    public float maxGravityScale = 1f; // �ִ� gravity scale ��
+    public float gravityScaleIncreaseRate = 1f; // gravity scale
+    public float maxGravityScale = 1f; // gravity scale 
 
     private Rigidbody2D rb;
     private bool isScaleChanged = false;
@@ -13,22 +13,22 @@ public class Mg15jelly : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.gravityScale = -1f; // ������ �� gravity scale�� -1�� ����
+        rb.gravityScale = -1f; // 
     }
 
     private void Update()
     {
-        // gravity scale�� ��½�Ŵ
+        // gravity scale
         //rb.gravityScale += gravityScaleIncreaseRate * Time.deltaTime;
 
-        // �ִ� gravity scale ���� �ʰ����� �ʵ��� ����
+        //  gravity scale
         //rb.gravityScale = Mathf.Clamp(rb.gravityScale, -1f, maxGravityScale);
 
-        // gravity scale�� 0�� �Ǹ� ������ ����
+        // gravity scale
         //if (rb.gravityScale >= 0f && !isScaleChanged)
         //{
-           // transform.localScale = Vector3.one; // �������� (1, 1, 1)�� ����
-            //isScaleChanged = true; // ������ ���� ���¸� ǥ��
+           // transform.localScale = Vector3.one; 
+            //isScaleChanged = true; 
         //}
     }
 
@@ -37,13 +37,14 @@ public class Mg15jelly : MonoBehaviour
         if (other.gameObject.CompareTag("stair"))
         {
             rb.gravityScale = 1.0f;
-            transform.localScale = Vector3.one; // �������� (1, 1, 1)�� ����
-            isScaleChanged = true; // ������ ���� ���¸� ǥ��
+            transform.localScale = Vector3.one; // 
+            isScaleChanged = true; // 
         }
 
         if (other.gameObject.CompareTag("Player"))
-        {   MiniGameManager.Instance.AddJelly();
-            //Mg15manager.instance.AddScore();
+        {   
+            MiniGameManager.Instance.AddJelly();
+            Mg15manager.instance.AddScore();
             Destroy(gameObject);
         }
     }
