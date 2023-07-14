@@ -19,6 +19,10 @@ TagManager:
   - RightButton
   - LeftButton
   - FarmStore
+  - tree
+  - stair
+  - water
+  - BreakGround
   layers:
   - Default
   - TransparentFX
