@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Mg13jelly : MonoBehaviour
 {
-    public float jellySpeed = 5f; // ������ �ӵ�
-    private Transform target; // ��ǥ ������Ʈ�� Transform
+    public float jellySpeed = 5f; 
+    private Transform target; 
     private bool getTarget=false;
     public Vector2 direction;
 
     private void Start()
     {
-        // Player �±׸� ���� ������Ʈ�� ã�� ��ǥ�� ����
+        
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if ((player != null) && !(getTarget))
         {
@@ -26,7 +26,7 @@ public class Mg13jelly : MonoBehaviour
     {
         if (target != null)
         {
-            // ������ ����
+            
             transform.Translate(direction * jellySpeed * Time.deltaTime);
         }
     }
@@ -36,6 +36,7 @@ public class Mg13jelly : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             MiniGameManager.Instance.AddJelly();
+            Mg13manager.instance.AddScore();
             Destroy(gameObject);
         }
     }
