@@ -68,7 +68,11 @@ public class Mg18jellySpawner : MonoBehaviour
     }
     public void IncreaseSpeed()
     {
-        jellySpeed += 2.0f; // 장애물의 스피드 증가
-        
+        jellySpeed += 1.0f; // 장애물의 스피드 증가
+    }
+
+    public void DecreaseSpeed()
+    {
+        jellySpeed -= 1.0f; // 장애물의 스피드 증가
     }
 }

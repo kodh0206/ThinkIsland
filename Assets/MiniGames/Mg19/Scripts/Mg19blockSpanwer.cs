@@ -126,4 +126,10 @@ public class Mg19blockSpanwer : MonoBehaviour
         Mg19blockSpeed += 1.0f; // 바닥의 스피드 증가
         time_diff -= 0.2f;
     }
+
+    public void DecreaseSpeed()
+    {
+        Mg19blockSpeed -= 1.0f; // 바닥의 스피드 증가
+        time_diff += 0.2f;
+    }
 }
