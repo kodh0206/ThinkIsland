@@ -7,14 +7,14 @@ public class Mg17Spawner : MonoBehaviour
     public GameObject Mg17shell;
 
     [SerializeField]
-    private float Mg17shellSpeed = 5.0f; // �������� �ʱ� ���ǵ�
+    private float Mg17shellSpeed = 4.0f; 
 
     [SerializeField]
-    private float time_diff = 1.5f; // ��ֹ� ���� ����
+    private float time_diff = 1.5f; 
     [SerializeField]
-    private int minNumObstaclesToSpawn = 1; // �ּ� ���� ��ֹ� ����
+    private int minNumObstaclesToSpawn = 1; 
     [SerializeField]
-    private int maxNumObstaclesToSpawn = 1; // �ִ� ���� ��ֹ� ����
+    private int maxNumObstaclesToSpawn = 1; 
 
     float time = 0;
 
@@ -36,22 +36,28 @@ public class Mg17Spawner : MonoBehaviour
             {
                 GameObject new_Mg17shell = Instantiate(Mg17shell);
 
-                // ��ǥ�� �����ϰ� �����Ͽ� ����
+                
                 Vector2 spawnPosition = new Vector2(Random.Range(-3.5f, 2.5f), 5.6f);
                 new_Mg17shell.transform.position = spawnPosition;
 
-                new_Mg17shell.GetComponent<Mg17shell>().SetSpeed(Mg17shellSpeed); // ��ֹ��� ���ǵ� ����
+                new_Mg17shell.GetComponent<Mg17shell>().SetSpeed(Mg17shellSpeed);
                 Destroy(new_Mg17shell, 5.0f);
             }
 
-            time = Random.Range(0f, 1.4f);
+            time = Random.Range(0f, 1.0f);
         }
     }
 
     public void IncreaseSpeed()
     {
-        Mg17shellSpeed += 2.0f; // ��ֹ��� ���ǵ� ����
-        time_diff -= 0.1f; // ��ֹ��� ���� ���� ����
+        Mg17shellSpeed += 1.0f; 
+        time_diff -= 0.1f; 
+    }
+
+    public void DecreaseSpeed()
+    {
+        Mg17shellSpeed -= 1.0f;
+        time_diff += 0.1f;
     }
 
     public void GetHit()

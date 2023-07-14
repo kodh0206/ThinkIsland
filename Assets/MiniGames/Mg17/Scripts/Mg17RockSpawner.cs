@@ -44,8 +44,14 @@ public class Mg17RockSpawner : MonoBehaviour
 
     public void IncreaseSpeed()
     {
-        RockSpeed += 2.0f; // 바위의 스피드 증가
+        RockSpeed += 1.0f; // 바위의 스피드 증가
         time_diff -= 0.1f; // 바위의 생성 간격 감소
+    }
+
+    public void DecreaseSpeed()
+    {
+        RockSpeed -= 1.0f; // 바위의 스피드 증가
+        time_diff += 0.1f; // 바위의 생성 간격 감소
     }
 
     public void GetHit()
