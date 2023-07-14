@@ -10,7 +10,7 @@ public class MiningSystem : MonoBehaviour
     public static MiningSystem Instance { get { return _instance; } }
     public int jellyAccumulated;
     int jellyLimit =18;
-    private int jellyMiningTime = 1;
+    private int jellyMiningTime = 10;
     private int jellyMiningAmount = 1;
     private int miningMachineLevel=0;
     public int[] jellyLimitPerLevel={18,20,23,27,31};
