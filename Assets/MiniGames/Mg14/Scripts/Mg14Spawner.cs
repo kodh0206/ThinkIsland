@@ -8,14 +8,14 @@ public class Mg14Spawner : MonoBehaviour
 
 
     [SerializeField]
-    private float Mg13ObstacleSpeed = 5.0f; // �������� �ʱ� ���ǵ�
+    private float Mg13ObstacleSpeed = 5.0f; 
 
     [SerializeField]
-    private float time_diff = 1.5f; // ��ֹ� ���� ����
+    private float time_diff = 1.5f; 
     [SerializeField]
-    private int minNumObstaclesToSpawn = 1; // �ּ� ���� ��ֹ� ����
+    private int minNumObstaclesToSpawn = 1; 
     [SerializeField]
-    private int maxNumObstaclesToSpawn = 1; // �ִ� ���� ��ֹ� ����
+    private int maxNumObstaclesToSpawn = 1; 
 
     float time = 0;
 
@@ -54,8 +54,12 @@ public class Mg14Spawner : MonoBehaviour
     public void IncreaseSpeed()
     {
         
-        time_diff -= 0.1f; // ��ֹ��� ���� ���� ����
+        time_diff -= 0.1f; 
     }
+    public void DecreaseSpeed()
+    {
 
+        time_diff += 0.1f;
+    }
 
 }
