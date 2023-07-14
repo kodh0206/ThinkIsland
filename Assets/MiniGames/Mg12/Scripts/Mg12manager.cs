@@ -79,7 +79,7 @@ public class Mg12manager : MonoBehaviour
             level -= 1;
 
             spawner.DecreaseSpeed(); //Down Level
-            spawner2.IncreaseSpeed();
+            spawner2.DecreaseSpeed();
         }
 
     }

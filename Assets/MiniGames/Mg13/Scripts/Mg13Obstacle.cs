@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Mg13Obstacle : MonoBehaviour
 {
-    public float obstacleSpeed = 5f; // ������ �ӵ�
-    private Transform target; // ��ǥ ������Ʈ�� Transform
+    public float obstacleSpeed = 5f; 
+    private Transform target; 
     private bool getTarget = false;
     public Vector2 direction;
 
     private void Start()
     {
-        // Player �±׸� ���� ������Ʈ�� ã�� ��ǥ�� ����
+        
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if ((player != null) && !(getTarget))
         {
@@ -26,7 +26,7 @@ public class Mg13Obstacle : MonoBehaviour
     {
         if (target != null)
         {
-            // ������ ����
+            
             transform.Translate(direction * obstacleSpeed * Time.deltaTime);
         }
     }
@@ -36,6 +36,7 @@ public class Mg13Obstacle : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {   
             AudioManager.Instance.Rock2();
+            Mg13manager.instance.GameLevelDown();
             other.gameObject.GetComponent<Mg13Player>().GetHit();
         }
 
