@@ -101,6 +101,12 @@ public class Mg10Spawner : MonoBehaviour
         time_diff -= 0.1f; // 장애물의 생성 간격 감소
     }
 
+    public void DecreaseSpeed()
+    {
+        Mg10ObstacleSpeed -= 2.0f; // 장애물의 스피드 증가
+        time_diff += 0.1f; // 장애물의 생성 간격 감소
+    }
+
     public void GetHit()
     {
         StartCoroutine(DisableSpawning());
@@ -125,19 +131,67 @@ public class Mg10Spawner : MonoBehaviour
         Vector2 spawnPosition = Vector2.zero;
         bool validPosition = false;
 
+        int whereX;
+
         while (!validPosition)
         {
             if (Random.value < 0.5f)
             {
+                whereX = Random.Range(0,5);
+                float spawnX;
                 // 왼쪽에 장애물 생성
-                float spawnX = player.position.x + Random.Range(-12.0f, -5.0f);
+                if (whereX == 0)
+                {
+                    spawnX = player.position.x + -4.0f;
+                }
+                else if (whereX == 1)
+                {
+                    spawnX = player.position.x + -6.0f;
+                }
+                else if (whereX == 2)
+                {
+                    spawnX = player.position.x + -8.0f;
+                }
+                else if (whereX == 3)
+                {
+                    spawnX = player.position.x + -10.0f;
+                }
+                else 
+                {
+                    spawnX = player.position.x + -12.0f;
+                }
+                
                 float spawnY = player.position.y - 12.5f;
                 spawnPosition = new Vector2(spawnX, spawnY);
             }
             else
             {
                 // 오른쪽에 장애물 생성
-                float spawnX = player.position.x + Random.Range(5f, 12.0f);
+
+                whereX = Random.Range(0, 5);
+                float spawnX;
+                // 왼쪽에 장애물 생성
+                if (whereX == 0)
+                {
+                    spawnX = player.position.x + 4.0f;
+                }
+                else if (whereX == 1)
+                {
+                    spawnX = player.position.x + 6.0f;
+                }
+                else if (whereX == 2)
+                {
+                    spawnX = player.position.x + 8.0f;
+                }
+                else if (whereX == 3)
+                {
+                    spawnX = player.position.x + 10.0f;
+                }
+                else
+                {
+                    spawnX = player.position.x + 12.0f;
+                }
+                
                 float spawnY = player.position.y - 12.5f;
                 spawnPosition = new Vector2(spawnX, spawnY);
             }

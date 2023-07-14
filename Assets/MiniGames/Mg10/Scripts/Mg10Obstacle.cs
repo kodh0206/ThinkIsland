@@ -27,6 +27,8 @@ public class Mg10Obstacle : MonoBehaviour
         {   
 
             Mg10Player player = other.gameObject.GetComponent<Mg10Player>();
+            Mg10manager.instance.GameLevelDown();
+
             if (player != null)
             {   
                 AudioManager.Instance.Rock();
