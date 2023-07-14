@@ -2,17 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using static Cinemachine.DocumentationSortingAttribute;
 
 public class Mg9manager : MonoBehaviour
 {
     public static Mg9manager instance = null;
 
+    public int level = 0;
 
+    
 
-    [SerializeField]
-    private GameObject GameOverPanel;
-
-    private int score = 0; // score=jelly ���ھ ���� ������ �������� ������ �ӵ� ��������
+    private int score = 0; // score=jelly 
     public bool isGameOver = false;
 
     void Awake()
@@ -39,6 +39,7 @@ public class Mg9manager : MonoBehaviour
         score += 1;
         if (score % 5 == 0)
         {
+            level += 1;
             Mg9Spawner spawner = FindObjectOfType<Mg9Spawner>();
             Mg9jellySpawner spawner2 = FindObjectOfType<Mg9jellySpawner>();
 
@@ -47,9 +48,43 @@ public class Mg9manager : MonoBehaviour
                 spawner.IncreaseSpeed();  // decrease interval
                 spawner2.IncreaseSpeed();
 
-
-
             }
         }
     }
+
+    public void GameLevelsetting() //start and level setting
+    {
+
+        Mg9Spawner spawner = FindObjectOfType<Mg9Spawner>();
+        Mg9jellySpawner spawner2 = FindObjectOfType<Mg9jellySpawner>();
+        for (int i = 0; i < level; i++)
+        {
+
+            spawner.IncreaseSpeed(); // 게임 별로 난이도를 레벨에 따라 난이도 조절
+            spawner2.IncreaseSpeed();
+        }
+
+    }
+
+    public void GameLevelDown() //when hit and level Down
+    {
+
+        score = 0;
+        Mg9Spawner spawner = FindObjectOfType<Mg9Spawner>();
+        Mg9jellySpawner spawner2 = FindObjectOfType<Mg9jellySpawner>();
+
+
+        if (level != 0)
+        {
+            level -= 1;
+
+            spawner.DecreaseSpeed(); //Down Level
+            spawner2.DecreaseSpeed();
+        }
+
+
+    }
+
+
+
 }

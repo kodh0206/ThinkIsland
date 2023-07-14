@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Mg15Player : MonoBehaviour
 {
-    public float moveSpeed = 5f; // ������ �ӵ�
+    public float moveSpeed = 5f; 
 
     private Rigidbody2D rb;
     private BoxCollider2D boxCollider;
@@ -68,21 +68,21 @@ public class Mg15Player : MonoBehaviour
             animator.SetBool("MoveLeft", false);
         }
 
-            // ������ ���
+            
         float moveX = horizontalInput * moveSpeed;
         Vector2 movement = new Vector2(moveX, rb.velocity.y);
 
-        // ������ ����
+        
         rb.velocity = movement;
     }
 
     public void GetHit()
     {   
         AudioManager.Instance.Rock();
-        // BoxCollider2D�� ��Ȱ��ȭ
+       
         boxCollider.enabled = false;
 
-        // 0.5�� �Ŀ� BoxCollider2D�� Ȱ��ȭ
+        
         StartCoroutine(EnableBoxColliderAfterDelay(0.5f));
     }
 

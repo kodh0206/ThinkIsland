@@ -109,7 +109,7 @@ public class Mg17Player : MonoBehaviour
 
         canShoot = true;
 
-        yield return new WaitForSeconds(1f);
+        
 
         if (spriteRenderer != null)
         {

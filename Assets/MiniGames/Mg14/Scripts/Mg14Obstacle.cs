@@ -9,6 +9,7 @@ public class Mg14Obstacle : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {   
             AudioManager.Instance.Rock2();
+            
             other.gameObject.GetComponent<Mg14Player>().GetHit();
         }
 

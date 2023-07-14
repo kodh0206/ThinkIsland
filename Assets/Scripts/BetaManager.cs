@@ -16,7 +16,7 @@ public class BetaManager : MonoBehaviour
     GameController gameController;
     public Button RadioButton;
 
-    public TextMeshProUGUI   moneyText;
+    public TextMeshProUGUI  moneyText;
     public TextMeshProUGUI  jellyText;
     public TextMeshProUGUI energy;
     //Farmimng
@@ -41,6 +41,8 @@ public class BetaManager : MonoBehaviour
     public Button WaterButton;
     public bool isWaterSelected = false;
 
+
+
     void Awake()
     {
         miniGame =GameObject.Find("MiniGameManager").GetComponent<MiniGameManager>();
@@ -61,6 +63,13 @@ public class BetaManager : MonoBehaviour
         WaterButton.onClick.AddListener(SelectWater);
 
     }   
+
+   
+    private void Update()
+    {
+    jelly =gameController.currentjellyCount;
+    jellyText.text = jelly.ToString();
+    }
     
     void StartMiniGame()
     {   play1.interactable=false;//여러 클릭 방지 
@@ -186,7 +195,10 @@ public class BetaManager : MonoBehaviour
     {   Debug.Log("물 선택!");
         isWaterSelected = !isWaterSelected;  
     }
-
+    public void UpdateJellyText()
+    {
+        jellyText.text =GameController.Instance.currentjellyCount.ToString();
+    }
     void ExitGame()
     {
         Application.Quit();

@@ -24,7 +24,7 @@ public class Mg14jellySpawner : MonoBehaviour
         {
             GameObject new_jelly = Instantiate(jelly);
 
-            // ��ǥ�� �����ϰ� �����Ͽ� ����
+            
             Vector2 spawnPosition = new Vector2(Random.Range(-3.4f, 2.97f), 5.5f);
             new_jelly.transform.position = spawnPosition;
 
@@ -36,8 +36,12 @@ public class Mg14jellySpawner : MonoBehaviour
     }
     public void IncreaseSpeed()
     {
-        time_diff -= 0.1f; // ������ ���� ���� ����
+        time_diff -= 0.1f; 
     }
 
+    public void DecreaseSpeed()
+    {
+        time_diff += 0.1f;
+    }
 
 }

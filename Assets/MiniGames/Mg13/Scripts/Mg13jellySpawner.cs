@@ -9,7 +9,7 @@ public class Mg13jellySpawner : MonoBehaviour
 
 
     [SerializeField]
-    private float jellySpeed = 5.0f; // 젤리의 초기 스피드
+    private float jellySpeed = 4.0f; // 젤리의 초기 스피드
 
     [SerializeField]
     private float time_diff = 1.5f;
@@ -64,8 +64,14 @@ public class Mg13jellySpawner : MonoBehaviour
 
     public void IncreaseSpeed()
     {
-        jellySpeed += 2.0f; // 젤리의 스피드 증가
+        jellySpeed += 1.0f; // 젤리의 스피드 증가
         time_diff -= 0.1f; // 젤리의 생성 간격 감소
+    }
+
+    public void DecreaseSpeed()
+    {
+        jellySpeed -= 1.0f; // 젤리의 스피드 증가
+        time_diff += 0.1f; // 젤리의 생성 간격 감소
     }
 
     public void GetHit()

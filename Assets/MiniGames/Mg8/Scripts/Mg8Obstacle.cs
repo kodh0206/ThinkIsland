@@ -29,6 +29,8 @@ public class Mg8Obstacle : MonoBehaviour
             AudioManager.Instance.PlayBeehive();
             other.gameObject.GetComponent<Mg8Player>().GetHit();
             animator.SetBool("PlayerHit", true);
+
+            Mg8manager.instance.GameLevelDown();
             
         }
         

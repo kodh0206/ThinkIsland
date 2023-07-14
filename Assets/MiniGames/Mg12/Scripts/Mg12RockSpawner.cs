@@ -35,13 +35,13 @@ public class Mg12RockSpawner : MonoBehaviour
             GameObject new_Rock = Instantiate(Rock);
             rockThrow = true;
 
-            // ��ǥ�� �����ϰ� �����Ͽ� ����
-            Vector2 spawnPosition = new Vector2(player.position.x , player.position.y); //�÷��̾ �������� ����
+            
+            Vector2 spawnPosition = new Vector2(player.position.x , player.position.y); 
             new_Rock.transform.position = spawnPosition;
 
             
             
-            new_Rock.GetComponent<Mg12Rock>().SetSpeed(RockSpeed); // ������ ���ǵ� ����
+            new_Rock.GetComponent<Mg12Rock>().SetSpeed(RockSpeed); 
             time = 0;
             
             Destroy(new_Rock, 5.0f);
@@ -52,8 +52,14 @@ public class Mg12RockSpawner : MonoBehaviour
 
     public void IncreaseSpeed()
     {
-        RockSpeed += 2.0f; // ������ ���ǵ� ����
-        time_diff -= 0.1f; // ������ ���� ���� ����
+        RockSpeed += 1.0f; 
+        time_diff -= 0.1f; 
+    }
+
+    public void DecreaseSpeed()
+    {
+        RockSpeed -= 1.0f;
+        time_diff += 0.1f;
     }
 
     public void GetHit()

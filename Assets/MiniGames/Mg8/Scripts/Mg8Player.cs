@@ -90,7 +90,6 @@ public class Mg8Player : MonoBehaviour
         enabled = true;
 
         // 1초간 poop 영향 받지 않음
-        yield return new WaitForSeconds(1f);
 
         // 색상 원래대로 복구
         if (spriteRenderer != null)

@@ -8,7 +8,7 @@ public class Mg13Spawner : MonoBehaviour
 
 
     [SerializeField]
-    private float Mg13ObstacleSpeed = 5.0f; // 생성물의 초기 스피드
+    private float Mg13ObstacleSpeed = 4.0f; // 생성물의 초기 스피드
 
     [SerializeField]
     private float time_diff = 1.5f; // 장애물 생성 간격
@@ -70,8 +70,14 @@ public class Mg13Spawner : MonoBehaviour
 
     public void IncreaseSpeed()
     {
-        Mg13ObstacleSpeed += 2.0f; // 장애물의 스피드 증가
+        Mg13ObstacleSpeed += 1.0f; // 장애물의 스피드 증가
         time_diff -= 0.1f; // 장애물의 생성 간격 감소
+    }
+
+    public void DecreaseSpeed()
+    {
+        Mg13ObstacleSpeed -= 1.0f; // 장애물의 스피드 증가
+        time_diff += 0.1f; // 장애물의 생성 간격 감소
     }
 
     public void GetHit()

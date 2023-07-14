@@ -1,62 +1,56 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
 public class MiningSystem : MonoBehaviour
-{
-  public int jellyAccumulated; // 누적된 젤리 개수
-    public int jellyLimit; // 젤리 누적 한도
-
-    public int jellyMiningTime; // 젤리 적재 시간 간격(분)
-    public int jellyMiningAmount; // 젤리 적재 개수
-
-    public int miningMachineLevel; // 광맥 강화기 레벨
-    public int[] jellyLimitPerLevel; // 광맥 강화기 레벨별 젤리 한도 배열
-
-    private float elapsedTime; // 경과 시간
-    private float totalElapsedTime; // 전체 경과 시간
-
-    private float lastSessionTime; // 마지막으로 게임을 종료한 시간
-    private float offlineAccumulatedTime; // 접속하지 않은 동안의 누적 시간
+{   private static MiningSystem _instance;
+    public static MiningSystem Instance { get { return _instance; } }
+    public int jellyAccumulated;
+    int jellyLimit =18;
+    private int jellyMiningTime = 1;
+    private int jellyMiningAmount = 1;
+    private int miningMachineLevel=0;
+    public int[] jellyLimitPerLevel={18,20,23,27,31};
 
     public TextMeshProUGUI time;
+    public TextMeshProUGUI ajelly;
+
+    private DateTime lastSessionTime;
+
     private void Start()
     {
-        // 저장된 데이터 로드
         LoadGameData();
 
-        // 경과 시간 초기화
-        elapsedTime = 0f;
-        totalElapsedTime = 0f;
+        // Calculate the offline time
+        TimeSpan offlineTime = DateTime.Now - lastSessionTime;
 
-        // 게임 시작 시간 기록
-        lastSessionTime = Time.realtimeSinceStartup;
+        AutoCollectJellyOffline((float)offlineTime.TotalSeconds);
     }
 
     private void Update()
-    {
-        // 경과 시간 업데이트
-        elapsedTime += Time.deltaTime;
-        totalElapsedTime += Time.deltaTime;
+    {   
+        Debug.Log("젤리 수집시간 "+ jellyMiningTime+"분");
+        TimeSpan elapsedTime = DateTime.Now - lastSessionTime;
 
-        // 일정 시간마다 젤리 추가 적재
-        if (elapsedTime >= jellyMiningTime)
+        if (elapsedTime.TotalSeconds >= jellyMiningTime * 60)
         {
-            elapsedTime = 0f;
-            AccumulateJelly(jellyMiningAmount);
+            AccumulateJelly(1);
+            lastSessionTime = DateTime.Now;
         }
 
-        // 일정 시간이 지나면 자동 채집
-        if (totalElapsedTime >= jellyMiningTime * 10) // 예시로 10분마다 채집
-        {
-            totalElapsedTime = 0f;
-            AutoCollectJelly();
-        }
+        UpdateTimerText();
     }
 
     private void OnDestroy()
     {
-        // 게임 종료 시 데이터 저장
+        SaveGameData();
+    }
+
+    private void OnApplicationQuit()
+    {
         SaveGameData();
     }
 
@@ -65,23 +59,37 @@ public class MiningSystem : MonoBehaviour
         if (pauseStatus)
         {
             // 게임이 백그라운드로 들어갈 때 실행
-            lastSessionTime = Time.realtimeSinceStartup;
+            SaveGameData();
         }
         else
         {
             // 게임이 포그라운드로 돌아올 때 실행
-            float offlineTime = Time.realtimeSinceStartup - lastSessionTime;
-            offlineAccumulatedTime += offlineTime;
-
-            // 젤리 자동 채집
-            AutoCollectJellyOffline(offlineTime);
+            LoadGameData();
         }
     }
 
-    private void AccumulateJelly(int amount)
+    private void OnEnable()
     {
-        // 젤리 누적 및 한도 체크
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        LoadGameData();
+    }
+
+    private void AccumulateJelly(int amount)
+    {   
+        Debug.Log("젤리 수집");
+        Debug.Log("체광된 젤리"+amount);
         jellyAccumulated += amount;
+        ajelly.text = jellyAccumulated.ToString();
+        Debug.Log("누적된 젤리"+ jellyAccumulated);
 
         if (jellyAccumulated >= jellyLimit)
         {
@@ -91,26 +99,15 @@ public class MiningSystem : MonoBehaviour
 
     private void CancelJellyMining()
     {
-        // 젤리 적재 취소
         jellyAccumulated = 0;
-        elapsedTime = 0f;
-    }
-
-    private void AutoCollectJelly()
-    {
-        // 자동 젤리 채집
-        jellyAccumulated += jellyLimit;
-        if (jellyAccumulated >= jellyLimit)
-        {
-            CancelJellyMining();
-        }
+        ajelly.text = "0";
     }
 
     private void AutoCollectJellyOffline(float offlineTime)
     {
-        // 자동 젤리 채집 (접속하지 않은 동안)
-        int offlineJellyAmount = Mathf.FloorToInt(offlineTime / (jellyMiningTime * 60)) * jellyMiningAmount;
+        int offlineJellyAmount = Mathf.FloorToInt(offlineTime / (jellyMiningTime * 60)) * 1;
         jellyAccumulated += offlineJellyAmount;
+
         if (jellyAccumulated >= jellyLimit)
         {
             CancelJellyMining();
@@ -119,42 +116,47 @@ public class MiningSystem : MonoBehaviour
 
     public void UpgradeMiningMachine()
     {
-        // 광맥 강화기 업그레이드
         miningMachineLevel++;
         jellyLimit = jellyLimitPerLevel[miningMachineLevel];
     }
 
     private void SaveGameData()
     {
-        // 추후 E3Save 사용 예정
         PlayerPrefs.SetInt("JellyAccumulated", jellyAccumulated);
         PlayerPrefs.SetInt("MiningMachineLevel", miningMachineLevel);
-        PlayerPrefs.SetFloat("LastSessionTime", lastSessionTime);
-        PlayerPrefs.SetFloat("OfflineAccumulatedTime", offlineAccumulatedTime);
+        PlayerPrefs.SetString("LastSessionTime", lastSessionTime.ToBinary().ToString());
         PlayerPrefs.Save();
     }
 
     private void LoadGameData()
     {
-        // 저장된 데이터 불러오기
         jellyAccumulated = PlayerPrefs.GetInt("JellyAccumulated", 0);
         miningMachineLevel = PlayerPrefs.GetInt("MiningMachineLevel", 0);
-        lastSessionTime = PlayerPrefs.GetFloat("LastSessionTime", 0f);
-        offlineAccumulatedTime = PlayerPrefs.GetFloat("OfflineAccumulatedTime", 0f);
+        long tempTime;
+        if (long.TryParse(PlayerPrefs.GetString("LastSessionTime", string.Empty), out tempTime))
+        {
+            lastSessionTime = DateTime.FromBinary(tempTime);
+        }
+        else
+        {
+            lastSessionTime = DateTime.Now;
+        }
 
-        // 누적된 시간에 따른 자동 젤리 채집 (접속하지 않은 동안)
-        float offlineTime = Time.realtimeSinceStartup - lastSessionTime;
-        AutoCollectJellyOffline(offlineTime);
+        AutoCollectJellyOffline((float)(DateTime.Now - lastSessionTime).TotalSeconds);
     }
 
-      private void UpdateTimerText()
+    private void UpdateTimerText()
     {
-        // 남은 체광 시간 계산
-        float remainingTime = (jellyMiningTime * 60) - (elapsedTime + offlineAccumulatedTime);
-        int minutes = Mathf.FloorToInt(remainingTime / 60);
-        int seconds = Mathf.FloorToInt(remainingTime % 60);
+        TimeSpan remainingTime = TimeSpan.FromMinutes(jellyMiningTime) - (DateTime.Now - lastSessionTime);
+        int minutes = remainingTime.Minutes;
+        int seconds = remainingTime.Seconds;
 
-        // 텍스트 업데이트
-        time.text = string.Format("Remaining Time: {0:00}:{1:00}", minutes, seconds);
+        time.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+    }
+
+    public void CollectJelly()
+    {
+        GameController.Instance.currentjellyCount += jellyAccumulated;
+        CancelJellyMining();
     }
 }

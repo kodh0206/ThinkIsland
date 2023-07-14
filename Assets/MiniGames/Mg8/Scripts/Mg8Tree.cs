@@ -18,4 +18,10 @@ public class Mg8Tree : MonoBehaviour
     {
         transform.position += Vector3.left * obstacleSpeed * Time.deltaTime;
     }
+
+    public void SetSpeed(float speed)
+    {
+        obstacleSpeed = speed;
+    }
+
 }
