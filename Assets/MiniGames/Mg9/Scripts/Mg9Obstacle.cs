@@ -25,7 +25,9 @@ public class Mg9Obstacle : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Player")
-        {    AudioManager.Instance.PlayPoop();
+        {    
+            AudioManager.Instance.PlayPoop();
+            Mg9manager.instance.GameLevelDown();
             other.gameObject.GetComponent<Mg9Player>().GetHit();
         }
     }
