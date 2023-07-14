@@ -99,8 +99,8 @@ public class Mg20BlockSpawner : MonoBehaviour
                     new_RightBlock.transform.position = spawnPosition;
 
 
-                    new_LeftBlock.GetComponent<Mg20Brokenblock>().SetSpeed(BlockSpeed); // ��ֹ��� ���ǵ� ����
-                    new_RightBlock.GetComponent<Mg20NomalBlock>().SetSpeed(BlockSpeed); // ��ֹ��� ���ǵ� ����
+                    new_LeftBlock.GetComponent<Mg20Brokenblock>().SetSpeed(BlockSpeed); 
+                    new_RightBlock.GetComponent<Mg20NomalBlock>().SetSpeed(BlockSpeed); 
 
                     Destroy(new_LeftBlock, 5.0f);
                     Destroy(new_RightBlock, 5.0f);
@@ -116,8 +116,8 @@ public class Mg20BlockSpawner : MonoBehaviour
                     spawnPosition.x -= 1.12f;
                     new_RightBlock.transform.position = spawnPosition;
 
-                    new_LeftBlock.GetComponent<Mg20Brokenblock>().SetSpeed(BlockSpeed); // ��ֹ��� ���ǵ� ����
-                    new_RightBlock.GetComponent<Mg20Brokenblock>().SetSpeed(BlockSpeed); // ��ֹ��� ���ǵ� ����
+                    new_LeftBlock.GetComponent<Mg20Brokenblock>().SetSpeed(BlockSpeed); 
+                    new_RightBlock.GetComponent<Mg20Brokenblock>().SetSpeed(BlockSpeed); 
 
                     Destroy(new_LeftBlock, 5.0f);
                     Destroy(new_RightBlock, 5.0f);
@@ -134,7 +134,7 @@ public class Mg20BlockSpawner : MonoBehaviour
                     Destroy(new_jelly, 7.0f);
                 }
 
-                // ��ǥ�� �����ϰ� �����Ͽ� ����
+                
 
             }
 
@@ -144,10 +144,10 @@ public class Mg20BlockSpawner : MonoBehaviour
 
     private Vector2 GetRandomSpawnPosition()
     {
-        // ������ ��ġ �ε��� ����
+        
         int randomIndex = Random.Range(0, 3);
 
-        // �̸� ���ǵ� ��ġ�� �迭
+        
         Vector2[] spawnPositions = new Vector2[]
         {
         new Vector2(0f, -5.5f),
@@ -155,14 +155,56 @@ public class Mg20BlockSpawner : MonoBehaviour
         new Vector2(-2.2f, -5.5f),
         };
 
-        // ���õ� ������ ��ġ ��ȯ
+        
         return spawnPositions[randomIndex];
     }
 
 
     public void IncreaseSpeed()
     {
-        BlockSpeed += 2.0f; // ��ֹ��� ���ǵ� ����
-        time_diff -= 0.1f; // ��ֹ��� ���� ���� ����
+        BlockSpeed += 1.0f; 
+        time_diff -= 0.1f;
+
+        GameObject[] groundObjects = GameObject.FindGameObjectsWithTag("Ground"); //필드 파괴
+        foreach (var groundObject in groundObjects)
+        {
+            groundObject.GetComponent<Mg20NomalBlock>().SetSpeed(BlockSpeed);
+        }
+
+        GameObject[] BreakgroundObjects = GameObject.FindGameObjectsWithTag("BreakGround"); //필드 파괴
+        foreach (var BreakgroundObject in BreakgroundObjects)
+        {
+            BreakgroundObject.GetComponent<Mg20Brokenblock>().SetSpeed(BlockSpeed);
+        }
+        GameObject[] jellyObjects = GameObject.FindGameObjectsWithTag("jelly"); //필드 젤리 파괴
+        foreach (var jellyObject in jellyObjects)
+        {
+            jellyObject.GetComponent<Mg20jelly>().SetSpeed(BlockSpeed);
+        }
+
+    }
+
+    public void DecreaseSpeed()
+    {
+        BlockSpeed -= 1.0f; 
+        time_diff += 0.1f;
+
+        GameObject[] groundObjects = GameObject.FindGameObjectsWithTag("Ground"); //필드 파괴
+        foreach (var groundObject in groundObjects)
+        {
+            groundObject.GetComponent<Mg20NomalBlock>().SetSpeed(BlockSpeed);
+        }
+
+        GameObject[] BreakgroundObjects = GameObject.FindGameObjectsWithTag("BreakGround"); //필드 파괴
+        foreach (var BreakgroundObject in BreakgroundObjects)
+        {
+            BreakgroundObject.GetComponent<Mg20Brokenblock>().SetSpeed(BlockSpeed);
+        }
+        GameObject[] jellyObjects = GameObject.FindGameObjectsWithTag("jelly"); //필드 젤리 파괴
+        foreach (var jellyObject in jellyObjects)
+        {
+            jellyObject.GetComponent<Mg20jelly>().SetSpeed(BlockSpeed);
+        }
+
     }
 }

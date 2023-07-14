@@ -11,8 +11,7 @@ public class Mg19manager : MonoBehaviour
     public int level;
 
 
-    [SerializeField]
-    private GameObject GameOverPanel;
+   
 
     private int score = 0; // score=jelly ���ھ ���� ������ �������� ������ �ӵ� ��������
     public bool isGameOver = false;
