@@ -84,8 +84,14 @@ public class Mg11Spawner : MonoBehaviour
 
     public void IncreaseSpeed()
     {
-        Mg11ObstacleSpeed += 2.0f; // 장애물의 스피드 증가
+        Mg11ObstacleSpeed += 1.0f; // 장애물의 스피드 증가
         time_diff -= 0.1f; // 장애물의 생성 간격 감소
+    }
+
+    public void DecreaseSpeed()
+    {
+        Mg11ObstacleSpeed -= 1.0f; // 장애물의 스피드 증가
+        time_diff += 0.1f; // 장애물의 생성 간격 감소
     }
 
     public void GetHit()
