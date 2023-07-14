@@ -22,6 +22,9 @@ public class Mg7deadzone : MonoBehaviour
         {
             playerEntered = true;
             StartCoroutine(ResetPlayerPosition());
+
+            Mg7manager.instance.GameLevelDown(); //player out and level down
+
         }
     }
 

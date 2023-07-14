@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class StoreManager : MonoBehaviour
 {
     public GameObject plantItem;
-    public FarmManager farmManager;
+    public BetaManager farmManager;
     List<CropData> plantObjects = new List<CropData>();
     public Button clsoeButton;
     public RectTransform content;

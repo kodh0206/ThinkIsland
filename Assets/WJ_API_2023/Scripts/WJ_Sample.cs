@@ -242,7 +242,7 @@ public class WJ_Sample : MonoBehaviour
     {
         currentStatus = CurrentStatus.DIAGNOSIS;
         wj_conn.FirstRun_Diagnosis(a);
-        Level.text ="LV"+a.ToString();
+        //Level.text ="LV"+a.ToString();
     }
     public void ButtonEvent_GetLearning()
     {

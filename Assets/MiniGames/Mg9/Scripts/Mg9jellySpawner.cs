@@ -45,4 +45,11 @@ public class Mg9jellySpawner : MonoBehaviour
         jellySpeed += 2.0f; // 젤리의 스피드 증가
         time_diff -= 0.1f; // 젤리의 생성 간격 감소
     }
+
+    public void DecreaseSpeed()
+    {
+        jellySpeed -= 2.0f; // 젤리의 스피드 증가
+        time_diff += 0.1f; // 젤리의 생성 간격 감소
+    }
+
 }

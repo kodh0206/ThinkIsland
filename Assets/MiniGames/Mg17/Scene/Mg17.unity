@@ -754,7 +754,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Mg17shell: {fileID: 9174507016784539682, guid: 7d9a0e4d0de15b349b97d35bb0c8bd9b,
     type: 3}
-  Mg17shellSpeed: 5
+  Mg17shellSpeed: 4
   time_diff: 1.5
   minNumObstaclesToSpawn: 1
   maxNumObstaclesToSpawn: 1
@@ -2737,7 +2737,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2ccb81bb4fbd7b48b3f211ffd276f7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameOverPanel: {fileID: 0}
+  level: 0
   isGameOver: 0
 --- !u!4 &1774504886
 Transform:
@@ -2774,12 +2774,12 @@ PrefabInstance:
     - target: {fileID: 1163599836936205671, guid: 6dd99d8e6a33a6c4080458bfb3fd83d9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.8606477
+      value: -15.03
       objectReference: {fileID: 0}
     - target: {fileID: 1163599836936205671, guid: 6dd99d8e6a33a6c4080458bfb3fd83d9,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.678039
+      value: -0.31
       objectReference: {fileID: 0}
     - target: {fileID: 1163599836936205671, guid: 6dd99d8e6a33a6c4080458bfb3fd83d9,
         type: 3}

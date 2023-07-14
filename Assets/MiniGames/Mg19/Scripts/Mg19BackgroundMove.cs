@@ -25,9 +25,9 @@ public class Mg19BackgroundMove : MonoBehaviour
 
         if (mg19Player.isJumping)
         {
-            background1Speed = 0.75f;
-            background2Speed = 0.65f;
-            background3Speed = 0.6f;
+            background1Speed = 0.95f;
+            background2Speed = 0.85f;
+            background3Speed = 0.8f;
         }
         else
         {

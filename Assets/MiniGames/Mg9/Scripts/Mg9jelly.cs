@@ -23,6 +23,7 @@ public class Mg9jelly : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             MiniGameManager.Instance.AddJelly();
+            Mg9manager.instance.AddScore();
             Destroy(gameObject);
         }
     }

@@ -33,6 +33,8 @@ public class Mg20Deadzone : MonoBehaviour
         // Player 오브젝트를 찾습니다.
         GameObject player = GameObject.FindGameObjectWithTag("Player");
 
+        Mg20manager.instance.GameLevelDown();
+
         // Player 컴포넌트를 비활성화하여 조작 불가능 상태로 만듭니다.
         Player playerComponent = player.GetComponent<Player>();
         if (playerComponent != null)
@@ -54,6 +56,12 @@ public class Mg20Deadzone : MonoBehaviour
         {
             Destroy(groundObject);
         }
+
+        GameObject[] BreakgroundObjects = GameObject.FindGameObjectsWithTag("BreakGround"); //필드 파괴
+        foreach (var BreakgroundObject in BreakgroundObjects)
+        {
+            Destroy(BreakgroundObject);
+        }
         GameObject[] jellyObjects = GameObject.FindGameObjectsWithTag("jelly"); //필드 젤리 파괴
         foreach (var jellyObject in jellyObjects)
         {
@@ -69,6 +77,7 @@ public class Mg20Deadzone : MonoBehaviour
 
             GameObject newStartBlock = Instantiate(blockPrefab);
             newStartBlock.transform.position = BlockinitialPosition;
+
 
             // Player 컴포넌트를 다시 활성화하여 조작 가능 상태로 만듭니다.
             Player newPlayerComponent = newPlayer.GetComponent<Player>();

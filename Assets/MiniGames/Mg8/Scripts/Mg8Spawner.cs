@@ -68,7 +68,7 @@ public class Mg8Spawner : MonoBehaviour
                 Vector2 spawnPosition = new Vector2(12.4f, -0.5f);
                 new_Mg8Obstacle.transform.position = spawnPosition;
 
-                //new_Mg8Obstacle.GetComponent<Mg8Obstacle>().SetSpeed(Mg8ObstacleSpeed); // 장애물의 스피드 설정
+                new_Mg8Obstacle.GetComponent<Mg8Tree>().SetSpeed(Mg8ObstacleSpeed); // 장애물의 스피드 설정
                 Destroy(new_Mg8Obstacle, 8.0f);
             }
 
@@ -78,8 +78,15 @@ public class Mg8Spawner : MonoBehaviour
 
     public void IncreaseSpeed()
     {
-       
-        time_diff -= 0.1f; // 장애물의 생성 간격 감소
+        Mg8ObstacleSpeed += 1.0f;
+         time_diff -= 0.1f; // 장애물의 생성 간격 감소
     }
+
+    public void DecreaseSpeed()
+    {
+        Mg8ObstacleSpeed -= 1.0f;
+        time_diff += 0.1f; // 장애물의 생성 간격 감소
+    }
+
 }
 

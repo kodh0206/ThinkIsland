@@ -28,6 +28,8 @@ public class Mg17shell : MonoBehaviour
             AudioManager.Instance.Rock();
             other.gameObject.GetComponent<Mg17Player>().GetHit();
 
+            Mg17manager.instance.GameLevelDown(); //levelDown
+
             Mg17Spawner spawner1 = FindAnyObjectByType<Mg17Spawner>();
             spawner1.GetHit();
             Mg17RockSpawner spawner2 = FindAnyObjectByType<Mg17RockSpawner>();
@@ -47,7 +49,7 @@ public class Mg17shell : MonoBehaviour
             if (HItCount == 2)
             {
                 float randomValue = Random.value;
-                if (randomValue < 0.5f)
+                if (randomValue < 0.7f)
                 {
                     Vector3 shellPosition = transform.position;
                     Instantiate(jellyinShell, shellPosition, Quaternion.identity);
@@ -70,11 +72,11 @@ public class Mg17shell : MonoBehaviour
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
         Color originalColor = spriteRenderer.color;
 
-        spriteRenderer.color = new Color(0f, 0f, 0f); // ������ ��
+        spriteRenderer.color = new Color(0f, 0f, 0f); 
 
-        yield return new WaitForSeconds(0.5f); // ����� ���� ������ �ð�
+        yield return new WaitForSeconds(0.5f); 
 
-        spriteRenderer.color = originalColor; // ���� ������ �ǵ�����
+        spriteRenderer.color = originalColor; 
     }
 
     public void SetSpeed(float speed)

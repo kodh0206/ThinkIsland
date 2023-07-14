@@ -25,6 +25,7 @@ public class Mg12shell : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            Mg12manager.instance.GameLevelDown();
             other.gameObject.GetComponent<Mg12Player>().GetHit();
         }
 
@@ -44,7 +45,7 @@ public class Mg12shell : MonoBehaviour
                 }
                 Destroy(gameObject);
             }
-            AudioManager.Instance.ShellBreak();
+            //AudioManager.Instance.ShellBreak();
         }
     }
 

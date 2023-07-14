@@ -51,6 +51,10 @@ public class Mg9Spawner : MonoBehaviour
         time_diff -= 0.1f; // 장애물의 생성 간격 감소
     }
 
-
+    public void DecreaseSpeed()
+    {
+        Mg9ObstacleSpeed -= 2.0f; // 장애물의 스피드 증가
+        time_diff += 0.1f; // 장애물의 생성 간격 감소
+    }
 
 }

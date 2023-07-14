@@ -678,7 +678,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8abfaa47b47b73c4b8c934306a8c5b59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameOverPanel: {fileID: 0}
+  level: 0
   isGameOver: 0
 --- !u!1 &755056628
 GameObject:
@@ -9683,7 +9683,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jelly: {fileID: 8645805391684417829, guid: 29742eaaf9c4c0446b121f3fec629c65, type: 3}
-  jellySpeed: 5
+  jellySpeed: 4
   time_diff: 1.5
 --- !u!1 &1354571863
 GameObject:
@@ -9731,7 +9731,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Mg13Obstacle: {fileID: 96992942533154791, guid: e712fdab5391a7848b0c1a145d486738,
     type: 3}
-  Mg13ObstacleSpeed: 5
+  Mg13ObstacleSpeed: 4
   time_diff: 1.5
   minNumObstaclesToSpawn: 1
   maxNumObstaclesToSpawn: 1

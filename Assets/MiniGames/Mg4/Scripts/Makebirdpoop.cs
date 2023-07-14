@@ -69,4 +69,26 @@ public class Makebirdpoop : MonoBehaviour
             maxTimeDiff = 0.2f;
         }
     }
+
+    public void DecreaseSpeed()
+    {
+        minNumPoopsToSpawn -= 1;
+        maxNumPoopsToSpawn -= 1;
+
+        birdpoopSpeed -= 2.0f;
+
+        minTimeDiff += 0.2f;
+        maxTimeDiff += 0.2f;
+        if (minTimeDiff < 0.2f)
+        {
+            minTimeDiff = 0.2f;
+        }
+        if (maxTimeDiff < 0.2f)
+        {
+            maxTimeDiff = 0.2f;
+        }
+    }
+
+
+
 }

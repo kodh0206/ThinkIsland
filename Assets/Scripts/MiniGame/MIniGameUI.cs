@@ -17,7 +17,7 @@ public class MIniGameUI : MonoBehaviour
     
     private void OnEnable()
     {
-       totalJelly.text = "Jellies"+miniGameManager.totalJelly.ToString();
+       totalJelly.text = miniGameManager.totalJelly.ToString();
        miniGameManager.minigameUIActive =true;
     }
 

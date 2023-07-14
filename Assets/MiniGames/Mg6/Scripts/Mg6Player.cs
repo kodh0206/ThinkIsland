@@ -87,7 +87,7 @@ public class Mg6Player : MonoBehaviour
 
     private void Update()
     {
-        if ((Input.GetKeyDown(KeyCode.Space)|| (RightButton &&PushingButton)) && !isJumping )
+        if ((Input.GetKeyDown(KeyCode.Space)|| (RightButton &&PushingButton)) && !isJumping && !nowJumping)
         {
             isJumping = true;
             currentJumpForce = jumpForce;
@@ -95,7 +95,7 @@ public class Mg6Player : MonoBehaviour
             isPressed = true;
             elapsedTime = 0.0f;
         }
-        else if ((Input.GetKey(KeyCode.Space) || (RightButton && PushingButton)) && isJumping )
+        else if ((Input.GetKey(KeyCode.Space) || (RightButton && PushingButton)) && isJumping && !nowJumping)
         {
             currentJumpForce += jumpForceIncrement * Time.deltaTime;
             currentJumpForce = Mathf.Clamp(currentJumpForce, 0.0f, maxJumpForce);
@@ -169,30 +169,31 @@ public class Mg6Player : MonoBehaviour
     public void GetHit()
     {
         StartCoroutine(DisableControlAndResetColor());
+
     }
 
     private IEnumerator DisableControlAndResetColor()
     {
-        // ���� ��Ȱ��ȭ
+        // can`t controll
         enabled = false;
 
-        // ���� ����
+        Mg6manager.instance.GameLevelDown();
+
+        // change color
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
         if (spriteRenderer != null)
         {
             spriteRenderer.color = new Color(0.77f, 0.52f, 0f);
         }
 
-        // 2�ʰ� ���
+        // wait2
         yield return new WaitForSeconds(2f);
 
-        // ���� Ȱ��ȭ
+        // can controll
         enabled = true;
 
-        // 1�ʰ� poop ���� ���� ����
-        yield return new WaitForSeconds(1f);
 
-        // ���� ������� ����
+        // return color
         if (spriteRenderer != null)
         {
             spriteRenderer.color = Color.white;

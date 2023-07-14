@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Mg15Obstacle : MonoBehaviour
 {
-    public float gravityScaleIncreaseRate = 1f; // gravity scale�� ����ϴ� ����
-    public float maxGravityScale = 1f; // �ִ� gravity scale ��
+    public float gravityScaleIncreaseRate = 1f; 
+    public float maxGravityScale = 1f; 
 
     private Rigidbody2D rb;
     private bool isScaleChanged = false;
@@ -13,7 +13,7 @@ public class Mg15Obstacle : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.gravityScale = -1f; // ������ �� gravity scale�� -1�� ����
+        rb.gravityScale = -1f; 
     
     }
 
@@ -40,13 +40,13 @@ public class Mg15Obstacle : MonoBehaviour
         if (other.gameObject.CompareTag("stair"))
         {
             rb.gravityScale = 1.0f;
-            transform.localScale = new Vector3(1, -1, 1); // �������� (1, -1, 1)�� ����
-            isScaleChanged = true; // ������ ���� ���¸� ǥ��
+            transform.localScale = new Vector3(1, -1, 1); 
+            isScaleChanged = true; 
         }
 
         if (other.gameObject.CompareTag("Player"))
         {   
-            //AudioManager.Instance.ObstacleFly();
+            AudioManager.Instance.ObstacleFly();
             other.gameObject.GetComponent<Mg15Player>().GetHit();
         }
     }
