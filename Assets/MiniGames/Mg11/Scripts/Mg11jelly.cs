@@ -5,7 +5,7 @@ using UnityEngine;
 public class Mg11jelly : MonoBehaviour
 {
     // Start is called before the first frame update
-    public float jellySpeed = 5f; // ������ �ӵ�
+    public float jellySpeed = 5f; 
 
     void Start()
     {
@@ -14,9 +14,9 @@ public class Mg11jelly : MonoBehaviour
 
     private void Update()
     {
-        Vector2 direction = -transform.position.normalized; // (0, 0)���� ���ϴ� ����
+        Vector2 direction = -transform.position.normalized; 
 
-        // ������ ����
+        
         transform.Translate(direction * jellySpeed * Time.deltaTime);
     }
 
@@ -25,6 +25,7 @@ public class Mg11jelly : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             MiniGameManager.Instance.AddJelly();
+            Mg11manager.instance.AddScore();
             Destroy(gameObject);
         }
         if (other.gameObject.tag == "egg")
