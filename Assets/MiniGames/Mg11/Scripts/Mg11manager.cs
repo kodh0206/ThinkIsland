@@ -25,7 +25,8 @@ public class Mg11manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        level = 0;
+        GameLevelsetting();
     }
 
     // Update is called once per frame

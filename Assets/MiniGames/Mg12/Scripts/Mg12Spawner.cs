@@ -51,7 +51,13 @@ public class Mg12Spawner : MonoBehaviour
 
     public void IncreaseSpeed()
     {
-        Mg12shellSpeed += 2.0f; // ��ֹ��� ���ǵ� ����
-        time_diff -= 0.1f; // ��ֹ��� ���� ���� ����
+        Mg12shellSpeed += 1.0f; 
+        time_diff -= 0.1f; 
+    }
+
+    public void DecreaseSpeed()
+    {
+        Mg12shellSpeed -= 1.0f;
+        time_diff += 0.1f;
     }
 }
