@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 using TMPro;
 public class BetaManager : MonoBehaviour
 {   
+    
     //General
     public int money;
     public int jelly;
@@ -19,6 +20,10 @@ public class BetaManager : MonoBehaviour
     public TextMeshProUGUI  moneyText;
     public TextMeshProUGUI  jellyText;
     public TextMeshProUGUI energy;
+
+    public TextMeshProUGUI levelText; //레밸
+    public TextMeshProUGUI currentExpText;
+    public TextMeshProUGUI MaxExpText;
     //Farmimng
     public CropData selectPlant = null; // The selected plant
     public Field selectPlot = null; // The selected plot
@@ -44,7 +49,9 @@ public class BetaManager : MonoBehaviour
 
 
     void Awake()
-    {
+    {   
+        // 싱글톤 초기화
+       
         miniGame =GameObject.Find("MiniGameManager").GetComponent<MiniGameManager>();
         gameController = GameObject.Find("GameManager").GetComponent<GameController>();
     }
@@ -61,6 +68,10 @@ public class BetaManager : MonoBehaviour
 
         energy.text =gameController.currentActionPoints.ToString();
         WaterButton.onClick.AddListener(SelectWater);
+
+        levelText.text = "LV: " + gameController.level.ToString();
+        currentExpText.text = "EXP: " + gameController.current_experience.ToString() + " / ";
+        MaxExpText.text = gameController.expToLevelUp[gameController.level-1].ToString();
 
     }   
 
@@ -199,6 +210,15 @@ public class BetaManager : MonoBehaviour
     {
         jellyText.text =GameController.Instance.currentjellyCount.ToString();
     }
+    public void UpdateLevelAndExpUI()
+    {
+    levelText.text = "LV: " + gameController.level.ToString();
+    currentExpText.text = "EXP: " + gameController.current_experience.ToString() + " / ";
+    MaxExpText.text = gameController.expToLevelUp[gameController.level].ToString();
+    }
+
+
+
     void ExitGame()
     {
         Application.Quit();
