@@ -50,4 +50,9 @@ public class Mg1MakeCow : MonoBehaviour
     {
         cowSpeed += 2.0f;
     }
+
+    public void DecreaseSpeed()
+    {
+        cowSpeed -= 2.0f;
+    }
 }

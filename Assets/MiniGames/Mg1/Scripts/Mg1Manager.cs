@@ -8,6 +8,8 @@ public class Mg1Manager : MonoBehaviour
     public static Mg1Manager instance = null;
 
 
+    public int level;
+
     [SerializeField]
     private TextMeshProUGUI scoreText;
 
@@ -25,6 +27,12 @@ public class Mg1Manager : MonoBehaviour
         }
     }
 
+    void Start()
+    {
+        level= 1;
+        GameLevelsetting();
+    }
+
     public void AddScore()
     {
         score += 1;
@@ -32,6 +40,8 @@ public class Mg1Manager : MonoBehaviour
 
         if (score % 5 == 0)
         {
+            level += 1;
+
             Mg1MakeJelly spawnerJelly = FindObjectOfType<Mg1MakeJelly>();
             Mg1MakePoop spawnerPoop = FindObjectOfType<Mg1MakePoop>();
             Mg1MakeCow spawnerCow = FindObjectOfType<Mg1MakeCow>();
@@ -68,4 +78,40 @@ public class Mg1Manager : MonoBehaviour
         yield return new WaitForSeconds(2f);
         isStunned = false;
     }*/
+
+
+    public void GameLevelsetting() //start and level setting
+    {
+
+        Mg1MakeJelly spawnerJelly = FindObjectOfType<Mg1MakeJelly>();
+        Mg1MakePoop spawnerPoop = FindObjectOfType<Mg1MakePoop>();
+        Mg1MakeCow spawnerCow = FindObjectOfType<Mg1MakeCow>();
+
+        for (int i = 0; i < level; i++)
+        {
+            spawnerJelly.IncreaseSpeed();
+            spawnerPoop.IncreaseSpeed();
+            spawnerCow.IncreaseSpeed();
+        }
+
+    }
+
+    public void GameLevelDown() //when hit and level Down
+    {
+
+        score = 0;
+        Mg1MakeJelly spawnerJelly = FindObjectOfType<Mg1MakeJelly>();
+        Mg1MakePoop spawnerPoop = FindObjectOfType<Mg1MakePoop>();
+        Mg1MakeCow spawnerCow = FindObjectOfType<Mg1MakeCow>();
+        if (level != 0)
+        {
+            level -= 1;
+            spawnerJelly.DecreaseSpeed();
+            spawnerPoop.DecreaseSpeed();
+            spawnerCow.DecreaseSpeed();
+
+        }
+
+    }
+
 }

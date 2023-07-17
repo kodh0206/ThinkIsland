@@ -31,4 +31,9 @@ public class Mg1MakeJelly : MonoBehaviour
     {
         jellySpeed += 2.0f;
     }
+
+    public void DecreaseSpeed()
+    {
+        jellySpeed -= 2.0f;
+    }
 }

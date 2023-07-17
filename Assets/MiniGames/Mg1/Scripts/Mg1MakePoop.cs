@@ -50,4 +50,9 @@ public class Mg1MakePoop : MonoBehaviour
     {
         poopSpeed += 2.0f;
     }
+
+    public void DecreaseSpeed()
+    {
+        poopSpeed -= 2.0f;
+    }
 }

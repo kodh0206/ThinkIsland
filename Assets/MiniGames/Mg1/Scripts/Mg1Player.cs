@@ -178,6 +178,9 @@ public class Mg1Player : MonoBehaviour
     {
         isPlayerReset = true;
         transform.position = new Vector2 (-6.86f, -2f);
+
+        Mg1Manager.instance.GameLevelDown();
+
         Invoke("IsPlayerResetFalse", 1f);
     }
 
