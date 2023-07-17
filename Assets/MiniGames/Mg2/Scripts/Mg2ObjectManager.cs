@@ -70,4 +70,16 @@ public class Mg2ObjectManager : MonoBehaviour
             }
         }
     }
+
+
+    public void IncreaseSpeed()
+    {
+        waitingTime -= 0.2f;
+    }
+
+    public void DecreaseSpeed()
+    {
+        waitingTime += 0.2f;
+    }
+
 }

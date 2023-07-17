@@ -13,7 +13,7 @@ public class Mg2Jelly : MonoBehaviour
     private float elapsedTime = 0f;
     private bool isMoving = false;
 
-    public int score = 0;
+    
 
     private void Start()
     {
@@ -36,8 +36,10 @@ public class Mg2Jelly : MonoBehaviour
                 {
                     if (collider.gameObject.CompareTag("Player"))
                     {
-                        score += 1;
+                        
                         MiniGameManager.Instance.AddJelly();
+                        Mg2manager.instance.AddScore();
+
                         gameObject.SetActive(false);
 
                         break;

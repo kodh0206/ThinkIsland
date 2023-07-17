@@ -117,6 +117,8 @@ public class Mg2Player : MonoBehaviour
     // 방어 실패
     public void GetObstacle()
     {
+        Mg2manager.instance.GameLevelDown(); //levelDown
+
         StartCoroutine(DisableControlAndResetColor());
         StartCoroutine(StunPlayer());
     }
@@ -150,7 +152,7 @@ public class Mg2Player : MonoBehaviour
         isStunned = true;
         // 보더콜리 넘어지는 스프라이트로 1.5초 변경
         SwapAnimation();
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1.0f);
         isStunned = false;
     }
 
