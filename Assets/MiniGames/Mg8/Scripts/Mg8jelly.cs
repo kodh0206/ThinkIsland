@@ -22,7 +22,7 @@ public class Mg8jelly : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            //MiniGameManager.Instance.AddJelly();
+            MiniGameManager.Instance.AddJelly();
             Mg8manager.instance.AddScore();
             Destroy(gameObject);
         }
