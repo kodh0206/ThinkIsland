@@ -17,7 +17,7 @@ public class Poop : MonoBehaviour
         {   
             AudioManager.Instance.PlayPoop();
             MiniGame3Manager.instance.StunPlayer();
-
+        
 
             MiniGame3Manager.instance.GameLevelDown(); // Hit and level Down
 

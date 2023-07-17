@@ -39,7 +39,7 @@ public class MiniGame3Manager : MonoBehaviour
     public void AddScore() 
     {
         score += 1; // for level Controll
-        MiniGameManager.Instance.AddJelly();//젤리추가 
+       
         if (score % 5 == 0)
         {
             PoopSpawner spawner = FindObjectOfType <PoopSpawner> ();
