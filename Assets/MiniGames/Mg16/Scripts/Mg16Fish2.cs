@@ -69,11 +69,19 @@ public class Mg16Fish2 : MonoBehaviour
         playerIsTrigger = false;
     }
 
-    public void SpeedTime()
+    public void IncreaseSpeed()
     {
         if (moveDuration >= 0.8f)
         {
             moveDuration -= 0.3f;
+        }
+    }
+
+    public void DecreaseSpeed()
+    {
+        if (moveDuration <= 1.5f)
+        {
+            moveDuration += 0.3f;
         }
     }
 }

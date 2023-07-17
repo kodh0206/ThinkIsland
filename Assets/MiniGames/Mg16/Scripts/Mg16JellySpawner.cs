@@ -42,11 +42,19 @@ public class Mg16JellySpawner : MonoBehaviour
         }
     }
 
-    public void SpeedTime()
+    public void IncreaseSpeed()
     {
         if (time_diff >= 3.1f)
         {
             time_diff -= 0.3f;
+        }
+    }
+
+    public void DecreaseSpeed()
+    {
+        if (time_diff <= 4.0f)
+        {
+            time_diff += 0.3f;
         }
     }
 }

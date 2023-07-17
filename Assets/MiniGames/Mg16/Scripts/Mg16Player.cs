@@ -43,11 +43,19 @@ public class Mg16Player : MonoBehaviour
         }
     }
 
-    public void SpeedTime()
+    public void IncreaseSpeed()
     {
         if (moveSpeed <= 3.9f)
         {
             moveSpeed += 0.3f;
+        }
+    }
+
+    public void DecreaseSpeed()
+    {
+        if (moveSpeed >= 3.0f)
+        {
+            moveSpeed -= 0.3f;
         }
     }
 
@@ -74,6 +82,9 @@ public class Mg16Player : MonoBehaviour
     public void GetHit()
     {
         // ������ ����
+
+        Mg16Manager.instance.GameLevelDown();
+
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         rb.velocity = Vector2.zero;
 
