@@ -3,7 +3,8 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 
 public class Transitioner : MonoBehaviour
-{
+{   
+    
     const float MinimumTransitionTime = 0.1f;
     const float MaximumTransitionTime = 5.0f;
     const float MinimumTransitionBlockWidth = 1;

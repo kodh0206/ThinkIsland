@@ -6,6 +6,8 @@ public class GameController : MonoBehaviour
 {   
     [SerializeField]
     GameSaveManager gameSaveManager;
+    [SerializeField]
+    LevelManager levelManager;
     private static GameController _instance;
     public static GameController Instance { get { return _instance; } }
     public string currentmbrId;

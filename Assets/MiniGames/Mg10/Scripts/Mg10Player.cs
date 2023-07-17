@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using MoreMountains.Feedbacks;
 public class Mg10Player : MonoBehaviour
 {
     // Start is called before the first frame update
+    public MMF_Player mMF_Player;
     public float initialSpeed = 5.0f;
     public float horizontalSpeed = 10.0f;
     private float verticalSpeed;
@@ -88,7 +89,7 @@ public class Mg10Player : MonoBehaviour
         // ������ ����
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         rb.velocity = Vector2.zero;
-
+        mMF_Player?.PlayFeedbacks();
         // �񵿱� ó�� ����
         StartCoroutine(DisableControlAndResetColor());
     }
