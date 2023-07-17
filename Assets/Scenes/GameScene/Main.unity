@@ -258,6 +258,78 @@ PrefabInstance:
       propertyPath: _transitionBlockAnimationTime
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 11427718, guid: 354f0e6c125fb204a98dec076586c711, type: 3}
+      propertyPath: _transitionBlockPrefabs.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 11427718, guid: 354f0e6c125fb204a98dec076586c711, type: 3}
+      propertyPath: _transitionOrderPrefabs.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 11427718, guid: 354f0e6c125fb204a98dec076586c711, type: 3}
+      propertyPath: _transitionBlockPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 114078, guid: 678db6530e9be224d96249881320eab0, type: 3}
+    - target: {fileID: 11427718, guid: 354f0e6c125fb204a98dec076586c711, type: 3}
+      propertyPath: _transitionBlockPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 177522, guid: dcf66d11c242c5745be0d2cc345725c1, type: 3}
+    - target: {fileID: 11427718, guid: 354f0e6c125fb204a98dec076586c711, type: 3}
+      propertyPath: _transitionBlockPrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 109106, guid: 33cab64ea0e746b409206c2f4c057533, type: 3}
+    - target: {fileID: 11427718, guid: 354f0e6c125fb204a98dec076586c711, type: 3}
+      propertyPath: _transitionBlockPrefabs.Array.data[3]
+      value: 
+      objectReference: {fileID: 120858, guid: fb2c3eb951de8b54fa28fd715ff04aeb, type: 3}
+    - target: {fileID: 11427718, guid: 354f0e6c125fb204a98dec076586c711, type: 3}
+      propertyPath: _transitionBlockPrefabs.Array.data[4]
+      value: 
+      objectReference: {fileID: 161932, guid: f0685f027503dbe40bf9446d12499e13, type: 3}
+    - target: {fileID: 11427718, guid: 354f0e6c125fb204a98dec076586c711, type: 3}
+      propertyPath: _transitionBlockPrefabs.Array.data[5]
+      value: 
+      objectReference: {fileID: 126726, guid: 4f77bea0d0de694489a2c738007b5cbc, type: 3}
+    - target: {fileID: 11427718, guid: 354f0e6c125fb204a98dec076586c711, type: 3}
+      propertyPath: _transitionBlockPrefabs.Array.data[6]
+      value: 
+      objectReference: {fileID: 126726, guid: 4f77bea0d0de694489a2c738007b5cbc, type: 3}
+    - target: {fileID: 11427718, guid: 354f0e6c125fb204a98dec076586c711, type: 3}
+      propertyPath: _transitionBlockPrefabs.Array.data[7]
+      value: 
+      objectReference: {fileID: 196894, guid: 31ecfd1d7c0b3e947ade69b03fc4e7bc, type: 3}
+    - target: {fileID: 11427718, guid: 354f0e6c125fb204a98dec076586c711, type: 3}
+      propertyPath: _transitionOrderPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 114910, guid: 599e449315a2e0146a063b3a49d2b3ce, type: 3}
+    - target: {fileID: 11427718, guid: 354f0e6c125fb204a98dec076586c711, type: 3}
+      propertyPath: _transitionOrderPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 122070, guid: f805bdfb3ca497948b2d547ed759caf5, type: 3}
+    - target: {fileID: 11427718, guid: 354f0e6c125fb204a98dec076586c711, type: 3}
+      propertyPath: _transitionOrderPrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 109202, guid: 882cb8d3312196a44927971307b965d0, type: 3}
+    - target: {fileID: 11427718, guid: 354f0e6c125fb204a98dec076586c711, type: 3}
+      propertyPath: _transitionOrderPrefabs.Array.data[3]
+      value: 
+      objectReference: {fileID: 111434, guid: 3d83db8e1b2c0e44aba5aa8212d133e6, type: 3}
+    - target: {fileID: 11427718, guid: 354f0e6c125fb204a98dec076586c711, type: 3}
+      propertyPath: _transitionOrderPrefabs.Array.data[4]
+      value: 
+      objectReference: {fileID: 189632, guid: 390c97dfcdd045646a5c8d39eab0aca3, type: 3}
+    - target: {fileID: 11427718, guid: 354f0e6c125fb204a98dec076586c711, type: 3}
+      propertyPath: _transitionOrderPrefabs.Array.data[5]
+      value: 
+      objectReference: {fileID: 147186, guid: 7ce37156b307e6d4ba06a3e5dafa2919, type: 3}
+    - target: {fileID: 11427718, guid: 354f0e6c125fb204a98dec076586c711, type: 3}
+      propertyPath: _transitionOrderPrefabs.Array.data[6]
+      value: 
+      objectReference: {fileID: 102430, guid: 8f714440ba498b14cb01c87b3295e40b, type: 3}
+    - target: {fileID: 11427718, guid: 354f0e6c125fb204a98dec076586c711, type: 3}
+      propertyPath: _transitionOrderPrefabs.Array.data[7]
+      value: 
+      objectReference: {fileID: 120396, guid: 362d389f84344ae40b5df2c4cc82a5cd, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 354f0e6c125fb204a98dec076586c711, type: 3}
 --- !u!1001 &191666038
