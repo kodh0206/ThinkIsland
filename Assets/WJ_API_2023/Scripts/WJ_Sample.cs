@@ -111,6 +111,9 @@ public class WJ_Sample : MonoBehaviour
                 break;
             case "E":
                 Debug.Log("진단평가 완료! �н� �ܰ�� �Ѿ�ϴ�.");
+
+                APIanimationController.instance.ChangeAnimation();
+
                 wj_displayText.SetState("", "", "", "");
                 currentStatus = CurrentStatus.LEARNING;
                 Debug.Log("진단 통과여부"+wj_conn.cDiagnotics.data.prgsCd);
@@ -196,7 +199,7 @@ public class WJ_Sample : MonoBehaviour
 
                 wj_conn.Diagnosis_SelectAnswer(textAnsr[_idx].text, ansrCwYn, (int)(questionSolveTime * 1000));
 
-                wj_displayText.SetState("������ ��", textAnsr[_idx].text, ansrCwYn, questionSolveTime + " ��");
+                wj_displayText.SetState("Time", textAnsr[_idx].text, ansrCwYn, questionSolveTime + " ��");
 
                 panel_question.SetActive(false);
                 questionSolveTime = 0;
@@ -222,9 +225,12 @@ public class WJ_Sample : MonoBehaviour
                 }
                 else GetLearning(currentQuestionIndex);
 
+                APIanimationController.instance.ChangeAnimation(); // ChangeAnimationCode
+
                 questionSolveTime = 0;
                 break;
         }
+        
     }
     void GoBackToMainMenu()
     {

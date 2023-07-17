@@ -56,6 +56,7 @@ public class WJ_Connector : MonoBehaviour
 
     // 저장된 값 읽어오기
     string savedMBR_ID = PlayerPrefs.GetString("MBR_ID", string.Empty);
+
     if (!string.IsNullOrEmpty(savedMBR_ID))
     {
         // 저장된 값이 있는 경우 처리
