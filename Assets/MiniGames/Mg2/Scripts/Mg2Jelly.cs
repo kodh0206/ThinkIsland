@@ -35,13 +35,10 @@ public class Mg2Jelly : MonoBehaviour
                 foreach (Collider2D collider in colliders)
                 {
                     if (collider.gameObject.CompareTag("Player"))
-                    {
-                        
+                    {      
                         MiniGameManager.Instance.AddJelly();
                         Mg2manager.instance.AddScore();
-
                         gameObject.SetActive(false);
-
                         break;
                     }
                 }

@@ -21,7 +21,7 @@ public class Mg7jelly : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            //MiniGameManager.Instance.AddJelly(); //�����Դ� �κ�
+            MiniGameManager.Instance.AddJelly(); //�����Դ� �κ�
             Mg7manager.instance.AddScore();
             Destroy(gameObject);
         }

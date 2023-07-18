@@ -27,7 +27,8 @@ public class MiniGameManager : MonoBehaviour
     private int gamesToPlay=5;
     public bool isMiniGameScene = false; // 현재 씬이 미니게임 씬인지 여부를 확인하기 위한 플래그
     private float deltaTime = 0.0f;
-
+    public int gameLevel;
+    
     public float countdownStartTime = 3f;
     private bool isCountDown =false;
     private void Awake()
@@ -269,6 +270,7 @@ private IEnumerator Fade(float finalAlpha)
     {
         totalJelly += 1;
         GameController.Instance.currentjellyCount+=1;
+        GameController.Instance.GainExperience(1);
         minigameUI.GetComponent<MIniGameUI>().UpdateJellyText();  // UI 업데이트
         AudioManager.Instance.PlayJelly();
     }

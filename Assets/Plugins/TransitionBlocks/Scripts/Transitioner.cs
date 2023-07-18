@@ -1,10 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
-
+using System.Collections.Generic;
 public class Transitioner : MonoBehaviour
-{   
-    
+{
     const float MinimumTransitionTime = 0.1f;
     const float MaximumTransitionTime = 5.0f;
     const float MinimumTransitionBlockWidth = 1;
@@ -22,7 +21,7 @@ public class Transitioner : MonoBehaviour
 
     [Header("Transition Block Settings")]
     [Tooltip("The transition block that will be used in this transition")]
-    public GameObject _transitionBlockPrefab;
+    public List<GameObject> _transitionBlockPrefabs;
     [Tooltip("The sprite to be used for each of the transition blocks")]
     public Sprite _transitionBlockSprite;
     [Tooltip("The color to be used for each of the transition blocks")]
@@ -33,7 +32,7 @@ public class Transitioner : MonoBehaviour
 
     [Header("Transition Order Settings")]
     [Tooltip("The transition order to be used when transitioning")]
-    public GameObject _transitionOrderPrefab;
+     public List<GameObject> _transitionOrderPrefabs;
     [Tooltip("The time it takes to place all of the transition blocks down in this transition.")]
     [Range(MinimumTransitionTime, MaximumTransitionTime)]
     public float _transitionTime = 1.0f;
@@ -228,36 +227,41 @@ public class Transitioner : MonoBehaviour
 
     private TransitionOrderBase MakeTransitionOrderer(TransitionType transitionType)
     {
-        if (_transitionBlockPrefab == null)
-        {
-            Debug.LogWarning("A transition block prefab hasn't been added to the transitioner. Please add one in the inspector.");
-            return null;
-        }
-        if (_transitionOrderPrefab == null)
-        {
-            Debug.LogWarning("A transition block order hasn't been added to the transitioner. Please add one in the inspector.");
-            return null;
-        }
+    if (_transitionBlockPrefabs == null || _transitionBlockPrefabs.Count == 0)
+    {
+        Debug.LogWarning("No transition block prefabs have been added to the transitioner. Please add one in the inspector.");
+        return null;
+    }
+    if (_transitionOrderPrefabs == null || _transitionOrderPrefabs.Count == 0)
+    {
+        Debug.LogWarning("No transition block orders have been added to the transitioner. Please add one in the inspector.");
+        return null;
+    }
 
-        TransitionSetup transitionSetup = GetComponent<TransitionSetup>();
-        if (transitionSetup == null)
-        {
-            transitionSetup = gameObject.AddComponent<TransitionSetup>();
-        }
+    // Select a random block and order prefab
+    System.Random rand = new System.Random();
+    GameObject _transitionBlockPrefab = _transitionBlockPrefabs[rand.Next(_transitionBlockPrefabs.Count)];
+    GameObject _transitionOrderPrefab = _transitionOrderPrefabs[rand.Next(_transitionOrderPrefabs.Count)];
 
-        if(_transitionCamera == null)
-        {
-            _transitionCamera = Camera.main;
-        }
+    TransitionSetup transitionSetup = GetComponent<TransitionSetup>();
+    if (transitionSetup == null)
+    {
+        transitionSetup = gameObject.AddComponent<TransitionSetup>();
+    }
 
-        _transitionOrdererObject = transitionSetup.SetUpTransition(transitionType, _widthOfTransitionInBlocks, _transitionBlockAnimationTime, _transitionBlockSprite, _transitionBlockColor, _transitionBlockPrefab, _transitionOrderPrefab, _skipEveryXBlockUpdates, _transitionCamera);
-        if (_transitionOrdererObject == null)
-        {
-            Debug.LogWarning("Unable to set up the transitioner. Make sure all the inspector values are set and that the blocks and orderer are not null or empty.");
-            return null;
-        }
+    if(_transitionCamera == null)
+    {
+        _transitionCamera = Camera.main;
+    }
 
-        return _transitionOrdererObject.GetComponent<TransitionOrderBase>();
+    _transitionOrdererObject = transitionSetup.SetUpTransition(transitionType, _widthOfTransitionInBlocks, _transitionBlockAnimationTime, _transitionBlockSprite, _transitionBlockColor, _transitionBlockPrefab, _transitionOrderPrefab, _skipEveryXBlockUpdates, _transitionCamera);
+    if (_transitionOrdererObject == null)
+    {
+        Debug.LogWarning("Unable to set up the transitioner. Make sure all the inspector values are set and that the blocks and orderer are not null or empty.");
+        return null;
+    }
+
+    return _transitionOrdererObject.GetComponent<TransitionOrderBase>();
     }
 
     private IEnumerator RunCoroutineWhenCanTransition(IEnumerator coroutine)
