@@ -6,13 +6,32 @@ public class GameController : MonoBehaviour
 {   
     [SerializeField]
     GameSaveManager gameSaveManager;
+    [SerializeField]
+    
     private static GameController _instance;
     public static GameController Instance { get { return _instance; } }
     public string currentmbrId;
     public string currentprgsCd;
+      
     public int currentjellyCount;
     public int curentgold;
     public int currentActionPoints;
+    public int level=1;
+    public int[] expToLevelUp = {
+        5, 37, 60, 78, 92,104,115,124,133,140, //1~10
+        147,154,159,165,170,175,175,179,184,188,//11~20
+        192,195,199,202,205,209,212,214,217,220,//21~30
+        222,225,227,230,232,234,237,239,241,243,//31~40
+        245,247,248,250,252,254,256,257,259,260,//41~50
+        262,264,265,267,268,269,271,272,274,275,//51~60
+        276,277,279,280,282,282,284,285,286,287,//61~70
+        288,289,290,292,293,294,295,296,297,298,//71~80
+        299,300,301,302,303,303,304,305,306,307,//81~90
+        308,309,310,311,311,312,313,314,315 //90~99
+        }; 
+        // 각 레벨별 필요한 경험치
+    public int current_experience;
+    public int max_experience;
     public List<string> currentUnlockedAbilities;
     public List<string> currentUnlockedBuildings;
     public List<string> currentUnlockedCrops;
@@ -46,6 +65,31 @@ public class GameController : MonoBehaviour
 
     void LoadData(){
         
+    }
+
+
+       public void GainExperience(int amount)
+    {
+        current_experience += amount;
+
+        // 현재 레벨의 필요 경험치를 초과하면 레벨업을 처리
+        while (current_experience >= expToLevelUp[level-1])
+        {
+            LevelUp();
+        }
+       
+    }
+
+    void LevelUp()
+    {
+        // 레벨 업
+        level++;
+
+        // 현재 레벨의 필요한 경험치를 초과한 값은 다음 레벨의 경험치로 계속 유지
+        current_experience = current_experience - expToLevelUp[level - 2];
+
+        // 새 레벨에 대한 처리를 수행. 예: 능력치 증가, 새로운 능력 잠금 해제 등
+        // ...
     }
   
 }

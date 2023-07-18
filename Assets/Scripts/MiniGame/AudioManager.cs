@@ -27,7 +27,9 @@ public class AudioManager : MonoBehaviour
     public AudioClip capsulebreak;
     public AudioClip breakPlatform;
     public AudioClip minigamebegin;
-    
+    public AudioClip eggBreak;
+    public AudioClip beeHive;
+
     private void Awake()
     {
     if (_instance != null && _instance != this)
@@ -173,6 +175,15 @@ public class AudioManager : MonoBehaviour
         StartCoroutine(StartMiniGameDelayed());
     }
 
+    public void PlayEggBreak()
+    {
+        audioSource.PlayOneShot(eggBreak);
+    }
+
+    public void PlayBeehive()
+    {
+        audioSource.PlayOneShot(beeHive);
+    }
     private IEnumerator StartMiniGameDelayed()
     {
         yield return new WaitForSeconds(minigamebegin.length);

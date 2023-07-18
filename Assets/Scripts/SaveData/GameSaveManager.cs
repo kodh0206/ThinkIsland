@@ -15,7 +15,12 @@ public class GameSaveManager : MonoBehaviour
         get { return prgsCd; }
         set { prgsCd = value; }
     }
-
+    private int level;
+    public int Level
+    {
+        get{return level;}
+        set {level = value;}
+    }
     private int jellyCount;
     public int JellyCount
     {
@@ -101,6 +106,7 @@ public List<string> UnlockedMiniGames
         // Add the features to the save data
         saveData["mbtId"] =mbrId;
         saveData["prgsCd"] =prgsCd;
+        saveData["level"]=level;
         saveData["jellyCount"] = jellyCount;
         saveData["goldCount"] = goldCount;
         saveData["actionPoints"] = actionPoints;
@@ -127,6 +133,7 @@ public List<string> UnlockedMiniGames
 
             // Retrieve the features from the save data
             jellyCount = GetValue<int>(saveData, "jellyCount");
+            level =GetValue<int>(saveData,"level");
             goldCount = GetValue<int>(saveData, "goldCount");
             actionPoints = GetValue<int>(saveData, "actionPoints");
             unlockedCharacters = GetValue<List<string>>(saveData, "unlockedCharacters");
@@ -141,6 +148,7 @@ public List<string> UnlockedMiniGames
         else
         {
             // No saved data found, initialize with default values
+            level =1;
             jellyCount = 0;
             goldCount = 0;
             actionPoints = 0;

@@ -1,0 +1,1654 @@
+fileFormatVersion: 2
+guid: a353f5eb542617146b7b0b88e9ecc5db
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: MG8_0
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 304
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8e3596665e2fc54a8279c484f6e1896
+      internalID: 256519339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MG8_1
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 176
+        width: 48
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0582a9d305e7e3e4e8e4799eb3a51711
+      internalID: -1148844979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MG8_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 304
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc3a2ce364518504b85a3c962b9d5d5f
+      internalID: 946128250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MG8_3
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 176
+        width: 48
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67a36ec25763b6544b377d0e26180719
+      internalID: 290304029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MG8_6
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 320
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2127663b784d1114491586b1cb061ad8
+      internalID: -295985467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MG8_8
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 320
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc6c538452e619843aaa8f8591a2f354
+      internalID: -1787674537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MG8_9
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 320
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40be92128d3b3ad42a9da95b54e43219
+      internalID: 1752991107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MG8_10
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 320
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08e6237cd0c3e2b459d710bbbc6282e0
+      internalID: -2020745529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MG8_11
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 320
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5aad78de3c4a65f47b8c846960a8d537
+      internalID: -2071963857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MG8_12
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 320
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85061653e9fd33f439c6db9a57e4c108
+      internalID: 276761580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MG8_13
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 320
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d66265f49c42014458dadcd7f543506e
+      internalID: 791822430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MG8_14
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 320
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36c0617aeb8284d488b61771a45263db
+      internalID: -1810611005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MG8_15
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 320
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf5f6777d12eeb042a62fa53c827c56e
+      internalID: -755607116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MG8_16
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 320
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbbe2f9ae8e0df24f8f4836787e4ef4b
+      internalID: 1807321202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MG8_17
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 320
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1ff73c78b9784a45964ffcab165b0e2
+      internalID: -477058938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MG8_25
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 176
+        width: 48
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f496de4c9fca1084f8d95b125c38b4f7
+      internalID: 1396484572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MG8_26
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 176
+        width: 48
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d89b6be7680b2e4fbc56aad27e62622
+      internalID: 657178641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MG8_27
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 176
+        width: 48
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7475174d6c3899e4db2d14bdd1439ec9
+      internalID: 1625312297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MG8_28
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 176
+        width: 48
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e68a88c0f01849940836db4a310011a4
+      internalID: -1968935790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MG8_30
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 304
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 599d645703c8cba4e9f9a8670411f40b
+      internalID: 1494524119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MG8_31
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 288
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ece2f602809e2344bbcf975cde53010
+      internalID: 959121547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MG8_32
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 288
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab41ae4b05988bd45a4da78c2908a714
+      internalID: 1598080385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MG8_52
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 272
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 077465f6c77c19e448fe9bdc71e05ce2
+      internalID: 292393199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MG8_53
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 48
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ae07339f09bbe04d8120f49e14c001d
+      internalID: -1030108812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MG8_54
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 272
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 389172544eb8ac640b0f2208e230626f
+      internalID: 687908165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MG8_83
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 272
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00e2f0e1a20d7f143b0a66cb5a846d23
+      internalID: 1589971832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MG8_101
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 240
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40b3ca5d3f03dba4885b80e66d20e749
+      internalID: 711798689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MG8_103
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 240
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44083e25359dbb4439e282d717144c15
+      internalID: -194035527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MG8_105
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 240
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9560cb6d4fb227641998c21ce3177074
+      internalID: -1838042110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MG8_110
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 240
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 599af5480ff763e488048f84ed36e2b4
+      internalID: 1710514303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MG8_113
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 240
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfcab3e320b02f248af3ddbb129782b8
+      internalID: -1467316246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MG8_121
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 256
+        width: 48
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eff90b26c67ec014fb5a606d85fb8ed2
+      internalID: 781625921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MG8_122
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 256
+        width: 48
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 585d338db922b9b45be4dfad67a31197
+      internalID: -357246579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MG8_123
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 256
+        width: 48
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81bb1f5c13229a941891fd3050260172
+      internalID: 844066785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MG8_124
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 256
+        width: 48
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a5841df6ddd7d04a95f754284506023
+      internalID: -894885916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MG8_126
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 256
+        width: 48
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43ac3a7d3ca0f694a8b9e11f574797f0
+      internalID: -1461660792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MG8_134
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 240
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1c6565bf39316a4eb4b388560337468
+      internalID: -872045325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MG8_142
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 240
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13340a0596594c94db9f5c90d8da7c14
+      internalID: -1413566232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MG8_144
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 176
+        width: 48
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afa5d4a6ed9143f4c8edde7460b2d2bc
+      internalID: 1658439222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MG8_147
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 176
+        width: 48
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d74f8e4485112746aebb08ae2700754
+      internalID: 744256460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MG8_245
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 96
+        width: 48
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1154223300f73042b0e0cbed1d722a2
+      internalID: -2000778816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MG8_272
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 48
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9044a09ad0cb9cb48bf84b7a505a86be
+      internalID: 1792436901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MG8_273
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 96
+        width: 48
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0e03e5a91cc1e2429336b3e01208c9c
+      internalID: 1642284583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MG8_274
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 96
+        width: 48
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de5919a73f236104da7c4c2e7569cc30
+      internalID: -720412476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MG8_275
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 96
+        width: 48
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ced990d85d2995743a68229945d451f3
+      internalID: -136611350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MG8_276
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 96
+        width: 48
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06f0bfda2c1b6d54ebb496b73b3cddff
+      internalID: 2115459207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MG8_277
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 96
+        width: 48
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9195fbb75f1d0bf44aaed71873674e7c
+      internalID: 2007240947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MG8_278
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 96
+        width: 48
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97af47564865f374ebef9e16c3a5724c
+      internalID: -1795234357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MG8_326
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 48
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73fd48fcf7f0f364fac03b7cbff0eb4f
+      internalID: 864592884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MG8_339
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 48
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64fd3dc08cd61e14f8b35b923209a967
+      internalID: 725932718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MG8_341
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 48
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e00fc07cc9bd2a4ebf914292a81c725
+      internalID: 1026494498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MG8_343
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 0
+        width: 48
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84760108ec67fbd4ead607a2ad79e082
+      internalID: 1773786714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MG8_345
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 48
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f07ef75d69d700940b3d9a128962aaec
+      internalID: 1838376053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MG8_347
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 0
+        width: 48
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6193648bf8b00aa4f89b60f0b31a4f45
+      internalID: 103555345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MG8_351
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 0
+        width: 48
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6e93597d9ca30f4e96668c5ed81608a
+      internalID: 1839118935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      MG8_0: 256519339
+      MG8_1: -1148844979
+      MG8_10: -2020745529
+      MG8_100: -1278168110
+      MG8_101: 711798689
+      MG8_102: 599215241
+      MG8_103: -194035527
+      MG8_104: -568554781
+      MG8_105: -1838042110
+      MG8_106: 1931091145
+      MG8_107: 224318019
+      MG8_108: 782044373
+      MG8_109: -410378828
+      MG8_11: -2071963857
+      MG8_110: 1710514303
+      MG8_111: 751557534
+      MG8_112: 802668684
+      MG8_113: -1467316246
+      MG8_114: 1437685794
+      MG8_115: 1691916704
+      MG8_116: -592875757
+      MG8_117: -1866525959
+      MG8_118: 394720505
+      MG8_119: 393609776
+      MG8_12: 276761580
+      MG8_120: -1015707842
+      MG8_121: 781625921
+      MG8_122: -357246579
+      MG8_123: 844066785
+      MG8_124: -894885916
+      MG8_125: 762768609
+      MG8_126: -1461660792
+      MG8_127: -83311456
+      MG8_128: -1573656175
+      MG8_129: 477383213
+      MG8_13: 791822430
+      MG8_130: 986035018
+      MG8_131: -934744445
+      MG8_132: -1736312455
+      MG8_133: -397029054
+      MG8_134: -872045325
+      MG8_135: 1829394127
+      MG8_136: 2024743206
+      MG8_137: 484140056
+      MG8_138: 1929246916
+      MG8_139: -202545292
+      MG8_14: -1810611005
+      MG8_140: 1081138171
+      MG8_141: 71858708
+      MG8_142: -1413566232
+      MG8_143: 1605155455
+      MG8_144: 1658439222
+      MG8_145: 1850199185
+      MG8_146: 659575252
+      MG8_147: 744256460
+      MG8_148: -1016882641
+      MG8_149: 306132297
+      MG8_15: -755607116
+      MG8_150: -607399235
+      MG8_151: -1563536105
+      MG8_152: 1958359394
+      MG8_153: -159698223
+      MG8_154: 105257173
+      MG8_155: -1823922182
+      MG8_156: 1576106806
+      MG8_157: 1780779801
+      MG8_158: 317407558
+      MG8_159: 1673576598
+      MG8_16: 1807321202
+      MG8_160: -982472088
+      MG8_161: 1560102337
+      MG8_162: -1524998452
+      MG8_163: -942002172
+      MG8_164: 836549033
+      MG8_165: -49598431
+      MG8_166: -1308860270
+      MG8_167: -1810644545
+      MG8_168: 608662929
+      MG8_169: 1617664203
+      MG8_17: -477058938
+      MG8_170: -986753564
+      MG8_171: -1835606775
+      MG8_172: 968129888
+      MG8_173: -1070926233
+      MG8_174: -1265897413
+      MG8_175: 980354385
+      MG8_176: -687726503
+      MG8_177: 1306839620
+      MG8_178: 1833117162
+      MG8_179: -874220939
+      MG8_18: -1579801503
+      MG8_180: -841493468
+      MG8_181: 1560610250
+      MG8_182: -1568187619
+      MG8_183: -229291815
+      MG8_184: -937933388
+      MG8_185: -1679472794
+      MG8_186: 772976623
+      MG8_187: 867459790
+      MG8_188: -170180398
+      MG8_189: -1647540314
+      MG8_19: 1941887375
+      MG8_190: 943138229
+      MG8_191: 1020552632
+      MG8_192: 1744105673
+      MG8_193: 210807755
+      MG8_194: -1784582210
+      MG8_195: 1179771975
+      MG8_196: 753679223
+      MG8_197: 1621524827
+      MG8_198: -146988167
+      MG8_199: -717883921
+      MG8_2: 946128250
+      MG8_20: -2005361931
+      MG8_200: -745355407
+      MG8_201: 309971965
+      MG8_202: 1327575146
+      MG8_203: -219374967
+      MG8_204: -797447015
+      MG8_205: 135435228
+      MG8_206: 2040383412
+      MG8_207: -164678632
+      MG8_208: 446786770
+      MG8_209: -842986205
+      MG8_21: -742742637
+      MG8_210: 1586008951
+      MG8_211: 786339359
+      MG8_212: 1690694898
+      MG8_213: 1565207492
+      MG8_214: 2118783611
+      MG8_215: 214606801
+      MG8_216: -1541429531
+      MG8_217: -1480214582
+      MG8_218: 296072203
+      MG8_219: -1272007719
+      MG8_22: -690344127
+      MG8_220: -1264817437
+      MG8_221: 243656848
+      MG8_222: 748029879
+      MG8_223: -49368328
+      MG8_224: -262443198
+      MG8_225: 504229695
+      MG8_226: 20654931
+      MG8_227: -811621733
+      MG8_228: 1709018518
+      MG8_229: -911992577
+      MG8_23: 147855088
+      MG8_230: -1674858135
+      MG8_231: -1773829824
+      MG8_232: 1080139181
+      MG8_233: -1025532529
+      MG8_234: 1939978367
+      MG8_235: -150356499
+      MG8_236: 884352558
+      MG8_237: 1848095867
+      MG8_238: -775859260
+      MG8_239: -445162972
+      MG8_24: -326526442
+      MG8_240: -930790805
+      MG8_241: -940513436
+      MG8_242: -1829739396
+      MG8_243: 973162155
+      MG8_244: 1429714868
+      MG8_245: -2000778816
+      MG8_246: 723907900
+      MG8_247: 1038161802
+      MG8_248: 1174854688
+      MG8_249: -1107194357
+      MG8_25: 1396484572
+      MG8_250: -1620219390
+      MG8_251: -1617860090
+      MG8_252: -1369056889
+      MG8_253: 1862717711
+      MG8_254: 506755344
+      MG8_255: 2058709540
+      MG8_256: -143967818
+      MG8_257: 665697112
+      MG8_258: 1923313756
+      MG8_259: 674289828
+      MG8_26: 657178641
+      MG8_260: -1514708486
+      MG8_261: -1817961559
+      MG8_262: -1570772312
+      MG8_263: 1288644258
+      MG8_264: 261130578
+      MG8_265: -553239309
+      MG8_266: 1966281841
+      MG8_267: 729234588
+      MG8_268: -1340279181
+      MG8_269: 1424519823
+      MG8_27: 1625312297
+      MG8_270: -1639514962
+      MG8_271: -180761750
+      MG8_272: 1792436901
+      MG8_273: 1642284583
+      MG8_274: -720412476
+      MG8_275: -136611350
+      MG8_276: 2115459207
+      MG8_277: 2007240947
+      MG8_278: -1795234357
+      MG8_279: 102108450
+      MG8_28: -1968935790
+      MG8_280: 1588233624
+      MG8_281: -866064900
+      MG8_282: -542162447
+      MG8_283: -44641580
+      MG8_284: 1241952780
+      MG8_285: -769233532
+      MG8_286: 410348501
+      MG8_287: -503317960
+      MG8_288: -1232580667
+      MG8_289: 260963753
+      MG8_29: -1993903373
+      MG8_290: 1746590597
+      MG8_291: 927964796
+      MG8_292: -995118518
+      MG8_293: 2137555148
+      MG8_294: -936210178
+      MG8_295: 702120533
+      MG8_296: -1561014061
+      MG8_297: 1576758303
+      MG8_298: -1040446587
+      MG8_299: -1041944254
+      MG8_3: 290304029
+      MG8_30: 1494524119
+      MG8_300: -1605015967
+      MG8_301: -823508650
+      MG8_302: 1813987486
+      MG8_303: -788541133
+      MG8_304: 986561368
+      MG8_305: 2037884790
+      MG8_306: -721468331
+      MG8_307: -1392557354
+      MG8_308: -1366566959
+      MG8_309: -1103047334
+      MG8_31: 959121547
+      MG8_310: -643871159
+      MG8_311: -1927975313
+      MG8_312: 1007828591
+      MG8_313: -92266648
+      MG8_314: -1850021342
+      MG8_315: 2091680936
+      MG8_316: -132459886
+      MG8_317: 1604076830
+      MG8_318: 88388369
+      MG8_319: -1335344300
+      MG8_32: 1598080385
+      MG8_320: 1516729172
+      MG8_321: -2014700930
+      MG8_322: 152722882
+      MG8_323: -192416224
+      MG8_324: 581199379
+      MG8_325: -1966495850
+      MG8_326: 864592884
+      MG8_327: -70263052
+      MG8_328: 401994377
+      MG8_329: -1783222516
+      MG8_33: 598666432
+      MG8_330: -2132044532
+      MG8_331: 1384515018
+      MG8_332: 280520786
+      MG8_333: -1636768414
+      MG8_334: -683119007
+      MG8_335: 1349880285
+      MG8_336: 1523981223
+      MG8_337: 1606553078
+      MG8_338: 433981653
+      MG8_339: 725932718
+      MG8_34: -657020763
+      MG8_340: 624030804
+      MG8_341: 1026494498
+      MG8_342: 1199673182
+      MG8_343: 1773786714
+      MG8_344: -583242156
+      MG8_345: 1838376053
+      MG8_346: 192353048
+      MG8_347: 103555345
+      MG8_348: 1116110921
+      MG8_349: -441585034
+      MG8_35: -1492256357
+      MG8_350: 1907651279
+      MG8_351: 1839118935
+      MG8_36: -241187943
+      MG8_37: 1933093544
+      MG8_38: -1664021786
+      MG8_39: -1213331941
+      MG8_4: -1083564260
+      MG8_40: 1445675680
+      MG8_41: -1236997914
+      MG8_42: -1460417156
+      MG8_43: -1576888116
+      MG8_44: 1619105265
+      MG8_45: 134941818
+      MG8_46: -1188062192
+      MG8_47: 1830370104
+      MG8_48: -1928808123
+      MG8_49: 1221658177
+      MG8_5: -1067489901
+      MG8_50: -1370779707
+      MG8_51: -1130098351
+      MG8_52: 292393199
+      MG8_53: -1030108812
+      MG8_54: 687908165
+      MG8_55: -991400813
+      MG8_56: -1211662121
+      MG8_57: -1389814785
+      MG8_58: 2121167286
+      MG8_59: -1953335627
+      MG8_6: -295985467
+      MG8_60: 1884471209
+      MG8_61: -434313703
+      MG8_62: -747331695
+      MG8_63: -1947018690
+      MG8_64: -935618405
+      MG8_65: -824049743
+      MG8_66: 65162045
+      MG8_67: -1966909400
+      MG8_68: -383243521
+      MG8_69: 1673865862
+      MG8_7: -114669755
+      MG8_70: -453128118
+      MG8_71: 141230652
+      MG8_72: -2132280910
+      MG8_73: 169599732
+      MG8_74: 936587963
+      MG8_75: -1429596487
+      MG8_76: -1829236232
+      MG8_77: 63136086
+      MG8_78: 757209604
+      MG8_79: -1859747363
+      MG8_8: -1787674537
+      MG8_80: -694309928
+      MG8_81: 1266544045
+      MG8_82: 682580548
+      MG8_83: 1589971832
+      MG8_84: 860520523
+      MG8_85: 13882250
+      MG8_86: -1112340885
+      MG8_87: -1159012764
+      MG8_88: 729905621
+      MG8_89: 1880381189
+      MG8_9: 1752991107
+      MG8_90: 1611660055
+      MG8_91: 268924372
+      MG8_92: 244504114
+      MG8_93: 2076794965
+      MG8_94: -214238101
+      MG8_95: 1308899004
+      MG8_96: -1216205705
+      MG8_97: -2060038489
+      MG8_98: 1010546420
+      MG8_99: 1414141429
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

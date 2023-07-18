@@ -109,10 +109,10 @@ public abstract class TransitionOrderBase : MonoBehaviour
     void Update()
     {
         //Allow the transition to change size to accomodate zooming in and out
-        if (_transitionCamera.orthographic)
-        {
-            _transform.localScale = Vector3.one * (_transitionCamera.orthographicSize / _initialCameraSize);
-        }
+        if (_transitionCamera != null && _transitionCamera.orthographic)
+    {
+    _transform.localScale = Vector3.one * (_transitionCamera.orthographicSize / _initialCameraSize);
+    }
     }
 
 

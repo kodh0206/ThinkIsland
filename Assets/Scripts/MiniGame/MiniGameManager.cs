@@ -27,7 +27,10 @@ public class MiniGameManager : MonoBehaviour
     private int gamesToPlay=5;
     public bool isMiniGameScene = false; // 현재 씬이 미니게임 씬인지 여부를 확인하기 위한 플래그
     private float deltaTime = 0.0f;
-
+    public int gameLevel;
+    
+    public float countdownStartTime = 3f;
+    private bool isCountDown =false;
     private void Awake()
     {
     if (_instance != null && _instance != this)
@@ -80,13 +83,21 @@ public class MiniGameManager : MonoBehaviour
         if (isMiniGameScene)
         {
             timer += Time.deltaTime;
-            if (timer >= gameChangeInterval)
+
+            if (timer >= gameChangeInterval - countdownStartTime && !isCountDown)
             {
+            isCountDown = true;
+            StartCoroutine(Countdown());
+            }
+
+            if (timer >= gameChangeInterval)
+            {   MIniGameUI.Instance.CountDown.gameObject.SetActive(false);
                 timer = 0f;
                 StartNextMiniGame();
+                isCountDown = false;
             }
         }
-        Debug.Log(gamesToPlay);
+        
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -190,32 +201,31 @@ private IEnumerator ShowBlackScreen()
 
    private IEnumerator FadeAndLoadScene(string sceneName = null)
 {
-    yield return StartCoroutine(Fade(1f));
-
     string nextMiniGameScene;
-    if (sceneName == null)
-    {
-        nextMiniGameScene = remainingMiniGameScenes[0];
-        remainingMiniGameScenes.RemoveAt(0);
-    }
-    else
-    {
-        nextMiniGameScene = sceneName;
-    }
-    
-    SceneManager.LoadScene(nextMiniGameScene, LoadSceneMode.Single);  // 미니게임 로드
-    currentMiniGameScene = nextMiniGameScene;
+        if (sceneName == null)
+        {
+            nextMiniGameScene = remainingMiniGameScenes[0];
+            remainingMiniGameScenes.RemoveAt(0);
+        }
+        else
+        {
+            nextMiniGameScene = sceneName;
+        }
 
-    if (sceneName == null)
-    {
-        isMiniGameScene = true; // 미니게임 씬임을 표시
+        SceneManager.LoadScene(nextMiniGameScene, LoadSceneMode.Single);  // 미니게임 로드
+        currentMiniGameScene = nextMiniGameScene;
+
+        if (sceneName == null)
+        {
+            isMiniGameScene = true; // 미니게임 씬임을 표시
+        }
+
+        yield return null;
     }
 
-    yield return StartCoroutine(Fade(0f));
-}
 
-    private IEnumerator Fade(float finalAlpha)
-{
+private IEnumerator Fade(float finalAlpha)
+    {
     float fadeSpeed = Mathf.Abs(fadeCanvasGroup.alpha - finalAlpha) / 0.3f; // Try 0.3f here
 
     while (!Mathf.Approximately(fadeCanvasGroup.alpha, finalAlpha))
@@ -225,6 +235,18 @@ private IEnumerator ShowBlackScreen()
 
         yield return null;
     }
+}
+
+    private IEnumerator Countdown()
+{   MIniGameUI.Instance.CountDown.gameObject.SetActive(true);
+    float countdownTime = countdownStartTime;
+    while (countdownTime > 0)
+    {
+        MIniGameUI.Instance.CountDown.text = countdownTime.ToString("F0");
+        yield return new WaitForSeconds(1f);
+        countdownTime -= 1f;
+    }
+    MIniGameUI.Instance.CountDown.text = ""; // 카운트 다운이 끝나면 텍스트를 비움
 }
     
 
@@ -248,6 +270,7 @@ private IEnumerator ShowBlackScreen()
     {
         totalJelly += 1;
         GameController.Instance.currentjellyCount+=1;
+        GameController.Instance.GainExperience(1);
         minigameUI.GetComponent<MIniGameUI>().UpdateJellyText();  // UI 업데이트
         AudioManager.Instance.PlayJelly();
     }
