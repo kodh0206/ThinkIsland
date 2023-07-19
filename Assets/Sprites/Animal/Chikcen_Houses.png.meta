@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ce5f94c50b30205479eb209ead8583b6
+guid: 80f1e8b0e9c946d458ab74766f54ed73
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -129,211 +129,379 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Fence gates animation sprites _0
+      name: Chikcen_Houses_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 64
+        y: 96
         width: 64
-        height: 16
+        height: 80
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8e077a7302bd9e947bd86945a0159ffe
-      internalID: 192605177
+      spriteID: 75babd1ae9de9704093ca9b108e06a8d
+      internalID: 953711725
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fence gates animation sprites _1
+      name: Chikcen_Houses_1
       rect:
         serializedVersion: 2
         x: 64
-        y: 64
+        y: 96
         width: 64
-        height: 16
+        height: 80
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b85c406e760dd7e46a190e1599039ba6
-      internalID: 817283087
+      spriteID: e6826055eb0be6842ae46d06bf1a88c1
+      internalID: -1915059111
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fence gates animation sprites _4
+      name: Chikcen_Houses_2
       rect:
         serializedVersion: 2
         x: 128
-        y: 64
+        y: 96
         width: 64
-        height: 16
+        height: 80
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b762de185be09dc4d961201aefcbcf7a
-      internalID: 770523117
+      spriteID: 806a8c4d5a14fbb429ffa36a3afe47a1
+      internalID: -1973663204
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fence gates animation sprites _5
+      name: Chikcen_Houses_3
       rect:
         serializedVersion: 2
         x: 192
-        y: 64
+        y: 96
         width: 64
-        height: 16
+        height: 80
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 923ffa4a252ad16418c26643927d96f8
-      internalID: 540203899
+      spriteID: 813706af9973d2646a588a055ec59a5c
+      internalID: -409688342
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fence gates animation sprites _7
+      name: Chikcen_Houses_4
       rect:
         serializedVersion: 2
         x: 256
-        y: 64
+        y: 96
         width: 64
-        height: 16
+        height: 80
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1ae47c255dce1724da5256dba292901d
-      internalID: -405232229
+      spriteID: fcadd65c5adf78f438e8634b00951e88
+      internalID: -1811206775
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fence gates animation sprites _9
+      name: Chikcen_Houses_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 96
+        width: 64
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecee75da3ec034745a16fec3b857af70
+      internalID: 1320465839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chikcen_Houses_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 48
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1465470e2488cee499875fce8c6c67ac
+      internalID: 1212481626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chikcen_Houses_7
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 48
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61e776a12bfda0c4fbc97e3c696bf888
+      internalID: -1775145167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chikcen_Houses_8
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 48
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 209cff98e34725e479803beaaa8f22c5
+      internalID: 512310861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chikcen_Houses_9
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 48
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16dd766da2b05a94eb8ad5cc9e86c55e
+      internalID: 605333768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chikcen_Houses_10
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 48
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f184891ae4ec83f47b6145d1958a9c60
+      internalID: 138583151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chikcen_Houses_11
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 48
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 807103c07c9d1f54ebbac713503b96a0
+      internalID: -319438916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chikcen_Houses_12
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15d3200c686a48140bbc82d54cc316b1
+      internalID: -691967257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chikcen_Houses_13
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37fb3472fdcf6d44898cf42a61a3fdc8
+      internalID: -2042348890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chikcen_Houses_14
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 0
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 344f7cb37cd4a8d46a26903af5784ba4
+      internalID: -1470757615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chikcen_Houses_15
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 64
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 92f144a56c7685040ba77e244a4ca93b
-      internalID: -993714817
+      spriteID: 34f2eca3c2e29224aa51747cb92cc3ea
+      internalID: -1285916358
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fence gates animation sprites _10
+      name: Chikcen_Houses_16
       rect:
         serializedVersion: 2
-        x: 32
+        x: 48
         y: 0
-        width: 32
-        height: 64
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4815b3f8256acc64fa87d6151d38189a
-      internalID: -1428449444
+      spriteID: 21191f0db078e7c4685c9bd038870ef9
+      internalID: 140173164
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fence gates animation sprites _13
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 32
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 39d55156457b1da43b59b8a284713c60
-      internalID: -230011220
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fence gates animation sprites _14
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 32
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 09968fea8c61b774d9b23faac88d50ba
-      internalID: -333629459
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fence gates animation sprites _15
+      name: Chikcen_Houses_17
       rect:
         serializedVersion: 2
         x: 96
         y: 0
-        width: 32
-        height: 64
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ff83eb31b94a85941b39024cd98b3bb9
-      internalID: 2082873400
+      spriteID: b49dd9e097baf4b45afcb82c13896472
+      internalID: 6597614
       vertices: []
       indices: 
       edges: []
@@ -349,23 +517,24 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Fence gates animation sprites _0: 192605177
-      Fence gates animation sprites _1: 817283087
-      Fence gates animation sprites _10: -1428449444
-      Fence gates animation sprites _11: -1753791676
-      Fence gates animation sprites _12: -1673762648
-      Fence gates animation sprites _13: -230011220
-      Fence gates animation sprites _14: -333629459
-      Fence gates animation sprites _15: 2082873400
-      Fence gates animation sprites _16: -408657160
-      Fence gates animation sprites _2: -2013632115
-      Fence gates animation sprites _3: -1125398449
-      Fence gates animation sprites _4: 770523117
-      Fence gates animation sprites _5: 540203899
-      Fence gates animation sprites _6: 98562846
-      Fence gates animation sprites _7: -405232229
-      Fence gates animation sprites _8: 1827947319
-      Fence gates animation sprites _9: -993714817
+      Chikcen_Houses_0: 953711725
+      Chikcen_Houses_1: -1915059111
+      Chikcen_Houses_10: 138583151
+      Chikcen_Houses_11: -319438916
+      Chikcen_Houses_12: -691967257
+      Chikcen_Houses_13: -2042348890
+      Chikcen_Houses_14: -1470757615
+      Chikcen_Houses_15: -1285916358
+      Chikcen_Houses_16: 140173164
+      Chikcen_Houses_17: 6597614
+      Chikcen_Houses_2: -1973663204
+      Chikcen_Houses_3: -409688342
+      Chikcen_Houses_4: -1811206775
+      Chikcen_Houses_5: 1320465839
+      Chikcen_Houses_6: 1212481626
+      Chikcen_Houses_7: -1775145167
+      Chikcen_Houses_8: 512310861
+      Chikcen_Houses_9: 605333768
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

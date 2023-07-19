@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ce5f94c50b30205479eb209ead8583b6
+guid: b878036ed077d674d845327f4755f315
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -129,211 +129,211 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Fence gates animation sprites _0
+      name: DarkerGrassTrees 1_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 64
-        width: 64
-        height: 16
+        y: 16
+        width: 16
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8e077a7302bd9e947bd86945a0159ffe
-      internalID: 192605177
+      spriteID: e8f7ee3e919ae364faf12c4af1bb2524
+      internalID: -919670333
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fence gates animation sprites _1
+      name: DarkerGrassTrees 1_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 16
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9400c9b91561c3488492062323adfc6
+      internalID: -319808479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkerGrassTrees 1_3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eebadb9449ede8d46b23824ce9439606
+      internalID: -1125709406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkerGrassTrees 1_4
       rect:
         serializedVersion: 2
         x: 64
-        y: 64
-        width: 64
-        height: 16
+        y: 0
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b85c406e760dd7e46a190e1599039ba6
-      internalID: 817283087
+      spriteID: 6abe8fe51c063d142a42e28bc03e585e
+      internalID: 260999489
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fence gates animation sprites _4
+      name: DarkerGrassTrees 1_7
       rect:
         serializedVersion: 2
-        x: 128
-        y: 64
-        width: 64
-        height: 16
+        x: 112
+        y: 16
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b762de185be09dc4d961201aefcbcf7a
-      internalID: 770523117
+      spriteID: 2484ec91dc311914c8527544819ff4ea
+      internalID: 1654188515
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fence gates animation sprites _5
+      name: DarkerGrassTrees 1_12
       rect:
         serializedVersion: 2
-        x: 192
-        y: 64
-        width: 64
+        x: 48
+        y: 16
+        width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 923ffa4a252ad16418c26643927d96f8
-      internalID: 540203899
+      spriteID: cc524c10b77ea2a4297e7e85b7b04898
+      internalID: -562571986
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fence gates animation sprites _7
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 64
-        width: 64
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1ae47c255dce1724da5256dba292901d
-      internalID: -405232229
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fence gates animation sprites _9
+      name: DarkerGrassTrees 1_18
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 32
-        height: 64
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 92f144a56c7685040ba77e244a4ca93b
-      internalID: -993714817
+      spriteID: c9aed5545aeed7f4ca9d8d7195bd7090
+      internalID: -313262308
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fence gates animation sprites _10
+      name: DarkerGrassTrees 1_20
       rect:
         serializedVersion: 2
         x: 32
         y: 0
         width: 32
-        height: 64
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4815b3f8256acc64fa87d6151d38189a
-      internalID: -1428449444
+      spriteID: b0bc64dd6d845904e860f8e5655f9e16
+      internalID: 1631363673
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fence gates animation sprites _13
+      name: DarkerGrassTrees 1_25
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01b4d557739f3544eb2e9b7602c969c8
+      internalID: 367564897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkerGrassTrees 1_26
       rect:
         serializedVersion: 2
         x: 128
         y: 0
-        width: 32
-        height: 64
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 39d55156457b1da43b59b8a284713c60
-      internalID: -230011220
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fence gates animation sprites _14
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 32
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 09968fea8c61b774d9b23faac88d50ba
-      internalID: -333629459
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fence gates animation sprites _15
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 32
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ff83eb31b94a85941b39024cd98b3bb9
-      internalID: 2082873400
+      spriteID: 307459e6985a57544b9af185ad13f6f2
+      internalID: 979115936
       vertices: []
       indices: 
       edges: []
@@ -349,23 +349,33 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Fence gates animation sprites _0: 192605177
-      Fence gates animation sprites _1: 817283087
-      Fence gates animation sprites _10: -1428449444
-      Fence gates animation sprites _11: -1753791676
-      Fence gates animation sprites _12: -1673762648
-      Fence gates animation sprites _13: -230011220
-      Fence gates animation sprites _14: -333629459
-      Fence gates animation sprites _15: 2082873400
-      Fence gates animation sprites _16: -408657160
-      Fence gates animation sprites _2: -2013632115
-      Fence gates animation sprites _3: -1125398449
-      Fence gates animation sprites _4: 770523117
-      Fence gates animation sprites _5: 540203899
-      Fence gates animation sprites _6: 98562846
-      Fence gates animation sprites _7: -405232229
-      Fence gates animation sprites _8: 1827947319
-      Fence gates animation sprites _9: -993714817
+      DarkerGrassTrees 1_0: -919670333
+      DarkerGrassTrees 1_1: -319808479
+      DarkerGrassTrees 1_10: -1037260203
+      DarkerGrassTrees 1_11: 1572596460
+      DarkerGrassTrees 1_12: -562571986
+      DarkerGrassTrees 1_13: -586785826
+      DarkerGrassTrees 1_14: 1288550007
+      DarkerGrassTrees 1_15: -1513113244
+      DarkerGrassTrees 1_16: 1670149284
+      DarkerGrassTrees 1_17: 868604931
+      DarkerGrassTrees 1_18: -313262308
+      DarkerGrassTrees 1_19: 224702805
+      DarkerGrassTrees 1_2: -1132356428
+      DarkerGrassTrees 1_20: 1631363673
+      DarkerGrassTrees 1_21: 1362080684
+      DarkerGrassTrees 1_22: -1524097421
+      DarkerGrassTrees 1_23: 1830319732
+      DarkerGrassTrees 1_24: 393475842
+      DarkerGrassTrees 1_25: 367564897
+      DarkerGrassTrees 1_26: 979115936
+      DarkerGrassTrees 1_3: -1125709406
+      DarkerGrassTrees 1_4: 260999489
+      DarkerGrassTrees 1_5: -693595128
+      DarkerGrassTrees 1_6: -1009835873
+      DarkerGrassTrees 1_7: 1654188515
+      DarkerGrassTrees 1_8: -1405799208
+      DarkerGrassTrees 1_9: 829018619
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
