@@ -44,7 +44,7 @@ public class Mg18jellySpawner : MonoBehaviour
                 Destroy(new_Mg18jelly, 5.0f);
             }
 
-            time = 0;
+            time = Random.Range(0.1f,0.5f);
         }
     }
 
