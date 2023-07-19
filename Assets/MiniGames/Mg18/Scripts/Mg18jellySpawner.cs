@@ -44,7 +44,7 @@ public class Mg18jellySpawner : MonoBehaviour
                 Destroy(new_Mg18jelly, 5.0f);
             }
 
-            time = 0;
+            time = Random.Range(0.1f,0.5f);
         }
     }
 
@@ -52,15 +52,15 @@ public class Mg18jellySpawner : MonoBehaviour
     private Vector2 GetRandomSpawnPosition()
     {
         // 랜덤한 위치 인덱스 선택
-        int randomIndex = Random.Range(0, 3);
+        int randomIndex = Random.Range(0, 1);
 
         // 미리 정의된 위치들 배열
         Vector2[] spawnPositions = new Vector2[]
         {
         new Vector2(13f, Random.Range(-4f, -1f)),
-        new Vector2(13f, 0f),
-        new Vector2(13f, 1.5f),
-        new Vector2(13f, 3f),
+       // new Vector2(13f, 0f),
+        //new Vector2(13f, 1.5f),
+        //new Vector2(13f, 3f),
         };
 
         // 선택된 랜덤한 위치 반환
