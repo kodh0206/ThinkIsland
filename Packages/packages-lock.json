@@ -86,13 +86,8 @@
       "hash": "669cbb10fccd9849e3e8d71e8396a789cee6cb97"
     },
     "com.unity.burst": {
-<<<<<<< HEAD
       "version": "1.8.4",
       "depth": 1,
-=======
-      "version": "1.6.6",
-      "depth": 2,
->>>>>>> parent of ab3c7c87 (겹친거 합치기)
       "source": "registry",
       "dependencies": {
         "com.unity.mathematics": "1.2.1"
