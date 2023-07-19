@@ -42,8 +42,8 @@ public class Mg18manager : MonoBehaviour
         {
             level += 1;
             Mg18ObstacleSpawner spawner = FindObjectOfType<Mg18ObstacleSpawner>();
-            Mg18GroundSpawner spawner2 = FindObjectOfType<Mg18GroundSpawner>();
-            Mg18jellySpawner spawner3 =FindObjectOfType<Mg18jellySpawner>();
+            Mg18GroundSpawner spawner2 = FindAnyObjectByType<Mg18GroundSpawner>();
+            Mg18jellySpawner spawner3 =FindAnyObjectByType<Mg18jellySpawner>();
 
             if (spawner != null)
             {
@@ -59,8 +59,8 @@ public class Mg18manager : MonoBehaviour
     {
 
         Mg18ObstacleSpawner spawner = FindObjectOfType<Mg18ObstacleSpawner>();
-        Mg18GroundSpawner spawner2 = FindObjectOfType<Mg18GroundSpawner>();
-        Mg18jellySpawner spawner3 = FindObjectOfType<Mg18jellySpawner>();
+        Mg18GroundSpawner spawner2 = FindAnyObjectByType<Mg18GroundSpawner>();
+        Mg18jellySpawner spawner3 = FindAnyObjectByType<Mg18jellySpawner>();
 
 
         for (int i = 0; i < level; i++)
@@ -78,8 +78,8 @@ public class Mg18manager : MonoBehaviour
 
         score = 0;
         Mg18ObstacleSpawner spawner = FindObjectOfType<Mg18ObstacleSpawner>();
-        Mg18GroundSpawner spawner2 = FindObjectOfType<Mg18GroundSpawner>();
-        Mg18jellySpawner spawner3 = FindObjectOfType<Mg18jellySpawner>();
+        Mg18GroundSpawner spawner2 = FindAnyObjectByType<Mg18GroundSpawner>();
+        Mg18jellySpawner spawner3 = FindAnyObjectByType<Mg18jellySpawner>();
 
         if (level != 0)
         {

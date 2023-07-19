@@ -36,7 +36,7 @@ public class Mg12manager : MonoBehaviour
         {
             level += 1;
             Mg12Spawner spawner = FindObjectOfType<Mg12Spawner>();
-            Mg12RockSpawner spawner2= FindObjectOfType<Mg12RockSpawner>();
+            Mg12RockSpawner spawner2= FindAnyObjectByType<Mg12RockSpawner>();
 
             if (spawner != null)
             {
@@ -53,7 +53,7 @@ public class Mg12manager : MonoBehaviour
     {
 
         Mg12Spawner spawner = FindObjectOfType<Mg12Spawner>();
-        Mg12RockSpawner spawner2 = FindObjectOfType<Mg12RockSpawner>();
+        Mg12RockSpawner spawner2 = FindAnyObjectByType<Mg12RockSpawner>();
 
         for (int i = 0; i < level; i++)
         {
@@ -71,7 +71,7 @@ public class Mg12manager : MonoBehaviour
 
         score = 0;
         Mg12Spawner spawner = FindObjectOfType<Mg12Spawner>();
-        Mg12RockSpawner spawner2 = FindObjectOfType<Mg12RockSpawner>();
+        Mg12RockSpawner spawner2 = FindAnyObjectByType<Mg12RockSpawner>();
 
 
         if (level != 0)

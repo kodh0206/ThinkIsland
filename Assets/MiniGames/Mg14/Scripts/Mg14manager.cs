@@ -60,7 +60,7 @@ public class Mg14manager : MonoBehaviour
     {
 
         Mg14Spawner spawner = FindObjectOfType<Mg14Spawner>();
-        Mg14jellySpawner spawner2 = FindObjectOfType<Mg14jellySpawner>();
+        Mg14jellySpawner spawner2 = FindAnyObjectByType<Mg14jellySpawner>();
 
         for (int i = 0; i < level; i++)
         {
@@ -78,7 +78,7 @@ public class Mg14manager : MonoBehaviour
 
         score = 0;
         Mg14Spawner spawner = FindObjectOfType<Mg14Spawner>();
-        Mg14jellySpawner spawner2 =FindObjectOfType<Mg14jellySpawner>();
+        Mg14jellySpawner spawner2 = FindAnyObjectByType<Mg14jellySpawner>();
 
 
         if (level != 0)

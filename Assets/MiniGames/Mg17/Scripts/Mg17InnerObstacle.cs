@@ -28,9 +28,9 @@ public class Mg17InnerObstacle : MonoBehaviour
             AudioManager.Instance.PlayPoop();
             other.gameObject.GetComponent<Mg17Player>().GetHit();
             Destroy(gameObject);
-            Mg17Spawner spawner1 = FindObjectOfType<Mg17Spawner>();
+            Mg17Spawner spawner1 = FindAnyObjectByType<Mg17Spawner>();
             spawner1.GetHit();
-            Mg17RockSpawner spawner2 = FindObjectOfType<Mg17RockSpawner>();
+            Mg17RockSpawner spawner2 = FindAnyObjectByType<Mg17RockSpawner>();
             spawner2.GetHit();
         }
     }

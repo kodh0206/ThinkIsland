@@ -33,15 +33,15 @@ public class Mg11Obstacle : MonoBehaviour
             AudioManager.Instance.PlayEggBreak();
             Mg11manager.instance.GameLevelDown();
 
-            Mg11Player player = FindObjectOfType<Mg11Player>();
+            Mg11Player player = FindAnyObjectByType<Mg11Player>();
             if (player != null)
             {
                 player.GetHit();
             }
 
-            Mg11Spawner spawner1 = FindObjectOfType<Mg11Spawner>();
+            Mg11Spawner spawner1 = FindAnyObjectByType<Mg11Spawner>();
             spawner1.GetHit();
-            Mg11jellySpawner spawner2 = FindObjectOfType<Mg11jellySpawner>();
+            Mg11jellySpawner spawner2 = FindAnyObjectByType<Mg11jellySpawner>();
             spawner2.GetHit();
 
             Destroy(gameObject);
