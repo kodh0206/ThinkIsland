@@ -58,7 +58,7 @@ public class Mg13manager : MonoBehaviour
     {
 
         Mg13Spawner spawner = FindObjectOfType<Mg13Spawner>();
-        Mg13jellySpawner spawner2 = FindAnyObjectByType<Mg13jellySpawner>();
+        Mg13jellySpawner spawner2 = FindObjectOfType<Mg13jellySpawner>();
 
         for (int i = 0; i < level; i++)
         {
@@ -76,7 +76,7 @@ public class Mg13manager : MonoBehaviour
 
         score = 0;
         Mg13Spawner spawner = FindObjectOfType<Mg13Spawner>();
-        Mg13jellySpawner spawner2 = FindAnyObjectByType<Mg13jellySpawner>();
+        Mg13jellySpawner spawner2 = FindObjectOfType<Mg13jellySpawner>();
 
 
         if (level != 0)

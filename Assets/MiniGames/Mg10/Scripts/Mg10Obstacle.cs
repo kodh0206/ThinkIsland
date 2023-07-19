@@ -35,9 +35,9 @@ public class Mg10Obstacle : MonoBehaviour
                 player.GetHit();
             }
 
-            Mg10Spawner spawner1 = FindAnyObjectByType<Mg10Spawner>();
+            Mg10Spawner spawner1 = FindObjectOfType<Mg10Spawner>();
             spawner1.GetHit();
-            Mg10jellySpawner spawner2 = FindAnyObjectByType<Mg10jellySpawner>();
+            Mg10jellySpawner spawner2 = FindObjectOfType<Mg10jellySpawner>();
             spawner2.GetHit();
 
         }

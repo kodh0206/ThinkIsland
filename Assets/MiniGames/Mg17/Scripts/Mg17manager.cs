@@ -42,7 +42,7 @@ public class Mg17manager : MonoBehaviour
         {
             level += 1;
             Mg17Spawner spawner = FindObjectOfType<Mg17Spawner>();
-            Mg17RockSpawner spawner2= FindAnyObjectByType<Mg17RockSpawner>();
+            Mg17RockSpawner spawner2= FindObjectOfType<Mg17RockSpawner>();
 
             if (spawner != null)
             {
@@ -59,7 +59,7 @@ public class Mg17manager : MonoBehaviour
     {
 
         Mg17Spawner spawner = FindObjectOfType<Mg17Spawner>();
-        Mg17RockSpawner spawner2 = FindAnyObjectByType<Mg17RockSpawner>();
+        Mg17RockSpawner spawner2 = FindObjectOfType<Mg17RockSpawner>();
 
 
         for (int i = 0; i < level; i++)
@@ -77,7 +77,7 @@ public class Mg17manager : MonoBehaviour
 
         score = 0;
         Mg17Spawner spawner = FindObjectOfType<Mg17Spawner>();
-        Mg17RockSpawner spawner2 = FindAnyObjectByType<Mg17RockSpawner>();
+        Mg17RockSpawner spawner2 = FindObjectOfType<Mg17RockSpawner>();
 
         if (level != 0)
         {
