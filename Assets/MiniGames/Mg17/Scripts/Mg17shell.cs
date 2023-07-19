@@ -30,9 +30,9 @@ public class Mg17shell : MonoBehaviour
 
             Mg17manager.instance.GameLevelDown(); //levelDown
 
-            Mg17Spawner spawner1 = FindAnyObjectByType<Mg17Spawner>();
+            Mg17Spawner spawner1 = FindObjectOfType<Mg17Spawner>();
             spawner1.GetHit();
-            Mg17RockSpawner spawner2 = FindAnyObjectByType<Mg17RockSpawner>();
+            Mg17RockSpawner spawner2 = FindObjectOfType<Mg17RockSpawner>();
             spawner2.GetHit();
             Destroy(gameObject);
         }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using TexDrawLib;
 using TMPro;
-
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -58,7 +58,7 @@ namespace TexDrawLib.Samples
             var op = dropdown.options;
             op.Clear();
             op.Add(new Dropdown.OptionData("Custom (Use Here for Template)"));
-            var items = templates.text.Replace("\r", "").Split("\n\n");
+            var items = templates.text.Replace("\r", "").Split(new string[] { "\n\n" }, StringSplitOptions.RemoveEmptyEntries);
 
             for (int i = 0; i < items.Length; i++)
             {
@@ -122,7 +122,7 @@ namespace TexDrawLib.Samples
             return Regex.Match(watchedStr, @"\\[\w]*$").Value;
         }
 
-        private List<string> keys = ListPool<string>.Get();
+        private List<string> keys = new List<string>();
 
         public string GetPossibleSymbols(string raw)
         {
