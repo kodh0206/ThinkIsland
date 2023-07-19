@@ -1,12 +1,14 @@
 using System;
 using UnityEngine;
-
-
+using ES3Types;
+using ES3Internal;
+using UnityEngine.SceneManagement;
 
 public class Field : MonoBehaviour
-{
+{   
+    private ES3File saveFile;
     public enum PlotState {LOCKED, EMPTY, PLANTING,HARVEST};
-    public PlotState state = PlotState.EMPTY;
+    public PlotState state = PlotState.LOCKED;
     public Sprite lockedSprite;
     public Sprite emptySprite;
     public CropData currentCropData;
@@ -19,13 +21,38 @@ public class Field : MonoBehaviour
 
     bool isDry =true; //처음에는 땅이 말라져있음
     public GameObject vegetablePanel;
+
+    
     private void Awake()
-    {   fm = FindObjectOfType<BetaManager>();
+    {   
+
+        // Load data if exists
+        saveFile = new ES3File("FieldData");
+
+        // Load data if exists
+        if (saveFile.KeyExists("state"))
+        {
+            // Check time difference between last saved time and now
+            System.TimeSpan timeDifference = System.DateTime.Now - saveFile.Load<System.DateTime>("lastSavedTime");
+
+            // Load saved data
+            state = saveFile.Load<PlotState>("state");
+            string cropDataName = saveFile.Load<string>("currentCropData");
+            currentCropData = Resources.Load<CropData>(cropDataName);
+            timeLeft = saveFile.Load<float>("timeLeft") - (float)timeDifference.TotalSeconds;
+            stage = saveFile.Load<int>("stage");
+            isDry = saveFile.Load<bool>("isDry");
+        }
+        
+        
+        fm = FindObjectOfType<BetaManager>();
         vegetablePanel = GameObject.Find("FarmStore");
         plotSprite = GetComponent<SpriteRenderer>();
         cropSprite = transform.GetChild(0).GetComponent<SpriteRenderer>();
         ChangeState(state);
 
+
+        
     }
 
     private void Update()
@@ -154,6 +181,74 @@ public void GiveWater()
 {
    isDry=false;
 }
+
+
+private void SaveState()
+{
+    // Save data on application quit
+    saveFile.Save("state", state);
+    saveFile.Save("currentCropData", currentCropData.plantName);
+    saveFile.Save("timeLeft", timeLeft);
+    saveFile.Save("stage", stage);
+    saveFile.Save("isDry", isDry);
+    saveFile.Save("lastSavedTime", System.DateTime.Now);
+
+    // Close the file
+    saveFile.Sync();
+}
+
+private void LoadState()
+{
+    // Load data if exists
+    if (saveFile.KeyExists("state"))
+    {
+        // Check time difference between last saved time and now
+        System.TimeSpan timeDifference = System.DateTime.Now - saveFile.Load<System.DateTime>("lastSavedTime");
+
+        // Load saved data
+        state = saveFile.Load<PlotState>("state");
+        string cropDataName = saveFile.Load<string>("currentCropData");
+        currentCropData = Resources.Load<CropData>(cropDataName);
+        timeLeft = saveFile.Load<float>("timeLeft") - (float)timeDifference.TotalSeconds;
+        stage = saveFile.Load<int>("stage");
+        isDry = saveFile.Load<bool>("isDry");
+    }
+}
+
+private void OnApplicationQuit()
+    {
+        // Save data on application quit
+        saveFile.Save("state", state);
+        saveFile.Save("currentCropData", currentCropData.plantName);
+        saveFile.Save("timeLeft", timeLeft);
+        saveFile.Save("stage", stage);
+        saveFile.Save("isDry", isDry);
+        saveFile.Save("lastSavedTime", System.DateTime.Now);
+
+        // Close the file
+        saveFile.Sync();
+    }
+
+private void OnEnable()
+{
+    // Add our event handler to the scene loaded event
+    SceneManager.sceneLoaded += OnSceneLoaded;
+}
+
+private void OnDisable()
+{
+    // Remove our event handler from the scene loaded event
+    SceneManager.sceneLoaded -= OnSceneLoaded;
+}
+
+private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+{
+    // A scene has been loaded, load state
+    LoadState();
+}
+
+
+
 }
 
     
