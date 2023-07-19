@@ -165,18 +165,18 @@ public class Mg20BlockSpawner : MonoBehaviour
         BlockSpeed += 1.0f; 
         time_diff -= 0.1f;
 
-        GameObject[] groundObjects = GameObject.FindGameObjectsWithTag("Ground"); //필드 파괴
+        GameObject[] groundObjects = GameObject.FindGameObjectsWithTag("Ground"); //Find all GroundTag
         foreach (var groundObject in groundObjects)
         {
             groundObject.GetComponent<Mg20NomalBlock>().SetSpeed(BlockSpeed);
         }
 
-        GameObject[] BreakgroundObjects = GameObject.FindGameObjectsWithTag("BreakGround"); //필드 파괴
+        GameObject[] BreakgroundObjects = GameObject.FindGameObjectsWithTag("BreakGround"); //FindAllBackGroundTag
         foreach (var BreakgroundObject in BreakgroundObjects)
         {
             BreakgroundObject.GetComponent<Mg20Brokenblock>().SetSpeed(BlockSpeed);
         }
-        GameObject[] jellyObjects = GameObject.FindGameObjectsWithTag("jelly"); //필드 젤리 파괴
+        GameObject[] jellyObjects = GameObject.FindGameObjectsWithTag("jelly"); //FindAllJellyTag
         foreach (var jellyObject in jellyObjects)
         {
             jellyObject.GetComponent<Mg20jelly>().SetSpeed(BlockSpeed);
@@ -189,18 +189,18 @@ public class Mg20BlockSpawner : MonoBehaviour
         BlockSpeed -= 1.0f; 
         time_diff += 0.1f;
 
-        GameObject[] groundObjects = GameObject.FindGameObjectsWithTag("Ground"); //필드 파괴
+        GameObject[] groundObjects = GameObject.FindGameObjectsWithTag("Ground"); //Find all GroundTag
         foreach (var groundObject in groundObjects)
         {
             groundObject.GetComponent<Mg20NomalBlock>().SetSpeed(BlockSpeed);
         }
 
-        GameObject[] BreakgroundObjects = GameObject.FindGameObjectsWithTag("BreakGround"); //필드 파괴
+        GameObject[] BreakgroundObjects = GameObject.FindGameObjectsWithTag("BreakGround"); //FindAllBackGroundTag
         foreach (var BreakgroundObject in BreakgroundObjects)
         {
             BreakgroundObject.GetComponent<Mg20Brokenblock>().SetSpeed(BlockSpeed);
         }
-        GameObject[] jellyObjects = GameObject.FindGameObjectsWithTag("jelly"); //필드 젤리 파괴
+        GameObject[] jellyObjects = GameObject.FindGameObjectsWithTag("jelly"); //FindAllJellyTag
         foreach (var jellyObject in jellyObjects)
         {
             jellyObject.GetComponent<Mg20jelly>().SetSpeed(BlockSpeed);

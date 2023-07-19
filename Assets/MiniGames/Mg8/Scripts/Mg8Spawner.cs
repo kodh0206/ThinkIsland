@@ -80,13 +80,57 @@ public class Mg8Spawner : MonoBehaviour
     {
         Mg8ObstacleSpeed += 1.0f;
          time_diff -= 0.1f; // 장애물의 생성 간격 감소
+
+        ChangeAllSpeed();
+
     }
 
     public void DecreaseSpeed()
     {
         Mg8ObstacleSpeed -= 1.0f;
         time_diff += 0.1f; // 장애물의 생성 간격 감소
+
+
+        ChangeAllSpeed();
+
     }
+
+    public void ChangeAllSpeed()
+    {
+        GameObject[] groundObjects = GameObject.FindGameObjectsWithTag("Ground"); //Find all GroundTag
+        foreach (var groundObject in groundObjects)
+        {
+            groundObject.GetComponent<Mg8GroundMoving>().SetSpeed(Mg8ObstacleSpeed);
+        }
+
+        GameObject[] Mg8TreeObjects = GameObject.FindGameObjectsWithTag("Obstacle");
+        foreach (var Mg8Treeob in Mg8TreeObjects)
+        {
+            if (Mg8Treeob != null)
+            {
+                Mg8Tree mg8TreeComponent = Mg8Treeob.GetComponent<Mg8Tree>();
+                if (mg8TreeComponent != null)
+                {
+                    mg8TreeComponent.SetSpeed(Mg8ObstacleSpeed);
+                }
+            }
+        }
+
+        GameObject[] jellyObjects = GameObject.FindGameObjectsWithTag("jelly"); //FindAllJellyTag
+        foreach (var jellyObject in jellyObjects)
+        {
+            if (jellyObject != null)
+            {
+                Mg8jelly Mg8jellyComponent = jellyObject.GetComponent<Mg8jelly>();
+                if (Mg8jellyComponent != null)
+                {
+                    jellyObject.GetComponent<Mg8jelly>().SetSpeed(Mg8ObstacleSpeed);
+                }
+                
+            }
+        }
+    }
+    
 
 }
 
