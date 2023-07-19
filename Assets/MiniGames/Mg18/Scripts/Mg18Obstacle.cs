@@ -7,6 +7,8 @@ public class Mg18Obstacle : MonoBehaviour
     public float ObstacleSpeed = 5.0f;
 
 
+
+
     private void Start()
     {
 
