@@ -160,7 +160,7 @@ GameObject:
   - component: {fileID: 2638851942313098190}
   m_Layer: 0
   m_Name: MG8Tree
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

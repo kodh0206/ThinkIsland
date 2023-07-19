@@ -1,3 +1,4 @@
+using MoreMountains.CorgiEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,9 @@ public class Mg8Player : MonoBehaviour
     private bool LeftButton = false;
 
     private int Mushrooms = 0;
+
+
+    public static Mg8Player instance = null;
 
     public void RightClick()
     {
@@ -35,10 +39,18 @@ public class Mg8Player : MonoBehaviour
         LeftButton = false;
 
     }
-    // Start is called before the first frame update
+
+
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
@@ -57,6 +69,8 @@ public class Mg8Player : MonoBehaviour
             Mushrooms -= 1;
             LeftButton=false;
         }
+
+
     }
 
 
@@ -97,4 +111,11 @@ public class Mg8Player : MonoBehaviour
             spriteRenderer.color = Color.white;
         }
     }
+
+
+    public int MushroomCount()
+    {
+        return Mushrooms;
+    }
+
 }
