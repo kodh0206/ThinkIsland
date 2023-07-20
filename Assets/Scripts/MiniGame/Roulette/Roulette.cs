@@ -1,34 +1,34 @@
 using System.Collections;
 using UnityEngine.Events;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class Roulette : MonoBehaviour
 {
 	[SerializeField]
-	private	Transform			piecePrefab;				// ·ê·¿¿¡ Ç¥½ÃµÇ´Â Á¤º¸ ÇÁ¸®ÆÕ
+	private	Transform			piecePrefab;				// ï¿½ê·¿ï¿½ï¿½ Ç¥ï¿½ÃµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	[SerializeField]
-	private	Transform			linePrefab;					// Á¤º¸µéÀ» ±¸ºÐÇÏ´Â ¼± ÇÁ¸®ÆÕ
+	private	Transform			linePrefab;					// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	[SerializeField]
-	private	Transform			pieceParent;				// Á¤º¸µéÀÌ ¹èÄ¡µÇ´Â ºÎ¸ð Transform
+	private	Transform			pieceParent;				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½Ç´ï¿½ ï¿½Î¸ï¿½ Transform
 	[SerializeField]
-	private	Transform			lineParent;					// ¼±µéÀÌ ¹èÄ¡µÇ´Â ºÎ¸ð Transform
+	private	Transform			lineParent;					// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½Ç´ï¿½ ï¿½Î¸ï¿½ Transform
 	[SerializeField]
-	private	RoulettePieceData[]	roulettePieceData;			// ·ê·¿¿¡ Ç¥½ÃµÇ´Â Á¤º¸ ¹è¿­
+	private	RoulettePieceData[]	roulettePieceData;			// ï¿½ê·¿ï¿½ï¿½ Ç¥ï¿½ÃµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½è¿­
 
 	[SerializeField]
-	private	int					spinDuration;				// È¸Àü ½Ã°£
+	private	int					spinDuration;				// È¸ï¿½ï¿½ ï¿½Ã°ï¿½
 	[SerializeField]
-	private	Transform			spinningRoulette;			// ½ÇÁ¦ È¸ÀüÇÏ´Â È¸ÀüÆÇ Transfrom
+	private	Transform			spinningRoulette;			// ï¿½ï¿½ï¿½ï¿½ È¸ï¿½ï¿½ï¿½Ï´ï¿½ È¸ï¿½ï¿½ï¿½ï¿½ Transfrom
 	[SerializeField]
-	private	AnimationCurve		spinningCurve;				// È¸Àü ¼Óµµ Á¦¾î¸¦ À§ÇÑ ±×·¡ÇÁ
+	private	AnimationCurve		spinningCurve;				// È¸ï¿½ï¿½ ï¿½Óµï¿½ ï¿½ï¿½ï¿½î¸¦ ï¿½ï¿½ï¿½ï¿½ ï¿½×·ï¿½ï¿½ï¿½
 
-	private	float				pieceAngle;					// Á¤º¸ ÇÏ³ª°¡ ¹èÄ¡µÇ´Â °¢µµ
-	private	float				halfPieceAngle;				// Á¤º¸ ÇÏ³ª°¡ ¹èÄ¡µÇ´Â °¢µµÀÇ Àý¹Ý Å©±â
-	private	float				halfPieceAngleWithPaddings;	// ¼±ÀÇ ±½±â¸¦ °í·ÁÇÑ PaddingÀÌ Æ÷ÇÔµÈ Àý¹Ý Å©±â
+	private	float				pieceAngle;					// ï¿½ï¿½ï¿½ï¿½ ï¿½Ï³ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½
+	private	float				halfPieceAngle;				// ï¿½ï¿½ï¿½ï¿½ ï¿½Ï³ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å©ï¿½ï¿½
+	private	float				halfPieceAngleWithPaddings;	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½â¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Paddingï¿½ï¿½ ï¿½ï¿½ï¿½Ôµï¿½ ï¿½ï¿½ï¿½ï¿½ Å©ï¿½ï¿½
 	
-	private	int					accumulatedWeight;			// °¡ÁßÄ¡ °è»êÀ» À§ÇÑ º¯¼ö
-	private	bool				isSpinning = false;			// ÇöÀç È¸ÀüÁßÀÎÁö
-	private	int					selectedIndex = 0;			// ·ê·¿¿¡¼­ ¼±ÅÃµÈ ¾ÆÀÌÅÛ
+	private	int					accumulatedWeight;			// ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	private	bool				isSpinning = false;			// ï¿½ï¿½ï¿½ï¿½ È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	private	int					selectedIndex = 0;			// ï¿½ê·¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ãµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 	private void Awake()
 	{
@@ -48,13 +48,13 @@ public class Roulette : MonoBehaviour
 		for ( int i = 0; i < roulettePieceData.Length; ++ i )
 		{
 			Transform piece = Instantiate(piecePrefab, pieceParent.position, Quaternion.identity, pieceParent);
-			// »ý¼ºÇÑ ·ê·¿ Á¶°¢ÀÇ Á¤º¸ ¼³Á¤ (¾ÆÀÌÄÜ, ¼³¸í)
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ê·¿ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½)
 			piece.GetComponent<RoulettePiece>().Setup(roulettePieceData[i]);
-			// »ý¼ºÇÑ ·ê·¿ Á¶°¢ È¸Àü
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ê·¿ ï¿½ï¿½ï¿½ï¿½ È¸ï¿½ï¿½
 			piece.RotateAround(pieceParent.position, Vector3.back, (pieceAngle * i));
 
 			Transform line = Instantiate(linePrefab, lineParent.position, Quaternion.identity, lineParent);
-			// »ý¼ºÇÑ ¼± È¸Àü (·ê·¿ Á¶°¢ »çÀÌ¸¦ ±¸ºÐÇÏ´Â ¿ëµµ)
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ È¸ï¿½ï¿½ (ï¿½ê·¿ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ëµµ)
 			line.RotateAround(lineParent.position, Vector3.back, (pieceAngle * i) + halfPieceAngle);
 		}
 	}
@@ -65,7 +65,7 @@ public class Roulette : MonoBehaviour
 		{
 			roulettePieceData[i].index = i;
 
-			// ¿¹¿ÜÃ³¸®. È¤½Ã¶óµµ chance°ªÀÌ 0 ÀÌÇÏÀÌ¸é 1·Î ¼³Á¤
+			// ï¿½ï¿½ï¿½ï¿½Ã³ï¿½ï¿½. È¤ï¿½Ã¶ï¿½ chanceï¿½ï¿½ï¿½ï¿½ 0 ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ 1ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			if ( roulettePieceData[i].chance <= 0 )
 			{
 				roulettePieceData[i].chance = 1;
@@ -97,16 +97,16 @@ public class Roulette : MonoBehaviour
 	{
 		if ( isSpinning == true ) return;
 
-		// ·ê·¿ÀÇ °á°ú °ª ¼±ÅÃ
+		// ï¿½ê·¿ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		selectedIndex = GetRandomIndex();
-		// ¼±ÅÃµÈ °á°úÀÇ Áß½É °¢µµ
+		// ï¿½ï¿½ï¿½Ãµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		float angle			= pieceAngle * selectedIndex;
-		// Á¤È®È÷ Áß½ÉÀÌ ¾Æ´Ñ °á°ú °ª ¹üÀ§ ¾ÈÀÇ ÀÓÀÇÀÇ °¢µµ ¼±ÅÃ
+		// ï¿½ï¿½È®ï¿½ï¿½ ï¿½ß½ï¿½ï¿½ï¿½ ï¿½Æ´ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		float leftOffset	= (angle - halfPieceAngleWithPaddings) % 360;
 		float rightOffset	= (angle + halfPieceAngleWithPaddings) % 360;
 		float randomAngle	= Random.Range(leftOffset, rightOffset);
 
-		// ¸ñÇ¥ °¢µµ(targetAngle) = °á°ú °¢µµ + 360 * È¸Àü ½Ã°£ * È¸Àü ¼Óµµ
+		// ï¿½ï¿½Ç¥ ï¿½ï¿½ï¿½ï¿½(targetAngle) = ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ + 360 * È¸ï¿½ï¿½ ï¿½Ã°ï¿½ * È¸ï¿½ï¿½ ï¿½Óµï¿½
 		int	  rotateSpeed	= 2;
 		float targetAngle	= (randomAngle + 360 * spinDuration * rotateSpeed);
 
@@ -137,6 +137,16 @@ public class Roulette : MonoBehaviour
 		isSpinning = false;
 
 		if ( action != null ) action.Invoke(roulettePieceData[selectedIndex]);
+
+
+
+		StartCoroutine(WaitAndLoadMainScene(2f));
 	}
+
+	private IEnumerator WaitAndLoadMainScene(float waitTime)
+{
+    yield return new WaitForSeconds(waitTime);
+    MiniGameManager.Instance.LoadMainMenu();
+}
 }
 
