@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Mg18MovingBack : MonoBehaviour
 {
-    public float movespeed = 3f;
+    public float movespeed = 5f;
 
     [SerializeField] float posValue;
 
@@ -21,5 +21,18 @@ public class Mg18MovingBack : MonoBehaviour
     {
         newPos = Mathf.Repeat(Time.time * movespeed, posValue);
         transform.position = startPos + Vector2.left *newPos;
+    }
+
+    
+
+    public void IncreaseSpeed()
+    {
+        movespeed += 1.0f; // 장애물의 스피드 증가
+        
+    }
+    public void DecreaseSpeed()
+    {
+        movespeed -= 1.0f; // 장애물의 스피드 증가
+
     }
 }
