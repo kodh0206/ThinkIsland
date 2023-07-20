@@ -45,12 +45,14 @@ public class Mg18manager : MonoBehaviour
             Mg18GroundSpawner spawner2 = FindAnyObjectByType<Mg18GroundSpawner>();
             Mg18jellySpawner spawner3 =FindAnyObjectByType<Mg18jellySpawner>();
 
+            Mg18MovingBack BackGround= FindObjectOfType<Mg18MovingBack>();
+
             if (spawner != null)
             {
                 spawner.IncreaseSpeed();  
                 spawner2.IncreaseSpeed(); 
-                spawner3.IncreaseSpeed(); 
-
+                spawner3.IncreaseSpeed();
+                BackGround.IncreaseSpeed();
             }
         }
     }
@@ -62,6 +64,7 @@ public class Mg18manager : MonoBehaviour
         Mg18GroundSpawner spawner2 = FindAnyObjectByType<Mg18GroundSpawner>();
         Mg18jellySpawner spawner3 = FindAnyObjectByType<Mg18jellySpawner>();
 
+        Mg18MovingBack BackGround = FindObjectOfType<Mg18MovingBack>();
 
         for (int i = 0; i < level; i++)
         {
@@ -69,6 +72,8 @@ public class Mg18manager : MonoBehaviour
             spawner.IncreaseSpeed();
             spawner2.IncreaseSpeed();
             spawner3.IncreaseSpeed();
+            BackGround.IncreaseSpeed();
+
         }
 
     }
@@ -81,6 +86,8 @@ public class Mg18manager : MonoBehaviour
         Mg18GroundSpawner spawner2 = FindAnyObjectByType<Mg18GroundSpawner>();
         Mg18jellySpawner spawner3 = FindAnyObjectByType<Mg18jellySpawner>();
 
+        Mg18MovingBack BackGround = FindObjectOfType<Mg18MovingBack>();
+
         if (level != 0)
         {
             level -= 1;
@@ -88,6 +95,7 @@ public class Mg18manager : MonoBehaviour
             spawner.DecreaseSpeed();
             spawner2.DecreaseSpeed();
             spawner3.DecreaseSpeed();
+            BackGround.DecreaseSpeed() ;
 
         }
 

@@ -21,7 +21,7 @@ public class Mg19jelly : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            //MiniGameManager.Instance.AddJelly();
+            MiniGameManager.Instance.AddJelly();
             Mg19manager.instance.AddScore();
             Destroy(gameObject);
         }

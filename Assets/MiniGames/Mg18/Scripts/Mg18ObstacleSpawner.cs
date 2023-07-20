@@ -93,12 +93,31 @@ public class Mg18ObstacleSpawner : MonoBehaviour
     public void IncreaseSpeed()
     {
         Mg18ObstacleSpeed += 1.0f; // 장애물의 스피드 증가
-        
+        ChangeAllSpeed();
     }
 
     public void DecreaseSpeed()
     {
         Mg18ObstacleSpeed -= 1.0f; // 장애물의 스피드 증가
+        ChangeAllSpeed();
+    }
 
+    public void ChangeAllSpeed()
+    {
+
+        GameObject[] Mg18SeaweedObjects = GameObject.FindGameObjectsWithTag("Obstacle");
+        foreach (var Mg18Seaweeds in Mg18SeaweedObjects)
+        {
+            if (Mg18Seaweeds != null)
+            {
+                Mg18Seaweed Mg18SeaweedsComponent = Mg18Seaweeds.GetComponent<Mg18Seaweed>();
+                if (Mg18SeaweedsComponent != null)
+                {
+                    Mg18SeaweedsComponent.SetSpeed(Mg18ObstacleSpeed);
+                }
+            }
+        }
+
+        
     }
 }
