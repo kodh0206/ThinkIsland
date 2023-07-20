@@ -30,6 +30,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip eggBreak;
     public AudioClip beeHive;
 
+    public AudioClip miniGameExchange;
     private void Awake()
     {
     if (_instance != null && _instance != this)
@@ -184,6 +185,12 @@ public class AudioManager : MonoBehaviour
     {
         audioSource.PlayOneShot(beeHive);
     }
+
+    public void MiniGameExchange()
+    {
+        audioSource.PlayOneShot(miniGameExchange);
+    }
+
     private IEnumerator StartMiniGameDelayed()
     {
         yield return new WaitForSeconds(minigamebegin.length);

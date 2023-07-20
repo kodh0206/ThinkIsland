@@ -488,62 +488,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 303880209}
   m_CullTransparentMesh: 1
---- !u!1 &459327266
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 459327268}
-  - component: {fileID: 459327267}
-  m_Layer: 0
-  m_Name: GUIManager_AutoCreated
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &459327267
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 459327266}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d64723688ce860840bebf5facbf67709, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HUD: {fileID: 0}
-  HealthBars: []
-  JetPackBars: []
-  AmmoDisplays: []
-  PauseScreen: {fileID: 0}
-  TimeSplash: {fileID: 0}
-  Buttons: {fileID: 0}
-  Arrows: {fileID: 0}
-  Joystick: {fileID: 0}
-  PointsText: {fileID: 0}
-  LevelText: {fileID: 0}
-  PointsPattern: 000000
---- !u!4 &459327268
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 459327266}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &543763660
 GameObject:
   m_ObjectHideFlags: 0
@@ -2233,9 +2177,10 @@ MonoBehaviour:
   obstacleFly: {fileID: 8300000, guid: f2438ecc7347ad943bc2ac8dc39df954, type: 3}
   capsulebreak: {fileID: 8300000, guid: 9d737f6c7df44a548bf445b89d67af0f, type: 3}
   breakPlatform: {fileID: 8300000, guid: b68f4ff3d7675034884650089be309d4, type: 3}
-  minigamebegin: {fileID: 8300000, guid: 0ef7ef6422d9c44449bc07608215af09, type: 3}
+  minigamebegin: {fileID: 8300000, guid: 056d445653e100f458668acd24ba277e, type: 3}
   eggBreak: {fileID: 8300000, guid: bf84d949641ed644db900b78db4eb0d2, type: 3}
   beeHive: {fileID: 8300000, guid: cdf2b607e8df76746a566107d84036f1, type: 3}
+  miniGameExchange: {fileID: 8300000, guid: 0dbde8f91e6e12648ab9975f30c85e2f, type: 3}
 --- !u!1 &1976378925
 GameObject:
   m_ObjectHideFlags: 0
