@@ -829,7 +829,9 @@ MonoBehaviour:
   max_experience: 0
   currentUnlockedAbilities: []
   currentUnlockedBuildings: []
-  currentUnlockedCrops: []
+  currentUnlockedCrops:
+  - {fileID: 11400000, guid: c7a0e635424379143bec9ac947ce5407, type: 2}
+  - {fileID: 11400000, guid: 872d296771f378e449b99c7a07f549d3, type: 2}
   unlockedLivestock: []
   ownedFields: []
   ownedPastures: []
