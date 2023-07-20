@@ -39,7 +39,7 @@ public class Mg20manager : MonoBehaviour
         score += 1;
         
 
-        if (score % 5 == 0)
+        if (score % 5 == 0 && (level <4))
         {
             Mg20BlockSpawner spawner = FindObjectOfType<Mg20BlockSpawner>();
             Mg20ChimneyMove chimney = FindObjectOfType<Mg20ChimneyMove>();
