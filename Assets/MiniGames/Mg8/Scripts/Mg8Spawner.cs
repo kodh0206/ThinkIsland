@@ -11,14 +11,14 @@ public class Mg8Spawner : MonoBehaviour
     public GameObject Mg8Obstacle4;
 
     [SerializeField]
-    private float Mg8ObstacleSpeed = 5.0f; // »ý¼º¹°ÀÇ ÃÊ±â ½ºÇÇµå
+    private float Mg8ObstacleSpeed = 5.0f; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½ ï¿½ï¿½ï¿½Çµï¿½
 
     [SerializeField]
-    private float time_diff = 1.5f; // Àå¾Ö¹° »ý¼º °£°Ý
+    private float time_diff = 1.5f; // ï¿½ï¿½Ö¹ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     [SerializeField]
-    private int minNumObstaclesToSpawn = 1; // ÃÖ¼Ò »ý¼º Àå¾Ö¹° °³¼ö
+    private int minNumObstaclesToSpawn = 1; // ï¿½Ö¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ö¹ï¿½ ï¿½ï¿½ï¿½ï¿½
     [SerializeField]
-    private int maxNumObstaclesToSpawn = 1; // ÃÖ´ë »ý¼º Àå¾Ö¹° °³¼ö
+    private int maxNumObstaclesToSpawn = 1; // ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ö¹ï¿½ ï¿½ï¿½ï¿½ï¿½
 
     float time = 0;
 
@@ -64,11 +64,11 @@ public class Mg8Spawner : MonoBehaviour
                 }
 
 
-                // ÁÂÇ¥¸¦ °íÁ¤
-                Vector2 spawnPosition = new Vector2(12.4f, -0.5f);
+                // ï¿½ï¿½Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+                Vector2 spawnPosition = new Vector2(15f, -0.5f);
                 new_Mg8Obstacle.transform.position = spawnPosition;
 
-                new_Mg8Obstacle.GetComponent<Mg8Tree>().SetSpeed(Mg8ObstacleSpeed); // Àå¾Ö¹°ÀÇ ½ºÇÇµå ¼³Á¤
+                new_Mg8Obstacle.GetComponent<Mg8Tree>().SetSpeed(Mg8ObstacleSpeed); // ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Çµï¿½ ï¿½ï¿½ï¿½ï¿½
                 Destroy(new_Mg8Obstacle, 8.0f);
             }
 
@@ -79,7 +79,7 @@ public class Mg8Spawner : MonoBehaviour
     public void IncreaseSpeed()
     {
         Mg8ObstacleSpeed += 1.0f;
-         time_diff -= 0.1f; // Àå¾Ö¹°ÀÇ »ý¼º °£°Ý °¨¼Ò
+         time_diff -= 0.1f; // ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
         ChangeAllSpeed();
 
@@ -88,7 +88,7 @@ public class Mg8Spawner : MonoBehaviour
     public void DecreaseSpeed()
     {
         Mg8ObstacleSpeed -= 1.0f;
-        time_diff += 0.1f; // Àå¾Ö¹°ÀÇ »ý¼º °£°Ý °¨¼Ò
+        time_diff += 0.1f; // ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 
         ChangeAllSpeed();
