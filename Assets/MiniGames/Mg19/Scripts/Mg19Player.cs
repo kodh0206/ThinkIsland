@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Mg19Player : MonoBehaviour
 {
-    public float jumpForce = 13f; // ���� ��
-    public float moveSpeed = 5f; // ������ �ӵ�
-    public float disableColliderTime = 0.3f; // ���� �� Collider ��Ȱ��ȭ �ð�
+    public float jumpForce = 13f; 
+    public float moveSpeed = 5f; 
+    public float disableColliderTime = 0.4f; 
     public bool isJumping = true;
 
     Animator animator;
@@ -45,7 +45,7 @@ public class Mg19Player : MonoBehaviour
         LeftButton = false;
     }
 
-    private void Start()
+    public void Start()
     {
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
@@ -59,7 +59,7 @@ public class Mg19Player : MonoBehaviour
         //audioSource = GetComponent<AudioSource>();
     }
 
-    private void Update()
+    public void Update()
     {
         
         float horizontalInput =  0f;
@@ -90,30 +90,25 @@ public class Mg19Player : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Ground") && isJumping)
-        {   
+        if (collision.gameObject.CompareTag("Ground") && (rb.velocity.y <= 0))
+        {
             //audioSource.PlayOneShot(jump);
             Jump();
         }
     }
+    
 
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            StartCoroutine(ResetJumping());
-        }
-    }
+
+
 
     private void Jump()
     {
-        StartCoroutine(DisableColliderForJump());
 
         rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        StartCoroutine(DisableColliderForJump());
 
-        
     }
 
     private IEnumerator DisableColliderForJump()
@@ -123,7 +118,13 @@ public class Mg19Player : MonoBehaviour
         // Block 레이어와의 충돌 무시
         Physics2D.IgnoreLayerCollision(gameObject.layer, blockLayerMask, true);
 
-        yield return new WaitForSeconds(disableColliderTime);
+
+        while (rb.velocity.y >= 0)
+        {
+            yield return null;
+        }
+        
+        
 
         // 충돌 무시 해제
         Physics2D.IgnoreLayerCollision(gameObject.layer, blockLayerMask, false);
@@ -134,10 +135,5 @@ public class Mg19Player : MonoBehaviour
 
     }
 
-    private IEnumerator ResetJumping()
-    {
-        yield return new WaitForSeconds(0.1f);
-
-        isJumping = true;
-    }
+    
 }

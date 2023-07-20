@@ -15,7 +15,7 @@ public class Mg19deadzone : MonoBehaviour
     void Start()
     {
         initialPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
-        BlockinitialPosition = new Vector3(-0.3f,-0.5f,0);
+        BlockinitialPosition = new Vector3(-0.3f,-1.5f,0);
         playerRigidbody = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
     }
 

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Mg19ButtonController : MonoBehaviour
 {
+
+    
     public void OnRightButtonClick()
     {
         GameObject playerObject = GameObject.FindGameObjectWithTag("Player");

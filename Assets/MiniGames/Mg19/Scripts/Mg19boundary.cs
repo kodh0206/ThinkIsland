@@ -10,13 +10,16 @@ public class Mg19boundary : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Destroy(other);
+            
             // 기존 플레이어의 위치를 반전시킴
             Vector3 newPosition = other.transform.position;
             newPosition.x = -newPosition.x +0.5f;
 
             // 새로운 플레이어 생성
-            GameObject newPlayer = Instantiate(playerPrefab, newPosition, Quaternion.identity);
+            GameObject newPlayer = Instantiate(playerPrefab);
+            newPlayer.transform.position = newPosition;
+
+            Destroy(other);
         }
     }
 }
