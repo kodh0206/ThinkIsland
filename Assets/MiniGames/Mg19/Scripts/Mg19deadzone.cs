@@ -37,6 +37,7 @@ public class Mg19deadzone : MonoBehaviour
 
         // Player 컴포넌트를 비활성화하여 조작 불가능 상태로 만듭니다.
         Player playerComponent = player.GetComponent<Player>();
+
         if (playerComponent != null)
         {
             playerComponent.enabled = false;

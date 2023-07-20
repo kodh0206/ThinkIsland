@@ -4,11 +4,20 @@ using UnityEngine;
 
 public class Mg19ButtonController : MonoBehaviour
 {
+    public GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
 
-    
+    public static Mg19ButtonController instance = null;
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
+
     public void OnRightButtonClick()
     {
-        GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
+        playerObject = GameObject.FindGameObjectWithTag("Player");
 
         if (playerObject != null)
         {
@@ -20,9 +29,11 @@ public class Mg19ButtonController : MonoBehaviour
         }
     }
 
+
+
     public void OnRightButtonClickoff()
     {
-        GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
+         playerObject = GameObject.FindGameObjectWithTag("Player");
 
         if (playerObject != null)
         {
@@ -36,7 +47,7 @@ public class Mg19ButtonController : MonoBehaviour
 
     public void OnLeftButtonClick()
     {
-        GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
+         playerObject = GameObject.FindGameObjectWithTag("Player");
 
         if (playerObject != null)
         {
@@ -50,7 +61,7 @@ public class Mg19ButtonController : MonoBehaviour
 
     public void OnLeftButtonClickOff()
     {
-        GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
+         playerObject = GameObject.FindGameObjectWithTag("Player");
 
         if (playerObject != null)
         {
@@ -61,4 +72,10 @@ public class Mg19ButtonController : MonoBehaviour
             }
         }
     }
+
+    public void FindPlayer()
+    {
+        playerObject = GameObject.FindGameObjectWithTag("Player");
+    }
+
 }

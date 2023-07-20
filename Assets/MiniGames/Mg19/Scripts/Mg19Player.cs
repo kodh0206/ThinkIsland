@@ -17,8 +17,8 @@ public class Mg19Player : MonoBehaviour
     private int blockLayerMask; // Block ���̾��� ����ũ
 
 
-    private bool RightButton = false;
-    private bool LeftButton = false;
+    public bool RightButton = false;
+    public bool LeftButton = false;
     private AudioSource audioSource;
     public AudioClip jump;
     public void RightClick()

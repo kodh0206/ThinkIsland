@@ -125,11 +125,36 @@ public class Mg19blockSpanwer : MonoBehaviour
     {
         Mg19blockSpeed += 1.0f; // 바닥의 스피드 증가
         time_diff -= 0.2f;
+
+        GameObject[] groundObjects = GameObject.FindGameObjectsWithTag("Ground"); //Find all GroundTag
+        foreach (var groundObject in groundObjects)
+        {
+            groundObject.GetComponent<Mg19block>().SetSpeed(Mg19blockSpeed);
+        }
+
+        GameObject[] jellyObjects = GameObject.FindGameObjectsWithTag("jelly"); //FindAllJellyTag
+        foreach (var jellyObject in jellyObjects)
+        {
+            jellyObject.GetComponent<Mg19jelly>().SetSpeed(Mg19blockSpeed);
+        }
+
     }
 
     public void DecreaseSpeed()
     {
         Mg19blockSpeed -= 1.0f; // 바닥의 스피드 증가
         time_diff += 0.2f;
+
+        GameObject[] groundObjects = GameObject.FindGameObjectsWithTag("Ground"); //Find all GroundTag
+        foreach (var groundObject in groundObjects)
+        {
+            groundObject.GetComponent<Mg19block>().SetSpeed(Mg19blockSpeed);
+        }
+
+        GameObject[] jellyObjects = GameObject.FindGameObjectsWithTag("jelly"); //FindAllJellyTag
+        foreach (var jellyObject in jellyObjects)
+        {
+            jellyObject.GetComponent<Mg19jelly>().SetSpeed(Mg19blockSpeed);
+        }
     }
 }
