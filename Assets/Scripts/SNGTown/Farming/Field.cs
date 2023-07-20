@@ -98,7 +98,7 @@ public class Field : MonoBehaviour
 
     private void OnMouseDown()
     {   
-    Debug.Log("클릭!");
+    Debug.Log("클릭!"+GetInstanceID());
      if(state == PlotState.LOCKED)
     {
         fm.UnlockPlot(this, 200); // Unlock this plot for 200 dollars
