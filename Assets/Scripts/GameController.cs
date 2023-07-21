@@ -12,7 +12,9 @@ public class GameController : MonoBehaviour
     public static GameController Instance { get { return _instance; } }
     public string currentmbrId;
     public string currentprgsCd;
-      
+    
+    //해금될 농작물리스트 
+    public List<CropData> CropList = new List<CropData>();
     public int currentjellyCount;
     public int curentgold;
     public int currentActionPoints;
@@ -82,14 +84,37 @@ public class GameController : MonoBehaviour
 
     void LevelUp()
     {
-        // 레벨 업
-        level++;
+       // 레벨 업
+    level++;
 
-        // 현재 레벨의 필요한 경험치를 초과한 값은 다음 레벨의 경험치로 계속 유지
-        current_experience = current_experience - expToLevelUp[level - 2];
+    // 현재 레벨의 필요한 경험치를 초과한 값은 다음 레벨의 경험치로 계속 유지
+    current_experience = current_experience - expToLevelUp[level - 2];
 
-        // 새 레벨에 대한 처리를 수행. 예: 능력치 증가, 새로운 능력 잠금 해제 등
-        // ...
+    // 새 레벨에 대한 처리를 수행. 예: 능력치 증가, 새로운 능력 잠금 해제 등
+    // ...
+
+    // Get the reward data for the new level
+    LevelRewardData reward = RewardManager.Instance.GetRewardForLevel(level);
+    if (reward != null)
+    {
+        if (!string.IsNullOrEmpty(reward.unlockedCrop))
+        {
+            // Add the unlocked crop to the available crops...
+            // Assuming that 'CropData' has a constructor that accepts a string (the crop name)
+            // Find the CropData from the crop list that matches the name and has the right unlock level
+            CropData newCrop = CropList.Find(c => c.plantName == reward.unlockedCrop && c.unlocklevel <= level);
+            if (newCrop != null)
+            {
+                currentUnlockedCrops.Add(newCrop);
+            }
+        }
+
+
+        if (!string.IsNullOrEmpty(reward.unlockedMiniGame))
+        {
+            // Unlock the specified mini game...
+            unlockedMiniGames.Add(reward.unlockedMiniGame);
+        }
     }
-  
+    }
 }

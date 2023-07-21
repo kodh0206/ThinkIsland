@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Mg19ButtonController : MonoBehaviour
 {
-    public GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
+    public GameObject playerObject;
 
     public static Mg19ButtonController instance = null;
     void Awake()
-    {
+    {   playerObject = GameObject.FindGameObjectWithTag("Player");
         if (instance == null)
         {
             instance = this;
