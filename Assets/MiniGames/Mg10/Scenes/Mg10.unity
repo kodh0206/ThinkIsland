@@ -12377,8 +12377,8 @@ MonoBehaviour:
   WhatObstacle: 0
   Mg10ObstacleSpeed: 5
   time_diff: 1.5
-  minNumObstaclesToSpawn: 6
-  maxNumObstaclesToSpawn: 8
+  minNumObstaclesToSpawn: 3
+  maxNumObstaclesToSpawn: 4
 --- !u!1 &2106943105
 GameObject:
   m_ObjectHideFlags: 0
