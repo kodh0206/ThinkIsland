@@ -15,7 +15,7 @@ public class Mg19deadzone : MonoBehaviour
     void Start()
     {
         initialPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
-        BlockinitialPosition = new Vector3(-0.3f,-0.5f,0);
+        BlockinitialPosition = new Vector3(-0.3f,-1.5f,0);
         playerRigidbody = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
     }
 
@@ -37,6 +37,7 @@ public class Mg19deadzone : MonoBehaviour
 
         // Player 컴포넌트를 비활성화하여 조작 불가능 상태로 만듭니다.
         Player playerComponent = player.GetComponent<Player>();
+
         if (playerComponent != null)
         {
             playerComponent.enabled = false;

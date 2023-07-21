@@ -14,8 +14,8 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 0
-  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_Fog: 1
+  m_FogColor: {r: 0, g: 0, b: 0, a: 0}
   m_FogMode: 3
   m_FogDensity: 0.01
   m_LinearFogStart: 0
@@ -2177,9 +2177,10 @@ MonoBehaviour:
   obstacleFly: {fileID: 8300000, guid: f2438ecc7347ad943bc2ac8dc39df954, type: 3}
   capsulebreak: {fileID: 8300000, guid: 9d737f6c7df44a548bf445b89d67af0f, type: 3}
   breakPlatform: {fileID: 8300000, guid: b68f4ff3d7675034884650089be309d4, type: 3}
-  minigamebegin: {fileID: 8300000, guid: 0ef7ef6422d9c44449bc07608215af09, type: 3}
+  minigamebegin: {fileID: 8300000, guid: 056d445653e100f458668acd24ba277e, type: 3}
   eggBreak: {fileID: 8300000, guid: bf84d949641ed644db900b78db4eb0d2, type: 3}
   beeHive: {fileID: 8300000, guid: cdf2b607e8df76746a566107d84036f1, type: 3}
+  miniGameExchange: {fileID: 8300000, guid: 0dbde8f91e6e12648ab9975f30c85e2f, type: 3}
 --- !u!1 &1976378925
 GameObject:
   m_ObjectHideFlags: 0

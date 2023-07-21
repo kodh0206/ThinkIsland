@@ -87,6 +87,7 @@ public class MiniGameManager : MonoBehaviour
             if (timer >= gameChangeInterval - countdownStartTime && !isCountDown)
             {
             isCountDown = true;
+            AudioManager.Instance.MiniGameExchange();
             StartCoroutine(Countdown());
             }
 
@@ -104,7 +105,7 @@ public class MiniGameManager : MonoBehaviour
     {   
         
         
-    if (scene.name == "BetaScene" || scene.name == "Main" || scene.name == "RadioScene")
+       if (scene.name == "BetaScene" || scene.name == "Main" || scene.name == "RadioScene" || scene.name == "Roulette")
     {
         if(minigameUI != null) 
         {
@@ -191,7 +192,7 @@ private IEnumerator ShowBlackScreen()
         {   
             totalJelly =0;
             SaveTotalJelly();
-            LoadMainMenu();
+            LoadRouletteScene();
             return;
         }
         AudioManager.Instance.audioSource.Stop(); // Stop BGM
@@ -239,6 +240,7 @@ private IEnumerator Fade(float finalAlpha)
 
     private IEnumerator Countdown()
 {   MIniGameUI.Instance.CountDown.gameObject.SetActive(true);
+    
     float countdownTime = countdownStartTime;
     while (countdownTime > 0)
     {
@@ -273,6 +275,11 @@ private IEnumerator Fade(float finalAlpha)
         GameController.Instance.GainExperience(1);
         minigameUI.GetComponent<MIniGameUI>().UpdateJellyText();  // UI 업데이트
         AudioManager.Instance.PlayJelly();
+    }
+
+    private void LoadRouletteScene()
+    {
+    StartCoroutine(FadeAndLoadScene("Roulette"));
     }
     private void OnApplicationQuit()
     {

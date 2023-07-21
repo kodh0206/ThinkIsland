@@ -34,7 +34,7 @@ public class GameController : MonoBehaviour
     public int max_experience;
     public List<string> currentUnlockedAbilities;
     public List<string> currentUnlockedBuildings;
-    public List<string> currentUnlockedCrops;
+    public List<CropData> currentUnlockedCrops;
     public List<string> unlockedLivestock;
     public List<string> ownedFields;
     public List<string> ownedPastures;

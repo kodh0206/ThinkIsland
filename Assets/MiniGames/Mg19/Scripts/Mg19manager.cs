@@ -40,7 +40,7 @@ public class Mg19manager : MonoBehaviour
     {
         score += 1;
         
-        if (score % 5 == 0)
+        if (score % 5 == 0 && (level < 4))
         {
             level += 1;
             Mg19blockSpanwer spawner = FindObjectOfType<Mg19blockSpanwer>();

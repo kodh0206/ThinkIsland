@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class Mg14Player : MonoBehaviour
 {
-    public float moveSpeed = 5f; // �̵� �ӵ�
-    public float jumpForce = 10f; // ���� �� (������ �κ�)
-    public float jumpGravityScale = 0.5f; // ���� ���� ������ gravityScale
-    private bool isFacingRight = true; // ���� ������ ������ ���ϰ� �ִ��� ����
+    public float moveSpeed = 5f; 
+    public float jumpForce = 10f; 
+    public float jumpGravityScale = 0.5f; 
+    private bool isFacingRight = true; 
     
     [SerializeField]
-    private bool isJumping = false; // ���� ���� ������ ����
+    private bool isJumping = false; 
     
     [SerializeField]
-    private bool canJump = true; // ���� ���� ����
+    private bool canJump = true; 
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
     private bool monkey_right=false;
@@ -60,22 +60,26 @@ public class Mg14Player : MonoBehaviour
 
     private void Update()
     {
-        // ������ �밢�� ���� ����
+        
         if (monkey_left && canJump && (Input.GetKeyDown(KeyCode.RightArrow)|| RightButton))
         {
-            FlipSprite();
-            RightJump();
             monkey_left = false;
             monkey_right = true;
-            RightButton=false;
+            RightButton = false;
+            canJump = false;
+            FlipSprite();
+            RightJump();
+            
         }
         if (monkey_right&& canJump && (Input.GetKeyDown(KeyCode.LeftArrow) ||LeftButton))
         {
-            FlipSprite();
-            LeftJump();
             monkey_left = true;
             monkey_right = false;
             LeftButton = false;
+            canJump = false;
+            FlipSprite();
+            LeftJump();
+            
         }
     }
 
@@ -95,7 +99,7 @@ public class Mg14Player : MonoBehaviour
 
     private void FlipSprite()
     {
-        // ��������Ʈ �¿� ����
+        
         isFacingRight = !isFacingRight;
         spriteRenderer.flipX = !isFacingRight;
     }
@@ -126,45 +130,45 @@ public class Mg14Player : MonoBehaviour
 
 
 
-    public void GetTree()  //������ �������.
+    public void GetTree()  
     {
-        // ������ ����
+        
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         rb.velocity = Vector2.zero;
         rb.gravityScale = 0.01f;
         isJumping = false;
         canJump = false;
 
-        // �񵿱� ó�� ����
+        
         StartCoroutine(DisableControlAndResetColor());
         canJump = true;
     }
 
     private IEnumerator DisableControlAndResetColor()
     {
-        // ���� ��Ȱ��ȭ
+        
         enabled = false;
         
         
-        // 1�ʰ� ���
+        
         yield return new WaitForSeconds(0.1f);
-        // ���� Ȱ��ȭ
+        
         enabled = true;
-        // 1�ʰ� poop ���� ���� ����
+        
         yield return new WaitForSeconds(0.1f);
-        // ���� ������� ����
+        
     }
 
-    public void GetHit()  //�� �¾�����
+    public void GetHit()  
     {
-        // ������ ����
+        
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         rb.velocity = Vector2.zero;
         rb.gravityScale = 0.01f;
         audioSource.PlayOneShot(monkeyfall);
         isJumping = true;
         canJump = false;
-        // �񵿱� ó�� ����
+        
         StartCoroutine(DisableControlAndResetColor());
     }
 

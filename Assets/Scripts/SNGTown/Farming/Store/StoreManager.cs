@@ -13,12 +13,15 @@ public class StoreManager : MonoBehaviour
     private void Awake()
     {   clsoeButton.onClick.AddListener(CloseButton);
         //Assets/Resources/
-        var loadPlants = Resources.LoadAll("CropData", typeof(CropData));
+           var loadPlants = Resources.LoadAll("CropData", typeof(CropData));
         foreach (var plant in loadPlants)
         {
-            plantObjects.Add((CropData)plant);
+            // Check if the player owns this crop
+            if (GameController.Instance.currentUnlockedCrops.Contains((CropData)plant))
+            {
+                plantObjects.Add((CropData)plant);
+            }
         }
-        plantObjects.Sort(SortByPrice);
 
         foreach (var plant in plantObjects)
         {
