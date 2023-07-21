@@ -23,13 +23,33 @@ public class Makebirdpoop : MonoBehaviour
     void Start()
     {
         SetRandomTimeDiff();
+        StartCoroutine(SpawnBirdPoops()); // 코루틴 시작
     }
 
     // Update is called once per frame
     void Update()
     {
-        time += Time.deltaTime;
-        if (time > timeDiff)
+        //time += Time.deltaTime;
+        //if (time > timeDiff)
+        //{
+        //    int numPoopsToSpawn = Random.Range(minNumPoopsToSpawn, maxNumPoopsToSpawn + 1);
+
+        //    for (int i = 0; i < numPoopsToSpawn; i++)
+        //    {
+        //        GameObject new_birdpoop = Instantiate(birdpoop);
+        //        new_birdpoop.transform.position = new Vector3(10.5f, Random.Range(-1.6f, 3.7f), 0);
+        //        new_birdpoop.GetComponent<birdpoop>().SetSpeed(birdpoopSpeed);
+        //        Destroy(new_birdpoop, 10.0f);
+        //    }
+
+        //    time = Random.Range(0f, minTimeDiff);
+        //    SetRandomTimeDiff(); // 다음 생성 간격을 랜덤으로 설정
+        //}
+    }
+
+    private IEnumerator SpawnBirdPoops()
+    {
+        while (true)
         {
             int numPoopsToSpawn = Random.Range(minNumPoopsToSpawn, maxNumPoopsToSpawn + 1);
 
@@ -39,10 +59,11 @@ public class Makebirdpoop : MonoBehaviour
                 new_birdpoop.transform.position = new Vector3(10.5f, Random.Range(-1.6f, 3.7f), 0);
                 new_birdpoop.GetComponent<birdpoop>().SetSpeed(birdpoopSpeed);
                 Destroy(new_birdpoop, 10.0f);
+                yield return new WaitForSeconds(0.2f); // 텀을 두기 위해 WaitForSeconds 호출
             }
 
-            time = Random.Range(0f, 0.5f);
-            SetRandomTimeDiff(); // 다음 생성 간격을 랜덤으로 설정
+            
+       
         }
     }
 
@@ -68,6 +89,19 @@ public class Makebirdpoop : MonoBehaviour
         {
             maxTimeDiff = 0.2f;
         }
+
+        GameObject[] groundObjects = GameObject.FindGameObjectsWithTag("Obstacle"); //Find all GroundTag
+        foreach (var groundObject in groundObjects)
+        {
+            groundObject.GetComponent<birdpoop>().SetSpeed(birdpoopSpeed);
+        }
+
+        GameObject[] jellyObjects = GameObject.FindGameObjectsWithTag("jelly"); //Find all GroundTag
+        foreach (var jellyObject in jellyObjects)
+        {
+            jellyObject.GetComponent<jelly>().SetSpeed(birdpoopSpeed);
+        }
+
     }
 
     public void DecreaseSpeed()
@@ -87,6 +121,22 @@ public class Makebirdpoop : MonoBehaviour
         {
             maxTimeDiff = 0.2f;
         }
+
+        GameObject[] groundObjects = GameObject.FindGameObjectsWithTag("Obstacle"); //Find all GroundTag
+        foreach (var groundObject in groundObjects)
+        {
+            groundObject.GetComponent<birdpoop>().SetSpeed(birdpoopSpeed);
+        }
+
+        GameObject[] jellyObjects = GameObject.FindGameObjectsWithTag("jelly"); //Find all GroundTag
+        foreach (var jellyObject in jellyObjects)
+        {
+            jellyObject.GetComponent<jelly>().SetSpeed(birdpoopSpeed);
+        }
+
+
+
+
     }
 
 

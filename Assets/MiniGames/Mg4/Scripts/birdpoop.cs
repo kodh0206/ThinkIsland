@@ -10,19 +10,22 @@ public class birdpoop : MonoBehaviour
     public float birdpoop_Speed = 5.0f;
 
     [SerializeField]
-    public float birdpoopupdownSpeed = 10.0f;
+    public float birdpoopupdownSpeed = 1.0f;
 
     [SerializeField]
     private float pushForce = 5.0f; // ¹Ð±â Èû
 
-    int count = 0;
+    [SerializeField]
+    public float bouncemax = 30f;
+
+    float count = 0;
     bool updown = true;
 
     void Start()
     {
-        
+        bouncemax = Random.Range(0, 30f);
     }
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
@@ -43,14 +46,16 @@ public class birdpoop : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+
         transform.position += Vector3.left* birdpoop_Speed * Time.deltaTime;
 
         if (updown == true)
         {
             transform.position += Vector3.down * birdpoopupdownSpeed * Time.deltaTime;
-            if (count < 50)
+            if (count < bouncemax)
             {
-                count++;
+                count+=0.1f;
             }
             else
             {
@@ -61,9 +66,9 @@ public class birdpoop : MonoBehaviour
         else if (updown == false)
         {
             transform.position += Vector3.up * birdpoopupdownSpeed * Time.deltaTime;
-            if (count < 50)
+            if (count < bouncemax)
             {
-                count++;
+                count += 0.1f;
             }
             else
             {

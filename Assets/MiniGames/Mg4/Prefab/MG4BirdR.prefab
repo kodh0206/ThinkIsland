@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -8265567800486610165}
   m_Layer: 0
   m_Name: MG4BirdR
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -147,5 +147,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   birdpoop_Speed: 5
-  birdpoopupdownSpeed: 10
+  birdpoopupdownSpeed: 1
   pushForce: 5
+  bouncemax: 30
