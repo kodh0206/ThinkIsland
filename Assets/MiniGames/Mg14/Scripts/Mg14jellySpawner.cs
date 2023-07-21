@@ -25,7 +25,7 @@ public class Mg14jellySpawner : MonoBehaviour
             GameObject new_jelly = Instantiate(jelly);
 
             
-            Vector2 spawnPosition = new Vector2(Random.Range(-3.4f, 2.97f), 5.5f);
+            Vector2 spawnPosition = new Vector2(Random.Range(-2.7f, 3.25f), 5.5f);
             new_jelly.transform.position = spawnPosition;
 
 
