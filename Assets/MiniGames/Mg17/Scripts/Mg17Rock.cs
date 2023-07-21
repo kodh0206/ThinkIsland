@@ -5,7 +5,7 @@ using UnityEngine;
 public class Mg17Rock : MonoBehaviour
 {
     // Start is called before the first frame update
-    public float RockSpeed = 5.0f;
+    public float RockSpeed = 20.0f;
 
 
 

@@ -8,8 +8,7 @@ public class Mg17RockSpawner : MonoBehaviour
 
     public Transform player;
 
-    [SerializeField]
-    private float RockSpeed = 5.0f; // ¹ÙÀ§ÀÇ ÃÊ±â ½ºÇÇµå
+    public float RockSpeed = 20.0f; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½ ï¿½ï¿½ï¿½Çµï¿½
 
     [SerializeField]
     private float time_diff = 0.35f;
@@ -30,13 +29,13 @@ public class Mg17RockSpawner : MonoBehaviour
         {
             GameObject new_Rock = Instantiate(Rock);
 
-            // ÁÂÇ¥¸¦ ·£´ýÇÏ°Ô ¼±ÅÃÇÏ¿© ¼³Á¤
-            Vector2 spawnPosition = new Vector2(player.position.x-0.1f , player.position.y+0.1f); //ÇÃ·¹ÀÌ¾î¸¦ ±âÁØÀ¸·Î »ý¼º
+            // ï¿½ï¿½Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½
+            Vector2 spawnPosition = new Vector2(player.position.x-0.1f , player.position.y+0.1f); //ï¿½Ã·ï¿½ï¿½Ì¾î¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             new_Rock.transform.position = spawnPosition;
 
 
 
-            new_Rock.GetComponent<Mg17Rock>().SetSpeed(RockSpeed); // Åõ»çÃ¼ÀÇ ½ºÇÇµå ¼³Á¤
+            new_Rock.GetComponent<Mg17Rock>().SetSpeed(RockSpeed); // ï¿½ï¿½ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½Çµï¿½ ï¿½ï¿½ï¿½ï¿½
             time = 0;
             Destroy(new_Rock, 5.0f);
         }
@@ -44,14 +43,14 @@ public class Mg17RockSpawner : MonoBehaviour
 
     public void IncreaseSpeed()
     {
-        RockSpeed += 1.0f; // ¹ÙÀ§ÀÇ ½ºÇÇµå Áõ°¡
-        time_diff -= 0.1f; // ¹ÙÀ§ÀÇ »ý¼º °£°Ý °¨¼Ò
+        RockSpeed += 1.0f; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Çµï¿½ ï¿½ï¿½ï¿½ï¿½
+        time_diff -= 0.1f; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     }
 
     public void DecreaseSpeed()
     {
-        RockSpeed -= 1.0f; // ¹ÙÀ§ÀÇ ½ºÇÇµå Áõ°¡
-        time_diff += 0.1f; // ¹ÙÀ§ÀÇ »ý¼º °£°Ý °¨¼Ò
+        RockSpeed -= 1.0f; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Çµï¿½ ï¿½ï¿½ï¿½ï¿½
+        time_diff += 0.1f; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     }
 
     public void GetHit()
@@ -61,13 +60,13 @@ public class Mg17RockSpawner : MonoBehaviour
 
     private IEnumerator DisableSpawning()
     {
-        // »ý¼º ¸ØÃã
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         time_diff = Mathf.Infinity;
 
-        // ´ë±â ½Ã°£
+        // ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½
         yield return new WaitForSeconds(2f);
 
-        // »ý¼º Àç°³
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ç°³
         time_diff = 0.5f;
     }
 }
