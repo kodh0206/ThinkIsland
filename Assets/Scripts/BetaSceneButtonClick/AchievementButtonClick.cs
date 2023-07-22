@@ -41,13 +41,11 @@ public class AchievementButtonClick : MonoBehaviour
     {
         farmAchievementCanvas.SetActive(true);
         animalAchievementCanvas.SetActive(false);
-        //mobileTouchScript.enabled = false;
     }
 
     public void AnimalAchievementButtonClick()
     {
         animalAchievementCanvas.SetActive(true);
         farmAchievementCanvas.SetActive(false);
-        //mobileTouchScript.enabled = false;
     }
 }
