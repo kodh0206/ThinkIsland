@@ -1,19 +1,22 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 [System.Serializable]
+
 public class RoulettePieceData
-{
-	public	Sprite	icon;			// ¾ÆÀÌÄÜ ÀÌ¹ÌÁö ÆÄÀÏ
-	public	string	description;	// ÀÌ¸§, ¼Ó¼º, ´É·ÂÄ¡ µîÀÇ Á¤º¸
+{	
+	public enum RewardType { Gold, Crop,MiniGame }
+    public Sprite icon;              // ë³´ìƒì˜ ì•„ì´ì½˜
+    public string description;       // ë³´ìƒì˜ ì„¤ëª…
+    public string rewardType;     
+    public int rewardAmount;         // ë³´ìƒì˜ ì–‘
 
-	// 3°³ÀÇ ¾ÆÀÌÅÛ µîÀåÈ®·ü(chance)ÀÌ 100, 60, 40ÀÌ¸é
-	// µîÀåÈ®·üÀÇ ÇÕÀº 200. 100/200 = 50%, 60/200 = 30%, 40/200 = 20%
-	[Range(1, 100)]
-	public	int		chance = 100;	// µîÀåÈ®·ü
+    [Range(1, 100)]
+    public int chance = 100;         // ì–»ì„ í™•ë¥ 
 
-	[HideInInspector]
-	public	int		index;			// ¾ÆÀÌÅÛ ¼ø¹ø
-	[HideInInspector]
-	public	int		weight;			// °¡ÁßÄ¡
+    [HideInInspector]
+    public int index;                // ë³´ìƒì˜ ì¸ë±ìŠ¤
+    [HideInInspector]
+    public int weight;    
 }
 
