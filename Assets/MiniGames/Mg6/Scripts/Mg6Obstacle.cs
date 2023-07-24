@@ -32,7 +32,7 @@ public class Mg6Obstacle : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {   
-            AudioManager.Instance.Spider();
+            //AudioManager.Instance.Spider();
             other.gameObject.GetComponent<Mg6Player>().GetHit();
         }
     }

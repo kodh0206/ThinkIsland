@@ -273,6 +273,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 228511449}
   duration: 1
+  stunEffect: {fileID: 612886624020768476, guid: 43ced0fd877bac34ebd91e90e38f6a02,
+    type: 3}
   jumpForce: 9
   maxJumpForce: 23
   jumpForceIncrement: 9
@@ -1161,8 +1163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee8bd0d2996a1294083bd1e24cc42fa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameOverPanel: {fileID: 0}
-  isGameOver: 0
+  level: 0
 --- !u!1 &933398704
 GameObject:
   m_ObjectHideFlags: 0
@@ -1862,7 +1863,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: -953471037, guid: b8de914a1a2e3a24eb6987bed120ee38, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
