@@ -86,20 +86,20 @@ public class Player : MonoBehaviour
 
     private IEnumerator DisableControlAndResetColor()
     {
+
         // Change color to brown
-        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
-        if (spriteRenderer != null)
-        {
-            spriteRenderer.color = new Color(0.77f, 0.52f, 0f);
-        }
+        
+
+        animator.SetBool("ISHIt", true);
+
+        
 
         // Wait for 2 seconds
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
 
+
+        animator.SetBool("ISHIt", false);
         // Change color back to white
-        if (spriteRenderer != null)
-        {
-            spriteRenderer.color = Color.white;
-        }
+
     }
 }
