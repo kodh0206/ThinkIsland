@@ -129,7 +129,7 @@ public class Player : MonoBehaviour
         
 
         Vector2 Effectposition = new Vector2(transform.position.x, transform.position.y + 0.7f);
-        GameObject HitEff = Instantiate(stunEffect, Effectposition, Quaternion.identity);
+        GameObject HitEff = Instantiate(stunEffect, Effectposition, Quaternion.identity, transform);
 
 
 
