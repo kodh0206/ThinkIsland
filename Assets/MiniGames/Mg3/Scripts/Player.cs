@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
     private Animator animator;
+
+    public GameObject stunEffect;
+
     [SerializeField]
     private float moveSpeed = 5f;
 
@@ -92,10 +96,14 @@ public class Player : MonoBehaviour
 
         animator.SetBool("ISHIt", true);
 
-        
+        Vector2 Effectposition = new Vector2(transform.position.x, transform.position.y + 0.7f);
+        GameObject HitEff = Instantiate(stunEffect, Effectposition, Quaternion.identity);
+
 
         // Wait for 2 seconds
         yield return new WaitForSeconds(1f);
+
+        Destroy(HitEff);
 
 
         animator.SetBool("ISHIt", false);
