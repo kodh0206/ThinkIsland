@@ -85,7 +85,7 @@ public class GameController : MonoBehaviour
     void LevelUp()
     {
        // 레벨 업
-    level++;
+  level++;
 
     // 현재 레벨의 필요한 경험치를 초과한 값은 다음 레벨의 경험치로 계속 유지
     current_experience = current_experience - expToLevelUp[level - 2];
@@ -99,16 +99,14 @@ public class GameController : MonoBehaviour
     {
         if (!string.IsNullOrEmpty(reward.unlockedCrop))
         {
-            // Add the unlocked crop to the available crops...
-            // Assuming that 'CropData' has a constructor that accepts a string (the crop name)
             // Find the CropData from the crop list that matches the name and has the right unlock level
             CropData newCrop = CropList.Find(c => c.plantName == reward.unlockedCrop && c.unlocklevel <= level);
             if (newCrop != null)
             {
-                currentUnlockedCrops.Add(newCrop);
+                // Add the unlocked crop to the roulette rewards...
+                 RewardManager.Instance.AddReward(reward);
             }
         }
-
 
         if (!string.IsNullOrEmpty(reward.unlockedMiniGame))
         {
@@ -116,5 +114,10 @@ public class GameController : MonoBehaviour
             unlockedMiniGames.Add(reward.unlockedMiniGame);
         }
     }
+    }
+
+      public void AddGold(int amount)
+    {
+        curentgold += amount;
     }
 }
