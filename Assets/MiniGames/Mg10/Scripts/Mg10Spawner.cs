@@ -4,11 +4,7 @@ using UnityEngine;
 
 public class Mg10Spawner : MonoBehaviour
 {
-    public GameObject Mg10Obstacle1;
-    public GameObject Mg10Obstacle2;
-    public GameObject Mg10Obstacle3;
-    public GameObject Mg10Obstacle4;
-    public GameObject Mg10Obstacle5;
+    public GameObject[] Mg10Obstacles;
 
     public GameObject jelly;
 
@@ -27,9 +23,9 @@ public class Mg10Spawner : MonoBehaviour
     [SerializeField]
     private float time_diff = 1.5f; // 장애물 생성 간격
     [SerializeField]
-    private int minNumObstaclesToSpawn = 3; // 최소 생성 장애물 개수
+    private int minNumObstaclesToSpawn = 1; // 최소 생성 장애물 개수
     [SerializeField]
-    private int maxNumObstaclesToSpawn = 5; // 최대 생성 장애물 개수
+    private int maxNumObstaclesToSpawn = 1; // 최대 생성 장애물 개수
 
     
 
@@ -42,49 +38,13 @@ public class Mg10Spawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //time += Time.deltaTime;
-        //if (time > time_diff)
-        //{
-
-        //    GameObject new_jelly = Instantiate(jelly);
-        //    Vector2 jellyspawnPosition = GetValidSpawnPosition();
-        //    new_jelly.transform.position = jellyspawnPosition;
-
-        //    new_jelly.GetComponent<Mg10jelly>().SetSpeed(Mg10ObstacleSpeed); // 젤리의 스피드 설정
-        //    Destroy(new_jelly, 5.0f);
-
-        //    int numObstaclesToSpawn = Random.Range(minNumObstaclesToSpawn, maxNumObstaclesToSpawn + 1);
-
-        //    for (int i = 0; i < numObstaclesToSpawn; i++)
-        //    {
-        //        WhatObstacle = Random.Range(0, 5);
-
-        //        GameObject new_Mg10Obstacle;
-        //        if (WhatObstacle == 0)
-        //        { new_Mg10Obstacle = Instantiate(Mg10Obstacle1);  }
-        //        else if ( WhatObstacle == 1)
-        //        { new_Mg10Obstacle = Instantiate(Mg10Obstacle2); }
-        //        else if ( WhatObstacle == 2)
-        //        { new_Mg10Obstacle = Instantiate(Mg10Obstacle3); }
-        //        else if (WhatObstacle == 3)
-        //        {new_Mg10Obstacle = Instantiate(Mg10Obstacle4); }
-        //        else 
-        //        {  new_Mg10Obstacle = Instantiate(Mg10Obstacle5);  }
-
-        //        Vector2 spawnPosition = GetValidSpawnPosition();
-        //        new_Mg10Obstacle.transform.position = spawnPosition;
-
-
-        //        new_Mg10Obstacle.GetComponent<Mg10Obstacle>().SetSpeed(Mg10ObstacleSpeed); // 장애물의 스피드 설정
-        //        Destroy(new_Mg10Obstacle, 5.0f);
-        //    }
-
-        //    time = 0;
-        //}
+        
     }
 
     private IEnumerator Spawnobstacle()
     {
+        
+
         while (true)
         {
             GameObject new_jelly = Instantiate(jelly);
@@ -98,27 +58,16 @@ public class Mg10Spawner : MonoBehaviour
 
             for (int i = 0; i < numObstaclesToSpawn; i++)
             {
-                WhatObstacle = Random.Range(0, 5);
-
-                GameObject new_Mg10Obstacle;
-                if (WhatObstacle == 0)
-                { new_Mg10Obstacle = Instantiate(Mg10Obstacle1); }
-                else if (WhatObstacle == 1)
-                { new_Mg10Obstacle = Instantiate(Mg10Obstacle2); }
-                else if (WhatObstacle == 2)
-                { new_Mg10Obstacle = Instantiate(Mg10Obstacle3); }
-                else if (WhatObstacle == 3)
-                { new_Mg10Obstacle = Instantiate(Mg10Obstacle4); }
-                else
-                { new_Mg10Obstacle = Instantiate(Mg10Obstacle5); }
-
+                int randomObstacleIndex = Random.Range(0, Mg10Obstacles.Length);
+                GameObject new_Mg10Obstacle = Instantiate(Mg10Obstacles[randomObstacleIndex]);
                 Vector2 spawnPosition = GetValidSpawnPosition();
                 new_Mg10Obstacle.transform.position = spawnPosition;
 
+                new_Mg10Obstacle.GetComponent<Mg10Obstacle>().SetSpeed(Mg10ObstacleSpeed);
+                Destroy(new_Mg10Obstacle, 3.0f);
 
-                new_Mg10Obstacle.GetComponent<Mg10Obstacle>().SetSpeed(Mg10ObstacleSpeed); // 장애물의 스피드 설정
-                Destroy(new_Mg10Obstacle, 5.0f);
                 yield return new WaitForSeconds(0.2f);
+               
             }
 
         }

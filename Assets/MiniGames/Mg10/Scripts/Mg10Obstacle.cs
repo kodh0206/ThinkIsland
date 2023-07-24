@@ -41,10 +41,7 @@ public class Mg10Obstacle : MonoBehaviour
             spawner2.GetHit();
 
         }
-        else if (other.gameObject.tag == "obstacle")
-        {
-            Destroy(other.gameObject);
-        }
+        
 
 
     }
