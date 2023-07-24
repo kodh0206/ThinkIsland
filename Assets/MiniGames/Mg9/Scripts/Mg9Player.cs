@@ -6,14 +6,16 @@ public class Mg9Player : MonoBehaviour
 {
     public Animator animator;
 
-    public float jumpForce = 6.0f;
-    public float slowFallMultiplier = 0.5f;
+    public float jumpForce = 12.0f;
+    public float slowFallMultiplier = 0.3f;
 
     private Rigidbody2D rb;
     private bool isSlowFalling = false;
 
     private bool RightButton = false;
     private bool LeftButton = false;
+
+    private bool IsJumping=false;
 
     private AudioSource audioSource;
     public AudioClip jump;
@@ -67,16 +69,19 @@ public class Mg9Player : MonoBehaviour
         // Slow Fall
         if (Input.GetKeyDown(KeyCode.Z) ||LeftButton)
         {
+            SmallJump();
             StartSlowFall();
         }
         else if (Input.GetKeyUp(KeyCode.Z)||!LeftButton)
         {
+            
             StopSlowFall();
         }
     }
 
     private void Jump()
     {   
+
         audioSource.PlayOneShot(jump);
         rb.velocity = new Vector2(rb.velocity.x, jumpForce);
     }
@@ -92,6 +97,16 @@ public class Mg9Player : MonoBehaviour
     {
         isSlowFalling = false;
         animator.SetBool("PlayerIsWater", false);
+    }
+
+    private void SmallJump()
+    {
+        if (!IsJumping)
+        {
+            audioSource.PlayOneShot(jump);
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce/1.5f);
+            IsJumping = true;
+        }
     }
 
     private void FixedUpdate()
@@ -140,11 +155,11 @@ public class Mg9Player : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnCollisionStay2D(Collision2D collision)
     {
-        if (other.gameObject.tag == "Ground")
+        if (collision.gameObject.tag == "Ground")
         {
-            
+            IsJumping = false;
             animator.SetBool("PlayerIsWater", false);
 
         }

@@ -15,7 +15,7 @@ public class Poop : MonoBehaviour
         } 
         else if (other.gameObject.tag == "Player" && this.gameObject.tag =="poop")
         {   
-            AudioManager.Instance.PlayPoop();
+            //AudioManager.Instance.PlayPoop();
             MiniGame3Manager.instance.StunPlayer();
         
 

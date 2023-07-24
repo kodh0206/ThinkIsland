@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1a11a2167aaadfb48878793d5fc92d6b
+guid: cfc7ba1fd013f784e8af6e7a9bb7e39f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -70,7 +70,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -129,64 +129,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MG3_3_0
+      name: StuneFX_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 2
-        width: 14
-        height: 15
+        x: 0
+        y: 0
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 728e5129ea781534cb58ad7fec37761c
-      internalID: 785817671
+      spriteID: 9e0297325abb99c4dacbb7395e0bbd0d
+      internalID: -961970788
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MG3_3_1
+      name: StuneFX_1
       rect:
         serializedVersion: 2
-        x: 17
-        y: 2
-        width: 14
-        height: 15
+        x: 16
+        y: 0
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 55e85e21a4cfa174086c56c43897c716
-      internalID: -473834160
+      spriteID: 07323274d8e7f1b4bb565f06d43cb3b2
+      internalID: 273889015
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MG3_3_2
+      name: StuneFX_2
       rect:
         serializedVersion: 2
-        x: 33
-        y: 2
-        width: 14
-        height: 15
+        x: 32
+        y: 0
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a243102bf21fa27429fe9239e0b18bab
-      internalID: -1801504783
+      spriteID: ddbc928b7bb57ec489cf6a203cc5170e
+      internalID: 1866333845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StuneFX_3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46184d9224ca17c45a8af992610c2407
+      internalID: -1197923799
       vertices: []
       indices: 
       edges: []
@@ -202,9 +223,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      MG3_3_0: 785817671
-      MG3_3_1: -473834160
-      MG3_3_2: -1801504783
+      StuneFX_0: -961970788
+      StuneFX_1: 273889015
+      StuneFX_2: 1866333845
+      StuneFX_3: -1197923799
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

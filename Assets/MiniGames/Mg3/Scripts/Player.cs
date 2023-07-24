@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
     private Animator animator;
+
+    public GameObject stunEffect;
+
     [SerializeField]
     private float moveSpeed = 5f;
 
@@ -86,20 +90,24 @@ public class Player : MonoBehaviour
 
     private IEnumerator DisableControlAndResetColor()
     {
+
         // Change color to brown
-        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
-        if (spriteRenderer != null)
-        {
-            spriteRenderer.color = new Color(0.77f, 0.52f, 0f);
-        }
+        
+
+        animator.SetBool("ISHIt", true);
+
+        Vector2 Effectposition = new Vector2(transform.position.x, transform.position.y + 0.7f);
+        GameObject HitEff = Instantiate(stunEffect, Effectposition, Quaternion.identity);
+
 
         // Wait for 2 seconds
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
 
+        Destroy(HitEff);
+
+
+        animator.SetBool("ISHIt", false);
         // Change color back to white
-        if (spriteRenderer != null)
-        {
-            spriteRenderer.color = Color.white;
-        }
+
     }
 }

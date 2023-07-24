@@ -3202,6 +3202,11 @@ PrefabInstance:
       propertyPath: jump
       value: 
       objectReference: {fileID: 8300000, guid: d2985c2b3f4e78d41855f6eea3857e42, type: 3}
+    - target: {fileID: 7522947119185603768, guid: a384d43b309002c49ba58f54e1fe5847,
+        type: 3}
+      propertyPath: slowFallMultiplier
+      value: 0.9
+      objectReference: {fileID: 0}
     - target: {fileID: 7522947119185603770, guid: a384d43b309002c49ba58f54e1fe5847,
         type: 3}
       propertyPath: m_SortingOrder
