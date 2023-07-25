@@ -37,7 +37,7 @@ public class Mg17Spawner : MonoBehaviour
                 GameObject new_Mg17shell = Instantiate(Mg17shell);
 
                 
-                Vector2 spawnPosition = new Vector2(Random.Range(-3.5f, 2.5f), 5.6f);
+                Vector2 spawnPosition = new Vector2(Random.Range(-2.7f, 3f), 5.6f);
                 new_Mg17shell.transform.position = spawnPosition;
 
                 new_Mg17shell.GetComponent<Mg17shell>().SetSpeed(Mg17shellSpeed);

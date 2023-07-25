@@ -7,14 +7,14 @@ public class Mg9Spawner : MonoBehaviour
     public GameObject Mg9Obstacle;
 
     [SerializeField]
-    private float Mg9ObstacleSpeed = 5.0f; // »ý¼º¹°ÀÇ ÃÊ±â ½ºÇÇµå
+    private float Mg9ObstacleSpeed = 5.0f; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½ ï¿½ï¿½ï¿½Çµï¿½
 
     [SerializeField]
-    private float time_diff = 1.5f; // Àå¾Ö¹° »ý¼º °£°Ý
+    private float time_diff = 1.5f; // ï¿½ï¿½Ö¹ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     [SerializeField]
-    private int minNumObstaclesToSpawn = 1; // ÃÖ¼Ò »ý¼º Àå¾Ö¹° °³¼ö
+    private int minNumObstaclesToSpawn = 1; // ï¿½Ö¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ö¹ï¿½ ï¿½ï¿½ï¿½ï¿½
     [SerializeField]
-    private int maxNumObstaclesToSpawn = 3; // ÃÖ´ë »ý¼º Àå¾Ö¹° °³¼ö
+    private int maxNumObstaclesToSpawn = 3; // ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ö¹ï¿½ ï¿½ï¿½ï¿½ï¿½
 
     float time = 0;
 
@@ -34,11 +34,11 @@ public class Mg9Spawner : MonoBehaviour
             
             GameObject new_Mg9Obstacle = Instantiate(Mg9Obstacle);
 
-                // ÁÂÇ¥¸¦ ·£´ýÇÏ°Ô ¼±ÅÃÇÏ¿© ¼³Á¤
-                Vector2 spawnPosition = new Vector2(9.4f, Random.Range(-1.6f, 5.0f));
+                // ï¿½ï¿½Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½
+                Vector2 spawnPosition = new Vector2(9.4f, Random.Range(-3.4f, 3.3f));
             new_Mg9Obstacle.transform.position = spawnPosition;
 
-            new_Mg9Obstacle.GetComponent<Mg9Obstacle>().SetSpeed(Mg9ObstacleSpeed); // Àå¾Ö¹°ÀÇ ½ºÇÇµå ¼³Á¤
+            new_Mg9Obstacle.GetComponent<Mg9Obstacle>().SetSpeed(Mg9ObstacleSpeed); // ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Çµï¿½ ï¿½ï¿½ï¿½ï¿½
             Destroy(new_Mg9Obstacle, 5.0f);
 
             time = Random.Range(0f, 0.3f);
@@ -47,14 +47,14 @@ public class Mg9Spawner : MonoBehaviour
 
     public void IncreaseSpeed()
     {
-        Mg9ObstacleSpeed += 2.0f; // Àå¾Ö¹°ÀÇ ½ºÇÇµå Áõ°¡
-        time_diff -= 0.1f; // Àå¾Ö¹°ÀÇ »ý¼º °£°Ý °¨¼Ò
+        Mg9ObstacleSpeed += 2.0f; // ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Çµï¿½ ï¿½ï¿½ï¿½ï¿½
+        time_diff -= 0.1f; // ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     }
 
     public void DecreaseSpeed()
     {
-        Mg9ObstacleSpeed -= 2.0f; // Àå¾Ö¹°ÀÇ ½ºÇÇµå Áõ°¡
-        time_diff += 0.1f; // Àå¾Ö¹°ÀÇ »ý¼º °£°Ý °¨¼Ò
+        Mg9ObstacleSpeed -= 2.0f; // ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Çµï¿½ ï¿½ï¿½ï¿½ï¿½
+        time_diff += 0.1f; // ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     }
 
 }

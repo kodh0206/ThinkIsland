@@ -7,6 +7,8 @@ public class Poop : MonoBehaviour
     [SerializeField]
     private GameObject particle;
 
+    public float otherPos;
+
     private void OnTriggerEnter2D(Collider2D other) 
     {
         if (other.gameObject.tag == "Ground" && this.gameObject.tag == "poop")
@@ -14,14 +16,16 @@ public class Poop : MonoBehaviour
             
         } 
         else if (other.gameObject.tag == "Player" && this.gameObject.tag =="poop")
-        {   
+        {
             AudioManager.Instance.PlayPoop();
+            otherPos=other.transform.position.x-transform.position.x;
+
             MiniGame3Manager.instance.StunPlayer();
         
 
             MiniGame3Manager.instance.GameLevelDown(); // Hit and level Down
 
-            other.gameObject.GetComponent<Player>().GetPoop();
+            other.gameObject.GetComponent<Player>().GetPoop(otherPos);
         }
         else if (other.gameObject.tag == "Player" && this.gameObject.tag == "poop2") //poop2 is jelly
         {

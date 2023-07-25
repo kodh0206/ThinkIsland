@@ -12,6 +12,7 @@ public class Mg6Player : MonoBehaviour
     private Color startColor;
     private Color targetColor;
 
+    public GameObject stunEffect;
 
     [SerializeField]
     private float jumpForce = 3.0f; // �ʱ� ���� ��
@@ -38,6 +39,7 @@ public class Mg6Player : MonoBehaviour
     private bool RightButton = false;
     private bool LeftButton = false;
     private bool PushingButton = false;
+
 
     private void Awake()
     {
@@ -179,24 +181,17 @@ public class Mg6Player : MonoBehaviour
 
         Mg6manager.instance.GameLevelDown();
 
-        // change color
-        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
-        if (spriteRenderer != null)
-        {
-            spriteRenderer.color = new Color(0.77f, 0.52f, 0f);
-        }
 
-        // wait2
-        yield return new WaitForSeconds(2f);
-
-        // can controll
+        Vector2 Effectposition = new Vector2(transform.position.x, transform.position.y + 0.7f);
+        GameObject HitEff = Instantiate(stunEffect, Effectposition, Quaternion.identity, transform);
+        Destroy(HitEff,1.0f);
+ 
+        yield return new WaitForSeconds(1f);
+        
         enabled = true;
 
 
         // return color
-        if (spriteRenderer != null)
-        {
-            spriteRenderer.color = Color.white;
-        }
+        
     }
 }

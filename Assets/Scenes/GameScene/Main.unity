@@ -820,6 +820,7 @@ MonoBehaviour:
   gameSaveManager: {fileID: 512944221}
   currentmbrId: 
   currentprgsCd: 
+  CropList: []
   currentjellyCount: 0
   curentgold: 10000
   currentActionPoints: 134
@@ -1057,6 +1058,276 @@ MonoBehaviour:
   miniGameManager: {fileID: 1387901433}
   totalJelly: {fileID: 1640547860}
   CountDown: {fileID: 693161818}
+--- !u!1 &1287766748
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1287766750}
+  - component: {fileID: 1287766751}
+  m_Layer: 0
+  m_Name: RewardManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1287766750
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1287766748}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 630.216, y: 355.32425, z: -0.56740946}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1287766751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1287766748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ea459546299bdd4990f987ccb1c8bca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelRewards:
+  - level: 3
+    unlockedCrop: X
+    CropIcon: {fileID: 0}
+    unlockedMiniGame: MG6
+    MiniGameIcon: {fileID: 0}
+  - level: 5
+    unlockedCrop: Carrot
+    CropIcon: {fileID: -422562425, guid: f6ea1f6459d8be74f97c67100560193b, type: 3}
+    unlockedMiniGame: 
+    MiniGameIcon: {fileID: 0}
+  - level: 7
+    unlockedCrop: 
+    CropIcon: {fileID: 0}
+    unlockedMiniGame: MG7
+    MiniGameIcon: {fileID: 0}
+  - level: 8
+    unlockedCrop: 
+    CropIcon: {fileID: 0}
+    unlockedMiniGame: 
+    MiniGameIcon: {fileID: 0}
+  - level: 9
+    unlockedCrop: EggPlant
+    CropIcon: {fileID: -1343537995, guid: f6ea1f6459d8be74f97c67100560193b, type: 3}
+    unlockedMiniGame: 
+    MiniGameIcon: {fileID: 0}
+  - level: 10
+    unlockedCrop: 
+    CropIcon: {fileID: 0}
+    unlockedMiniGame: MG8
+    MiniGameIcon: {fileID: 0}
+  - level: 13
+    unlockedCrop: Wheat
+    CropIcon: {fileID: -216092168, guid: f6ea1f6459d8be74f97c67100560193b, type: 3}
+    unlockedMiniGame: 
+    MiniGameIcon: {fileID: 0}
+  - level: 15
+    unlockedCrop: 
+    CropIcon: {fileID: 0}
+    unlockedMiniGame: 
+    MiniGameIcon: {fileID: 0}
+  - level: 17
+    unlockedCrop: Cucumber
+    CropIcon: {fileID: 1956193866, guid: f6ea1f6459d8be74f97c67100560193b, type: 3}
+    unlockedMiniGame: 
+    MiniGameIcon: {fileID: 0}
+  - level: 20
+    unlockedCrop: 
+    CropIcon: {fileID: 0}
+    unlockedMiniGame: 
+    MiniGameIcon: {fileID: 0}
+  - level: 21
+    unlockedCrop: 
+    CropIcon: {fileID: 0}
+    unlockedMiniGame: 
+    MiniGameIcon: {fileID: 0}
+  - level: 22
+    unlockedCrop: 
+    CropIcon: {fileID: 0}
+    unlockedMiniGame: 
+    MiniGameIcon: {fileID: 0}
+  - level: 23
+    unlockedCrop: 
+    CropIcon: {fileID: 0}
+    unlockedMiniGame: 
+    MiniGameIcon: {fileID: 0}
+  - level: 25
+    unlockedCrop: 
+    CropIcon: {fileID: 0}
+    unlockedMiniGame: 
+    MiniGameIcon: {fileID: 0}
+  - level: 26
+    unlockedCrop: 
+    CropIcon: {fileID: 0}
+    unlockedMiniGame: 
+    MiniGameIcon: {fileID: 0}
+  - level: 27
+    unlockedCrop: 
+    CropIcon: {fileID: 0}
+    unlockedMiniGame: 
+    MiniGameIcon: {fileID: 0}
+  - level: 29
+    unlockedCrop: 
+    CropIcon: {fileID: 0}
+    unlockedMiniGame: 
+    MiniGameIcon: {fileID: 0}
+  - level: 30
+    unlockedCrop: 
+    CropIcon: {fileID: 0}
+    unlockedMiniGame: 
+    MiniGameIcon: {fileID: 0}
+  - level: 31
+    unlockedCrop: 
+    CropIcon: {fileID: 0}
+    unlockedMiniGame: 
+    MiniGameIcon: {fileID: 0}
+  - level: 32
+    unlockedCrop: 
+    CropIcon: {fileID: 0}
+    unlockedMiniGame: 
+    MiniGameIcon: {fileID: 0}
+  - level: 33
+    unlockedCrop: Colabi
+    CropIcon: {fileID: -704210834, guid: f6ea1f6459d8be74f97c67100560193b, type: 3}
+    unlockedMiniGame: 
+    MiniGameIcon: {fileID: 0}
+  - level: 35
+    unlockedCrop: 
+    CropIcon: {fileID: 0}
+    unlockedMiniGame: 
+    MiniGameIcon: {fileID: 0}
+  - level: 37
+    unlockedCrop: Corn
+    CropIcon: {fileID: -338474404, guid: f6ea1f6459d8be74f97c67100560193b, type: 3}
+    unlockedMiniGame: 
+    MiniGameIcon: {fileID: 0}
+  - level: 39
+    unlockedCrop: 
+    CropIcon: {fileID: 0}
+    unlockedMiniGame: 
+    MiniGameIcon: {fileID: 0}
+  - level: 41
+    unlockedCrop: Tomato
+    CropIcon: {fileID: 1545067156, guid: f6ea1f6459d8be74f97c67100560193b, type: 3}
+    unlockedMiniGame: 
+    MiniGameIcon: {fileID: 0}
+  - level: 43
+    unlockedCrop: 
+    CropIcon: {fileID: 0}
+    unlockedMiniGame: 
+    MiniGameIcon: {fileID: 0}
+  - level: 45
+    unlockedCrop: RedLettuce
+    CropIcon: {fileID: -661012014, guid: f6ea1f6459d8be74f97c67100560193b, type: 3}
+    unlockedMiniGame: 
+    MiniGameIcon: {fileID: 0}
+  - level: 47
+    unlockedCrop: 
+    CropIcon: {fileID: 0}
+    unlockedMiniGame: 
+    MiniGameIcon: {fileID: 0}
+  - level: 50
+    unlockedCrop: 
+    CropIcon: {fileID: 0}
+    unlockedMiniGame: 
+    MiniGameIcon: {fileID: 0}
+  - level: 51
+    unlockedCrop: 
+    CropIcon: {fileID: 0}
+    unlockedMiniGame: 
+    MiniGameIcon: {fileID: 0}
+  - level: 53
+    unlockedCrop: Pumpkin
+    CropIcon: {fileID: 1749635283, guid: f6ea1f6459d8be74f97c67100560193b, type: 3}
+    unlockedMiniGame: 
+    MiniGameIcon: {fileID: 0}
+  - level: 55
+    unlockedCrop: 
+    CropIcon: {fileID: 0}
+    unlockedMiniGame: 
+    MiniGameIcon: {fileID: 0}
+  - level: 57
+    unlockedCrop: Cauliflower
+    CropIcon: {fileID: -1449622675, guid: f6ea1f6459d8be74f97c67100560193b, type: 3}
+    unlockedMiniGame: 
+    MiniGameIcon: {fileID: 0}
+  - level: 59
+    unlockedCrop: 
+    CropIcon: {fileID: 0}
+    unlockedMiniGame: 
+    MiniGameIcon: {fileID: 0}
+  - level: 63
+    unlockedCrop: 
+    CropIcon: {fileID: 0}
+    unlockedMiniGame: 
+    MiniGameIcon: {fileID: 0}
+  - level: 67
+    unlockedCrop: 
+    CropIcon: {fileID: 0}
+    unlockedMiniGame: 
+    MiniGameIcon: {fileID: 0}
+  - level: 70
+    unlockedCrop: 
+    CropIcon: {fileID: 0}
+    unlockedMiniGame: 
+    MiniGameIcon: {fileID: 0}
+  - level: 71
+    unlockedCrop: 
+    CropIcon: {fileID: 0}
+    unlockedMiniGame: 
+    MiniGameIcon: {fileID: 0}
+  - level: 72
+    unlockedCrop: 
+    CropIcon: {fileID: 0}
+    unlockedMiniGame: 
+    MiniGameIcon: {fileID: 0}
+  - level: 73
+    unlockedCrop: BlueJazz
+    CropIcon: {fileID: 816917463, guid: f6ea1f6459d8be74f97c67100560193b, type: 3}
+    unlockedMiniGame: 
+    MiniGameIcon: {fileID: 0}
+  - level: 75
+    unlockedCrop: 
+    CropIcon: {fileID: 0}
+    unlockedMiniGame: 
+    MiniGameIcon: {fileID: 0}
+  - level: 76
+    unlockedCrop: BlueStar
+    CropIcon: {fileID: -935268534, guid: f6ea1f6459d8be74f97c67100560193b, type: 3}
+    unlockedMiniGame: 
+    MiniGameIcon: {fileID: 0}
+  - level: 79
+    unlockedCrop: 
+    CropIcon: {fileID: 0}
+    unlockedMiniGame: 
+    MiniGameIcon: {fileID: 0}
+  - level: 82
+    unlockedCrop: 
+    CropIcon: {fileID: 0}
+    unlockedMiniGame: 
+    MiniGameIcon: {fileID: 0}
+  - level: 86
+    unlockedCrop: 
+    CropIcon: {fileID: 0}
+    unlockedMiniGame: 
+    MiniGameIcon: {fileID: 0}
 --- !u!1 &1366660765
 GameObject:
   m_ObjectHideFlags: 0

@@ -20,7 +20,8 @@ public class Mg10Player : MonoBehaviour
     public Sprite[] sprites = new Sprite[3];
     //public Sprite sprite;
     public AudioClip skiing;
-    
+
+    public GameObject stunEffect;
     public void RightClick()
     {
         LeftButton = false;
@@ -96,30 +97,22 @@ public class Mg10Player : MonoBehaviour
 
     private IEnumerator DisableControlAndResetColor()
     {
-        // ���� ��Ȱ��ȭ
+        
         enabled = false;
 
-        // ���� ����
-        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
-        if (spriteRenderer != null)
-        {
-            spriteRenderer.color = new Color(0.77f, 0.52f, 0f);
-        }
 
-        // 2�ʰ� ���
+        Vector2 Effectposition = new Vector2(transform.position.x, transform.position.y + 0.7f);
+        GameObject HitEff = Instantiate(stunEffect, Effectposition, Quaternion.identity, transform);
+        
         yield return new WaitForSeconds(2f);
 
-        // ���� Ȱ��ȭ
+        Destroy(HitEff);
         enabled = true;
 
         // 1�ʰ� poop ���� ���� ����
-        yield return new WaitForSeconds(1f);
+        
 
-        // ���� ������� ����
-        if (spriteRenderer != null)
-        {
-            spriteRenderer.color = Color.white;
-        }
+       
     }
 
     IEnumerator ChangeSpriteWithDelay(Sprite[] sprites, float delay , int direc)

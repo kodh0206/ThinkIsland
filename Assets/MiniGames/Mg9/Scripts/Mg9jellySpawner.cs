@@ -7,7 +7,7 @@ public class Mg9jellySpawner : MonoBehaviour
     public GameObject jelly;
 
     [SerializeField]
-    private float jellySpeed = 5.0f; // Á©¸®ÀÇ ÃÊ±â ½ºÇÇµå
+    private float jellySpeed = 5.0f; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½ ï¿½ï¿½ï¿½Çµï¿½
 
     [SerializeField]
     private float time_diff = 1.5f;
@@ -28,13 +28,13 @@ public class Mg9jellySpawner : MonoBehaviour
         {
             GameObject new_jelly = Instantiate(jelly);
 
-            // ÁÂÇ¥¸¦ ·£´ýÇÏ°Ô ¼±ÅÃÇÏ¿© ¼³Á¤
-            Vector2 spawnPosition = new Vector2(9.4f, Random.Range(-1.6f, 5.0f));
+            // ï¿½ï¿½Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½
+            Vector2 spawnPosition = new Vector2(9.4f, Random.Range(-3.4f, 3.3f));
             new_jelly.transform.position = spawnPosition;
 
-            // ¿ÞÂÊ¿¡¼­ »ý¼ºµÇ¸é ¿À¸¥ÂÊÀ¸·Î ¿òÁ÷ÀÌµµ·Ï ¼³Á¤
+            // ï¿½ï¿½ï¿½Ê¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-            new_jelly.GetComponent<Mg9jelly>().SetSpeed(jellySpeed); // Á©¸®ÀÇ ½ºÇÇµå ¼³Á¤
+            new_jelly.GetComponent<Mg9jelly>().SetSpeed(jellySpeed); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Çµï¿½ ï¿½ï¿½ï¿½ï¿½
             time = 0;
             Destroy(new_jelly, 5.0f);
         }
@@ -42,14 +42,14 @@ public class Mg9jellySpawner : MonoBehaviour
 
     public void IncreaseSpeed()
     {
-        jellySpeed += 2.0f; // Á©¸®ÀÇ ½ºÇÇµå Áõ°¡
-        time_diff -= 0.1f; // Á©¸®ÀÇ »ý¼º °£°Ý °¨¼Ò
+        jellySpeed += 2.0f; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Çµï¿½ ï¿½ï¿½ï¿½ï¿½
+        time_diff -= 0.1f; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     }
 
     public void DecreaseSpeed()
     {
-        jellySpeed -= 2.0f; // Á©¸®ÀÇ ½ºÇÇµå Áõ°¡
-        time_diff += 0.1f; // Á©¸®ÀÇ »ý¼º °£°Ý °¨¼Ò
+        jellySpeed -= 2.0f; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Çµï¿½ ï¿½ï¿½ï¿½ï¿½
+        time_diff += 0.1f; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     }
 
 }

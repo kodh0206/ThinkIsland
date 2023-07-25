@@ -44,7 +44,7 @@ public class WJ_Sample : MonoBehaviour
             textAnsr[i] = btAnsr[i].GetComponentInChildren<TEXDraw>();
 
         wj_displayText.SetState("�����", "", "", "");
-        //PlayerPrefs.DeleteAll();
+        //PlayerPrefs.DeleteAll(); //resetprefs
 
         string savedToken = PlayerPrefs.GetString("strAuthorization",string.Empty);
         if (!string.IsNullOrEmpty(savedToken))
@@ -108,11 +108,13 @@ public class WJ_Sample : MonoBehaviour
                             wj_conn.cDiagnotics.data.qstCransr, 
                             wj_conn.cDiagnotics.data.qstWransr);
                 wj_displayText.SetState("진단평가중", "", "", "");
+
+                
                 break;
             case "E":
                 Debug.Log("진단평가 완료! �н� �ܰ�� �Ѿ�ϴ�.");
 
-                APIanimationController.instance.ChangeAnimation();
+                
 
                 wj_displayText.SetState("", "", "", "");
                 currentStatus = CurrentStatus.LEARNING;
@@ -203,6 +205,9 @@ public class WJ_Sample : MonoBehaviour
 
                 panel_question.SetActive(false);
                 questionSolveTime = 0;
+
+                APIanimationController.instance.ChangeAnimation(); // ChangeAnimationCode
+
                 break;
 
             case CurrentStatus.LEARNING:

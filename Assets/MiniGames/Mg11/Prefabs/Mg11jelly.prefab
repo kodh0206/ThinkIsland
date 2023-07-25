@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 311820030859958437}
   m_Layer: 0
   m_Name: Mg11jelly
-  m_TagString: Untagged
+  m_TagString: jelly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

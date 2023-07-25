@@ -8,7 +8,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Mg12Shell4Light
-  m_Speed: 1
+  m_Speed: 2
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours: []
@@ -65,7 +65,7 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: -5729933213975830161}
-    m_Position: {x: 380, y: 190, z: 0}
+    m_Position: {x: 370, y: 210, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 5670438782632094415}
     m_Position: {x: 380, y: 120, z: 0}
@@ -123,9 +123,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
-  m_TransitionOffset: 0.026446939
-  m_ExitTime: 0.24999997
+  m_TransitionDuration: 0.01
+  m_TransitionOffset: 0.07466122
+  m_ExitTime: 0.24999993
   m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0

@@ -4,11 +4,7 @@ using UnityEngine;
 
 public class Mg10Spawner : MonoBehaviour
 {
-    public GameObject Mg10Obstacle1;
-    public GameObject Mg10Obstacle2;
-    public GameObject Mg10Obstacle3;
-    public GameObject Mg10Obstacle4;
-    public GameObject Mg10Obstacle5;
+    public GameObject[] Mg10Obstacles;
 
     public GameObject jelly;
 
@@ -27,25 +23,30 @@ public class Mg10Spawner : MonoBehaviour
     [SerializeField]
     private float time_diff = 1.5f; // 장애물 생성 간격
     [SerializeField]
-    private int minNumObstaclesToSpawn = 6; // 최소 생성 장애물 개수
+    private int minNumObstaclesToSpawn = 1; // 최소 생성 장애물 개수
     [SerializeField]
-    private int maxNumObstaclesToSpawn = 8; // 최대 생성 장애물 개수
+    private int maxNumObstaclesToSpawn = 1; // 최대 생성 장애물 개수
 
-    float time = 0;
+    
 
     // Start is called before the first frame update
     void Start()
     {
-
+        StartCoroutine(Spawnobstacle());
     }
 
     // Update is called once per frame
     void Update()
     {
-        time += Time.deltaTime;
-        if (time > time_diff)
-        {
+        
+    }
 
+    private IEnumerator Spawnobstacle()
+    {
+        
+
+        while (true)
+        {
             GameObject new_jelly = Instantiate(jelly);
             Vector2 jellyspawnPosition = GetValidSpawnPosition();
             new_jelly.transform.position = jellyspawnPosition;
@@ -57,54 +58,54 @@ public class Mg10Spawner : MonoBehaviour
 
             for (int i = 0; i < numObstaclesToSpawn; i++)
             {
-                WhatObstacle = Random.Range(0, 5);
-
-                GameObject new_Mg10Obstacle;
-                if (WhatObstacle == 0)
-                {
-                    new_Mg10Obstacle = Instantiate(Mg10Obstacle1);
-                }
-
-                else if ( WhatObstacle == 1)
-                {
-                    new_Mg10Obstacle = Instantiate(Mg10Obstacle2);
-                }
-                else if ( WhatObstacle == 2)
-                {
-                    new_Mg10Obstacle = Instantiate(Mg10Obstacle3);
-                }
-                else if (WhatObstacle == 3)
-                {
-                    new_Mg10Obstacle = Instantiate(Mg10Obstacle4);
-                }
-                else 
-                {
-                    new_Mg10Obstacle = Instantiate(Mg10Obstacle5);
-                }
-
-
+                int randomObstacleIndex = Random.Range(0, Mg10Obstacles.Length);
+                GameObject new_Mg10Obstacle = Instantiate(Mg10Obstacles[randomObstacleIndex]);
                 Vector2 spawnPosition = GetValidSpawnPosition();
                 new_Mg10Obstacle.transform.position = spawnPosition;
 
+                new_Mg10Obstacle.GetComponent<Mg10Obstacle>().SetSpeed(Mg10ObstacleSpeed);
+                Destroy(new_Mg10Obstacle, 3.0f);
 
-                new_Mg10Obstacle.GetComponent<Mg10Obstacle>().SetSpeed(Mg10ObstacleSpeed); // 장애물의 스피드 설정
-                Destroy(new_Mg10Obstacle, 5.0f);
+                yield return new WaitForSeconds(0.2f);
+               
             }
 
-            time = 0;
         }
     }
+
+
+
+
+
 
     public void IncreaseSpeed()
     {
         Mg10ObstacleSpeed += 2.0f; // 장애물의 스피드 증가
-        time_diff -= 0.1f; // 장애물의 생성 간격 감소
+        GameObject[] groundObjects = GameObject.FindGameObjectsWithTag("obstacle"); //Find all obstacleTag
+        foreach (var groundObject in groundObjects)
+        {
+            groundObject.GetComponent<Mg10Obstacle>().SetSpeed(Mg10ObstacleSpeed);
+        }
+        GameObject[] jellyObjects = GameObject.FindGameObjectsWithTag("jelly"); //FindAllJellyTag
+        foreach (var jellyObject in jellyObjects)
+        {
+            jellyObject.GetComponent<Mg10jelly>().SetSpeed(Mg10ObstacleSpeed);
+        }
     }
 
     public void DecreaseSpeed()
     {
-        Mg10ObstacleSpeed -= 2.0f; // 장애물의 스피드 증가
-        time_diff += 0.1f; // 장애물의 생성 간격 감소
+        Mg10ObstacleSpeed -= 2.0f; // 장애물의 스피드 감소
+        GameObject[] obstacleObjects = GameObject.FindGameObjectsWithTag("obstacle"); //Find all obstacleTag
+        foreach (var obstacleObject in obstacleObjects)
+        {
+            obstacleObject.GetComponent<Mg10Obstacle>().SetSpeed(Mg10ObstacleSpeed);
+        }
+        GameObject[] jellyObjects = GameObject.FindGameObjectsWithTag("jelly"); //FindAllJellyTag
+        foreach (var jellyObject in jellyObjects)
+        {
+            jellyObject.GetComponent<Mg10jelly>().SetSpeed(Mg10ObstacleSpeed);
+        }
     }
 
     public void GetHit()

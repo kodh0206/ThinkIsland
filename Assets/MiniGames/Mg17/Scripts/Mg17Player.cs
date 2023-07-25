@@ -16,7 +16,7 @@ public class Mg17Player : MonoBehaviour
 
     private bool canShoot = true;
     private float shootTimer = 0;
-    private float shootInterval = 0.5f; // 0.5초에 한 번씩 사운드 재생
+    private float shootInterval = 0.36f; // 0.48초에 한 번씩 사운드 재생
 
     public void RightClick()
     {
