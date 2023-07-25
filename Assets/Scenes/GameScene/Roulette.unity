@@ -1120,47 +1120,7 @@ MonoBehaviour:
     type: 3}
   pieceParent: {fileID: 1313752731}
   lineParent: {fileID: 1880418718}
-  roulettePieceData:
-  - icon: {fileID: 0}
-    description: 1
-    chance: 12
-    index: 0
-    weight: 0
-  - icon: {fileID: 0}
-    description: 2
-    chance: 88
-    index: 0
-    weight: 0
-  - icon: {fileID: 0}
-    description: 3
-    chance: 1
-    index: 0
-    weight: 0
-  - icon: {fileID: 0}
-    description: 4
-    chance: 1
-    index: 0
-    weight: 0
-  - icon: {fileID: 0}
-    description: 5
-    chance: 1
-    index: 0
-    weight: 0
-  - icon: {fileID: 0}
-    description: 6
-    chance: 1
-    index: 0
-    weight: 0
-  - icon: {fileID: 0}
-    description: 7
-    chance: 1
-    index: 0
-    weight: 0
-  - icon: {fileID: 0}
-    description: 8
-    chance: 1
-    index: 0
-    weight: 0
+  roulettePieceData: []
   spinDuration: 5
   spinningRoulette: {fileID: 1797534829}
   spinningCurve:
@@ -1187,6 +1147,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  gold: {fileID: -462858225, guid: 5d93731179f4f9544a3bc8db557450c5, type: 3}
 --- !u!1 &1797534828
 GameObject:
   m_ObjectHideFlags: 0

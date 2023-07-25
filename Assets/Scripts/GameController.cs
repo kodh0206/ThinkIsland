@@ -20,7 +20,7 @@ public class GameController : MonoBehaviour
     public int currentActionPoints;
     public int level=1;
     public int[] expToLevelUp = {
-        5, 37, 60, 78, 92,104,115,124,133,140, //1~10
+       /* 5, 37, 60, 78, 92,104,115,124,133,140, //1~10
         147,154,159,165,170,175,175,179,184,188,//11~20
         192,195,199,202,205,209,212,214,217,220,//21~30
         222,225,227,230,232,234,237,239,241,243,//31~40
@@ -30,6 +30,17 @@ public class GameController : MonoBehaviour
         288,289,290,292,293,294,295,296,297,298,//71~80
         299,300,301,302,303,303,304,305,306,307,//81~90
         308,309,310,311,311,312,313,314,315 //90~99
+        */
+        1,2,3,4,5,6,7,8,9,10,
+        11,12,13,14,15,16,17,18,19,
+        20,21,22,23,24,25,26,27,28,29,
+        30,31,32,33,34,35,36,37,38,39
+        ,40,41,42,43,44,45,46,47,48,49
+        ,50,51,52,53,54,55,56,57,58,59
+        ,50,51,52,53,54,55,56,57,58,59
+        ,50,51,52,53,54,55,56,57,58,59
+        ,50,51,52,53,54,55,56,57,58,59
+        ,50,51,52,53,54,55,56,57,58,59
         }; 
         // 각 레벨별 필요한 경험치
     public int current_experience;
@@ -83,9 +94,10 @@ public class GameController : MonoBehaviour
     }
 
     void LevelUp()
-    {
+    { 
        // 레벨 업
-  level++;
+    level++;
+    Debug.Log(level+ "현재 레밸!");
 
     // 현재 레벨의 필요한 경험치를 초과한 값은 다음 레벨의 경험치로 계속 유지
     current_experience = current_experience - expToLevelUp[level - 2];
@@ -94,30 +106,15 @@ public class GameController : MonoBehaviour
     // ...
 
     // Get the reward data for the new level
-    LevelRewardData reward = RewardManager.Instance.GetRewardForLevel(level);
-    if (reward != null)
-    {
-        if (!string.IsNullOrEmpty(reward.unlockedCrop))
-        {
-            // Find the CropData from the crop list that matches the name and has the right unlock level
-            CropData newCrop = CropList.Find(c => c.plantName == reward.unlockedCrop && c.unlocklevel <= level);
-            if (newCrop != null)
-            {
-                // Add the unlocked crop to the roulette rewards...
-                 RewardManager.Instance.AddReward(reward);
-            }
-        }
-
-        if (!string.IsNullOrEmpty(reward.unlockedMiniGame))
-        {
-            // Unlock the specified mini game...
-            unlockedMiniGames.Add(reward.unlockedMiniGame);
-        }
-    }
+     RewardManager.Instance.GetRewardForLevel(level);
+   
+    
     }
 
       public void AddGold(int amount)
     {
         curentgold += amount;
     }
+
+    
 }
