@@ -30,7 +30,7 @@ public class Mg11Obstacle : MonoBehaviour
 
         else if (other.gameObject.tag == "egg")
         {   
-            //AudioManager.Instance.PlayEggBreak();
+            AudioManager.Instance.PlayEggBreak();
             Mg11manager.instance.GameLevelDown();
 
             Mg11Player player = FindAnyObjectByType<Mg11Player>();
