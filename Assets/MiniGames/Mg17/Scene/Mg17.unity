@@ -3049,6 +3049,12 @@ PrefabInstance:
       propertyPath: shooting
       value: 
       objectReference: {fileID: 8300000, guid: 2d661e603a415824799005646c772d72, type: 3}
+    - target: {fileID: 7672671500649801865, guid: 96e2a50a903e0764d8916e7149bc8730,
+        type: 3}
+      propertyPath: stunEffect
+      value: 
+      objectReference: {fileID: 612886624020768476, guid: 30e2716b9852dc540852b5033cacf03e,
+        type: 3}
     - target: {fileID: 7672671500649801866, guid: 96e2a50a903e0764d8916e7149bc8730,
         type: 3}
       propertyPath: m_Name

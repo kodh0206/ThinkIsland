@@ -4,13 +4,22 @@ using UnityEngine;
 
 public class Mg20Brokenblock : MonoBehaviour
 {
-    public GameObject breakEffect; // �μ��� �� ����� ��ƼŬ ȿ��
+    
 
-    public float blockspeed = 3f; // ������Ʈ�� �ӵ�
+    public Animator animator;
 
-    private void Update()
+    public float blockspeed = 3f;
+
+
+    private void Start()
     {
-        // ������Ʈ�� ���� �̵���Ŵ
+        animator = GetComponent<Animator>();
+
+    }
+
+        private void Update()
+    {
+        
         transform.Translate(Vector3.up * blockspeed * Time.deltaTime);
     }
 
@@ -24,13 +33,10 @@ public class Mg20Brokenblock : MonoBehaviour
 
     private void BreakObject()
     {   //AudioManager.Instance.BreakPlatform();
-        // ��ƼŬ ȿ�� ���
-        if (breakEffect != null)
-        {
-            Instantiate(breakEffect, transform.position, Quaternion.identity);
-        }
 
-        // 0.5�� ���� �� ������Ʈ ����
+        animator.SetBool("Break", true);
+
+        
         Invoke("DestroyObject", 0.5f);
     }
 
