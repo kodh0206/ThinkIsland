@@ -7,7 +7,7 @@ public class CollectionButtonClick : MonoBehaviour
 
     public GameObject sngCanvas;
     public GameObject cropCollection;
-    public GameObject animalCollection;
+    public GameObject characterCollection;
     public MonoBehaviour mobileTouchScript;
     void Start()
     {
@@ -27,18 +27,18 @@ public class CollectionButtonClick : MonoBehaviour
 
         // 캔버스 초기화
         cropCollection.SetActive(true);
-        animalCollection.SetActive(false);
+        characterCollection.SetActive(false);
     }
 
     public void CropCollectionButtonClick()
     {
         cropCollection.SetActive(true);
-        animalCollection.SetActive(false);
+        characterCollection.SetActive(false);
     }
 
-    public void AnimalCollectionButtonClick()
+    public void characterCollectionButtonClick()
     {
         cropCollection.SetActive(false);
-        animalCollection.SetActive(true);
+        characterCollection.SetActive(true);
     }
 }
