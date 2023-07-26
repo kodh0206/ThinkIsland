@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class YouDie : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public class YouDie : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             playerEntered = true;
+            ShakeCamera();
             StartCoroutine(ResetPlayerPosition());
         }
     }
@@ -67,5 +69,10 @@ public class YouDie : MonoBehaviour
 
             playerEntered = false;
         }
+    }
+
+    public void ShakeCamera()
+    {
+        Camera.main.transform.DOShakePosition(0.8f, 1f);  // 카메라를 1초 동안, 강도 1로 흔듭니다.
     }
 }

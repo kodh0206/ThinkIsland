@@ -9,6 +9,8 @@ public class Mg19Player : MonoBehaviour
     public float disableColliderTime = 0.4f; 
     public bool isJumping = true;
 
+    public float fallSlowdownFactor = 0.5f;
+
     Animator animator;
 
     private Rigidbody2D rb;
@@ -119,13 +121,15 @@ public class Mg19Player : MonoBehaviour
 
         while (rb.velocity.y >= 0)
         {
+            //rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * fallSlowdownFactor);
             yield return null;
+            
         }
-        
-        
+
+        Physics2D.IgnoreLayerCollision(gameObject.layer, blockLayerMask, false);
 
         // 충돌 무시 해제
-        Physics2D.IgnoreLayerCollision(gameObject.layer, blockLayerMask, false);
+
         isJumping = true;
         // 일정 시간이 경과한 후에 점프 상태를 체크하여 점프 가능하도록 함
 
