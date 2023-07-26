@@ -55,18 +55,18 @@ public class AudioManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-      if (scene.name != "Opening" && !MiniGameManager.Instance.isMiniGameScene)
+      if (scene.name == "OpeningCutScene" || MiniGameManager.Instance.isMiniGameScene)
+    {
+        audioSource.Stop();
+    }
+    else
+    {
+        if(!audioSource.isPlaying)
         {
-            if(!audioSource.isPlaying)
-            {
-                audioSource.clip = MainBgm;
-                audioSource.Play();
-            }
+            audioSource.clip = MainBgm;
+            audioSource.Play();
         }
-        else
-        {
-            audioSource.Stop();
-        }
+    }
     
     }
       
@@ -195,6 +195,21 @@ public class AudioManager : MonoBehaviour
     {
         yield return new WaitForSeconds(minigamebegin.length);
         MiniGameManager.Instance.StartMiniGame();
+    }
+
+    public void StopBGM()
+    {
+        if(audioSource.isPlaying)
+            audioSource.Stop();
+    }
+
+    public void PlayBGM()
+    {
+        if(!audioSource.isPlaying)
+        {
+            audioSource.clip = MainBgm;
+            audioSource.Play();
+        }
     }
 }
     
