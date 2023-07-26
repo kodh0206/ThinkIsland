@@ -126,7 +126,7 @@ public class Player : MonoBehaviour
             
         }
 
-        
+        ShakeCamera();
 
         Vector2 Effectposition = new Vector2(transform.position.x, transform.position.y + 0.7f);
         GameObject HitEff = Instantiate(stunEffect, Effectposition, Quaternion.identity, transform);
@@ -146,7 +146,10 @@ public class Player : MonoBehaviour
 
     }
 
+    public void ShakeCamera()
+    {
+        Camera.main.transform.DOShakePosition(1, 0.5f);  // 카메라를 1초 동안, 강도 1로 흔듭니다.
+    }
 
-   
 
 }

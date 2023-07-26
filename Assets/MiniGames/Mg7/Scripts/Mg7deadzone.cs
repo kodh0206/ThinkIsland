@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class Mg7deadzone : MonoBehaviour
 {
@@ -21,6 +22,9 @@ public class Mg7deadzone : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             playerEntered = true;
+
+            ShakeCamera();
+
             StartCoroutine(ResetPlayerPosition());
 
             Mg7manager.instance.GameLevelDown(); //player out and level down
@@ -65,5 +69,10 @@ public class Mg7deadzone : MonoBehaviour
 
             playerEntered = false;
         }
+    }
+
+    public void ShakeCamera()
+    {
+        Camera.main.transform.DOShakePosition(0.8f, 1f);  // 카메라를 1초 동안, 강도 1로 흔듭니다.
     }
 }

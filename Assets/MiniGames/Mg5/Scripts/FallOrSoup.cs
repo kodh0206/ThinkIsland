@@ -1,6 +1,9 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+
 
 public class FallOrSoup : MonoBehaviour
 {
@@ -23,6 +26,7 @@ public class FallOrSoup : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             playerEntered = true;
+            ShakeCamera();
             StartCoroutine(ResetPlayerPosition());
         }
     }
@@ -72,5 +76,10 @@ public class FallOrSoup : MonoBehaviour
 
             playerEntered = false;
         }
+    }
+
+    public void ShakeCamera()
+    {
+        Camera.main.transform.DOShakePosition(0.8f, 1f);  // 카메라를 1초 동안, 강도 1로 흔듭니다.
     }
 }

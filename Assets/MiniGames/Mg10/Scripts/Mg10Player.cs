@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using MoreMountains.Feedbacks;
+using DG.Tweening;
 public class Mg10Player : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -59,8 +60,8 @@ public class Mg10Player : MonoBehaviour
         
         if (!isInputEnabled)
         {
-            rb.velocity = new Vector2(rb.velocity.x, -verticalSpeed); // �Ʒ��� ������
-            return; // �Է� ��Ȱ��ȭ ���¸� ������Ʈ ����
+            rb.velocity = new Vector2(rb.velocity.x, -verticalSpeed); 
+            return; 
         }
 
         // ����Ű �Է� ó��
@@ -85,19 +86,22 @@ public class Mg10Player : MonoBehaviour
     }
 
 
-    public void GetHit()  //�¾�����
+    public void GetHit()  
     {
-        // ������ ����
+        
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         rb.velocity = Vector2.zero;
+
+        
+
         mMF_Player?.PlayFeedbacks();
-        // �񵿱� ó�� ����
+        
         StartCoroutine(DisableControlAndResetColor());
     }
 
     private IEnumerator DisableControlAndResetColor()
     {
-        
+        Mg10Camera.instance.ShakeCamera();
         enabled = false;
 
 
@@ -106,10 +110,12 @@ public class Mg10Player : MonoBehaviour
         
         yield return new WaitForSeconds(2f);
 
+        Mg10Camera.instance.ShakeCameraEnd();
+
         Destroy(HitEff);
         enabled = true;
 
-        // 1�ʰ� poop ���� ���� ����
+        
         
 
        
@@ -124,6 +130,6 @@ public class Mg10Player : MonoBehaviour
 
         spriteRenderer.sprite = sprites[direc];
     }
-
+   
 
 }

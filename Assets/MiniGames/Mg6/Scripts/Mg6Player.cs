@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -170,6 +171,7 @@ public class Mg6Player : MonoBehaviour
 
     public void GetHit()
     {
+        ShakeCamera();
         StartCoroutine(DisableControlAndResetColor());
 
     }
@@ -185,13 +187,22 @@ public class Mg6Player : MonoBehaviour
         Vector2 Effectposition = new Vector2(transform.position.x, transform.position.y + 0.7f);
         GameObject HitEff = Instantiate(stunEffect, Effectposition, Quaternion.identity, transform);
         Destroy(HitEff,1.0f);
+
+        rb.gravityScale = 3.0f;
  
-        yield return new WaitForSeconds(1f);
-        
+        yield return new WaitForSeconds(2f);
+
+        rb.gravityScale = 1.0f;
+
         enabled = true;
 
 
-        // return color
         
+    }
+
+
+    public void ShakeCamera()
+    {
+        Camera.main.transform.DOShakePosition(0.8f, 0.4f ,20);  // 카메라를 1초 동안, 강도 1로 1번 흔듭니다.
     }
 }

@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,8 @@ using UnityEngine;
 public class Mg9Player : MonoBehaviour
 {
     public Animator animator;
+
+    public GameObject stunEffect;
 
     public float jumpForce = 12.0f;
     public float slowFallMultiplier = 0.3f;
@@ -123,8 +126,13 @@ public class Mg9Player : MonoBehaviour
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         rb.velocity = Vector2.zero;
 
-        
+        rb.gravityScale = 3f;
+
+        ShakeCamera();
+
         StartCoroutine(DisableControlAndResetColor());
+
+        rb.gravityScale = 0.6f;
     }
 
     private IEnumerator DisableControlAndResetColor()
@@ -132,27 +140,21 @@ public class Mg9Player : MonoBehaviour
         
         enabled = false;
 
-        
-        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
-        if (spriteRenderer != null)
-        {
-            spriteRenderer.color = new Color(0.77f, 0.52f, 0f);
-        }
 
-       
-        yield return new WaitForSeconds(2f);
+
+        Vector2 Effectposition = new Vector2(transform.position.x, transform.position.y + 0.7f);
+        GameObject HitEff = Instantiate(stunEffect, Effectposition, Quaternion.identity, transform);
+        Destroy(HitEff, 1.5f);
+
+        yield return new WaitForSeconds(1.5f);
 
        
         enabled = true;
 
         
-        yield return new WaitForSeconds(1f);
 
        
-        if (spriteRenderer != null)
-        {
-            spriteRenderer.color = Color.white;
-        }
+        
     }
 
     private void OnCollisionStay2D(Collision2D collision)
@@ -163,8 +165,13 @@ public class Mg9Player : MonoBehaviour
             animator.SetBool("PlayerIsWater", false);
 
         }
-       
 
+
+    }
+
+    public void ShakeCamera()
+    {
+        Camera.main.transform.DOShakePosition(1.5f, 0.2f, 30);  // 카메라를 1초 동안, 강도 0.4로 20번 흔듭니다.
     }
 
 }

@@ -3204,6 +3204,12 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: d2985c2b3f4e78d41855f6eea3857e42, type: 3}
     - target: {fileID: 7522947119185603768, guid: a384d43b309002c49ba58f54e1fe5847,
         type: 3}
+      propertyPath: stunEffect
+      value: 
+      objectReference: {fileID: 612886624020768476, guid: aaa691badf8bef24c993ea456ebb0023,
+        type: 3}
+    - target: {fileID: 7522947119185603768, guid: a384d43b309002c49ba58f54e1fe5847,
+        type: 3}
       propertyPath: slowFallMultiplier
       value: 0.9
       objectReference: {fileID: 0}
