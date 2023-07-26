@@ -48312,7 +48312,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &541314961
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49085,8 +49085,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -194, y: -258}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: -429, y: -215}
+  m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &663332394
 MonoBehaviour:
@@ -49131,7 +49131,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 663332395}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1685813906}
+        m_TargetAssemblyTypeName: CollectionButtonClick, Assembly-CSharp
+        m_MethodName: page1CollectionButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &663332395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49145,7 +49157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 0.85098046, g: 0.6039216, b: 0.6039216, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -51493,7 +51505,7 @@ RectTransform:
   - {fileID: 1505642705}
   - {fileID: 1930095299}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -60235,7 +60247,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1685813902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60316,7 +60328,7 @@ RectTransform:
   - {fileID: 1652211454}
   - {fileID: 1983257483}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -60338,6 +60350,8 @@ MonoBehaviour:
   sngCanvas: {fileID: 541314960}
   cropCollection: {fileID: 1108762843}
   characterCollection: {fileID: 1652211453}
+  page1Collection: {fileID: 654139157}
+  page2Collection: {fileID: 2118890358}
   mobileTouchScript: {fileID: 1129654346}
 --- !u!1 &1700147697
 GameObject:
@@ -62111,8 +62125,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 302, y: -258}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 528, y: -214}
+  m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1963342435
 MonoBehaviour:
@@ -62157,7 +62171,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1963342436}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1685813906}
+        m_TargetAssemblyTypeName: CollectionButtonClick, Assembly-CSharp
+        m_MethodName: page2CollectionButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1963342436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62171,7 +62197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 0.81568635, g: 0.5803922, b: 0.5803922, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
