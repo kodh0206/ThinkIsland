@@ -1,3 +1,4 @@
+using DG.Tweening;
 using MoreMountains.CorgiEngine;
 using System.Collections;
 using System.Collections.Generic;
@@ -10,6 +11,8 @@ public class Mg8Player : MonoBehaviour
     private bool LeftButton = false;
 
     private int Mushrooms = 0;
+
+    public GameObject stunEffect;
 
 
     public static Mg8Player instance = null;
@@ -81,6 +84,8 @@ public class Mg8Player : MonoBehaviour
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         rb.velocity = Vector2.zero;
 
+        ShakeCamera();
+
         // 비동기 처리 시작
         StartCoroutine(DisableControlAndResetColor());
     }
@@ -91,14 +96,12 @@ public class Mg8Player : MonoBehaviour
         enabled = false;
 
         // 색상 변경
-        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
-        if (spriteRenderer != null)
-        {
-            spriteRenderer.color = new Color(0.77f, 0.52f, 0f);
-        }
+        Vector2 Effectposition = new Vector2(transform.position.x+0.2f, transform.position.y + 1.4f);
+        GameObject HitEff = Instantiate(stunEffect, Effectposition, Quaternion.identity, transform);
+        Destroy(HitEff, 1.5f);
 
         // 2초간 대기
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.5f);
 
         // 조작 활성화
         enabled = true;
@@ -106,16 +109,18 @@ public class Mg8Player : MonoBehaviour
         // 1초간 poop 영향 받지 않음
 
         // 색상 원래대로 복구
-        if (spriteRenderer != null)
-        {
-            spriteRenderer.color = Color.white;
-        }
+        
     }
 
 
     public int MushroomCount()
     {
         return Mushrooms;
+    }
+
+    public void ShakeCamera()
+    {
+        Camera.main.transform.DOShakePosition(2f, 0.2f, 40);  // 카메라를 1초 동안, 강도 0.4로 20번 흔듭니다.
     }
 
 }
