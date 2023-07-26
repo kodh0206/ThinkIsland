@@ -35,7 +35,7 @@ public class Mg13Obstacle : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {   
-            AudioManager.Instance.Rock2();
+            //AudioManager.Instance.Rock2();
             Mg13manager.instance.GameLevelDown();
             other.gameObject.GetComponent<Mg13Player>().GetHit();
         }

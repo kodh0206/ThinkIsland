@@ -15,6 +15,8 @@ public class Mg12RockSpawner : MonoBehaviour
     [SerializeField]
     private float time_diff = 1.5f;
 
+    public float Beforetd;
+
     float time = 0;
 
     // 애니메이션
@@ -69,13 +71,13 @@ public class Mg12RockSpawner : MonoBehaviour
 
     private IEnumerator DisableSpawning()
     {
-        // ���� ����
+        Beforetd = time_diff;
         time_diff = Mathf.Infinity;
 
-        // ��� �ð�
-        yield return new WaitForSeconds(2f);
+        
+        yield return new WaitForSeconds(2.5f);
 
-        // ���� �簳
-        time_diff = 1.5f;
+        
+        time_diff = Beforetd;
     }
 }

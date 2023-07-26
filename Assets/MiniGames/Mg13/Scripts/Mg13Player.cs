@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Mg13Player : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public GameObject stunEffect;
+    public GameObject hitEff;
+
     public float moveSpeed = 5.0f;
     public float rotateSpeed = 180.0f;
     private float currentRotation;
@@ -45,6 +47,11 @@ public class Mg13Player : MonoBehaviour
         {
             audioSource = gameObject.AddComponent<AudioSource>();
         }
+        Vector2 EffectPosition = new Vector2(transform.position.x, transform.position.y - 0.7f);
+        hitEff = Instantiate(stunEffect, EffectPosition, Quaternion.identity, transform);
+
+        // Make the HitEff invisible initially.
+        SetHitEffVisibility(hitEff, false);
     }
 
     private void Update()
@@ -53,7 +60,7 @@ public class Mg13Player : MonoBehaviour
 
         if (Input.GetKey(KeyCode.RightArrow) || RightButton)
         {
-            // �Է��� �ִ� ��� ȸ��
+            
             float rotationAmount = rotateSpeed * Time.deltaTime;
             currentRotation -= rotationAmount;
             transform.eulerAngles = new Vector3(0f, 0f, currentRotation);
@@ -61,13 +68,13 @@ public class Mg13Player : MonoBehaviour
 
         else if (Input.GetKey(KeyCode.LeftArrow) || LeftButton)
         {
-            // �Է��� �ִ� ��� ȸ��
+            
             float rotationAmount = rotateSpeed * Time.deltaTime;
             currentRotation += rotationAmount;
             transform.eulerAngles = new Vector3(0f, 0f, currentRotation);
         }
 
-        // ������
+        
         transform.Translate(Vector2.up * moveSpeed * Time.deltaTime);
 
         if (enabled && !audioSource.isPlaying)
@@ -85,48 +92,52 @@ public class Mg13Player : MonoBehaviour
 
     public void GetHit()
     {
-        // ������ ����
+        
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         rb.velocity = Vector2.zero;
 
         audioSource.Stop(); // 물장구 소리를 멈춤
-        // �񵿱� ó�� ����
+
+       
+
         StartCoroutine(DisableControlAndResetColor());
     }
 
     private IEnumerator DisableControlAndResetColor()
     {
-        // ���� ��Ȱ��ȭ
+        
         enabled = false;
 
-        // ���� ����
-        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
-        if (spriteRenderer != null)
-        {
-            spriteRenderer.color = new Color(0.77f, 0.52f, 0f);
-        }
 
-        // 2�ʰ� ���
+        SetHitEffVisibility(hitEff, true);
         yield return new WaitForSeconds(2f);
 
-        // ���� Ȱ��ȭ
+
+
+        
         enabled = true;
 
-        // 1�ʰ� poop ���� ���� ����
+        SetHitEffVisibility(hitEff, false);
         yield return new WaitForSeconds(1f);
 
-        // ���� ������� ����
-        if (spriteRenderer != null)
-        {
-            spriteRenderer.color = Color.white;
-        }
 
-         if (!audioSource.isPlaying)
+
+
+        if (!audioSource.isPlaying)
         {
             audioSource.loop = true;
             audioSource.clip = swimming;
             audioSource.Play();
         }
+    }
+    private void SetHitEffVisibility(GameObject hitEffect, bool isVisible)
+    {
+            SpriteRenderer hitEffRenderer = hitEffect.GetComponent<SpriteRenderer>();
+            if (hitEffRenderer != null)
+            {
+                hitEffRenderer.enabled = isVisible;
+            }
+        
     }
 
 }
