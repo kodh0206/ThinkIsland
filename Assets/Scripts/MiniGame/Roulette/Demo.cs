@@ -10,11 +10,11 @@ public class Demo : MonoBehaviour
 
 	private void Awake()
 	{
-		buttonSpin.onClick.AddListener(()=>
-		{
-			buttonSpin.interactable = false;
-			roulette.Spin(EndOfSpin);
-		});
+		   buttonSpin.onClick.AddListener(() =>
+    {
+        buttonSpin.interactable = false;
+        roulette.Spin(EndOfSpin);
+    });
 	}
 
 	private void EndOfSpin(RoulettePieceData selectedData)

@@ -9018,6 +9018,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d512ebe9bfb5dd44b4cbe11440d8322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stunEffect: {fileID: 612886624020768476, guid: 685683f0a41592f4dbb53c9681d8af40,
+    type: 3}
   moveSpeed: 3
   electricity: {fileID: 8300000, guid: 73d2ffd6a3c5e8f47abcbff9095dfd66, type: 3}
 --- !u!82 &1968178139

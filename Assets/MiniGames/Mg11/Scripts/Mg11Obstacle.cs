@@ -17,7 +17,7 @@ public class Mg11Obstacle : MonoBehaviour
     {
         Vector2 direction = -transform.position.normalized; 
 
-        // ������ ����
+        
         transform.Translate(direction * obstacleSpeed * Time.deltaTime);
     }
 

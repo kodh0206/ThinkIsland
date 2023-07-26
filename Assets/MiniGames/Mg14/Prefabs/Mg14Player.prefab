@@ -147,6 +147,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f9a97c7d6d54034898545e6dc72196e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stunEffect: {fileID: 612886624020768476, guid: 22ac35fcb897e754c9f03864874a3252,
+    type: 3}
   moveSpeed: 5
   jumpForce: 20
   jumpGravityScale: 0.5

@@ -12718,5 +12718,11 @@ PrefabInstance:
       propertyPath: mMF_Player
       value: 
       objectReference: {fileID: 453609774}
+    - target: {fileID: 7252493184605811197, guid: f1572f6e39ccc774c99e0b4cdb913940,
+        type: 3}
+      propertyPath: stunEffect
+      value: 
+      objectReference: {fileID: 612886624020768476, guid: 10bd91421361e21409962cdc3315b501,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1572f6e39ccc774c99e0b4cdb913940, type: 3}

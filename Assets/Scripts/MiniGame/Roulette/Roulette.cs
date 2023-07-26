@@ -3,6 +3,7 @@ using UnityEngine.Events;
 using UnityEngine;
 using System.Collections.Generic;
 using System;
+using System.Linq;
 
 public class Roulette : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class Roulette : MonoBehaviour
 	[SerializeField]
 	private	Transform			lineParent;					// ������ ��ġ�Ǵ� �θ� Transform
 	[SerializeField]
-	private	RoulettePieceData[]	roulettePieceData;			// �귿�� ǥ�õǴ� ���� �迭
+	private	 List<RoulettePieceData> 	roulettePieceData;			// �귿�� ǥ�õǴ� ���� �迭
 
 	[SerializeField]
 	private	int					spinDuration;				// ȸ�� �ð�
@@ -32,16 +33,16 @@ public class Roulette : MonoBehaviour
 	private	bool				isSpinning = false;			// ���� ȸ��������
 	private	int					selectedIndex = 0;			// �귿���� ���õ� ������
 
+	public Sprite gold;
 	private void Awake()
 	{
-	roulettePieceData = new RoulettePieceData[]
-    	{
-        new RoulettePieceData { icon = null, description = "Gold 300", rewardType = "Gold", rewardAmount = 300, chance = 25 },
-        new RoulettePieceData { icon = null, description = "Gold 500", rewardType = "Gold", rewardAmount = 500, chance = 35 },
-        new RoulettePieceData { icon = null, description = "Gold 1000", rewardType = "Gold", rewardAmount = 1000, chance = 40 }
-    	};
-
-    	pieceAngle = 360 / roulettePieceData.Length;
+	roulettePieceData = new List<RoulettePieceData>
+	{
+    new RoulettePieceData { icon = gold, description = "Gold 300", rewardType = "Gold", rewardAmount = 300, chance = 25 },
+    new RoulettePieceData { icon = gold, description = "Gold 500", rewardType = "Gold", rewardAmount = 500, chance = 35 },
+    new RoulettePieceData { icon = gold, description = "Gold 1000", rewardType = "Gold", rewardAmount = 1000, chance = 40 }
+	};
+    	pieceAngle = 360 / roulettePieceData.Count;
     	halfPieceAngle = pieceAngle * 0.5f;
     	halfPieceAngleWithPaddings = halfPieceAngle - (halfPieceAngle * 0.25f);
     	SpawnPiecesAndLines();
@@ -50,28 +51,56 @@ public class Roulette : MonoBehaviour
 
 	private void Update()
 	{
-	if (RewardManager.Instance.HasNewRewards())
+	 if (RewardManager.Instance.HasNewRewards())
+    {
+        // 룰렛 휠 초기화
+        ResetRouletteWheel();
+
+        // RewardManager에서 새로운 보상을 가져와서 룰렛에 추가합니다.
+        List<LevelRewardData> newRewards = RewardManager.Instance.GetNewRewards();
+
+        // LevelRewardData를 RoulettePieceData로 변환
+        List<RoulettePieceData> convertedRewards = RewardManager.Instance.ConvertLevelRewardsToPieces(newRewards);
+
+        // 변환된 보상들을 룰렛에 추가
+        foreach (RoulettePieceData reward in convertedRewards)
         {
-            // RewardManager에서 새로운 보상을 가져와서 룰렛에 추가합니다.
-            List<LevelRewardData> newRewards = RewardManager.Instance.GetNewRewards();
-            foreach (LevelRewardData reward in newRewards)
+            // 기존에 같은 보상이 없으면 추가
+            if (!roulettePieceData.Exists(x => x.description == reward.description && x.rewardType == reward.rewardType))
             {
-                AddPiece(reward);
+                roulettePieceData.Add(reward);
             }
-
-            // 보상이 추가되었으므로 pieceAngle과 halfPieceAngle을 다시 계산합니다.
-            pieceAngle = 360 / roulettePieceData.Length;
-            halfPieceAngle = pieceAngle * 0.5f;
-            halfPieceAngleWithPaddings = halfPieceAngle - (halfPieceAngle * 0.25f);
-
-            // 보상이 추가되었으므로 룰렛 조각과 선을 다시 생성합니다.
-            SpawnPiecesAndLines();
+            // 이미 같은 보상이 있으면 해당 보상의 확률을 업데이트
+            else
+            {
+                RoulettePieceData existingReward = roulettePieceData.Find(x => x.description == reward.description && x.rewardType == reward.rewardType);
+                existingReward.chance += reward.chance;
+            }
         }
+
+        // 보상이 추가되었으므로 pieceAngle과 halfPieceAngle을 다시 계산합니다.
+        pieceAngle = 360 / roulettePieceData.Count;
+        halfPieceAngle = pieceAngle * 0.5f;
+        halfPieceAngleWithPaddings = halfPieceAngle - (halfPieceAngle * 0.25f);
+
+        // 보상이 추가되었으므로 룰렛 조각과 선을 다시 생성합니다.
+        SpawnPiecesAndLines();
     }
+}
 	
 	private void SpawnPiecesAndLines()
-	{
-		for ( int i = 0; i < roulettePieceData.Length; ++ i )
+	{   
+        foreach (Transform child in pieceParent)
+    {
+        Destroy(child.gameObject);
+    }
+
+    // lineParent의 자식 객체들도 모두 제거합니다.
+    foreach (Transform child in lineParent)
+    {
+        Destroy(child.gameObject);
+    }
+		for ( int i = 0; i < roulettePieceData.Count; ++ i )
 		{
 			Transform piece = Instantiate(piecePrefab, pieceParent.position, Quaternion.identity, pieceParent);
 			// ������ �귿 ������ ���� ���� (������, ����)
@@ -87,7 +116,7 @@ public class Roulette : MonoBehaviour
 
 	private void CalculateWeightsAndIndices()
 	{
-		for ( int i = 0; i < roulettePieceData.Length; ++ i )
+		for ( int i = 0; i < roulettePieceData.Count; ++ i )
 		{
 			roulettePieceData[i].index = i;
 
@@ -100,73 +129,112 @@ public class Roulette : MonoBehaviour
 			accumulatedWeight += roulettePieceData[i].chance;
 			roulettePieceData[i].weight = accumulatedWeight;
 
-			Debug.Log($"({roulettePieceData[i].index}){roulettePieceData[i].description}:{roulettePieceData[i].weight}");
+			//Debug.Log($"({roulettePieceData[i].index}){roulettePieceData[i].description}:{roulettePieceData[i].weight}");
 		}
 	}
 
 	private int GetRandomIndex()
 	{
-		int weight = UnityEngine.Random.Range(0, accumulatedWeight);
+		int accumulatedWeight = 0;
+    for (int i = 0; i < roulettePieceData.Count; ++i) {
+        accumulatedWeight += roulettePieceData[i].weight;
+        roulettePieceData[i].weight = accumulatedWeight;
+    }
 
-		for ( int i = 0; i < roulettePieceData.Length; ++ i )
-		{
-			if ( roulettePieceData[i].weight > weight )
-			{
-				return i;
-			}
-		}
+    int weight = UnityEngine.Random.Range(0, accumulatedWeight);
 
-		return 0;
+    for (int i = 0; i < roulettePieceData.Count; ++i) {
+    if (roulettePieceData[i].weight > weight) {
+        return i;
+    }
+    }
+
+return 0;
 	}
  public void Spin(UnityAction<RoulettePieceData> endOfSpinCallback)
-    {
-        if (isSpinning) return;  // 이미 회전중이라면 회전을 시작하지 않는다.
+    {  
+   Debug.Log("Spin method called. Is spinning: " + isSpinning);
+    if (isSpinning) return;
 
-        isSpinning = true;
-        selectedIndex = GetRandomIndex();  // 랜덤한 인덱스를 선택
+    isSpinning = true;
+    selectedIndex = GetRandomIndex();  // 랜덤한 인덱스를 선택
+    Debug.Log("Selected index: " + selectedIndex); // 추가된 디버깅 로그
 
-        float spinAngle = 360 * (spinDuration - 1);  // 스핀할 각도
-        spinAngle += pieceAngle * selectedIndex;  // 선택한 인덱스에 따라 스핀 각도 조절
-        spinAngle -= spinningRoulette.rotation.eulerAngles.z;  // 현재 회전 각도를 고려
-
-        StartCoroutine(OnSpin(spinAngle, endOfSpinCallback));
+    float spinAngle = 360 * 4;  
+    spinAngle += pieceAngle * (selectedIndex == 0 ? roulettePieceData.Count : selectedIndex);  
+    // 현재 회전 각도를 고려
+    //spinAngle -= spinningRoulette.rotation.eulerAngles.z;  
+    Debug.Log("Piece angle after considering current rotation: " + spinAngle); // 추가된 디버깅 로그
+    StartCoroutine(OnSpin(spinAngle, endOfSpinCallback));
+   
     }
 private IEnumerator OnSpin(float end, UnityAction<RoulettePieceData> action)
 {
     float current = 0;
     float percent = 0;
 
-    while ( percent < 1 )
+    // 변형된 반복문 조건
+    while (Mathf.Abs(spinningRoulette.rotation.eulerAngles.z - end) > 0.01f)
     {
         current += Time.deltaTime;
         percent = current / spinDuration;
 
-        float z = Mathf.Lerp(0, end, spinningCurve.Evaluate(percent));
+        // Mathf.Lerp 시작 위치 수정
+        float z = Mathf.Lerp(spinningRoulette.rotation.eulerAngles.z, end, spinningCurve.Evaluate(percent));
+        
         spinningRoulette.rotation = Quaternion.Euler(0, 0, z);
-
+        Debug.Log("Assigned rotation z: " + spinningRoulette.rotation.eulerAngles.z); // 추가된 로그
         yield return null;
     }
-
+    Debug.Log("Spin completed. Selected index: " + selectedIndex); // 추가된 디버깅 로그
     isSpinning = false;
 
     if ( action != null ) action.Invoke(roulettePieceData[selectedIndex]);
 
     // 보상 처리 부분
     RoulettePieceData selectedReward = roulettePieceData[selectedIndex];
+    Debug.Log("Selected reward: " + selectedReward.description); // 추가된 디버깅 로그
+    roulettePieceData.RemoveAt(selectedIndex);
+
+    // Find the reward in the newRewards list that matches the selected reward
+    LevelRewardData rewardToRemove = RewardManager.Instance.GetMatchedNewReward(selectedReward.description);
+
+    // If the reward is in the list, remove it
+    if (rewardToRemove != null)
+    {
+        RewardManager.Instance.RemoveFromNewRewards(rewardToRemove);
+    }
+
     switch (selectedReward.rewardType)
     {
         case "Gold":
             // 골드 보상 처리
             // 예를 들어 플레이어의 골드를 증가시키는 코드 등
+            GameController.Instance.curentgold += selectedReward.rewardAmount;
             break;
         case "Crop":
-			 CropData newCrop = GameController.Instance.CropList.Find(c => c.plantName == selectedReward.description);
+             CropData newCrop = GameController.Instance.CropList.Find(c => c.plantName == selectedReward.description);
             if (newCrop != null)
             {
                 GameController.Instance.currentUnlockedCrops.Add(newCrop);
             }
             break;
-           
+        case "MiniGame":
+            if (!string.IsNullOrEmpty(selectedReward.description))
+            {
+                // 만약 미니게임이 이미 해금된 상태라면 무시합니다.
+                if (GameController.Instance.unlockedMiniGames.Contains(selectedReward.description))
+                {
+                    Debug.Log("This minigame is already unlocked.");
+                    break;
+                }
+
+                // 새 미니게임을 해금 리스트에 추가합니다.
+                GameController.Instance.unlockedMiniGames.Add(selectedReward.description);
+                Debug.Log("Unlocked new minigame: " + selectedReward.description);
+            }
+            break;
+               
         default:
             break;
     }
@@ -174,37 +242,67 @@ private IEnumerator OnSpin(float end, UnityAction<RoulettePieceData> action)
     StartCoroutine(WaitAndLoadMainScene(2f));
 }
 
-
 private IEnumerator WaitAndLoadMainScene(float waitTime)
 {
     yield return new WaitForSeconds(waitTime);
     MiniGameManager.Instance.LoadMainMenu();
 }
 
-void AddPiece(LevelRewardData reward)
+void AddPiece(RoulettePieceData newPiece)
 {
-   RoulettePieceData newPiece = new RoulettePieceData();
+   /// Check if the reward is valid
+    if (string.IsNullOrEmpty(newPiece.description))
+    {
+        // If the reward is not valid, do not add it
+        Debug.LogWarning("Trying to add an invalid reward to the roulette wheel.");
+        return;
+    }
 
-        // LevelRewardData에서 RoulettePieceData로 정보를 복사합니다.
-        newPiece.description = reward.unlockedCrop != null ? reward.unlockedCrop :
-                                reward.unlockedMiniGame;
-        newPiece.icon = reward.unlockedCrop != null ? reward.CropIcon :
-                        reward.MiniGameIcon;
-        newPiece.rewardType = reward.unlockedCrop != null ? "Crop" :
-                              "MiniGame";
-        newPiece.chance = 1;
-    // Add the new piece to the roulette piece data array
-    Array.Resize(ref roulettePieceData, roulettePieceData.Length + 1);
-    roulettePieceData[roulettePieceData.Length - 1] = newPiece;
+    // Check if the reward is already on the roulette wheel
+    if (roulettePieceData.Any(piece => piece.description == newPiece.description))
+    {
+        Debug.LogWarning($"The reward {newPiece.description} is already on the roulette wheel.");
+        return;
+    }
+
+    // Add the new piece to the roulette piece data list
+    roulettePieceData.Add(newPiece);
 
     // Add the new piece to the roulette wheel
-    // This could be done similarly to the SpawnPiecesAndLines method
     Transform piece = Instantiate(piecePrefab, pieceParent.position, Quaternion.identity, pieceParent);
     piece.GetComponent<RoulettePiece>().Setup(newPiece);
-    piece.RotateAround(pieceParent.position, Vector3.back, (pieceAngle * (roulettePieceData.Length - 1)));
+    piece.RotateAround(pieceParent.position, Vector3.back, (pieceAngle * (roulettePieceData.Count - 1)));
 
     // Recalculate the weights and indices with the CalculateWeightsAndIndices method
     CalculateWeightsAndIndices();
-	}
+}
+
+private void ResetRouletteWheel()
+{
+    // Clear the roulette piece data list
+    Debug.Log("청소");
+    roulettePieceData.Clear();
+
+    // Destroy all the roulette pieces and lines
+    foreach (Transform child in pieceParent)
+    {
+        Destroy(child.gameObject);
+    }
+
+    foreach (Transform child in lineParent)
+    {
+        Destroy(child.gameObject);
+    }
+
+    roulettePieceData = new List<RoulettePieceData>
+	{
+    new RoulettePieceData { icon = gold, description = "Gold 300", rewardType = "Gold", rewardAmount = 300, chance = 25 },
+    new RoulettePieceData { icon = gold, description = "Gold 500", rewardType = "Gold", rewardAmount = 500, chance = 35 },
+    new RoulettePieceData { icon = gold, description = "Gold 1000", rewardType = "Gold", rewardAmount = 1000, chance = 40 }
+	};
+}
+
+
+
 }
 

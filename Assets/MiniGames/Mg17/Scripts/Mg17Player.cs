@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Mg17Player : MonoBehaviour
 {
+    public GameObject stunEffect;
+
     public float moveSpeed = 1f;
 
     private Rigidbody2D rb;
@@ -94,13 +96,16 @@ public class Mg17Player : MonoBehaviour
         // disable control
         enabled = false;
 
-        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
-        if (spriteRenderer != null)
-        {
-            spriteRenderer.color = new Color(0.5f, 0.5f, 0.5f);
-        }
+
+
+        Vector2 Effectposition = new Vector2(transform.position.x, transform.position.y + 0.7f);
+        GameObject HitEff = Instantiate(stunEffect, Effectposition, Quaternion.identity, transform);
 
         yield return new WaitForSeconds(2f);
+
+        Destroy(HitEff);
+
+        yield return new WaitForSeconds(1f);
 
         // re-enable control
         enabled = true;
@@ -111,9 +116,6 @@ public class Mg17Player : MonoBehaviour
 
         
 
-        if (spriteRenderer != null)
-        {
-            spriteRenderer.color = Color.white;
-        }
+        
     }
 }

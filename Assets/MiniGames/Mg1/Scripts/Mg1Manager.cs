@@ -36,7 +36,7 @@ public class Mg1Manager : MonoBehaviour
     public void AddScore()
     {
         score += 1;
-        scoreText.text = "Eat jelly " + score; //score= jelly
+        //scoreText.text = "Eat jelly " + score; //score= jelly
 
         if (score % 5 == 0)
         {

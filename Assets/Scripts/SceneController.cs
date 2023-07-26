@@ -14,27 +14,36 @@ public class SceneController : MonoBehaviour
     public float fadeSpeed = 1f; // 화면이 어두워지는 속도
      
     private void Start()
-    {
-        // 게임 시작시에 Play 버튼을 비활성화합니다.
-        playButton.interactable = false;
+{   
+    PlayerPrefs.DeleteAll();
+   playButton.onClick.AddListener(Play);
+}
 
-        // 2초 후에 EnablePlayButton 메서드를 실행합니다.
-        Invoke("EnablePlayButton", 1.6f);
-    }
-
-        private void EnablePlayButton()
+    private void EnablePlayButton()
     {
         // Play 버튼을 활성화합니다.
         playButton.interactable = true;
     }
+
     public void Play()
     {
-        AudioManager.Instance.StartMiniGame();
-        playButton.interactable = false;
-        logoMovement.StartPlay();
-        StartCoroutine(LoadSceneAfterDelay());
+          playButton.interactable = false;
 
+        if (PlayerPrefs.GetInt("hasPlayed") == 1)
+        {
+            // 이미 오프닝 컷신을 본 사용자는 바로 메인 씬으로 이동합니다.
+            sceneToLoad = "Main"; // 로드할 씬을 메인 씬으로 설정합니다.
+        }
+        else
+        {
+            // 오프닝 컷신을 보지 않은 사용자는 오프닝 컷신을 실행합니다.
+            sceneToLoad = "OpeningCutScene"; // 이 부분은 오프닝 컷신의 이름에 따라 변경하십시오.
+        }
+
+        // 로드할 씬을 불러옵니다.
+        StartCoroutine(LoadSceneAfterDelay());
     }
+    
 
     IEnumerator LoadSceneAfterDelay()
     {

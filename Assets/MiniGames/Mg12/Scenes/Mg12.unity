@@ -11286,6 +11286,12 @@ PrefabInstance:
       propertyPath: throwing
       value: 
       objectReference: {fileID: 8300000, guid: ddcafe132e0d4074dbcaddce53fd11c5, type: 3}
+    - target: {fileID: 2956354341747250808, guid: b55f27990a128a943b3c48f8465cb87a,
+        type: 3}
+      propertyPath: stunEffect
+      value: 
+      objectReference: {fileID: 612886624020768476, guid: 5a39ead417f611244a502a6ceba241e5,
+        type: 3}
     - target: {fileID: 4769667844833735347, guid: b55f27990a128a943b3c48f8465cb87a,
         type: 3}
       propertyPath: m_RootOrder

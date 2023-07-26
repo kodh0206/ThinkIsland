@@ -4,43 +4,60 @@ using UnityEngine;
 
 public class Mg20Brokenblock : MonoBehaviour
 {
-    public GameObject breakEffect; // �μ��� �� ����� ��ƼŬ ȿ��
+    public Animator animator;
+    public float blockspeed = 3f;
 
-    public float blockspeed = 3f; // ������Ʈ�� �ӵ�
+    private SpriteRenderer spriteRenderer;
+    private bool isBreaking = false;
+    private float fadeDuration = 1.0f;
+    private float fadeTimer = 0.0f;
+
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
 
     private void Update()
     {
-        // ������Ʈ�� ���� �̵���Ŵ
-        transform.Translate(Vector3.up * blockspeed * Time.deltaTime);
+        if (isBreaking)
+        {
+            Color currentColor = spriteRenderer.color;
+            fadeTimer += Time.deltaTime;
+            float t = Mathf.Clamp01(fadeTimer / fadeDuration);
+            float newAlpha = Mathf.Lerp(currentColor.a, 0f, t);
+            spriteRenderer.color = new Color(currentColor.r, currentColor.g, currentColor.b, newAlpha);
+
+            if (spriteRenderer.color.a <= 0.01f)
+            {
+                Destroy(gameObject);
+            }
+        }
+        else
+        {
+            transform.Translate(Vector3.up * blockspeed * Time.deltaTime);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
-        {   
-            BreakObject();
+        if (collision.gameObject.CompareTag("Player") && !isBreaking)
+        {
+            animator.SetBool("Break", true);
+            Invoke("BreakObject", 0.5f); 
         }
     }
 
     private void BreakObject()
-    {   //AudioManager.Instance.BreakPlatform();
-        // ��ƼŬ ȿ�� ���
-        if (breakEffect != null)
-        {
-            Instantiate(breakEffect, transform.position, Quaternion.identity);
-        }
-
-        // 0.5�� ���� �� ������Ʈ ����
-        Invoke("DestroyObject", 0.5f);
-    }
-
-    private void DestroyObject()
     {
-        Destroy(gameObject);
+        
+        isBreaking = true;
     }
-
     public void SetSpeed(float speed)
     {
         blockspeed = speed;
     }
 }
+
+
+

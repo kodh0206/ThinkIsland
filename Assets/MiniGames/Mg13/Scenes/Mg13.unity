@@ -13446,6 +13446,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8796019015519096978, guid: 0d9aa667093aba343802163d8b770bf7,
         type: 3}
+      propertyPath: hitEff
+      value: 
+      objectReference: {fileID: 612886624020768476, guid: bde294b9df1d10a489968ce1511d5c85,
+        type: 3}
+    - target: {fileID: 8796019015519096978, guid: 0d9aa667093aba343802163d8b770bf7,
+        type: 3}
       propertyPath: swimming
       value: 
       objectReference: {fileID: 8300000, guid: db0108cb7bec8674ba1d99a0766d83e5, type: 3}
@@ -13454,6 +13460,12 @@ PrefabInstance:
       propertyPath: moveSpeed
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 8796019015519096978, guid: 0d9aa667093aba343802163d8b770bf7,
+        type: 3}
+      propertyPath: stunEffect
+      value: 
+      objectReference: {fileID: 612886624020768476, guid: bde294b9df1d10a489968ce1511d5c85,
+        type: 3}
     - target: {fileID: 8796019015519096979, guid: 0d9aa667093aba343802163d8b770bf7,
         type: 3}
       propertyPath: m_RootOrder

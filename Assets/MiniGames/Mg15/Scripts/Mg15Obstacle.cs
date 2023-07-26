@@ -37,7 +37,12 @@ public class Mg15Obstacle : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
 
-        if (other.gameObject.CompareTag("stair"))
+        if (other.gameObject.CompareTag("jelly"))
+        {
+            Destroy(rb);
+        }
+
+            if (other.gameObject.CompareTag("stair"))
         {
             rb.gravityScale = 1.0f;
             transform.localScale = new Vector3(1, -1, 1); 
@@ -46,7 +51,7 @@ public class Mg15Obstacle : MonoBehaviour
 
         if (other.gameObject.CompareTag("Player"))
         {   
-            AudioManager.Instance.ObstacleFly();
+            //AudioManager.Instance.ObstacleFly();
             other.gameObject.GetComponent<Mg15Player>().GetHit();
         }
     }
