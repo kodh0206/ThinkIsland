@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Mg12Player : MonoBehaviour
 {
+    public GameObject stunEffect;
+
     Rigidbody2D rigidbody2D;
     Animator anim;
 
@@ -126,30 +128,22 @@ public class Mg12Player : MonoBehaviour
 
     private IEnumerator DisableControlAndResetColor()
     {
-        // ���� ��Ȱ��ȭ
+
         enabled = false;
 
-        // ���� ����
-        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
-        if (spriteRenderer != null)
-        {
-            spriteRenderer.color = new Color(0.77f, 0.52f, 0f);
-        }
 
-        // 2�ʰ� ���
+        Vector2 Effectposition = new Vector2(transform.position.x, transform.position.y + 0.7f);
+        GameObject HitEff = Instantiate(stunEffect, Effectposition, Quaternion.identity, transform);
+
+
         yield return new WaitForSeconds(2f);
 
-        // ���� Ȱ��ȭ
+ 
         enabled = true;
+        Destroy(HitEff);
 
-        // 1�ʰ� poop ���� ���� ����
         yield return new WaitForSeconds(1f);
 
-        // ���� ������� ����
-        if (spriteRenderer != null)
-        {
-            spriteRenderer.color = Color.white;
-        }
 
         if (!audioSource.isPlaying)
         {
@@ -157,5 +151,7 @@ public class Mg12Player : MonoBehaviour
             audioSource.clip = swimming;
             audioSource.Play();
         }
+
+
     }
 }

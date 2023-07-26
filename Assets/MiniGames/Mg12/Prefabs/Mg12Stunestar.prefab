@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 612886624020768466}
   - component: {fileID: 612886624020768467}
   m_Layer: 0
-  m_Name: Stunestar
+  m_Name: Mg12Stunestar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
