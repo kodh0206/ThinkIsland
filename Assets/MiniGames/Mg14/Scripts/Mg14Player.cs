@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Mg14Player : MonoBehaviour
 {
+
+    public GameObject stunEffect;
+
     public float moveSpeed = 5f; 
     public float jumpForce = 10f; 
     public float jumpGravityScale = 0.5f; 
@@ -161,7 +164,9 @@ public class Mg14Player : MonoBehaviour
 
     public void GetHit()  
     {
-        
+        Vector2 EffectPosition = new Vector2(transform.position.x, transform.position.y + 0.7f);
+        GameObject hitEff = Instantiate(stunEffect, EffectPosition, Quaternion.identity, transform);
+
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         rb.velocity = Vector2.zero;
         rb.gravityScale = 0.01f;
