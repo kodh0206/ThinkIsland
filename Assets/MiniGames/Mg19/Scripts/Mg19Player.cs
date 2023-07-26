@@ -14,7 +14,7 @@ public class Mg19Player : MonoBehaviour
     private Rigidbody2D rb;
     private BoxCollider2D boxCollider;
 
-    private int blockLayerMask; // Block ���̾��� ����ũ
+    private int blockLayerMask; // Block 
 
 
     public bool RightButton = false;
@@ -99,8 +99,6 @@ public class Mg19Player : MonoBehaviour
         }
     }
     
-
-
 
 
     private void Jump()
