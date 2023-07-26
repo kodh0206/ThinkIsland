@@ -13887,13 +13887,13 @@ TextureImporter:
       name: ALL UI ASSETS on one sheet_307
       rect:
         serializedVersion: 2
-        x: 0
-        y: 752
-        width: 48
-        height: 48
+        x: 11
+        y: 761
+        width: 26
+        height: 28
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 16, y: 16, z: 16, w: 16}
+      border: {x: 5, y: 7, z: 5, w: 5}
       outline: []
       physicsShape: []
       tessellationDetail: 0
