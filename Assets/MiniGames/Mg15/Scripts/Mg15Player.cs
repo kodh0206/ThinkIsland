@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Mg15Player : MonoBehaviour
 {
+    public GameObject stunEffect;
+
     public float moveSpeed = 5f; 
 
     private Rigidbody2D rb;
@@ -79,7 +81,10 @@ public class Mg15Player : MonoBehaviour
     public void GetHit()
     {   
         AudioManager.Instance.Rock();
-       
+
+        Vector2 EffectPosition = new Vector2(transform.position.x, transform.position.y + 0.7f);
+        GameObject hitEff = Instantiate(stunEffect, EffectPosition, Quaternion.identity, transform);
+
         boxCollider.enabled = false;
 
         

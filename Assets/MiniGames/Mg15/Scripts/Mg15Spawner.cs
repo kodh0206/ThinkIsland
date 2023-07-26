@@ -51,8 +51,8 @@ public class Mg15Spawner : MonoBehaviour
                     Vector2 spawnPosition = GetRandomSpawnPosition();
                     new_Mg15Obstacle.transform.position = spawnPosition;
                     new_Mg15Obstacle.GetComponent<Mg15Obstacle>().SetSpeed(Mg15ObstacleSpeed); 
-                    //AudioManager.Instance.ObstacleFly();
-                    Destroy(new_Mg15Obstacle, 5.0f);
+                    AudioManager.Instance.ObstacleFly();
+                    Destroy(new_Mg15Obstacle, 3.0f);
                 }
                 else
                 {
@@ -63,7 +63,7 @@ public class Mg15Spawner : MonoBehaviour
                     new_jelly.GetComponent<Mg15jelly>().SetSpeed(Mg15jellySpeed);
                     AudioManager.Instance.ObstacleFly();
 
-                    Destroy(new_jelly, 5.0f);
+                    Destroy(new_jelly, 3.0f);
 
                 }
             }
