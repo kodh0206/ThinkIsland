@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class Mg16Player : MonoBehaviour
 {
+    public GameObject stunEffect;
+
 
     [SerializeField]
     private float moveSpeed = 3f;
@@ -95,29 +97,21 @@ public class Mg16Player : MonoBehaviour
 
     private IEnumerator DisableControlAndResetColor()
     {
-        // ���� ��Ȱ��ȭ
+        
         enabled = false;
 
-        // ���� ����
-        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
-        if (spriteRenderer != null)
-        {
-            spriteRenderer.color = new Color(0.77f, 0.52f, 0f);
-        }
 
-        // 2�ʰ� ���
-        yield return new WaitForSeconds(1f);
+        Vector2 Effectposition = new Vector2(transform.position.x, transform.position.y + 0.7f);
+        GameObject HitEff = Instantiate(stunEffect, Effectposition, Quaternion.identity, transform);
 
-        // ���� Ȱ��ȭ
+        yield return new WaitForSeconds(2f);
+
+        Destroy(HitEff);
+
+
         enabled = true;
 
-        // 1�ʰ� poop ���� ���� ����
-        //yield return new WaitForSeconds(1f);
-
-        // ���� ������� ����
-        if (spriteRenderer != null)
-        {
-            spriteRenderer.color = Color.white;
-        }
+        
+        
     }
 }
