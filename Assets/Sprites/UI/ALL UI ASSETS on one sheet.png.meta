@@ -132,13 +132,13 @@ TextureImporter:
       name: ALL UI ASSETS on one sheet_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 848
-        width: 48
-        height: 48
+        x: 10
+        y: 857
+        width: 28
+        height: 28
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 16, y: 16, z: 16, w: 16}
+      border: {x: 6, y: 7, z: 6, w: 5}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -153,13 +153,13 @@ TextureImporter:
       name: ALL UI ASSETS on one sheet_3
       rect:
         serializedVersion: 2
-        x: 48
-        y: 848
-        width: 48
-        height: 48
+        x: 58
+        y: 857
+        width: 28
+        height: 28
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 16, y: 16, z: 16, w: 16}
+      border: {x: 6, y: 7, z: 6, w: 5}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -1410,27 +1410,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ALL UI ASSETS on one sheet_105
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 848
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c39f1507d9a17bd46b4d4395e38d57d5
-      internalID: -1933354543
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: ALL UI ASSETS on one sheet_112
       rect:
         serializedVersion: 2
@@ -1938,13 +1917,13 @@ TextureImporter:
       name: ALL UI ASSETS on one sheet_155
       rect:
         serializedVersion: 2
-        x: 59
-        y: 811
-        width: 26
-        height: 26
+        x: 58
+        y: 809
+        width: 28
+        height: 28
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 5, y: 5, z: 5, w: 5}
+      border: {x: 6, y: 7, z: 6, w: 5}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -2077,27 +2056,6 @@ TextureImporter:
       bones: []
       spriteID: ccd769b736399e042b7cd846c031cf23
       internalID: -194717055
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ALL UI ASSETS on one sheet_181
-      rect:
-        serializedVersion: 2
-        x: 464
-        y: 832
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c4f9e6fb9d9bef8418c0d45deb20a376
-      internalID: -1952626178
       vertices: []
       indices: 
       edges: []
@@ -2308,90 +2266,6 @@ TextureImporter:
       bones: []
       spriteID: 1a9fdd37f38deb74d9e17762181e64b3
       internalID: 2124575882
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ALL UI ASSETS on one sheet_227
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 816
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d253c43fddb005f4998e6c9e790cf0ca
-      internalID: 67699694
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ALL UI ASSETS on one sheet_228
-      rect:
-        serializedVersion: 2
-        x: 400
-        y: 816
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cffc3de353e75dc4ebfacb98512732b3
-      internalID: 1922488394
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ALL UI ASSETS on one sheet_229
-      rect:
-        serializedVersion: 2
-        x: 416
-        y: 816
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3ee3dde8fbee4884cba1f74a395b67ca
-      internalID: 1413996807
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ALL UI ASSETS on one sheet_230
-      rect:
-        serializedVersion: 2
-        x: 432
-        y: 816
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3285304e789104643adafe7b5b4983cf
-      internalID: 1914833458
       vertices: []
       indices: 
       edges: []
@@ -6013,9 +5887,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 416
-        y: 656
+        y: 640
         width: 16
-        height: 16
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -6034,9 +5908,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 432
-        y: 656
+        y: 640
         width: 16
-        height: 16
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -6055,9 +5929,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 448
-        y: 656
+        y: 640
         width: 16
-        height: 16
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -6429,90 +6303,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ALL UI ASSETS on one sheet_745
-      rect:
-        serializedVersion: 2
-        x: 416
-        y: 640
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c4607dc3d5d4edf42a6e9b6c5403f019
-      internalID: 97416998
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ALL UI ASSETS on one sheet_746
-      rect:
-        serializedVersion: 2
-        x: 432
-        y: 640
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2b66a78786b8b3942bf66cf73096558d
-      internalID: 137879467
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ALL UI ASSETS on one sheet_747
-      rect:
-        serializedVersion: 2
-        x: 448
-        y: 640
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 40f98eaaa6cd98e41a561e858ddff19d
-      internalID: -1133160605
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ALL UI ASSETS on one sheet_748
-      rect:
-        serializedVersion: 2
-        x: 464
-        y: 640
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6dea2d329239ecb418f66ed5351374dc
-      internalID: -223038127
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: ALL UI ASSETS on one sheet_765
       rect:
         serializedVersion: 2
@@ -6844,27 +6634,6 @@ TextureImporter:
       bones: []
       spriteID: 9ec4c06d66da0674eb3fd572dd55e458
       internalID: -1198338104
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ALL UI ASSETS on one sheet_786
-      rect:
-        serializedVersion: 2
-        x: 464
-        y: 624
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c2b8a8c222a64ac439855d5018094736
-      internalID: -1941307632
       vertices: []
       indices: 
       edges: []
@@ -11808,13 +11577,13 @@ TextureImporter:
       name: ALL UI ASSETS on one sheet_176
       rect:
         serializedVersion: 2
-        x: 384
-        y: 832
-        width: 16
-        height: 16
+        x: 393
+        y: 809
+        width: 30
+        height: 30
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 7, y: 7, z: 7, w: 7}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -11826,85 +11595,22 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ALL UI ASSETS on one sheet_177
-      rect:
-        serializedVersion: 2
-        x: 400
-        y: 832
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ea6450558303d5241ae4e081a172d46d
-      internalID: -103278895
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ALL UI ASSETS on one sheet_178
-      rect:
-        serializedVersion: 2
-        x: 416
-        y: 832
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c588af4143fd4114aa3dc16e360844d7
-      internalID: 1285280393
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: ALL UI ASSETS on one sheet_179
       rect:
         serializedVersion: 2
-        x: 432
-        y: 832
-        width: 16
-        height: 16
+        x: 443
+        y: 811
+        width: 26
+        height: 26
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 5, y: 5, z: 5, w: 5}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
       spriteID: 25675dc727c60034091909dfccf3aaa0
       internalID: -281709564
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ALL UI ASSETS on one sheet_180
-      rect:
-        serializedVersion: 2
-        x: 448
-        y: 832
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9ed447cf6e4f5684aab88a7e5b1d8297
-      internalID: -1327458516
       vertices: []
       indices: 
       edges: []
@@ -12249,13 +11955,13 @@ TextureImporter:
       name: ALL UI ASSETS on one sheet_6
       rect:
         serializedVersion: 2
-        x: 96
-        y: 848
-        width: 48
-        height: 48
+        x: 106
+        y: 857
+        width: 28
+        height: 28
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 16, y: 16, z: 16, w: 16}
+      border: {x: 6, y: 7, z: 6, w: 5}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -12556,48 +12262,6 @@ TextureImporter:
       bones: []
       spriteID: 3536dd7512d0f1244877fe68da11b22c
       internalID: 436154623
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ALL UI ASSETS on one sheet_231
-      rect:
-        serializedVersion: 2
-        x: 448
-        y: 816
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7ad21212a7cbd95428bacbc564d6b662
-      internalID: -810346363
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ALL UI ASSETS on one sheet_232
-      rect:
-        serializedVersion: 2
-        x: 464
-        y: 816
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c61ff938c73af534d81279782c797306
-      internalID: -640296085
       vertices: []
       indices: 
       edges: []
@@ -13354,132 +13018,6 @@ TextureImporter:
       bones: []
       spriteID: 14185774894f0b045b14604a3dbc3aaa
       internalID: 594286535
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ALL UI ASSETS on one sheet_279
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 800
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cfe2912bd2509fc43abb72732efe5a6c
-      internalID: -1353456364
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ALL UI ASSETS on one sheet_280
-      rect:
-        serializedVersion: 2
-        x: 400
-        y: 800
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e4d8e6551653169449e6a8200a49b534
-      internalID: -1355596653
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ALL UI ASSETS on one sheet_281
-      rect:
-        serializedVersion: 2
-        x: 416
-        y: 800
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 27955ebea55316342b33b0057eca3c25
-      internalID: 1275164317
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ALL UI ASSETS on one sheet_282
-      rect:
-        serializedVersion: 2
-        x: 432
-        y: 800
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3dca027e9439d1246b142f61244cf059
-      internalID: -85153582
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ALL UI ASSETS on one sheet_283
-      rect:
-        serializedVersion: 2
-        x: 448
-        y: 800
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3d0141da783d3ac4ea9d3d85b186735f
-      internalID: -575986979
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ALL UI ASSETS on one sheet_284
-      rect:
-        serializedVersion: 2
-        x: 464
-        y: 800
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4029d1181ee7e6945a0cd3aabb33f27d
-      internalID: 691210719
       vertices: []
       indices: 
       edges: []
@@ -15694,12 +15232,12 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 464
-        y: 656
+        y: 624
         width: 16
-        height: 16
+        height: 48
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 0, y: 8, z: 0, w: 8}
       outline: []
       physicsShape: []
       tessellationDetail: 0
