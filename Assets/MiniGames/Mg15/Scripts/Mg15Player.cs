@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class Mg15Player : MonoBehaviour
 {
@@ -87,7 +88,9 @@ public class Mg15Player : MonoBehaviour
 
         boxCollider.enabled = false;
 
-        
+        ShakeCamera();
+
+
         StartCoroutine(EnableBoxColliderAfterDelay(0.5f));
     }
 
@@ -95,6 +98,12 @@ public class Mg15Player : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         boxCollider.enabled = true;
+    }
+
+
+    public void ShakeCamera()
+    {
+        Camera.main.transform.DOShakePosition(1.5f, 0.6f, 20);  // 카메라를 1초 동안, 강도 0.4로 20번 흔듭니다.
     }
 
 }

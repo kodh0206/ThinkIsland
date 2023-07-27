@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class Mg13Player : MonoBehaviour
 {
@@ -98,7 +99,17 @@ public class Mg13Player : MonoBehaviour
 
         audioSource.Stop(); // 물장구 소리를 멈춤
 
-       
+        GameObject[] ObstacleObjects = GameObject.FindGameObjectsWithTag("Obstacle"); //필드 파괴
+        foreach (var ObstacleObject in ObstacleObjects)
+        {
+            Destroy(ObstacleObject);
+        }
+        GameObject[] jellyObjects = GameObject.FindGameObjectsWithTag("jelly"); //필드 젤리 파괴
+        foreach (var jellyObject in jellyObjects)
+        {
+            Destroy(jellyObject);
+        }
+        RotateOneCircle();
 
         StartCoroutine(DisableControlAndResetColor());
     }
@@ -107,7 +118,9 @@ public class Mg13Player : MonoBehaviour
     {
         
         enabled = false;
+        ShakeCamera();
 
+        
 
         SetHitEffVisibility(hitEff, true);
         yield return new WaitForSeconds(2f);
@@ -138,6 +151,20 @@ public class Mg13Player : MonoBehaviour
                 hitEffRenderer.enabled = isVisible;
             }
         
+    }
+
+    public void ShakeCamera()
+    {
+        Camera.main.transform.DOShakePosition(1.5f, 0.6f, 15);  // 카메라를 1초 동안, 강도 0.4로 20번 흔듭니다.
+    }
+
+
+
+    private void RotateOneCircle()
+    {
+        // DOTween을 사용하여 오브젝트를 한 바퀴 회전시킵니다.
+        transform.DORotate(new Vector3(0f, 0f, 360f), 1.5f, RotateMode.LocalAxisAdd)
+            .SetEase(Ease.OutQuint); // 회전에 사용할 움직임(Ease)을 설정합니다.
     }
 
 }

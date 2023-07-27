@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using DG.Tweening;
 public class Mg17shell : MonoBehaviour
 {
     public float obstacleSpeed = 5.0f;
@@ -44,7 +44,8 @@ public class Mg17shell : MonoBehaviour
             SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
             spriteRenderer.sprite = sprites[HItCount];
             HItCount += 1;
-            
+
+            ShakeCamera();
 
             if (HItCount == 2)
             {
@@ -82,5 +83,10 @@ public class Mg17shell : MonoBehaviour
     public void SetSpeed(float speed)
     {
         obstacleSpeed = speed;
+    }
+
+    public void ShakeCamera()
+    {
+        Camera.main.transform.DOShakePosition(0.1f, 0.2f, 2);  // 카메라를 0.2초 동안, 강도 0.2로 4번 흔듭니다.
     }
 }

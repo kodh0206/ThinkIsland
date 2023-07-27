@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class Mg16Player : MonoBehaviour
 {
@@ -90,8 +91,10 @@ public class Mg16Player : MonoBehaviour
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         rb.velocity = Vector2.zero;
 
+        ShakeCamera();
+
         audioSource.PlayOneShot(electricity);
-        // �񵿱� ó�� ����
+        
         StartCoroutine(DisableControlAndResetColor());
     }
 
@@ -108,10 +111,12 @@ public class Mg16Player : MonoBehaviour
 
         Destroy(HitEff);
 
-
         enabled = true;
 
-        
-        
     }
+    public void ShakeCamera()
+    {
+        Camera.main.transform.DOShakePosition(1.5f, 0.2f, 40);  // 카메라를 1초 동안, 강도 0.4로 20번 흔듭니다.
+    }
+
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class Mg12shell : MonoBehaviour
 {
@@ -34,6 +35,8 @@ public class Mg12shell : MonoBehaviour
             HItCount += 1;
             anim.SetBool("isTrigger", true);
 
+            ShakeCamera();
+
             // 조개가 돌에 두 번 맞으면 부숴진다.
             if (HItCount == 2)
             {
@@ -45,7 +48,7 @@ public class Mg12shell : MonoBehaviour
                 }
                 Destroy(gameObject);
             }
-            //AudioManager.Instance.ShellBreak();
+            AudioManager.Instance.ShellBreak();
         }
     }
 
@@ -53,4 +56,11 @@ public class Mg12shell : MonoBehaviour
     {
         obstacleSpeed = speed;
     }
+
+
+    public void ShakeCamera()
+    {
+        Camera.main.transform.DOShakePosition(0.2f, 0.2f, 4);  // 카메라를 0.2초 동안, 강도 0.2로 4번 흔듭니다.
+    }
+
 }
