@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -34,12 +35,16 @@ public class Mg13Obstacle : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
-        {   
-            AudioManager.Instance.Rock2();
+        {
+            Vector2 Hittarget = other.transform.position;
+            Vector2 Knuckdirection = new Vector2(Hittarget.x - transform.position.x, Hittarget.y - transform.position.y).normalized;
+            float pushDistance = 0.5f; // 플레이어를 밀어낼 거리
+
+            other.transform.Translate(Knuckdirection * pushDistance, Space.World);
+            
             Mg13manager.instance.GameLevelDown();
             other.gameObject.GetComponent<Mg13Player>().GetHit();
         }
-
     }
 
     public void SetSpeed(float speed)

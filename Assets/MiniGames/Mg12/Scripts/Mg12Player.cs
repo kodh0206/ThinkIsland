@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class Mg12Player : MonoBehaviour
 {
@@ -120,6 +121,8 @@ public class Mg12Player : MonoBehaviour
     Rigidbody2D rb = GetComponent<Rigidbody2D>();
     rb.velocity = Vector2.zero;
 
+    ShakeCamera();
+
     audioSource.loop = false;
     audioSource.Stop();
 
@@ -152,6 +155,11 @@ public class Mg12Player : MonoBehaviour
             audioSource.Play();
         }
 
-
     }
+
+    public void ShakeCamera()
+    {
+        Camera.main.transform.DOShakePosition(1.0f, 0.6f, 10);  // 카메라를 1초 동안, 강도 0.4로 20번 흔듭니다.
+    }
+
 }

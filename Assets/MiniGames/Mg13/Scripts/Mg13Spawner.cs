@@ -82,6 +82,8 @@ public class Mg13Spawner : MonoBehaviour
 
     public void GetHit()
     {
+
+
         StartCoroutine(DisableSpawning());
     }
 

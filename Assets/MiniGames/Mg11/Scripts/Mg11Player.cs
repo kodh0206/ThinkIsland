@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class Mg11Player : MonoBehaviour
 {
@@ -113,6 +114,8 @@ public class Mg11Player : MonoBehaviour
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         rb.velocity = Vector2.zero;
 
+        ShakeCamera();
+
         // 비동기 처리 시작
         StartCoroutine(DisableControlAndResetColor());
     }
@@ -154,6 +157,13 @@ public class Mg11Player : MonoBehaviour
             hitEffRenderer.enabled = isVisible;
         }
 
+    }
+
+
+
+    public void ShakeCamera()
+    {
+        Camera.main.transform.DOShakePosition(1.5f, 0.2f, 10);  // 카메라를 1초 동안, 강도 0.4로 20번 흔듭니다.
     }
 
 }
