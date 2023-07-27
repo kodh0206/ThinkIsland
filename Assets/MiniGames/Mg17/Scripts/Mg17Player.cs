@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class Mg17Player : MonoBehaviour
 {
@@ -88,6 +89,8 @@ public class Mg17Player : MonoBehaviour
         
         canShoot = false;
 
+        ShakeCamera();
+
         StartCoroutine(DisableControlAndResetColor());
     }
 
@@ -115,7 +118,11 @@ public class Mg17Player : MonoBehaviour
         canShoot = true;
 
         
-
-        
     }
+    public void ShakeCamera()
+    {
+        Camera.main.transform.DOShakePosition(1.0f, 0.6f, 10);  // 카메라를 1초 동안, 강도 0.4로 20번 흔듭니다.
+    }
+
+
 }

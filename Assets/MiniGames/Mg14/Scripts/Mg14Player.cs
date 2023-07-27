@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class Mg14Player : MonoBehaviour
 {
@@ -143,6 +144,7 @@ public class Mg14Player : MonoBehaviour
         canJump = false;
 
         
+
         StartCoroutine(DisableControlAndResetColor());
         canJump = true;
     }
@@ -173,9 +175,25 @@ public class Mg14Player : MonoBehaviour
         audioSource.PlayOneShot(monkeyfall);
         isJumping = true;
         canJump = false;
-        
+
+        ShakeCamera();
+
+        RotateOneCircle();
+
         StartCoroutine(DisableControlAndResetColor());
     }
 
+    public void ShakeCamera()
+    {
+        Camera.main.transform.DOShakePosition(1.5f, 0.6f, 15);  // 카메라를 1초 동안, 강도 0.4로 20번 흔듭니다.
+    }
+
+
+    private void RotateOneCircle()
+    {
+        // DOTween을 사용하여 오브젝트를 한 바퀴 회전시킵니다.
+        transform.DORotate(new Vector3(0f, 0f, 360f), 1.5f, RotateMode.LocalAxisAdd)
+            .SetEase(Ease.OutQuint); // 회전에 사용할 움직임(Ease)을 설정합니다.
+    }
 
 }
