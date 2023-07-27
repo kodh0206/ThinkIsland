@@ -106,7 +106,10 @@ public class MiniGameManager : MonoBehaviour
         
         
        if (scene.name == "BetaScene" || scene.name == "Main" || scene.name == "RadioScene" || scene.name == "Roulette")
-    {
+    {   
+
+        miniGameScenes.Clear();
+        miniGameScenes.AddRange(GameController.Instance.unlockedMiniGames);
         if(minigameUI != null) 
         {
             minigameUI.gameObject.SetActive(false);

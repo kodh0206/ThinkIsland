@@ -1096,7 +1096,7 @@ MonoBehaviour:
   - level: 5
     unlockedCrop: Carrot
     CropIcon: {fileID: -422562425, guid: f6ea1f6459d8be74f97c67100560193b, type: 3}
-    unlockedMiniGame: 
+    unlockedMiniGame: None
     MiniGameIcon: {fileID: 0}
   - level: 7
     unlockedCrop: None
@@ -1104,9 +1104,9 @@ MonoBehaviour:
     unlockedMiniGame: Mg7
     MiniGameIcon: {fileID: 2095295052, guid: 9417905da2daea844a2880dff8d5df94, type: 3}
   - level: 8
-    unlockedCrop: 
+    unlockedCrop: None
     CropIcon: {fileID: 0}
-    unlockedMiniGame: 
+    unlockedMiniGame: None
     MiniGameIcon: {fileID: 0}
   - level: 9
     unlockedCrop: EggPlant

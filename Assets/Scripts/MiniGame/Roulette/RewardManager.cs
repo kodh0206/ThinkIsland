@@ -36,16 +36,18 @@ public class RewardManager : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
     }
 
+
+
     //레밸에 맞는 보상추가 
     public void GetRewardForLevel(int level)
-    {
+    {   Debug.Log("현재 래밸 보상획득"+level);
        LevelRewardData reward = levelRewards.FirstOrDefault(r => r.level == level);
 
     if (reward != null && !RewardAlreadyExists(reward))
     {
         newRewards.Add(reward);
     }
-
+    Debug.Log("보상획득!"+newRewards);
     
     }
 
@@ -62,30 +64,35 @@ public class RewardManager : MonoBehaviour
 
     public List<RoulettePieceData> ConvertLevelRewardsToPieces(List<LevelRewardData> levelRewards)
     {
-        List<RoulettePieceData> convertedRewards = new List<RoulettePieceData>();
+         List<RoulettePieceData> convertedRewards = new List<RoulettePieceData>();
 
     foreach (LevelRewardData reward in levelRewards)
     {
-        RoulettePieceData newPiece = new RoulettePieceData();
         if (!reward.unlockedCrop.Equals("None"))
         {
+            RoulettePieceData newPiece = new RoulettePieceData();
             newPiece.description = reward.unlockedCrop;
             newPiece.icon = reward.CropIcon;
             newPiece.rewardType = RoulettePieceData.RewardType.Crop.ToString();
+            newPiece.chance = 70;
+
+            if (!PieceAlreadyExists(convertedRewards, newPiece))
+            {
+                convertedRewards.Add(newPiece);
+            }
         }
         else if (!reward.unlockedMiniGame.Equals("None"))
         {
+            RoulettePieceData newPiece = new RoulettePieceData();
             newPiece.description = reward.unlockedMiniGame;
             newPiece.icon = reward.MiniGameIcon;
             newPiece.rewardType = "MiniGame";
-        }
+            newPiece.chance = 70;
 
-        newPiece.chance = 70;
-
-        // Check if this reward piece already exists
-        if (!PieceAlreadyExists(convertedRewards, newPiece))
-        {
-            convertedRewards.Add(newPiece);
+            if (!PieceAlreadyExists(convertedRewards, newPiece))
+            {
+                convertedRewards.Add(newPiece);
+            }
         }
     }
 
@@ -113,10 +120,14 @@ public void RemoveNewReward(LevelRewardData reward)
 
 private bool RewardAlreadyExists(LevelRewardData reward)
 {
-    foreach (LevelRewardData existingReward in newRewards)
+   foreach (LevelRewardData existingReward in newRewards)
     {
-        if (reward.unlockedCrop.Equals(existingReward.unlockedCrop) || 
-            reward.unlockedMiniGame.Equals(existingReward.unlockedMiniGame))
+        bool sameCrop = reward.unlockedCrop != null && reward.unlockedCrop.Equals(existingReward.unlockedCrop);
+        bool sameMinigame = reward.unlockedMiniGame != null && reward.unlockedMiniGame.Equals(existingReward.unlockedMiniGame);
+
+        // None은 중복이어도 상관없으므로 체크에서 제외합니다.
+        if ((sameCrop && reward.unlockedCrop != "None") || 
+            (sameMinigame && reward.unlockedMiniGame != "None"))
         {
             return true;
         }
@@ -127,10 +138,10 @@ private bool RewardAlreadyExists(LevelRewardData reward)
 
 private bool PieceAlreadyExists(List<RoulettePieceData> existingPieces, RoulettePieceData newPiece)
 {
-    foreach (RoulettePieceData piece in existingPieces)
+   foreach (RoulettePieceData piece in existingPieces)
     {
-        if (piece.description.Equals(newPiece.description) &&
-            piece.rewardType.Equals(newPiece.rewardType))
+        if ((newPiece.description != "None" && piece.description.Equals(newPiece.description)) &&
+            (newPiece.rewardType != "None" && piece.rewardType.Equals(newPiece.rewardType)))
         {
             return true;
         }

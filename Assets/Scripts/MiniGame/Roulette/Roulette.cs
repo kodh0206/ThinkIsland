@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System;
 using System.Linq;
 using Random = UnityEngine.Random;
-
+using UnityEngine.SceneManagement;
 public class Roulette : MonoBehaviour
 {
 	[SerializeField]
@@ -37,9 +37,22 @@ public class Roulette : MonoBehaviour
 	public Sprite gold;
     private int spinDursation=3;
 
-    private void Awake()
-	{
-	roulettePieceData = new List<RoulettePieceData>
+    
+      void OnEnable()
+    {
+        // 씬 로드 이벤트에 대한 콜백을 등록합니다.
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnDisable()
+    {
+        // 씬 로드 이벤트에 대한 콜백을 제거합니다.
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+       roulettePieceData = new List<RoulettePieceData>
 	{
     new RoulettePieceData { icon = gold, description = "Gold 300", rewardType = "Gold", rewardAmount = 300, chance = 25 },
     new RoulettePieceData { icon = gold, description = "Gold 500", rewardType = "Gold", rewardAmount = 500, chance = 35 },
@@ -70,51 +83,10 @@ public class Roulette : MonoBehaviour
         halfPieceAngle = pieceAngle * 0.5f;
         halfPieceAngleWithPaddings = halfPieceAngle - (halfPieceAngle * 0.25f);
 
-
+        
     	SpawnPiecesAndLines();
     	CalculateWeightsAndIndices();
-	}
-    /*
-	private void Update()
-	{
-	 if (RewardManager.Instance.HasNewRewards())
-    {
-        // 룰렛 휠 초기화
-        ResetRouletteWheel();
-
-        // RewardManager에서 새로운 보상을 가져와서 룰렛에 추가합니다.
-        List<LevelRewardData> newRewards = RewardManager.Instance.GetNewRewards();
-
-        // LevelRewardData를 RoulettePieceData로 변환
-        List<RoulettePieceData> convertedRewards = RewardManager.Instance.ConvertLevelRewardsToPieces(newRewards);
-
-        // 변환된 보상들을 룰렛에 추가
-        foreach (RoulettePieceData reward in convertedRewards)
-        {
-            // 기존에 같은 보상이 없으면 추가
-            if (!roulettePieceData.Exists(x => x.description == reward.description && x.rewardType == reward.rewardType))
-            {
-                roulettePieceData.Add(reward);
-            }
-            // 이미 같은 보상이 있으면 해당 보상의 확률을 업데이트
-            else
-            {
-                RoulettePieceData existingReward = roulettePieceData.Find(x => x.description == reward.description && x.rewardType == reward.rewardType);
-                existingReward.chance += reward.chance;
-            }
-        }
-
-        // 보상이 추가되었으므로 pieceAngle과 halfPieceAngle을 다시 계산합니다.
-        pieceAngle = 360 / roulettePieceData.Count;
-        halfPieceAngle = pieceAngle * 0.5f;
-        halfPieceAngleWithPaddings = halfPieceAngle - (halfPieceAngle * 0.25f);
-
-        // 보상이 추가되었으므로 룰렛 조각과 선을 다시 생성합니다.
-        SpawnPiecesAndLines();
-        CalculateWeightsAndIndices();
     }
-}
-*/
 	
 	private void SpawnPiecesAndLines()
 	{   
