@@ -21,14 +21,4 @@ public class UnlockedCharacterCollection : MonoBehaviour
             }
         }
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        // unlockedMiniGames 리스트 안에 "Mg1"이 있는지 확인
-        if (GameController.Instance.unlockedMiniGames.Contains("Mg"+i))
-        {
-            //Mg1Character.SetActive(true);
-        }
-    }
 }

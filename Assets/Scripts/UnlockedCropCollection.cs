@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class UnlockedCropCollection : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public GameObject[] cropObjects;
+    
+    //unlockedCropsLength = GameController.Instance.currentUnlockedCrops.Count;
+
+
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        for (int i = 0; i < GameController.Instance.currentUnlockedCrops.Count; i++)
+        {
+            cropObjects[i].SetActive(true);
+        }
     }
 }
