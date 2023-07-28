@@ -302,8 +302,8 @@ MonoBehaviour:
     type: 3}
   Mg5Obstacle2: {fileID: 4101505061135343235, guid: 435a32022c36a724dab3d090b3e84163,
     type: 3}
-  minNumMg5ObstacleToSpawn: 6
-  maxNumMg5ObstacleToSpawn: 8
+  minNumMg5ObstacleToSpawn: 5
+  maxNumMg5ObstacleToSpawn: 6
   Mg5ObstacleSpeed: 4
   minTimeDiff: 2
   maxTimeDiff: 3
