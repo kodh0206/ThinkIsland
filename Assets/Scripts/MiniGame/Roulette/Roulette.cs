@@ -218,6 +218,9 @@ private IEnumerator OnSpin(float end, UnityAction<RoulettePieceData> action)
                 // 새 미니게임을 해금 리스트에 추가합니다.
                 GameController.Instance.unlockedMiniGames.Add(selectedReward.description);
                 Debug.Log("Unlocked new minigame: " + selectedReward.description);
+
+
+                
             }
             break;
                
