@@ -9,9 +9,16 @@ public class CollectionButtonClick : MonoBehaviour
     public GameObject cropCollection;
     public GameObject characterCollection;
 
+
+    // 캐릭터 해금 여부
+    public GameObject unlockedCharacter19;
+
     // 페이지 넘김(1p, 2p)
     public GameObject page1Collection;
     public GameObject page2Collection;
+
+    // 버튼
+    public GameObject pageButton;
 
     public MonoBehaviour mobileTouchScript;
     void Start()
@@ -21,7 +28,17 @@ public class CollectionButtonClick : MonoBehaviour
 
     void Update()
     {
-        
+        // 19번째 캐릭터가 해금되어 있으면
+        if (unlockedCharacter19.activeSelf)
+        {
+            // 버튼 활성화
+            pageButton.SetActive(true);
+        }
+        else
+        {
+            // 버튼 비활성화
+            pageButton.SetActive(false);
+        }
     }
 
     public void CollectionCloseButtonClick()
