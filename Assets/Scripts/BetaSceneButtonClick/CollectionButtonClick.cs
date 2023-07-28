@@ -33,6 +33,10 @@ public class CollectionButtonClick : MonoBehaviour
         // 캔버스 초기화
         cropCollection.SetActive(true);
         characterCollection.SetActive(false);
+
+        // 페이지 초기화
+        page1Collection.SetActive(true);
+        page2Collection.SetActive(false);
     }
 
     public void CropCollectionButtonClick()
