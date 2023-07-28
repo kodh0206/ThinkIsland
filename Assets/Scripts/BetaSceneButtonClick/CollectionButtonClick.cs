@@ -39,6 +39,8 @@ public class CollectionButtonClick : MonoBehaviour
             // 버튼 비활성화
             pageButton.SetActive(false);
         }
+
+        Debug.Log(GameController.Instance.level);
     }
 
     public void CollectionCloseButtonClick()
