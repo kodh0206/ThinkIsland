@@ -31,6 +31,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip beeHive;
 
     public AudioClip miniGameExchange;
+
     private void Awake()
     {
     if (_instance != null && _instance != this)

@@ -36,8 +36,21 @@ public class Roulette : MonoBehaviour
 
 	public Sprite gold;
     private int spinDursation=3;
-
     
+    [SerializeField]
+	private AudioClip rouletteSpinClip; // Add this line to declare AudioClip for roulette spinning sound
+
+	private AudioSource audioSource; // Add this line to declare AudioSource
+    public AudioClip spin;
+    public AudioClip reward;
+    void Awake() // Or you can use Start() method
+	{
+		audioSource = GetComponent<AudioSource>();
+		if(audioSource == null)
+		{
+			audioSource = gameObject.AddComponent<AudioSource>();
+		}
+	}
       void OnEnable()
     {
         // 씬 로드 이벤트에 대한 콜백을 등록합니다.
@@ -160,7 +173,9 @@ private IEnumerator OnSpin(float end, UnityAction<RoulettePieceData> action)
 {
     float current = 0;
     float percent = 0;
-
+    
+    audioSource.clip = spin;
+    audioSource.Play();  // 룰렛이 회전하기 시작하면 소리를 재생합니다.
     // 변형된 반복문 조건
     while ( percent < 1 )
 		{
@@ -189,7 +204,8 @@ private IEnumerator OnSpin(float end, UnityAction<RoulettePieceData> action)
     {
         RewardManager.Instance.RemoveFromNewRewards(rewardToRemove);
     }
-
+     audioSource.Stop();
+     audioSource.PlayOneShot(reward);
      // 보상 유형에 따라 다른 작업을 수행합니다.
      switch (selectedReward.rewardType)
     {
