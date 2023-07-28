@@ -48,7 +48,7 @@ public class MiniGameManager : MonoBehaviour
     miniGameScenes.AddRange(GameController.Instance.unlockedMiniGames);
 
     // remainingMiniGameScenes 리스트 초기화
-    remainingMiniGameScenes.Clear();
+    //remainingMiniGameScenes.Clear();
 
     // While we don't have selected games to play
     while (remainingMiniGameScenes.Count < gamesToPlay)
@@ -134,7 +134,7 @@ public class MiniGameManager : MonoBehaviour
     isMiniGameScene = false; // 미니게임 씬이 아님을 표시
 
     // Initialize the remaining games
-    remainingMiniGameScenes.Clear();
+    //remainingMiniGameScenes.Clear();
 
     // While we don't have selected games to play
     while (remainingMiniGameScenes.Count < gamesToPlay)
@@ -279,7 +279,10 @@ private IEnumerator Fade(float finalAlpha)
         minigameUI.GetComponent<MIniGameUI>().UpdateJellyText();  // UI 업데이트
         AudioManager.Instance.PlayJelly();
     }
-
+    public void AddMiniGame(string minigame)
+    {
+        remainingMiniGameScenes.Insert(0,minigame);
+    }
     private void LoadRouletteScene()
     {
     StartCoroutine(FadeAndLoadScene("Roulette"));
