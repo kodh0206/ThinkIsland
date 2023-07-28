@@ -273,6 +273,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 228511449}
   duration: 1
+  blinkInterval: 0.125
+  minAlpha: 0.3
+  maxAlpha: 1
   stunEffect: {fileID: 612886624020768476, guid: 43ced0fd877bac34ebd91e90e38f6a02,
     type: 3}
   jumpForce: 9

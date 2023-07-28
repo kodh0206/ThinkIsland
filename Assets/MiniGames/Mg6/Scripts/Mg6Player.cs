@@ -13,6 +13,10 @@ public class Mg6Player : MonoBehaviour
     private Color startColor;
     private Color targetColor;
 
+    public float blinkInterval = 0.125f; //blink
+    public float minAlpha = 0.3f; // 최소 알파값 (반투명 상태)
+    public float maxAlpha = 1f;   // 최대 알파값 (불투명 상태)
+
     public GameObject stunEffect;
 
     [SerializeField]
@@ -55,8 +59,10 @@ public class Mg6Player : MonoBehaviour
 
     private void Start()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
         startColor = Color.white;
         targetColor = Color.red;
+        
     }
 
     public void RightClick()
@@ -172,6 +178,7 @@ public class Mg6Player : MonoBehaviour
     public void GetHit()
     {
         ShakeCamera();
+        
         StartCoroutine(DisableControlAndResetColor());
 
     }
@@ -189,8 +196,16 @@ public class Mg6Player : MonoBehaviour
         Destroy(HitEff,1.0f);
 
         rb.gravityScale = 3.0f;
- 
-        yield return new WaitForSeconds(2f);
+
+
+        for (int i = 0; i < 8; i++) //Blink
+        {
+            Blink();
+            yield return new WaitForSeconds(blinkInterval);
+            BlinkEnd();
+            yield return new WaitForSeconds(blinkInterval);
+        }
+             
 
         rb.gravityScale = 1.0f;
 
@@ -205,4 +220,27 @@ public class Mg6Player : MonoBehaviour
     {
         Camera.main.transform.DOShakePosition(0.8f, 0.4f ,20);  // 카메라를 1초 동안, 강도 1로 1번 흔듭니다.
     }
+
+
+
+    public void Blink()
+    {
+        spriteRenderer.color = new Color(
+                spriteRenderer.color.r,
+                spriteRenderer.color.g,
+                spriteRenderer.color.b,
+                minAlpha); // 반투명 상태로 설정
+
+      
+    }
+
+    public void BlinkEnd()
+    {
+        spriteRenderer.color = new Color(
+            spriteRenderer.color.r,
+            spriteRenderer.color.g,
+            spriteRenderer.color.b,
+            maxAlpha); // 불투명 상태로 설정
+    }
+
 }
