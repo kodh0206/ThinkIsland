@@ -5,13 +5,13 @@ using UnityEngine;
 public class Mg18Player : MonoBehaviour
 {
     public Animator animator;  // 애니메이터 컴포넌트
-    public float maxGravityScale = 1f; // �ִ� gravity scale ��
+    public float maxGravityScale = 1f; 
 
-    public float moveSpeed = 5f; // ������ �ӵ�
+    public float moveSpeed = 5f; 
 
-    private float jumpForce = 12.0f; // �ʱ� ���� ��
+    private float jumpForce = 12.0f; 
 
-    public float targetXPosition = -7.5f; //�з����� �� ���ƿ� ��
+    public float targetXPosition = -7.5f; 
 
     private bool isHit = false;
 
@@ -56,7 +56,7 @@ public class Mg18Player : MonoBehaviour
     {
         animator = GetComponent<Animator>();  // 애니메이터 컴포넌트 가져오기
         rb = GetComponent<Rigidbody2D>();
-        rb.gravityScale = 0f; // ������ �� gravity scale�� 0�� ����
+        rb.gravityScale = 0f; 
         audioSource = GetComponent<AudioSource>();
         boxCollider =GetComponent<BoxCollider2D>();
     }
@@ -66,22 +66,23 @@ public class Mg18Player : MonoBehaviour
         if (Input.GetKey(KeyCode.RightArrow) || RightButton)
         {
             transform.Translate(Vector2.down * moveSpeed * Time.deltaTime);
-            rb.gravityScale = Mathf.Clamp(rb.gravityScale, 0f, maxGravityScale);
+            rb.gravityScale = Mathf.Clamp(rb.gravityScale/2f, 0f, maxGravityScale);
         }
 
-        // y ��ǥ�� ������ ��� gravity scale ����
-        if (!(isHit) && transform.position.y <= 2.5f )
+       
+        if (!(isHit) && transform.position.y <= 1.5f )
         {   
              audioSource.clip = splashSound;
             if (!audioSource.isPlaying)
             {
                 audioSource.Play();
             }
-            float gravityScale = transform.position.y; // y ��ǥ�� ������ gravity scale�� ���
-            gravityScale = Mathf.Clamp(gravityScale, -maxGravityScale, 0f ); // �ִ밪 ����
+            float gravityScale = transform.position.y-1.5f; 
+            gravityScale = Mathf.Clamp(gravityScale/2f, -maxGravityScale / 1.5f, 0f ); 
             rb.gravityScale = gravityScale/ Random.Range(1f,3f);
             animator.SetBool("PlayerIsWater", true);
         }
+
         else
         {   
         if (!(nowJumping))
@@ -99,7 +100,7 @@ public class Mg18Player : MonoBehaviour
             animator.SetBool("PlayerIsWater", false);
         }
 
-        if ((Input.GetKey(KeyCode.LeftArrow) || LeftButton) &&!(isHit)  && !nowJumping ) // ���� ��Ұų� �� �� �϶�.
+        if ((Input.GetKey(KeyCode.LeftArrow) || LeftButton) &&!(isHit)  && !nowJumping ) 
         {   
 
             audioSource.clip = jumpSound;
@@ -114,7 +115,7 @@ public class Mg18Player : MonoBehaviour
 
         if (!(isHit) && transform.position.x != targetXPosition)
         {
-            // ���� ��ġ�� ��ǥ ��ġ�� ���Ͽ� X ��ġ �̵� ó��
+            
             Vector2 targetPosition = new Vector2(targetXPosition, transform.position.y);
             transform.position = Vector2.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime/4f);
         }
@@ -148,12 +149,12 @@ public class Mg18Player : MonoBehaviour
 
     public void GetHit()
     {
-        // ������ ����
+        
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         rb.velocity = Vector2.zero;
         isHit= true;
 
-        // �񵿱� ó�� ����
+        
         StartCoroutine(DisableControlAndResetColor());
     }
 
