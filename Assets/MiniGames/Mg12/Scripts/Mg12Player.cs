@@ -7,6 +7,8 @@ public class Mg12Player : MonoBehaviour
 {
     public GameObject stunEffect;
 
+
+    public SpriteRenderer spriteRenderer;
     Rigidbody2D rigidbody2D;
     Animator anim;
 
@@ -27,6 +29,11 @@ public class Mg12Player : MonoBehaviour
     public AudioClip throwing;
 
     private float throwTimer = 0.1f;
+
+    public float blinkInterval = 0.125f; //blink
+    public float minAlpha = 0.3f; // 최소 알파값 (반투명 상태)
+    public float maxAlpha = 1f;   // 최대 알파값 (불투명 상태)
+
     public void RightClick()
     {
         LeftButton = false;
@@ -54,6 +61,7 @@ public class Mg12Player : MonoBehaviour
 
     void Start()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
         rigidbody2D = GetComponent<Rigidbody2D>();
         mg12RockSpawner = FindObjectOfType<Mg12RockSpawner>();
     }
@@ -139,9 +147,16 @@ public class Mg12Player : MonoBehaviour
         GameObject HitEff = Instantiate(stunEffect, Effectposition, Quaternion.identity, transform);
 
 
-        yield return new WaitForSeconds(2f);
+        for (int i = 0; i < 8; i++) //Blink
+        {
+            Blink();
+            yield return new WaitForSeconds(blinkInterval);
+            BlinkEnd();
+            yield return new WaitForSeconds(blinkInterval);
+        }
 
- 
+
+
         enabled = true;
         Destroy(HitEff);
 
@@ -162,4 +177,23 @@ public class Mg12Player : MonoBehaviour
         Camera.main.transform.DOShakePosition(1.0f, 0.6f, 10);  // 카메라를 1초 동안, 강도 0.4로 20번 흔듭니다.
     }
 
+
+    public void Blink()
+    {
+        spriteRenderer.color = new Color(
+                spriteRenderer.color.r,
+                spriteRenderer.color.g,
+                spriteRenderer.color.b,
+                minAlpha); // 반투명 상태로 설정
+
+    }
+
+    public void BlinkEnd()
+    {
+        spriteRenderer.color = new Color(
+            spriteRenderer.color.r,
+            spriteRenderer.color.g,
+            spriteRenderer.color.b,
+            maxAlpha); // 불투명 상태로 설정
+    }
 }

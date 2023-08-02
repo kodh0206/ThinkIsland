@@ -7,10 +7,15 @@ public class Mg13Player : MonoBehaviour
 {
     public GameObject stunEffect;
     public GameObject hitEff;
+    public SpriteRenderer spriteRenderer;
 
     public float moveSpeed = 5.0f;
     public float rotateSpeed = 180.0f;
     private float currentRotation;
+
+    public float blinkInterval = 0.125f; //blink
+    public float minAlpha = 0.3f; // 최소 알파값 (반투명 상태)
+    public float maxAlpha = 1f;   // 최대 알파값 (불투명 상태)
 
 
     private bool RightButton = false;
@@ -40,6 +45,10 @@ public class Mg13Player : MonoBehaviour
     public void LeftClickOff()
     {
         LeftButton = false;
+    }
+    void Start()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
      void Awake()
     {
@@ -123,11 +132,16 @@ public class Mg13Player : MonoBehaviour
         
 
         SetHitEffVisibility(hitEff, true);
-        yield return new WaitForSeconds(2f);
+
+        for (int i = 0; i < 8; i++) //Blink
+        {
+            Blink();
+            yield return new WaitForSeconds(blinkInterval);
+            BlinkEnd();
+            yield return new WaitForSeconds(blinkInterval);
+        }
 
 
-
-        
         enabled = true;
 
         SetHitEffVisibility(hitEff, false);
@@ -165,6 +179,24 @@ public class Mg13Player : MonoBehaviour
         // DOTween을 사용하여 오브젝트를 한 바퀴 회전시킵니다.
         transform.DORotate(new Vector3(0f, 0f, 360f), 1.5f, RotateMode.LocalAxisAdd)
             .SetEase(Ease.OutQuint); // 회전에 사용할 움직임(Ease)을 설정합니다.
+    }
+
+    public void Blink()
+    {
+        spriteRenderer.color = new Color(
+                spriteRenderer.color.r,
+                spriteRenderer.color.g,
+                spriteRenderer.color.b,
+                minAlpha); // 반투명 상태로 설정
+    }
+
+    public void BlinkEnd()
+    {
+        spriteRenderer.color = new Color(
+            spriteRenderer.color.r,
+            spriteRenderer.color.g,
+            spriteRenderer.color.b,
+            maxAlpha); // 불투명 상태로 설정
     }
 
 }

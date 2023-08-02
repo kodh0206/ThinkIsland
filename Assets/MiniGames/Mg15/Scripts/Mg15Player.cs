@@ -12,6 +12,12 @@ public class Mg15Player : MonoBehaviour
     private Rigidbody2D rb;
     private BoxCollider2D boxCollider;
 
+    private SpriteRenderer spriteRenderer;
+    public float blinkInterval = 0.125f; //blink
+    public float minAlpha = 0.3f; // 최소 알파값 (반투명 상태)
+    public float maxAlpha = 1f;   // 최대 알파값 (불투명 상태)
+
+
     Animator animator;
 
     private bool RightButton = false;
@@ -46,6 +52,7 @@ public class Mg15Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         boxCollider = GetComponent<BoxCollider2D>();
         animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
@@ -88,6 +95,8 @@ public class Mg15Player : MonoBehaviour
 
         boxCollider.enabled = false;
 
+        StartCoroutine(BlinkPlayer());
+
         ShakeCamera();
 
 
@@ -104,6 +113,35 @@ public class Mg15Player : MonoBehaviour
     public void ShakeCamera()
     {
         Camera.main.transform.DOShakePosition(1.5f, 0.6f, 20);  // 카메라를 1초 동안, 강도 0.4로 20번 흔듭니다.
+    }
+
+    public void Blink()
+    {
+        spriteRenderer.color = new Color(
+                spriteRenderer.color.r,
+                spriteRenderer.color.g,
+                spriteRenderer.color.b,
+                minAlpha); // 반투명 상태로 설정
+    }
+
+    public void BlinkEnd()
+    {
+        spriteRenderer.color = new Color(
+            spriteRenderer.color.r,
+            spriteRenderer.color.g,
+            spriteRenderer.color.b,
+            maxAlpha); // 불투명 상태로 설정
+    }
+
+    private IEnumerator BlinkPlayer()
+    {
+        for (int i = 0; i < 4; i++) //Blink
+        {
+            Blink();
+            yield return new WaitForSeconds(blinkInterval);
+            BlinkEnd();
+            yield return new WaitForSeconds(blinkInterval);
+        }
     }
 
 }
