@@ -8,6 +8,8 @@ public class Mg16Player : MonoBehaviour
 {
     public GameObject stunEffect;
 
+    public GameObject sparkEffect;
+
 
     [SerializeField]
     private float moveSpeed = 3f;
@@ -17,9 +19,16 @@ public class Mg16Player : MonoBehaviour
 
     private AudioSource audioSource;
     public AudioClip electricity;
+
+    private SpriteRenderer spriteRenderer;
+    public float blinkInterval = 0.125f; //blink
+    public float minAlpha = 0.3f; // 최소 알파값 (반투명 상태)
+    public float maxAlpha = 1f;   // 최대 알파값 (불투명 상태)
+
     private void Start()
     {
         audioSource =GetComponent<AudioSource>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     public void Button1Pressed()
@@ -107,9 +116,18 @@ public class Mg16Player : MonoBehaviour
         Vector2 Effectposition = new Vector2(transform.position.x, transform.position.y + 0.7f);
         GameObject HitEff = Instantiate(stunEffect, Effectposition, Quaternion.identity, transform);
 
-        yield return new WaitForSeconds(2f);
+        GameObject SparkEff = Instantiate(sparkEffect, transform.position, Quaternion.identity, transform);
+
+        for (int i = 0; i < 8; i++) //Blink
+        {
+            Blink();
+            yield return new WaitForSeconds(blinkInterval);
+            BlinkEnd();
+            yield return new WaitForSeconds(blinkInterval);
+        }
 
         Destroy(HitEff);
+        Destroy(SparkEff);
 
         enabled = true;
 
@@ -117,6 +135,25 @@ public class Mg16Player : MonoBehaviour
     public void ShakeCamera()
     {
         Camera.main.transform.DOShakePosition(1.5f, 0.2f, 40);  // 카메라를 1초 동안, 강도 0.4로 20번 흔듭니다.
+    }
+
+
+    public void Blink()
+    {
+        spriteRenderer.color = new Color(
+                spriteRenderer.color.r,
+                spriteRenderer.color.g,
+                spriteRenderer.color.b,
+                minAlpha); // 반투명 상태로 설정
+    }
+
+    public void BlinkEnd()
+    {
+        spriteRenderer.color = new Color(
+            spriteRenderer.color.r,
+            spriteRenderer.color.g,
+            spriteRenderer.color.b,
+            maxAlpha); // 불투명 상태로 설정
     }
 
 }

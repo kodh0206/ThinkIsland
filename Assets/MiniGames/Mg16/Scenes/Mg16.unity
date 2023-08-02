@@ -8597,7 +8597,7 @@ PrefabInstance:
     - target: {fileID: 2490087704784733984, guid: 7dd9bffa6026f8546a2161904b33918d,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2490087704784733984, guid: 7dd9bffa6026f8546a2161904b33918d,
         type: 3}
@@ -8607,7 +8607,7 @@ PrefabInstance:
     - target: {fileID: 2490087704784733984, guid: 7dd9bffa6026f8546a2161904b33918d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.38
+      value: -5.24
       objectReference: {fileID: 0}
     - target: {fileID: 2490087704784733984, guid: 7dd9bffa6026f8546a2161904b33918d,
         type: 3}
@@ -8784,7 +8784,7 @@ PrefabInstance:
     - target: {fileID: 2490087704784733984, guid: 7dd9bffa6026f8546a2161904b33918d,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2490087704784733984, guid: 7dd9bffa6026f8546a2161904b33918d,
         type: 3}
@@ -9020,8 +9020,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stunEffect: {fileID: 612886624020768476, guid: 685683f0a41592f4dbb53c9681d8af40,
     type: 3}
+  sparkEffect: {fileID: 3549495820810313615, guid: 386f51e69fa02fb4387acd256225429c,
+    type: 3}
   moveSpeed: 3
   electricity: {fileID: 8300000, guid: 73d2ffd6a3c5e8f47abcbff9095dfd66, type: 3}
+  blinkInterval: 0.125
+  minAlpha: 0.3
+  maxAlpha: 1
 --- !u!82 &1968178139
 AudioSource:
   m_ObjectHideFlags: 0
@@ -9118,3 +9123,72 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1001 &3549495821901168237
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3549495820810313608, guid: 386f51e69fa02fb4387acd256225429c,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 3549495820810313608, guid: 386f51e69fa02fb4387acd256225429c,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -22
+      objectReference: {fileID: 0}
+    - target: {fileID: 3549495820810313608, guid: 386f51e69fa02fb4387acd256225429c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3549495820810313608, guid: 386f51e69fa02fb4387acd256225429c,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3549495820810313608, guid: 386f51e69fa02fb4387acd256225429c,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3549495820810313608, guid: 386f51e69fa02fb4387acd256225429c,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3549495820810313608, guid: 386f51e69fa02fb4387acd256225429c,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3549495820810313608, guid: 386f51e69fa02fb4387acd256225429c,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3549495820810313608, guid: 386f51e69fa02fb4387acd256225429c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3549495820810313608, guid: 386f51e69fa02fb4387acd256225429c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3549495820810313608, guid: 386f51e69fa02fb4387acd256225429c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3549495820810313615, guid: 386f51e69fa02fb4387acd256225429c,
+        type: 3}
+      propertyPath: m_Name
+      value: MG16 spark
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 386f51e69fa02fb4387acd256225429c, type: 3}
