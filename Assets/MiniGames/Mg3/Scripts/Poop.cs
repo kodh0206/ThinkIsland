@@ -43,6 +43,10 @@ public class Poop : MonoBehaviour
         GetComponent<AudioSource>().Play();
         GetComponent<Renderer>().enabled = false;
         GetComponent<BoxCollider2D>().enabled = false;
+        foreach (Transform child in transform)
+            {
+                Destroy(child.gameObject);
+            }
         Destroy(gameObject, 1f);
     }
 }
