@@ -38,7 +38,7 @@ public class Mg12Spawner : MonoBehaviour
             GameObject new_Mg12shell = Instantiate(Mg12shell[index]);
 
             // ��ǥ�� �����ϰ� �����Ͽ� ����
-            Vector2 spawnPosition = new Vector2(9.4f, Random.Range(-1.6f, 5.0f));
+            Vector2 spawnPosition = new Vector2(12.5f, Random.Range(-1.6f, 5.0f));
             new_Mg12shell.transform.position = spawnPosition;
 
             new_Mg12shell.GetComponent<Mg12shell>().SetSpeed(Mg12shellSpeed); // ��ֹ��� ���ǵ� ����

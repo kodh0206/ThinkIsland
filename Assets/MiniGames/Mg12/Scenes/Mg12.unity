@@ -961,6 +961,7 @@ MonoBehaviour:
   player: {fileID: 7725458136574488867}
   RockSpeed: 20
   time_diff: 0.5
+  Beforetd: 0
   rockThrow: 0
 --- !u!1 &1861628582
 GameObject:
@@ -11518,12 +11519,12 @@ PrefabInstance:
     - target: {fileID: 7303273743629567741, guid: 614c5e292efeee646a84d1ef5aef77c5,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.29
+      value: 17.32
       objectReference: {fileID: 0}
     - target: {fileID: 7303273743629567741, guid: 614c5e292efeee646a84d1ef5aef77c5,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.7
+      value: 2.19
       objectReference: {fileID: 0}
     - target: {fileID: 7303273743629567741, guid: 614c5e292efeee646a84d1ef5aef77c5,
         type: 3}
