@@ -150,6 +150,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpPower: 5
   level: 1
+  sprites:
+  - {fileID: -1679205847, guid: 232b53c5874f7a0418377f9a8ced7c26, type: 3}
+  - {fileID: 76338045, guid: 232b53c5874f7a0418377f9a8ced7c26, type: 3}
+  - {fileID: 1766566561, guid: 232b53c5874f7a0418377f9a8ced7c26, type: 3}
+  - {fileID: 85133462, guid: 232b53c5874f7a0418377f9a8ced7c26, type: 3}
+  - {fileID: -86970763, guid: 232b53c5874f7a0418377f9a8ced7c26, type: 3}
   jump: {fileID: 0}
 --- !u!82 &5157370235923106902
 AudioSource:
