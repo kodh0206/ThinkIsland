@@ -108,7 +108,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &6220064884522582391
 BoxCollider2D:
@@ -152,6 +152,9 @@ MonoBehaviour:
   moveSpeed: 5
   disableColliderTime: 0.4
   isJumping: 1
+  fallSlowdownFactor: 0.5
+  RightButton: 0
+  LeftButton: 0
   jump: {fileID: 0}
 --- !u!95 &6724801486713321997
 Animator:
