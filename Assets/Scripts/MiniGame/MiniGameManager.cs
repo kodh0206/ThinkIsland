@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 using System;
-
+using DG.Tweening;
 public class MiniGameManager : MonoBehaviour
 {   
     private static MiniGameManager _instance;
@@ -31,6 +31,12 @@ public class MiniGameManager : MonoBehaviour
     
     public float countdownStartTime = 3f;
     private bool isCountDown =false;
+
+     public int obstacleHitCount;
+    public float obstacleHitTimer;
+    public int difficultyLevel;
+    public int maxDifficultyLevel = 4;
+    public int minDifficultyLevel = 1;
     private void Awake()
     {
     if (_instance != null && _instance != this)
@@ -71,6 +77,7 @@ public class MiniGameManager : MonoBehaviour
     LoadMainMenu();
     Debug.Log("게임시작");
     fadeCanvasGroup.alpha = 0f;
+    DOTween.KillAll();
     }
 
       public void StartMiniGameWithAudio()
@@ -117,7 +124,7 @@ public class MiniGameManager : MonoBehaviour
         isMiniGameScene = false; // 미니게임 씬이 아님을 표시
     }
     else // Main 씬이 아닌 경우에만 랜덤 BGM 재생
-    {
+    {    DOTween.KillAll();
         if(minigameUI != null) 
         {
             minigameUI.gameObject.SetActive(true);
@@ -163,6 +170,8 @@ public class MiniGameManager : MonoBehaviour
     {
         minigameUI.gameObject.SetActive(false);
     }
+    
+    DOTween.KillAll();
     StartCoroutine(FadeAndLoadScene("BetaScene"));
 }
 
@@ -192,7 +201,7 @@ private IEnumerator ShowBlackScreen()
   public void StartNextMiniGame()
     {
         if (remainingMiniGameScenes.Count == 0)
-        {   
+        {   DOTween.KillAll();
             totalJelly =0;
             SaveTotalJelly();
             LoadRouletteScene();
@@ -290,5 +299,22 @@ private IEnumerator Fade(float finalAlpha)
     private void OnApplicationQuit()
     {
         miniGameScenes.Clear();
+    }
+
+
+    void IncreaseDifficulty()
+    {
+        if (difficultyLevel < maxDifficultyLevel)
+        {
+            difficultyLevel++;
+        }
+    }
+
+    void DecreaseDifficulty()
+    {
+        if (difficultyLevel > minDifficultyLevel)
+        {
+            difficultyLevel--;
+        }
     }
 }

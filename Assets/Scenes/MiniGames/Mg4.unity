@@ -441,6 +441,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180283002d666694c9caae06d5df22eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myCamera: {fileID: 155540876}
   playerPrefab: {fileID: 2326193998242831597, guid: 13389751379d6fc4fbc53dacbc8302ca,
     type: 3}
 --- !u!61 &176179085
@@ -517,6 +518,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180283002d666694c9caae06d5df22eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myCamera: {fileID: 155540876}
   playerPrefab: {fileID: 0}
 --- !u!70 &202144609
 CapsuleCollider2D:
@@ -633,6 +635,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180283002d666694c9caae06d5df22eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myCamera: {fileID: 155540876}
   playerPrefab: {fileID: 2326193998242831597, guid: 13389751379d6fc4fbc53dacbc8302ca,
     type: 3}
 --- !u!61 &316872697
@@ -1529,6 +1532,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180283002d666694c9caae06d5df22eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myCamera: {fileID: 155540876}
   playerPrefab: {fileID: 2326193998242831597, guid: 13389751379d6fc4fbc53dacbc8302ca,
     type: 3}
 --- !u!61 &1392990402

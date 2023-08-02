@@ -843,6 +843,21 @@ MonoBehaviour:
   - Mg3
   - Mg4
   - Mg5
+  - Mg6
+  - Mg7
+  - Mg8
+  - Mg9
+  - Mg10
+  - Mg11
+  - Mg12
+  - Mg13
+  - Mg14
+  - Mg15
+  - Mg16
+  - Mg17
+  - Mg18
+  - Mg19
+  - Mg20
 --- !u!1 &693161817
 GameObject:
   m_ObjectHideFlags: 0
