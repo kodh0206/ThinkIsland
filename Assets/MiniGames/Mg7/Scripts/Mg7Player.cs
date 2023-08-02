@@ -8,6 +8,10 @@ public class Mg7Player : MonoBehaviour
     public float jumpPower = 5.0f;
     public int level;
 
+    public Sprite[] sprites = new Sprite[5];
+
+    private int direc = 2;
+
     private  AudioSource audioSource;
     public AudioClip jump;
 
@@ -60,11 +64,22 @@ public class Mg7Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftArrow) || LeftButton)
         {
             JumpWithAngle(135f);
+            if (direc >0)
+            {
+                direc -= 1;
+                StartCoroutine(ChangeSpriteWithDelay(sprites, 0f, direc));
+            }
+            
             LeftButton = false;
         }
         else if (Input.GetKeyDown(KeyCode.RightArrow)||RightButton)
         {
             JumpWithAngle(45f);
+            if (direc < 4)
+            {
+                direc += 1;
+                StartCoroutine(ChangeSpriteWithDelay(sprites, 0f, direc));
+            }
             RightButton = false;
         }
     }
@@ -76,4 +91,17 @@ public class Mg7Player : MonoBehaviour
         Vector2 jumpDirection = new Vector2(Mathf.Cos(radian), Mathf.Sin(radian));
         rigidbody2D.velocity = jumpDirection * jumpPower;
     }
+
+
+
+    IEnumerator ChangeSpriteWithDelay(Sprite[] sprites, float delay, int direc)
+    {
+        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+
+        spriteRenderer.sprite = sprites[0];
+        yield return new WaitForSeconds(delay);
+
+        spriteRenderer.sprite = sprites[direc];
+    }
+
 }

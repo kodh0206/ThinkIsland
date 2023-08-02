@@ -24,7 +24,7 @@ public class Mg1Poop : MonoBehaviour
         if (other.gameObject.CompareTag("Player") && this.gameObject.CompareTag("poop"))
         {   
             //AudioManager.Instance.PlayPoop();
-            mg1Player.StunPlayer();
+            
             other.gameObject.GetComponent<Mg1Player>().GetObstacle();
             Destroy(gameObject);
         }

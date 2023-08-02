@@ -2763,6 +2763,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e4552fd9284ef64bb4200ab73ec5b5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stunEffect: {fileID: 612886624020768476, guid: 30abf2ced4a96744cac5b8608edd7693,
+    type: 3}
   jumpPower: 10
   moveSpeed: 5
   isJump: 0
@@ -2774,6 +2776,9 @@ MonoBehaviour:
   level: 1
   walkingSound: {fileID: 8300000, guid: d6126007cb866a64085fe85aa85884fd, type: 3}
   jumpSound: {fileID: 8300000, guid: 25e340dbf910ce043890f106e2be141c, type: 3}
+  blinkInterval: 0.125
+  minAlpha: 0.3
+  maxAlpha: 1
 --- !u!82 &509400650
 AudioSource:
   m_ObjectHideFlags: 0

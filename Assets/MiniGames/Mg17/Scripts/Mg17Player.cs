@@ -13,6 +13,7 @@ public class Mg17Player : MonoBehaviour
     private Rigidbody2D rb;
     private BoxCollider2D boxCollider;
     private AudioSource audioSource;
+    private SpriteRenderer spriteRenderer;
     Animator animator;
     public AudioClip shooting;
     private bool RightButton = false;
@@ -21,6 +22,10 @@ public class Mg17Player : MonoBehaviour
     private bool canShoot = true;
     private float shootTimer = 0;
     private float shootInterval = 0.36f; // 0.48초에 한 번씩 사운드 재생
+
+    public float blinkInterval = 0.125f; //blink
+    public float minAlpha = 0.3f; // 최소 알파값 (반투명 상태)
+    public float maxAlpha = 1f;   // 최대 알파값 (불투명 상태)
 
     public void RightClick()
     {
@@ -50,6 +55,7 @@ public class Mg17Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         boxCollider = GetComponent<BoxCollider2D>();
         animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
@@ -105,11 +111,17 @@ public class Mg17Player : MonoBehaviour
         Vector2 Effectposition = new Vector2(transform.position.x, transform.position.y + 0.7f);
         GameObject HitEff = Instantiate(stunEffect, Effectposition, Quaternion.identity, transform);
 
-        yield return new WaitForSeconds(2f);
+        for (int i = 0; i < 8; i++) //Blink
+        {
+            Blink();
+            yield return new WaitForSeconds(blinkInterval);
+            BlinkEnd();
+            yield return new WaitForSeconds(blinkInterval);
+        }
 
         Destroy(HitEff);
 
-        yield return new WaitForSeconds(1f);
+        
 
         // re-enable control
         enabled = true;
@@ -124,6 +136,22 @@ public class Mg17Player : MonoBehaviour
     {
         myCamera.transform.DOShakePosition(1.0f, 0.6f, 10);  // 카메라를 1초 동안, 강도 0.4로 20번 흔듭니다.
     }
+    public void Blink()
+    {
+        spriteRenderer.color = new Color(
+                spriteRenderer.color.r,
+                spriteRenderer.color.g,
+                spriteRenderer.color.b,
+                minAlpha); // 반투명 상태로 설정
+    }
 
+    public void BlinkEnd()
+    {
+        spriteRenderer.color = new Color(
+            spriteRenderer.color.r,
+            spriteRenderer.color.g,
+            spriteRenderer.color.b,
+            maxAlpha); // 불투명 상태로 설정
+    }
 
 }
