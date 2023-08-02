@@ -5,8 +5,10 @@ using UnityEngine.UI;
 
 public class Mg1Player : MonoBehaviour
 {
+    public GameObject stunEffect;
 
     private Vector2 startPosition;
+    private SpriteRenderer spriteRenderer;
     Mg1PlayerFollowGround mg1PlayerFollowGround;
     Rigidbody2D rigid;
     //public Button rightButton;
@@ -25,6 +27,11 @@ public class Mg1Player : MonoBehaviour
     public AudioClip walkingSound; // 걷는소리 
     public AudioClip jumpSound;    // 점프소리
     private  AudioSource audioSource;
+
+    public float blinkInterval = 0.125f; //blink
+    public float minAlpha = 0.3f; // 최소 알파값 (반투명 상태)
+    public float maxAlpha = 1f;   // 최대 알파값 (불투명 상태)
+
     public Mg1Player()
     {
         level = 1;
@@ -33,6 +40,7 @@ public class Mg1Player : MonoBehaviour
     void Start()
     {
         startPosition = transform.position;
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void Awake()
@@ -106,20 +114,40 @@ public class Mg1Player : MonoBehaviour
 
     public void GetObstacle()
     {
-        StartCoroutine(DisableControlAndResetColor());
+        if (!isStunned)
+        {
+            StartCoroutine(DisableControlAndResetColor());
+        }
     }
 
     private IEnumerator DisableControlAndResetColor()
     {
-        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        
         if (spriteRenderer != null)
         {
             spriteRenderer.color = new Color(0.77f, 0.52f, 0f);
             //StunPlayer();
         }
 
+        enabled = false;
+        isStunned = true;
+
+        Vector2 Effectposition = new Vector2(transform.position.x, transform.position.y + 0.7f);
+        GameObject HitEff = Instantiate(stunEffect, Effectposition, Quaternion.identity, transform);
+
         // Wait for 2 seconds
-        yield return new WaitForSeconds(2f);
+        for (int i = 0; i < 8; i++) //Blink
+        {
+            Blink();
+            yield return new WaitForSeconds(blinkInterval);
+            BlinkEnd();
+            yield return new WaitForSeconds(blinkInterval);
+        }
+
+        Destroy(HitEff);
+
+        enabled = true;
+        isStunned = false;
 
         // Change color back to white
         if (spriteRenderer != null)
@@ -129,17 +157,7 @@ public class Mg1Player : MonoBehaviour
     }
 
 
-    public void StunPlayer()
-    {
-        isStunned = true;
-        StartCoroutine(RecoverFromStun());
-    }
-
-    private IEnumerator RecoverFromStun()
-    {
-        yield return new WaitForSeconds(2f);
-        isStunned = false;
-    }
+    
 
     // rightButtonController
     public void RightClick()
@@ -188,4 +206,23 @@ public class Mg1Player : MonoBehaviour
     {
         isPlayerReset = false;
     }
+
+    public void Blink()
+    {
+        spriteRenderer.color = new Color(
+                spriteRenderer.color.r,
+                spriteRenderer.color.g,
+                spriteRenderer.color.b,
+                minAlpha); // 반투명 상태로 설정
+    }
+
+    public void BlinkEnd()
+    {
+        spriteRenderer.color = new Color(
+            spriteRenderer.color.r,
+            spriteRenderer.color.g,
+            spriteRenderer.color.b,
+            maxAlpha); // 불투명 상태로 설정
+    }
+
 }
