@@ -19,7 +19,7 @@ public class Mg5Obstacle : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // ·£´ýÇÑ ¹æÇâ º¤ÅÍ »ý¼º
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         moveDirection = new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(0, 0.8f), 0f).normalized;
         spriteRenderer = GetComponent<SpriteRenderer>();
 
