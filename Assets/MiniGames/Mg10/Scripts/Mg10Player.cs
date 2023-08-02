@@ -5,11 +5,13 @@ using MoreMountains.Feedbacks;
 using DG.Tweening;
 public class Mg10Player : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public SpriteRenderer spriteRenderer;
+    
     public MMF_Player mMF_Player;
     public float initialSpeed = 5.0f;
     public float horizontalSpeed = 10.0f;
     private float verticalSpeed;
+
 
     private AudioSource audioSource;
     private Rigidbody2D rb;
@@ -23,6 +25,12 @@ public class Mg10Player : MonoBehaviour
     public AudioClip skiing;
 
     public GameObject stunEffect;
+
+
+    public float blinkInterval = 0.125f; //blink
+    public float minAlpha = 0.3f; // 최소 알파값 (반투명 상태)
+    public float maxAlpha = 1f;   // 최대 알파값 (불투명 상태)
+
     public void RightClick()
     {
         LeftButton = false;
@@ -49,6 +57,7 @@ public class Mg10Player : MonoBehaviour
 
     private void Start()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         verticalSpeed = initialSpeed;
         audioSource =GetComponent<AudioSource>();
@@ -107,8 +116,14 @@ public class Mg10Player : MonoBehaviour
 
         Vector2 Effectposition = new Vector2(transform.position.x, transform.position.y + 0.7f);
         GameObject HitEff = Instantiate(stunEffect, Effectposition, Quaternion.identity, transform);
-        
-        yield return new WaitForSeconds(2f);
+
+        for (int i = 0; i < 8; i++) //Blink
+        {
+            Blink();
+            yield return new WaitForSeconds(blinkInterval);
+            BlinkEnd();
+            yield return new WaitForSeconds(blinkInterval);
+        }
 
         Mg10Camera.instance.ShakeCameraEnd();
 
@@ -130,6 +145,23 @@ public class Mg10Player : MonoBehaviour
 
         spriteRenderer.sprite = sprites[direc];
     }
-   
 
+    public void Blink()
+    {
+        spriteRenderer.color = new Color(
+                spriteRenderer.color.r,
+                spriteRenderer.color.g,
+                spriteRenderer.color.b,
+                minAlpha); // 반투명 상태로 설정
+
+    }
+
+    public void BlinkEnd()
+    {
+        spriteRenderer.color = new Color(
+            spriteRenderer.color.r,
+            spriteRenderer.color.g,
+            spriteRenderer.color.b,
+            maxAlpha); // 불투명 상태로 설정
+    }
 }
