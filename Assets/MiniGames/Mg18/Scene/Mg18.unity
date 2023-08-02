@@ -973,6 +973,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b2e6b0a46dc53b4aa4434bbba67645b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myCamera: {fileID: 633635812}
   playerPrefab: {fileID: 7172613327761855901, guid: b1e9eb72303e3274e811f6e3ccce1f5d,
     type: 3}
 --- !u!61 &659493948

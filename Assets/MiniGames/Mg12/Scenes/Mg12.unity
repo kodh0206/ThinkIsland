@@ -961,6 +961,7 @@ MonoBehaviour:
   player: {fileID: 7725458136574488867}
   RockSpeed: 20
   time_diff: 0.5
+  Beforetd: 0
   rockThrow: 0
 --- !u!1 &1861628582
 GameObject:
@@ -11139,6 +11140,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 605031464808409773, guid: 4d7b7e4e99bf2324f84674014954b0d8,
         type: 3}
+      propertyPath: myCamera
+      value: 
+      objectReference: {fileID: 898002973}
+    - target: {fileID: 605031464808409773, guid: 4d7b7e4e99bf2324f84674014954b0d8,
+        type: 3}
       propertyPath: jellyinShell
       value: 
       objectReference: {fileID: 7303273743629567743, guid: 614c5e292efeee646a84d1ef5aef77c5,
@@ -11276,6 +11282,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2956354341747250808, guid: b55f27990a128a943b3c48f8465cb87a,
+        type: 3}
+      propertyPath: myCamera
+      value: 
+      objectReference: {fileID: 898002973}
     - target: {fileID: 2956354341747250808, guid: b55f27990a128a943b3c48f8465cb87a,
         type: 3}
       propertyPath: swimming

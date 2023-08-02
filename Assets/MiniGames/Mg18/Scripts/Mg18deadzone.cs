@@ -5,11 +5,12 @@ using UnityEngine;
 
 public class Mg18deadzone : MonoBehaviour
 {
+    public Camera myCamera;
     private Vector3 initialPosition;
     private bool playerEntered = false;
     private Rigidbody2D playerRigidbody;
 
-    public GameObject playerPrefab; // Player ÇÁ¸®ÆÕÀ» ÇÒ´çÇÏ¼¼¿ä
+    public GameObject playerPrefab; // Player ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò´ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½
 
     void Start()
     {
@@ -29,35 +30,35 @@ public class Mg18deadzone : MonoBehaviour
 
     IEnumerator ResetPlayerPosition()
     {
-        // Player ¿ÀºêÁ§Æ®¸¦ Ã£½À´Ï´Ù.
+        // Player ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ Ã£ï¿½ï¿½ï¿½Ï´ï¿½.
         GameObject player = GameObject.FindGameObjectWithTag("Player");
 
         Mg18manager.instance.GameLevelDown(); //levelDown
 
-        // Player ÄÄÆ÷³ÍÆ®¸¦ ºñÈ°¼ºÈ­ÇÏ¿© Á¶ÀÛ ºÒ°¡´É »óÅÂ·Î ¸¸µì´Ï´Ù.
+        // Player ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½È°ï¿½ï¿½È­ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â·ï¿½ ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
         Player playerComponent = player.GetComponent<Player>();
         if (playerComponent != null)
         {
             playerComponent.enabled = false;
         }
 
-        // PlayerÀÇ Rigidbody2D¸¦ ¸ØÃßµµ·Ï ¼³Á¤ÇÕ´Ï´Ù.
+        // Playerï¿½ï¿½ Rigidbody2Dï¿½ï¿½ ï¿½ï¿½ï¿½ßµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
         if (playerRigidbody != null)
         {
             playerRigidbody.velocity = Vector2.zero;
         }
 
-        // ¿ÀºêÁ§Æ®¸¦ ºÎ¼ö°í 2ÃÊ ´ë±âÇÕ´Ï´Ù.
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Î¼ï¿½ï¿½ï¿½ 2ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
         Destroy(player);
         yield return new WaitForSeconds(2f);
 
         if (playerEntered)
         {
-            // Player¸¦ ÇÁ¸®ÆÕÀ» »ç¿ëÇÏ¿© »ý¼ºÇÕ´Ï´Ù.
+            // Playerï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
             GameObject newPlayer = Instantiate(playerPrefab);
             newPlayer.transform.position = initialPosition;
 
-            // Player ÄÄÆ÷³ÍÆ®¸¦ ´Ù½Ã È°¼ºÈ­ÇÏ¿© Á¶ÀÛ °¡´É »óÅÂ·Î ¸¸µì´Ï´Ù.
+            // Player ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ù½ï¿½ È°ï¿½ï¿½È­ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â·ï¿½ ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
             Player newPlayerComponent = newPlayer.GetComponent<Player>();
             if (newPlayerComponent != null)
             {
@@ -72,7 +73,7 @@ public class Mg18deadzone : MonoBehaviour
 
     public void ShakeCamera()
     {
-        Camera.main.transform.DOShakePosition(1.0f, 0.6f, 10);  // Ä«¸Þ¶ó¸¦ 1ÃÊ µ¿¾È, °­µµ 0.4·Î 20¹ø Èçµì´Ï´Ù.
+        myCamera.transform.DOShakePosition(1.0f, 0.6f, 10);  // Ä«ï¿½Þ¶ï¿½ 1ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ 0.4ï¿½ï¿½ 20ï¿½ï¿½ ï¿½ï¿½ï¿½Ï´ï¿½.
     }
 
 }

@@ -1380,6 +1380,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05ffcda42039be84cbc88aa04f63bb8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myCamera: {fileID: 1994829776}
   stunEffect: {fileID: 612886624020768476, guid: 0f7bbe4268e49a6468870b26bd70d1f1,
     type: 3}
 --- !u!50 &848967426

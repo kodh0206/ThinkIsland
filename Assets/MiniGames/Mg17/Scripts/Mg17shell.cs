@@ -8,6 +8,7 @@ public class Mg17shell : MonoBehaviour
 
     public GameObject jellyinShell;
     public GameObject ObstacleinRock;
+    public Camera myCamera;
 
     public Sprite[] sprites = new Sprite[3];
     public Sprite sprite;
@@ -87,6 +88,6 @@ public class Mg17shell : MonoBehaviour
 
     public void ShakeCamera()
     {
-        Camera.main.transform.DOShakePosition(0.1f, 0.2f, 2);  // Ä«¸Þ¶ó¸¦ 0.2ÃÊ µ¿¾È, °­µµ 0.2·Î 4¹ø Èçµì´Ï´Ù.
+        myCamera.transform.DOShakePosition(0.1f, 0.2f, 2);  // Ä«ï¿½Þ¶ï¿½ 0.2ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ 0.2ï¿½ï¿½ 4ï¿½ï¿½ ï¿½ï¿½ï¿½Ï´ï¿½.
     }
 }

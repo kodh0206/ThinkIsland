@@ -7,6 +7,7 @@ public class Mg6Player : MonoBehaviour
 {
     // 버튼 누르는 시간에 비례해 바뀌는 개구리 색상(더 빨개지도록)
     public SpriteRenderer spriteRenderer;
+    public Camera myCamera;
     public float duration = 2.0f; // 변화에 걸리는 시간
     private bool isPressed = false;
     private float elapsedTime = 0.0f;
@@ -218,7 +219,7 @@ public class Mg6Player : MonoBehaviour
 
     public void ShakeCamera()
     {
-        Camera.main.transform.DOShakePosition(0.8f, 0.4f ,20);  // 카메라를 1초 동안, 강도 1로 1번 흔듭니다.
+        myCamera.transform.DOShakePosition(0.8f, 0.4f ,20);  // 카메라를 1초 동안, 강도 1로 1번 흔듭니다.
     }
 
 

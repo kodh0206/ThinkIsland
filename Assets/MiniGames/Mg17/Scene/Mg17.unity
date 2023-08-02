@@ -3046,6 +3046,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7672671500649801865, guid: 96e2a50a903e0764d8916e7149bc8730,
         type: 3}
+      propertyPath: myCamera
+      value: 
+      objectReference: {fileID: 451492549}
+    - target: {fileID: 7672671500649801865, guid: 96e2a50a903e0764d8916e7149bc8730,
+        type: 3}
       propertyPath: shooting
       value: 
       objectReference: {fileID: 8300000, guid: 2d661e603a415824799005646c772d72, type: 3}
@@ -3189,6 +3194,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8383466083460080303, guid: 7d9a0e4d0de15b349b97d35bb0c8bd9b,
+        type: 3}
+      propertyPath: myCamera
+      value: 
+      objectReference: {fileID: 451492549}
     - target: {fileID: 8383466083460080303, guid: 7d9a0e4d0de15b349b97d35bb0c8bd9b,
         type: 3}
       propertyPath: sprites.Array.data[0]

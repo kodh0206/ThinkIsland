@@ -272,6 +272,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 228511449}
+  myCamera: {fileID: 277608816}
   duration: 1
   blinkInterval: 0.125
   minAlpha: 0.3

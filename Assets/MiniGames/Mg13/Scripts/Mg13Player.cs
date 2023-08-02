@@ -5,6 +5,8 @@ using DG.Tweening;
 
 public class Mg13Player : MonoBehaviour
 {
+
+    public Camera myCamera;
     public GameObject stunEffect;
     public GameObject hitEff;
     public SpriteRenderer spriteRenderer;
@@ -169,7 +171,7 @@ public class Mg13Player : MonoBehaviour
 
     public void ShakeCamera()
     {
-        Camera.main.transform.DOShakePosition(1.5f, 0.6f, 15);  // 카메라를 1초 동안, 강도 0.4로 20번 흔듭니다.
+        myCamera.transform.DOShakePosition(1.5f, 0.6f, 15);  // 카메라를 1초 동안, 강도 0.4로 20번 흔듭니다.
     }
 
 

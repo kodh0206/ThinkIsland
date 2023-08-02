@@ -460,6 +460,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stunEffect: {fileID: 612886624020768476, guid: 573eb97bc0e4f674983ed9f4efa36f24,
     type: 3}
+  myCamera: {fileID: 519420031}
   moveSpeed: 10
   level: 1
 --- !u!1 &437224018

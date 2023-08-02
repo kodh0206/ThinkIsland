@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
 
     public GameObject stunEffect;
 
+    public Camera myCamera;
+
     private bool LeftMovig=false;
 
     [SerializeField]
@@ -148,7 +150,7 @@ public class Player : MonoBehaviour
 
     public void ShakeCamera()
     {
-        Camera.main.transform.DOShakePosition(1, 0.5f);  // Ä«¸Þ¶ó¸¦ 1ÃÊ µ¿¾È, °­µµ 1·Î Èçµì´Ï´Ù.
+        myCamera.transform.DOShakePosition(1, 0.5f);  // Ä«ï¿½Þ¶ï¿½ 1ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ 1ï¿½ï¿½ ï¿½ï¿½ï¿½Ï´ï¿½.
     }
 
 

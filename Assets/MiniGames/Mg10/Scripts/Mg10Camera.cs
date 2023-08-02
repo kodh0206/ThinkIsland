@@ -6,6 +6,7 @@ using DG.Tweening;
 public class Mg10Camera : MonoBehaviour
 {
     public Transform player;
+    public Camera myCamera;
 
     public bool hit=false;
 
@@ -35,7 +36,7 @@ public class Mg10Camera : MonoBehaviour
     public void ShakeCamera()
     {
         hit= true;
-        Camera.main.transform.DOShakePosition(1f, 1f);  // Ä«¸Þ¶ó¸¦ 1ÃÊ µ¿¾È, °­µµ 0.4·Î 20¹ø Èçµì´Ï´Ù.
+        myCamera.transform.DOShakePosition(1f, 1f);  // Ä«ï¿½Þ¶ï¿½ 1ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ 0.4ï¿½ï¿½ 20ï¿½ï¿½ ï¿½ï¿½ï¿½Ï´ï¿½.
     }
 
     public void ShakeCameraEnd()

@@ -758,6 +758,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7f6aee60dce4644e8b3c7b5cfcf3ec0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myCamera: {fileID: 654477244}
   playerPrefab: {fileID: 8410458713747744717, guid: 143f5a68d58263c45b01dc1d4b2bb4b6,
     type: 3}
 --- !u!61 &410800383
@@ -2656,6 +2657,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7f6aee60dce4644e8b3c7b5cfcf3ec0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myCamera: {fileID: 654477244}
   playerPrefab: {fileID: 8410458713747744717, guid: 143f5a68d58263c45b01dc1d4b2bb4b6,
     type: 3}
 --- !u!212 &2090682363

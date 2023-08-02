@@ -7582,6 +7582,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7220450675718200166, guid: b6b38e6d81c79724b9e7cbb21b558d82,
         type: 3}
+      propertyPath: myCamera
+      value: 
+      objectReference: {fileID: 890895322}
+    - target: {fileID: 7220450675718200166, guid: b6b38e6d81c79724b9e7cbb21b558d82,
+        type: 3}
       propertyPath: stunEffect
       value: 
       objectReference: {fileID: 612886624020768476, guid: 8a3f87c984cdc9445950ea367ba2727c,

@@ -6,6 +6,8 @@ using DG.Tweening;
 
 public class Mg16Player : MonoBehaviour
 {
+
+    public Camera myCamera;
     public GameObject stunEffect;
 
     public GameObject sparkEffect;
@@ -134,7 +136,7 @@ public class Mg16Player : MonoBehaviour
     }
     public void ShakeCamera()
     {
-        Camera.main.transform.DOShakePosition(1.5f, 0.2f, 40);  // 카메라를 1초 동안, 강도 0.4로 20번 흔듭니다.
+        myCamera.transform.DOShakePosition(1.5f, 0.2f, 40);  // 카메라를 1초 동안, 강도 0.4로 20번 흔듭니다.
     }
 
 

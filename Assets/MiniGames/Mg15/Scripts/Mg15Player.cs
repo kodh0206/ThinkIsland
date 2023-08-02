@@ -7,6 +7,8 @@ public class Mg15Player : MonoBehaviour
 {
     public GameObject stunEffect;
 
+    public Camera myCamera;
+
     public float moveSpeed = 5f; 
 
     private Rigidbody2D rb;
@@ -14,8 +16,8 @@ public class Mg15Player : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
     public float blinkInterval = 0.125f; //blink
-    public float minAlpha = 0.3f; // ÃÖ¼Ò ¾ËÆÄ°ª (¹ÝÅõ¸í »óÅÂ)
-    public float maxAlpha = 1f;   // ÃÖ´ë ¾ËÆÄ°ª (ºÒÅõ¸í »óÅÂ)
+    public float minAlpha = 0.3f; // ï¿½Ö¼ï¿½ ï¿½ï¿½ï¿½Ä°ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
+    public float maxAlpha = 1f;   // ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½Ä°ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
 
 
     Animator animator;
@@ -112,7 +114,7 @@ public class Mg15Player : MonoBehaviour
 
     public void ShakeCamera()
     {
-        Camera.main.transform.DOShakePosition(1.5f, 0.6f, 20);  // Ä«¸Þ¶ó¸¦ 1ÃÊ µ¿¾È, °­µµ 0.4·Î 20¹ø Èçµì´Ï´Ù.
+        myCamera.transform.DOShakePosition(1.5f, 0.6f, 20);  // Ä«ï¿½Þ¶ï¿½ 1ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ 0.4ï¿½ï¿½ 20ï¿½ï¿½ ï¿½ï¿½ï¿½Ï´ï¿½.
     }
 
     public void Blink()
@@ -121,7 +123,7 @@ public class Mg15Player : MonoBehaviour
                 spriteRenderer.color.r,
                 spriteRenderer.color.g,
                 spriteRenderer.color.b,
-                minAlpha); // ¹ÝÅõ¸í »óÅÂ·Î ¼³Á¤
+                minAlpha); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â·ï¿½ ï¿½ï¿½ï¿½ï¿½
     }
 
     public void BlinkEnd()
@@ -130,7 +132,7 @@ public class Mg15Player : MonoBehaviour
             spriteRenderer.color.r,
             spriteRenderer.color.g,
             spriteRenderer.color.b,
-            maxAlpha); // ºÒÅõ¸í »óÅÂ·Î ¼³Á¤
+            maxAlpha); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â·ï¿½ ï¿½ï¿½ï¿½ï¿½
     }
 
     private IEnumerator BlinkPlayer()

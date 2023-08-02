@@ -7,6 +7,7 @@ using static Cinemachine.DocumentationSortingAttribute;
 
 public class Mg8Player : MonoBehaviour
 {
+    public Camera myCamera;
     private bool RightButton = false;
     private bool LeftButton = false;
 
@@ -80,35 +81,35 @@ public class Mg8Player : MonoBehaviour
 
     public void GetHit()
     {
-        // ¿òÁ÷ÀÓ ¸ØÃã
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         rb.velocity = Vector2.zero;
 
         ShakeCamera();
 
-        // ºñµ¿±â Ã³¸® ½ÃÀÛ
+        // ï¿½ñµ¿±ï¿½ Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         StartCoroutine(DisableControlAndResetColor());
     }
 
     private IEnumerator DisableControlAndResetColor()
     {
-        // Á¶ÀÛ ºñÈ°¼ºÈ­
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È°ï¿½ï¿½È­
         enabled = false;
 
-        // »ö»ó º¯°æ
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         Vector2 Effectposition = new Vector2(transform.position.x+0.2f, transform.position.y + 1.4f);
         GameObject HitEff = Instantiate(stunEffect, Effectposition, Quaternion.identity, transform);
         Destroy(HitEff, 1.5f);
 
-        // 2ÃÊ°£ ´ë±â
+        // 2ï¿½Ê°ï¿½ ï¿½ï¿½ï¿½
         yield return new WaitForSeconds(1.5f);
 
-        // Á¶ÀÛ È°¼ºÈ­
+        // ï¿½ï¿½ï¿½ï¿½ È°ï¿½ï¿½È­
         enabled = true;
 
-        // 1ÃÊ°£ poop ¿µÇâ ¹ÞÁö ¾ÊÀ½
+        // 1ï¿½Ê°ï¿½ poop ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-        // »ö»ó ¿ø·¡´ë·Î º¹±¸
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         
     }
 
@@ -120,7 +121,7 @@ public class Mg8Player : MonoBehaviour
 
     public void ShakeCamera()
     {
-        Camera.main.transform.DOShakePosition(2f, 0.2f, 40);  // Ä«¸Þ¶ó¸¦ 1ÃÊ µ¿¾È, °­µµ 0.4·Î 20¹ø Èçµì´Ï´Ù.
+        myCamera.transform.DOShakePosition(2f, 0.2f, 40);  // Ä«ï¿½Þ¶ï¿½ 1ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ 0.4ï¿½ï¿½ 20ï¿½ï¿½ ï¿½ï¿½ï¿½Ï´ï¿½.
     }
 
 }

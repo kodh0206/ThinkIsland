@@ -6,6 +6,7 @@ using DG.Tweening;
 public class Mg17Player : MonoBehaviour
 {
     public GameObject stunEffect;
+    public Camera myCamera;
 
     public float moveSpeed = 1f;
 
@@ -121,7 +122,7 @@ public class Mg17Player : MonoBehaviour
     }
     public void ShakeCamera()
     {
-        Camera.main.transform.DOShakePosition(1.0f, 0.6f, 10);  // 카메라를 1초 동안, 강도 0.4로 20번 흔듭니다.
+        myCamera.transform.DOShakePosition(1.0f, 0.6f, 10);  // 카메라를 1초 동안, 강도 0.4로 20번 흔듭니다.
     }
 
 

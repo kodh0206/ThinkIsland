@@ -904,6 +904,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93799a5a683035743b425551d7db82dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myCamera: {fileID: 228637037}
   playerPrefab: {fileID: 7178641936100410252, guid: 90fa8f26dcb3e9e4a83026521d400ed5,
     type: 3}
   blockPrefab: {fileID: 6220064884522582384, guid: 84813535ae398d74398510e7ca67c21e,

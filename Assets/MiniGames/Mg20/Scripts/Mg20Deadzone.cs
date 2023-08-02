@@ -5,13 +5,14 @@ using UnityEngine;
 
 public class Mg20Deadzone : MonoBehaviour
 {
+    public Camera myCamera;
     private Vector3 initialPosition;
     private Vector3 BlockinitialPosition;
     private bool playerEntered = false;
     private Rigidbody2D playerRigidbody;
 
-    public GameObject playerPrefab; // Player ÇÁ¸®ÆÕÀ» ÇÒ´çÇÏ¼¼¿ä
-    public GameObject blockPrefab; //Àç½ÃÀÛ¿ë ºí·Ï
+    public GameObject playerPrefab; // Player ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò´ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½
+    public GameObject blockPrefab; //ï¿½ï¿½ï¿½ï¿½Û¿ï¿½ ï¿½ï¿½ï¿½ï¿½
 
     void Start()
     {
@@ -32,39 +33,39 @@ public class Mg20Deadzone : MonoBehaviour
 
     IEnumerator ResetPlayerPosition()
     {
-        // Player ¿ÀºêÁ§Æ®¸¦ Ã£½À´Ï´Ù.
+        // Player ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ Ã£ï¿½ï¿½ï¿½Ï´ï¿½.
         GameObject player = GameObject.FindGameObjectWithTag("Player");
 
         Mg20manager.instance.GameLevelDown();
 
-        // Player ÄÄÆ÷³ÍÆ®¸¦ ºñÈ°¼ºÈ­ÇÏ¿© Á¶ÀÛ ºÒ°¡´É »óÅÂ·Î ¸¸µì´Ï´Ù.
+        // Player ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½È°ï¿½ï¿½È­ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â·ï¿½ ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
         Player playerComponent = player.GetComponent<Player>();
         if (playerComponent != null)
         {
             playerComponent.enabled = false;
         }
 
-        // PlayerÀÇ Rigidbody2D¸¦ ¸ØÃßµµ·Ï ¼³Á¤ÇÕ´Ï´Ù.
+        // Playerï¿½ï¿½ Rigidbody2Dï¿½ï¿½ ï¿½ï¿½ï¿½ßµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
         if (playerRigidbody != null)
         {
             playerRigidbody.velocity = Vector2.zero;
         }
 
-        // ¿ÀºêÁ§Æ®¸¦ ºÎ¼ö°í 2ÃÊ ´ë±âÇÕ´Ï´Ù.
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Î¼ï¿½ï¿½ï¿½ 2ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
         Destroy(player);
 
-        GameObject[] groundObjects = GameObject.FindGameObjectsWithTag("Ground"); //ÇÊµå ÆÄ±«
+        GameObject[] groundObjects = GameObject.FindGameObjectsWithTag("Ground"); //ï¿½Êµï¿½ ï¿½Ä±ï¿½
         foreach (var groundObject in groundObjects)
         {
             Destroy(groundObject);
         }
 
-        GameObject[] BreakgroundObjects = GameObject.FindGameObjectsWithTag("BreakGround"); //ÇÊµå ÆÄ±«
+        GameObject[] BreakgroundObjects = GameObject.FindGameObjectsWithTag("BreakGround"); //ï¿½Êµï¿½ ï¿½Ä±ï¿½
         foreach (var BreakgroundObject in BreakgroundObjects)
         {
             Destroy(BreakgroundObject);
         }
-        GameObject[] jellyObjects = GameObject.FindGameObjectsWithTag("jelly"); //ÇÊµå Á©¸® ÆÄ±«
+        GameObject[] jellyObjects = GameObject.FindGameObjectsWithTag("jelly"); //ï¿½Êµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ä±ï¿½
         foreach (var jellyObject in jellyObjects)
         {
             Destroy(jellyObject);
@@ -73,7 +74,7 @@ public class Mg20Deadzone : MonoBehaviour
 
         if (playerEntered)
         {
-            // Player¸¦ ÇÁ¸®ÆÕÀ» »ç¿ëÇÏ¿© »ý¼ºÇÕ´Ï´Ù.
+            // Playerï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
             GameObject newPlayer = Instantiate(playerPrefab);
             newPlayer.transform.position = initialPosition;
 
@@ -81,7 +82,7 @@ public class Mg20Deadzone : MonoBehaviour
             newStartBlock.transform.position = BlockinitialPosition;
 
 
-            // Player ÄÄÆ÷³ÍÆ®¸¦ ´Ù½Ã È°¼ºÈ­ÇÏ¿© Á¶ÀÛ °¡´É »óÅÂ·Î ¸¸µì´Ï´Ù.
+            // Player ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ù½ï¿½ È°ï¿½ï¿½È­ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â·ï¿½ ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
             Player newPlayerComponent = newPlayer.GetComponent<Player>();
             if (newPlayerComponent != null)
             {
@@ -94,7 +95,7 @@ public class Mg20Deadzone : MonoBehaviour
 
     public void ShakeCamera()
     {
-        Camera.main.transform.DOShakePosition(1.0f, 0.6f, 10);  // Ä«¸Þ¶ó¸¦ 1ÃÊ µ¿¾È, °­µµ 0.4·Î 20¹ø Èçµì´Ï´Ù.
+        myCamera.transform.DOShakePosition(1.0f, 0.6f, 10);  // Ä«ï¿½Þ¶ï¿½ 1ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ 0.4ï¿½ï¿½ 20ï¿½ï¿½ ï¿½ï¿½ï¿½Ï´ï¿½.
     }
 
 }
