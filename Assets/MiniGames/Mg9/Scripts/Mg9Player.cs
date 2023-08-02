@@ -7,10 +7,13 @@ public class Mg9Player : MonoBehaviour
 {
     public Animator animator;
 
+    public SpriteRenderer spriteRenderer;
+
     public GameObject stunEffect;
 
     public float jumpForce = 12.0f;
     public float slowFallMultiplier = 0.3f;
+
 
     private Rigidbody2D rb;
     private bool isSlowFalling = false;
@@ -22,6 +25,11 @@ public class Mg9Player : MonoBehaviour
 
     private AudioSource audioSource;
     public AudioClip jump;
+
+    public float blinkInterval = 0.125f; //blink
+    public float minAlpha = 0.3f; // 최소 알파값 (반투명 상태)
+    public float maxAlpha = 1f;   // 최대 알파값 (불투명 상태)
+
 
     public void RightClick()
     {
@@ -51,6 +59,7 @@ public class Mg9Player : MonoBehaviour
 
     private void Start()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         audioSource = GetComponent<AudioSource>();
@@ -146,7 +155,15 @@ public class Mg9Player : MonoBehaviour
         GameObject HitEff = Instantiate(stunEffect, Effectposition, Quaternion.identity, transform);
         Destroy(HitEff, 1.5f);
 
-        yield return new WaitForSeconds(1.5f);
+        for (int i = 0; i < 8; i++) //Blink
+        {
+            Blink();
+            yield return new WaitForSeconds(blinkInterval);
+            BlinkEnd();
+            yield return new WaitForSeconds(blinkInterval);
+        }
+
+        
 
        
         enabled = true;
@@ -172,6 +189,27 @@ public class Mg9Player : MonoBehaviour
     public void ShakeCamera()
     {
         Camera.main.transform.DOShakePosition(1.5f, 0.2f, 30);  // 카메라를 1초 동안, 강도 0.4로 20번 흔듭니다.
+    }
+
+
+    public void Blink()
+    {
+        spriteRenderer.color = new Color(
+                spriteRenderer.color.r,
+                spriteRenderer.color.g,
+                spriteRenderer.color.b,
+                minAlpha); // 반투명 상태로 설정
+
+
+    }
+
+    public void BlinkEnd()
+    {
+        spriteRenderer.color = new Color(
+            spriteRenderer.color.r,
+            spriteRenderer.color.g,
+            spriteRenderer.color.b,
+            maxAlpha); // 불투명 상태로 설정
     }
 
 }
