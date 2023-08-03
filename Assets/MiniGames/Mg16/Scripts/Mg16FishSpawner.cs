@@ -44,6 +44,11 @@ public class Mg16FishSpawner : MonoBehaviour
         time += Time.deltaTime;
         if (time > time_diff)
         {
+            mg16Battery.audioSource.PlayOneShot(mg16Battery.electricity);
+            // 전기 활성화 함수
+            mg16Battery.ElectricitySetActiveTrue();
+
+
             GameObject new_fish1 = Instantiate(fish1);
             GameObject new_fish2 = Instantiate(fish2);
 
