@@ -212,5 +212,10 @@ public class AudioManager : MonoBehaviour
             audioSource.Play();
         }
     }
+
+    public void PlayError()
+    {
+        
+    }
 }
     

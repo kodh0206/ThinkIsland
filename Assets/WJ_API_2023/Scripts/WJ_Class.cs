@@ -179,7 +179,7 @@ namespace WjChallenge
             slvTime = _time;
         }
     }
-    #endregion
+    #endregion  
 }
     
 

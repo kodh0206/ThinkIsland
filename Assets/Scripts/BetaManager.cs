@@ -83,9 +83,18 @@ public class BetaManager : MonoBehaviour
     }
     
     void StartMiniGame()
-    {   play1.interactable=false;//여러 클릭 방지 
+    {  if (GameController.Instance.currentActionPoints >= 20) // 활동력이 20 이상일 경우
+    {
+        play1.interactable = false; // 여러 클릭 방지
         AudioManager.Instance.StartMiniGame();
         miniGame.StartMiniGameWithAudio();
+        GameController.Instance.currentActionPoints -= 20; // 게임 시작에 필요한 활동력 감소
+    }
+    else // 활동력이 20 미만일 경우
+    {
+        AudioManager.Instance.PlayError(); // 활동력 부족 효과음 재생
+        // 게임 시작 못하게 하기, 필요에 따라 경고 메시지 표시 등 추가 처리 가능
+    }
        
     }
     void gotoRadio()

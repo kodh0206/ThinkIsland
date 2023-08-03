@@ -6,15 +6,15 @@ using WjChallenge;
 using TexDrawLib;
 using UnityEngine.SceneManagement;
 
-public enum CurrentStatus { WAITING, DIAGNOSIS, LEARNING }
-public class WJ_Sample : MonoBehaviour
+
+public class WJ_Sample_Class : MonoBehaviour
 {
     [SerializeField] WJ_Connector       wj_conn;
     [SerializeField] CurrentStatus      currentStatus;//진단평가 통과 여부
     public CurrentStatus                CurrentStatus => currentStatus;
 
     [Header("Panels")]
-    //[SerializeField] GameObject AnimationPanel;
+    [SerializeField] GameObject AnimationPanel;
     [SerializeField] GameObject         panel_diag_chooseDiff;  //���̵� ���� �г�
     [SerializeField] GameObject         panel_question;         //���� �г�(����,�н�)
     [SerializeField] GameObject RadioPanel;
@@ -113,7 +113,6 @@ public class WJ_Sample : MonoBehaviour
                 break;
             case "E":
                 Debug.Log("진단평가 완료! �н� �ܰ�� �Ѿ�ϴ�.");
-                GameController.Instance.currentActionPoints +=20; //진단 평가 종료후 에너지 생성 
                 wj_displayText.SetState("", "", "", "");
                 currentStatus = CurrentStatus.LEARNING;
                 Debug.Log("진단 통과여부"+wj_conn.cDiagnotics.data.prgsCd);
@@ -204,7 +203,8 @@ public class WJ_Sample : MonoBehaviour
                 panel_question.SetActive(false);
                 questionSolveTime = 0;
 
-                //APIanimationController.instance.ChangeAnimation(); // ChangeAnimationCode
+                APIanimationController.instance.ChangeAnimation(); // ChangeAnimationCode
+
                 break;
 
             case CurrentStatus.LEARNING:
@@ -227,7 +227,7 @@ public class WJ_Sample : MonoBehaviour
                 }
                 else GetLearning(currentQuestionIndex);
 
-                //APIanimationController.instance.ChangeAnimation(); // ChangeAnimationCode
+                APIanimationController.instance.ChangeAnimation(); // ChangeAnimationCode
 
                 questionSolveTime = 0;
                 break;
