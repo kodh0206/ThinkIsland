@@ -53,6 +53,7 @@ public class GameController : MonoBehaviour
     public List<string> ownedPastures;
     public List<string> upgradedElements;
     public List<string> unlockedMiniGames;
+    public string current_language ="Korean";
     // Start is called before the first frame update
     void Awake()
     {

@@ -11,28 +11,43 @@ public class DialogueManager : MonoBehaviour
     public Animator teemoMovement;
     public SpriteRenderer teemo;
     private Queue<string> sentences;
-    void Start()
+
+    private void Start()
     {
         sentences =new Queue<string>();
+        
+        Invoke("Appearance",2);
+        
     }
-
+  
     public void Appearance()
     {
         teemoMovement.SetBool("isActive",true);
-        Textbox.gameObject.SetActive(true);
+        Debug.Log("Appeared");
     }
     public void StartDialogue(Dialogue dialogue)
-    {
+    {   Textbox.gameObject.SetActive(true);
         teemoMovement.SetBool("isTalking",true);
         sentences.Clear();
 
-        foreach(string sentence in dialogue.sentences)
-        {
-            sentences.Enqueue(sentence);
-        }
+    string[] sentencesToEnqueue = new string[0];
+    if (GameController.Instance.current_language == "English")
+    {
+        sentencesToEnqueue = dialogue.sentencesEnglish; 
+    }
+    else if (GameController.Instance.current_language == "Korean")
+    {
+        sentencesToEnqueue = dialogue.sentencesKorean;
+    }
+    // 추가 언어에 대한 처리...
 
+    foreach (string sentence in sentencesToEnqueue)
+    {
+        sentences.Enqueue(sentence);
     }
 
+    }
+   
     //
     public void DisplayNextSentences()
     {
@@ -47,7 +62,7 @@ public class DialogueManager : MonoBehaviour
     }
 
     void EndDialogue()
-    {
+    {   Textbox.gameObject.SetActive(true);  
         teemoMovement.SetBool("isTalking",false);
         StartCoroutine(TeemoLeavingCoroutine());
 

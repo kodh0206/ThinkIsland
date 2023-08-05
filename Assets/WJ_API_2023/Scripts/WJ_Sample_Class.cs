@@ -22,7 +22,6 @@ public class WJ_Sample_Class : MonoBehaviour
     [SerializeField] TEXDraw   textDescription;        //���� ���� �ؽ�Ʈ
     [SerializeField] TEXDraw   textEquation;           //���� �ؽ�Ʈ(��TextDraw�� ���� �ʿ�)
     [SerializeField] Button[]      btAnsr = new Button[4]; //���� ��ư��
-    [SerializeField] Text Level; //레벨 
     [SerializeField] Button quitButton; //홈메뉴 가는 버튼 
     [SerializeField] Button solving;
     TEXDraw[] textAnsr;                  //���� ��ư�� �ؽ�Ʈ(��TextDraw�� ���� �ʿ�)
@@ -43,7 +42,7 @@ public class WJ_Sample_Class : MonoBehaviour
 
             textAnsr[i] = btAnsr[i].GetComponentInChildren<TEXDraw>();
 
-        wj_displayText.SetState("�����", "", "", "");
+        //wj_displayText.SetState("�����", "", "", "");
         //PlayerPrefs.DeleteAll(); //resetprefs
 
         string savedToken = PlayerPrefs.GetString("strAuthorization",string.Empty);
