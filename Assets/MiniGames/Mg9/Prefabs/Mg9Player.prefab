@@ -161,6 +161,8 @@ MonoBehaviour:
   gravityChangeDuration: 0
   targetGravityScale: 0
   isGravityChanging: 0
+  particlePrefab: {fileID: 7117095007246569139, guid: 2335a3277e4095b4ebce6e0cb1342dc4,
+    type: 3}
 --- !u!95 &-6989233317761524674
 Animator:
   serializedVersion: 5

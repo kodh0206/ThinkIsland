@@ -39,6 +39,9 @@ public class Mg9Player : MonoBehaviour
     private float gravityChangeStartTime;
     private float initialGravityScale;
 
+    public ParticleSystem particlePrefab;//Particle
+    private ParticleSystem currentParticle;
+
 
     public void RightClick()
     {
@@ -76,7 +79,7 @@ public class Mg9Player : MonoBehaviour
         {
         audioSource = gameObject.AddComponent<AudioSource>();
         }
-  
+        
     }
 
     private void Update()
@@ -95,22 +98,24 @@ public class Mg9Player : MonoBehaviour
         // Slow Fall
         if (Input.GetKeyDown(KeyCode.Z) ||LeftButton)
         {
-            animator.SetBool("PlayerIsWater", true);
+            
             
             if (IsJumping && !isGravityChanging &&!isSlowFalling) 
             {
+                animator.SetBool("PlayerIsWater", true);
+                CreateParticle();
                 isSlowFalling = true;
                 StartSlowUp();
+                
             }
         }
         else if (!LeftButton)
         {
             animator.SetBool("PlayerIsWater", false);
             StopSlow();
+            
         }
 
-
- 
 
     }
 
@@ -258,6 +263,20 @@ public class Mg9Player : MonoBehaviour
             spriteRenderer.color.g,
             spriteRenderer.color.b,
             maxAlpha); 
+    }
+
+
+
+    private void CreateParticle()
+    {
+        // 파티클을 씬에 생성하고 파티클 컴포넌트를 저장할 변수에 할당
+        currentParticle = Instantiate(particlePrefab, transform.position, Quaternion.identity);
+
+        // 파티클 재생
+        currentParticle.Play();
+
+        // 일정 시간이 지난 후 파티클을 자동으로 제거
+        Destroy(currentParticle.gameObject, 2f);
     }
 
 }
