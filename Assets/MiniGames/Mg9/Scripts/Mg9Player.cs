@@ -35,7 +35,7 @@ public class Mg9Player : MonoBehaviour
     public float gravityChangeDuration ; // 원하는 서서히 변화하는 시간 (초)
     public float targetGravityScale ; // 목표로 하는 gravityScale 값
 
-    private bool isGravityChanging = false;
+    public bool isGravityChanging = false;
     private float gravityChangeStartTime;
     private float initialGravityScale;
 
@@ -63,7 +63,7 @@ public class Mg9Player : MonoBehaviour
     public void LeftClickOff()
     {
         LeftButton = false;
-
+        
     }
 
     private void Start()
@@ -82,7 +82,7 @@ public class Mg9Player : MonoBehaviour
     private void Update()
     {
         // Jump
-        if (Input.GetKeyDown(KeyCode.Space) || RightButton)
+        if (!IsJumping && Input.GetKeyDown(KeyCode.Space) || RightButton)
         {
             if (!IsJumping)
             {
@@ -95,38 +95,39 @@ public class Mg9Player : MonoBehaviour
         // Slow Fall
         if (Input.GetKeyDown(KeyCode.Z) ||LeftButton)
         {
-            //SmallJump();
-            if (IsJumping) 
+            animator.SetBool("PlayerIsWater", true);
+            
+            if (IsJumping && !isGravityChanging &&!isSlowFalling) 
             {
+                isSlowFalling = true;
                 StartSlowUp();
             }
         }
-        else if (Input.GetKeyUp(KeyCode.Z)||!LeftButton)
+        else if (!LeftButton)
         {
-            
-            StopSlowFall();
+            animator.SetBool("PlayerIsWater", false);
+            StopSlow();
         }
+
 
  
 
     }
 
-
     private void FixedUpdate()
     {
-        if (isSlowFalling)
+        if (isGravityChanging)
         {
             rb.velocity += Vector2.up * Physics2D.gravity.y * (slowFallMultiplier - 1) * Time.fixedDeltaTime;
         }
-
         if (isGravityChanging)
         {
             float timeSinceStart = Time.time - gravityChangeStartTime;
             float t = Mathf.Clamp01(timeSinceStart / gravityChangeDuration);
             rb.gravityScale = Mathf.Lerp(initialGravityScale, targetGravityScale, t);
-
-            if (t >= 1.0f)
+            if (rb.gravityScale == targetGravityScale)
             {
+                Debug.Log("추락시작");
                 isGravityChanging = false;
                 if (rb.gravityScale<=0f)
                 {
@@ -147,10 +148,10 @@ public class Mg9Player : MonoBehaviour
 
     private void StartSlowUp()
     {
-        isSlowFalling = true;
-        animator.SetBool("PlayerIsWater", true);
-        gravityChangeDuration = 0.3f;
-        targetGravityScale = -1.0f;
+        
+        
+        gravityChangeDuration = 0.1f;
+        targetGravityScale = -0.5f;
         initialGravityScale = 0.5f;
         gravityChangeStartTime = Time.time;
         isGravityChanging = true;
@@ -159,21 +160,21 @@ public class Mg9Player : MonoBehaviour
 
     private void StartSlowDown()
     {
-        gravityChangeDuration = 0.3f;
+        gravityChangeDuration = 0.5f;
         targetGravityScale = 0.5f;
-        initialGravityScale = -0.8f;
+        initialGravityScale = -1.0f;
         gravityChangeStartTime = Time.time;
         isGravityChanging = true;
 
     }
 
-    private void StopSlowFall()
+    private void StopSlow()
     {
-        isSlowFalling = false;
         isGravityChanging = false;
+        isSlowFalling=false;
         rb.gravityScale = 0.5f;
-        animator.SetBool("PlayerIsWater", false);
     }
+
 
     public void GetHit()
     {
@@ -194,8 +195,6 @@ public class Mg9Player : MonoBehaviour
     {
         
         enabled = false;
-
-
 
         Vector2 Effectposition = new Vector2(transform.position.x, transform.position.y + 0.7f);
         GameObject HitEff = Instantiate(stunEffect, Effectposition, Quaternion.identity, transform);

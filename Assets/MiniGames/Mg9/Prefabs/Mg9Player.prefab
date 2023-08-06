@@ -153,12 +153,14 @@ MonoBehaviour:
   stunEffect: {fileID: 0}
   jumpForce: 10
   slowFallMultiplier: 0.3
+  IsJumping: 0
   jump: {fileID: 0}
   blinkInterval: 0.125
   minAlpha: 0.3
   maxAlpha: 1
   gravityChangeDuration: 0
   targetGravityScale: 0
+  isGravityChanging: 0
 --- !u!95 &-6989233317761524674
 Animator:
   serializedVersion: 5
