@@ -12,7 +12,7 @@ public class Mg9Player : MonoBehaviour
 
     public GameObject stunEffect;
 
-    public float jumpForce = 12.0f;
+    public float jumpForce = 10.0f;
     public float slowFallMultiplier = 0.3f;
 
 
@@ -22,14 +22,25 @@ public class Mg9Player : MonoBehaviour
     private bool RightButton = false;
     private bool LeftButton = false;
 
-    private bool IsJumping=false;
+    public bool IsJumping=false;
 
     private AudioSource audioSource;
     public AudioClip jump;
 
     public float blinkInterval = 0.125f; //blink
-    public float minAlpha = 0.3f; // �ּ� ���İ� (������ ����)
-    public float maxAlpha = 1f;   // �ִ� ���İ� (������ ����)
+    public float minAlpha = 0.3f; 
+    public float maxAlpha = 1f;
+
+
+    public float gravityChangeDuration ; // 원하는 서서히 변화하는 시간 (초)
+    public float targetGravityScale ; // 목표로 하는 gravityScale 값
+
+    public bool isGravityChanging = false;
+    private float gravityChangeStartTime;
+    private float initialGravityScale;
+
+    public ParticleSystem particlePrefab;//Particle
+    private ParticleSystem currentParticle;
 
 
     public void RightClick()
@@ -55,7 +66,7 @@ public class Mg9Player : MonoBehaviour
     public void LeftClickOff()
     {
         LeftButton = false;
-
+        
     }
 
     private void Start()
@@ -68,67 +79,107 @@ public class Mg9Player : MonoBehaviour
         {
         audioSource = gameObject.AddComponent<AudioSource>();
         }
+        
     }
 
     private void Update()
     {
         // Jump
-        if (Input.GetKeyDown(KeyCode.Space) || RightButton)
+        if (!IsJumping && Input.GetKeyDown(KeyCode.Space) || RightButton)
         {
-            Jump();
+            if (!IsJumping)
+            {
+                Jump();
+                RightButton = false;
+            }
             RightButton = false;
         }
 
         // Slow Fall
         if (Input.GetKeyDown(KeyCode.Z) ||LeftButton)
         {
-            SmallJump();
-            StartSlowFall();
-        }
-        else if (Input.GetKeyUp(KeyCode.Z)||!LeftButton)
-        {
             
-            StopSlowFall();
+            
+            if (IsJumping && !isGravityChanging &&!isSlowFalling) 
+            {
+                animator.SetBool("PlayerIsWater", true);
+                CreateParticle();
+                isSlowFalling = true;
+                StartSlowUp();
+                
+            }
         }
-    }
-
-    private void Jump()
-    {   
-
-        audioSource.PlayOneShot(jump);
-        rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-    }
-
-    private void StartSlowFall()
-    {
-        isSlowFalling = true;
-        animator.SetBool("PlayerIsWater", true);
-        rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * slowFallMultiplier);
-    }
-
-    private void StopSlowFall()
-    {
-        isSlowFalling = false;
-        animator.SetBool("PlayerIsWater", false);
-    }
-
-    private void SmallJump()
-    {
-        if (!IsJumping)
+        else if (!LeftButton)
         {
-            audioSource.PlayOneShot(jump);
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce/1.5f);
-            IsJumping = true;
+            animator.SetBool("PlayerIsWater", false);
+            StopSlow();
+            
         }
+
+
     }
 
     private void FixedUpdate()
     {
-        if (isSlowFalling)
+        if (isGravityChanging)
         {
             rb.velocity += Vector2.up * Physics2D.gravity.y * (slowFallMultiplier - 1) * Time.fixedDeltaTime;
         }
+        if (isGravityChanging)
+        {
+            float timeSinceStart = Time.time - gravityChangeStartTime;
+            float t = Mathf.Clamp01(timeSinceStart / gravityChangeDuration);
+            rb.gravityScale = Mathf.Lerp(initialGravityScale, targetGravityScale, t);
+            if (rb.gravityScale == targetGravityScale)
+            {
+                Debug.Log("추락시작");
+                isGravityChanging = false;
+                if (rb.gravityScale<=0f)
+                {
+                    StartSlowDown();
+                }
+                
+            }
+        }
     }
+
+    private void Jump()
+    {
+        
+        audioSource.PlayOneShot(jump);
+        rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+        
+    }
+
+    private void StartSlowUp()
+    {
+        rb.velocity *= 0.1f;
+
+        gravityChangeDuration = 0.1f;
+        targetGravityScale = -0.5f;
+        initialGravityScale = 0.5f;
+        gravityChangeStartTime = Time.time;
+        isGravityChanging = true;
+
+    }
+
+    private void StartSlowDown()
+    {
+        gravityChangeDuration = 0.5f;
+        targetGravityScale = 0.5f;
+        initialGravityScale = -0.5f;
+        gravityChangeStartTime = Time.time;
+        isGravityChanging = true;
+
+    }
+
+    private void StopSlow()
+    {
+        isGravityChanging = false;
+        isSlowFalling=false;
+        rb.gravityScale = 0.5f;
+    }
+
 
     public void GetHit()
     {
@@ -142,15 +193,13 @@ public class Mg9Player : MonoBehaviour
 
         StartCoroutine(DisableControlAndResetColor());
 
-        rb.gravityScale = 0.6f;
+        rb.gravityScale = 0.5f;
     }
 
     private IEnumerator DisableControlAndResetColor()
     {
         
         enabled = false;
-
-
 
         Vector2 Effectposition = new Vector2(transform.position.x, transform.position.y + 0.7f);
         GameObject HitEff = Instantiate(stunEffect, Effectposition, Quaternion.identity, transform);
@@ -164,14 +213,9 @@ public class Mg9Player : MonoBehaviour
             yield return new WaitForSeconds(blinkInterval);
         }
 
-        
 
-       
         enabled = true;
 
-        
-
-       
         
     }
 
@@ -184,12 +228,20 @@ public class Mg9Player : MonoBehaviour
 
         }
 
+    }
 
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Ground")
+        {
+            IsJumping = true;
+
+        }
     }
 
     public void ShakeCamera()
     {
-        myCamera.transform.DOShakePosition(1.5f, 0.2f, 30);  // ī�޶� 1�� ����, ���� 0.4�� 20�� ���ϴ�.
+        myCamera.transform.DOShakePosition(1.5f, 0.2f, 30);  
     }
 
 
@@ -199,7 +251,7 @@ public class Mg9Player : MonoBehaviour
                 spriteRenderer.color.r,
                 spriteRenderer.color.g,
                 spriteRenderer.color.b,
-                minAlpha); // ������ ���·� ����
+                minAlpha); 
 
 
     }
@@ -210,7 +262,21 @@ public class Mg9Player : MonoBehaviour
             spriteRenderer.color.r,
             spriteRenderer.color.g,
             spriteRenderer.color.b,
-            maxAlpha); // ������ ���·� ����
+            maxAlpha); 
+    }
+
+
+
+    private void CreateParticle()
+    {
+        // 파티클을 씬에 생성하고 파티클 컴포넌트를 저장할 변수에 할당
+        currentParticle = Instantiate(particlePrefab, transform.position, Quaternion.identity);
+
+        // 파티클 재생
+        currentParticle.Play();
+
+        // 일정 시간이 지난 후 파티클을 자동으로 제거
+        Destroy(currentParticle.gameObject, 2f);
     }
 
 }
