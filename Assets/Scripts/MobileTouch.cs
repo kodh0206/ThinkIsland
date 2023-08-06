@@ -7,13 +7,14 @@ public class MobileTouch : MonoBehaviour
    private Vector3 minPosition = new Vector3(-32, -20, -20);
     private Vector3 maxPosition = new Vector3(28, 30, 20);
     private Vector3 springVelocity = Vector3.zero;
-    public float moveSpeed = 5f;
+    public float moveSpeed = 0.8f;
     public float scrollSpeed = 0.1f; // Scroll speed for zooming
-    public float minOrthographicSize = 1f; // Min zoom
-    public float maxOrthographicSize = 20f; // Max zoom
+    public float minOrthographicSize = 5f; // Min zoom
+    public float maxOrthographicSize = 8f; // Max zoom
     public float inertiaDuration = 1.0f;
     public float springStrength = 10.0f;
     public float springDamping = 1.0f;
+    float scalingFactor = 0.5f;
     private Vector3 moveVelocity = Vector3.zero;
     private bool isMoving = false;
     private Vector2 prePos, curPos, movePosDiff;
@@ -30,8 +31,11 @@ public class MobileTouch : MonoBehaviour
         if (!isMoving && moveVelocity != Vector3.zero)
         {
             Vector3 pos = Camera.main.transform.position;
-            pos += Vector3.Lerp(Vector3.zero, moveVelocity, inertiaDuration * Time.deltaTime);
-            moveVelocity *= (1.0f - Time.deltaTime);
+            pos += moveVelocity * inertiaDuration * Time.deltaTime;
+        
+        // 이 부분에서 moveVelocity 값을 조절하여 카메라의 움직임 속도를 줄입니다.
+            moveVelocity *= (1.0f - Time.deltaTime * 5);  // 이 값을 조절하여 Inertia 속도를 변경할 수 있습니다.
+
 
             // Clamp the position
             pos = new Vector3(
@@ -59,22 +63,24 @@ public class MobileTouch : MonoBehaviour
 
     void MouseMove_Zoom()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            prePos = Input.mousePosition;
-            isMoving = true;
-        }
-        if (Input.GetMouseButton(0))
-        {
-            curPos = Input.mousePosition;
-            movePosDiff = (Vector2)(prePos - curPos) * Time.deltaTime;
-            moveVelocity = new Vector3(movePosDiff.x, movePosDiff.y, 0) * moveSpeed;
-            prePos = Input.mousePosition;
-        }
-        if (Input.GetMouseButtonUp(0))
-        {
-            isMoving = false;
-        }
+         if (Input.GetMouseButtonDown(0))
+    {
+        prePos = Input.mousePosition;
+        isMoving = true;
+    }
+    if (Input.GetMouseButton(0))
+    {
+        curPos = Input.mousePosition;
+        Vector3 deltaPosition = new Vector3(curPos.x - prePos.x, curPos.y - prePos.y, 0) * moveSpeed * Time.deltaTime;
+        Camera.main.transform.position -= deltaPosition;
+        
+        prePos = Input.mousePosition;
+        moveVelocity = deltaPosition / Time.deltaTime; // 이동 속도를 적절하게 설정합니다.
+    }
+    if (Input.GetMouseButtonUp(0))
+    {
+        isMoving = false;
+    }
         // Scroll handling code is omitted for brevity
     }
 
@@ -95,7 +101,7 @@ public class MobileTouch : MonoBehaviour
 
             float deltaMagnitudeDiff = prevTouchDeltaMag - touchDeltaMag;
 
-            Camera.main.orthographicSize += deltaMagnitudeDiff * scrollSpeed;
+            Camera.main.orthographicSize += deltaMagnitudeDiff * scrollSpeed * scalingFactor;
             Camera.main.orthographicSize = Mathf.Clamp(Camera.main.orthographicSize, minOrthographicSize, maxOrthographicSize);
         }
 
@@ -106,7 +112,7 @@ public class MobileTouch : MonoBehaviour
 
         if (touch.phase == TouchPhase.Began)
         {
-            prePos = touch.position - touch.deltaPosition;
+            prePos = touch.position;
             isMoving = true;
         }
         else if (touch.phase == TouchPhase.Moved)
@@ -114,10 +120,8 @@ public class MobileTouch : MonoBehaviour
             Vector3 deltaPosition = new Vector3(touch.deltaPosition.x, touch.deltaPosition.y, 0) * moveSpeed * Time.deltaTime;
             Camera.main.transform.position -= deltaPosition;
 
-            curPos = touch.position - touch.deltaPosition;
-            movePosDiff = (Vector2)(prePos - curPos) * Time.deltaTime;
-            moveVelocity = new Vector3(movePosDiff.x, movePosDiff.y, 0) * moveSpeed;
-            prePos = touch.position - touch.deltaPosition;
+            prePos = touch.position;
+            moveVelocity = deltaPosition / Time.deltaTime; // 이동 속도를 적절하게 설정합니다.
         }
         if (touch.phase == TouchPhase.Ended)
         {
