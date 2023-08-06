@@ -148,8 +148,8 @@ public class Mg9Player : MonoBehaviour
 
     private void StartSlowUp()
     {
-        
-        
+        rb.velocity *= 0.1f;
+
         gravityChangeDuration = 0.1f;
         targetGravityScale = -0.5f;
         initialGravityScale = 0.5f;
@@ -162,7 +162,7 @@ public class Mg9Player : MonoBehaviour
     {
         gravityChangeDuration = 0.5f;
         targetGravityScale = 0.5f;
-        initialGravityScale = -1.0f;
+        initialGravityScale = -0.5f;
         gravityChangeStartTime = Time.time;
         isGravityChanging = true;
 
