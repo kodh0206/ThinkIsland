@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 3278886480723150086}
   - component: {fileID: 3564461214467408767}
   - component: {fileID: 6345250214568074563}
-  - component: {fileID: -8586775136006620638}
   - component: {fileID: -2562216276391452944}
+  - component: {fileID: 1475707373662187582}
   m_Layer: 0
   m_Name: poop2
   m_TagString: poop2
@@ -136,21 +136,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.7824127, y: 0.6192212}
   m_EdgeRadius: 0
---- !u!114 &-8586775136006620638
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3897301247086464792}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de5e67b2abd6c8442ba8493639f6375f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  particle: {fileID: 7401367838718171176, guid: 867e2461e3a0dfb4a85a78081246301c,
-    type: 3}
-  otherPos: 0
 --- !u!82 &-2562216276391452944
 AudioSource:
   m_ObjectHideFlags: 0
@@ -247,6 +232,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1475707373662187582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3897301247086464792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 516ccf1aea99c914bbaa692484baa565, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particle: {fileID: 7401367838718171176, guid: 867e2461e3a0dfb4a85a78081246301c,
+    type: 3}
 --- !u!1 &4961797390067891225
 GameObject:
   m_ObjectHideFlags: 0
