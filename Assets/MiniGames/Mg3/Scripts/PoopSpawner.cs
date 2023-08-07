@@ -5,7 +5,7 @@ using UnityEngine;
 public class PoopSpawner : MonoBehaviour
 {
     [SerializeField]
-    private GameObject[] poops; // 0, 1
+    private GameObject[] Mg3Objects; // 0, 1
 
     [SerializeField]
     private GameObject[] sign; // 0, 1
@@ -84,10 +84,10 @@ public class PoopSpawner : MonoBehaviour
 
 
 
-        GameObject newPoop = Instantiate(poops[index], position, Quaternion.identity);
+        GameObject newPoop = Instantiate(Mg3Objects[index], position, Quaternion.identity);
         if (index == 1)
         {
-            newPoop.tag = "poop2";
+            newPoop.tag = "jelly";
         }
         else { newPoop.tag = "poop"; }
     }

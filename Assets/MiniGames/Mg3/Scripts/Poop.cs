@@ -11,30 +11,20 @@ public class Poop : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other) 
     {
-        if (other.gameObject.tag == "Ground" && this.gameObject.tag == "poop")
+        if (other.gameObject.tag == "Ground")
         {
             
         } 
-        else if (other.gameObject.tag == "Player" && this.gameObject.tag =="poop")
+        else if (other.gameObject.tag == "Player")
         {
             //AudioManager.Instance.PlayPoop();
             otherPos=other.transform.position.x-transform.position.x;
-
             MiniGame3Manager.instance.StunPlayer();
-        
-
             MiniGame3Manager.instance.GameLevelDown(); // Hit and level Down
-
             other.gameObject.GetComponent<Player>().GetPoop(otherPos);
         }
-        else if (other.gameObject.tag == "Player" && this.gameObject.tag == "poop2") //poop2 is jelly
-        {
-            MiniGameManager.Instance.AddJelly();
-            MiniGame3Manager.instance.AddScore();
-            Destroy(this.gameObject);
-
-        }
-        else if (other.gameObject.tag == "poop" || other.gameObject.tag == "poop2")
+        
+        else if (other.gameObject.tag == "poop" || other.gameObject.tag == "jelly")
         {
             return;
         }
