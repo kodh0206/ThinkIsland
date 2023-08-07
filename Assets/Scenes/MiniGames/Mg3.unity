@@ -3858,7 +3858,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41a84687d765a6548a3ecd00d3595282, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poops:
+  Mg3Objects:
   - {fileID: 2253172696078505931, guid: 60a052e153b0fe047aadafb74a1d079f, type: 3}
   - {fileID: 3897301247086464792, guid: 29fddd25a564fd44690489377069556f, type: 3}
   sign:
