@@ -18,6 +18,8 @@ public class Mg19Player : MonoBehaviour
 
     private int blockLayerMask; // Block 
 
+    private Vector2 movement;
+    private float yveloLimit = -10.0f;
 
     public bool RightButton = false;
     public bool LeftButton = false;
@@ -86,7 +88,15 @@ public class Mg19Player : MonoBehaviour
 
 
         float moveX = horizontalInput * moveSpeed;
-        Vector2 movement = new Vector2(moveX, rb.velocity.y);
+
+        if (rb.velocity.y <= -5f)
+        {
+            movement = new Vector2(moveX, yveloLimit);
+        }
+        else
+        {
+            movement = new Vector2(moveX, rb.velocity.y);
+        }
 
         rb.velocity = movement;
 
