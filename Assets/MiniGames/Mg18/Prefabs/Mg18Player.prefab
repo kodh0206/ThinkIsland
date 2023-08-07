@@ -156,6 +156,8 @@ MonoBehaviour:
   splashSound: {fileID: 8300000, guid: 835a24cd3073e2a4b8d6034e7538bea2, type: 3}
   jumpSound: {fileID: 8300000, guid: f67b0b1ea4b15d841a5d40ce9ef33090, type: 3}
   audioSource: {fileID: 0}
+  particlePrefab: {fileID: 1020472923704480308, guid: f32a396a3a403f94e860cd5b354a1f4e,
+    type: 3}
 --- !u!95 &5530832230189645513
 Animator:
   serializedVersion: 5

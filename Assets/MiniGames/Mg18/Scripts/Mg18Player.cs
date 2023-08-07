@@ -28,6 +28,9 @@ public class Mg18Player : MonoBehaviour
     private bool RightButton = false;
     private bool LeftButton = false;
 
+    public ParticleSystem particlePrefab;//Particle
+    private ParticleSystem currentParticle;
+
     public void RightClick()
     {
         LeftButton = false;
@@ -121,12 +124,11 @@ public class Mg18Player : MonoBehaviour
         }
 
     }
-
+    
 
     private void Jump()
     {
         rb.gravityScale = 0.5f;
-        nowJumping = true;
         rb.velocity = new Vector2(rb.velocity.x, jumpForce);
     }
 
@@ -137,11 +139,31 @@ public class Mg18Player : MonoBehaviour
             nowJumping = false;
         }
     }
-    public void OnTriggerEnter2D(Collider2D other)
+    public void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Ground")
+        {
+            nowJumping = true;
+        }
+    }
+
+
+
+    public void OnTriggerStay2D(Collider2D other)
     {
         if(other.gameObject.tag == "water")
         {
+            CreateParticle();
             nowJumping = false;
+        }
+    }
+
+    public void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "water")
+        {
+            CreateParticle();
+            nowJumping = true;
         }
     }
 
@@ -169,6 +191,16 @@ public class Mg18Player : MonoBehaviour
         transform.position += Vector3.down * moveSpeed * Time.deltaTime;
     }
 
+    private void CreateParticle()
+    {
+        // 파티클을 씬에 생성하고 파티클 컴포넌트를 저장할 변수에 할당
+        currentParticle = Instantiate(particlePrefab, transform.position, Quaternion.identity);
 
+        // 파티클 재생
+        currentParticle.Play();
+
+        // 일정 시간이 지난 후 파티클을 자동으로 제거
+        Destroy(currentParticle.gameObject, 0.5f);
+    }
 
 }
