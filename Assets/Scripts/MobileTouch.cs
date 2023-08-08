@@ -3,8 +3,10 @@ using System;
 
 
 public class MobileTouch : MonoBehaviour
-{   private Vector3 targetPosition;
-   private Vector3 minPosition = new Vector3(-32, -20, -20);
+{  
+    private Vector3 targetPosition;
+    private Camera camera;
+    private Vector3 minPosition = new Vector3(-32, -20, -20);
     private Vector3 maxPosition = new Vector3(28, 30, 20);
     private Vector3 springVelocity = Vector3.zero;
     public float moveSpeed = 0.1f;
@@ -22,7 +24,7 @@ public class MobileTouch : MonoBehaviour
     float smoothFactor = 0.1f;
     public float maxDelta = 5f;
     void Start()
-    {
+    {  
         targetPosition = Camera.main.transform.position; // 초기값 설정
     }
 void Update()

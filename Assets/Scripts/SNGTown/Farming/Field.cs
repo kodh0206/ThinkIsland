@@ -31,8 +31,12 @@ public class Field : MonoBehaviour
 
             // Load saved data
             state = saveFile.Load<PlotState>("state");
-            string cropDataName = saveFile.Load<string>("currentCropData");
-            currentCropData = Resources.Load<CropData>(cropDataName);
+            string cropDataName = saveFile.Load<string>("currentCropData", null); // null을 기본값으로 설정합니다.
+            if(cropDataName != null)
+                currentCropData = Resources.Load<CropData>(cropDataName);
+            else
+                currentCropData = null; // 또는 기본값 설정
+            
             timeLeft = saveFile.Load<float>("timeLeft") - (float)timeDifference.TotalSeconds;
             stage = saveFile.Load<int>("stage");
             isDry = saveFile.Load<bool>("isDry");
