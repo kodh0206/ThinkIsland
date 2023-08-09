@@ -18,6 +18,10 @@ public class Mg7Player : MonoBehaviour
     private bool RightButton = false;
     private bool LeftButton = false;
 
+    public GameObject Teerprefabs;
+    private GameObject currentEffect;
+    private Coroutine makeTeerCoroutine;
+
     public void RightClick()
     {
         LeftButton = false;
@@ -57,12 +61,17 @@ public class Mg7Player : MonoBehaviour
     void Start()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
+
+        Vector2 Effectposition = new Vector2(transform.position.x, transform.position.y + 0.5f);
+        currentEffect = Instantiate(Teerprefabs, Effectposition, Quaternion.identity, transform);
+        SetTeerEffVisibility(currentEffect,false);
     }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.LeftArrow) || LeftButton)
         {
+            StartMakeTeer();
             JumpWithAngle(135f);
             if (direc >0)
             {
@@ -74,6 +83,7 @@ public class Mg7Player : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.RightArrow)||RightButton)
         {
+            StartMakeTeer();
             JumpWithAngle(45f);
             if (direc < 4)
             {
@@ -102,6 +112,30 @@ public class Mg7Player : MonoBehaviour
         yield return new WaitForSeconds(delay);
 
         spriteRenderer.sprite = sprites[direc];
+    }
+    void StartMakeTeer()
+    {
+        if (makeTeerCoroutine == null) // 실행 중인 코루틴이 없는 경우에만 실행
+        {
+            makeTeerCoroutine = StartCoroutine(MakeTeer());
+        }
+    }
+    IEnumerator MakeTeer()
+    {
+        SetTeerEffVisibility(currentEffect, true);
+        yield return new WaitForSeconds(1.5f);
+        SetTeerEffVisibility(currentEffect, false);
+
+        makeTeerCoroutine = null; // 코루틴이 종료되었음을 표시
+    }
+    private void SetTeerEffVisibility(GameObject TeerEffect, bool isVisible)
+    {
+        SpriteRenderer hitEffRenderer = TeerEffect.GetComponent<SpriteRenderer>();
+        if (hitEffRenderer != null)
+        {
+            hitEffRenderer.enabled = isVisible;
+        }
+
     }
 
 }

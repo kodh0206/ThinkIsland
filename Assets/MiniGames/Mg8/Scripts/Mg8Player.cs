@@ -15,6 +15,7 @@ public class Mg8Player : MonoBehaviour
 
     public GameObject stunEffect;
 
+    public GameObject StunBeeeeee;
 
     public static Mg8Player instance = null;
 
@@ -74,7 +75,6 @@ public class Mg8Player : MonoBehaviour
             LeftButton=false;
         }
 
-
     }
 
 
@@ -100,6 +100,10 @@ public class Mg8Player : MonoBehaviour
         Vector2 Effectposition = new Vector2(transform.position.x+0.2f, transform.position.y + 1.4f);
         GameObject HitEff = Instantiate(stunEffect, Effectposition, Quaternion.identity, transform);
         Destroy(HitEff, 1.5f);
+
+        Vector2 Effectposition2 = new Vector2(transform.position.x + 0.2f, transform.position.y + 1.0f);
+        GameObject HitEff2 = Instantiate(StunBeeeeee, Effectposition2, Quaternion.identity, transform);
+        Destroy(HitEff2, 1.5f);
 
         // 2�ʰ� ���
         yield return new WaitForSeconds(1.5f);

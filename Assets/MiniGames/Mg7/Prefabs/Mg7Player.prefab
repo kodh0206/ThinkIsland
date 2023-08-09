@@ -157,6 +157,8 @@ MonoBehaviour:
   - {fileID: 85133462, guid: 232b53c5874f7a0418377f9a8ced7c26, type: 3}
   - {fileID: -86970763, guid: 232b53c5874f7a0418377f9a8ced7c26, type: 3}
   jump: {fileID: 0}
+  Teerprefabs: {fileID: 7419330476384785544, guid: 1beb7457a5f2cf3499d12aecc5569871,
+    type: 3}
 --- !u!82 &5157370235923106902
 AudioSource:
   m_ObjectHideFlags: 0
