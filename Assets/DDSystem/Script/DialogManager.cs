@@ -345,7 +345,7 @@ namespace Doublsb.Dialog
 
         private IEnumerator _skip()
         {
-            if (_current_Data.isSkippable)
+            if ( _current_Data.isSkippable)
             {
                 _currentDelay = 0;
                 while (state != State.Wait) yield return null;

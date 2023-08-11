@@ -23,6 +23,7 @@ TagManager:
   - stair
   - water
   - BreakGround
+  - GameCamera
   layers:
   - Default
   - TransparentFX

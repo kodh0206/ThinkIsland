@@ -8,7 +8,8 @@ public class Mg5jelly : MonoBehaviour
     private float jellySpeed = 5.0f;
 
     private Vector3 moveDirection;
-
+    [SerializeField]
+    private NumberParticle numberParticlePrefab;
     void Start()
     {
         moveDirection = new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(0, 0.7f), 0f).normalized;
@@ -26,6 +27,12 @@ public class Mg5jelly : MonoBehaviour
         {
             MiniGameManager.Instance.AddJelly();
             Mg5manager.instance.AddScore();
+            int newScore =MiniGameManager.Instance.totalJelly;
+
+                        // 파티클 시스템 인스턴스 생성
+            NumberParticle numberParticleInstance = Instantiate(numberParticlePrefab, transform.position, Quaternion.identity);
+            numberParticleInstance.DisplayNumber(newScore, transform.position);
+
             Destroy(gameObject);
         }
     }
