@@ -9,16 +9,9 @@ public class SNGButtonClick : MonoBehaviour
     public GameObject profileCanvas;
     public GameObject collectionCanvas;
     public GameObject AchievementCanvas;
+    public GameObject OptionCanvas;
     public MonoBehaviour mobileTouchScript;
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
+ 
 
     public void ShopButtonClick()
     {
@@ -45,6 +38,14 @@ public class SNGButtonClick : MonoBehaviour
     {
         gameObject.SetActive(false);
         AchievementCanvas.SetActive(true);
+        mobileTouchScript.enabled = false;
+    }
+
+
+    public void OptionButtonClick()
+    {
+        gameObject.SetActive(false);
+        OptionCanvas.SetActive(true);
         mobileTouchScript.enabled = false;
     }
 }
