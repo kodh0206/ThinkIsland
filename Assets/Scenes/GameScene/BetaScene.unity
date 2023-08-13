@@ -929,7 +929,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 42149714}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
@@ -938,8 +938,8 @@ RectTransform:
   - {fileID: 1872399423}
   - {fileID: 146808707}
   - {fileID: 325194508}
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_Father: {fileID: 8137348598677709108}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2492,9 +2492,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1652415043}
-        m_TargetAssemblyTypeName: AchievementButtonClick, Assembly-CSharp
-        m_MethodName: AchievementCloseButtonClick
+      - m_Target: {fileID: 1652415048}
+        m_TargetAssemblyTypeName: SettingsButtonClick, Assembly-CSharp
+        m_MethodName: SettingCloseButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3735,7 +3735,7 @@ GameObject:
   - component: {fileID: 220041130}
   - component: {fileID: 220041129}
   m_Layer: 5
-  m_Name: Dropdown
+  m_Name: Lanaguage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5197,7 +5197,7 @@ GameObject:
   - component: {fileID: 274424220}
   - component: {fileID: 274424221}
   m_Layer: 5
-  m_Name: Toggle
+  m_Name: SFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5237,7 +5237,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -5256,7 +5256,8 @@ MonoBehaviour:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 1339238368, guid: 5d93731179f4f9544a3bc8db557450c5,
       type: 3}
-    m_SelectedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 1339238368, guid: 5d93731179f4f9544a3bc8db557450c5,
+      type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -5271,8 +5272,20 @@ MonoBehaviour:
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
-  m_IsOn: 1
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_IsOn: 0
 --- !u!1 &274883985
 GameObject:
   m_ObjectHideFlags: 0
@@ -54347,7 +54360,7 @@ GameObject:
   - component: {fileID: 568308166}
   - component: {fileID: 568308167}
   m_Layer: 5
-  m_Name: Toggle (2)
+  m_Name: VIbe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -54387,7 +54400,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -54406,7 +54419,8 @@ MonoBehaviour:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 1339238368, guid: 5d93731179f4f9544a3bc8db557450c5,
       type: 3}
-    m_SelectedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: -1129490764, guid: 5d93731179f4f9544a3bc8db557450c5,
+      type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -54422,7 +54436,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_IsOn: 1
+  m_IsOn: 0
 --- !u!1 &573116345
 GameObject:
   m_ObjectHideFlags: 0
@@ -56752,7 +56766,7 @@ Transform:
   - {fileID: 1796328598}
   - {fileID: 1548572448}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &683670123
 MonoBehaviour:
@@ -57505,7 +57519,7 @@ RectTransform:
   m_Children:
   - {fileID: 798553802}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -62442,7 +62456,7 @@ RectTransform:
   - {fileID: 1976408514}
   - {fileID: 1505642705}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -63047,7 +63061,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1083403056
 PrefabInstance:
@@ -63457,7 +63471,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -64606,7 +64620,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1222054766
 RectTransform:
   m_ObjectHideFlags: 0
@@ -68402,7 +68416,7 @@ GameObject:
   - component: {fileID: 1393269144}
   - component: {fileID: 1393269145}
   m_Layer: 5
-  m_Name: Toggle (1)
+  m_Name: BGM
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -68442,7 +68456,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -68461,7 +68475,8 @@ MonoBehaviour:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 1339238368, guid: 5d93731179f4f9544a3bc8db557450c5,
       type: 3}
-    m_SelectedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: -1129490764, guid: 5d93731179f4f9544a3bc8db557450c5,
+      type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -68476,8 +68491,20 @@ MonoBehaviour:
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
-  m_IsOn: 1
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_IsOn: 0
 --- !u!1 &1396177747
 GameObject:
   m_ObjectHideFlags: 0
@@ -76465,7 +76492,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1613415900
 GameObject:
@@ -77290,7 +77317,7 @@ GameObject:
   - component: {fileID: 1652415046}
   - component: {fileID: 1652415045}
   - component: {fileID: 1652415044}
-  - component: {fileID: 1652415043}
+  - component: {fileID: 1652415048}
   m_Layer: 5
   m_Name: Setting Canvas (off)
   m_TagString: Untagged
@@ -77298,20 +77325,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!114 &1652415043
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1652415042}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d7785ddda28bae4f80417d0716e67e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sngCanvas: {fileID: 541314960}
-  mobileTouchScript: {fileID: 1129654346}
 --- !u!114 &1652415044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77388,13 +77401,32 @@ RectTransform:
   - {fileID: 1946961135}
   - {fileID: 1119780161}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1652415048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1652415042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f35dc1831e7c5d49ba4e04632441246, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sngCanvas: {fileID: 541314960}
+  mobileTouchScript: {fileID: 1129654346}
+  bgmToggle: {fileID: 1393269145}
+  sfxToggle: {fileID: 274424221}
+  vibeToggle: {fileID: 568308167}
+  selectedSprite: {fileID: 1339238368, guid: 5d93731179f4f9544a3bc8db557450c5, type: 3}
+  defaultSprite: {fileID: -1129490764, guid: 5d93731179f4f9544a3bc8db557450c5, type: 3}
 --- !u!1 &1658380175
 GameObject:
   m_ObjectHideFlags: 0
@@ -77723,7 +77755,7 @@ RectTransform:
   - {fileID: 1652211454}
   - {fileID: 1983257483}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -77999,7 +78031,7 @@ Transform:
   - {fileID: 2065120626}
   - {fileID: 1074253246}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1703660906
 GameObject:
@@ -78900,13 +78932,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 541314966}
+        m_TargetAssemblyTypeName: SNGButtonClick, Assembly-CSharp
+        m_MethodName: OptionButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -79046,7 +79078,7 @@ RectTransform:
   - {fileID: 640747105}
   - {fileID: 816130475}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -86913,7 +86945,7 @@ RectTransform:
   m_Children:
   - {fileID: 2562462740448155393}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -107448,8 +107480,9 @@ Transform:
   - {fileID: 1441698398}
   - {fileID: 327139174}
   - {fileID: 1575830984}
+  - {fileID: 42149718}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!156049354 &8137348598677709109
 Grid:
