@@ -636,7 +636,7 @@ RectTransform:
   m_GameObject: {fileID: 93872026}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1196351081}
@@ -644,7 +644,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 23.5}
+  m_AnchoredPosition: {x: 0, y: -7.2035}
   m_SizeDelta: {x: 1436.456, y: 75}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &433572742
@@ -677,7 +677,7 @@ MonoBehaviour:
       m_Calls: []
   m_Alignment: {x: 0.5, y: 0.5}
   m_Text: $$TEXDraw$$
-  m_Size: 8
+  m_Size: 32
   m_ScrollArea:
     serializedVersion: 2
     x: 0
@@ -900,7 +900,7 @@ MonoBehaviour:
       m_Calls: []
   m_Alignment: {x: 0.5, y: 0.5}
   m_Text: $$TEXDraw$$
-  m_Size: 4
+  m_Size: 32
   m_ScrollArea:
     serializedVersion: 2
     x: 0
@@ -2415,7 +2415,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0000076293945, y: 0.000015258789}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -0.000019073486, y: -0.0000076293945}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &914140854
@@ -3201,7 +3201,7 @@ RectTransform:
   m_GameObject: {fileID: 1075315035}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.125, y: 0.125, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2103103917}
@@ -3210,7 +3210,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 1.6000029}
-  m_SizeDelta: {x: -8, y: -8}
+  m_SizeDelta: {x: 225.96176, y: 48.92468}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1075315041
 CanvasRenderer:
@@ -3247,7 +3247,7 @@ RectTransform:
   m_GameObject: {fileID: 1078298404}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1196351081}
@@ -3288,7 +3288,7 @@ MonoBehaviour:
       m_Calls: []
   m_Alignment: {x: 0.5, y: 0.5}
   m_Text: $$TEXDraw$$
-  m_Size: 4
+  m_Size: 32
   m_ScrollArea:
     serializedVersion: 2
     x: 0
@@ -3339,7 +3339,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -30}
+  m_AnchoredPosition: {x: 0, y: -29.99997}
   m_SizeDelta: {x: -17.77673, y: -64.07157}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1195538694
@@ -3443,7 +3443,7 @@ MonoBehaviour:
       m_Calls: []
   m_Alignment: {x: 0.5, y: 0.5}
   m_Text: $$TEXDraw$$
-  m_Size: 4
+  m_Size: 32
   m_ScrollArea:
     serializedVersion: 2
     x: 0
@@ -3575,7 +3575,7 @@ MonoBehaviour:
       m_Calls: []
   m_Alignment: {x: 0.5, y: 0.5}
   m_Text: $$TEXDraw$$
-  m_Size: 8
+  m_Size: 32
   m_ScrollArea:
     serializedVersion: 2
     x: 0
@@ -3749,7 +3749,7 @@ RectTransform:
   m_GameObject: {fileID: 1460444351}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.125, y: 0.125, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 802785662}
@@ -3758,7 +3758,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 1.6000029}
-  m_SizeDelta: {x: -8, y: -8}
+  m_SizeDelta: {x: 254.61105, y: 55.89528}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1460444357
 CanvasRenderer:
@@ -3806,7 +3806,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -30.000002}
+  m_AnchoredPosition: {x: 0, y: -29.99997}
   m_SizeDelta: {x: -17.77673, y: -64.07158}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1502817462
@@ -5047,7 +5047,7 @@ RectTransform:
   m_GameObject: {fileID: 1890479195}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.125, y: 0.125, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1947650390}
@@ -5056,7 +5056,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 1.6000029}
-  m_SizeDelta: {x: -8, y: -8}
+  m_SizeDelta: {x: 251.63818, y: 55.17195}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1890479201
 CanvasRenderer:
@@ -5287,7 +5287,7 @@ MonoBehaviour:
       m_Calls: []
   m_Alignment: {x: 0.5, y: 0.5}
   m_Text: $$TEXDraw$$
-  m_Size: 4
+  m_Size: 32
   m_ScrollArea:
     serializedVersion: 2
     x: 0
@@ -5713,7 +5713,7 @@ RectTransform:
   m_GameObject: {fileID: 2086476511}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.125, y: 0.125, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 703510324}
@@ -5722,7 +5722,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 1.6000029}
-  m_SizeDelta: {x: -8, y: -8}
+  m_SizeDelta: {x: 228.66782, y: 49.58308}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2086476517
 CanvasRenderer:
