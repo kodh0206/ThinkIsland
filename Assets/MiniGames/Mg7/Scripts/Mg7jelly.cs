@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Mg7jelly : MonoBehaviour
 {
+
+    [SerializeField]
+    private NumberParticle numberParticlePrefab;
+
+
     private float jellySpeed = 5.0f;
 
     void Start()
@@ -23,6 +28,13 @@ public class Mg7jelly : MonoBehaviour
         {
             MiniGameManager.Instance.AddJelly(); //�����Դ� �κ�
             Mg7manager.instance.AddScore();
+            
+            int newScore =MiniGameManager.Instance.totalJelly;
+
+            // 파티클 시스템 인스턴스 생성
+            NumberParticle numberParticleInstance = Instantiate(numberParticlePrefab, transform.position, Quaternion.identity);
+            numberParticleInstance.DisplayNumber(newScore, transform.position);
+
             Destroy(gameObject);
         }
     }

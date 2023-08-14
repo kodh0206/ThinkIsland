@@ -7,6 +7,9 @@ public class Mg6jelly : MonoBehaviour
     [SerializeField]
     public float jellySpeed = 5.0f;
 
+    [SerializeField]
+    private NumberParticle numberParticlePrefab;
+
     public bool jellydirection = true;
 
     void Start()
@@ -32,8 +35,15 @@ public class Mg6jelly : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            //MiniGameManager.Instance.AddJelly();
+            MiniGameManager.Instance.AddJelly();
             Mg6manager.instance.AddScore();
+
+            int newScore =MiniGameManager.Instance.totalJelly;
+
+            // 파티클 시스템 인스턴스 생성
+            NumberParticle numberParticleInstance = Instantiate(numberParticlePrefab, transform.position, Quaternion.identity);
+            numberParticleInstance.DisplayNumber(newScore, transform.position);
+
             Destroy(gameObject);
         }
     }
