@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Mg19jelly : MonoBehaviour
 {
+
+    [SerializeField]
+    private NumberParticle numberParticlePrefab;
+
     public float jellySpeed = 2.0f;
 
 
@@ -23,6 +27,13 @@ public class Mg19jelly : MonoBehaviour
         {
             MiniGameManager.Instance.AddJelly();
             Mg19manager.instance.AddScore();
+
+            int newScore =MiniGameManager.Instance.totalJelly;
+
+            // 파티클 시스템 인스턴스 생성
+            NumberParticle numberParticleInstance = Instantiate(numberParticlePrefab, transform.position, Quaternion.identity);
+            numberParticleInstance.DisplayNumber(newScore, transform.position);
+            
             Destroy(gameObject);
         }
     }

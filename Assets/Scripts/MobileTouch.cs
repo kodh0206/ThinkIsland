@@ -23,6 +23,8 @@ public class MobileTouch : MonoBehaviour
     private float targetOrthoSize;
     float smoothFactor = 0.1f;
     public float maxDelta = 5f;
+    private Vector3 currentVelocity = Vector3.zero; // 추가
+    float smoothTime = 0.1f; // 움직임의 시간
     void Start()
     {  
         targetPosition = Camera.main.transform.position; // 초기값 설정
@@ -68,7 +70,52 @@ void Update()
         }
     }
 
+void TouchMove_Zoom()
+{
+    // 줌 (두 손가락) 처리 부분은 그대로 유지
+    if (Input.touchCount == 2)
+    {
+        Touch touchZero = Input.GetTouch(0);
+        Touch touchOne = Input.GetTouch(1);
 
+        Vector2 touchZeroPrevPos = touchZero.position - touchZero.deltaPosition;
+        Vector2 touchOnePrevPos = touchOne.position - touchOne.deltaPosition;
+
+        float prevTouchDeltaMag = (touchZeroPrevPos - touchOnePrevPos).magnitude;
+        float touchDeltaMag = (touchZero.position - touchOne.position).magnitude;
+
+        float deltaMagnitudeDiff = prevTouchDeltaMag - touchDeltaMag;
+
+        targetOrthoSize = Camera.main.orthographicSize + deltaMagnitudeDiff * scrollSpeed;
+        targetOrthoSize = Mathf.Clamp(targetOrthoSize, minOrthographicSize, maxOrthographicSize);
+    }
+    else if (Input.touchCount == 1) // 한 손가락 터치 처리
+    {
+        Touch touch = Input.GetTouch(0);
+
+        if (touch.phase == TouchPhase.Began)
+        {
+            prePos = touch.position;
+            isMoving = true;
+        }
+        else if (touch.phase == TouchPhase.Moved)
+        {
+            curPos = touch.position;
+            Vector3 deltaPosition = new Vector3(curPos.x - prePos.x, curPos.y - prePos.y, 0) * moveSpeed * Time.deltaTime;
+            Camera.main.transform.position -= deltaPosition;
+
+            prePos = touch.position;
+            moveVelocity = deltaPosition / Time.deltaTime;
+        }
+        else if (touch.phase == TouchPhase.Ended)
+        {
+            isMoving = false;
+        }
+    }
+
+    // 줌 처리 부분은 그대로 유지
+    Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, targetOrthoSize, Time.deltaTime * 5f);
+}
 
     void MouseMove_Zoom()
     {
@@ -93,55 +140,5 @@ void Update()
         // Scroll handling code is omitted for brevity
     }
 
-void TouchMove_Zoom()
-    {
-    if (Input.touchCount == 2)
-    {
-        Touch touchZero = Input.GetTouch(0);
-        Touch touchOne = Input.GetTouch(1);
-
-        Vector2 touchZeroPrevPos = touchZero.position - touchZero.deltaPosition;
-        Vector2 touchOnePrevPos = touchOne.position - touchOne.deltaPosition;
-
-        float prevTouchDeltaMag = (touchZeroPrevPos - touchOnePrevPos).magnitude;
-        float touchDeltaMag = (touchZero.position - touchOne.position).magnitude;
-
-        float deltaMagnitudeDiff = prevTouchDeltaMag - touchDeltaMag;
-
-        targetOrthoSize = Camera.main.orthographicSize + deltaMagnitudeDiff * scrollSpeed;
-        targetOrthoSize = Mathf.Clamp(targetOrthoSize, minOrthographicSize, maxOrthographicSize);
-    }
-    else if (Input.touchCount == 1) // else if를 사용하여 한 손가락 터치와 두 손가락 터치를 동시에 인식하지 않도록 합니다.
-    {
-        Touch touch = Input.GetTouch(0);
-
-        if (touch.phase == TouchPhase.Began)
-        {
-            prePos = touch.position;
-            isMoving = true;
-        }
-        else if (touch.phase == TouchPhase.Moved)
-        {
-        Vector3 deltaPosition = new Vector3(touch.deltaPosition.x, touch.deltaPosition.y, 0) * moveSpeed * Time.deltaTime;
-    
-        // 입력 필터링 적용
-        deltaPosition = Vector3.ClampMagnitude(deltaPosition, maxDelta);
-        // targetPosition 업데이트
-        targetPosition = Camera.main.transform.position - deltaPosition; 
-
-        Camera.main.transform.position = Vector3.Lerp(Camera.main.transform.position, targetPosition, smoothFactor);
-
-        prePos = touch.position;
-        moveVelocity = deltaPosition / Time.deltaTime;
-        }
-        else if (touch.phase == TouchPhase.Ended)
-        {
-            isMoving = false;
-        }
-    }
-
-    // 부드러운 줌 효과를 위한 코드
-    Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, targetOrthoSize, Time.deltaTime * 5f);
-}
 
 }
