@@ -86,4 +86,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameScene/Roulette.unity
     guid: 03e785584d3073842b1424c98dd550d3
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: aceb417d8eb5085449bdb8b86355b21a,
+      type: 2}
+    com.unity.localization.settings: {fileID: 11400000, guid: 7e344198344aca547a5b1d0ffed6b670,
+      type: 2}
