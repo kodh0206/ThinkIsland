@@ -31,49 +31,38 @@ public class SettingsButtonClick : MonoBehaviour
     }
     
     public void OnBGMToggleChanged(bool isOn)
-{   
-      Debug.Log("BGM Toggle value changed to: " + isOn);
-      UpdateToggleImage(bgmToggle, isOn);
+{     Debug.Log("BGM Toggle value changed to: " + isOn);
+    UpdateToggleImage(bgmToggle, isOn);
 
     if (isOn)
     {   
-        Debug.Log("BGM꺼짐 ");
-        // 배경음 켜기
-        //PlayBGM();
-        //PlayerPrefs.SetInt("BGM", 1);
+        Debug.Log("BGM 꺼짐");
+        AudioManager.Instance.isBGMOn = false;
+        PlayerPrefs.SetInt("BGM", 0);
     }
     else
-    {   
-        Debug.Log("BGM켜짐 ");
-        // 배경음 끄기
-        //StopBGM();
-        //PlayerPrefs.SetInt("BGM", 0);
+    {
+        Debug.Log("BGM 켜짐");
+        AudioManager.Instance.isBGMOn = true;
+        PlayerPrefs.SetInt("BGM", 1);
     }
+
+    // BGM 상태에 따라서 재생/정지 처리를 합니다.
+    if (AudioManager.Instance.isBGMOn)
+        AudioManager.Instance.PlayBGM();
+    else
+        AudioManager.Instance.StopBGM();
 }
+
 
     public void OnSFXToggleChanged(bool isOn)
     {
 
-  Debug.Log("SFX Toggle value changed to: " + isOn);
-    // 효과음의 상태에 따라 설정값을 변경하며,
-    // 필요한 경우 효과음을 위한 별도의 오디오 제어 로직을 추가합니다.
-    UpdateToggleImage(sfxToggle, isOn);
-
     
-     if (isOn)
-    {   
-        Debug.Log("효과음꺼짐 ");
-        // 배경음 켜기
-        //PlayBGM();
-        //PlayerPrefs.SetInt("BGM", 1);
-    }
-    else
-    {   
-        Debug.Log("효과음 켜짐 ");
-        // 배경음 끄기
-        //StopBGM();
-        //PlayerPrefs.SetInt("BGM", 0);
-    }
+         Debug.Log("SFX Toggle value changed to: " + isOn);
+        UpdateToggleImage(sfxToggle, isOn);
+
+        AudioManager.Instance.isSFXOn = !isOn; 
     }
     public void SettingCloseButtonClick()
     {

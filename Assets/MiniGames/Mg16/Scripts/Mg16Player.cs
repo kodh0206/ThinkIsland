@@ -104,8 +104,10 @@ public class Mg16Player : MonoBehaviour
 
         ShakeCamera();
 
-        audioSource.PlayOneShot(electricity);
-        
+        if(AudioManager.Instance.isSFXOn)
+        {
+            audioSource.PlayOneShot(electricity);
+        }
         StartCoroutine(DisableControlAndResetColor());
     }
 

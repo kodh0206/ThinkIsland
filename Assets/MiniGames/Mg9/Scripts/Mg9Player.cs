@@ -145,8 +145,10 @@ public class Mg9Player : MonoBehaviour
 
     private void Jump()
     {
-        
-        audioSource.PlayOneShot(jump);
+        if(AudioManager.Instance.isSFXOn)
+        {
+            audioSource.PlayOneShot(jump);
+        }
         rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         
     }

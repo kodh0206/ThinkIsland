@@ -122,7 +122,10 @@ public class Mg14Player : MonoBehaviour
         {   
             float jumpForceX = jumpForce * Mathf.Cos(Mathf.PI / 6); 
             float jumpForceY = jumpForce * Mathf.Sin(Mathf.PI / 6); 
+            if(AudioManager.Instance.isSFXOn)
+            {
             audioSource.PlayOneShot(monkeyjump);
+            }
             rb.AddForce(new Vector2(jumpForceX, jumpForceY), ForceMode2D.Impulse);
             isJumping = true;
         }
@@ -134,7 +137,10 @@ public class Mg14Player : MonoBehaviour
         {
             float jumpForceX = jumpForce * Mathf.Cos(Mathf.PI / 10);
             float jumpForceY = jumpForce * Mathf.Sin(Mathf.PI / 10);
+            if(AudioManager.Instance.isSFXOn)
+            {
             audioSource.PlayOneShot(monkeyjump);
+            }
             rb.AddForce(new Vector2(-jumpForceX, jumpForceY), ForceMode2D.Impulse);
             isJumping = true;
         }
@@ -180,7 +186,10 @@ public class Mg14Player : MonoBehaviour
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         rb.velocity = Vector2.zero;
         rb.gravityScale = 0.01f;
+        if(AudioManager.Instance.isSFXOn)
+        {
         audioSource.PlayOneShot(monkeyfall);
+        }
         isJumping = true;
         canJump = false;
 

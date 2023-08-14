@@ -43,8 +43,10 @@ public class Mg16FishSpawner : MonoBehaviour
     {
         time += Time.deltaTime;
         if (time > time_diff)
-        {
-            mg16Battery.audioSource.PlayOneShot(mg16Battery.electricity);
+        {   if(AudioManager.Instance.isSFXOn)
+                {
+                    mg16Battery.audioSource.PlayOneShot(mg16Battery.electricity);
+                }
             // 전기 활성화 함수
             mg16Battery.ElectricitySetActiveTrue();
 

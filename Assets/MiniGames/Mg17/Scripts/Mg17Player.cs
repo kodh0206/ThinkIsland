@@ -81,8 +81,11 @@ public class Mg17Player : MonoBehaviour
         {
             shootTimer += Time.deltaTime;
             if (shootTimer >= shootInterval)
-            {
-                audioSource.PlayOneShot(shooting);
+            {   
+                if(AudioManager.Instance.isSFXOn)
+                {
+                    audioSource.PlayOneShot(shooting);
+                }
                 shootTimer = 0;
             }
         }

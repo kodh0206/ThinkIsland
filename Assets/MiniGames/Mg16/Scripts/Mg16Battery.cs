@@ -58,8 +58,11 @@ public class Mg16Battery : MonoBehaviour
 
 
               if (!hasPlayedSplashSound)
-            {
+            {   
+                if(AudioManager.Instance.isSFXOn)
+                {
                 audioSource.PlayOneShot(spalash);
+                }
                 hasPlayedSplashSound = true;
             }
         }
@@ -76,7 +79,11 @@ public class Mg16Battery : MonoBehaviour
     }
 
     private void ReverseMovement()
-    {   audioSource.PlayOneShot(dump);
+    {   
+        if(AudioManager.Instance.isSFXOn)
+        {
+        audioSource.PlayOneShot(dump);
+        }
         transform.DOMoveY(stopY, moveDuration).SetEase(Ease.Linear);
        
     }
