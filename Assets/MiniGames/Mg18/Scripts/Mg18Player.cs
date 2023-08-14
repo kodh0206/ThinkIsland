@@ -76,7 +76,7 @@ public class Mg18Player : MonoBehaviour
         if (!(isHit) && transform.position.y <= 1.5f )
         {   
              audioSource.clip = splashSound;
-            if (!audioSource.isPlaying)
+            if (!audioSource.isPlaying &&AudioManager.Instance.isSFXOn)
             {
                 audioSource.Play();
             }
@@ -91,7 +91,7 @@ public class Mg18Player : MonoBehaviour
         if (!(nowJumping))
         {
             
-            if (!audioSource.isPlaying)
+            if (!audioSource.isPlaying &&AudioManager.Instance.isSFXOn)
             {
                 audioSource.Play();
             }
@@ -107,7 +107,7 @@ public class Mg18Player : MonoBehaviour
         {   
 
             audioSource.clip = jumpSound;
-            if (!audioSource.isPlaying)
+            if (!audioSource.isPlaying &&AudioManager.Instance.isSFXOn)
             {
                 audioSource.Play();
             }

@@ -150,12 +150,24 @@ public class Mg6Player : MonoBehaviour
         anim.SetBool("isJumping", true);
 
     if (currentJumpForce > maxJumpForce / 2)
-    {
+    {   
+        if(AudioManager.Instance.isSFXOn){
         audioSource.PlayOneShot(longJumpSound);
+        }
+        else
+        {
+            Debug.Log("SFX off");
+        }
     }
     else
     {
+        if(AudioManager.Instance.isSFXOn){
         audioSource.PlayOneShot(shortJumpSound);
+        }
+        else
+        {
+            Debug.Log("SFX off");
+        }
     }
     }
 

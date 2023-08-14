@@ -89,7 +89,7 @@ public class Mg13Player : MonoBehaviour
         
         transform.Translate(Vector2.up * moveSpeed * Time.deltaTime);
 
-        if (enabled && !audioSource.isPlaying)
+        if (enabled && !audioSource.isPlaying&& AudioManager.Instance.isSFXOn)
         {
             audioSource.clip = swimming;
             audioSource.loop = true;
@@ -152,7 +152,7 @@ public class Mg13Player : MonoBehaviour
 
 
 
-        if (!audioSource.isPlaying)
+        if (!audioSource.isPlaying &&AudioManager.Instance.isSFXOn)
         {
             audioSource.loop = true;
             audioSource.clip = swimming;

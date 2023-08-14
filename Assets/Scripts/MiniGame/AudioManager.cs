@@ -32,6 +32,8 @@ public class AudioManager : MonoBehaviour
 
     public AudioClip miniGameExchange;
 
+    public bool isBGMOn = true; // 기본적으로 BGM 켜짐
+    public bool isSFXOn = true; // 기본적으로 SFX 켜짐
     private void Awake()
     {
     if (_instance != null && _instance != this)
@@ -39,11 +41,14 @@ public class AudioManager : MonoBehaviour
         Destroy(gameObject);
         return;
     }
+        if (PlayerPrefs.HasKey("BGM"))
+            isBGMOn = PlayerPrefs.GetInt("BGM") == 1 ? true : false;
 
+        if (PlayerPrefs.HasKey("SFX"))
+            isSFXOn = PlayerPrefs.GetInt("SFX") == 1 ? true : false;
         _instance = this;
         audioSource = GetComponent<AudioSource>();
-        //StartMainBgm();
-        //Debug.Log("메인 배경음 실행");
+
         DontDestroyOnLoad(gameObject); 
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
@@ -78,99 +83,153 @@ public class AudioManager : MonoBehaviour
 
     private void StartAudio()
     {
-    audioSource = GetComponent<AudioSource>();
-    audioSource.clip = MainBgm;
-    audioSource.Play();
+        if(isBGMOn)
+        {
+        audioSource = GetComponent<AudioSource>();
+        audioSource.clip = MainBgm;
+        audioSource.Play();
+        }
     }
 
     private void StopMainBgm()
-    {
-        audioSource.Stop();
+    {   if (audioSource.isPlaying)
+            audioSource.Stop();
     }
 
     private void StartMainBgm()
-    {
+    {     if(isBGMOn)
+        {
+
         audioSource.clip = MainBgm;
         audioSource.Play();
+        }
     }
 
     public void PlayRandomBgm()
     {
-    int randomIndex = Random.Range(0, bgmClips.Count);
-    AudioClip clip = bgmClips[randomIndex];
-    audioSource.clip = clip;
-    audioSource.Play();
+        if(isBGMOn)
+        {
+        int randomIndex = Random.Range(0, bgmClips.Count);
+        AudioClip clip = bgmClips[randomIndex];
+        audioSource.clip = clip;
+        audioSource.Play();
+
+        }
     }
 
     public void PlayJelly()
-    {   
-        audioSource.volume =0.5f;
-        audioSource.PlayOneShot(jellySoundEffect);
-        audioSource.volume =1.0f;
+    {
+        if (isSFXOn)
+        {
+            audioSource.volume = 0.5f;
+            audioSource.PlayOneShot(jellySoundEffect);
+            audioSource.volume = 1.0f;
+        }
     }
 
     public void startMiniGame()
     {
-        audioSource.PlayOneShot(minigamebegin);
-    }
-    public void PlayPoop()
-    {
-        audioSource.PlayOneShot(poop);
+        if (isSFXOn)
+        {
+            audioSource.PlayOneShot(minigamebegin);
+        }
     }
 
-    public void PlayCow() 
+    public void PlayPoop()
     {
-        audioSource.PlayOneShot(cow);
+        if (isSFXOn)
+        {
+            audioSource.PlayOneShot(poop);
+        }
+    }
+
+    public void PlayCow()
+    {
+        if (isSFXOn)
+        {
+            audioSource.PlayOneShot(cow);
+        }
     }
 
     public void GoalKeep()
     {
-        audioSource.PlayOneShot(goalKeep);
+        if (isSFXOn)
+        {
+            audioSource.PlayOneShot(goalKeep);
+        }
     }
+
     public void Goal()
     {
-        audioSource.PlayOneShot(goal);
+        if (isSFXOn)
+        {
+            audioSource.PlayOneShot(goal);
+        }
     }
+
     public void Spider()
     {
-        audioSource.PlayOneShot(spider);
+        if (isSFXOn)
+        {
+            audioSource.PlayOneShot(spider);
+        }
     }
 
     public void Rock()
     {
-        audioSource.PlayOneShot(rock);
+        if (isSFXOn)
+        {
+            audioSource.PlayOneShot(rock);
+        }
     }
-    //MG13 14
+
     public void Rock2()
     {
-        audioSource.PlayOneShot(rock1);
+        if (isSFXOn)
+        {
+            audioSource.PlayOneShot(rock1);
+        }
     }
 
     public void ShellBreak()
     {
-        audioSource.PlayOneShot(shellBreak);
+        if (isSFXOn)
+        {
+            audioSource.PlayOneShot(shellBreak);
+        }
     }
 
     public void ObstacleFly()
     {
-        audioSource.PlayOneShot(obstacleFly);
+        if (isSFXOn)
+        {
+            audioSource.PlayOneShot(obstacleFly);
+        }
     }
 
     public void CapsuleBreak()
     {
-        audioSource.PlayOneShot(capsulebreak);
+        if (isSFXOn)
+        {
+            audioSource.PlayOneShot(capsulebreak);
+        }
     }
 
     public void BreakPlatform()
     {
-        audioSource.PlayOneShot(breakPlatform);
+        if (isSFXOn)
+        {
+            audioSource.PlayOneShot(breakPlatform);
+        }
     }
 
     public void StartMiniGame()
     {
-        audioSource.PlayOneShot(minigamebegin);
+        if (isSFXOn)
+        {
+            audioSource.PlayOneShot(minigamebegin);
+        }
     }
-
      public void PlayMiniGameAudio()
     {
         audioSource.PlayOneShot(minigamebegin);
@@ -178,18 +237,23 @@ public class AudioManager : MonoBehaviour
     }
 
     public void PlayEggBreak()
-    {
+    {   
+        if(isSFXOn){
         audioSource.PlayOneShot(eggBreak);
+        }
     }
 
     public void PlayBeehive()
-    {
+    {   if(isSFXOn){
         audioSource.PlayOneShot(beeHive);
+        }
     }
 
     public void MiniGameExchange()
-    {
+    {   if(isSFXOn)
+        {
         audioSource.PlayOneShot(miniGameExchange);
+        }
     }
 
     private IEnumerator StartMiniGameDelayed()

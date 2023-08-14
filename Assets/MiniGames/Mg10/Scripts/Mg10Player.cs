@@ -65,7 +65,14 @@ public class Mg10Player : MonoBehaviour
     }
 
     private void Update()
-    {
+    {   bool isSFXOn = AudioManager.Instance.isSFXOn;
+
+    // 만약 isSFXOn이 false이면 모든 오디오를 멈춤
+        if (!isSFXOn && audioSource.isPlaying)
+        {
+            audioSource.Stop();
+            return; // 추가적인 오디오 재생 명령을 건너뜀
+        }
         
         if (!isInputEnabled)
         {
@@ -129,11 +136,8 @@ public class Mg10Player : MonoBehaviour
 
         Destroy(HitEff);
         enabled = true;
-
         
         
-
-       
     }
 
     IEnumerator ChangeSpriteWithDelay(Sprite[] sprites, float delay , int direc)

@@ -91,7 +91,7 @@ public class Mg12Player : MonoBehaviour
 
     if (moveUp || moveDown)
     {
-        if (!audioSource.isPlaying)
+        if (!audioSource.isPlaying&&AudioManager.Instance.isSFXOn)
         {
             audioSource.loop = true;
             audioSource.clip = swimming;
@@ -110,8 +110,11 @@ public class Mg12Player : MonoBehaviour
 
         // Check if it's time to play the sound.
         if (throwTimer >= 1f)
-        {
+        {   
+            if(AudioManager.Instance.isSFXOn)
+            {
             audioSource.PlayOneShot(throwing); // Play throwing sound.
+            }
             throwTimer = 0f; // Reset timer.
         }
 
@@ -165,7 +168,7 @@ public class Mg12Player : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
 
-        if (!audioSource.isPlaying)
+        if (!audioSource.isPlaying &&AudioManager.Instance.isSFXOn)
         {
             audioSource.loop = true;
             audioSource.clip = swimming;

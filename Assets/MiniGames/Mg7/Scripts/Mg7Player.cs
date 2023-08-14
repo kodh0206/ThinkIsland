@@ -96,7 +96,10 @@ public class Mg7Player : MonoBehaviour
 
     void JumpWithAngle(float angle)
     {   
-        audioSource.PlayOneShot(jump);
+        if(AudioManager.Instance.isSFXOn)
+        {
+            audioSource.PlayOneShot(jump);
+        }
         float radian = angle * Mathf.Deg2Rad;
         Vector2 jumpDirection = new Vector2(Mathf.Cos(radian), Mathf.Sin(radian));
         rigidbody2D.velocity = jumpDirection * jumpPower;
@@ -115,7 +118,7 @@ public class Mg7Player : MonoBehaviour
     }
     void StartMakeTeer()
     {
-        if (makeTeerCoroutine == null) // ½ÇÇà ÁßÀÎ ÄÚ·çÆ¾ÀÌ ¾ø´Â °æ¿ì¿¡¸¸ ½ÇÇà
+        if (makeTeerCoroutine == null) // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ú·ï¿½Æ¾ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ì¿¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         {
             makeTeerCoroutine = StartCoroutine(MakeTeer());
         }
@@ -126,7 +129,7 @@ public class Mg7Player : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         SetTeerEffVisibility(currentEffect, false);
 
-        makeTeerCoroutine = null; // ÄÚ·çÆ¾ÀÌ Á¾·áµÇ¾úÀ½À» Ç¥½Ã
+        makeTeerCoroutine = null; // ï¿½Ú·ï¿½Æ¾ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½
     }
     private void SetTeerEffVisibility(GameObject TeerEffect, bool isVisible)
     {
