@@ -34,7 +34,7 @@ public class WJ_Sample_Class : MonoBehaviour
     [Header("For Debug")]
     [SerializeField] WJ_DisplayText     wj_displayText;         //�ؽ�Ʈ ǥ�ÿ�(�ʼ�X)
     [SerializeField] Button             getLearningButton;      //���� �޾ƿ��� ��ư
-
+    [SerializeField] GameObject resultPanel;
     private void Awake()
     {
         textAnsr = new TEXDraw[btAnsr.Length];
@@ -221,7 +221,8 @@ public class WJ_Sample_Class : MonoBehaviour
                 if (currentQuestionIndex >= 8) 
                 {
                     panel_question.SetActive(false);
-                    wj_displayText.SetState("����Ǯ�� �Ϸ�", "", "", "");
+                    resultPanel.SetActive(true);
+                    //wj_displayText.SetState("����Ǯ�� �Ϸ�", "", "", "");
                     getLearningButton.interactable = true;
                 }
                 else GetLearning(currentQuestionIndex);
@@ -233,7 +234,7 @@ public class WJ_Sample_Class : MonoBehaviour
         }
         
     }
-    void GoBackToMainMenu()
+    public void GoBackToMainMenu()
     {
         SceneManager.LoadScene("BetaScene");
     }
@@ -252,7 +253,8 @@ public class WJ_Sample_Class : MonoBehaviour
         //Level.text ="LV"+a.ToString();
     }
     public void ButtonEvent_GetLearning()
-    {
+    {   resultPanel.SetActive(false);
+        panel_question.SetActive(true);
         wj_conn.Learning_GetQuestion();
         wj_displayText.SetState("문제받기~", "-", "-", "-");
     }
