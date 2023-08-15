@@ -516,7 +516,8 @@ MonoBehaviour:
   quitButton: {fileID: 1505168165527024074}
   solving: {fileID: 0}
   wj_displayText: {fileID: 0}
-  getLearningButton: {fileID: 0}
+  getLearningButton: {fileID: 2013001154}
+  resultPanel: {fileID: 773534265}
 --- !u!1 &185810921
 GameObject:
   m_ObjectHideFlags: 0
@@ -1443,7 +1444,7 @@ MonoBehaviour:
       m_Calls: []
   m_Alignment: {x: 0.5, y: 0.5}
   m_Text: $$TEXDraw$$
-  m_Size: 32
+  m_Size: 64
   m_ScrollArea:
     serializedVersion: 2
     x: 0
@@ -2012,9 +2013,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 120942931}
-        m_TargetAssemblyTypeName: WJ_Sample, Assembly-CSharp
-        m_MethodName: 
+      - m_Target: {fileID: 120942933}
+        m_TargetAssemblyTypeName: WJ_Sample_Class, Assembly-CSharp
+        m_MethodName: SelectAnswer
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2933,9 +2934,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 120942931}
-        m_TargetAssemblyTypeName: WJ_Sample, Assembly-CSharp
-        m_MethodName: 
+      - m_Target: {fileID: 120942933}
+        m_TargetAssemblyTypeName: WJ_Sample_Class, Assembly-CSharp
+        m_MethodName: SelectAnswer
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2963,7 +2964,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &773534266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3252,9 +3253,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 120942931}
-        m_TargetAssemblyTypeName: WJ_Sample, Assembly-CSharp
-        m_MethodName: 
+      - m_Target: {fileID: 120942933}
+        m_TargetAssemblyTypeName: WJ_Sample_Class, Assembly-CSharp
+        m_MethodName: SelectAnswer
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4544,7 +4545,7 @@ MonoBehaviour:
     m_FontSize: 4
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 3
+    m_MinSize: 0
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -4739,7 +4740,7 @@ MonoBehaviour:
       m_Calls: []
   m_Alignment: {x: 0.5, y: 0.5}
   m_Text: $$TEXDraw$$
-  m_Size: 32
+  m_Size: 64
   m_ScrollArea:
     serializedVersion: 2
     x: 0
@@ -4835,7 +4836,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1161901712}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 120942933}
+        m_TargetAssemblyTypeName: WJ_Sample_Class, Assembly-CSharp
+        m_MethodName: GoBackToMainMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1161901712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5274,7 +5287,7 @@ MonoBehaviour:
       m_Calls: []
   m_Alignment: {x: 0.5, y: 0.5}
   m_Text: $$TEXDraw$$
-  m_Size: 32
+  m_Size: 64
   m_ScrollArea:
     serializedVersion: 2
     x: 0
@@ -5331,9 +5344,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 120942931}
-        m_TargetAssemblyTypeName: WJ_Sample, Assembly-CSharp
-        m_MethodName: 
+      - m_Target: {fileID: 120942933}
+        m_TargetAssemblyTypeName: WJ_Sample_Class, Assembly-CSharp
+        m_MethodName: SelectAnswer
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5644,7 +5657,7 @@ MonoBehaviour:
       m_Calls: []
   m_Alignment: {x: 0.5, y: 0.5}
   m_Text: $$TEXDraw$$
-  m_Size: 32
+  m_Size: 64
   m_ScrollArea:
     serializedVersion: 2
     x: 0
@@ -7622,7 +7635,7 @@ MonoBehaviour:
       m_Calls: []
   m_Alignment: {x: 0.5, y: 0.5}
   m_Text: $$TEXDraw$$
-  m_Size: 32
+  m_Size: 64
   m_ScrollArea:
     serializedVersion: 2
     x: 0
@@ -7796,9 +7809,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UISpriteAnimation, Assembly-CSharp
-        m_MethodName: Func_PlayUIAnim
+      - m_Target: {fileID: 120942933}
+        m_TargetAssemblyTypeName: WJ_Sample_Class, Assembly-CSharp
+        m_MethodName: ButtonEvent_GetLearning
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
