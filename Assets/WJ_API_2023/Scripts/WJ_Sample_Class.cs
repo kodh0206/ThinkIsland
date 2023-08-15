@@ -5,7 +5,9 @@ using UnityEngine.UI;
 using WjChallenge;
 using TexDrawLib;
 using UnityEngine.SceneManagement;
-
+using TMPro;
+using System;
+using Random = UnityEngine.Random;
 
 public class WJ_Sample_Class : MonoBehaviour
 {
@@ -15,28 +17,36 @@ public class WJ_Sample_Class : MonoBehaviour
 
     [Header("Panels")]
     [SerializeField] GameObject AnimationPanel;
-    [SerializeField] GameObject         panel_diag_chooseDiff;  //���̵� ���� �г�
+    [SerializeField] GameObject panel_diag_chooseDiff;  //���̵� ���� �г�
     [SerializeField] GameObject         panel_question;         //���� �г�(����,�н�)
     [SerializeField] GameObject RadioPanel;
 
     [SerializeField] TEXDraw   textDescription;        //���� ���� �ؽ�Ʈ
     [SerializeField] TEXDraw   textEquation;           //���� �ؽ�Ʈ(��TextDraw�� ���� �ʿ�)
-    [SerializeField] Button[]      btAnsr = new Button[4]; //���� ��ư��
+    [SerializeField] Button[]   btAnsr = new Button[4]; //���� ��ư��
     [SerializeField] Button quitButton; //홈메뉴 가는 버튼 
     [SerializeField] Button solving;
     TEXDraw[] textAnsr;                  //���� ��ư�� �ؽ�Ʈ(��TextDraw�� ���� �ʿ�)
-
+    [SerializeField] TextMeshProUGUI goldText;
+    [SerializeField] TextMeshProUGUI energyText;
     [Header("Status")]
     int     currentQuestionIndex;
     bool    isSolvingQuestion;
     float   questionSolveTime;
     int currentLevel;
+    int rightanswers; //맞춘 레밸 
+    int energy; //획득한 에너지
+    int gold; // 획득한 골드 
+
     [Header("For Debug")]
     [SerializeField] WJ_DisplayText     wj_displayText;         //�ؽ�Ʈ ǥ�ÿ�(�ʼ�X)
     [SerializeField] Button             getLearningButton;      //���� �޾ƿ��� ��ư
-    [SerializeField] GameObject resultPanel;
+    [SerializeField] GameObject         resultPanel;
+    [SerializeField] GameObject         diagnosisPanel;
+
+    //(20+ 맞춘갯수*(에너지총량-20)/8)
     private void Awake()
-    {
+    {   
         textAnsr = new TEXDraw[btAnsr.Length];
         for (int i = 0; i < btAnsr.Length; ++i)
 
@@ -54,7 +64,7 @@ public class WJ_Sample_Class : MonoBehaviour
         }
 
         quitButton.onClick.AddListener(GoBackToMainMenu);
-       
+       Setup();
     }
 
     private void OnEnable()
@@ -106,19 +116,22 @@ public class WJ_Sample_Class : MonoBehaviour
                             wj_conn.cDiagnotics.data.qstCn, 
                             wj_conn.cDiagnotics.data.qstCransr, 
                             wj_conn.cDiagnotics.data.qstWransr);
-                wj_displayText.SetState("진단평가중", "", "", "");
+                //wj_displayText.SetState("진단평가중", "", "", "");
 
                 
                 break;
             case "E":
                 Debug.Log("진단평가 완료! �н� �ܰ�� �Ѿ�ϴ�.");
-                wj_displayText.SetState("", "", "", "");
+                //wj_displayText.SetState("", "", "", "");
                 currentStatus = CurrentStatus.LEARNING;
                 Debug.Log("진단 통과여부"+wj_conn.cDiagnotics.data.prgsCd);
                 Debug.Log("진단후 token?"+wj_conn.strAuthorization);
                 PlayerPrefs.SetString("strAuthorization", wj_conn.strAuthorization);
                 PlayerPrefs.Save();
-                getLearningButton.interactable = true;
+                diagnosisPanel.SetActive(true);
+                GameController.Instance.currentActionPoints+=20;
+                GameController.Instance.curentgold+=100;
+                //getLearningButton.interactable = true;
                 break;
         }
     }
@@ -193,11 +206,24 @@ public class WJ_Sample_Class : MonoBehaviour
                 isCorrect   = textAnsr[_idx].text.CompareTo(wj_conn.cDiagnotics.data.qstCransr) == 0 ? true : false;
                 ansrCwYn    = isCorrect ? "Y" : "N";
 
+                if(isCorrect) 
+                    {
+                        // 정답일 때의 로직
+                        Debug.Log("정답입니다!"); 
+                        // 여기에 원하는 로직 추가 애니메이션 사운드 효과
+                    }
+                else 
+                    {
+                        // 오답일 때의 로직
+                        Debug.Log("틀렸습니다!");
+                        // 여기에 원하는 로직 추가
+                    }
+
                 isSolvingQuestion = false;
 
                 wj_conn.Diagnosis_SelectAnswer(textAnsr[_idx].text, ansrCwYn, (int)(questionSolveTime * 1000));
 
-                wj_displayText.SetState("Time", textAnsr[_idx].text, ansrCwYn, questionSolveTime + " ��");
+                //wj_displayText.SetState("Time", textAnsr[_idx].text, ansrCwYn, questionSolveTime + " ��");
 
                 panel_question.SetActive(false);
                 questionSolveTime = 0;
@@ -210,6 +236,19 @@ public class WJ_Sample_Class : MonoBehaviour
                 Debug.Log("답 누르는중");
                 isCorrect   = textAnsr[_idx].text.CompareTo(wj_conn.cLearnSet.data.qsts[currentQuestionIndex].qstCransr) == 0 ? true : false;
                 ansrCwYn    = isCorrect ? "Y" : "N";
+                if(isCorrect) 
+                    {
+                        // 정답일 때의 로직
+                        Debug.Log("정답입니다!"); 
+                        rightanswers+=1;
+                        // 여기에 원하는 로직 추가 애니메이션 사운드 효과
+                    }
+                else 
+                    {
+                        // 오답일 때의 로직
+                        Debug.Log("틀렸습니다!");
+                        // 여기에 원하는 로직 추가
+                    }
 
                 isSolvingQuestion = false;
                 currentQuestionIndex++;
@@ -219,8 +258,15 @@ public class WJ_Sample_Class : MonoBehaviour
                 //wj_displayText.SetState("����Ǯ�� ��", textAnsr[_idx].text, ansrCwYn, questionSolveTime + " ��");
 
                 if (currentQuestionIndex >= 8) 
-                {
-                    panel_question.SetActive(false);
+                {   
+                    energy = 20+ 20 + rightanswers * (100- 20) / 8; //(GameController.Instance.maximumActionPoints- 20) / 8;
+                    gold = 200+ (rightanswers*10);
+                    energyText.text =energy.ToString();
+                    goldText.text = gold.ToString();
+                    
+                    int energyToAdd = Math.Min(energy, 100 - GameController.Instance.currentActionPoints);
+                    GameController.Instance.currentActionPoints += energyToAdd;
+                    GameController.Instance.AddGold(gold);
                     resultPanel.SetActive(true);
                     //wj_displayText.SetState("����Ǯ�� �Ϸ�", "", "", "");
                     getLearningButton.interactable = true;
@@ -253,10 +299,12 @@ public class WJ_Sample_Class : MonoBehaviour
         //Level.text ="LV"+a.ToString();
     }
     public void ButtonEvent_GetLearning()
-    {   resultPanel.SetActive(false);
+    {   rightanswers =0;
+        gold =0;
+        resultPanel.SetActive(false);
         panel_question.SetActive(true);
         wj_conn.Learning_GetQuestion();
-        wj_displayText.SetState("문제받기~", "-", "-", "-");
+        //wj_displayText.SetState("문제받기~", "-", "-", "-");
     }
 
     public void SetUpOn()

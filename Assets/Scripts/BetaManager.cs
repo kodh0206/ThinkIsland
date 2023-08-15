@@ -227,7 +227,10 @@ public class BetaManager : MonoBehaviour
     }
 
 
-
+    public void LoadClassScene()
+    {
+        SceneManager.LoadScene("ClassScene");
+    }
     void ExitGame()
     {
         Application.Quit();

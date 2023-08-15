@@ -17,7 +17,8 @@ public class GameController : MonoBehaviour
     public List<CropData> CropList = new List<CropData>();
     public int currentjellyCount;
     public int curentgold;
-    public int currentActionPoints;
+    public int currentActionPoints; // 에너지 
+    public int maximumActionPoints; //최대에너지 
     public int level=1;
     public int[] expToLevelUp = {
        /* 5, 37, 60, 78, 92,104,115,124,133,140, //1~10
