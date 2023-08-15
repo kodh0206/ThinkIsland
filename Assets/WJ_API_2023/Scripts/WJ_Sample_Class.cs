@@ -216,7 +216,7 @@ public class WJ_Sample_Class : MonoBehaviour
 
                 wj_conn.Learning_SelectAnswer(currentQuestionIndex, textAnsr[_idx].text, ansrCwYn, (int)(questionSolveTime * 1000));
 
-                wj_displayText.SetState("����Ǯ�� ��", textAnsr[_idx].text, ansrCwYn, questionSolveTime + " ��");
+                //wj_displayText.SetState("����Ǯ�� ��", textAnsr[_idx].text, ansrCwYn, questionSolveTime + " ��");
 
                 if (currentQuestionIndex >= 8) 
                 {
