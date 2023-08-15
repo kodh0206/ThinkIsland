@@ -25,6 +25,10 @@ public class PopupTween : MonoBehaviour
     {
         ShowPopup();
     }
+    private void OnDisable()
+    {
+        HidePopup();
+    }
 
     public void ShowPopup()
     {
