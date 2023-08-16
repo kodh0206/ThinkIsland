@@ -21,7 +21,6 @@ public class Mg15deadzone : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            playerEntered = true;
             StartCoroutine(ResetPlayerPosition());
         }
     }
@@ -49,23 +48,9 @@ public class Mg15deadzone : MonoBehaviour
         }
 
         // 오브젝트를 부수고 2초 대기합니다.
-        Destroy(player);
         yield return new WaitForSeconds(2f);
+        player.transform.position = initialPosition;
 
-        if (playerEntered)
-        {
-            // Player를 프리팹을 사용하여 생성합니다.
-            GameObject newPlayer = Instantiate(playerPrefab);
-            newPlayer.transform.position = initialPosition;
 
-            // Player 컴포넌트를 다시 활성화하여 조작 가능 상태로 만듭니다.
-            Player newPlayerComponent = newPlayer.GetComponent<Player>();
-            if (newPlayerComponent != null)
-            {
-                newPlayerComponent.enabled = true;
-            }
-
-            playerEntered = false;
-        }
     }
 }

@@ -94,7 +94,7 @@ public class Mg15Player : MonoBehaviour
 
         Vector2 EffectPosition = new Vector2(transform.position.x, transform.position.y + 0.7f);
         GameObject hitEff = Instantiate(stunEffect, EffectPosition, Quaternion.identity, transform);
-
+        Destroy(hitEff, 1.0f);
         boxCollider.enabled = false;
 
         StartCoroutine(BlinkPlayer());

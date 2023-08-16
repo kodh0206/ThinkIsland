@@ -152,7 +152,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stunEffect: {fileID: 612886624020768476, guid: 6aa7f1728e967f44b99bd16fd95efa46,
     type: 3}
+  myCamera: {fileID: 8612507347464194515, guid: d5c23e8b034b30a44b897b835fd03da8,
+    type: 3}
   moveSpeed: 5
+  blinkInterval: 0.125
+  minAlpha: 0.3
+  maxAlpha: 1
 --- !u!82 &3161839952685507165
 AudioSource:
   m_ObjectHideFlags: 0
