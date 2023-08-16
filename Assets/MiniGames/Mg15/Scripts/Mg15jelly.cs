@@ -52,7 +52,7 @@ public class Mg15jelly : MonoBehaviour
 
             int newScore =MiniGameManager.Instance.totalJelly;
 
-            // 파티클 시스템 인스턴스 생성
+            //파티클 시스템 인스턴스 생성
             NumberParticle numberParticleInstance = Instantiate(numberParticlePrefab, transform.position, Quaternion.identity);
             numberParticleInstance.DisplayNumber(newScore, transform.position);
             

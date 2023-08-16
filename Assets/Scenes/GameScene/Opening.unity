@@ -2167,6 +2167,7 @@ MonoBehaviour:
   audioSource: {fileID: 1910548228}
   jellySoundEffect: {fileID: 8300000, guid: ec97987466c95c049a6099899beb61fd, type: 3}
   MainBgm: {fileID: 8300000, guid: f97a3512173ed80458f0e91e857be1fe, type: 3}
+  ClassBgm: {fileID: 8300000, guid: 8d2e03a483be46b49a10642bc38da147, type: 3}
   poop: {fileID: 8300000, guid: 68436fe82aaf2e649b00f13ac54d68c0, type: 3}
   cow: {fileID: 8300000, guid: 6f9bbd7334b39e040a063579033146d8, type: 3}
   goalKeep: {fileID: 8300000, guid: c248d9768307440479674e678705d0b6, type: 3}
@@ -2182,6 +2183,8 @@ MonoBehaviour:
   eggBreak: {fileID: 8300000, guid: bf84d949641ed644db900b78db4eb0d2, type: 3}
   beeHive: {fileID: 8300000, guid: cdf2b607e8df76746a566107d84036f1, type: 3}
   miniGameExchange: {fileID: 8300000, guid: 0dbde8f91e6e12648ab9975f30c85e2f, type: 3}
+  isBGMOn: 1
+  isSFXOn: 1
 --- !u!1 &1976378925
 GameObject:
   m_ObjectHideFlags: 0

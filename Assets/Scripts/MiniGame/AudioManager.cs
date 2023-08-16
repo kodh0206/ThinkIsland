@@ -11,7 +11,7 @@ public class AudioManager : MonoBehaviour
     public  AudioSource audioSource;
     public AudioClip jellySoundEffect; // 젤리 효과음
     public AudioClip MainBgm; //메인 배경음
-
+    public AudioClip ClassBgm; //교실 배경음
     public AudioClip poop; //똥에 부딪히는 소리
     public AudioClip cow; //소에 부딪히는 소리 
 
@@ -61,17 +61,20 @@ public class AudioManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-      if (scene.name == "OpeningCutScene" || MiniGameManager.Instance.isMiniGameScene)
+    
+    if (scene.name == "OpeningCutScene" || MiniGameManager.Instance.isMiniGameScene)
     {
         audioSource.Stop();
     }
-    else
+    else if (scene.name == "ClassScene")
     {
-        if(!audioSource.isPlaying)
-        {
-            audioSource.clip = MainBgm;
-            audioSource.Play();
-        }
+        audioSource.clip = ClassBgm;
+        audioSource.Play();
+    }
+    else if (scene.name == "BetaScene")
+    {
+        audioSource.clip = MainBgm;
+        audioSource.Play();
     }
     
     }

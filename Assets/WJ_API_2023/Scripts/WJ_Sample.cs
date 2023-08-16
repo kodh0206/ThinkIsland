@@ -58,6 +58,13 @@ public class WJ_Sample : MonoBehaviour
        
     }
 
+    void Start()
+    {
+        Debug.Log("현재상태"+currentStatus);
+        Setup();
+
+    }
+
     private void OnEnable()
     {   Debug.Log("현재상태"+currentStatus);
         Setup();
@@ -68,6 +75,7 @@ public class WJ_Sample : MonoBehaviour
         switch (currentStatus)
         {
             case CurrentStatus.WAITING:
+                Debug.Log("나와라 패널");
                 panel_diag_chooseDiff.SetActive(true);
                 break;
             case CurrentStatus.LEARNING:
@@ -107,7 +115,7 @@ public class WJ_Sample : MonoBehaviour
                             wj_conn.cDiagnotics.data.qstCn, 
                             wj_conn.cDiagnotics.data.qstCransr, 
                             wj_conn.cDiagnotics.data.qstWransr);
-                wj_displayText.SetState("진단평가중", "", "", "");
+                //wj_displayText.SetState("진단평가중", "", "", "");
 
                 
                 break;

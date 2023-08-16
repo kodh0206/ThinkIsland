@@ -112,7 +112,7 @@ public class MiniGameManager : MonoBehaviour
     {   
         
         
-       if (scene.name == "BetaScene" || scene.name == "Main" || scene.name == "RadioScene" || scene.name == "Roulette")
+       if (scene.name == "BetaScene" || scene.name == "Main" || scene.name == "ClassScene" || scene.name == "Roulette")
     {   
 
         miniGameScenes.Clear();
