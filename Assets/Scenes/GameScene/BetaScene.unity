@@ -727,7 +727,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 33702935}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2074699616}
+        m_TargetAssemblyTypeName: ShopButtonClick, Assembly-CSharp
+        m_MethodName: ShowLivestockPanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &33702935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4118,7 +4130,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 235523914}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2074699616}
+        m_TargetAssemblyTypeName: ShopButtonClick, Assembly-CSharp
+        m_MethodName: ShowMiningPanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &235523914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55092,7 +55116,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 581754106}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2074699616}
+        m_TargetAssemblyTypeName: ShopButtonClick, Assembly-CSharp
+        m_MethodName: ShowBuildingPanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &581754106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62169,7 +62205,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1002791384}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2074699616}
+        m_TargetAssemblyTypeName: ShopButtonClick, Assembly-CSharp
+        m_MethodName: ShowMiningPanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1002791384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76417,7 +76465,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4284053930
+    rgba: 4281678174
   m_fontColor: {r: 0.36862746, g: 0.22352941, b: 0.20784314, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -86504,6 +86552,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sngCanvas: {fileID: 541314960}
   mobileTouchScript: {fileID: 1129654346}
+  buildingPanel: {fileID: 2138098005}
+  agriculturePanel: {fileID: 531790417}
+  livestockPanel: {fileID: 1253719743}
+  miningPanel: {fileID: 459596737}
 --- !u!1001 &2078380264
 PrefabInstance:
   m_ObjectHideFlags: 0
