@@ -10,10 +10,9 @@ public class BetaManager : MonoBehaviour
     //General
     public int money;
     public int jelly;
-
+    public int action;
     public Button play1;
     MiniGameManager miniGame;
-    public Button exit;
     GameController gameController;
     public Button RadioButton;
 
@@ -59,7 +58,6 @@ public class BetaManager : MonoBehaviour
     private void Start()
     {
         play1.onClick.AddListener(StartMiniGame);
-        exit.onClick.AddListener(ExitGame);
         RadioButton.onClick.AddListener(gotoRadio);
         money =gameController.curentgold;
         moneyText.text = money.ToString();
@@ -79,6 +77,7 @@ public class BetaManager : MonoBehaviour
     private void Update()
     {
     jelly =gameController.currentjellyCount;
+    money = gameController.curentgold;
     jellyText.text = jelly.ToString();
     }
     
