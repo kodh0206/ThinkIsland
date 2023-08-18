@@ -18,6 +18,16 @@ public class Mg18jellySpawner : MonoBehaviour
 
     float time = 0;
 
+    Vector2[] spawnPositions = new Vector2[]
+{
+        new Vector2(13f, -1.8f),
+        new Vector2(13f, -0.8f),
+        new Vector2(13f, 0.2f),
+        new Vector2(13f, 1.2f),
+        new Vector2(13f, 2.2f),
+        new Vector2(13f, 3.2f),
+};
+
     // Start is called before the first frame update
     void Start()
     {
@@ -52,17 +62,9 @@ public class Mg18jellySpawner : MonoBehaviour
     private Vector2 GetRandomSpawnPosition()
     {
         // 랜덤한 위치 인덱스 선택
-        int randomIndex = Random.Range(0, 3);
+        int randomIndex = Random.Range(0, 6);
 
         // 미리 정의된 위치들 배열
-        Vector2[] spawnPositions = new Vector2[]
-        {
-        new Vector2(13f, Random.Range(-4f, -1f)),
-        new Vector2(13f, 0f),
-        new Vector2(13f, 1.5f),
-        new Vector2(13f, 3f),
-        };
-
         // 선택된 랜덤한 위치 반환
         return spawnPositions[randomIndex];
     }

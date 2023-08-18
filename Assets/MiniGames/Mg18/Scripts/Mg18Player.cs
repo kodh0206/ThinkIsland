@@ -17,8 +17,10 @@ public class Mg18Player : MonoBehaviour
 
     private BoxCollider2D boxCollider;
 
-    [SerializeField]
     private bool nowJumping = false;
+
+    private bool CanJumping = false;
+    public int jumpCount = 2;
 
     private Rigidbody2D rb;
 
@@ -72,63 +74,76 @@ public class Mg18Player : MonoBehaviour
             rb.gravityScale = Mathf.Clamp(rb.gravityScale/2f, 0f, maxGravityScale);
         }
 
-       
-        if (!(isHit) && transform.position.y <= 1.5f )
-        {   
-             audioSource.clip = splashSound;
-            if (!audioSource.isPlaying &&AudioManager.Instance.isSFXOn)
+
+        if ( transform.position.y <= -2.0f)
+        {
+            // audioSource.clip = splashSound;
+            //if (!audioSource.isPlaying &&AudioManager.Instance.isSFXOn)
+            //{
+            //    audioSource.Play();
+            //}
+            //float gravityScale = transform.position.y + 1.5f;
+            //gravityScale = Mathf.Clamp(gravityScale / 2f, -maxGravityScale / 1.5f, 0f);
+            rb.gravityScale = Random.Range(-1.0f, 0.0f);
+            if (rb.velocity.y <= -2f)
             {
-                audioSource.Play();
+                rb.velocity = new Vector2(0, -2f);
             }
-            float gravityScale = transform.position.y-1.5f; 
-            gravityScale = Mathf.Clamp(gravityScale/2f, -maxGravityScale / 1.5f, 0f ); 
-            rb.gravityScale = gravityScale/ Random.Range(1f,3f);
-            animator.SetBool("PlayerIsWater", true);
+            
+            
+
+            jumpForce = 30f;
         }
 
         else
-        {   
-        if (!(nowJumping))
         {
-            
-            if (!audioSource.isPlaying &&AudioManager.Instance.isSFXOn)
+            jumpForce = 12f;
+            if (!(nowJumping))
             {
-                audioSource.Play();
-            }
-            }
-            else{
-                audioSource.Stop();
-            }
-            rb.gravityScale = 1.0f;
-            animator.SetBool("PlayerIsWater", false);
-        }
 
-        if ((Input.GetKey(KeyCode.LeftArrow) || LeftButton) &&!(isHit)  && !nowJumping ) 
-        {   
+                //if (!audioSource.isPlaying &&AudioManager.Instance.isSFXOn)
+                //{
+                //    audioSource.Play();
+                //}
+                //}
+                //else{
+                //    audioSource.Stop();
+                //}
+                rb.gravityScale = 1.0f;
+            }
 
-            audioSource.clip = jumpSound;
-            if (!audioSource.isPlaying &&AudioManager.Instance.isSFXOn)
+            if ((Input.GetKey(KeyCode.LeftArrow) || LeftButton) && !(isHit))
             {
-                audioSource.Play();
+
+                //audioSource.clip = jumpSound;
+                //if (!audioSource.isPlaying &&AudioManager.Instance.isSFXOn)
+                //{
+                //    audioSource.Play();
+                //}
+                if (jumpCount != 0)
+                {
+                    jumpCount -= 1;
+                    Jump();
+                    
+                }
+                LeftButton = false;
+
             }
-            Jump();
-            LeftButton= false;
-            
-        }
 
-        if (!(isHit) && transform.position.x != targetXPosition)
-        {
-            
-            Vector2 targetPosition = new Vector2(targetXPosition, transform.position.y);
-            transform.position = Vector2.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime/4f);
-        }
+            if (transform.position.x != targetXPosition)
+            {
 
+                Vector2 targetPosition = new Vector2(targetXPosition, transform.position.y);
+                transform.position = Vector2.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime / 4f);
+            }
+        }
     }
+
     
 
     private void Jump()
     {
-        rb.gravityScale = 0.5f;
+       
         rb.velocity = new Vector2(rb.velocity.x, jumpForce);
     }
 
@@ -137,6 +152,7 @@ public class Mg18Player : MonoBehaviour
         if (other.gameObject.tag == "Ground" )
         {
             nowJumping = false;
+            jumpCount = 2;
         }
     }
     public void OnCollisionExit2D(Collision2D other)
@@ -144,6 +160,7 @@ public class Mg18Player : MonoBehaviour
         if (other.gameObject.tag == "Ground")
         {
             nowJumping = true;
+            jumpCount = 1;
         }
     }
 
@@ -153,8 +170,10 @@ public class Mg18Player : MonoBehaviour
     {
         if(other.gameObject.tag == "water")
         {
+            animator.SetBool("PlayerIsWater", true);
             CreateParticle();
             nowJumping = false;
+            jumpCount = 2;
         }
     }
 
@@ -162,6 +181,7 @@ public class Mg18Player : MonoBehaviour
     {
         if (other.gameObject.tag == "water")
         {
+            animator.SetBool("PlayerIsWater", false);
             CreateParticle();
             nowJumping = true;
         }

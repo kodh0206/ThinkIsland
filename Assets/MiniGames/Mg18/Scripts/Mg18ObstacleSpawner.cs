@@ -7,8 +7,6 @@ public class Mg18ObstacleSpawner : MonoBehaviour
     public GameObject Mg18Obstacle;
 
     public GameObject Mg18Seaweed1;
-    public GameObject Mg18Seaweed2;
-    public GameObject Mg18Seaweed3;
 
     public int WeedType;
 
@@ -41,28 +39,16 @@ public class Mg18ObstacleSpawner : MonoBehaviour
             for (int i = 0; i < numObstaclesToSpawn; i++)
             {
 
-                WeedType = Random.Range(0, 3);
+
 
                 GameObject new_Mg18Obstacle;
 
-                if (WeedType ==0)
-                {
-                    new_Mg18Obstacle = Instantiate(Mg18Seaweed1);
-                }
-                else if(WeedType ==1)
-                {
-                    new_Mg18Obstacle = Instantiate(Mg18Seaweed2);
-                }
-                else
-                {
-                    new_Mg18Obstacle = Instantiate(Mg18Seaweed3);
-                }
 
-                
+                    new_Mg18Obstacle = Instantiate(Mg18Seaweed1);
 
                 // 좌표를 랜덤하게 선택하여 설정
-                Vector2 spawnPosition = GetRandomSpawnPosition();
-                new_Mg18Obstacle.transform.position = spawnPosition;
+                
+                new_Mg18Obstacle.transform.position = new Vector2(13f, Random.Range(-3f, -2.5f));
 
                 new_Mg18Obstacle.GetComponent<Mg18Seaweed>().SetSpeed(Mg18ObstacleSpeed); // 장애물의 스피드 설정
                 Destroy(new_Mg18Obstacle, 5.0f);
@@ -73,23 +59,6 @@ public class Mg18ObstacleSpawner : MonoBehaviour
     }
 
 
-    private Vector2 GetRandomSpawnPosition()
-    {
-        // 랜덤한 위치 인덱스 선택
-        int randomIndex = Random.Range(0, 1);
-
-        // 미리 정의된 위치들 배열
-        Vector2[] spawnPositions = new Vector2[]
-        {
-        new Vector2(13f, Random.Range(-3f, -2.5f)),
-        //new Vector2(13f, 0f),
-        //new Vector2(13f, 1.5f),
-        //new Vector2(13f, 3f),
-        };
-
-        // 선택된 랜덤한 위치 반환
-        return spawnPositions[randomIndex];
-    }
     public void IncreaseSpeed()
     {
         Mg18ObstacleSpeed += 1.0f; // 장애물의 스피드 증가
