@@ -25,6 +25,17 @@ public class Mg19blockSpanwer : MonoBehaviour
 
     float time = 0;
 
+
+
+    List<Vector2> possiblePositions = new List<Vector2>()
+        {
+            new Vector2(0.3f, 7.0f),
+            new Vector2(3f, 7.0f),
+            new Vector2(-3f, 7.0f),
+            new Vector2(6f, 7.0f),
+            new Vector2(-6f, 7.0f),
+        };
+
     private List<Vector2> spawnPositions = new List<Vector2>(); // 생성된 위치들을 기록하는 리스트
 
     // Start is called before the first frame update
@@ -89,14 +100,7 @@ public class Mg19blockSpanwer : MonoBehaviour
     private Vector2 GetRandomSpawnPosition()
     {
         // 가능한 모든 위치 리스트 생성
-        List<Vector2> possiblePositions = new List<Vector2>()
-        {
-            new Vector2(0.3f, 7.0f),
-            new Vector2(3f, 7.0f),
-            new Vector2(-3f, 7.0f),
-            new Vector2(6f, 7.0f),
-            new Vector2(-6f, 7.0f),
-        };
+        
 
         // 생성되지 않은 위치들로 구성된 새로운 리스트 생성
         List<Vector2> availablePositions = new List<Vector2>(possiblePositions);
@@ -157,4 +161,10 @@ public class Mg19blockSpanwer : MonoBehaviour
             jellyObject.GetComponent<Mg19jelly>().SetSpeed(Mg19blockSpeed);
         }
     }
+
+
+
+
+
+
 }
