@@ -17,6 +17,14 @@ public class Mg13Spawner : MonoBehaviour
     [SerializeField]
     private int maxNumObstaclesToSpawn = 1; // 최대 생성 장애물 개수
 
+    Vector2[] spawnPositions = new Vector2[]
+        {
+        new Vector2(Random.Range(-10.0f, 10.0f), 9.5f),
+        new Vector2(-9.7f, Random.Range(0, 8.3f)),
+        new Vector2(9.7f, Random.Range(0, 8.3f)),
+        new Vector2(Random.Range(-10.0f, 10.0f), -9.5f),
+        };
+
     float time = 0;
 
     // Start is called before the first frame update
@@ -56,13 +64,7 @@ public class Mg13Spawner : MonoBehaviour
         int randomIndex = Random.Range(0, 4);
 
         // 미리 정의된 위치들 배열
-        Vector2[] spawnPositions = new Vector2[]
-        {
-        new Vector2(Random.Range(-10.0f, 10.0f), 9.5f),
-        new Vector2(-9.7f, Random.Range(0, 8.3f)),
-        new Vector2(9.7f, Random.Range(0, 8.3f)),
-        new Vector2(Random.Range(-10.0f, 10.0f), -9.5f),
-        };
+        
 
         // 선택된 랜덤한 위치 반환
         return spawnPositions[randomIndex];
