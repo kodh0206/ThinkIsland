@@ -24,6 +24,7 @@ public class MiniGameManager : MonoBehaviour
     private float timer = 0f;
     public int totalJelly=0; //먹은 젤리의 갯수 
 
+    public int jellypercentage =0;
     private int gamesToPlay=5;
     public bool isMiniGameScene = false; // 현재 씬이 미니게임 씬인지 여부를 확인하기 위한 플래그
     private float deltaTime = 0.0f;
@@ -270,7 +271,11 @@ private IEnumerator Fade(float finalAlpha)
     }
 
     public void SaveTotalJelly()
-    {
+    {   if(jellypercentage !=0)
+        {
+            totalJelly += totalJelly * (jellypercentage / 100);
+
+        }
         GameController.Instance.currentjellyCount +=totalJelly;
         Debug.Log("얻은 젤리 수"+totalJelly);
     }
