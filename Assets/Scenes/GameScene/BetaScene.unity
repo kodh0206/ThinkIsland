@@ -83413,7 +83413,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2562462739614009296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83783,7 +83783,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2562462740448155393}
   - component: {fileID: 2562462740448155395}
-  - component: {fileID: 2562462740448155396}
   m_Layer: 5
   m_Name: FarmStore
   m_TagString: FarmStore
@@ -83820,21 +83819,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2562462740448155392}
   m_CullTransparentMesh: 1
---- !u!114 &2562462740448155396
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2562462740448155392}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 206cc6aa24c1f5f4abac0eabb8a519bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  showOnStart: 0
-  popDuration: 0.5
-  endScale: {x: 1, y: 1, z: 1}
 --- !u!1 &2562462741060578216
 GameObject:
   m_ObjectHideFlags: 0
@@ -83921,13 +83905,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2562462741100782877}
+  - component: {fileID: 2562462741100782878}
   m_Layer: 5
   m_Name: VegetablePanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2562462741100782877
 RectTransform:
   m_ObjectHideFlags: 0
@@ -83952,6 +83937,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2562462741100782878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2562462741100782876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 206cc6aa24c1f5f4abac0eabb8a519bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  showOnStart: 0
+  popDuration: 0.5
+  endScale: {x: 1, y: 1, z: 1}
 --- !u!1 &2562462741463314482
 GameObject:
   m_ObjectHideFlags: 0
