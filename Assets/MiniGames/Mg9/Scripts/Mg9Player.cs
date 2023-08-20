@@ -43,6 +43,9 @@ public class Mg9Player : MonoBehaviour
     private ParticleSystem currentParticle;
 
 
+    public float targetXPosition = -7.0f;
+    public float moveSpeed = 5f;
+
     public void RightClick()
     {
         LeftButton = false;
@@ -116,6 +119,12 @@ public class Mg9Player : MonoBehaviour
             
         }
 
+        if (transform.position.x != targetXPosition)
+        {
+
+            Vector2 targetPosition = new Vector2(targetXPosition, transform.position.y);
+            transform.position = Vector2.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime / 4f);
+        }
 
     }
 
