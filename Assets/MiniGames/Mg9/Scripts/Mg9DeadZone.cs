@@ -1,4 +1,4 @@
-using DG.Tweening;
+﻿using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,13 +9,13 @@ public class Mg9DeadZone : MonoBehaviour
     private Vector3 initialPosition;
     private bool playerEntered = false;
     private Rigidbody2D playerRigidbody;
-
-    public GameObject playerPrefab; 
+    private EdgeCollider2D edgeCollider;
 
     void Start()
     {
         initialPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
         playerRigidbody = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
+        edgeCollider = GetComponent<EdgeCollider2D>();
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -30,43 +30,37 @@ public class Mg9DeadZone : MonoBehaviour
 
     IEnumerator ResetPlayerPosition()
     {
-        
+        // Player 오브젝트를 찾습니다.
         GameObject player = GameObject.FindGameObjectWithTag("Player");
 
-        Mg9manager.instance.GameLevelDown(); //levelDown
-
-        
+        // Player 컴포넌트를 비활성화하여 조작 불가능 상태로 만듭니다.
         Player playerComponent = player.GetComponent<Player>();
+
+
+        Mg9manager.instance.GameLevelDown();
+
         if (playerComponent != null)
         {
             playerComponent.enabled = false;
         }
 
-        
+       
         if (playerRigidbody != null)
         {
             playerRigidbody.velocity = Vector2.zero;
         }
+        edgeCollider.enabled = false;
 
-       
-        Destroy(player);
-        yield return new WaitForSeconds(2f);
-
-        if (playerEntered)
+        GameObject[] ObstacleObjects = GameObject.FindGameObjectsWithTag("Obstacle"); 
+        foreach (var ObstacleObject in ObstacleObjects)
         {
-           
-            GameObject newPlayer = Instantiate(playerPrefab);
-            newPlayer.transform.position = initialPosition;
-
-           
-            Player newPlayerComponent = newPlayer.GetComponent<Player>();
-            if (newPlayerComponent != null)
-            {
-                newPlayerComponent.enabled = true;
-            }
-
-            playerEntered = false;
+            Destroy(ObstacleObject);
         }
+        // 오브젝트를 부수고 2초 대기합니다.
+        yield return new WaitForSeconds(2f);
+        player.transform.position = initialPosition;
+        edgeCollider.enabled = true;
+
     }
 
 

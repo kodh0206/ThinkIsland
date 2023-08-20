@@ -47,13 +47,13 @@ public class Mg9Spawner : MonoBehaviour
 
     public void IncreaseSpeed()
     {
-        Mg9ObstacleSpeed += 2.0f; // ��ֹ��� ���ǵ� ����
+        Mg9ObstacleSpeed += 1.0f; // ��ֹ��� ���ǵ� ����
         time_diff -= 0.1f; // ��ֹ��� ���� ���� ����
     }
 
     public void DecreaseSpeed()
     {
-        Mg9ObstacleSpeed -= 2.0f; // ��ֹ��� ���ǵ� ����
+        Mg9ObstacleSpeed -= 1.0f; // ��ֹ��� ���ǵ� ����
         time_diff += 0.1f; // ��ֹ��� ���� ���� ����
     }
 
