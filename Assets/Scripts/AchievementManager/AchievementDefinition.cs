@@ -55,7 +55,14 @@ public class AchievementDefinition : MonoBehaviour
     {
         for (int i = 0; i < stars.Length; i++)
         {
-            stars[i].enabled = i < level; // level에 따라 별 활성화
+        if (i < level) 
+        {
+            stars[i].sprite = filledStar;  // achievemnt fulfilled fill the star 
+        }
+        else
+        {
+            stars[i].sprite = emptyStar;   // achievemnt fulfilled fill the star 
+        }
         }
     }
 

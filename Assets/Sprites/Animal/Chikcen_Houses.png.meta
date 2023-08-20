@@ -132,10 +132,10 @@ TextureImporter:
       name: Chikcen_Houses_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 96
-        width: 64
-        height: 80
+        x: 1
+        y: 101
+        width: 62
+        height: 74
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,10 +153,10 @@ TextureImporter:
       name: Chikcen_Houses_1
       rect:
         serializedVersion: 2
-        x: 64
-        y: 96
-        width: 64
-        height: 80
+        x: 65
+        y: 101
+        width: 62
+        height: 74
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,10 +174,10 @@ TextureImporter:
       name: Chikcen_Houses_2
       rect:
         serializedVersion: 2
-        x: 128
-        y: 96
-        width: 64
-        height: 80
+        x: 129
+        y: 101
+        width: 62
+        height: 74
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -195,10 +195,10 @@ TextureImporter:
       name: Chikcen_Houses_3
       rect:
         serializedVersion: 2
-        x: 192
-        y: 96
-        width: 64
-        height: 80
+        x: 193
+        y: 101
+        width: 62
+        height: 74
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -216,10 +216,10 @@ TextureImporter:
       name: Chikcen_Houses_4
       rect:
         serializedVersion: 2
-        x: 256
-        y: 96
-        width: 64
-        height: 80
+        x: 257
+        y: 101
+        width: 62
+        height: 74
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -237,10 +237,10 @@ TextureImporter:
       name: Chikcen_Houses_5
       rect:
         serializedVersion: 2
-        x: 320
-        y: 96
-        width: 64
-        height: 80
+        x: 321
+        y: 101
+        width: 62
+        height: 74
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -258,10 +258,10 @@ TextureImporter:
       name: Chikcen_Houses_6
       rect:
         serializedVersion: 2
-        x: 0
-        y: 48
-        width: 48
-        height: 48
+        x: 5
+        y: 0
+        width: 38
+        height: 96
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -279,10 +279,10 @@ TextureImporter:
       name: Chikcen_Houses_7
       rect:
         serializedVersion: 2
-        x: 48
-        y: 48
-        width: 48
-        height: 48
+        x: 53
+        y: 0
+        width: 38
+        height: 96
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -300,10 +300,10 @@ TextureImporter:
       name: Chikcen_Houses_8
       rect:
         serializedVersion: 2
-        x: 96
-        y: 48
-        width: 48
-        height: 48
+        x: 101
+        y: 0
+        width: 38
+        height: 96
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -321,10 +321,10 @@ TextureImporter:
       name: Chikcen_Houses_9
       rect:
         serializedVersion: 2
-        x: 160
-        y: 48
-        width: 32
-        height: 48
+        x: 161
+        y: 53
+        width: 30
+        height: 42
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -342,10 +342,10 @@ TextureImporter:
       name: Chikcen_Houses_10
       rect:
         serializedVersion: 2
-        x: 192
-        y: 48
-        width: 32
-        height: 48
+        x: 193
+        y: 53
+        width: 30
+        height: 42
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -363,10 +363,10 @@ TextureImporter:
       name: Chikcen_Houses_11
       rect:
         serializedVersion: 2
-        x: 224
-        y: 48
-        width: 32
-        height: 48
+        x: 225
+        y: 53
+        width: 30
+        height: 42
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -384,10 +384,10 @@ TextureImporter:
       name: Chikcen_Houses_12
       rect:
         serializedVersion: 2
-        x: 160
-        y: 0
-        width: 32
-        height: 48
+        x: 161
+        y: 5
+        width: 30
+        height: 42
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -405,10 +405,10 @@ TextureImporter:
       name: Chikcen_Houses_13
       rect:
         serializedVersion: 2
-        x: 192
-        y: 0
-        width: 32
-        height: 48
+        x: 193
+        y: 5
+        width: 30
+        height: 42
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -426,10 +426,10 @@ TextureImporter:
       name: Chikcen_Houses_14
       rect:
         serializedVersion: 2
-        x: 224
-        y: 0
-        width: 32
-        height: 48
+        x: 225
+        y: 5
+        width: 30
+        height: 42
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -439,69 +439,6 @@ TextureImporter:
       bones: []
       spriteID: 344f7cb37cd4a8d46a26903af5784ba4
       internalID: -1470757615
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Chikcen_Houses_15
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 34f2eca3c2e29224aa51747cb92cc3ea
-      internalID: -1285916358
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Chikcen_Houses_16
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 0
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 21191f0db078e7c4685c9bd038870ef9
-      internalID: 140173164
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Chikcen_Houses_17
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b49dd9e097baf4b45afcb82c13896472
-      internalID: 6597614
       vertices: []
       indices: 
       edges: []
@@ -524,9 +461,6 @@ TextureImporter:
       Chikcen_Houses_12: -691967257
       Chikcen_Houses_13: -2042348890
       Chikcen_Houses_14: -1470757615
-      Chikcen_Houses_15: -1285916358
-      Chikcen_Houses_16: 140173164
-      Chikcen_Houses_17: 6597614
       Chikcen_Houses_2: -1973663204
       Chikcen_Houses_3: -409688342
       Chikcen_Houses_4: -1811206775
