@@ -39,35 +39,34 @@ void Update()
     }
     void LateUpdate()
     {
-        if (!isMoving && moveVelocity != Vector3.zero)
-        {
-            Vector3 pos = Camera.main.transform.position;
-            pos += moveVelocity * inertiaDuration * Time.deltaTime;
+    if (!isMoving)
+    {
+        Vector3 pos = Camera.main.transform.position;
+        pos += moveVelocity * inertiaDuration * Time.deltaTime;
         
-        // 이 부분에서 moveVelocity 값을 조절하여 카메라의 움직임 속도를 줄입니다.
-            moveVelocity *= (1.0f - Time.deltaTime * 5);  // 이 값을 조절하여 Inertia 속도를 변경할 수 있습니다.
+        // 서서히 moveVelocity 감소
+        moveVelocity = Vector3.Lerp(moveVelocity, Vector3.zero, Time.deltaTime * 5);  // 이 값을 조절하여 감속 속도를 변경할 수 있습니다.
 
+        // Clamp the position
+        pos = new Vector3(
+            Mathf.Clamp(pos.x, minPosition.x, maxPosition.x),
+            Mathf.Clamp(pos.y, minPosition.y, maxPosition.y),
+            Mathf.Clamp(pos.z, minPosition.z, maxPosition.z)
+        );
 
-            // Clamp the position
-            pos = new Vector3(
-                Mathf.Clamp(pos.x, minPosition.x, maxPosition.x),
-                Mathf.Clamp(pos.y, minPosition.y, maxPosition.y),
-                Mathf.Clamp(pos.z, minPosition.z, maxPosition.z)
-            );
+        // Spring effect
+        Vector3 exceeded = Vector3.zero;
+        if (pos.x < minPosition.x) exceeded.x = minPosition.x - pos.x;
+        if (pos.y < minPosition.y) exceeded.y = minPosition.y - pos.y;
+        if (pos.x > maxPosition.x) exceeded.x = maxPosition.x - pos.x;
+        if (pos.y > maxPosition.y) exceeded.y = maxPosition.y - pos.y;
+        springVelocity += exceeded * springStrength * Time.deltaTime;
+        springVelocity -= springVelocity * springDamping * Time.deltaTime;  // 스프링 댐핑 효과
+        pos += springVelocity;
 
-            // Spring effect
-            Vector3 exceeded = Vector3.zero;
-            if (pos.x < minPosition.x) exceeded.x = minPosition.x - pos.x;
-            if (pos.y < minPosition.y) exceeded.y = minPosition.y - pos.y;
-            if (pos.x > maxPosition.x) exceeded.x = maxPosition.x - pos.x;
-            if (pos.y > maxPosition.y) exceeded.y = maxPosition.y - pos.y;
-            springVelocity += exceeded * springStrength * Time.deltaTime;
-            springVelocity -= springVelocity * springDamping * Time.deltaTime;  // 스프링 댐핑 효과
-            pos += springVelocity;
-
-            // Set the position
-            Camera.main.transform.position = pos;
-        }
+        // Set the position
+        Camera.main.transform.position = pos;
+    }
     }
 
 void TouchMove_Zoom()
@@ -93,7 +92,7 @@ void TouchMove_Zoom()
     {
         Touch touch = Input.GetTouch(0);
 
-        if (touch.phase == TouchPhase.Began)
+       if (touch.phase == TouchPhase.Began)
         {
             prePos = touch.position;
             isMoving = true;
@@ -109,7 +108,7 @@ void TouchMove_Zoom()
         }
         else if (touch.phase == TouchPhase.Ended)
         {
-            isMoving = false;
+            moveVelocity = Vector3.zero;  // 움직임 속도를 0으로 설정하여 움직임 중지
         }
     }
 
@@ -119,7 +118,7 @@ void TouchMove_Zoom()
 
     void MouseMove_Zoom()
     {
-         if (Input.GetMouseButtonDown(0))
+       if (Input.GetMouseButtonDown(0))
     {
         prePos = Input.mousePosition;
         isMoving = true;
@@ -129,13 +128,13 @@ void TouchMove_Zoom()
         curPos = Input.mousePosition;
         Vector3 deltaPosition = new Vector3(curPos.x - prePos.x, curPos.y - prePos.y, 0) * moveSpeed * Time.deltaTime;
         Camera.main.transform.position -= deltaPosition;
-        
+
         prePos = Input.mousePosition;
         moveVelocity = deltaPosition / Time.deltaTime; // 이동 속도를 적절하게 설정합니다.
     }
     if (Input.GetMouseButtonUp(0))
     {
-        isMoving = false;
+        moveVelocity = Vector3.zero;  // 움직임 속도를 0으로 설정하여 움직임 중지
     }
         // Scroll handling code is omitted for brevity
     }
