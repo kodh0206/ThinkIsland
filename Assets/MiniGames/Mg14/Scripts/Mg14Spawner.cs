@@ -37,7 +37,7 @@ public class Mg14Spawner : MonoBehaviour
             {
                 GameObject new_Mg14Obstacle = Instantiate(Mg14Obstacle);
 
-                // �����ϰ� ��ġ ����
+               
                 Vector2 spawnPosition = new Vector2(Random.Range(-2.7f, 3.25f), 5.5f);
                 new_Mg14Obstacle.transform.position = spawnPosition;
 

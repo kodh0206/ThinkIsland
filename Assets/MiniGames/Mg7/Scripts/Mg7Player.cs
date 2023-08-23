@@ -118,7 +118,7 @@ public class Mg7Player : MonoBehaviour
     }
     void StartMakeTeer()
     {
-        if (makeTeerCoroutine == null) // ���� ���� �ڷ�ƾ�� ���� ��쿡�� ����
+        if (makeTeerCoroutine == null) 
         {
             makeTeerCoroutine = StartCoroutine(MakeTeer());
         }
@@ -129,7 +129,7 @@ public class Mg7Player : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         SetTeerEffVisibility(currentEffect, false);
 
-        makeTeerCoroutine = null; // �ڷ�ƾ�� ����Ǿ����� ǥ��
+        makeTeerCoroutine = null; 
     }
     private void SetTeerEffVisibility(GameObject TeerEffect, bool isVisible)
     {

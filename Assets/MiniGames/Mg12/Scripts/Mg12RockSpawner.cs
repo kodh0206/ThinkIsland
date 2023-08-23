@@ -10,7 +10,7 @@ public class Mg12RockSpawner : MonoBehaviour
 
 
     [SerializeField]
-    private float RockSpeed = 5.0f; // ������ �ʱ� ���ǵ�
+    private float RockSpeed = 5.0f; 
 
     [SerializeField]
     private float time_diff = 1.5f;

@@ -81,22 +81,22 @@ public class Mg8Player : MonoBehaviour
 
     public void GetHit()
     {
-        // ������ ����
+       
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         rb.velocity = Vector2.zero;
 
         ShakeCamera();
 
-        // �񵿱� ó�� ����
+       
         StartCoroutine(DisableControlAndResetColor());
     }
 
     private IEnumerator DisableControlAndResetColor()
     {
-        // ���� ��Ȱ��ȭ
+        
         enabled = false;
 
-        // ���� ����
+    
         Vector2 Effectposition = new Vector2(transform.position.x+0.2f, transform.position.y + 1.4f);
         GameObject HitEff = Instantiate(stunEffect, Effectposition, Quaternion.identity, transform);
         Destroy(HitEff, 1.5f);
@@ -105,15 +105,13 @@ public class Mg8Player : MonoBehaviour
         GameObject HitEff2 = Instantiate(StunBeeeeee, Effectposition2, Quaternion.identity, transform);
         Destroy(HitEff2, 1.5f);
 
-        // 2�ʰ� ���
+      
         yield return new WaitForSeconds(1.5f);
 
-        // ���� Ȱ��ȭ
+
         enabled = true;
 
-        // 1�ʰ� poop ���� ���� ����
 
-        // ���� ������� ����
         
     }
 
@@ -125,7 +123,7 @@ public class Mg8Player : MonoBehaviour
 
     public void ShakeCamera()
     {
-        myCamera.transform.DOShakePosition(2f, 0.2f, 40);  // ī�޶� 1�� ����, ���� 0.4�� 20�� ���ϴ�.
+        myCamera.transform.DOShakePosition(2f, 0.2f, 40);  
     }
 
 }

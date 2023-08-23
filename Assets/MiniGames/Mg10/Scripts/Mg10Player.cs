@@ -80,21 +80,21 @@ public class Mg10Player : MonoBehaviour
             return; 
         }
 
-        // ����Ű �Է� ó��
+        
         if (Input.GetKeyDown(KeyCode.LeftArrow) || LeftButton)
         {
             StartCoroutine(ChangeSpriteWithDelay(sprites, 0.1f,1));
             rb.velocity = new Vector2(-horizontalSpeed, rb.velocity.y);
             
         }
-        // ������Ű �Է� ó��
+        
         else if (Input.GetKeyDown(KeyCode.RightArrow) ||RightButton)
         {
             StartCoroutine(ChangeSpriteWithDelay(sprites, 0.1f,2));
             rb.velocity = new Vector2(horizontalSpeed, rb.velocity.y);
         }
 
-        // �Է��� ���� ��
+       
         if (!Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.RightArrow))
         {
             rb.velocity = new Vector2(rb.velocity.x, -verticalSpeed);

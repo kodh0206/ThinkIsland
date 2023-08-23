@@ -16,8 +16,8 @@ public class Mg15Player : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
     public float blinkInterval = 0.125f; //blink
-    public float minAlpha = 0.3f; // �ּ� ���İ� (������ ����)
-    public float maxAlpha = 1f;   // �ִ� ���İ� (������ ����)
+    public float minAlpha = 0.3f;
+    public float maxAlpha = 1f;  
 
 
     Animator animator;
@@ -114,7 +114,7 @@ public class Mg15Player : MonoBehaviour
 
     public void ShakeCamera()
     {
-        myCamera.transform.DOShakePosition(1.5f, 0.6f, 20);  // ī�޶� 1�� ����, ���� 0.4�� 20�� ���ϴ�.
+        myCamera.transform.DOShakePosition(1.5f, 0.6f, 20);  
     }
 
     public void Blink()
@@ -123,7 +123,7 @@ public class Mg15Player : MonoBehaviour
                 spriteRenderer.color.r,
                 spriteRenderer.color.g,
                 spriteRenderer.color.b,
-                minAlpha); // ������ ���·� ����
+                minAlpha); 
     }
 
     public void BlinkEnd()
@@ -132,7 +132,7 @@ public class Mg15Player : MonoBehaviour
             spriteRenderer.color.r,
             spriteRenderer.color.g,
             spriteRenderer.color.b,
-            maxAlpha); // ������ ���·� ����
+            maxAlpha); 
     }
 
     private IEnumerator BlinkPlayer()

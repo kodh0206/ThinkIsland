@@ -95,7 +95,7 @@ public class Mg16Player : MonoBehaviour
 
     public void GetHit()
     {
-        // ������ ����
+      
 
         Mg16Manager.instance.GameLevelDown();
 

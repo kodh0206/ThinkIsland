@@ -11,14 +11,14 @@ public class Mg8Spawner : MonoBehaviour
     public GameObject Mg8Obstacle4;
 
     [SerializeField]
-    private float Mg8ObstacleSpeed = 5.0f; // �������� �ʱ� ���ǵ�
+    private float Mg8ObstacleSpeed = 5.0f; 
 
     [SerializeField]
-    private float time_diff = 1.5f; // ��ֹ� ���� ����
+    private float time_diff = 1.5f; 
     [SerializeField]
-    private int minNumObstaclesToSpawn = 1; // �ּ� ���� ��ֹ� ����
+    private int minNumObstaclesToSpawn = 1;
     [SerializeField]
-    private int maxNumObstaclesToSpawn = 1; // �ִ� ���� ��ֹ� ����
+    private int maxNumObstaclesToSpawn = 1; 
 
     float time = 0;
 
@@ -64,11 +64,11 @@ public class Mg8Spawner : MonoBehaviour
                 }
 
 
-                // ��ǥ�� ����
+               
                 Vector2 spawnPosition = new Vector2(15f, -0.5f);
                 new_Mg8Obstacle.transform.position = spawnPosition;
 
-                new_Mg8Obstacle.GetComponent<Mg8Tree>().SetSpeed(Mg8ObstacleSpeed); // ��ֹ��� ���ǵ� ����
+                new_Mg8Obstacle.GetComponent<Mg8Tree>().SetSpeed(Mg8ObstacleSpeed); 
                 Destroy(new_Mg8Obstacle, 8.0f);
             }
 
@@ -79,7 +79,7 @@ public class Mg8Spawner : MonoBehaviour
     public void IncreaseSpeed()
     {
         Mg8ObstacleSpeed += 1.0f;
-         time_diff -= 0.1f; // ��ֹ��� ���� ���� ����
+         time_diff -= 0.1f; 
 
         ChangeAllSpeed();
 
@@ -88,8 +88,7 @@ public class Mg8Spawner : MonoBehaviour
     public void DecreaseSpeed()
     {
         Mg8ObstacleSpeed -= 1.0f;
-        time_diff += 0.1f; // ��ֹ��� ���� ���� ����
-
+        time_diff += 0.1f; 
 
         ChangeAllSpeed();
 

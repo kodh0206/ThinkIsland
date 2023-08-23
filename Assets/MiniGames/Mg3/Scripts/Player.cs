@@ -150,7 +150,7 @@ public class Player : MonoBehaviour
 
     public void ShakeCamera()
     {
-        myCamera.transform.DOShakePosition(1, 0.5f);  // ī�޶� 1�� ����, ���� 1�� ���ϴ�.
+        myCamera.transform.DOShakePosition(1, 0.5f);  
     }
 
 

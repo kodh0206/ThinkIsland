@@ -31,7 +31,7 @@ public class Mg10Obstacle : MonoBehaviour
 
             if (player != null)
             {   
-                //AudioManager.Instance.Rock();
+                AudioManager.Instance.Rock();
                 player.GetHit();
             }
 

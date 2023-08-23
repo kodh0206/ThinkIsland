@@ -88,6 +88,6 @@ public class Mg17shell : MonoBehaviour
 
     public void ShakeCamera()
     {
-        myCamera.transform.DOShakePosition(0.1f, 0.2f, 2);  // ī�޶� 0.2�� ����, ���� 0.2�� 4�� ���ϴ�.
+        myCamera.transform.DOShakePosition(0.1f, 0.2f, 2);  
     }
 }

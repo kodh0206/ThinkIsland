@@ -101,25 +101,25 @@ public class Mg18Player : MonoBehaviour
             if (!(nowJumping))
             {
 
-                //if (!audioSource.isPlaying &&AudioManager.Instance.isSFXOn)
-                //{
-                //    audioSource.Play();
-                //}
-                //}
-                //else{
-                //    audioSource.Stop();
-                //}
+                if (!audioSource.isPlaying && AudioManager.Instance.isSFXOn)
+                {
+                    audioSource.Play();
+                }
+                else
+                {
+                    audioSource.Stop();
+                }
                 rb.gravityScale = 1.0f;
             }
 
             if ((Input.GetKey(KeyCode.LeftArrow) || LeftButton) && !(isHit))
             {
 
-                //audioSource.clip = jumpSound;
-                //if (!audioSource.isPlaying &&AudioManager.Instance.isSFXOn)
-                //{
-                //    audioSource.Play();
-                //}
+                audioSource.clip = jumpSound;
+                if (!audioSource.isPlaying && AudioManager.Instance.isSFXOn)
+                {
+                    audioSource.Play();
+                }
                 if (jumpCount != 0)
                 {
                     jumpCount -= 1;

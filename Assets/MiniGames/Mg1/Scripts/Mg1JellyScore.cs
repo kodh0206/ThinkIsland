@@ -20,7 +20,7 @@ void Start()
 
     public void addjellyScore()
     {   
-        //MiniGameManager.Instance.AddJelly();
+        MiniGameManager.Instance.AddJelly();
         jelly_Score += 1;
     }
 

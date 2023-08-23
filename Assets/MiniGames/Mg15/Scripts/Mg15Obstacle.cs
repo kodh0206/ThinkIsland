@@ -51,7 +51,7 @@ public class Mg15Obstacle : MonoBehaviour
 
         if (other.gameObject.CompareTag("Player"))
         {   
-            //AudioManager.Instance.ObstacleFly();
+            AudioManager.Instance.ObstacleFly();
             other.gameObject.GetComponent<Mg15Player>().GetHit();
         }
     }

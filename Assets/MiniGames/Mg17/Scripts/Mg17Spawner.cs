@@ -67,13 +67,13 @@ public class Mg17Spawner : MonoBehaviour
 
     private IEnumerator DisableSpawning()
     {
-        // ���� ����
+        
         time_diff = Mathf.Infinity;
 
-        // ��� �ð�
+       
         yield return new WaitForSeconds(2f);
 
-        // ���� �簳
+        
         time_diff = 1.5f;
     }
 }

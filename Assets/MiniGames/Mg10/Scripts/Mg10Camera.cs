@@ -36,7 +36,7 @@ public class Mg10Camera : MonoBehaviour
     public void ShakeCamera()
     {
         hit= true;
-        myCamera.transform.DOShakePosition(1f, 1f);  // ī�޶� 1�� ����, ���� 0.4�� 20�� ���ϴ�.
+        myCamera.transform.DOShakePosition(1f, 1f);  
     }
 
     public void ShakeCameraEnd()
