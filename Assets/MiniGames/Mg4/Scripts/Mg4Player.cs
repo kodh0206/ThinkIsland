@@ -69,7 +69,7 @@ public class Mg4Player : MonoBehaviour
 
         if (transform.position.x != targetXPosition)
         {
-            // ���� ��ġ�� ��ǥ ��ġ�� ���Ͽ� X ��ġ �̵� ó��
+            
             Vector2 targetPosition = new Vector2(targetXPosition, transform.position.y);
             transform.position = Vector2.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime / 4f);
         }
