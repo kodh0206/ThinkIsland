@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1805683556322909430
 Transform:
   m_ObjectHideFlags: 0
@@ -101,3 +101,4 @@ MonoBehaviour:
   maxHeight: 0
   maxScale: 0
   minScale: 0
+  blockspeed: 3

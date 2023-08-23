@@ -62,7 +62,7 @@ public class Mg12shell : MonoBehaviour
 
     public void ShakeCamera()
     {
-        myCamera.transform.DOShakePosition(0.2f, 0.2f, 4);  // 카메라를 0.2초 동안, 강도 0.2로 4번 흔듭니다.
+        myCamera.transform.DOShakePosition(0.6f, 0.6f, 4);  // 카메라를 0.2초 동안, 강도 0.2로 4번 흔듭니다.
     }
 
 }
