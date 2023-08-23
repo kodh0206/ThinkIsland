@@ -25,6 +25,24 @@ public class Building : MonoBehaviour
         Button upgradeBtn = upgradeButton.GetComponent<Button>();
         upgradeBtn.onClick.AddListener(UpgradeBuilding);  // 버튼 클릭 이벤트에 UpgradeBuilding 함수 연결
     }
+    private void Update()
+    {
+        // 모든 터치에 대해서 반복문 실행
+        foreach (Touch touch in Input.touches)
+        {
+            if (touch.phase == TouchPhase.Began)
+            {
+                Vector3 touchPosWorld = Camera.main.ScreenToWorldPoint(touch.position);
+                Vector2 touchPosWorld2D = new Vector2(touchPosWorld.x, touchPosWorld.y);
+                RaycastHit2D hitInformation = Physics2D.Raycast(touchPosWorld2D, Camera.main.transform.forward);
+
+                if (hitInformation.collider == boxCollider)
+                {
+                    ToggleUpgradeButton();
+                }
+            }
+        }
+    }
 
     private void OnMouseDown()
     {
@@ -49,7 +67,7 @@ public class Building : MonoBehaviour
         
     }
 
-    private void UpdateBuildingSprite()
+     void UpdateBuildingSprite()
     {
         if (buildingSprites != null && currentLevel < buildingSprites.Length)
         {
