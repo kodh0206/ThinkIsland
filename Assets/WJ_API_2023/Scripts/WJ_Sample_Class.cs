@@ -211,11 +211,13 @@ public class WJ_Sample_Class : MonoBehaviour
                         // 정답일 때의 로직
                         Debug.Log("정답입니다!"); 
                         // 여기에 원하는 로직 추가 애니메이션 사운드 효과
+                        AudioManager.Instance.PlayRight();
                     }
                 else 
                     {
                         // 오답일 때의 로직
                         Debug.Log("틀렸습니다!");
+                        AudioManager.Instance.PlayWrong();
                         // 여기에 원하는 로직 추가
                     }
 
@@ -242,12 +244,14 @@ public class WJ_Sample_Class : MonoBehaviour
                         Debug.Log("정답입니다!"); 
                         rightanswers+=1;
                         // 여기에 원하는 로직 추가 애니메이션 사운드 효과
+                        AudioManager.Instance.PlayRight();
                     }
                 else 
                     {
                         // 오답일 때의 로직
                         Debug.Log("틀렸습니다!");
                         // 여기에 원하는 로직 추가
+                        AudioManager.Instance.PlayWrong();
                     }
 
                 isSolvingQuestion = false;
@@ -259,6 +263,7 @@ public class WJ_Sample_Class : MonoBehaviour
 
                 if (currentQuestionIndex >= 8) 
                 {   
+                    AudioManager.Instance.PlayFinished();
                     energy = 20+ 20 + rightanswers * (100- 20) / 8; //(GameController.Instance.maximumActionPoints- 20) / 8;
                     gold = 200+ (rightanswers*10);
                     energyText.text =energy.ToString();

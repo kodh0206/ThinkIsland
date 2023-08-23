@@ -30,6 +30,20 @@ public class AudioManager : MonoBehaviour
     public AudioClip eggBreak;
     public AudioClip beeHive;
 
+    //문제 푸는거
+    public AudioClip right;//맞음 
+    public AudioClip wrong;//틀림
+    public AudioClip finish;// 끝남
+    
+    //베타씬
+    public AudioClip page;//페이지 넘기기
+    public AudioClip onOff;//옵션 넘기기
+    public AudioClip pressed; //버튼 클릭
+    public AudioClip purchased; //구매버튼
+
+
+
+    // 
     public AudioClip miniGameExchange;
 
     public bool isBGMOn = true; // 기본적으로 BGM 켜짐
@@ -67,9 +81,12 @@ public class AudioManager : MonoBehaviour
         audioSource.Stop();
     }
     else if (scene.name == "ClassScene")
-    {
+    {   
+        if(isBGMOn)
+        {
         audioSource.clip = ClassBgm;
         audioSource.Play();
+        }
     }
     else if (scene.name == "BetaScene")
     {
@@ -252,6 +269,65 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    //베타씬
+    public void PlayPage()
+    {
+        if(isSFXOn)
+        {
+             audioSource.PlayOneShot(page);
+        }
+    }
+
+    public void PlayOnOff()
+    {
+         if(isSFXOn)
+        {
+             audioSource.PlayOneShot(onOff);
+        }
+    }
+
+    public void PlayPressed()
+    {
+         if(isSFXOn)
+        {
+             audioSource.PlayOneShot(pressed);
+        }
+    }
+
+    public void Playpurchased()
+    {
+         if(isSFXOn)
+        {
+             audioSource.PlayOneShot(purchased);
+        }
+    }
+    
+     //문제 푸는 장면
+    public void PlayRight()
+    {
+        if(isSFXOn)
+        {
+            audioSource.PlayOneShot(right);
+        }
+    }
+
+    public void PlayWrong()
+    {
+        if(isSFXOn)
+        {
+            audioSource.PlayOneShot(wrong);
+        }
+    }
+
+    public void PlayFinished()
+    {
+        if(isSFXOn)
+        {
+            audioSource.PlayOneShot(right);
+        }
+    }
+
+    // 
     public void MiniGameExchange()
     {   if(isSFXOn)
         {
@@ -280,6 +356,7 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    //
     public void PlayError()
     {
         
