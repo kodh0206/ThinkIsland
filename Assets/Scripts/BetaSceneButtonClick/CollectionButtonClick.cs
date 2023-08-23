@@ -44,7 +44,8 @@ public class CollectionButtonClick : MonoBehaviour
     }
 
     public void CollectionCloseButtonClick()
-    {
+    {   
+         AudioManager.Instance.PlayPressed();
         gameObject.SetActive(false);
         sngCanvas.SetActive(true);
         mobileTouchScript.enabled = true;
@@ -59,13 +60,13 @@ public class CollectionButtonClick : MonoBehaviour
     }
 
     public void CropCollectionButtonClick()
-    {
+    {    AudioManager.Instance.PlayPressed();
         cropCollection.SetActive(true);
         characterCollection.SetActive(false);
     }
 
     public void characterCollectionButtonClick()
-    {
+    {  AudioManager.Instance.PlayPressed();
         cropCollection.SetActive(false);
         characterCollection.SetActive(true);
     }
@@ -73,13 +74,13 @@ public class CollectionButtonClick : MonoBehaviour
 
     // 페이지 넘김 기능 구현
     public void page1CollectionButtonClick()
-    {
+    {   AudioManager.Instance.PlayPage();
         page1Collection.SetActive(true);
         page2Collection.SetActive(false);
     }
 
     public void page2CollectionButtonClick()
-    {
+    {    AudioManager.Instance.PlayPage();
         page1Collection.SetActive(false);
         page2Collection.SetActive(true);
     }

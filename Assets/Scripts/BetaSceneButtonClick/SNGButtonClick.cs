@@ -15,6 +15,7 @@ public class SNGButtonClick : MonoBehaviour
 
     public void ShopButtonClick()
     {
+         AudioManager.Instance.PlayPressed();
         gameObject.SetActive(false);
         shopCanvas.SetActive(true);
         mobileTouchScript.enabled = false;
@@ -22,7 +23,7 @@ public class SNGButtonClick : MonoBehaviour
     }
 
     public void ProfileButtonClick()
-    {
+    {    AudioManager.Instance.PlayPressed();
         gameObject.SetActive(false);
         profileCanvas.SetActive(true);
         mobileTouchScript.enabled = false;
@@ -30,7 +31,7 @@ public class SNGButtonClick : MonoBehaviour
     }
 
     public void CollectionButtonClick()
-    {
+    {    AudioManager.Instance.PlayPressed();
         gameObject.SetActive(false);
         collectionCanvas.SetActive(true);
         mobileTouchScript.enabled = false;
@@ -38,7 +39,7 @@ public class SNGButtonClick : MonoBehaviour
     }
 
     public void AchievementButtonClick()
-    {
+    {    AudioManager.Instance.PlayPressed();
         gameObject.SetActive(false);
         AchievementCanvas.SetActive(true);
         mobileTouchScript.enabled = false;
@@ -47,7 +48,7 @@ public class SNGButtonClick : MonoBehaviour
 
 
     public void OptionButtonClick()
-    {
+    {    AudioManager.Instance.PlayPressed();
         gameObject.SetActive(false);
         OptionCanvas.SetActive(true);
         mobileTouchScript.enabled = false;

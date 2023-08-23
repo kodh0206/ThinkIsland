@@ -67,7 +67,7 @@ public class AudioManager : MonoBehaviour
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
- 
+
     private void OnDestroy() 
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
@@ -88,7 +88,7 @@ public class AudioManager : MonoBehaviour
         audioSource.Play();
         }
     }
-    else if (scene.name == "BetaScene")
+    else if (scene.name == "BetaScene" && scene.name =="OpeningScene")
     {
         audioSource.clip = MainBgm;
         audioSource.Play();

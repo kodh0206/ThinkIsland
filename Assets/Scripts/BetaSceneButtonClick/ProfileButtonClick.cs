@@ -18,7 +18,7 @@ public class ProfileButtonClick : MonoBehaviour
     }
 
     public void ProfileCloseButtonClick()
-    {
+    {   AudioManager.Instance.PlayPressed();
         gameObject.SetActive(false);
         sngCanvas.SetActive(true);
         mobileTouchScript.enabled = true;

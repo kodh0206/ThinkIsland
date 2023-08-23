@@ -23,7 +23,7 @@ public class ShopButtonClick : MonoBehaviour
     }
 
     public void ShopCloseButtonClick()
-    {
+    {    AudioManager.Instance.PlayPressed();
         gameObject.SetActive(false);
         sngCanvas.SetActive(true);
         mobileTouchScript.enabled = true;
@@ -31,31 +31,31 @@ public class ShopButtonClick : MonoBehaviour
 
     // 패널을 변경하는 함수들
     public void ShowBuildingPanel()
-    {
+    {    AudioManager.Instance.PlayPressed();
         DisableAllPanels();
         buildingPanel.SetActive(true);
     }
 
     public void ShowAgriculturePanel()
-    {
+    { AudioManager.Instance.PlayPressed();
         DisableAllPanels();
         agriculturePanel.SetActive(true);
     }
 
     public void ShowLivestockPanel()
-    {
+    { AudioManager.Instance.PlayPressed();
         DisableAllPanels();
         livestockPanel.SetActive(true);
     }
 
     public void ShowMiningPanel()
-    {
+    { AudioManager.Instance.PlayPressed();
         DisableAllPanels();
         miningPanel.SetActive(true);
     }
 
     private void DisableAllPanels()
-    {
+    { AudioManager.Instance.PlayPressed();
         buildingPanel.SetActive(false);
         agriculturePanel.SetActive(false);
         livestockPanel.SetActive(false);
