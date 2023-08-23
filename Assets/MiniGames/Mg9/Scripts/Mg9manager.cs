@@ -42,12 +42,12 @@ public class Mg9manager : MonoBehaviour
             level += 1;
             Mg9Spawner spawner = FindObjectOfType<Mg9Spawner>();
             Mg9jellySpawner spawner2 = FindObjectOfType<Mg9jellySpawner>();
-
+            Mg9SeaWeedSpawner spawner3 = FindObjectOfType<Mg9SeaWeedSpawner>();
             if (spawner != null)
             {
                 spawner.IncreaseSpeed();  // decrease interval
                 spawner2.IncreaseSpeed();
-
+                spawner3.IncreaseSpeed();
             }
         }
     }
@@ -57,11 +57,13 @@ public class Mg9manager : MonoBehaviour
 
         Mg9Spawner spawner = FindObjectOfType<Mg9Spawner>();
         Mg9jellySpawner spawner2 = FindObjectOfType<Mg9jellySpawner>();
+        Mg9SeaWeedSpawner spawner3 = FindObjectOfType<Mg9SeaWeedSpawner>();
         for (int i = 0; i < level; i++)
         {
 
             spawner.IncreaseSpeed(); // 게임 별로 난이도를 레벨에 따라 난이도 조절
             spawner2.IncreaseSpeed();
+            spawner3.IncreaseSpeed();
         }
 
     }
@@ -72,6 +74,7 @@ public class Mg9manager : MonoBehaviour
         score = 0;
         Mg9Spawner spawner = FindObjectOfType<Mg9Spawner>();
         Mg9jellySpawner spawner2 = FindObjectOfType<Mg9jellySpawner>();
+        Mg9SeaWeedSpawner spawner3 = FindObjectOfType<Mg9SeaWeedSpawner>();
 
 
         if (level != 0)
@@ -80,6 +83,7 @@ public class Mg9manager : MonoBehaviour
 
             spawner.DecreaseSpeed(); //Down Level
             spawner2.DecreaseSpeed();
+            spawner3.DecreaseSpeed();
         }
 
 

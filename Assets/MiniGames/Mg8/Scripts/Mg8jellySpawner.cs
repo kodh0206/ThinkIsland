@@ -29,7 +29,7 @@ public class Mg8jellySpawner : MonoBehaviour
             GameObject new_jelly = Instantiate(jelly);
 
             // 좌표를 랜덤하게 선택하여 설정
-            Vector2 spawnPosition =new Vector2(12.4f, Random.Range(-1.6f, 4.0f));
+            Vector2 spawnPosition =new Vector2(15f, Random.Range(-1.6f, 3.7f));
             new_jelly.transform.position = spawnPosition;
 
             // 왼쪽에서 생성되면 오른쪽으로 움직이도록 설정

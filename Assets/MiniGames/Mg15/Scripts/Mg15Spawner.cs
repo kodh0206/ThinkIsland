@@ -21,7 +21,17 @@ public class Mg15Spawner : MonoBehaviour
     [SerializeField]
     private int minNumObstaclesToSpawn = 3; 
     [SerializeField]
-    private int maxNumObstaclesToSpawn = 5; 
+    private int maxNumObstaclesToSpawn = 5;
+
+    Vector2[] spawnPositions = new Vector2[]
+        {
+        new Vector2(1.5f, 0.6f),
+        new Vector2(3.5f, 0.6f),
+        new Vector2(5.5f, 0.6f),
+        new Vector2(-1.5f, 0.6f),
+        new Vector2(-3.5f, 0.6f),
+        new Vector2(-5.5f, 0.6f)
+        };
 
     float time = 0;
 
@@ -79,15 +89,7 @@ public class Mg15Spawner : MonoBehaviour
         int randomIndex = Random.Range(0, 6);
 
         
-        Vector2[] spawnPositions = new Vector2[]
-        {
-        new Vector2(1.5f, 0.6f),
-        new Vector2(3.5f, 0.6f),
-        new Vector2(5.5f, 0.6f),
-        new Vector2(-1.5f, 0.6f),
-        new Vector2(-3.5f, 0.6f),
-        new Vector2(-5.5f, 0.6f)
-        };
+        
 
         
         return spawnPositions[randomIndex];
