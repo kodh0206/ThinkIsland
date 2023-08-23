@@ -88,7 +88,7 @@ public class AudioManager : MonoBehaviour
         audioSource.Play();
         }
     }
-    else if (scene.name == "BetaScene" && scene.name =="OpeningScene")
+    else if (scene.name == "BetaScene" || scene.name =="OpeningScene")
     {
         audioSource.clip = MainBgm;
         audioSource.Play();

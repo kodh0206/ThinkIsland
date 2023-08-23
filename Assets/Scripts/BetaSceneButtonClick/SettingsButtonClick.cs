@@ -19,12 +19,12 @@ public class SettingsButtonClick : MonoBehaviour
          bool isBGMOn = AudioManager.Instance.isBGMOn;
     bool isSFXOn = AudioManager.Instance.isSFXOn;
 
-    bgmToggle.isOn = isBGMOn;
-    sfxToggle.isOn = isSFXOn;
+    bgmToggle.isOn = !isBGMOn;
+    sfxToggle.isOn = !isSFXOn;
 
     // 토글의 스프라이트 이미지도 업데이트합니다.
-    UpdateToggleImage(bgmToggle, isBGMOn);
-    UpdateToggleImage(sfxToggle, isSFXOn);
+    UpdateToggleImage(bgmToggle, !isBGMOn);
+    UpdateToggleImage(sfxToggle, !isSFXOn);
 
     bgmToggle.onValueChanged.AddListener(OnBGMToggleChanged);
     sfxToggle.onValueChanged.AddListener(OnSFXToggleChanged);
