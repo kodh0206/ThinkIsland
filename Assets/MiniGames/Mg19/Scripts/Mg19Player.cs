@@ -91,14 +91,14 @@ public class Mg19Player : MonoBehaviour
 
         if (rb.velocity.y <= -5f)
         {
-            movement = new Vector2(moveX, yveloLimit);
+            rb.velocity = new Vector2(moveX, yveloLimit);
         }
         else
         {
-            movement = new Vector2(moveX, rb.velocity.y);
+            rb.velocity = new Vector2(moveX, rb.velocity.y);
         }
 
-        rb.velocity = movement;
+        
 
     }
 
@@ -116,7 +116,9 @@ public class Mg19Player : MonoBehaviour
     private void Jump()
     {
 
-        rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        //rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+
         StartCoroutine(DisableColliderForJump());
 
     }
@@ -131,7 +133,7 @@ public class Mg19Player : MonoBehaviour
 
         while (rb.velocity.y >= 0)
         {
-            //rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * fallSlowdownFactor);
+            
             yield return null;
             
         }
