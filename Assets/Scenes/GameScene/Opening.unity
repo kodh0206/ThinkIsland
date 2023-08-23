@@ -2182,6 +2182,13 @@ MonoBehaviour:
   minigamebegin: {fileID: 8300000, guid: 056d445653e100f458668acd24ba277e, type: 3}
   eggBreak: {fileID: 8300000, guid: bf84d949641ed644db900b78db4eb0d2, type: 3}
   beeHive: {fileID: 8300000, guid: cdf2b607e8df76746a566107d84036f1, type: 3}
+  right: {fileID: 8300000, guid: a53d923ff57e35b48afae8162b0b1e2a, type: 3}
+  wrong: {fileID: 8300000, guid: 606d708f71d339a42996ebe285d697d1, type: 3}
+  finish: {fileID: 8300000, guid: f0a096511a2987e4a97fa67e41368c8a, type: 3}
+  page: {fileID: 8300000, guid: f3f1069526698af40be2f69c624d2a45, type: 3}
+  onOff: {fileID: 8300000, guid: ab963ae08583f6e4ca2a45c22c39f0c5, type: 3}
+  pressed: {fileID: 8300000, guid: 9ca32534ce0131d428cdd941b4e0a6e4, type: 3}
+  purchased: {fileID: 8300000, guid: d3b4fa718e7d34944ad2f6775189efaf, type: 3}
   miniGameExchange: {fileID: 8300000, guid: 0dbde8f91e6e12648ab9975f30c85e2f, type: 3}
   isBGMOn: 1
   isSFXOn: 1
