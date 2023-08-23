@@ -91,13 +91,13 @@ public class Mg12Player : MonoBehaviour
 
     if (moveUp || moveDown)
     {
-        if (!audioSource.isPlaying&&AudioManager.Instance.isSFXOn)
-        {
-            audioSource.loop = true;
-            audioSource.clip = swimming;
-            audioSource.Play();
-        }
-        transform.position += (moveUp ? Vector3.up : Vector3.down) * moveSpeed * Time.deltaTime;
+            if (!audioSource.isPlaying && AudioManager.Instance.isSFXOn)
+            {
+                audioSource.loop = true;
+                audioSource.clip = swimming;
+                audioSource.Play();
+            }
+            transform.position += (moveUp ? Vector3.up : Vector3.down) * moveSpeed * Time.deltaTime;
     }
     else
     {
@@ -110,12 +110,12 @@ public class Mg12Player : MonoBehaviour
 
         // Check if it's time to play the sound.
         if (throwTimer >= 1f)
-        {   
-            if(AudioManager.Instance.isSFXOn)
-            {
-            audioSource.PlayOneShot(throwing); // Play throwing sound.
-            }
-            throwTimer = 0f; // Reset timer.
+        {
+                if (AudioManager.Instance.isSFXOn)
+                {
+                    audioSource.PlayOneShot(throwing); // Play throwing sound.
+                }
+                throwTimer = 0f; // Reset timer.
         }
 
         anim.SetTrigger("Shoot");
@@ -168,7 +168,7 @@ public class Mg12Player : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
 
-        if (!audioSource.isPlaying &&AudioManager.Instance.isSFXOn)
+        if (!audioSource.isPlaying && AudioManager.Instance.isSFXOn)
         {
             audioSource.loop = true;
             audioSource.clip = swimming;
