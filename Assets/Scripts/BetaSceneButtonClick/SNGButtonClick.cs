@@ -15,7 +15,7 @@ public class SNGButtonClick : MonoBehaviour
 
     public void ShopButtonClick()
     {
-         AudioManager.Instance.PlayPressed();
+        AudioManager.Instance.PlayPressed();
         gameObject.SetActive(false);
         shopCanvas.SetActive(true);
         mobileTouchScript.enabled = false;

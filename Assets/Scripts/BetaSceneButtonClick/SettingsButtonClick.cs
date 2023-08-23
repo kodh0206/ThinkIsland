@@ -44,9 +44,9 @@ public class SettingsButtonClick : MonoBehaviour
     }
     
     public void OnBGMToggleChanged(bool isOn)
-{     Debug.Log("BGM Toggle value changed to: " + isOn);
+{    Debug.Log("BGM Toggle value changed to: " + isOn);
     UpdateToggleImage(bgmToggle, isOn);
-
+    AudioManager.Instance.PlayOnOff();
     if (isOn)
     {   
         Debug.Log("BGM 꺼짐");
@@ -71,8 +71,8 @@ public class SettingsButtonClick : MonoBehaviour
     public void OnSFXToggleChanged(bool isOn)
     {
 
-    
-         Debug.Log("SFX Toggle value changed to: " + isOn);
+        AudioManager.Instance.PlayOnOff();
+        Debug.Log("SFX Toggle value changed to: " + isOn);
         UpdateToggleImage(sfxToggle, isOn);
 
         AudioManager.Instance.isSFXOn = !isOn; 

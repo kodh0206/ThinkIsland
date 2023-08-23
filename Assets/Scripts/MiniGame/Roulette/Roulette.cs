@@ -34,6 +34,9 @@ public class Roulette : MonoBehaviour
 	private	bool				isSpinning = false;			// ���� ȸ��������
 	private	int					selectedIndex = 0;			// �귿���� ���õ� ������
 
+    public Color color1 = HexToColor("FF0000"); // 첫 번째 색상 (빨강)
+	public Color color2 = HexToColor("0000FF"); // 두 번째 색상 (파랑)
+
 	public Sprite gold;
     private int spinDursation=3;
     
@@ -104,21 +107,21 @@ public class Roulette : MonoBehaviour
 	private void SpawnPiecesAndLines()
 	{   
         
-        
-        
 
     
-		for ( int i = 0; i < roulettePieceData.Count; ++ i )
+		bool useColor1 = true; // 번갈아 가면서 색상을 사용하기 위한 플래그
+		
+		for (int i = 0; i < roulettePieceData.Count; ++i)
 		{
 			Transform piece = Instantiate(piecePrefab, pieceParent.position, Quaternion.identity, pieceParent);
-			// 생성한 룰렛 조각의 정보 설정 (아이콘, 설명)
 			piece.GetComponent<RoulettePiece>().Setup(roulettePieceData[i]);
-			// 생성한 룰렛 조각 회전
+			piece.GetComponent<RoulettePiece>().SetColor(useColor1 ? color1 : color2); // 색상 설정
 			piece.RotateAround(pieceParent.position, Vector3.back, (pieceAngle * i));
 
 			Transform line = Instantiate(linePrefab, lineParent.position, Quaternion.identity, lineParent);
-			// 생성한 선 회전 (룰렛 조각 사이를 구분하는 용도)
 			line.RotateAround(lineParent.position, Vector3.back, (pieceAngle * i) + halfPieceAngle);
+			
+			useColor1 = !useColor1; // 색상 플래그 토글
 		}
         
 	}
@@ -307,7 +310,13 @@ private void ResetRouletteWheel()
     new RoulettePieceData { icon = gold, description = "Gold 1000", rewardType = "Gold", rewardAmount = 1000, chance = 40 }
 	};
 }
-
+	private static Color HexToColor(string hex)
+	{
+		byte r = byte.Parse(hex.Substring(0, 2), System.Globalization.NumberStyles.HexNumber);
+		byte g = byte.Parse(hex.Substring(2, 2), System.Globalization.NumberStyles.HexNumber);
+		byte b = byte.Parse(hex.Substring(4, 2), System.Globalization.NumberStyles.HexNumber);
+		return new Color32(r, g, b, 255);
+	}
 
 
 }

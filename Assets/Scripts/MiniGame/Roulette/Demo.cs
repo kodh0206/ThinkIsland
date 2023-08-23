@@ -19,7 +19,7 @@ public class Demo : MonoBehaviour
 
 	private void EndOfSpin(RoulettePieceData selectedData)
 	{
-		  buttonSpin.interactable = true;
+		  buttonSpin.interactable = false;
 
     Debug.Log($"{selectedData.index}:{selectedData.description}");
     

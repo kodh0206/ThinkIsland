@@ -50,7 +50,7 @@ public class BetaManager : MonoBehaviour
     void Awake()
     {   
         // 싱글톤 초기화
-       
+
         miniGame =GameObject.Find("MiniGameManager").GetComponent<MiniGameManager>();
         gameController = GameObject.Find("GameManager").GetComponent<GameController>();
     }
@@ -97,7 +97,8 @@ public class BetaManager : MonoBehaviour
        
     }
     void gotoRadio()
-    {
+    { 
+        AudioManager.Instance.PlayPressed();
         SceneManager.LoadScene("RadioScene");
     }
 
