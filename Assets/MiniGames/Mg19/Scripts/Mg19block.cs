@@ -6,9 +6,9 @@ public class Mg19block : MonoBehaviour
 {
     public Animator animator;
 
-    public GameObject breakEffect; // �μ��� �� ����� ��ƼŬ ȿ��
+    public GameObject breakEffect; 
 
-    public float moveSpeed = 5f; // �Ʒ��� �����̴� �ӵ�
+    public float moveSpeed = 5f; 
 
     private void Update()
     {
@@ -21,7 +21,7 @@ public class Mg19block : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
-        {   //AudioManager.Instance.BreakPlatform();
+        {   AudioManager.Instance.BreakPlatform();
             animator.SetBool("PlayerPush", true); // 애니메이션 실행
             Destroy(gameObject, animator.GetCurrentAnimatorStateInfo(0).length); // 애니메이션 재생 시간이 지난 후 블록 삭제
             
@@ -35,13 +35,13 @@ public class Mg19block : MonoBehaviour
 
     private void BreakObject()
     {
-        // ��ƼŬ ȿ�� ���
+      
         if (breakEffect != null)
         {
             Instantiate(breakEffect, transform.position, Quaternion.identity);
         }
 
-        // ������Ʈ ����
+       
         Destroy(gameObject);
     }
 

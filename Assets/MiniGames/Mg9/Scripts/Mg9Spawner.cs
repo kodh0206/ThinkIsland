@@ -7,14 +7,14 @@ public class Mg9Spawner : MonoBehaviour
     public GameObject Mg9Obstacle;
 
     [SerializeField]
-    private float Mg9ObstacleSpeed = 5.0f; // �������� �ʱ� ���ǵ�
+    private float Mg9ObstacleSpeed = 5.0f; 
 
     [SerializeField]
-    private float time_diff = 1.5f; // ��ֹ� ���� ����
+    private float time_diff = 1.5f; 
     [SerializeField]
-    private int minNumObstaclesToSpawn = 1; // �ּ� ���� ��ֹ� ����
+    private int minNumObstaclesToSpawn = 1;
     [SerializeField]
-    private int maxNumObstaclesToSpawn = 3; // �ִ� ���� ��ֹ� ����
+    private int maxNumObstaclesToSpawn = 3; 
 
     float time = 0;
 
@@ -34,11 +34,11 @@ public class Mg9Spawner : MonoBehaviour
             
             GameObject new_Mg9Obstacle = Instantiate(Mg9Obstacle);
 
-                // ��ǥ�� �����ϰ� �����Ͽ� ����
+              
                 Vector2 spawnPosition = new Vector2(9.4f, Random.Range(-3.4f, 3.3f));
             new_Mg9Obstacle.transform.position = spawnPosition;
 
-            new_Mg9Obstacle.GetComponent<Mg9Obstacle>().SetSpeed(Mg9ObstacleSpeed); // ��ֹ��� ���ǵ� ����
+            new_Mg9Obstacle.GetComponent<Mg9Obstacle>().SetSpeed(Mg9ObstacleSpeed); 
             Destroy(new_Mg9Obstacle, 5.0f);
 
             time = Random.Range(0f, 0.3f);
@@ -47,14 +47,14 @@ public class Mg9Spawner : MonoBehaviour
 
     public void IncreaseSpeed()
     {
-        Mg9ObstacleSpeed += 1.0f; // ��ֹ��� ���ǵ� ����
-        time_diff -= 0.1f; // ��ֹ��� ���� ���� ����
+        Mg9ObstacleSpeed += 1.0f; 
+        time_diff -= 0.1f; 
     }
 
     public void DecreaseSpeed()
     {
-        Mg9ObstacleSpeed -= 1.0f; // ��ֹ��� ���ǵ� ����
-        time_diff += 0.1f; // ��ֹ��� ���� ���� ����
+        Mg9ObstacleSpeed -= 1.0f; 
+        time_diff += 0.1f; 
     }
 
 }

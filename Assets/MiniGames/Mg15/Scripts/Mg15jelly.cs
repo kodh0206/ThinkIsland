@@ -41,8 +41,8 @@ public class Mg15jelly : MonoBehaviour
         if (other.gameObject.CompareTag("stair"))
         {
             rb.gravityScale = 1.0f;
-            transform.localScale = Vector3.one; // 
-            isScaleChanged = true; // 
+            transform.localScale = Vector3.one; 
+            isScaleChanged = true; 
         }
 
         if (other.gameObject.CompareTag("Player"))

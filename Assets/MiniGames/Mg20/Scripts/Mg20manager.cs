@@ -47,7 +47,7 @@ public class Mg20manager : MonoBehaviour
 
             if (spawner != null)
             {
-                spawner.IncreaseSpeed();  // �ٴ� �ӵ� ����
+                spawner.IncreaseSpeed(); 
                 chimney.IncreaseSpeed();
 
             }

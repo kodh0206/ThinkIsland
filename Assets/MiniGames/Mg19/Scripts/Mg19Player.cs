@@ -60,7 +60,7 @@ public class Mg19Player : MonoBehaviour
         isJumping = true;
         // Block 레이어 마스크 설정
         
-        //audioSource = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void Update()
@@ -106,7 +106,7 @@ public class Mg19Player : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground") && (rb.velocity.y <= 0))
         {
-            //audioSource.PlayOneShot(jump);
+            audioSource.PlayOneShot(jump);
             Jump();
         }
     }

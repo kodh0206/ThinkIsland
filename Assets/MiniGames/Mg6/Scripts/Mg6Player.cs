@@ -21,18 +21,17 @@ public class Mg6Player : MonoBehaviour
     public GameObject stunEffect;
 
     [SerializeField]
-    private float jumpForce = 3.0f; // �ʱ� ���� ��
+    private float jumpForce = 3.0f; 
     [SerializeField]
-    private float maxJumpForce = 15.0f; // �ִ� ���� ��
+    private float maxJumpForce = 15.0f; 
     [SerializeField]
-    private float jumpForceIncrement = 5.0f; // ���� �� ������
-
+    private float jumpForceIncrement = 5.0f; 
     [SerializeField]
     public int level=1;
 
-    private bool isJumping = false; // ���� ������ ���� üũ
+    private bool isJumping = false; 
     private bool nowJumping = false;
-    private float currentJumpForce = 0.0f; // ���� ���� ��
+    private float currentJumpForce = 0.0f; 
     
     public AudioClip shortJumpSound; // Assign the short jump sound in the Inspector
     public AudioClip longJumpSound; // Assign the long jump sound in the Inspector

@@ -17,7 +17,7 @@ public class Poop : MonoBehaviour
         } 
         else if (other.gameObject.tag == "Player")
         {
-            //AudioManager.Instance.PlayPoop();
+            AudioManager.Instance.PlayPoop();
             otherPos=other.transform.position.x-transform.position.x;
             MiniGame3Manager.instance.StunPlayer();
             MiniGame3Manager.instance.GameLevelDown(); // Hit and level Down

@@ -98,7 +98,7 @@ public class Mg14Player : MonoBehaviour
     private void FixedUpdate()
     {
 
-        // ���� ���� ���� gravityScale ����
+        
         if (isJumping)
         {
             rb.gravityScale = jumpGravityScale;

@@ -7,7 +7,7 @@ public class Mg9jellySpawner : MonoBehaviour
     public GameObject jelly;
 
     [SerializeField]
-    private float jellySpeed = 5.0f; // ������ �ʱ� ���ǵ�
+    private float jellySpeed = 5.0f; 
 
     [SerializeField]
     private float time_diff = 1.5f;
@@ -28,13 +28,13 @@ public class Mg9jellySpawner : MonoBehaviour
         {
             GameObject new_jelly = Instantiate(jelly);
 
-            // ��ǥ�� �����ϰ� �����Ͽ� ����
+           
             Vector2 spawnPosition = new Vector2(9.4f, Random.Range(-3.4f, 3.3f));
             new_jelly.transform.position = spawnPosition;
 
-            // ���ʿ��� �����Ǹ� ���������� �����̵��� ����
+            
 
-            new_jelly.GetComponent<Mg9jelly>().SetSpeed(jellySpeed); // ������ ���ǵ� ����
+            new_jelly.GetComponent<Mg9jelly>().SetSpeed(jellySpeed); 
             time = 0;
             Destroy(new_jelly, 5.0f);
         }
@@ -42,14 +42,14 @@ public class Mg9jellySpawner : MonoBehaviour
 
     public void IncreaseSpeed()
     {
-        jellySpeed += 2.0f; // ������ ���ǵ� ����
-        time_diff -= 0.1f; // ������ ���� ���� ����
+        jellySpeed += 2.0f; 
+        time_diff -= 0.1f; 
     }
 
     public void DecreaseSpeed()
     {
-        jellySpeed -= 2.0f; // ������ ���ǵ� ����
-        time_diff += 0.1f; // ������ ���� ���� ����
+        jellySpeed -= 2.0f; 
+        time_diff += 0.1f; 
     }
 
 }

@@ -12,12 +12,12 @@ public class Mg11Player : MonoBehaviour
 
     public Camera myCamera;
 
-    public float speed = 2.0f; // ������ �ӵ�
-    public float radius = 2.0f; // ���� ������
-    public float startAngle = 0.0f; // ���� ����
-    public float angleRange = 90.0f; // ��� ���� ����
+    public float speed = 2.0f; 
+    public float radius = 2.0f; 
+    public float startAngle = 0.0f; 
+    public float angleRange = 90.0f; 
 
-    private float angle = 0.0f; // ���� ����
+    private float angle = 0.0f; 
 
     private float rotationAngle = 0f;
     private float lastAngle = 0f;
@@ -56,7 +56,7 @@ public class Mg11Player : MonoBehaviour
 
     private void Start()
     {
-        // ���� ���� ����
+       
         angle = startAngle;
 
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -70,14 +70,14 @@ public class Mg11Player : MonoBehaviour
 
     private void Update()
     {
-        // ������ ��ư �Է� ó��
+        
         if (Input.GetKey(KeyCode.RightArrow) || RightButton)
         {
             unclock = false;
             clock = true;
            
         }
-        // ���� ��ư �Է� ó��
+        
         else if (Input.GetKey(KeyCode.LeftArrow) || LeftButton)
         {
             clock = false;
@@ -94,41 +94,38 @@ public class Mg11Player : MonoBehaviour
             angle -= speed * Time.deltaTime;
         }
 
-        // ��� ���� ���� ���� ����
+       
         angle = Mathf.Clamp(angle, startAngle - angleRange, startAngle + angleRange);
 
-        // ��� ���
+       
         float x = Mathf.Sin(angle * Mathf.Deg2Rad) * radius;
         float y = Mathf.Cos(angle * Mathf.Deg2Rad) * radius;
 
-        // �̵�
+       
         transform.position = new Vector3(x, y, 0f);
 
-        // ��������Ʈ ȸ��
-        float rotationAngle = -angle;// �ð���� �Ǵ� �ݽð�������� ȸ���� ����
+        
+        float rotationAngle = -angle;
         Quaternion rotation = Quaternion.Euler(0f, 0f, rotationAngle);
         transform.rotation = rotation;
     }
 
-    public void GetHit()  //�¾�����
+    public void GetHit()  
     {
-        // ������ ����
+        
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         rb.velocity = Vector2.zero;
 
         ShakeCamera();
 
-        // �񵿱� ó�� ����
+       
         StartCoroutine(DisableControlAndResetColor());
     }
 
     private IEnumerator DisableControlAndResetColor()
     {
-        // ���� ��Ȱ��ȭ
+       
         enabled = false;
-
-        // ���� ����
-
 
         SetHitEffVisibility(hitEff, true);
         
@@ -142,9 +139,6 @@ public class Mg11Player : MonoBehaviour
 
         Mg11egg.instance.EggBreakEnd();
 
-        
-
-        // ���� Ȱ��ȭ
         enabled = true;
 
         
@@ -165,7 +159,7 @@ public class Mg11Player : MonoBehaviour
 
     public void ShakeCamera()
     {
-        myCamera.transform.DOShakePosition(1.5f, 0.2f, 10);  // ī�޶� 1�� ����, ���� 0.4�� 20�� ���ϴ�.
+        myCamera.transform.DOShakePosition(1.5f, 0.2f, 10); 
     }
 
 }

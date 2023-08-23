@@ -33,8 +33,8 @@ public class Mg12Player : MonoBehaviour
     private float throwTimer = 0.1f;
 
     public float blinkInterval = 0.125f; //blink
-    public float minAlpha = 0.3f; // �ּ� ���İ� (������ ����)
-    public float maxAlpha = 1f;   // �ִ� ���İ� (������ ����)
+    public float minAlpha = 0.3f; 
+    public float maxAlpha = 1f;   
 
     public void RightClick()
     {
@@ -179,7 +179,7 @@ public class Mg12Player : MonoBehaviour
 
     public void ShakeCamera()
     {
-        myCamera.transform.DOShakePosition(1.0f, 0.6f, 10);  // ī�޶� 1�� ����, ���� 0.4�� 20�� ���ϴ�.
+        myCamera.transform.DOShakePosition(1.0f, 0.6f, 10); 
     }
 
 
@@ -189,7 +189,7 @@ public class Mg12Player : MonoBehaviour
                 spriteRenderer.color.r,
                 spriteRenderer.color.g,
                 spriteRenderer.color.b,
-                minAlpha); // ������ ���·� ����
+                minAlpha); 
 
     }
 
@@ -199,6 +199,6 @@ public class Mg12Player : MonoBehaviour
             spriteRenderer.color.r,
             spriteRenderer.color.g,
             spriteRenderer.color.b,
-            maxAlpha); // ������ ���·� ����
+            maxAlpha); 
     }
 }

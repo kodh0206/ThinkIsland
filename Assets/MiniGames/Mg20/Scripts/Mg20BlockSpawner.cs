@@ -10,15 +10,15 @@ public class Mg20BlockSpawner : MonoBehaviour
     public GameObject jelly;
 
     [SerializeField]
-    private float BlockSpeed = 2.0f; // �������� �ʱ� ���ǵ�
+    private float BlockSpeed = 2.0f; 
 
     [SerializeField]
     private float time_diff = 1.5f;
 
     [SerializeField]
-    private int minNumObstaclesToSpawn = 1; // �ּ� ���� ��ֹ� ��Ʈ ����
+    private int minNumObstaclesToSpawn = 1; 
     [SerializeField]
-    private int maxNumObstaclesToSpawn = 1; // �ִ� ���� ��ֹ� ��Ʈ ����
+    private int maxNumObstaclesToSpawn = 1; 
 
     float time = 0;
 
@@ -45,7 +45,7 @@ public class Mg20BlockSpawner : MonoBehaviour
 
                 Blockset = Random.Range(0, 4);
 
-                // �����ϰ� ������ �����Ͽ� ����
+                
                 if (Blockset == 0)
                 {
                     GameObject new_LeftBlock = Instantiate(NomalBlock);
@@ -59,8 +59,8 @@ public class Mg20BlockSpawner : MonoBehaviour
 
 
 
-                    new_LeftBlock.GetComponent<Mg20NomalBlock>().SetSpeed(BlockSpeed); // ��ֹ��� ���ǵ� ����
-                    new_RightBlock.GetComponent<Mg20NomalBlock>().SetSpeed(BlockSpeed); // ��ֹ��� ���ǵ� ����
+                    new_LeftBlock.GetComponent<Mg20NomalBlock>().SetSpeed(BlockSpeed); 
+                    new_RightBlock.GetComponent<Mg20NomalBlock>().SetSpeed(BlockSpeed); 
 
                     Destroy(new_LeftBlock, 5.0f);
                     Destroy(new_RightBlock, 5.0f);
@@ -81,8 +81,8 @@ public class Mg20BlockSpawner : MonoBehaviour
 
 
 
-                    new_LeftBlock.GetComponent<Mg20NomalBlock>().SetSpeed(BlockSpeed); // ��ֹ��� ���ǵ� ����
-                    new_RightBlock.GetComponent<Mg20Brokenblock>().SetSpeed(BlockSpeed); // ��ֹ��� ���ǵ� ����
+                    new_LeftBlock.GetComponent<Mg20NomalBlock>().SetSpeed(BlockSpeed); 
+                    new_RightBlock.GetComponent<Mg20Brokenblock>().SetSpeed(BlockSpeed); 
 
                     Destroy(new_LeftBlock, 5.0f);
                     Destroy(new_RightBlock, 5.0f);
@@ -124,7 +124,7 @@ public class Mg20BlockSpawner : MonoBehaviour
                 }
 
 
-                if (Random.value < 0.4f) //���� Ȯ��
+                if (Random.value < 0.4f) 
                 {
                     GameObject new_jelly = Instantiate(jelly);
                     spawnPosition.y += 0.7f;

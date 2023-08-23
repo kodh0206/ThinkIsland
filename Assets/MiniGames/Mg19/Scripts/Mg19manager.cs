@@ -13,7 +13,7 @@ public class Mg19manager : MonoBehaviour
 
    
 
-    private int score = 0; // score=jelly ���ھ ���� ������ �������� ������ �ӵ� ��������
+    private int score = 0; 
     public bool isGameOver = false;
 
     void Awake()
