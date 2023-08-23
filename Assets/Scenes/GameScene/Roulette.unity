@@ -246,6 +246,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roulette: {fileID: 1716809417}
   buttonSpin: {fileID: 1482816858}
+  spriteAnimation: {fileID: 264882219}
 --- !u!1 &90707815
 GameObject:
   m_ObjectHideFlags: 0
@@ -540,6 +541,131 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 239902443}
+  m_CullTransparentMesh: 1
+--- !u!1 &264882217
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 264882218}
+  - component: {fileID: 264882221}
+  - component: {fileID: 264882220}
+  - component: {fileID: 264882219}
+  m_Layer: 5
+  m_Name: MushRoomBoySpin
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &264882218
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 264882217}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1482816861}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 90}
+  m_SizeDelta: {x: 96, y: 96}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &264882219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 264882217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d269849027e3cf9418edb9bfbe046876, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Image: {fileID: 264882220}
+  m_SpriteArray:
+  - {fileID: 21300000, guid: ba20cff4b763bc2478522d6a03002362, type: 3}
+  - {fileID: 21300000, guid: a05310f0fbcf48444a5b299c35193eef, type: 3}
+  - {fileID: 21300000, guid: 7cc74f5dc0ade0948a1c90d75c7d98b0, type: 3}
+  - {fileID: 21300000, guid: 36055533cc28a624699d482f766bb607, type: 3}
+  - {fileID: 21300000, guid: 9c56c62ec0444324fb163d1de218f25c, type: 3}
+  - {fileID: 21300000, guid: 521e4f4fc4099da45a8082bc0b6aceda, type: 3}
+  - {fileID: 21300000, guid: 74a7b13b7f72f1140980ad1b01165fd5, type: 3}
+  - {fileID: 21300000, guid: ec15c1264e5d4d642adb4be3313b8d45, type: 3}
+  - {fileID: 21300000, guid: a064be7ad9113254d8ba5d1cfcbc6738, type: 3}
+  - {fileID: 21300000, guid: f29733bb366891d4cb1b6074b243f238, type: 3}
+  - {fileID: 21300000, guid: d926718a4b205d14bbe69e4bc2ba9eeb, type: 3}
+  - {fileID: 21300000, guid: c156925df2b667a4da63717b1efde231, type: 3}
+  - {fileID: 21300000, guid: b682df51c7eb10548999c4576b600215, type: 3}
+  - {fileID: 21300000, guid: ede76d286fa392443a7648e7d19bbb18, type: 3}
+  - {fileID: 21300000, guid: b7f44987a7eeca945a38c38433259359, type: 3}
+  - {fileID: 21300000, guid: 2cc473c63fe70e64a83f12a1caab851e, type: 3}
+  - {fileID: 21300000, guid: b44de9084d57f6e45a72e1c6be441231, type: 3}
+  - {fileID: 21300000, guid: 7c6631512b205fa47b8837446b785f7e, type: 3}
+  - {fileID: 21300000, guid: 3cb0cefa11df63e438ad19dbbe8b9bd9, type: 3}
+  - {fileID: 21300000, guid: 04a4a73d10b4ce841bebf5fca8c87797, type: 3}
+  - {fileID: 21300000, guid: 5eef9d0d7fba63e4c89e05652c26ca4c, type: 3}
+  - {fileID: 21300000, guid: 618f974f44dfee9439e1373046235bb9, type: 3}
+  - {fileID: 21300000, guid: 821e7456764a4584d861300aca1eea85, type: 3}
+  - {fileID: 21300000, guid: 8502d563920488a439d282e475e4a787, type: 3}
+  - {fileID: 21300000, guid: c4ab246f7bfcb564492793c86a5834af, type: 3}
+  - {fileID: 21300000, guid: 7b02b53d0f6aa9648bcfa47010498b05, type: 3}
+  - {fileID: 21300000, guid: 74914361d8a830942b4cbd2773b17e57, type: 3}
+  - {fileID: 21300000, guid: 4cf9238af1d38314486706ddc55cdc2b, type: 3}
+  - {fileID: 21300000, guid: d7c63639da246da498ac38d7963290d4, type: 3}
+  - {fileID: 21300000, guid: d7c63639da246da498ac38d7963290d4, type: 3}
+  - {fileID: 21300000, guid: dc0194acd995f0c4da79a83ce8d3f7bf, type: 3}
+  - {fileID: 21300000, guid: 7a7214b508ce50f469e085d9e9dd20d2, type: 3}
+  - {fileID: 21300000, guid: bba5908f54eaa23469eacd51d102214a, type: 3}
+  m_Speed: 0.05
+--- !u!114 &264882220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 264882217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: ba20cff4b763bc2478522d6a03002362, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &264882221
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 264882217}
   m_CullTransparentMesh: 1
 --- !u!1 &464526558
 GameObject:
@@ -4062,12 +4188,13 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1447737067}
+  - {fileID: 264882218}
   m_Father: {fileID: 1170106442}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -29.1}
+  m_AnchoredPosition: {x: 0, y: -61}
   m_SizeDelta: {x: 96, y: 32}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1534982732
@@ -4835,7 +4962,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 16
-      m_TileSpriteIndex: 9
+      m_TileSpriteIndex: 20
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -5006,8 +5133,8 @@ Tilemap:
     m_Data: {fileID: 1159173790, guid: 7340ca638330a5540a897dc2ca7de8ce, type: 3}
   - m_RefCount: 5
     m_Data: {fileID: -1489749091, guid: 7340ca638330a5540a897dc2ca7de8ce, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 1557592359, guid: 7340ca638330a5540a897dc2ca7de8ce, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 2
     m_Data: {fileID: -1276952699, guid: 7340ca638330a5540a897dc2ca7de8ce, type: 3}
   - m_RefCount: 2
@@ -5028,8 +5155,8 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 1557592359, guid: 7340ca638330a5540a897dc2ca7de8ce, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 38
     m_Data:
@@ -5162,6 +5289,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  color1: {r: 1, g: 0, b: 0, a: 1}
+  color2: {r: 0, g: 0, b: 1, a: 1}
   gold: {fileID: -462858225, guid: 5d93731179f4f9544a3bc8db557450c5, type: 3}
   rouletteSpinClip: {fileID: 8300000, guid: b6b560fbae4c46140a0c7a8994400a8b, type: 3}
   spin: {fileID: 8300000, guid: b6b560fbae4c46140a0c7a8994400a8b, type: 3}
