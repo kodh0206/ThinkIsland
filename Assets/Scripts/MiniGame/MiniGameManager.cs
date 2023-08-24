@@ -6,7 +6,6 @@ using UnityEngine.UI;
 using TMPro;
 using System;
 using DG.Tweening;
-using Unity.VisualScripting;
 
 public class MiniGameManager : MonoBehaviour
 {   
@@ -41,6 +40,8 @@ public class MiniGameManager : MonoBehaviour
     public int maxDifficultyLevel = 4;
     public int minDifficultyLevel = 1;
     public int GameScore = 0;
+
+    public bool isPaused = false;
     private void Awake()
     {
     if (_instance != null && _instance != this)
@@ -91,7 +92,13 @@ public class MiniGameManager : MonoBehaviour
     }
 
     private void Update()
-    {
+    {   
+          if (isPaused)
+        {
+            // 게임이 일시 정지된 상태이므로 아무런 처리도 하지 않음
+            return;
+        }
+
         if (isMiniGameScene)
         {
             timer += Time.deltaTime;
@@ -344,6 +351,20 @@ private IEnumerator Fade(float finalAlpha)
         return GameScore;
     }
 
+      public void TogglePause()
+    {
+        isPaused = !isPaused;
 
+        if (isPaused)
+        {
+            Time.timeScale = 0f; // 일시 정지
+             AudioManager.Instance.audioSource.Pause(); // BGM도 일시 정지
+        }
+        else
+        {
+            Time.timeScale = 1f; // 일시 정지 해제
+             AudioManager.Instance.audioSource.UnPause(); // BGM도 일시 정지
+        }
+    }
 
 }
