@@ -6,6 +6,8 @@ using UnityEngine.UI;
 using TMPro;
 using System;
 using DG.Tweening;
+using Unity.VisualScripting;
+
 public class MiniGameManager : MonoBehaviour
 {   
     private static MiniGameManager _instance;
@@ -38,6 +40,7 @@ public class MiniGameManager : MonoBehaviour
     public int difficultyLevel;
     public int maxDifficultyLevel = 4;
     public int minDifficultyLevel = 1;
+    public int GameScore = 0;
     private void Awake()
     {
     if (_instance != null && _instance != this)
@@ -78,6 +81,7 @@ public class MiniGameManager : MonoBehaviour
     LoadMainMenu();
     Debug.Log("게임시작");
     fadeCanvasGroup.alpha = 0f;
+    GameScore = 0;
     DOTween.KillAll();
     }
 
@@ -307,7 +311,7 @@ private IEnumerator Fade(float finalAlpha)
     }
 
 
-    void IncreaseDifficulty()
+    public void IncreaseDifficulty()
     {
         if (difficultyLevel < maxDifficultyLevel)
         {
@@ -315,11 +319,31 @@ private IEnumerator Fade(float finalAlpha)
         }
     }
 
-    void DecreaseDifficulty()
+    public void DecreaseDifficulty()
     {
         if (difficultyLevel > minDifficultyLevel)
         {
             difficultyLevel--;
         }
     }
+
+    public void IncreaseScore()
+    {
+        GameScore++;
+    }
+    public void ResetScore()
+    {
+        GameScore=0;
+    }
+    public int LoadDifficulty()
+    {
+        return difficultyLevel;
+    }
+    public int LoadScore()
+    {
+        return GameScore;
+    }
+
+
+
 }
