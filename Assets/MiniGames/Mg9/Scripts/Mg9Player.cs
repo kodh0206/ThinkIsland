@@ -46,10 +46,15 @@ public class Mg9Player : MonoBehaviour
     public float targetXPosition = -7.0f;
     public float moveSpeed = 5f;
 
+    
+
     public void RightClick()
     {
-        LeftButton = false;
-        RightButton = true;
+        if (enabled)
+        {
+            LeftButton = false;
+            RightButton = true;
+        }
 
     }
 
@@ -61,9 +66,11 @@ public class Mg9Player : MonoBehaviour
 
     public void LeftClick()
     {
-        RightButton = false;
-        LeftButton = true;
-
+        if (enabled)
+        {
+            RightButton = false;
+            LeftButton = true;
+        }
     }
 
     public void LeftClickOff()
