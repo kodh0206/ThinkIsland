@@ -61602,8 +61602,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 1
   scrollSpeed: 10
-  minOrthographicSize: 1
-  maxOrthographicSize: 5
+  minOrthographicSize: 5
+  maxOrthographicSize: 10
   inertiaDuration: 1
   springStrength: 10
   springDamping: 1

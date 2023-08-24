@@ -60,6 +60,6 @@ public class SceneController : MonoBehaviour
         }        
         DG.Tweening.DOTween.KillAll(); // DOTween 삭제
         yield return new WaitForSeconds(delayBeforeLoading); // 설정한 시간 동안 대기
-        SceneManager.LoadScene(sceneToLoad); // 씬 로드
+        SceneManager.LoadSceneAsync(sceneToLoad); // 씬 로드
     }
 }

@@ -287,7 +287,7 @@ public class WJ_Sample_Class : MonoBehaviour
     }
     public void GoBackToMainMenu()
     {
-        SceneManager.LoadScene("BetaScene");
+        SceneManager.LoadSceneAsync("BetaScene");
     }
     public void DisplayCurrentState(string state, string myAnswer, string isCorrect, string svTime)
     {

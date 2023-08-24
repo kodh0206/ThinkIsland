@@ -34,8 +34,8 @@ public class Roulette : MonoBehaviour
 	private	bool				isSpinning = false;			// ���� ȸ��������
 	private	int					selectedIndex = 0;			// �귿���� ���õ� ������
 
-    public Color color1 = HexToColor("FF0000"); // 첫 번째 색상 (빨강)
-	public Color color2 = HexToColor("0000FF"); // 두 번째 색상 (파랑)
+    public Color color1 = HexToColor("C49A6C"); // 첫 번째 색상 (빨강)
+	public Color color2 = HexToColor("DCB98A"); // 두 번째 색상 (파랑)
 
 	public Sprite gold;
     private int spinDursation=3;
@@ -106,8 +106,6 @@ public class Roulette : MonoBehaviour
 	
 	private void SpawnPiecesAndLines()
 	{   
-        
-
     
 		bool useColor1 = true; // 번갈아 가면서 색상을 사용하기 위한 플래그
 		

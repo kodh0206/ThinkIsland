@@ -89,9 +89,11 @@ public class AudioManager : MonoBehaviour
         }
     }
     else if (scene.name == "BetaScene" || scene.name =="OpeningScene")
-    {
+    {   if(isBGMOn)
+        {
         audioSource.clip = MainBgm;
         audioSource.Play();
+        }
     }
     
     }
@@ -323,7 +325,7 @@ public class AudioManager : MonoBehaviour
     {
         if(isSFXOn)
         {
-            audioSource.PlayOneShot(right);
+            audioSource.PlayOneShot(finish);
         }
     }
 

@@ -11,8 +11,8 @@ public class MobileTouch : MonoBehaviour
     private Vector3 springVelocity = Vector3.zero;
     public float moveSpeed = 0.1f;
     public float scrollSpeed = 0.01f; // Scroll speed for zooming
-    public float minOrthographicSize = 1f; // Min zoom
-    public float maxOrthographicSize = 8f; // Max zoom
+    public float minOrthographicSize = 5f; // Min zoom
+    public float maxOrthographicSize = 10f; // Max zoom
     public float inertiaDuration = 1.0f;
     public float springStrength = 10.0f;
     public float springDamping = 1.0f;

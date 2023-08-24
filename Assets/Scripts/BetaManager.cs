@@ -45,6 +45,7 @@ public class BetaManager : MonoBehaviour
     public Button WaterButton;
     public bool isWaterSelected = false;
 
+    
 
 
     void Awake()
@@ -99,7 +100,7 @@ public class BetaManager : MonoBehaviour
     void gotoRadio()
     { 
         AudioManager.Instance.PlayPressed();
-        SceneManager.LoadScene("RadioScene");
+        SceneManager.LoadSceneAsync("RadioScene");
     }
 
         public void SelectPlant(CropData newPlant)
@@ -228,8 +229,8 @@ public class BetaManager : MonoBehaviour
 
 
     public void LoadClassScene()
-    {
-        SceneManager.LoadScene("ClassScene");
+    {   AudioManager.Instance.PlayPressed();
+        SceneManager.LoadSceneAsync("ClassScene");
     }
     void ExitGame()
     {
