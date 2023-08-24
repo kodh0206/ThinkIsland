@@ -56,7 +56,7 @@ public class Mg19manager : MonoBehaviour
             if (spawner != null)
             {
                 spawner.IncreaseSpeed();  
-\
+
             }
         }
     }
