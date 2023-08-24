@@ -29,6 +29,10 @@ public class Mg4manager : MonoBehaviour
     void Start()
     {
         level= 0;
+
+        level = MiniGameManager.Instance.LoadDifficulty() - 1;
+        score = MiniGameManager.Instance.LoadScore();
+
         GameLevelsetting();
     }
 
@@ -41,12 +45,15 @@ public class Mg4manager : MonoBehaviour
     public void AddScore()
     {
     score += 1;
-   
-    scoreText.text = "Eat jelly " + score;
+
+
+        MiniGameManager.Instance.IncreaseScore();
 
         if (score % 5 == 0 && level<3)
         {
             level += 1;
+            MiniGameManager.Instance.IncreaseDifficulty();
+
             makejelly spawner = FindObjectOfType<makejelly>();
             Makebirdpoop spawner2 = FindObjectOfType<Makebirdpoop>();
 
@@ -79,12 +86,14 @@ public class Mg4manager : MonoBehaviour
     {
 
         score = 0;
+        MiniGameManager.Instance.ResetScore();
         Makebirdpoop spawner = FindObjectOfType<Makebirdpoop>();
         makejelly jellspawner = FindObjectOfType<makejelly>();
 
         if (level != 0)
         {
             level -= 1;
+            MiniGameManager.Instance.DecreaseDifficulty();
 
             spawner.DecreaseSpeed(); //Down Level
             jellspawner.DecreaseSpeed() ;

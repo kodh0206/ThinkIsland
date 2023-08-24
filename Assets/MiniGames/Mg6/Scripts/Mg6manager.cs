@@ -27,6 +27,10 @@ public class Mg6manager : MonoBehaviour
     void Start()
     {
         level = 1;
+
+        level = MiniGameManager.Instance.LoadDifficulty() - 1;
+        score = MiniGameManager.Instance.LoadScore();
+
         GameLevelsetting();
     }
 
@@ -39,10 +43,13 @@ public class Mg6manager : MonoBehaviour
     public void AddScore()
     {
         score += 1;
-        
+        MiniGameManager.Instance.IncreaseScore();
+
         if (score % 5 == 0)
         {
             level += 1;
+            MiniGameManager.Instance.IncreaseDifficulty();
+
             Mg6Spawner spawner = FindObjectOfType<Mg6Spawner>();
             Mg6JellySpawner spawner2 = FindObjectOfType<Mg6JellySpawner>();
 
@@ -76,6 +83,8 @@ public class Mg6manager : MonoBehaviour
     {
 
         score = 0;
+        MiniGameManager.Instance.ResetScore();
+
         Mg6Spawner spawner = FindObjectOfType<Mg6Spawner>();
         Mg6JellySpawner spawner2 = FindObjectOfType<Mg6JellySpawner>();
 
@@ -83,6 +92,7 @@ public class Mg6manager : MonoBehaviour
         if (level != 0)
         {
             level -= 1;
+            MiniGameManager.Instance.DecreaseDifficulty();
 
             spawner.DecreaseSpeed(); //Down Level
             spawner2.DecreaseSpeed();
