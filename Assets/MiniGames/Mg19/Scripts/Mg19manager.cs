@@ -27,6 +27,9 @@ public class Mg19manager : MonoBehaviour
     void Start()
     {
         level = 0;
+        level = MiniGameManager.Instance.LoadDifficulty() - 1;
+        score = MiniGameManager.Instance.LoadScore();
+
         GameLevelsetting();
     }
 
@@ -39,18 +42,21 @@ public class Mg19manager : MonoBehaviour
     public void AddScore()
     {
         score += 1;
-        
+        MiniGameManager.Instance.IncreaseScore();
+
+
         if (score % 5 == 0 && (level < 4))
         {
             level += 1;
+            MiniGameManager.Instance.IncreaseDifficulty();
+
             Mg19blockSpanwer spawner = FindObjectOfType<Mg19blockSpanwer>();
 
 
             if (spawner != null)
             {
                 spawner.IncreaseSpeed();  
-
-
+\
             }
         }
     }
@@ -72,10 +78,14 @@ public class Mg19manager : MonoBehaviour
     {
 
         score = 0;
+        MiniGameManager.Instance.ResetScore();
+
         Mg19blockSpanwer spawner = FindObjectOfType<Mg19blockSpanwer>();
         if (level != 0)
         {
             level -= 1;
+            MiniGameManager.Instance.DecreaseDifficulty();
+
             spawner.DecreaseSpeed();
 
         }

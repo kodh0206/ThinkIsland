@@ -24,7 +24,10 @@ public class Mg20manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        level = 1;
+        level = 0;
+        level = MiniGameManager.Instance.LoadDifficulty() - 1;
+        score = MiniGameManager.Instance.LoadScore();
+
         GameLevelsetting();
     }
 
@@ -37,13 +40,15 @@ public class Mg20manager : MonoBehaviour
     public void AddScore()
     {
         score += 1;
-        
+        MiniGameManager.Instance.IncreaseScore();
 
         if (score % 5 == 0 && (level <4))
         {
             Mg20BlockSpawner spawner = FindObjectOfType<Mg20BlockSpawner>();
             Mg20ChimneyMove chimney = FindObjectOfType<Mg20ChimneyMove>();
+
             level += 1;
+            MiniGameManager.Instance.IncreaseDifficulty();
 
             if (spawner != null)
             {
@@ -74,11 +79,15 @@ public class Mg20manager : MonoBehaviour
     {
 
         score = 0;
+        MiniGameManager.Instance.ResetScore();
+
         Mg20BlockSpawner spawner = FindObjectOfType<Mg20BlockSpawner>();
         Mg20ChimneyMove chimney = FindObjectOfType<Mg20ChimneyMove>();
         if (level != 0)
         {
             level -= 1;
+            MiniGameManager.Instance.DecreaseDifficulty();
+
             spawner.DecreaseSpeed();
             chimney.DecreaseSpeed();
 
