@@ -48,7 +48,7 @@ public class Mg17shell : MonoBehaviour
 
             ShakeCamera();
 
-            if (HItCount == 2)
+            if (HItCount == 1)
             {
                 float randomValue = Random.value;
                 if (randomValue < 0.7f)
