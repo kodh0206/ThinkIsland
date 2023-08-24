@@ -3,7 +3,9 @@ using UnityEngine.Events;
 using UnityEngine;
 using System.Collections.Generic;
 using System;
-
+using System.Linq;
+using Random = UnityEngine.Random;
+using UnityEngine.SceneManagement;
 public class Roulette : MonoBehaviour
 {
 	[SerializeField]
@@ -15,7 +17,7 @@ public class Roulette : MonoBehaviour
 	[SerializeField]
 	private	Transform			lineParent;					// ������ ��ġ�Ǵ� �θ� Transform
 	[SerializeField]
-	private	RoulettePieceData[]	roulettePieceData;			// �귿�� ǥ�õǴ� ���� �迭
+	private	 List<RoulettePieceData> 	roulettePieceData;			// �귿�� ǥ�õǴ� ���� �迭
 
 	[SerializeField]
 	private	int					spinDuration;				// ȸ�� �ð�
@@ -32,141 +34,214 @@ public class Roulette : MonoBehaviour
 	private	bool				isSpinning = false;			// ���� ȸ��������
 	private	int					selectedIndex = 0;			// �귿���� ���õ� ������
 
-	private void Awake()
-	{
-	roulettePieceData = new RoulettePieceData[]
-    	{
-        new RoulettePieceData { icon = null, description = "Gold 300", rewardType = "Gold", rewardAmount = 300, chance = 25 },
-        new RoulettePieceData { icon = null, description = "Gold 500", rewardType = "Gold", rewardAmount = 500, chance = 35 },
-        new RoulettePieceData { icon = null, description = "Gold 1000", rewardType = "Gold", rewardAmount = 1000, chance = 40 }
-    	};
+    public Color color1 = HexToColor("C49A6C"); // 첫 번째 색상 (빨강)
+	public Color color2 = HexToColor("DCB98A"); // 두 번째 색상 (파랑)
 
-    	pieceAngle = 360 / roulettePieceData.Length;
-    	halfPieceAngle = pieceAngle * 0.5f;
-    	halfPieceAngleWithPaddings = halfPieceAngle - (halfPieceAngle * 0.25f);
+	public Sprite gold;
+    private int spinDursation=3;
+    
+    [SerializeField]
+	private AudioClip rouletteSpinClip; // Add this line to declare AudioClip for roulette spinning sound
+
+	private AudioSource audioSource; // Add this line to declare AudioSource
+    public AudioClip spin;
+    public AudioClip reward;
+    void Awake() // Or you can use Start() method
+	{
+		audioSource = GetComponent<AudioSource>();
+		if(audioSource == null)
+		{
+			audioSource = gameObject.AddComponent<AudioSource>();
+		}
+	}
+      void OnEnable()
+    {
+        // 씬 로드 이벤트에 대한 콜백을 등록합니다.
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnDisable()
+    {
+        // 씬 로드 이벤트에 대한 콜백을 제거합니다.
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+       roulettePieceData = new List<RoulettePieceData>
+	{
+    new RoulettePieceData { icon = gold, description = "Gold 300", rewardType = "Gold", rewardAmount = 300, chance = 25 },
+    new RoulettePieceData { icon = gold, description = "Gold 500", rewardType = "Gold", rewardAmount = 500, chance = 35 },
+    new RoulettePieceData { icon = gold, description = "Gold 1000", rewardType = "Gold", rewardAmount = 1000, chance = 40 }
+	};
+
+    List<LevelRewardData> newRewards = RewardManager.Instance.GetNewRewards();
+
+        // LevelRewardData를 RoulettePieceData로 변환
+        List<RoulettePieceData> convertedRewards = RewardManager.Instance.ConvertLevelRewardsToPieces(newRewards);
+
+        // 변환된 보상들을 룰렛에 추가
+        foreach (RoulettePieceData reward in convertedRewards)
+        {
+            // 기존에 같은 보상이 없으면 추가
+            if (!roulettePieceData.Exists(x => x.description == reward.description && x.rewardType == reward.rewardType))
+            {
+                roulettePieceData.Add(reward);
+            }
+            // 이미 같은 보상이 있으면 해당 보상의 확률을 업데이트
+            else
+            {
+                RoulettePieceData existingReward = roulettePieceData.Find(x => x.description == reward.description && x.rewardType == reward.rewardType);
+                existingReward.chance += reward.chance;
+            }
+        }
+    	pieceAngle = 360 / roulettePieceData.Count;
+        halfPieceAngle = pieceAngle * 0.5f;
+        halfPieceAngleWithPaddings = halfPieceAngle - (halfPieceAngle * 0.25f);
+
+        
     	SpawnPiecesAndLines();
     	CalculateWeightsAndIndices();
-	}
-
-	private void Update()
-	{
-	if (RewardManager.Instance.HasNewRewards())
-        {
-            // RewardManager에서 새로운 보상을 가져와서 룰렛에 추가합니다.
-            List<LevelRewardData> newRewards = RewardManager.Instance.GetNewRewards();
-            foreach (LevelRewardData reward in newRewards)
-            {
-                AddPiece(reward);
-            }
-
-            // 보상이 추가되었으므로 pieceAngle과 halfPieceAngle을 다시 계산합니다.
-            pieceAngle = 360 / roulettePieceData.Length;
-            halfPieceAngle = pieceAngle * 0.5f;
-            halfPieceAngleWithPaddings = halfPieceAngle - (halfPieceAngle * 0.25f);
-
-            // 보상이 추가되었으므로 룰렛 조각과 선을 다시 생성합니다.
-            SpawnPiecesAndLines();
-        }
     }
 	
 	private void SpawnPiecesAndLines()
-	{
-		for ( int i = 0; i < roulettePieceData.Length; ++ i )
+	{   
+    
+		bool useColor1 = true; // 번갈아 가면서 색상을 사용하기 위한 플래그
+		
+		for (int i = 0; i < roulettePieceData.Count; ++i)
 		{
 			Transform piece = Instantiate(piecePrefab, pieceParent.position, Quaternion.identity, pieceParent);
-			// ������ �귿 ������ ���� ���� (������, ����)
 			piece.GetComponent<RoulettePiece>().Setup(roulettePieceData[i]);
-			// ������ �귿 ���� ȸ��
+			piece.GetComponent<RoulettePiece>().SetColor(useColor1 ? color1 : color2); // 색상 설정
 			piece.RotateAround(pieceParent.position, Vector3.back, (pieceAngle * i));
 
 			Transform line = Instantiate(linePrefab, lineParent.position, Quaternion.identity, lineParent);
-			// ������ �� ȸ�� (�귿 ���� ���̸� �����ϴ� �뵵)
 			line.RotateAround(lineParent.position, Vector3.back, (pieceAngle * i) + halfPieceAngle);
+			
+			useColor1 = !useColor1; // 색상 플래그 토글
 		}
+        
 	}
 
 	private void CalculateWeightsAndIndices()
 	{
-		for ( int i = 0; i < roulettePieceData.Length; ++ i )
-		{
-			roulettePieceData[i].index = i;
-
-			// ����ó��. Ȥ�ö� chance���� 0 �����̸� 1�� ����
-			if ( roulettePieceData[i].chance <= 0 )
-			{
-				roulettePieceData[i].chance = 1;
-			}
-
-			accumulatedWeight += roulettePieceData[i].chance;
-			roulettePieceData[i].weight = accumulatedWeight;
-
-			Debug.Log($"({roulettePieceData[i].index}){roulettePieceData[i].description}:{roulettePieceData[i].weight}");
-		}
+	accumulatedWeight = 0;
+    for (int i = 0; i < roulettePieceData.Count; ++i)
+    {
+        roulettePieceData[i].index = i;
+        accumulatedWeight += roulettePieceData[i].chance;
+        roulettePieceData[i].weight = accumulatedWeight;
+    }
 	}
 
 	private int GetRandomIndex()
 	{
-		int weight = UnityEngine.Random.Range(0, accumulatedWeight);
+	  int randomValue = UnityEngine.Random.Range(0, accumulatedWeight + 1);
 
-		for ( int i = 0; i < roulettePieceData.Length; ++ i )
-		{
-			if ( roulettePieceData[i].weight > weight )
-			{
-				return i;
-			}
-		}
-
-		return 0;
-	}
- public void Spin(UnityAction<RoulettePieceData> endOfSpinCallback)
+    for (int i = 0; i < roulettePieceData.Count; ++i)
     {
-        if (isSpinning) return;  // 이미 회전중이라면 회전을 시작하지 않는다.
+        if (randomValue <= roulettePieceData[i].weight)
+        {
+            return i;
+        }
+    }
 
-        isSpinning = true;
-        selectedIndex = GetRandomIndex();  // 랜덤한 인덱스를 선택
+    return 0;  // 이 부분은 필요에 따라 다른 값으로 변경할 수 있습니다.
 
-        float spinAngle = 360 * (spinDuration - 1);  // 스핀할 각도
-        spinAngle += pieceAngle * selectedIndex;  // 선택한 인덱스에 따라 스핀 각도 조절
-        spinAngle -= spinningRoulette.rotation.eulerAngles.z;  // 현재 회전 각도를 고려
+	}
+ public void Spin(UnityAction<RoulettePieceData> action=null)
+    {  
+  if ( isSpinning == true ) return;
 
-        StartCoroutine(OnSpin(spinAngle, endOfSpinCallback));
+		// 룰렛의 결과 값 선택
+		selectedIndex = GetRandomIndex();
+		// 선택된 결과의 중심 각도
+		float angle			= pieceAngle * selectedIndex;
+		// 정확히 중심이 아닌 결과 값 범위 안의 임의의 각도 선택
+		float leftOffset	= (angle - halfPieceAngleWithPaddings) % 360;
+		float rightOffset	= (angle + halfPieceAngleWithPaddings) % 360;
+		float randomAngle	=  Random.Range(leftOffset, rightOffset);
+
+		// 목표 각도(targetAngle) = 결과 각도 + 360 * 회전 시간 * 회전 속도
+		int	  rotateSpeed	= 2;
+		float targetAngle	= (randomAngle + 360 * spinDursation * rotateSpeed);
+
+		isSpinning = true;
+		StartCoroutine(OnSpin(targetAngle, action));
     }
 private IEnumerator OnSpin(float end, UnityAction<RoulettePieceData> action)
 {
     float current = 0;
     float percent = 0;
-
+    
+    audioSource.clip = spin;
+    audioSource.Play();  // 룰렛이 회전하기 시작하면 소리를 재생합니다.
+    // 변형된 반복문 조건
     while ( percent < 1 )
-    {
-        current += Time.deltaTime;
-        percent = current / spinDuration;
+		{
+			current += Time.deltaTime;
+			percent = current / spinDuration;
 
-        float z = Mathf.Lerp(0, end, spinningCurve.Evaluate(percent));
-        spinningRoulette.rotation = Quaternion.Euler(0, 0, z);
+			float z = Mathf.Lerp(0, end, spinningCurve.Evaluate(percent));
+			spinningRoulette.rotation = Quaternion.Euler(0, 0, z);
 
-        yield return null;
-    }
-
+			yield return null;
+		}
+    Debug.Log("Spin completed. Selected index: " + selectedIndex); // 추가된 디버깅 로그
     isSpinning = false;
 
     if ( action != null ) action.Invoke(roulettePieceData[selectedIndex]);
 
     // 보상 처리 부분
     RoulettePieceData selectedReward = roulettePieceData[selectedIndex];
-    switch (selectedReward.rewardType)
+    Debug.Log("Selected reward: " + selectedReward.description); // 추가된 디버깅 로그
+    roulettePieceData.RemoveAt(selectedIndex);
+
+    // Find the reward in the newRewards list that matches the selected reward
+    LevelRewardData rewardToRemove = RewardManager.Instance.GetMatchedNewReward(selectedReward.description);
+    // If the reward is in the list, remove it
+    if (rewardToRemove != null)
+    {
+        RewardManager.Instance.RemoveFromNewRewards(rewardToRemove);
+    }
+     audioSource.Stop();
+     audioSource.PlayOneShot(reward);
+     // 보상 유형에 따라 다른 작업을 수행합니다.
+     switch (selectedReward.rewardType)
     {
         case "Gold":
             // 골드 보상 처리
             // 예를 들어 플레이어의 골드를 증가시키는 코드 등
+            GameController.Instance.curentgold += selectedReward.rewardAmount;
             break;
         case "Crop":
-			 CropData newCrop = GameController.Instance.CropList.Find(c => c.plantName == selectedReward.description);
+             CropData newCrop = GameController.Instance.CropList.Find(c => c.plantName == selectedReward.description);
             if (newCrop != null)
             {
                 GameController.Instance.currentUnlockedCrops.Add(newCrop);
             }
             break;
-           
+        case "MiniGame":
+            if (!string.IsNullOrEmpty(selectedReward.description))
+            {
+                // 만약 미니게임이 이미 해금된 상태라면 무시합니다.
+                if (GameController.Instance.unlockedMiniGames.Contains(selectedReward.description))
+                {
+                    Debug.Log("This minigame is already unlocked.");
+                    break;
+                }
+
+                // 새 미니게임을 해금 리스트에 추가합니다.
+                GameController.Instance.unlockedMiniGames.Add(selectedReward.description);
+                MiniGameManager.Instance.AddMiniGame(selectedReward.description);
+                Debug.Log("Unlocked new minigame: " + selectedReward.description);
+
+
+                
+            }
+            break;
+               
         default:
             break;
     }
@@ -174,37 +249,73 @@ private IEnumerator OnSpin(float end, UnityAction<RoulettePieceData> action)
     StartCoroutine(WaitAndLoadMainScene(2f));
 }
 
-
 private IEnumerator WaitAndLoadMainScene(float waitTime)
 {
     yield return new WaitForSeconds(waitTime);
     MiniGameManager.Instance.LoadMainMenu();
 }
 
-void AddPiece(LevelRewardData reward)
+void AddPiece(RoulettePieceData newPiece)
 {
-   RoulettePieceData newPiece = new RoulettePieceData();
+   /// Check if the reward is valid
+    if (string.IsNullOrEmpty(newPiece.description))
+    {
+        // If the reward is not valid, do not add it
+        Debug.LogWarning("Trying to add an invalid reward to the roulette wheel.");
+        return;
+    }
 
-        // LevelRewardData에서 RoulettePieceData로 정보를 복사합니다.
-        newPiece.description = reward.unlockedCrop != null ? reward.unlockedCrop :
-                                reward.unlockedMiniGame;
-        newPiece.icon = reward.unlockedCrop != null ? reward.CropIcon :
-                        reward.MiniGameIcon;
-        newPiece.rewardType = reward.unlockedCrop != null ? "Crop" :
-                              "MiniGame";
-        newPiece.chance = 1;
-    // Add the new piece to the roulette piece data array
-    Array.Resize(ref roulettePieceData, roulettePieceData.Length + 1);
-    roulettePieceData[roulettePieceData.Length - 1] = newPiece;
+    // Check if the reward is already on the roulette wheel
+    if (roulettePieceData.Any(piece => piece.description == newPiece.description))
+    {
+        Debug.LogWarning($"The reward {newPiece.description} is already on the roulette wheel.");
+        return;
+    }
+
+    // Add the new piece to the roulette piece data list
+    roulettePieceData.Add(newPiece);
 
     // Add the new piece to the roulette wheel
-    // This could be done similarly to the SpawnPiecesAndLines method
     Transform piece = Instantiate(piecePrefab, pieceParent.position, Quaternion.identity, pieceParent);
     piece.GetComponent<RoulettePiece>().Setup(newPiece);
-    piece.RotateAround(pieceParent.position, Vector3.back, (pieceAngle * (roulettePieceData.Length - 1)));
+    piece.RotateAround(pieceParent.position, Vector3.back, (pieceAngle * (roulettePieceData.Count - 1)));
 
     // Recalculate the weights and indices with the CalculateWeightsAndIndices method
     CalculateWeightsAndIndices();
+}
+
+private void ResetRouletteWheel()
+{
+    // Clear the roulette piece data list
+    Debug.Log("청소");
+    roulettePieceData.Clear();
+
+    // Destroy all the roulette pieces and lines
+    foreach (Transform child in pieceParent)
+    {
+        Destroy(child.gameObject);
+    }
+
+    foreach (Transform child in lineParent)
+    {
+        Destroy(child.gameObject);
+    }
+
+    roulettePieceData = new List<RoulettePieceData>
+	{
+    new RoulettePieceData { icon = gold, description = "Gold 300", rewardType = "Gold", rewardAmount = 300, chance = 25 },
+    new RoulettePieceData { icon = gold, description = "Gold 500", rewardType = "Gold", rewardAmount = 500, chance = 35 },
+    new RoulettePieceData { icon = gold, description = "Gold 1000", rewardType = "Gold", rewardAmount = 1000, chance = 40 }
+	};
+}
+	private static Color HexToColor(string hex)
+	{
+		byte r = byte.Parse(hex.Substring(0, 2), System.Globalization.NumberStyles.HexNumber);
+		byte g = byte.Parse(hex.Substring(2, 2), System.Globalization.NumberStyles.HexNumber);
+		byte b = byte.Parse(hex.Substring(4, 2), System.Globalization.NumberStyles.HexNumber);
+		return new Color32(r, g, b, 255);
 	}
+
+
 }
 

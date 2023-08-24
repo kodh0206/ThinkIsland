@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5817694735370995947}
   - component: {fileID: 5817694735370995944}
   - component: {fileID: 5817694735370995949}
+  - component: {fileID: 3505488192505900460}
   m_Layer: 0
   m_Name: broken block
   m_TagString: BreakGround
@@ -124,5 +125,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdb79903146b0bb4db60aba697882b73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  breakEffect: {fileID: 0}
+  animator: {fileID: 3505488192505900460}
   blockspeed: 2
+--- !u!95 &3505488192505900460
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5817694735370995945}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d2921e056f89b2940959f60c24e1c596, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

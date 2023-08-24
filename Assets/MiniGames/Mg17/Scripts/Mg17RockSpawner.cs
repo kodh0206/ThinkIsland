@@ -8,7 +8,7 @@ public class Mg17RockSpawner : MonoBehaviour
 
     public Transform player;
 
-    public float RockSpeed = 20.0f; // ������ �ʱ� ���ǵ�
+    public float RockSpeed = 20.0f;
 
     [SerializeField]
     private float time_diff = 0.35f;
@@ -29,13 +29,13 @@ public class Mg17RockSpawner : MonoBehaviour
         {
             GameObject new_Rock = Instantiate(Rock);
 
-            // ��ǥ�� �����ϰ� �����Ͽ� ����
-            Vector2 spawnPosition = new Vector2(player.position.x-0.1f , player.position.y+0.1f); //�÷��̾ �������� ����
+            
+            Vector2 spawnPosition = new Vector2(player.position.x-0.1f , player.position.y+0.1f); 
             new_Rock.transform.position = spawnPosition;
 
 
 
-            new_Rock.GetComponent<Mg17Rock>().SetSpeed(RockSpeed); // ����ü�� ���ǵ� ����
+            new_Rock.GetComponent<Mg17Rock>().SetSpeed(RockSpeed);
             time = 0;
             Destroy(new_Rock, 5.0f);
         }
@@ -43,14 +43,14 @@ public class Mg17RockSpawner : MonoBehaviour
 
     public void IncreaseSpeed()
     {
-        RockSpeed += 1.0f; // ������ ���ǵ� ����
-        time_diff -= 0.1f; // ������ ���� ���� ����
+        RockSpeed += 1.0f; 
+        time_diff -= 0.1f; 
     }
 
     public void DecreaseSpeed()
     {
-        RockSpeed -= 1.0f; // ������ ���ǵ� ����
-        time_diff += 0.1f; // ������ ���� ���� ����
+        RockSpeed -= 1.0f; 
+        time_diff += 0.1f; 
     }
 
     public void GetHit()
@@ -60,13 +60,13 @@ public class Mg17RockSpawner : MonoBehaviour
 
     private IEnumerator DisableSpawning()
     {
-        // ���� ����
+       
         time_diff = Mathf.Infinity;
 
-        // ��� �ð�
+       
         yield return new WaitForSeconds(2f);
 
-        // ���� �簳
+        
         time_diff = 0.5f;
     }
 }

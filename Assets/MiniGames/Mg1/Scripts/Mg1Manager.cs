@@ -30,17 +30,24 @@ public class Mg1Manager : MonoBehaviour
     void Start()
     {
         level= 1;
+
+        level = MiniGameManager.Instance.LoadDifficulty();
+        score = MiniGameManager.Instance.LoadScore();
+
         GameLevelsetting();
     }
 
     public void AddScore()
     {
         score += 1;
-        scoreText.text = "Eat jelly " + score; //score= jelly
+        //scoreText.text = "Eat jelly " + score; //score= jelly
+
+        MiniGameManager.Instance.IncreaseScore();
 
         if (score % 5 == 0)
         {
             level += 1;
+            MiniGameManager.Instance.IncreaseDifficulty();
 
             Mg1MakeJelly spawnerJelly = FindObjectOfType<Mg1MakeJelly>();
             Mg1MakePoop spawnerPoop = FindObjectOfType<Mg1MakePoop>();
@@ -100,12 +107,16 @@ public class Mg1Manager : MonoBehaviour
     {
 
         score = 0;
+        MiniGameManager.Instance.ResetScore();
+
         Mg1MakeJelly spawnerJelly = FindObjectOfType<Mg1MakeJelly>();
         Mg1MakePoop spawnerPoop = FindObjectOfType<Mg1MakePoop>();
         Mg1MakeCow spawnerCow = FindObjectOfType<Mg1MakeCow>();
         if (level != 0)
         {
             level -= 1;
+            MiniGameManager.Instance.DecreaseDifficulty();
+
             spawnerJelly.DecreaseSpeed();
             spawnerPoop.DecreaseSpeed();
             spawnerCow.DecreaseSpeed();

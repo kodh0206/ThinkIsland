@@ -10,10 +10,9 @@ public class BetaManager : MonoBehaviour
     //General
     public int money;
     public int jelly;
-
+    public int action;
     public Button play1;
     MiniGameManager miniGame;
-    public Button exit;
     GameController gameController;
     public Button RadioButton;
 
@@ -46,12 +45,13 @@ public class BetaManager : MonoBehaviour
     public Button WaterButton;
     public bool isWaterSelected = false;
 
+    
 
 
     void Awake()
     {   
         // 싱글톤 초기화
-       
+
         miniGame =GameObject.Find("MiniGameManager").GetComponent<MiniGameManager>();
         gameController = GameObject.Find("GameManager").GetComponent<GameController>();
     }
@@ -59,7 +59,6 @@ public class BetaManager : MonoBehaviour
     private void Start()
     {
         play1.onClick.AddListener(StartMiniGame);
-        exit.onClick.AddListener(ExitGame);
         RadioButton.onClick.AddListener(gotoRadio);
         money =gameController.curentgold;
         moneyText.text = money.ToString();
@@ -79,18 +78,29 @@ public class BetaManager : MonoBehaviour
     private void Update()
     {
     jelly =gameController.currentjellyCount;
+    money = gameController.curentgold;
     jellyText.text = jelly.ToString();
     }
     
     void StartMiniGame()
-    {   play1.interactable=false;//여러 클릭 방지 
+    {  if (GameController.Instance.currentActionPoints >= 20) // 활동력이 20 이상일 경우
+    {
+        play1.interactable = false; // 여러 클릭 방지
         AudioManager.Instance.StartMiniGame();
         miniGame.StartMiniGameWithAudio();
+        GameController.Instance.currentActionPoints -= 20; // 게임 시작에 필요한 활동력 감소
+    }
+    else // 활동력이 20 미만일 경우
+    {
+        AudioManager.Instance.PlayError(); // 활동력 부족 효과음 재생
+        // 게임 시작 못하게 하기, 필요에 따라 경고 메시지 표시 등 추가 처리 가능
+    }
        
     }
     void gotoRadio()
-    {
-        SceneManager.LoadScene("RadioScene");
+    { 
+        AudioManager.Instance.PlayPressed();
+        SceneManager.LoadSceneAsync("RadioScene");
     }
 
         public void SelectPlant(CropData newPlant)
@@ -218,7 +228,10 @@ public class BetaManager : MonoBehaviour
     }
 
 
-
+    public void LoadClassScene()
+    {   AudioManager.Instance.PlayPressed();
+        SceneManager.LoadSceneAsync("ClassScene");
+    }
     void ExitGame()
     {
         Application.Quit();

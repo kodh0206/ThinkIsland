@@ -2,9 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class Mg16Player : MonoBehaviour
 {
+
+    public Camera myCamera;
+    public GameObject stunEffect;
+
+    public GameObject sparkEffect;
+
 
     [SerializeField]
     private float moveSpeed = 3f;
@@ -14,9 +21,16 @@ public class Mg16Player : MonoBehaviour
 
     private AudioSource audioSource;
     public AudioClip electricity;
+
+    private SpriteRenderer spriteRenderer;
+    public float blinkInterval = 0.125f; //blink
+    public float minAlpha = 0.3f; // 최소 알파값 (반투명 상태)
+    public float maxAlpha = 1f;   // 최대 알파값 (불투명 상태)
+
     private void Start()
     {
         audioSource =GetComponent<AudioSource>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     public void Button1Pressed()
@@ -81,43 +95,69 @@ public class Mg16Player : MonoBehaviour
 
     public void GetHit()
     {
-        // ������ ����
+      
 
         Mg16Manager.instance.GameLevelDown();
 
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         rb.velocity = Vector2.zero;
 
-        audioSource.PlayOneShot(electricity);
-        // �񵿱� ó�� ����
+        ShakeCamera();
+
+        if(AudioManager.Instance.isSFXOn)
+        {
+            audioSource.PlayOneShot(electricity);
+        }
         StartCoroutine(DisableControlAndResetColor());
     }
 
     private IEnumerator DisableControlAndResetColor()
     {
-        // ���� ��Ȱ��ȭ
+        
         enabled = false;
 
-        // ���� ����
-        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
-        if (spriteRenderer != null)
+
+        Vector2 Effectposition = new Vector2(transform.position.x, transform.position.y + 0.7f);
+        GameObject HitEff = Instantiate(stunEffect, Effectposition, Quaternion.identity, transform);
+
+        GameObject SparkEff = Instantiate(sparkEffect, transform.position, Quaternion.identity, transform);
+
+        for (int i = 0; i < 8; i++) //Blink
         {
-            spriteRenderer.color = new Color(0.77f, 0.52f, 0f);
+            Blink();
+            yield return new WaitForSeconds(blinkInterval);
+            BlinkEnd();
+            yield return new WaitForSeconds(blinkInterval);
         }
 
-        // 2�ʰ� ���
-        yield return new WaitForSeconds(1f);
+        Destroy(HitEff);
+        Destroy(SparkEff);
 
-        // ���� Ȱ��ȭ
         enabled = true;
 
-        // 1�ʰ� poop ���� ���� ����
-        //yield return new WaitForSeconds(1f);
-
-        // ���� ������� ����
-        if (spriteRenderer != null)
-        {
-            spriteRenderer.color = Color.white;
-        }
     }
+    public void ShakeCamera()
+    {
+        myCamera.transform.DOShakePosition(1.5f, 0.2f, 40);  // 카메라를 1초 동안, 강도 0.4로 20번 흔듭니다.
+    }
+
+
+    public void Blink()
+    {
+        spriteRenderer.color = new Color(
+                spriteRenderer.color.r,
+                spriteRenderer.color.g,
+                spriteRenderer.color.b,
+                minAlpha); // 반투명 상태로 설정
+    }
+
+    public void BlinkEnd()
+    {
+        spriteRenderer.color = new Color(
+            spriteRenderer.color.r,
+            spriteRenderer.color.g,
+            spriteRenderer.color.b,
+            maxAlpha); // 불투명 상태로 설정
+    }
+
 }

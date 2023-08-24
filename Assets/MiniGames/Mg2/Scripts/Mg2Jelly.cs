@@ -12,7 +12,8 @@ public class Mg2Jelly : MonoBehaviour
     private Vector2 endPoint;
     private float elapsedTime = 0f;
     private bool isMoving = false;
-
+    [SerializeField]
+    private NumberParticle numberParticlePrefab;
     
 
     private void Start()
@@ -37,7 +38,12 @@ public class Mg2Jelly : MonoBehaviour
                     if (collider.gameObject.CompareTag("Player"))
                     {      
                         MiniGameManager.Instance.AddJelly();
-                        Mg2manager.instance.AddScore();
+                        int newScore =MiniGameManager.Instance.totalJelly;
+
+                        // 파티클 시스템 인스턴스 생성
+                        NumberParticle numberParticleInstance = Instantiate(numberParticlePrefab, transform.position, Quaternion.identity);
+                        numberParticleInstance.DisplayNumber(newScore, transform.position);
+
                         gameObject.SetActive(false);
                         break;
                     }

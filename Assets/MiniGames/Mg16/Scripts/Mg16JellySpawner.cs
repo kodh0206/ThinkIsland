@@ -31,7 +31,7 @@ public class Mg16JellySpawner : MonoBehaviour
         {
             GameObject new_jelly = Instantiate(jelly);
 
-            Vector2 spawnPosition = new Vector2(player.position.x, -3.5f);//mg16Fish.startY, player.position.y);
+            Vector2 spawnPosition = new Vector2(Random.Range(-5f, 5f), -3.5f);//mg16Fish.startY, player.position.y);
             new_jelly.transform.position = spawnPosition; // 위치 수정
             new_jelly.GetComponent<Mg16Jelly>();
             time = 0;

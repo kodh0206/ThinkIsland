@@ -23,7 +23,10 @@ public class Mg2manager : MonoBehaviour
     void Start()
     {
         score = 0;
-        level = 2;
+        level = 0;
+
+        level = MiniGameManager.Instance.LoadDifficulty() - 1;
+        score = MiniGameManager.Instance.LoadScore();
 
         GameLevelsetting();
     }
@@ -39,9 +42,13 @@ public class Mg2manager : MonoBehaviour
     {
         score += 1;
 
+        MiniGameManager.Instance.IncreaseScore();
+
         if (score % 5 == 0)
         {
             level += 1;
+            MiniGameManager.Instance.IncreaseDifficulty();
+
             Mg2ObjectManager spawner = FindObjectOfType<Mg2ObjectManager>();
 
 
@@ -66,6 +73,7 @@ public class Mg2manager : MonoBehaviour
     public void GameLevelDown() //when hit and level Down
     {
         score = 0;
+        MiniGameManager.Instance.ResetScore();
         Mg2ObjectManager spawner = FindObjectOfType<Mg2ObjectManager>();
 
         if (level != 0)
@@ -73,6 +81,8 @@ public class Mg2manager : MonoBehaviour
             level -= 1;
 
             spawner.DecreaseSpeed(); //Down Level
+
+            MiniGameManager.Instance.DecreaseDifficulty();
 
         }
 

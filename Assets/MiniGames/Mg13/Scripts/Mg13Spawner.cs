@@ -8,17 +8,29 @@ public class Mg13Spawner : MonoBehaviour
 
 
     [SerializeField]
-    private float Mg13ObstacleSpeed = 4.0f; // »ý¼º¹°ÀÇ ÃÊ±â ½ºÇÇµå
+    private float Mg13ObstacleSpeed = 4.0f; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½ ï¿½ï¿½ï¿½Çµï¿½
 
     [SerializeField]
-    private float time_diff = 1.5f; // Àå¾Ö¹° »ý¼º °£°Ý
+    private float time_diff = 1.5f; // ï¿½ï¿½Ö¹ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     [SerializeField]
-    private int minNumObstaclesToSpawn = 1; // ÃÖ¼Ò »ý¼º Àå¾Ö¹° °³¼ö
+    private int minNumObstaclesToSpawn = 1; // ï¿½Ö¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ö¹ï¿½ ï¿½ï¿½ï¿½ï¿½
     [SerializeField]
-    private int maxNumObstaclesToSpawn = 1; // ÃÖ´ë »ý¼º Àå¾Ö¹° °³¼ö
+    private int maxNumObstaclesToSpawn = 1; // ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ö¹ï¿½ ï¿½ï¿½ï¿½ï¿½
+
+    Vector2[] spawnPositions;
+       
 
     float time = 0;
-
+    void Awake()
+    {
+        spawnPositions = new Vector2[]
+        {
+            new Vector2(Random.Range(-10.0f, 10.0f), 9.5f),
+            new Vector2(-9.7f, Random.Range(0, 8.3f)),
+            new Vector2(9.7f, Random.Range(0, 8.3f)),
+            new Vector2(Random.Range(-10.0f, 10.0f), -9.5f),
+        };
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -37,11 +49,11 @@ public class Mg13Spawner : MonoBehaviour
             {
                 GameObject new_Mg13Obstacle = Instantiate(Mg13Obstacle);
 
-                // ·£´ýÇÏ°Ô À§Ä¡ ¼±ÅÃ
+                // ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½
                 Vector2 spawnPosition = GetRandomSpawnPosition();
                 new_Mg13Obstacle.transform.position = spawnPosition;
 
-                new_Mg13Obstacle.GetComponent<Mg13Obstacle>().SetSpeed(Mg13ObstacleSpeed); // Àå¾Ö¹°ÀÇ ½ºÇÇµå ¼³Á¤
+                new_Mg13Obstacle.GetComponent<Mg13Obstacle>().SetSpeed(Mg13ObstacleSpeed); // ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Çµï¿½ ï¿½ï¿½ï¿½ï¿½
                 Destroy(new_Mg13Obstacle, 5.0f);
             }
 
@@ -52,48 +64,44 @@ public class Mg13Spawner : MonoBehaviour
 
     private Vector2 GetRandomSpawnPosition()
     {
-        // ·£´ýÇÑ À§Ä¡ ÀÎµ¦½º ¼±ÅÃ
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½Îµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         int randomIndex = Random.Range(0, 4);
 
-        // ¹Ì¸® Á¤ÀÇµÈ À§Ä¡µé ¹è¿­
-        Vector2[] spawnPositions = new Vector2[]
-        {
-        new Vector2(Random.Range(-10.0f, 10.0f), 9.5f),
-        new Vector2(-9.7f, Random.Range(0, 8.3f)),
-        new Vector2(9.7f, Random.Range(0, 8.3f)),
-        new Vector2(Random.Range(-10.0f, 10.0f), -9.5f),
-        };
+        // ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½Çµï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½è¿­
+        
 
-        // ¼±ÅÃµÈ ·£´ýÇÑ À§Ä¡ ¹ÝÈ¯
+        // ï¿½ï¿½ï¿½Ãµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½È¯
         return spawnPositions[randomIndex];
     }
 
     public void IncreaseSpeed()
     {
-        Mg13ObstacleSpeed += 1.0f; // Àå¾Ö¹°ÀÇ ½ºÇÇµå Áõ°¡
-        time_diff -= 0.1f; // Àå¾Ö¹°ÀÇ »ý¼º °£°Ý °¨¼Ò
+        Mg13ObstacleSpeed += 1.0f; // ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Çµï¿½ ï¿½ï¿½ï¿½ï¿½
+        time_diff -= 0.1f; // ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     }
 
     public void DecreaseSpeed()
     {
-        Mg13ObstacleSpeed -= 1.0f; // Àå¾Ö¹°ÀÇ ½ºÇÇµå Áõ°¡
-        time_diff += 0.1f; // Àå¾Ö¹°ÀÇ »ý¼º °£°Ý °¨¼Ò
+        Mg13ObstacleSpeed -= 1.0f; // ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Çµï¿½ ï¿½ï¿½ï¿½ï¿½
+        time_diff += 0.1f; // ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     }
 
     public void GetHit()
     {
+
+
         StartCoroutine(DisableSpawning());
     }
 
     private IEnumerator DisableSpawning()
     {
-        // »ý¼º ¸ØÃã
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         time_diff = Mathf.Infinity;
 
-        // ´ë±â ½Ã°£
+        // ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½
         yield return new WaitForSeconds(2f);
 
-        // »ý¼º Àç°³
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ç°³
         time_diff = 1.5f;
     }
 }

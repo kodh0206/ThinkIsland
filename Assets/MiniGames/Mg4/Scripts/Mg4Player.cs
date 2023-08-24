@@ -57,14 +57,19 @@ public class Mg4Player : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Space) || RightButton) 
         {   
+            if(AudioManager.Instance.isSFXOn){
             audioSource.PlayOneShot(jump);
+            }
+            else{
+                Debug.Log("SFX off");
+            }
             rigidbody2D.velocity = Vector2.up * jumpPower;
             RightButton = false;
         }
 
         if (transform.position.x != targetXPosition)
         {
-            // ���� ��ġ�� ��ǥ ��ġ�� ���Ͽ� X ��ġ �̵� ó��
+            
             Vector2 targetPosition = new Vector2(targetXPosition, transform.position.y);
             transform.position = Vector2.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime / 4f);
         }

@@ -10,4 +10,6 @@ public class LevelRewardData
     //public int unlockedField;
     public string unlockedMiniGame;
     public Sprite MiniGameIcon;
+
+  
 }

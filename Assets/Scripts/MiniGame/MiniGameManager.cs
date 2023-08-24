@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 using System;
+using DG.Tweening;
+using Unity.VisualScripting;
 
 public class MiniGameManager : MonoBehaviour
 {   
@@ -24,6 +26,7 @@ public class MiniGameManager : MonoBehaviour
     private float timer = 0f;
     public int totalJelly=0; //먹은 젤리의 갯수 
 
+    public int jellypercentage =0;
     private int gamesToPlay=5;
     public bool isMiniGameScene = false; // 현재 씬이 미니게임 씬인지 여부를 확인하기 위한 플래그
     private float deltaTime = 0.0f;
@@ -31,6 +34,13 @@ public class MiniGameManager : MonoBehaviour
     
     public float countdownStartTime = 3f;
     private bool isCountDown =false;
+
+     public int obstacleHitCount;
+    public float obstacleHitTimer;
+    public int difficultyLevel;
+    public int maxDifficultyLevel = 4;
+    public int minDifficultyLevel = 1;
+    public int GameScore = 0;
     private void Awake()
     {
     if (_instance != null && _instance != this)
@@ -48,7 +58,7 @@ public class MiniGameManager : MonoBehaviour
     miniGameScenes.AddRange(GameController.Instance.unlockedMiniGames);
 
     // remainingMiniGameScenes 리스트 초기화
-    remainingMiniGameScenes.Clear();
+    //remainingMiniGameScenes.Clear();
 
     // While we don't have selected games to play
     while (remainingMiniGameScenes.Count < gamesToPlay)
@@ -71,6 +81,8 @@ public class MiniGameManager : MonoBehaviour
     LoadMainMenu();
     Debug.Log("게임시작");
     fadeCanvasGroup.alpha = 0f;
+    GameScore = 0;
+    DOTween.KillAll();
     }
 
       public void StartMiniGameWithAudio()
@@ -105,8 +117,11 @@ public class MiniGameManager : MonoBehaviour
     {   
         
         
-       if (scene.name == "BetaScene" || scene.name == "Main" || scene.name == "RadioScene" || scene.name == "Roulette")
-    {
+       if (scene.name == "BetaScene" || scene.name == "Main" || scene.name == "ClassScene" || scene.name == "Roulette")
+    {   
+
+        miniGameScenes.Clear();
+        miniGameScenes.AddRange(GameController.Instance.unlockedMiniGames);
         if(minigameUI != null) 
         {
             minigameUI.gameObject.SetActive(false);
@@ -114,7 +129,7 @@ public class MiniGameManager : MonoBehaviour
         isMiniGameScene = false; // 미니게임 씬이 아님을 표시
     }
     else // Main 씬이 아닌 경우에만 랜덤 BGM 재생
-    {
+    {    DOTween.KillAll();
         if(minigameUI != null) 
         {
             minigameUI.gameObject.SetActive(true);
@@ -131,7 +146,7 @@ public class MiniGameManager : MonoBehaviour
     isMiniGameScene = false; // 미니게임 씬이 아님을 표시
 
     // Initialize the remaining games
-    remainingMiniGameScenes.Clear();
+    //remainingMiniGameScenes.Clear();
 
     // While we don't have selected games to play
     while (remainingMiniGameScenes.Count < gamesToPlay)
@@ -160,6 +175,8 @@ public class MiniGameManager : MonoBehaviour
     {
         minigameUI.gameObject.SetActive(false);
     }
+    
+    DOTween.KillAll();
     StartCoroutine(FadeAndLoadScene("BetaScene"));
 }
 
@@ -189,7 +206,7 @@ private IEnumerator ShowBlackScreen()
   public void StartNextMiniGame()
     {
         if (remainingMiniGameScenes.Count == 0)
-        {   
+        {   DOTween.KillAll();
             totalJelly =0;
             SaveTotalJelly();
             LoadRouletteScene();
@@ -258,7 +275,11 @@ private IEnumerator Fade(float finalAlpha)
     }
 
     public void SaveTotalJelly()
-    {
+    {   if(jellypercentage !=0)
+        {
+            totalJelly += totalJelly * (jellypercentage / 100);
+
+        }
         GameController.Instance.currentjellyCount +=totalJelly;
         Debug.Log("얻은 젤리 수"+totalJelly);
     }
@@ -276,7 +297,10 @@ private IEnumerator Fade(float finalAlpha)
         minigameUI.GetComponent<MIniGameUI>().UpdateJellyText();  // UI 업데이트
         AudioManager.Instance.PlayJelly();
     }
-
+    public void AddMiniGame(string minigame)
+    {
+        remainingMiniGameScenes.Insert(0,minigame);
+    }
     private void LoadRouletteScene()
     {
     StartCoroutine(FadeAndLoadScene("Roulette"));
@@ -285,4 +309,41 @@ private IEnumerator Fade(float finalAlpha)
     {
         miniGameScenes.Clear();
     }
+
+
+    public void IncreaseDifficulty()
+    {
+        if (difficultyLevel < maxDifficultyLevel)
+        {
+            difficultyLevel++;
+        }
+    }
+
+    public void DecreaseDifficulty()
+    {
+        if (difficultyLevel > minDifficultyLevel)
+        {
+            difficultyLevel--;
+        }
+    }
+
+    public void IncreaseScore()
+    {
+        GameScore++;
+    }
+    public void ResetScore()
+    {
+        GameScore=0;
+    }
+    public int LoadDifficulty()
+    {
+        return difficultyLevel;
+    }
+    public int LoadScore()
+    {
+        return GameScore;
+    }
+
+
+
 }

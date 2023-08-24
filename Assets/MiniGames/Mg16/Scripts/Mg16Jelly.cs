@@ -5,6 +5,10 @@ using DG.Tweening;
 
 public class Mg16Jelly : MonoBehaviour
 {
+
+    [SerializeField]
+    private NumberParticle numberParticlePrefab;
+    
     Mg16Manager mg16Manager;
 
     public float startY = -3.5f;
@@ -35,7 +39,14 @@ public class Mg16Jelly : MonoBehaviour
         if (other.CompareTag("Player"))
         {   
             MiniGameManager.Instance.AddJelly();
-            //mg16Manager?.AddScore();
+            mg16Manager.AddScore();
+
+            int newScore =MiniGameManager.Instance.totalJelly;
+
+            // 파티클 시스템 인스턴스 생성
+            NumberParticle numberParticleInstance = Instantiate(numberParticlePrefab, transform.position, Quaternion.identity);
+            numberParticleInstance.DisplayNumber(newScore, transform.position);
+            
             gameObject.SetActive(false);
         }
     }

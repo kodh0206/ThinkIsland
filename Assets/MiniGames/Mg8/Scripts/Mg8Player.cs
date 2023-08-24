@@ -1,3 +1,4 @@
+using DG.Tweening;
 using MoreMountains.CorgiEngine;
 using System.Collections;
 using System.Collections.Generic;
@@ -6,11 +7,15 @@ using static Cinemachine.DocumentationSortingAttribute;
 
 public class Mg8Player : MonoBehaviour
 {
+    public Camera myCamera;
     private bool RightButton = false;
     private bool LeftButton = false;
 
     private int Mushrooms = 0;
 
+    public GameObject stunEffect;
+
+    public GameObject StunBeeeeee;
 
     public static Mg8Player instance = null;
 
@@ -70,52 +75,55 @@ public class Mg8Player : MonoBehaviour
             LeftButton=false;
         }
 
-
     }
 
 
 
     public void GetHit()
     {
-        // 움직임 멈춤
+       
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         rb.velocity = Vector2.zero;
 
-        // 비동기 처리 시작
+        ShakeCamera();
+
+       
         StartCoroutine(DisableControlAndResetColor());
     }
 
     private IEnumerator DisableControlAndResetColor()
     {
-        // 조작 비활성화
+        
         enabled = false;
 
-        // 색상 변경
-        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
-        if (spriteRenderer != null)
-        {
-            spriteRenderer.color = new Color(0.77f, 0.52f, 0f);
-        }
+    
+        Vector2 Effectposition = new Vector2(transform.position.x+0.2f, transform.position.y + 1.4f);
+        GameObject HitEff = Instantiate(stunEffect, Effectposition, Quaternion.identity, transform);
+        Destroy(HitEff, 1.5f);
 
-        // 2초간 대기
-        yield return new WaitForSeconds(2f);
+        Vector2 Effectposition2 = new Vector2(transform.position.x + 0.2f, transform.position.y + 1.0f);
+        GameObject HitEff2 = Instantiate(StunBeeeeee, Effectposition2, Quaternion.identity, transform);
+        Destroy(HitEff2, 1.5f);
 
-        // 조작 활성화
+      
+        yield return new WaitForSeconds(1.5f);
+
+
         enabled = true;
 
-        // 1초간 poop 영향 받지 않음
 
-        // 색상 원래대로 복구
-        if (spriteRenderer != null)
-        {
-            spriteRenderer.color = Color.white;
-        }
+        
     }
 
 
     public int MushroomCount()
     {
         return Mushrooms;
+    }
+
+    public void ShakeCamera()
+    {
+        myCamera.transform.DOShakePosition(2f, 0.2f, 40);  
     }
 
 }

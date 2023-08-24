@@ -9,13 +9,17 @@ public class Mg19Player : MonoBehaviour
     public float disableColliderTime = 0.4f; 
     public bool isJumping = true;
 
+    public float fallSlowdownFactor = 0.5f;
+
     Animator animator;
 
     private Rigidbody2D rb;
     private BoxCollider2D boxCollider;
 
-    private int blockLayerMask; // Block ���̾��� ����ũ
+    private int blockLayerMask; // Block 
 
+    private Vector2 movement;
+    private float yveloLimit = -10.0f;
 
     public bool RightButton = false;
     public bool LeftButton = false;
@@ -56,7 +60,7 @@ public class Mg19Player : MonoBehaviour
         isJumping = true;
         // Block 레이어 마스크 설정
         
-        //audioSource = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void Update()
@@ -84,9 +88,17 @@ public class Mg19Player : MonoBehaviour
 
 
         float moveX = horizontalInput * moveSpeed;
-        Vector2 movement = new Vector2(moveX, rb.velocity.y);
 
-        rb.velocity = movement;
+        if (rb.velocity.y <= -5f)
+        {
+            rb.velocity = new Vector2(moveX, yveloLimit);
+        }
+        else
+        {
+            rb.velocity = new Vector2(moveX, rb.velocity.y);
+        }
+
+        
 
     }
 
@@ -94,19 +106,19 @@ public class Mg19Player : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground") && (rb.velocity.y <= 0))
         {
-            //audioSource.PlayOneShot(jump);
+            audioSource.PlayOneShot(jump);
             Jump();
         }
     }
     
 
 
-
-
     private void Jump()
     {
 
-        rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        //rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+
         StartCoroutine(DisableColliderForJump());
 
     }
@@ -121,13 +133,15 @@ public class Mg19Player : MonoBehaviour
 
         while (rb.velocity.y >= 0)
         {
+            
             yield return null;
+            
         }
-        
-        
+
+        Physics2D.IgnoreLayerCollision(gameObject.layer, blockLayerMask, false);
 
         // 충돌 무시 해제
-        Physics2D.IgnoreLayerCollision(gameObject.layer, blockLayerMask, false);
+
         isJumping = true;
         // 일정 시간이 경과한 후에 점프 상태를 체크하여 점프 가능하도록 함
 

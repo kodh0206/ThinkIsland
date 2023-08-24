@@ -27,7 +27,7 @@ public class Mg9Obstacle : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {    
             AudioManager.Instance.PlayPoop();
-            Mg9manager.instance.GameLevelDown();
+            
             other.gameObject.GetComponent<Mg9Player>().GetHit();
         }
     }

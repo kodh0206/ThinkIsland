@@ -21,7 +21,17 @@ public class Mg15Spawner : MonoBehaviour
     [SerializeField]
     private int minNumObstaclesToSpawn = 3; 
     [SerializeField]
-    private int maxNumObstaclesToSpawn = 5; 
+    private int maxNumObstaclesToSpawn = 5;
+
+    Vector2[] spawnPositions = new Vector2[]
+        {
+        new Vector2(1.5f, 0.6f),
+        new Vector2(3.5f, 0.6f),
+        new Vector2(5.5f, 0.6f),
+        new Vector2(-1.5f, 0.6f),
+        new Vector2(-3.5f, 0.6f),
+        new Vector2(-5.5f, 0.6f)
+        };
 
     float time = 0;
 
@@ -44,15 +54,15 @@ public class Mg15Spawner : MonoBehaviour
 
 
 
-                if (Random.value < 0.7f)
+                if (Random.value < 0.5f)
                 {
                     GameObject new_Mg15Obstacle = Instantiate(Mg15Obstacle);
                     
                     Vector2 spawnPosition = GetRandomSpawnPosition();
                     new_Mg15Obstacle.transform.position = spawnPosition;
                     new_Mg15Obstacle.GetComponent<Mg15Obstacle>().SetSpeed(Mg15ObstacleSpeed); 
-                    //AudioManager.Instance.ObstacleFly();
-                    Destroy(new_Mg15Obstacle, 5.0f);
+                    AudioManager.Instance.ObstacleFly();
+                    Destroy(new_Mg15Obstacle, 3.0f);
                 }
                 else
                 {
@@ -63,7 +73,7 @@ public class Mg15Spawner : MonoBehaviour
                     new_jelly.GetComponent<Mg15jelly>().SetSpeed(Mg15jellySpeed);
                     AudioManager.Instance.ObstacleFly();
 
-                    Destroy(new_jelly, 5.0f);
+                    Destroy(new_jelly, 3.0f);
 
                 }
             }
@@ -79,15 +89,7 @@ public class Mg15Spawner : MonoBehaviour
         int randomIndex = Random.Range(0, 6);
 
         
-        Vector2[] spawnPositions = new Vector2[]
-        {
-        new Vector2(1.5f, 0.6f),
-        new Vector2(3.5f, 0.6f),
-        new Vector2(5.5f, 0.6f),
-        new Vector2(-1.5f, 0.6f),
-        new Vector2(-3.5f, 0.6f),
-        new Vector2(-5.5f, 0.6f)
-        };
+        
 
         
         return spawnPositions[randomIndex];

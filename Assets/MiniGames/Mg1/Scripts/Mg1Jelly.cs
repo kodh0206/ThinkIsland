@@ -3,10 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Mg1Jelly : MonoBehaviour
-{
+{   
+    
     [SerializeField]
     private float jellySpeed = 5.0f;
 
+    [SerializeField]
+    private NumberParticle numberParticlePrefab;
+   
     void Update()
     {
         transform.position += Vector3.left * jellySpeed * Time.deltaTime;
@@ -16,8 +20,12 @@ public class Mg1Jelly : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            MiniGameManager.Instance.AddJelly();
-            Mg1Manager.instance.AddScore();
+        MiniGameManager.Instance.AddJelly();
+        int newScore =MiniGameManager.Instance.totalJelly;
+        // 파티클 시스템 인스턴스 생성
+        NumberParticle numberParticleInstance = Instantiate(numberParticlePrefab, transform.position, Quaternion.identity);
+        numberParticleInstance.DisplayNumber(newScore, transform.position);
+
             Destroy(gameObject);
         }
     }
@@ -26,4 +34,6 @@ public class Mg1Jelly : MonoBehaviour
     {
         jellySpeed = speed;
     }
+
+    
 }

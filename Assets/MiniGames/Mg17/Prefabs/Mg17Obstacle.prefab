@@ -151,6 +151,8 @@ MonoBehaviour:
     type: 3}
   ObstacleinRock: {fileID: 1163599836936205690, guid: 6dd99d8e6a33a6c4080458bfb3fd83d9,
     type: 3}
+  myCamera: {fileID: 6921259171672956540, guid: a1e0884e80fe8944d8f1ce358e6d6118,
+    type: 3}
   sprites:
   - {fileID: -530016245, guid: cb13617983471a140b1f17310afbb22e, type: 3}
   - {fileID: 1278580904, guid: cb13617983471a140b1f17310afbb22e, type: 3}

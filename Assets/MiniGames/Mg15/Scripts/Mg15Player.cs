@@ -1,13 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class Mg15Player : MonoBehaviour
 {
+    public GameObject stunEffect;
+
+    public Camera myCamera;
+
     public float moveSpeed = 5f; 
 
     private Rigidbody2D rb;
     private BoxCollider2D boxCollider;
+
+    private SpriteRenderer spriteRenderer;
+    public float blinkInterval = 0.125f; //blink
+    public float minAlpha = 0.3f;
+    public float maxAlpha = 1f;  
+
 
     Animator animator;
 
@@ -43,6 +54,7 @@ public class Mg15Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         boxCollider = GetComponent<BoxCollider2D>();
         animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
@@ -79,10 +91,17 @@ public class Mg15Player : MonoBehaviour
     public void GetHit()
     {   
         AudioManager.Instance.Rock();
-       
+
+        Vector2 EffectPosition = new Vector2(transform.position.x, transform.position.y + 0.7f);
+        GameObject hitEff = Instantiate(stunEffect, EffectPosition, Quaternion.identity, transform);
+        Destroy(hitEff, 1.0f);
         boxCollider.enabled = false;
 
-        
+        StartCoroutine(BlinkPlayer());
+
+        ShakeCamera();
+
+
         StartCoroutine(EnableBoxColliderAfterDelay(0.5f));
     }
 
@@ -90,6 +109,41 @@ public class Mg15Player : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         boxCollider.enabled = true;
+    }
+
+
+    public void ShakeCamera()
+    {
+        myCamera.transform.DOShakePosition(1.5f, 0.6f, 20);  
+    }
+
+    public void Blink()
+    {
+        spriteRenderer.color = new Color(
+                spriteRenderer.color.r,
+                spriteRenderer.color.g,
+                spriteRenderer.color.b,
+                minAlpha); 
+    }
+
+    public void BlinkEnd()
+    {
+        spriteRenderer.color = new Color(
+            spriteRenderer.color.r,
+            spriteRenderer.color.g,
+            spriteRenderer.color.b,
+            maxAlpha); 
+    }
+
+    private IEnumerator BlinkPlayer()
+    {
+        for (int i = 0; i < 4; i++) //Blink
+        {
+            Blink();
+            yield return new WaitForSeconds(blinkInterval);
+            BlinkEnd();
+            yield return new WaitForSeconds(blinkInterval);
+        }
     }
 
 }

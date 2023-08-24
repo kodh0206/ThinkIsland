@@ -29,6 +29,8 @@ public class Mg16Manager : MonoBehaviour
     private void Start()
     {
         level = 0;
+        level = MiniGameManager.Instance.LoadDifficulty() - 1;
+        score = MiniGameManager.Instance.LoadScore();
 
         mg16Fish1 = FindObjectOfType<Mg16Fish1>();
         mg16Fish2 = FindObjectOfType<Mg16Fish2>();
@@ -48,9 +50,13 @@ public class Mg16Manager : MonoBehaviour
     public void AddScore()
     {
         score += 1;
+        MiniGameManager.Instance.IncreaseScore();
+
         if (score % 5 == 0)
         {
             level += 1;
+            MiniGameManager.Instance.IncreaseDifficulty();
+
             if (mg16Fish1 != null)
             {
                 mg16Fish1.IncreaseSpeed();
@@ -87,11 +93,13 @@ public class Mg16Manager : MonoBehaviour
     {
 
         score = 0;
-        
+        MiniGameManager.Instance.ResetScore();
 
         if (level != 0)
         {
             level -= 1;
+            MiniGameManager.Instance.DecreaseDifficulty();
+
             mg16Fish1.DecreaseSpeed();
             mg16Fish2.DecreaseSpeed();
             mg16FishSpawner.DecreaseSpeed();

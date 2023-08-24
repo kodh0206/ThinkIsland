@@ -1,9 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class Mg12Player : MonoBehaviour
 {
+
+    public Camera myCamera;
+    public GameObject stunEffect;
+
+
+    public SpriteRenderer spriteRenderer;
     Rigidbody2D rigidbody2D;
     Animator anim;
 
@@ -24,6 +31,11 @@ public class Mg12Player : MonoBehaviour
     public AudioClip throwing;
 
     private float throwTimer = 0.1f;
+
+    public float blinkInterval = 0.125f; //blink
+    public float minAlpha = 0.3f; 
+    public float maxAlpha = 1f;   
+
     public void RightClick()
     {
         LeftButton = false;
@@ -51,6 +63,7 @@ public class Mg12Player : MonoBehaviour
 
     void Start()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
         rigidbody2D = GetComponent<Rigidbody2D>();
         mg12RockSpawner = FindObjectOfType<Mg12RockSpawner>();
     }
@@ -78,13 +91,13 @@ public class Mg12Player : MonoBehaviour
 
     if (moveUp || moveDown)
     {
-        if (!audioSource.isPlaying)
-        {
-            audioSource.loop = true;
-            audioSource.clip = swimming;
-            audioSource.Play();
-        }
-        transform.position += (moveUp ? Vector3.up : Vector3.down) * moveSpeed * Time.deltaTime;
+            if (!audioSource.isPlaying && AudioManager.Instance.isSFXOn)
+            {
+                audioSource.loop = true;
+                audioSource.clip = swimming;
+                audioSource.Play();
+            }
+            transform.position += (moveUp ? Vector3.up : Vector3.down) * moveSpeed * Time.deltaTime;
     }
     else
     {
@@ -98,8 +111,11 @@ public class Mg12Player : MonoBehaviour
         // Check if it's time to play the sound.
         if (throwTimer >= 1f)
         {
-            audioSource.PlayOneShot(throwing); // Play throwing sound.
-            throwTimer = 0f; // Reset timer.
+                if (AudioManager.Instance.isSFXOn)
+                {
+                    audioSource.PlayOneShot(throwing); // Play throwing sound.
+                }
+                throwTimer = 0f; // Reset timer.
         }
 
         anim.SetTrigger("Shoot");
@@ -118,6 +134,8 @@ public class Mg12Player : MonoBehaviour
     Rigidbody2D rb = GetComponent<Rigidbody2D>();
     rb.velocity = Vector2.zero;
 
+    ShakeCamera();
+
     audioSource.loop = false;
     audioSource.Stop();
 
@@ -126,36 +144,61 @@ public class Mg12Player : MonoBehaviour
 
     private IEnumerator DisableControlAndResetColor()
     {
-        // ���� ��Ȱ��ȭ
+
         enabled = false;
 
-        // ���� ����
-        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
-        if (spriteRenderer != null)
+
+        Vector2 Effectposition = new Vector2(transform.position.x, transform.position.y + 0.7f);
+        GameObject HitEff = Instantiate(stunEffect, Effectposition, Quaternion.identity, transform);
+
+
+        for (int i = 0; i < 8; i++) //Blink
         {
-            spriteRenderer.color = new Color(0.77f, 0.52f, 0f);
+            Blink();
+            yield return new WaitForSeconds(blinkInterval);
+            BlinkEnd();
+            yield return new WaitForSeconds(blinkInterval);
         }
 
-        // 2�ʰ� ���
-        yield return new WaitForSeconds(2f);
 
-        // ���� Ȱ��ȭ
+
         enabled = true;
+        Destroy(HitEff);
 
-        // 1�ʰ� poop ���� ���� ����
         yield return new WaitForSeconds(1f);
 
-        // ���� ������� ����
-        if (spriteRenderer != null)
-        {
-            spriteRenderer.color = Color.white;
-        }
 
-        if (!audioSource.isPlaying)
+        if (!audioSource.isPlaying && AudioManager.Instance.isSFXOn)
         {
             audioSource.loop = true;
             audioSource.clip = swimming;
             audioSource.Play();
         }
+
+    }
+
+    public void ShakeCamera()
+    {
+        myCamera.transform.DOShakePosition(1.0f, 0.6f, 10); 
+    }
+
+
+    public void Blink()
+    {
+        spriteRenderer.color = new Color(
+                spriteRenderer.color.r,
+                spriteRenderer.color.g,
+                spriteRenderer.color.b,
+                minAlpha); 
+
+    }
+
+    public void BlinkEnd()
+    {
+        spriteRenderer.color = new Color(
+            spriteRenderer.color.r,
+            spriteRenderer.color.g,
+            spriteRenderer.color.b,
+            maxAlpha); 
     }
 }

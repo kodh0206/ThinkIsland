@@ -15,7 +15,7 @@ public class Mg7manager : MonoBehaviour
 
     public int level = 0;
 
-    private int score = 0; // score=jelly ���ھ ���� ������ �������� ������ �ӵ� ��������
+    private int score = 0; 
     public bool isGameOver = false;
 
     void Awake()
@@ -29,6 +29,10 @@ public class Mg7manager : MonoBehaviour
     void Start()
     {
         level = 0;
+
+        level = MiniGameManager.Instance.LoadDifficulty() - 1;
+        score = MiniGameManager.Instance.LoadScore();
+
         GameLevelsetting();
     }
 
@@ -41,11 +45,14 @@ public class Mg7manager : MonoBehaviour
     public void AddScore()
     {
         score += 1;
-        
+
+        MiniGameManager.Instance.IncreaseScore();
 
         if (score % 5 == 0)
         {
             level += 1;
+            MiniGameManager.Instance.IncreaseDifficulty();
+
             Mg7Spawner spawner = FindObjectOfType<Mg7Spawner>();
             Mg7jellySpanwer spawner2 = FindObjectOfType<Mg7jellySpanwer>();
 
@@ -76,6 +83,8 @@ public class Mg7manager : MonoBehaviour
     {
 
         score = 0;
+        MiniGameManager.Instance.ResetScore();
+
         Mg7Spawner spawner = FindObjectOfType<Mg7Spawner>();
         Mg7jellySpanwer spawner2 = FindObjectOfType<Mg7jellySpanwer>();
 
@@ -83,6 +92,7 @@ public class Mg7manager : MonoBehaviour
         if (level != 0)
         {
             level -= 1;
+            MiniGameManager.Instance.DecreaseDifficulty();
 
             spawner.DecreaseSpeed(); //Down Level
             spawner2.DecreaseSpeed();

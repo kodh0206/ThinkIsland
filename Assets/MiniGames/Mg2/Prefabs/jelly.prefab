@@ -136,4 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d1dcc0b086f48f408774c583fe03b62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  yourUICamera: {fileID: 0}
   jellySpeed: 5
+  numberParticlePrefab: {fileID: 8273896016984767207, guid: dec7eddc98a183e4a8d5e2dadf169dcf,
+    type: 3}

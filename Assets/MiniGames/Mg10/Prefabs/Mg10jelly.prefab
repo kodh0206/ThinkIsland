@@ -146,5 +146,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a45499a9006de24193c22e79b3a9b2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialSpeed: 5
-  horizontalSpeed: 10
+  numberParticlePrefab: {fileID: 8273896016984767207, guid: dec7eddc98a183e4a8d5e2dadf169dcf,
+    type: 3}
+  jellySpeed: 5

@@ -302,8 +302,8 @@ MonoBehaviour:
     type: 3}
   Mg5Obstacle2: {fileID: 4101505061135343235, guid: 435a32022c36a724dab3d090b3e84163,
     type: 3}
-  minNumMg5ObstacleToSpawn: 6
-  maxNumMg5ObstacleToSpawn: 8
+  minNumMg5ObstacleToSpawn: 5
+  maxNumMg5ObstacleToSpawn: 6
   Mg5ObstacleSpeed: 4
   minTimeDiff: 2
   maxTimeDiff: 3
@@ -458,6 +458,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5b2429e904bfbc44a92ae7bfb09ce7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myCamera: {fileID: 1603602373}
   playerPrefab: {fileID: 3168529461490266287, guid: c1cfe12ef373b5343afdc4ab5cc77c62,
     type: 3}
   StartBlcok: {fileID: 7272661988758334054, guid: 38738106e1aaa724f9e23ff54333349f,
@@ -1584,6 +1585,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5b2429e904bfbc44a92ae7bfb09ce7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myCamera: {fileID: 1603602373}
   playerPrefab: {fileID: 3168529461490266287, guid: c1cfe12ef373b5343afdc4ab5cc77c62,
     type: 3}
   StartBlcok: {fileID: 7272661988758334054, guid: 38738106e1aaa724f9e23ff54333349f,

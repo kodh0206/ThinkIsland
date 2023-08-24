@@ -25,7 +25,11 @@ public class MiniGame3Manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         level = 0; // level setting
+
+        level=MiniGameManager.Instance.LoadDifficulty()-1;
+        score= MiniGameManager.Instance.LoadScore();
 
         GameLevelsetting();
     }
@@ -39,14 +43,19 @@ public class MiniGame3Manager : MonoBehaviour
     public void AddScore() 
     {
         score += 1; // for level Controll
-       
+
+       MiniGameManager.Instance.IncreaseScore();
+
         if (score % 5 == 0)
         {
             PoopSpawner spawner = FindObjectOfType <PoopSpawner> ();
             if (spawner != null) 
             {
                 level += 1;
+                MiniGameManager.Instance.IncreaseDifficulty();
+
                 spawner.DecreasePoopInterval();  // decrease interval
+
             }
         }
     }
@@ -61,6 +70,7 @@ public class MiniGame3Manager : MonoBehaviour
             
             spawner.DecreasePoopInterval(); // 게임 별로 난이도를 레벨에 따라 난이도 조절
             
+
         }
 
     }
@@ -69,14 +79,21 @@ public class MiniGame3Manager : MonoBehaviour
     {
         
         score = 0;
+
+        MiniGameManager.Instance.ResetScore();
+
         PoopSpawner spawner = FindObjectOfType<PoopSpawner>();
         spawner.GetHit(); // stop to spawn
 
         if (level != 0)
         {
             level -= 1;
-            
+            MiniGameManager.Instance.DecreaseDifficulty();
+
             spawner.IncreasePoopInterval(); //Down Level
+
+            
+
         }
         
        

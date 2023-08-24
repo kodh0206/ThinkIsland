@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using DG.Tweening;
 public class Mg17shell : MonoBehaviour
 {
     public float obstacleSpeed = 5.0f;
 
     public GameObject jellyinShell;
     public GameObject ObstacleinRock;
+    public Camera myCamera;
 
     public Sprite[] sprites = new Sprite[3];
     public Sprite sprite;
@@ -44,9 +45,10 @@ public class Mg17shell : MonoBehaviour
             SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
             spriteRenderer.sprite = sprites[HItCount];
             HItCount += 1;
-            
 
-            if (HItCount == 2)
+            ShakeCamera();
+
+            if (HItCount == 1)
             {
                 float randomValue = Random.value;
                 if (randomValue < 0.7f)
@@ -82,5 +84,10 @@ public class Mg17shell : MonoBehaviour
     public void SetSpeed(float speed)
     {
         obstacleSpeed = speed;
+    }
+
+    public void ShakeCamera()
+    {
+        myCamera.transform.DOShakePosition(0.1f, 0.2f, 2);  
     }
 }

@@ -9,7 +9,7 @@ public class destroyobstacle : MonoBehaviour
     private bool obstacleEntered = false;
     private Rigidbody2D playerRigidbody;
 
-    public GameObject Mg5obstaclePrefab; // Player �������� �Ҵ��ϼ���
+    public GameObject Mg5obstaclePrefab; 
 
     void Start()
     {
@@ -27,17 +27,9 @@ public class destroyobstacle : MonoBehaviour
 
     public void  ResetPlayerPosition()
     {
-        // Player ������Ʈ�� ã���ϴ�.
+        
         GameObject obstacle = GameObject.FindGameObjectWithTag("obstacle");
-
-        // Player ������Ʈ�� ��Ȱ��ȭ�Ͽ� ���� �Ұ��� ���·� ����ϴ�.
-
-
-
-        // ������Ʈ�� �μ��� 2�� ����մϴ�.
         Destroy(obstacle);
-
-
 
     }
 }

@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/GameScene/Opening.unity
     guid: d030ab0fa54af744385a6215d17e5386
   - enabled: 1
+    path: Assets/Scenes/GameScene/OpeningCutScene.unity
+    guid: a35c1c76cd38424419cf60c7cc6173a7
+  - enabled: 1
     path: Assets/Scenes/GameScene/BetaScene.unity
     guid: e176ef4c1ffb8934ebf7e7728f2fe5b2
   - enabled: 1
@@ -75,9 +78,13 @@ EditorBuildSettings:
     path: Assets/Scenes/GameScene/Main.unity
     guid: eb0da542e38417e4aae0a0a15a9026e6
   - enabled: 1
-    path: Assets/WJ_API_2023/Scenes/RadioScene.unity
+    path: Assets/WJ_API_2023/Scenes/ClassScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
     path: Assets/Scenes/GameScene/Roulette.unity
     guid: 03e785584d3073842b1424c98dd550d3
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: aceb417d8eb5085449bdb8b86355b21a,
+      type: 2}
+    com.unity.localization.settings: {fileID: 11400000, guid: 7e344198344aca547a5b1d0ffed6b670,
+      type: 2}

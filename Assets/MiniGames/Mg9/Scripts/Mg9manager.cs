@@ -25,7 +25,9 @@ public class Mg9manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        level = MiniGameManager.Instance.LoadDifficulty() - 1;
+        score = MiniGameManager.Instance.LoadScore();
+        GameLevelsetting();
     }
 
     // Update is called once per frame
@@ -37,17 +39,21 @@ public class Mg9manager : MonoBehaviour
     public void AddScore()
     {
         score += 1;
+        MiniGameManager.Instance.IncreaseScore();
+
         if (score % 5 == 0)
         {
             level += 1;
+            MiniGameManager.Instance.IncreaseDifficulty();
+
             Mg9Spawner spawner = FindObjectOfType<Mg9Spawner>();
             Mg9jellySpawner spawner2 = FindObjectOfType<Mg9jellySpawner>();
-
+            Mg9SeaWeedSpawner spawner3 = FindObjectOfType<Mg9SeaWeedSpawner>();
             if (spawner != null)
             {
                 spawner.IncreaseSpeed();  // decrease interval
                 spawner2.IncreaseSpeed();
-
+                spawner3.IncreaseSpeed();
             }
         }
     }
@@ -57,11 +63,13 @@ public class Mg9manager : MonoBehaviour
 
         Mg9Spawner spawner = FindObjectOfType<Mg9Spawner>();
         Mg9jellySpawner spawner2 = FindObjectOfType<Mg9jellySpawner>();
+        Mg9SeaWeedSpawner spawner3 = FindObjectOfType<Mg9SeaWeedSpawner>();
         for (int i = 0; i < level; i++)
         {
 
             spawner.IncreaseSpeed(); // 게임 별로 난이도를 레벨에 따라 난이도 조절
             spawner2.IncreaseSpeed();
+            spawner3.IncreaseSpeed();
         }
 
     }
@@ -70,16 +78,21 @@ public class Mg9manager : MonoBehaviour
     {
 
         score = 0;
+        MiniGameManager.Instance.ResetScore();
+
         Mg9Spawner spawner = FindObjectOfType<Mg9Spawner>();
         Mg9jellySpawner spawner2 = FindObjectOfType<Mg9jellySpawner>();
+        Mg9SeaWeedSpawner spawner3 = FindObjectOfType<Mg9SeaWeedSpawner>();
 
 
         if (level != 0)
         {
             level -= 1;
+            MiniGameManager.Instance.DecreaseDifficulty();
 
             spawner.DecreaseSpeed(); //Down Level
             spawner2.DecreaseSpeed();
+            spawner3.DecreaseSpeed();
         }
 
 

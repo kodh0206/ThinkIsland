@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8410458713747744712}
   - component: {fileID: 8410458713747744715}
   - component: {fileID: 5157370235923106902}
+  - component: {fileID: 4649617973165384601}
   m_Layer: 0
   m_Name: Mg7Player
   m_TagString: Player
@@ -149,7 +150,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpPower: 5
   level: 1
+  sprites:
+  - {fileID: -1679205847, guid: 232b53c5874f7a0418377f9a8ced7c26, type: 3}
+  - {fileID: 76338045, guid: 232b53c5874f7a0418377f9a8ced7c26, type: 3}
+  - {fileID: 1766566561, guid: 232b53c5874f7a0418377f9a8ced7c26, type: 3}
+  - {fileID: 85133462, guid: 232b53c5874f7a0418377f9a8ced7c26, type: 3}
+  - {fileID: -86970763, guid: 232b53c5874f7a0418377f9a8ced7c26, type: 3}
   jump: {fileID: 0}
+  Teerprefabs: {fileID: 7419330476384785544, guid: 1beb7457a5f2cf3499d12aecc5569871,
+    type: 3}
 --- !u!82 &5157370235923106902
 AudioSource:
   m_ObjectHideFlags: 0
@@ -246,3 +255,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &4649617973165384601
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8410458713747744717}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 90923838583cc8147a71c8e0f7f127ed, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

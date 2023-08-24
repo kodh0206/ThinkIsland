@@ -1848,6 +1848,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 164906090}
+  myCamera: {fileID: 1094389990}
+  hit: 0
 --- !u!114 &1094389994
 MonoBehaviour:
   m_ObjectHideFlags: 0

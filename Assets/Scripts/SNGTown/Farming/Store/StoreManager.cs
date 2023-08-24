@@ -42,7 +42,7 @@ public class StoreManager : MonoBehaviour
     }
 
     public void OpenStore()
-    {
+    {   UpdateStore();
         storePanel.SetActive(true);
     }
 
@@ -50,4 +50,26 @@ public class StoreManager : MonoBehaviour
     {   Debug.Log("닫아라 상점!");
         storePanel.SetActive(false);
     }
+
+    public void UpdateStore()
+{
+    // Clear the current store items
+    foreach (Transform child in content)
+    {
+        Destroy(child.gameObject);
+    }
+
+    // Add the updated items
+    plantObjects.Clear();
+    foreach (var plant in Resources.LoadAll("CropData", typeof(CropData)))
+    {
+        if (GameController.Instance.currentUnlockedCrops.Contains((CropData)plant))
+        {
+            plantObjects.Add((CropData)plant);
+            VegetableItem newPlant = Instantiate(plantItem, content).GetComponent<VegetableItem>();
+            newPlant.plant = (CropData)plant;
+            newPlant.fm = farmManager;
+        }
+    }
+}
 }

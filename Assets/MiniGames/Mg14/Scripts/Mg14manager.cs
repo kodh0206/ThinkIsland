@@ -27,6 +27,9 @@ public class Mg14manager : MonoBehaviour
     void Start()
     {
         level = 0;
+        level = MiniGameManager.Instance.LoadDifficulty() - 1;
+        score = MiniGameManager.Instance.LoadScore();
+
         GameLevelsetting();
     }
 
@@ -39,11 +42,13 @@ public class Mg14manager : MonoBehaviour
     public void AddScore()
     {
         score += 1;
-        
+        MiniGameManager.Instance.IncreaseScore();
 
         if (score % 5 == 0)
         {
             level += 1;
+            MiniGameManager.Instance.IncreaseDifficulty();
+
             Mg14Spawner spawner = FindObjectOfType<Mg14Spawner>();
 
 
@@ -77,6 +82,8 @@ public class Mg14manager : MonoBehaviour
     {
 
         score = 0;
+        MiniGameManager.Instance.ResetScore();
+
         Mg14Spawner spawner = FindObjectOfType<Mg14Spawner>();
         Mg14jellySpawner spawner2 = FindAnyObjectByType<Mg14jellySpawner>();
 
@@ -84,6 +91,7 @@ public class Mg14manager : MonoBehaviour
         if (level != 0)
         {
             level -= 1;
+            MiniGameManager.Instance.DecreaseDifficulty();
 
             spawner.DecreaseSpeed(); //Down Level
             spawner2.DecreaseSpeed();

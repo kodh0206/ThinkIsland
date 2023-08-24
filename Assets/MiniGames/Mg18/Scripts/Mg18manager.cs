@@ -24,6 +24,9 @@ public class Mg18manager : MonoBehaviour
     void Start()
     {
         level = 0;
+        level = MiniGameManager.Instance.LoadDifficulty() - 1;
+        score = MiniGameManager.Instance.LoadScore();
+
         GameLevelsetting();
     }
 
@@ -36,11 +39,13 @@ public class Mg18manager : MonoBehaviour
     public void AddScore()
     {
         score += 1;
-       
+        MiniGameManager.Instance.IncreaseScore();
 
         if (score % 5 == 0)
         {
             level += 1;
+            MiniGameManager.Instance.IncreaseDifficulty();
+
             Mg18ObstacleSpawner spawner = FindObjectOfType<Mg18ObstacleSpawner>();
             Mg18GroundSpawner spawner2 = FindAnyObjectByType<Mg18GroundSpawner>();
             Mg18jellySpawner spawner3 =FindAnyObjectByType<Mg18jellySpawner>();
@@ -82,6 +87,8 @@ public class Mg18manager : MonoBehaviour
     {
 
         score = 0;
+        MiniGameManager.Instance.ResetScore();
+
         Mg18ObstacleSpawner spawner = FindObjectOfType<Mg18ObstacleSpawner>();
         Mg18GroundSpawner spawner2 = FindAnyObjectByType<Mg18GroundSpawner>();
         Mg18jellySpawner spawner3 = FindAnyObjectByType<Mg18jellySpawner>();
@@ -91,6 +98,7 @@ public class Mg18manager : MonoBehaviour
         if (level != 0)
         {
             level -= 1;
+            MiniGameManager.Instance.DecreaseDifficulty();
 
             spawner.DecreaseSpeed();
             spawner2.DecreaseSpeed();

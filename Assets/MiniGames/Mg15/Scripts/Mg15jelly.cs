@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Mg15jelly : MonoBehaviour
 {
+
+    [SerializeField]
+    private NumberParticle numberParticlePrefab;
+
     public float gravityScaleIncreaseRate = 1f; // gravity scale
     public float maxGravityScale = 1f; // gravity scale 
 
@@ -37,14 +41,21 @@ public class Mg15jelly : MonoBehaviour
         if (other.gameObject.CompareTag("stair"))
         {
             rb.gravityScale = 1.0f;
-            transform.localScale = Vector3.one; // 
-            isScaleChanged = true; // 
+            transform.localScale = Vector3.one; 
+            isScaleChanged = true; 
         }
 
         if (other.gameObject.CompareTag("Player"))
         {   
             MiniGameManager.Instance.AddJelly();
             Mg15manager.instance.AddScore();
+
+            int newScore =MiniGameManager.Instance.totalJelly;
+
+            //파티클 시스템 인스턴스 생성
+            NumberParticle numberParticleInstance = Instantiate(numberParticlePrefab, transform.position, Quaternion.identity);
+            numberParticleInstance.DisplayNumber(newScore, transform.position);
+            
             Destroy(gameObject);
         }
     }

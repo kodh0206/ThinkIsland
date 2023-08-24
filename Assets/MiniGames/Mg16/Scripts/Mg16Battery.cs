@@ -30,7 +30,7 @@ public class Mg16Battery : MonoBehaviour
     public float stopY = -3.5f;
     // 해당 위치까지 이동하는 데 걸리는 시간
     public float moveDuration = 1.5f;
-      private bool hasPlayedSplashSound = false;  
+    private bool hasPlayedSplashSound = false;  
 
     private void Start()
     {
@@ -38,7 +38,7 @@ public class Mg16Battery : MonoBehaviour
         animator = GetComponent<Animator>();  // 애니메이터 컴포넌트 가져오기
         mg16BatterySpawner = GetComponent<Mg16BatterySpawner>();
         spriteRenderer.sprite = batterySprite;  // 초기 스프라이트를 물에 안 빠진 배터리로 설정
-        audioSource =GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
         // 배터리 비활성화 함수
         ElectricitySetActiveFalse();
 
@@ -47,7 +47,7 @@ public class Mg16Battery : MonoBehaviour
 
     private void Update()
     {
-        if (transform.position.y < stopY+1f)
+        if (transform.position.y < stopY+0.5f)
         {
             animator.SetBool("BatteryInWater", true); // 기존 애니메이션 재생 정지
             ChangeSprite();  // 스프라이트 변화 함수 호출
@@ -55,13 +55,14 @@ public class Mg16Battery : MonoBehaviour
 
         if (transform.position.y < stopY+0.5f)
         {
-            // 전기 활성화 함수
-            ElectricitySetActiveTrue();
+
 
               if (!hasPlayedSplashSound)
-            {
+            {   
+                if(AudioManager.Instance.isSFXOn)
+                {
                 audioSource.PlayOneShot(spalash);
-                audioSource.PlayOneShot(electricity);
+                }
                 hasPlayedSplashSound = true;
             }
         }
@@ -78,7 +79,11 @@ public class Mg16Battery : MonoBehaviour
     }
 
     private void ReverseMovement()
-    {   audioSource.PlayOneShot(dump);
+    {   
+        if(AudioManager.Instance.isSFXOn)
+        {
+        audioSource.PlayOneShot(dump);
+        }
         transform.DOMoveY(stopY, moveDuration).SetEase(Ease.Linear);
        
     }
@@ -88,7 +93,7 @@ public class Mg16Battery : MonoBehaviour
         
     }
 
-    void ElectricitySetActiveFalse()
+    public void ElectricitySetActiveFalse()
     {
         electricity1.SetActive(false);
         electricity2.SetActive(false);
@@ -97,7 +102,7 @@ public class Mg16Battery : MonoBehaviour
         electricity5.SetActive(false);
     }
 
-    void ElectricitySetActiveTrue()
+    public void ElectricitySetActiveTrue()
     {   
         
         electricity1.SetActive(true);
@@ -105,7 +110,17 @@ public class Mg16Battery : MonoBehaviour
         electricity3.SetActive(true);
         electricity4.SetActive(true);
         electricity5.SetActive(true);
+
+         // 1초 뒤에 ElectricitySetActiveFalse 함수를 호출
+    StartCoroutine(DelayedDeactivation());
     }
+
+    private IEnumerator DelayedDeactivation()
+    {
+        yield return new WaitForSeconds(2); // 1초 대기
+        ElectricitySetActiveFalse(); // 함수 호출
+    }
+        
 
     public void BatterySetBoolFalse()
     {   

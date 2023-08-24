@@ -1,14 +1,17 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+
 
 public class FallOrSoup : MonoBehaviour
 {
     private Vector3 initialPosition;
     private bool playerEntered = false;
     private Rigidbody2D playerRigidbody;
-
-    public GameObject playerPrefab; // Player ÇÁ¸®ÆÕÀ» ÇÒ´çÇÏ¼¼¿ä
+    public Camera myCamera;
+    public GameObject playerPrefab; // Player ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò´ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½
 
     public GameObject StartBlcok;
 
@@ -23,29 +26,30 @@ public class FallOrSoup : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             playerEntered = true;
+            ShakeCamera();
             StartCoroutine(ResetPlayerPosition());
         }
     }
 
     IEnumerator ResetPlayerPosition()
     {
-        // Player ¿ÀºêÁ§Æ®¸¦ Ã£½À´Ï´Ù.
+        
         GameObject player = GameObject.FindGameObjectWithTag("Player");
 
-        // Player ÄÄÆ÷³ÍÆ®¸¦ ºñÈ°¼ºÈ­ÇÏ¿© Á¶ÀÛ ºÒ°¡´É »óÅÂ·Î ¸¸µì´Ï´Ù.
+        
         Player playerComponent = player.GetComponent<Player>();
         if (playerComponent != null)
         {
             playerComponent.enabled = false;
         }
 
-        // PlayerÀÇ Rigidbody2D¸¦ ¸ØÃßµµ·Ï ¼³Á¤ÇÕ´Ï´Ù.
+       
         if (playerRigidbody != null)
         {
             playerRigidbody.velocity = Vector2.zero;
         }
 
-        // ¿ÀºêÁ§Æ®¸¦ ºÎ¼ö°í 2ÃÊ ´ë±âÇÕ´Ï´Ù.
+       
         Destroy(player);
         yield return new WaitForSeconds(2f);
 
@@ -56,14 +60,14 @@ public class FallOrSoup : MonoBehaviour
 
         if (playerEntered)
         {
-            // Player¸¦ ÇÁ¸®ÆÕÀ» »ç¿ëÇÏ¿© »ý¼ºÇÕ´Ï´Ù.
+            
             GameObject newPlayer = Instantiate(playerPrefab);
             newPlayer.transform.position = initialPosition;
 
             GameObject newStartBlock = Instantiate(StartBlcok);
             newStartBlock.transform.position = new Vector3(-0.08f,1.08f,0f);
 
-            // Player ÄÄÆ÷³ÍÆ®¸¦ ´Ù½Ã È°¼ºÈ­ÇÏ¿© Á¶ÀÛ °¡´É »óÅÂ·Î ¸¸µì´Ï´Ù.
+          
             Player newPlayerComponent = newPlayer.GetComponent<Player>();
             if (newPlayerComponent != null)
             {
@@ -72,5 +76,10 @@ public class FallOrSoup : MonoBehaviour
 
             playerEntered = false;
         }
+    }
+
+    public void ShakeCamera()
+    {
+        myCamera.transform.DOShakePosition(0.8f, 1f);  
     }
 }

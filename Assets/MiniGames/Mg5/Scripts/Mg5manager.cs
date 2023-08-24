@@ -25,6 +25,10 @@ public class Mg5manager : MonoBehaviour
     void Start()
     {
         level = 0;
+
+        level = MiniGameManager.Instance.LoadDifficulty() - 1;
+        score = MiniGameManager.Instance.LoadScore();
+
         GameLevelsetting();
     }
 
@@ -37,16 +41,18 @@ public class Mg5manager : MonoBehaviour
     public void AddScore()
 {
     score += 1;
-      // 젤리 추가 및 UI 업데이트
+        
+        MiniGameManager.Instance.IncreaseScore();
 
-    if (score % 5 == 0)
+        if (score % 5 == 0)
     {
         ObstacleSpawner spawner = FindObjectOfType<ObstacleSpawner>();
 
         if (spawner != null)
         {
             level += 1;
-            spawner.IncreaseSpeed();
+                MiniGameManager.Instance.IncreaseDifficulty();
+                spawner.IncreaseSpeed();
         }
     }
 }
@@ -70,6 +76,8 @@ public class Mg5manager : MonoBehaviour
     {
 
         score = 0;
+        MiniGameManager.Instance.ResetScore();
+
         ObstacleSpawner spawner = FindObjectOfType<ObstacleSpawner>();
         Mg5jellyspawner spawner2 = FindObjectOfType<Mg5jellyspawner>();
 
@@ -77,6 +85,7 @@ public class Mg5manager : MonoBehaviour
         if (level != 0)
         {
             level -= 1;
+            MiniGameManager.Instance.DecreaseDifficulty();
 
             spawner.DecreaseSpeed(); //Down Level
             spawner2.DecreaseSpeed();

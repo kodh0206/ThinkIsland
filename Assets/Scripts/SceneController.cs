@@ -32,6 +32,17 @@ public class SceneController : MonoBehaviour
         AudioManager.Instance.StartMiniGame();
         playButton.interactable = false;
         logoMovement.StartPlay();
+         if (PlayerPrefs.GetInt("hasPlayed") == 1)
+        {
+            // 이미 오프닝 컷신을 본 사용자는 바로 메인 씬으로 이동합니다.
+            sceneToLoad = "Main"; // 로드할 씬을 메인 씬으로 설정합니다.
+        }
+        else
+        {
+            // 오프닝 컷신을 보지 않은 사용자는 오프닝 컷신을 실행합니다.
+            sceneToLoad = "OpeningCutScene"; // 이 부분은 오프닝 컷신의 이름에 따라 변경하십시오.
+        }
+        
         StartCoroutine(LoadSceneAfterDelay());
 
     }
@@ -49,6 +60,6 @@ public class SceneController : MonoBehaviour
         }        
         DG.Tweening.DOTween.KillAll(); // DOTween 삭제
         yield return new WaitForSeconds(delayBeforeLoading); // 설정한 시간 동안 대기
-        SceneManager.LoadScene(sceneToLoad); // 씬 로드
+        SceneManager.LoadSceneAsync(sceneToLoad); // 씬 로드
     }
 }
