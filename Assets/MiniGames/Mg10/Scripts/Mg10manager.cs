@@ -26,6 +26,9 @@ public class Mg10manager : MonoBehaviour
     void Start()
     {
         level = 0;
+        level = MiniGameManager.Instance.LoadDifficulty() - 1;
+        score = MiniGameManager.Instance.LoadScore();
+
         GameLevelsetting();
     }
 
@@ -38,11 +41,14 @@ public class Mg10manager : MonoBehaviour
     public void AddScore()
     {
         score += 1;
+        MiniGameManager.Instance.IncreaseScore();
         //scoreText.text = "Eat jelly " + score; //score= jelly
 
         if (score % 5 == 0)
         {
             level += 1;
+            MiniGameManager.Instance.IncreaseDifficulty();
+
             Mg10Spawner spawner = FindObjectOfType<Mg10Spawner>();
             Mg10jellySpawner spawner2 = FindObjectOfType<Mg10jellySpawner>();
 
@@ -73,6 +79,8 @@ public class Mg10manager : MonoBehaviour
     {
 
         score = 0;
+        MiniGameManager.Instance.ResetScore();
+
         Mg10Spawner spawner = FindObjectOfType<Mg10Spawner>();
         Mg10jellySpawner spawner2 = FindObjectOfType<Mg10jellySpawner>();
 
@@ -80,6 +88,7 @@ public class Mg10manager : MonoBehaviour
         if (level != 0)
         {
             level -= 1;
+            MiniGameManager.Instance.DecreaseDifficulty();
 
             spawner.DecreaseSpeed(); //Down Level
             spawner2.DecreaseSpeed();

@@ -24,6 +24,9 @@ public class Mg15manager : MonoBehaviour
     void Start()
     {
         level = 0;
+        level = MiniGameManager.Instance.LoadDifficulty() - 1;
+        score = MiniGameManager.Instance.LoadScore();
+
         GameLevelsetting();
     }
 
@@ -36,10 +39,13 @@ public class Mg15manager : MonoBehaviour
     public void AddScore()
     {
         score += 1;
-        
+        MiniGameManager.Instance.IncreaseScore();
+
         if (score % 5 == 0)
         {
             level += 1;
+            MiniGameManager.Instance.IncreaseDifficulty();
+
             Mg15Spawner spawner = FindObjectOfType<Mg15Spawner>();
 
 
@@ -71,11 +77,14 @@ public class Mg15manager : MonoBehaviour
     {
 
         score = 0;
+        MiniGameManager.Instance.ResetScore();
+
         Mg15Spawner spawner = FindObjectOfType<Mg15Spawner>();
 
         if (level != 0)
         {
             level -= 1;
+            MiniGameManager.Instance.DecreaseDifficulty();
 
             spawner.DecreaseSpeed(); //Down Level
             

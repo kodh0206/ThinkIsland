@@ -27,6 +27,7 @@ public class Mg9manager : MonoBehaviour
     {
         level = MiniGameManager.Instance.LoadDifficulty() - 1;
         score = MiniGameManager.Instance.LoadScore();
+        GameLevelsetting();
     }
 
     // Update is called once per frame
