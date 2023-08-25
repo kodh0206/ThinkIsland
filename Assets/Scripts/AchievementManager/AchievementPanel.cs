@@ -20,15 +20,18 @@ public class AchievementPanel : MonoBehaviour
 
         foreach (Achievement achievement in AchievementManager.Instance.achievements)
         {
-            GameObject newAchievementUI = Instantiate(achievementPrefab, contentPanel);
-            AchievementDefinition achievementDefinition = newAchievementUI.GetComponent<AchievementDefinition>();
-
-            if (achievementDefinition)
+            if (achievement.currentAmount > 0)
             {
-                achievementDefinition.SetAchievement(achievement);
-            }
+                GameObject newAchievementUI = Instantiate(achievementPrefab, contentPanel);
+                AchievementDefinition achievementDefinition = newAchievementUI.GetComponent<AchievementDefinition>();
 
-            achievementUIObjects.Add(newAchievementUI);
+                if (achievementDefinition)
+                {
+                    achievementDefinition.SetAchievement(achievement);
+                }
+
+                achievementUIObjects.Add(newAchievementUI);
+            }
         }
     }
 
