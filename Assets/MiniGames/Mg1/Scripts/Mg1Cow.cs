@@ -33,6 +33,8 @@ public class Mg1Cow : MonoBehaviour
         if (other.gameObject.tag == "Player" && this.gameObject.tag =="cow")
         {   
             AudioManager.Instance.PlayCow();
+
+            Mg1Manager.instance.touchObstacle = true;
         }
     }
 

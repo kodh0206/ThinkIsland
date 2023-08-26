@@ -27,6 +27,8 @@ public class Mg1Poop : MonoBehaviour
             
             other.gameObject.GetComponent<Mg1Player>().GetObstacle();
             Destroy(gameObject);
+            
+            Mg1Manager.instance.touchObstacle = true;
         }
     }
 
