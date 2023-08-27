@@ -9,9 +9,9 @@ public class Mg13manager : MonoBehaviour
     public static Mg13manager instance = null;
 
     public int level;
-  
 
-    
+    Mg13Spawner spawner;
+    Mg13jellySpawner spawner2;
 
     private int score = 0; // score=jelly 
     public bool isGameOver = false;
@@ -29,6 +29,10 @@ public class Mg13manager : MonoBehaviour
         level = 0;
         level = MiniGameManager.Instance.LoadDifficulty() - 1;
         score = MiniGameManager.Instance.LoadScore();
+
+        spawner = FindObjectOfType<Mg13Spawner>();
+        spawner2 = FindAnyObjectByType<Mg13jellySpawner>();
+
         GameLevelsetting();
     }
 
@@ -48,13 +52,10 @@ public class Mg13manager : MonoBehaviour
             level += 1;
             MiniGameManager.Instance.IncreaseDifficulty();
 
-            Mg13Spawner spawner = FindObjectOfType<Mg13Spawner>();
-            
-
             if (spawner != null)
             {
                 spawner.IncreaseSpeed();  // decrease interval
-
+                spawner2.IncreaseSpeed();
             }
         }
     }
@@ -62,8 +63,6 @@ public class Mg13manager : MonoBehaviour
     public void GameLevelsetting() //start and level setting
     {
 
-        Mg13Spawner spawner = FindObjectOfType<Mg13Spawner>();
-        Mg13jellySpawner spawner2 = FindAnyObjectByType<Mg13jellySpawner>();
 
         for (int i = 0; i < level; i++)
         {
@@ -81,10 +80,6 @@ public class Mg13manager : MonoBehaviour
 
         score = 0;
         MiniGameManager.Instance.ResetScore();
-
-        Mg13Spawner spawner = FindObjectOfType<Mg13Spawner>();
-        Mg13jellySpawner spawner2 = FindAnyObjectByType<Mg13jellySpawner>();
-
 
         if (level != 0)
         {

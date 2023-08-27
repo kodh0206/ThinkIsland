@@ -9,6 +9,9 @@ public class Mg4manager : MonoBehaviour
 
     public int level; //level 
 
+    makejelly spawner;
+    Makebirdpoop spawner2;
+
     [SerializeField]
     private TextMeshProUGUI scoreText;
 
@@ -33,6 +36,9 @@ public class Mg4manager : MonoBehaviour
         level = MiniGameManager.Instance.LoadDifficulty() - 1;
         score = MiniGameManager.Instance.LoadScore();
 
+        spawner = FindObjectOfType<makejelly>();
+        spawner2 = FindObjectOfType<Makebirdpoop>();
+
         GameLevelsetting();
     }
 
@@ -54,8 +60,6 @@ public class Mg4manager : MonoBehaviour
             level += 1;
             MiniGameManager.Instance.IncreaseDifficulty();
 
-            makejelly spawner = FindObjectOfType<makejelly>();
-            Makebirdpoop spawner2 = FindObjectOfType<Makebirdpoop>();
 
         
             if (spawner != null)
@@ -71,13 +75,11 @@ public class Mg4manager : MonoBehaviour
     public void GameLevelsetting() //start and level setting
     {
 
-        Makebirdpoop spawner = FindObjectOfType<Makebirdpoop>();
-        makejelly jellspawner= FindObjectOfType<makejelly>();
         for (int i = 0; i < level; i++)
         {
 
             spawner.IncreaseSpeed(); // 게임 별로 난이도를 레벨에 따라 난이도 조절
-            jellspawner.IncreaseSpeed();
+            spawner2.IncreaseSpeed();
         }
 
     }
@@ -87,8 +89,6 @@ public class Mg4manager : MonoBehaviour
 
         score = 0;
         MiniGameManager.Instance.ResetScore();
-        Makebirdpoop spawner = FindObjectOfType<Makebirdpoop>();
-        makejelly jellspawner = FindObjectOfType<makejelly>();
 
         if (level != 0)
         {
@@ -96,7 +96,7 @@ public class Mg4manager : MonoBehaviour
             MiniGameManager.Instance.DecreaseDifficulty();
 
             spawner.DecreaseSpeed(); //Down Level
-            jellspawner.DecreaseSpeed() ;
+            spawner2.DecreaseSpeed() ;
         }
 
 

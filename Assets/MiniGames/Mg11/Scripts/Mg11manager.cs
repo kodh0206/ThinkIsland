@@ -10,7 +10,8 @@ public class Mg11manager : MonoBehaviour
 
     public int level;
 
-
+    Mg11Spawner spawner;
+    Mg11jellySpawner spawner2;
 
     private int score = 0; // score=jelly 스코어에 이전 게임의 젤리값을 넣으면 속도 조정가능
     public bool isGameOver = false;
@@ -28,6 +29,9 @@ public class Mg11manager : MonoBehaviour
         level = 0;
         level = MiniGameManager.Instance.LoadDifficulty() - 1;
         score = MiniGameManager.Instance.LoadScore();
+
+        spawner = FindObjectOfType<Mg11Spawner>();
+        spawner2 = FindObjectOfType<Mg11jellySpawner>();
 
         GameLevelsetting();
     }
@@ -48,8 +52,6 @@ public class Mg11manager : MonoBehaviour
             level += 1;
             MiniGameManager.Instance.IncreaseDifficulty();
 
-            Mg11Spawner spawner = FindObjectOfType<Mg11Spawner>();
-            Mg11jellySpawner spawner2 = FindObjectOfType<Mg11jellySpawner>();
 
             if (spawner != null)
             {
@@ -66,8 +68,6 @@ public class Mg11manager : MonoBehaviour
     public void GameLevelsetting() //start and level setting
     {
 
-        Mg11Spawner spawner = FindObjectOfType<Mg11Spawner>();
-        Mg11jellySpawner spawner2 = FindObjectOfType<Mg11jellySpawner>();
         for (int i = 0; i < level; i++)
         {
 
@@ -83,8 +83,6 @@ public class Mg11manager : MonoBehaviour
         score = 0;
         MiniGameManager.Instance.ResetScore();
 
-        Mg11Spawner spawner = FindObjectOfType<Mg11Spawner>();
-        Mg11jellySpawner spawner2 = FindObjectOfType<Mg11jellySpawner>();
 
 
         if (level != 0)

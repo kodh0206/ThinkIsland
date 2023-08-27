@@ -10,7 +10,9 @@ public class Mg9manager : MonoBehaviour
 
     public int level = 0;
 
-    
+    Mg9Spawner spawner;
+    Mg9jellySpawner spawner2;
+    Mg9SeaWeedSpawner spawner3;
 
     private int score = 0; // score=jelly 
     public bool isGameOver = false;
@@ -27,6 +29,11 @@ public class Mg9manager : MonoBehaviour
     {
         level = MiniGameManager.Instance.LoadDifficulty() - 1;
         score = MiniGameManager.Instance.LoadScore();
+
+        spawner = FindObjectOfType<Mg9Spawner>();
+        spawner2 = FindObjectOfType<Mg9jellySpawner>();
+        spawner3 = FindObjectOfType<Mg9SeaWeedSpawner>();
+
         GameLevelsetting();
     }
 
@@ -46,9 +53,6 @@ public class Mg9manager : MonoBehaviour
             level += 1;
             MiniGameManager.Instance.IncreaseDifficulty();
 
-            Mg9Spawner spawner = FindObjectOfType<Mg9Spawner>();
-            Mg9jellySpawner spawner2 = FindObjectOfType<Mg9jellySpawner>();
-            Mg9SeaWeedSpawner spawner3 = FindObjectOfType<Mg9SeaWeedSpawner>();
             if (spawner != null)
             {
                 spawner.IncreaseSpeed();  // decrease interval
@@ -61,9 +65,7 @@ public class Mg9manager : MonoBehaviour
     public void GameLevelsetting() //start and level setting
     {
 
-        Mg9Spawner spawner = FindObjectOfType<Mg9Spawner>();
-        Mg9jellySpawner spawner2 = FindObjectOfType<Mg9jellySpawner>();
-        Mg9SeaWeedSpawner spawner3 = FindObjectOfType<Mg9SeaWeedSpawner>();
+
         for (int i = 0; i < level; i++)
         {
 
@@ -79,11 +81,6 @@ public class Mg9manager : MonoBehaviour
 
         score = 0;
         MiniGameManager.Instance.ResetScore();
-
-        Mg9Spawner spawner = FindObjectOfType<Mg9Spawner>();
-        Mg9jellySpawner spawner2 = FindObjectOfType<Mg9jellySpawner>();
-        Mg9SeaWeedSpawner spawner3 = FindObjectOfType<Mg9SeaWeedSpawner>();
-
 
         if (level != 0)
         {
