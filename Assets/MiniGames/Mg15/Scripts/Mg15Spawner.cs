@@ -54,7 +54,7 @@ public class Mg15Spawner : MonoBehaviour
 
 
 
-                if (Random.value < 0.5f)
+                if (Random.value < 0.35f)
                 {
                     GameObject new_Mg15Obstacle = Instantiate(Mg15Obstacle);
                     

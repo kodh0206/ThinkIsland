@@ -11,7 +11,7 @@ public class Mg19manager : MonoBehaviour
     public int level;
 
 
-   
+    Mg19blockSpanwer spawner;
 
     private int score = 0; 
     public bool isGameOver = false;
@@ -29,6 +29,7 @@ public class Mg19manager : MonoBehaviour
         level = 0;
         level = MiniGameManager.Instance.LoadDifficulty() - 1;
         score = MiniGameManager.Instance.LoadScore();
+        Mg19blockSpanwer spawner = FindObjectOfType<Mg19blockSpanwer>();
 
         GameLevelsetting();
     }
@@ -50,8 +51,6 @@ public class Mg19manager : MonoBehaviour
             level += 1;
             MiniGameManager.Instance.IncreaseDifficulty();
 
-            Mg19blockSpanwer spawner = FindObjectOfType<Mg19blockSpanwer>();
-
 
             if (spawner != null)
             {
@@ -63,9 +62,6 @@ public class Mg19manager : MonoBehaviour
 
     public void GameLevelsetting() //start and level setting
     {
-
-        Mg19blockSpanwer spawner = FindObjectOfType<Mg19blockSpanwer>();
-
 
         for (int i = 0; i < level; i++)
         {
@@ -80,7 +76,6 @@ public class Mg19manager : MonoBehaviour
         score = 0;
         MiniGameManager.Instance.ResetScore();
 
-        Mg19blockSpanwer spawner = FindObjectOfType<Mg19blockSpanwer>();
         if (level != 0)
         {
             level -= 1;

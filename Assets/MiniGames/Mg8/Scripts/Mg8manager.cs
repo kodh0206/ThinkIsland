@@ -10,6 +10,9 @@ public class Mg8manager : MonoBehaviour
 
     public int level;
 
+    Mg8Spawner spawner;
+    Mg8jellySpawner spawner2;
+
     [SerializeField]
     private GameObject GameOverPanel;
 
@@ -29,6 +32,9 @@ public class Mg8manager : MonoBehaviour
         level = 0;
         level = MiniGameManager.Instance.LoadDifficulty() - 1;
         score = MiniGameManager.Instance.LoadScore();
+
+        spawner = FindObjectOfType<Mg8Spawner>();
+        spawner2 = FindObjectOfType<Mg8jellySpawner>();
 
         GameLevelsetting();
     }
@@ -50,9 +56,6 @@ public class Mg8manager : MonoBehaviour
             level += 1;
             MiniGameManager.Instance.IncreaseDifficulty();
 
-            Mg8Spawner spawner = FindObjectOfType<Mg8Spawner>();
-            Mg8jellySpawner spawner2 = FindObjectOfType<Mg8jellySpawner>();
-
             if (spawner != null)
             {
                 spawner.IncreaseSpeed();  // decrease interval
@@ -68,8 +71,6 @@ public class Mg8manager : MonoBehaviour
     public void GameLevelsetting() //start and level setting
     {
 
-        Mg8Spawner spawner = FindObjectOfType<Mg8Spawner>();
-        Mg8jellySpawner spawner2 = FindObjectOfType<Mg8jellySpawner>();
         for (int i = 0; i < level; i++)
         {
 
@@ -84,9 +85,6 @@ public class Mg8manager : MonoBehaviour
 
         score = 0;
         MiniGameManager.Instance.ResetScore();
-
-        Mg8Spawner spawner = FindObjectOfType<Mg8Spawner>();
-        Mg8jellySpawner spawner2 = FindObjectOfType<Mg8jellySpawner>();
 
 
         if (level != 0)

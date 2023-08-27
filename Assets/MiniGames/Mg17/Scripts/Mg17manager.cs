@@ -7,6 +7,8 @@ public class Mg17manager : MonoBehaviour
 {
     public static Mg17manager instance = null;
 
+    Mg17Spawner spawner;
+    Mg17RockSpawner spawner2;
 
     public int level;
 
@@ -26,6 +28,8 @@ public class Mg17manager : MonoBehaviour
         level = 0;
         level = MiniGameManager.Instance.LoadDifficulty() - 1;
         score = MiniGameManager.Instance.LoadScore();
+        spawner = FindObjectOfType<Mg17Spawner>();
+        spawner2 = FindAnyObjectByType<Mg17RockSpawner>();
 
         GameLevelsetting();
     }
@@ -46,8 +50,6 @@ public class Mg17manager : MonoBehaviour
             level += 1;
             MiniGameManager.Instance.IncreaseDifficulty();
 
-            Mg17Spawner spawner = FindObjectOfType<Mg17Spawner>();
-            Mg17RockSpawner spawner2= FindAnyObjectByType<Mg17RockSpawner>();
 
             if (spawner != null)
             {
@@ -62,10 +64,6 @@ public class Mg17manager : MonoBehaviour
 
     public void GameLevelsetting() //start and level setting
     {
-
-        Mg17Spawner spawner = FindObjectOfType<Mg17Spawner>();
-        Mg17RockSpawner spawner2 = FindAnyObjectByType<Mg17RockSpawner>();
-
 
         for (int i = 0; i < level; i++)
         {
@@ -83,8 +81,6 @@ public class Mg17manager : MonoBehaviour
         score = 0;
         MiniGameManager.Instance.ResetScore();
 
-        Mg17Spawner spawner = FindObjectOfType<Mg17Spawner>();
-        Mg17RockSpawner spawner2 = FindAnyObjectByType<Mg17RockSpawner>();
 
         if (level != 0)
         {
