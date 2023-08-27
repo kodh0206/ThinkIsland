@@ -6,6 +6,9 @@ public class Mg2manager : MonoBehaviour
 {
     public static Mg2manager instance = null;
 
+    public bool achievementFail;
+
+
     public int level;
 
     public int score;
@@ -29,12 +32,22 @@ public class Mg2manager : MonoBehaviour
         score = MiniGameManager.Instance.LoadScore();
 
         GameLevelsetting();
+
+        // 초기화
+        achievementFail = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Update()
     {
-        
+        // 10초 내 축구공 수비 실패 횟수가 0인 경우
+        if (!achievementFail)
+        {
+            AchievementManager achievementManager = FindObjectOfType<AchievementManager>();
+            if (achievementManager != null)
+            {
+                achievementManager.IncrementAchievement("1", 1);
+            }
+        }
     }
 
 

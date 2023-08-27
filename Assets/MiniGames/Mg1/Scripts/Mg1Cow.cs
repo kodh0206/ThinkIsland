@@ -34,7 +34,7 @@ public class Mg1Cow : MonoBehaviour
         {   
             AudioManager.Instance.PlayCow();
 
-            Mg1Manager.instance.touchObstacle = true;
+            Mg1Manager.instance.achievementFail = true;
         }
     }
 

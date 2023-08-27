@@ -52,11 +52,14 @@ public class Mg2Ball : MonoBehaviour
                         break;
                     }
                 }
+
+                // 방어 실패 시
                 if (!defenseSuccess)
                 {
                     // 캐릭터 스턴(버튼 비활성화) + 캐릭터 색 변경
                     AudioManager.Instance.Goal();
                     mg2Player.GetObstacle();
+                    Mg2manager.instance.achievementFail = true;
                 }
             }
             else
