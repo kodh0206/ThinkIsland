@@ -8,6 +8,9 @@ public class Mg13manager : MonoBehaviour
 {
     public static Mg13manager instance = null;
 
+    public bool achievementFail;
+
+
     public int level;
 
     Mg13Spawner spawner;
@@ -34,12 +37,21 @@ public class Mg13manager : MonoBehaviour
         spawner2 = FindAnyObjectByType<Mg13jellySpawner>();
 
         GameLevelsetting();
+
+        // 초기화
+		achievementFail = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Update()
     {
-
+        if (!achievementFail)
+        {
+            AchievementManager achievementManager = FindObjectOfType<AchievementManager>();
+            if (achievementManager != null)
+            {
+                achievementManager.IncrementAchievement("12", 1);
+            }
+        }
     }
 
     public void AddScore()

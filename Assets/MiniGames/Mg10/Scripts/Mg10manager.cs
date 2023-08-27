@@ -8,6 +8,9 @@ public class Mg10manager : MonoBehaviour
 {
     public static Mg10manager instance = null;
 
+    public bool achievementFail;
+
+
     public int level;
 
     Mg10Spawner spawner;
@@ -34,12 +37,21 @@ public class Mg10manager : MonoBehaviour
         spawner2 = FindObjectOfType<Mg10jellySpawner>();
 
         GameLevelsetting();
+
+        // 초기화
+		achievementFail = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Update()
     {
-
+        if (!achievementFail)
+        {
+            AchievementManager achievementManager = FindObjectOfType<AchievementManager>();
+            if (achievementManager != null)
+            {
+                achievementManager.IncrementAchievement("9", 1);
+            }
+        }
     }
 
     public void AddScore()

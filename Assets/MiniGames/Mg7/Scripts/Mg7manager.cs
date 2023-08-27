@@ -8,7 +8,8 @@ public class Mg7manager : MonoBehaviour
     public static Mg7manager instance = null;
 
 
-    
+    public bool achievementFail;
+
 
     [SerializeField]
     private GameObject GameOverPanel;
@@ -39,12 +40,21 @@ public class Mg7manager : MonoBehaviour
         spawner2 = FindObjectOfType<Mg7jellySpanwer>();
 
         GameLevelsetting();
+
+        // 초기화
+		achievementFail = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Update()
     {
-
+        if (!achievementFail)
+        {
+            AchievementManager achievementManager = FindObjectOfType<AchievementManager>();
+            if (achievementManager != null)
+            {
+                achievementManager.IncrementAchievement("6", 1);
+            }
+        }
     }
 
     public void AddScore()

@@ -6,6 +6,9 @@ public class Mg16Manager : MonoBehaviour
 {
     public static Mg16Manager instance = null;
 
+    public bool achievementFail;
+
+
     public int score = 0;
     private Mg16Fish1 mg16Fish1;
     private Mg16Fish2 mg16Fish2;
@@ -40,11 +43,21 @@ public class Mg16Manager : MonoBehaviour
         mg16Player = FindObjectOfType<Mg16Player>();
 
         GameLevelsetting();
+
+        // 초기화
+		achievementFail = false;
     }
 
-    private void Update()
+    public void Update()
     {
-        
+        if (!achievementFail)
+        {
+            AchievementManager achievementManager = FindObjectOfType<AchievementManager>();
+            if (achievementManager != null)
+            {
+                achievementManager.IncrementAchievement("15", 1);
+            }
+        }
     }
 
     public void AddScore()

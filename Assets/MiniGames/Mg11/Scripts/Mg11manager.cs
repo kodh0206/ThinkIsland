@@ -8,12 +8,15 @@ public class Mg11manager : MonoBehaviour
 {
     public static Mg11manager instance = null;
 
+    public bool achievementFail;
+
+
     public int level;
 
     Mg11Spawner spawner;
     Mg11jellySpawner spawner2;
 
-    private int score = 0; // score=jelly ½ºÄÚ¾î¿¡ ÀÌÀü °ÔÀÓÀÇ Á©¸®°ªÀ» ³ÖÀ¸¸é ¼Óµµ Á¶Á¤°¡´É
+    private int score = 0; // score=jelly ï¿½ï¿½ï¿½Ú¾î¿¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Óµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     public bool isGameOver = false;
 
     void Awake()
@@ -34,12 +37,21 @@ public class Mg11manager : MonoBehaviour
         spawner2 = FindObjectOfType<Mg11jellySpawner>();
 
         GameLevelsetting();
+
+        // ì´ˆê¸°í™”
+		achievementFail = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Update()
     {
-
+        if (!achievementFail)
+        {
+            AchievementManager achievementManager = FindObjectOfType<AchievementManager>();
+            if (achievementManager != null)
+            {
+                achievementManager.IncrementAchievement("10", 1);
+            }
+        }
     }
 
     public void AddScore()
@@ -71,7 +83,7 @@ public class Mg11manager : MonoBehaviour
         for (int i = 0; i < level; i++)
         {
 
-            spawner.IncreaseSpeed(); // °ÔÀÓ º°·Î ³­ÀÌµµ¸¦ ·¹º§¿¡ µû¶ó ³­ÀÌµµ Á¶Àý
+            spawner.IncreaseSpeed(); // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½
             spawner2.IncreaseSpeed();
         }
 

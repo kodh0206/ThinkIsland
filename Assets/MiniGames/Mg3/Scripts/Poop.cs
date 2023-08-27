@@ -22,6 +22,8 @@ public class Poop : MonoBehaviour
             MiniGame3Manager.instance.StunPlayer();
             MiniGame3Manager.instance.GameLevelDown(); // Hit and level Down
             other.gameObject.GetComponent<Player>().GetPoop(otherPos);
+
+            MiniGame3Manager.instance.achievementFail = true;
         }
         
         else if (other.gameObject.tag == "poop" || other.gameObject.tag == "jelly")

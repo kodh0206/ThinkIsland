@@ -33,6 +33,7 @@ public class Mg10Obstacle : MonoBehaviour
             {   
                 AudioManager.Instance.Rock();
                 player.GetHit();
+                Mg10manager.instance.achievementFail = true;
             }
 
             Mg10Spawner spawner1 = FindAnyObjectByType<Mg10Spawner>();

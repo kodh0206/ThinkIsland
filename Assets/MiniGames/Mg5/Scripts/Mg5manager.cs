@@ -7,6 +7,9 @@ public class Mg5manager : MonoBehaviour
 {
     public static Mg5manager instance = null;
 
+    public bool achievementFail;
+
+
     public int level;
 
     ObstacleSpawner spawner;
@@ -34,14 +37,22 @@ public class Mg5manager : MonoBehaviour
         spawner = FindObjectOfType<ObstacleSpawner>();
         spawner2 = FindObjectOfType<Mg5jellyspawner>();
         GameLevelsetting();
+
+        // 초기화
+		achievementFail = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Update()
     {
-
+        if (!achievementFail)
+        {
+            AchievementManager achievementManager = FindObjectOfType<AchievementManager>();
+            if (achievementManager != null)
+            {
+                achievementManager.IncrementAchievement("4", 1);
+            }
+        }
     }
-
     public void AddScore()
 {
     score += 1;

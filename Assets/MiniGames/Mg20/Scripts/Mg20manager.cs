@@ -8,6 +8,9 @@ public class Mg20manager : MonoBehaviour
     // Start is called before the first frame update
     public static Mg20manager instance = null;
 
+    public bool achievementFail;
+
+
     public int level;
 
 
@@ -34,12 +37,21 @@ public class Mg20manager : MonoBehaviour
         chimney = FindObjectOfType<Mg20ChimneyMove>();
 
         GameLevelsetting();
+
+        // 초기화
+		achievementFail = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Update()
     {
-
+        if (!achievementFail)
+        {
+            AchievementManager achievementManager = FindObjectOfType<AchievementManager>();
+            if (achievementManager != null)
+            {
+                achievementManager.IncrementAchievement("19", 1);
+            }
+        }
     }
 
     public void AddScore()

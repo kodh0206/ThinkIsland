@@ -8,6 +8,8 @@ public class Mg14manager : MonoBehaviour
 {
     public static Mg14manager instance = null;
 
+    public bool achievementFail;
+
 
     public int level;
 
@@ -33,12 +35,21 @@ public class Mg14manager : MonoBehaviour
         spawner = FindObjectOfType<Mg14Spawner>();
         spawner2 = FindAnyObjectByType<Mg14jellySpawner>();
         GameLevelsetting();
+
+        // 초기화
+		achievementFail = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Update()
     {
-
+        if (!achievementFail)
+        {
+            AchievementManager achievementManager = FindObjectOfType<AchievementManager>();
+            if (achievementManager != null)
+            {
+                achievementManager.IncrementAchievement("13", 1);
+            }
+        }
     }
 
     public void AddScore()

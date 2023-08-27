@@ -7,6 +7,9 @@ public class Mg17manager : MonoBehaviour
 {
     public static Mg17manager instance = null;
 
+    public bool achievementFail;
+
+
     Mg17Spawner spawner;
     Mg17RockSpawner spawner2;
 
@@ -32,12 +35,21 @@ public class Mg17manager : MonoBehaviour
         spawner2 = FindAnyObjectByType<Mg17RockSpawner>();
 
         GameLevelsetting();
+
+        // 초기화
+		achievementFail = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Update()
     {
-
+        if (!achievementFail)
+        {
+            AchievementManager achievementManager = FindObjectOfType<AchievementManager>();
+            if (achievementManager != null)
+            {
+                achievementManager.IncrementAchievement("16", 1);
+            }
+        }
     }
 
     public void AddScore()

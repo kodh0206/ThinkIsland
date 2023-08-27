@@ -7,6 +7,9 @@ public class Mg12manager : MonoBehaviour
 {
     public static Mg12manager instance = null;
 
+    public bool achievementFail;
+
+
     public int level;
 
     Mg12Spawner spawner;
@@ -34,6 +37,21 @@ public class Mg12manager : MonoBehaviour
         spawner2 = FindAnyObjectByType<Mg12RockSpawner>();
 
         GameLevelsetting();
+
+        // 초기화
+		achievementFail = false;
+    }
+
+    public void Update()
+    {
+        if (!achievementFail)
+        {
+            AchievementManager achievementManager = FindObjectOfType<AchievementManager>();
+            if (achievementManager != null)
+            {
+                achievementManager.IncrementAchievement("11", 1);
+            }
+        }
     }
 
 

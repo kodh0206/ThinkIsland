@@ -38,12 +38,14 @@ public class Mg13Obstacle : MonoBehaviour
         {
             Vector2 Hittarget = other.transform.position;
             Vector2 Knuckdirection = new Vector2(Hittarget.x - transform.position.x, Hittarget.y - transform.position.y).normalized;
-            float pushDistance = 0.5f; // �÷��̾ �о �Ÿ�
+            float pushDistance = 0.5f; // �÷��̾ �о �Ÿ�
 
             other.transform.Translate(Knuckdirection * pushDistance, Space.World);
             
             Mg13manager.instance.GameLevelDown();
             other.gameObject.GetComponent<Mg13Player>().GetHit();
+
+            Mg13manager.instance.achievementFail = true;
         }
     }
 

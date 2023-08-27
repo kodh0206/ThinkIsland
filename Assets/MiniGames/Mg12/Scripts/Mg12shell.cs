@@ -30,6 +30,8 @@ public class Mg12shell : MonoBehaviour
         {
             Mg12manager.instance.GameLevelDown();
             other.gameObject.GetComponent<Mg12Player>().GetHit();
+
+            Mg12manager.instance.achievementFail = true;
         }
 
         if (other.gameObject.CompareTag("Rock"))

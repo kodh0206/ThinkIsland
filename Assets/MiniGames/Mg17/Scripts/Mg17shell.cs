@@ -48,6 +48,8 @@ public class Mg17shell : MonoBehaviour
 
             ShakeCamera();
 
+            Mg17manager.instance.achievementFail = true;
+
             if (HItCount == 1)
             {
                 float randomValue = Random.value;

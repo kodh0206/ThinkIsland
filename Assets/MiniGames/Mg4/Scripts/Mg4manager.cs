@@ -7,6 +7,9 @@ public class Mg4manager : MonoBehaviour
 {
     public static Mg4manager instance = null;
 
+    public bool achievementFail;
+
+
     public int level; //level 
 
     makejelly spawner;
@@ -40,12 +43,21 @@ public class Mg4manager : MonoBehaviour
         spawner2 = FindObjectOfType<Makebirdpoop>();
 
         GameLevelsetting();
+
+        // 초기화
+        achievementFail = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Update()
     {
-        
+        if (!achievementFail)
+        {
+            AchievementManager achievementManager = FindObjectOfType<AchievementManager>();
+            if (achievementManager != null)
+            {
+                achievementManager.IncrementAchievement("3", 1);
+            }
+        }
     }
 
     public void AddScore()

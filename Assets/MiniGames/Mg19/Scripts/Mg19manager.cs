@@ -8,6 +8,9 @@ public class Mg19manager : MonoBehaviour
     // Start is called before the first frame update
     public static Mg19manager instance = null;
 
+    public bool achievementFail;
+
+
     public int level;
 
 
@@ -32,12 +35,21 @@ public class Mg19manager : MonoBehaviour
         Mg19blockSpanwer spawner = FindObjectOfType<Mg19blockSpanwer>();
 
         GameLevelsetting();
+
+        // 초기화
+		achievementFail = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Update()
     {
-
+        if (!achievementFail)
+        {
+            AchievementManager achievementManager = FindObjectOfType<AchievementManager>();
+            if (achievementManager != null)
+            {
+                achievementManager.IncrementAchievement("18", 1);
+            }
+        }
     }
 
     public void AddScore()

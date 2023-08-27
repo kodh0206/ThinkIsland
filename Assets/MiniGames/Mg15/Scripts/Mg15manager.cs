@@ -7,6 +7,9 @@ public class Mg15manager : MonoBehaviour
 {
     public static Mg15manager instance = null;
 
+    public bool achievementFail;
+
+
     public int level;
 
     Mg15Spawner spawner;
@@ -31,12 +34,21 @@ public class Mg15manager : MonoBehaviour
         spawner = FindObjectOfType<Mg15Spawner>();
 
         GameLevelsetting();
+
+        // 초기화
+		achievementFail = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Update()
     {
-
+        if (!achievementFail)
+        {
+            AchievementManager achievementManager = FindObjectOfType<AchievementManager>();
+            if (achievementManager != null)
+            {
+                achievementManager.IncrementAchievement("14", 1);
+            }
+        }
     }
 
     public void AddScore()

@@ -8,6 +8,9 @@ public class Mg9manager : MonoBehaviour
 {
     public static Mg9manager instance = null;
 
+    public bool achievementFail;
+
+
     public int level = 0;
 
     Mg9Spawner spawner;
@@ -35,12 +38,21 @@ public class Mg9manager : MonoBehaviour
         spawner3 = FindObjectOfType<Mg9SeaWeedSpawner>();
 
         GameLevelsetting();
+
+        // 초기화
+		achievementFail = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Update()
     {
-
+        if (!achievementFail)
+        {
+            AchievementManager achievementManager = FindObjectOfType<AchievementManager>();
+            if (achievementManager != null)
+            {
+                achievementManager.IncrementAchievement("8", 1);
+            }
+        }
     }
 
     public void AddScore()
