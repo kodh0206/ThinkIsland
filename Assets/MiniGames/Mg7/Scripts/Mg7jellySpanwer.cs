@@ -10,7 +10,7 @@ public class Mg7jellySpanwer : MonoBehaviour
     private float jellySpeed = 5.0f; // 젤리의 초기 스피드
 
     [SerializeField]
-    private float time_diff = 1.5f;
+    private float time_diff = 1.3f;
 
     float time = 0;
 
@@ -37,6 +37,7 @@ public class Mg7jellySpanwer : MonoBehaviour
             time = 0;
             Destroy(new_jelly, 5.0f);
         }
+        
     }
 
     public void IncreaseSpeed()
