@@ -230,7 +230,7 @@ public class BetaManager : MonoBehaviour
 
     public void LoadClassScene()
     {   AudioManager.Instance.PlayPressed();
-        SceneManager.LoadSceneAsync("ClassScene");
+        SceneManager.LoadScene("ClassScene");
     }
     void ExitGame()
     {
