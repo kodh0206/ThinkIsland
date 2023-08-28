@@ -28,7 +28,7 @@ public class Mg18manager : MonoBehaviour
     void Start()
     {
         level = 0;
-        level = MiniGameManager.Instance.LoadDifficulty() - 1;
+        level = MiniGameManager.Instance.LoadDifficulty();
         score = MiniGameManager.Instance.LoadScore();
         Mg18ObstacleSpawner spawner = FindObjectOfType<Mg18ObstacleSpawner>();
         Mg18GroundSpawner spawner2 = FindAnyObjectByType<Mg18GroundSpawner>();

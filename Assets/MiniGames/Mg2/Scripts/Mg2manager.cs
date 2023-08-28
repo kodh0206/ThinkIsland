@@ -25,7 +25,7 @@ public class Mg2manager : MonoBehaviour
         score = 0;
         level = 0;
 
-        level = MiniGameManager.Instance.LoadDifficulty() - 1;
+        level = MiniGameManager.Instance.LoadDifficulty() ;
         score = MiniGameManager.Instance.LoadScore();
 
         GameLevelsetting();

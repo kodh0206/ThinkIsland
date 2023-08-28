@@ -11,6 +11,7 @@ public class MIniGameUI : MonoBehaviour
 
     public Text CountDown;
 
+
     public Toggle pauseResumeButton; // 일시 정지/재개 버튼에 대한 참조
     public Text pauseResumeButtonText; // 버튼의 텍스트 변경을 위한 참조
     public static MIniGameUI Instance { get; private set; }
@@ -18,7 +19,9 @@ public class MIniGameUI : MonoBehaviour
     public Sprite selectedSprite; // Selected 상태의 스프라이트//꺼져있음
     public Sprite defaultSprite;  // Default 상태의 스프라이트 //켜져있음
     public Image sprite;
-  
+
+
+
     private void Awake()
 {
     if (Instance == null)
@@ -72,4 +75,5 @@ public class MIniGameUI : MonoBehaviour
             miniGameManager.TogglePause(); // 미니게임의 재개
         }
     }
+
 }
