@@ -43,13 +43,13 @@ public class Mg17RockSpawner : MonoBehaviour
 
     public void IncreaseSpeed()
     {
-        RockSpeed += 1.0f; 
+        RockSpeed += 0.5f; 
         time_diff -= 0.1f; 
     }
 
     public void DecreaseSpeed()
     {
-        RockSpeed -= 1.0f; 
+        RockSpeed -= 0.5f; 
         time_diff += 0.1f; 
     }
 

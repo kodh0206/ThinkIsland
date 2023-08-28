@@ -8,7 +8,7 @@ public class Mg7Spawner : MonoBehaviour
     public GameObject Mg7Obstacle2;
 
     [SerializeField]
-    private float Mg7ObstacleSpeed = 5.0f; // 생성물의 초기 스피드
+    private float Mg7ObstacleSpeed = 3.0f; // 생성물의 초기 스피드
 
     [SerializeField]
     private float time_diff = 1.5f;
@@ -16,7 +16,7 @@ public class Mg7Spawner : MonoBehaviour
     [SerializeField]
     private int minNumObstaclesToSpawn = 1; // 최소 생성 장애물 개수
     [SerializeField]
-    private int maxNumObstaclesToSpawn = 3; // 최대 생성 장애물 개수
+    private int maxNumObstaclesToSpawn = 2; // 최대 생성 장애물 개수
 
     float time = 0;
 
@@ -62,18 +62,16 @@ public class Mg7Spawner : MonoBehaviour
 
     public void IncreaseSpeed()
     {
-        Mg7ObstacleSpeed += 2.0f; // 장애물의 스피드 증가
+        Mg7ObstacleSpeed += 1.0f; // 장애물의 스피드 증가
         time_diff -= 0.1f; // 장애물의 생성 간격 감소
-        minNumObstaclesToSpawn += 1;
-        maxNumObstaclesToSpawn += 1;
+
     }
 
     public void DecreaseSpeed()
     {
-        Mg7ObstacleSpeed -= 2.0f; // 장애물의 스피드 감소
+        Mg7ObstacleSpeed -= 1.0f; // 장애물의 스피드 감소
         time_diff += 0.1f; // 장애물의 생성 간격 증가
-        minNumObstaclesToSpawn -= 1;
-        maxNumObstaclesToSpawn -= 1;
+
     }
 
 

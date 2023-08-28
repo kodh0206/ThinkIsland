@@ -51,13 +51,13 @@ public class Mg6JellySpawner : MonoBehaviour
 
     public void IncreaseSpeed()
     {
-        jellySpeed += 2.0f; // 젤리의 스피드 증가
+        jellySpeed += 1.0f; // 젤리의 스피드 증가
         time_diff -= 0.2f;
     }
 
     public void DecreaseSpeed()
     {
-        jellySpeed -= 2.0f; // 젤리의 스피드 증가
+        jellySpeed -= 1.0f; // 젤리의 스피드 증가
         time_diff += 0.2f;
     }
 

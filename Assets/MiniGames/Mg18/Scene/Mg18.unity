@@ -363,7 +363,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &236646437
 BoxCollider2D:
@@ -401,7 +401,7 @@ PrefabInstance:
     - target: {fileID: 1674042710640863280, guid: d2ba90e1cd7801a42980e8d6b39eb033,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1674042710640863280, guid: d2ba90e1cd7801a42980e8d6b39eb033,
         type: 3}
@@ -612,7 +612,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &576337446
 BoxCollider2D:
@@ -1086,7 +1086,7 @@ PrefabInstance:
     - target: {fileID: 5670757018262012495, guid: da16dfdf69b29654e8b19abe3eb2b52f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5670757018262012495, guid: da16dfdf69b29654e8b19abe3eb2b52f,
         type: 3}
@@ -1900,7 +1900,7 @@ PrefabInstance:
     - target: {fileID: 1674042710640863280, guid: d2ba90e1cd7801a42980e8d6b39eb033,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1674042710640863280, guid: d2ba90e1cd7801a42980e8d6b39eb033,
         type: 3}
@@ -2934,7 +2934,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1608079010
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3361,7 +3361,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -621845152, guid: 5d93731179f4f9544a3bc8db557450c5, type: 3}
+  m_Sprite: {fileID: -301900325, guid: 5d93731179f4f9544a3bc8db557450c5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3569,7 +3569,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1060362387167253880
 PrefabInstance:
@@ -3823,7 +3823,7 @@ PrefabInstance:
     - target: {fileID: 7172613327761855903, guid: b1e9eb72303e3274e811f6e3ccce1f5d,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7172613327761855903, guid: b1e9eb72303e3274e811f6e3ccce1f5d,
         type: 3}
