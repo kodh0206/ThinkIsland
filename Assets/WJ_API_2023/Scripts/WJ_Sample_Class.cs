@@ -209,7 +209,7 @@ public class WJ_Sample_Class : MonoBehaviour
                 if(isCorrect) 
                     {
                         // 정답일 때의 로직
-                        Debug.Log("정답입니다!"); 
+                        Debug.Log("정답입니다!");
                         // 여기에 원하는 로직 추가 애니메이션 사운드 효과
                         AudioManager.Instance.PlayRight();
                     }
@@ -243,6 +243,13 @@ public class WJ_Sample_Class : MonoBehaviour
                         // 정답일 때의 로직
                         Debug.Log("정답입니다!"); 
                         rightanswers+=1;
+
+                        AchievementManager achievementManager = FindObjectOfType<AchievementManager>();
+                        if (achievementManager != null)
+                        {
+                            achievementManager.IncrementAchievement("27", 1);
+                        }
+
                         // 여기에 원하는 로직 추가 애니메이션 사운드 효과
                         AudioManager.Instance.PlayRight();
                     }
@@ -275,6 +282,16 @@ public class WJ_Sample_Class : MonoBehaviour
                     resultPanel.SetActive(true);
                     //wj_displayText.SetState("����Ǯ�� �Ϸ�", "", "", "");
                     getLearningButton.interactable = true;
+
+                    // 8문제를 모두 맞춘 경우
+                    AchievementManager achievementManager = FindObjectOfType<AchievementManager>();
+                    if (rightanswers == 8)
+                    {
+                        if (achievementManager != null)
+                        {
+                            achievementManager.IncrementAchievement("26", 8);
+                        }
+                    }
                 }
                 else GetLearning(currentQuestionIndex);
 
