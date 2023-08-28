@@ -89,7 +89,7 @@ public class Mg19Player : MonoBehaviour
 
         float moveX = horizontalInput * moveSpeed;
 
-        if (rb.velocity.y <= -5f)
+        if (rb.velocity.y < -5f)
         {
             rb.velocity = new Vector2(moveX, yveloLimit);
         }
