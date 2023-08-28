@@ -36,7 +36,7 @@ public class Mg4manager : MonoBehaviour
     {
         level= 0;
 
-        level = MiniGameManager.Instance.LoadDifficulty() - 1;
+        level = MiniGameManager.Instance.LoadDifficulty();
         score = MiniGameManager.Instance.LoadScore();
 
         spawner = FindObjectOfType<makejelly>();

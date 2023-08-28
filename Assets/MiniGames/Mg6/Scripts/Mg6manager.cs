@@ -32,7 +32,7 @@ public class Mg6manager : MonoBehaviour
     {
         level = 1;
 
-        level = MiniGameManager.Instance.LoadDifficulty() - 1;
+        level = MiniGameManager.Instance.LoadDifficulty();
         score = MiniGameManager.Instance.LoadScore();
 
         spawner = FindObjectOfType<Mg6Spawner>();

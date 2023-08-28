@@ -29,7 +29,7 @@ public class Mg17manager : MonoBehaviour
     void Start()
     {
         level = 0;
-        level = MiniGameManager.Instance.LoadDifficulty() - 1;
+        level = MiniGameManager.Instance.LoadDifficulty();
         score = MiniGameManager.Instance.LoadScore();
         spawner = FindObjectOfType<Mg17Spawner>();
         spawner2 = FindAnyObjectByType<Mg17RockSpawner>();

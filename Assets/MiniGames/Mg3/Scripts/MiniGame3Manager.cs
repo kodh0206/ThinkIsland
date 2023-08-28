@@ -30,7 +30,7 @@ public class MiniGame3Manager : MonoBehaviour
         
         level = 0; // level setting
 
-        level=MiniGameManager.Instance.LoadDifficulty()-1;
+        level=MiniGameManager.Instance.LoadDifficulty();
         score= MiniGameManager.Instance.LoadScore();
 
         GameLevelsetting();

@@ -30,7 +30,7 @@ public class Mg9manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        level = MiniGameManager.Instance.LoadDifficulty() - 1;
+        level = MiniGameManager.Instance.LoadDifficulty();
         score = MiniGameManager.Instance.LoadScore();
 
         spawner = FindObjectOfType<Mg9Spawner>();

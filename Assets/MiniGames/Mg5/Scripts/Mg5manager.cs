@@ -32,7 +32,7 @@ public class Mg5manager : MonoBehaviour
     {
         level = 0;
 
-        level = MiniGameManager.Instance.LoadDifficulty() - 1;
+        level = MiniGameManager.Instance.LoadDifficulty() ;
         score = MiniGameManager.Instance.LoadScore();
         spawner = FindObjectOfType<ObstacleSpawner>();
         spawner2 = FindObjectOfType<Mg5jellyspawner>();
