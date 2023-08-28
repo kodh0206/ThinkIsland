@@ -99,13 +99,13 @@ public class Mg15Spawner : MonoBehaviour
     {
         minNumObstaclesToSpawn += 1;
         maxNumObstaclesToSpawn += 1;
-        time_diff -= 0.2f; 
+        time_diff -= 0.1f; 
     }
     public void DecreaseSpeed()
     {
         minNumObstaclesToSpawn -= 1;
         maxNumObstaclesToSpawn -= 1;
-        time_diff += 0.2f;
+        time_diff += 0.1f;
     }
 
 }

@@ -450,6 +450,16 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 160fe1c5ab236744599db5c373e4a3d8, type: 3}
     - target: {fileID: 8568531993772909538, guid: cb1effd25b4147b488109dc79ce41383,
         type: 3}
+      propertyPath: maxDifficultyLevel
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8568531993772909538, guid: cb1effd25b4147b488109dc79ce41383,
+        type: 3}
+      propertyPath: minDifficultyLevel
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8568531993772909538, guid: cb1effd25b4147b488109dc79ce41383,
+        type: 3}
       propertyPath: bgmClips.Array.size
       value: 18
       objectReference: {fileID: 0}
