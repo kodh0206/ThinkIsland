@@ -36,10 +36,13 @@ public class MiniGameManager : MonoBehaviour
 
      public int obstacleHitCount;
     public float obstacleHitTimer;
-    public int difficultyLevel;
-    public int maxDifficultyLevel = 4;
-    public int minDifficultyLevel = 1;
+
+    public int difficultyLevel=0;
+    public int maxDifficultyLevel = 3;
+    public int minDifficultyLevel = 0;
     public int GameScore = 0;
+
+    public Sprite[] LevelSprites = new Sprite[3];
 
     public bool isPaused = false;
     private void Awake()
@@ -323,6 +326,7 @@ private IEnumerator Fade(float finalAlpha)
         if (difficultyLevel < maxDifficultyLevel)
         {
             difficultyLevel++;
+            ChangeLevelUI();
         }
     }
 
@@ -331,6 +335,7 @@ private IEnumerator Fade(float finalAlpha)
         if (difficultyLevel > minDifficultyLevel)
         {
             difficultyLevel--;
+            ChangeLevelUI();
         }
     }
 
@@ -351,7 +356,15 @@ private IEnumerator Fade(float finalAlpha)
         return GameScore;
     }
 
-      public void TogglePause()
+    private void ChangeLevelUI()
+    {
+        Debug.Log("레벨스프라이트변경시작");
+        MiniGameLevelShow.Instance.ShowNowLevel(difficultyLevel);
+
+
+    }
+
+    public void TogglePause()
     {
         isPaused = !isPaused;
 

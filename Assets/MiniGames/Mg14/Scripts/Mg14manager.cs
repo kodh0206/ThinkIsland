@@ -8,10 +8,13 @@ public class Mg14manager : MonoBehaviour
 {
     public static Mg14manager instance = null;
 
+    public bool achievementFail;
+
 
     public int level;
 
-    
+    Mg14Spawner spawner;
+    Mg14jellySpawner spawner2;
 
     private int score = 0; 
     public bool isGameOver = false;
@@ -27,16 +30,26 @@ public class Mg14manager : MonoBehaviour
     void Start()
     {
         level = 0;
-        level = MiniGameManager.Instance.LoadDifficulty() - 1;
+        level = MiniGameManager.Instance.LoadDifficulty();
         score = MiniGameManager.Instance.LoadScore();
-
+        spawner = FindObjectOfType<Mg14Spawner>();
+        spawner2 = FindAnyObjectByType<Mg14jellySpawner>();
         GameLevelsetting();
+
+        // 초기화
+		achievementFail = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Update()
     {
-
+        if (!achievementFail)
+        {
+            AchievementManager achievementManager = FindObjectOfType<AchievementManager>();
+            if (achievementManager != null)
+            {
+                achievementManager.IncrementAchievement("13", 1);
+            }
+        }
     }
 
     public void AddScore()
@@ -49,13 +62,12 @@ public class Mg14manager : MonoBehaviour
             level += 1;
             MiniGameManager.Instance.IncreaseDifficulty();
 
-            Mg14Spawner spawner = FindObjectOfType<Mg14Spawner>();
 
 
             if (spawner != null)
             {
                 spawner.IncreaseSpeed();  // decrease interval
-
+                spawner2?.IncreaseSpeed();
             }
         }
     }
@@ -63,9 +75,6 @@ public class Mg14manager : MonoBehaviour
 
     public void GameLevelsetting() //start and level setting
     {
-
-        Mg14Spawner spawner = FindObjectOfType<Mg14Spawner>();
-        Mg14jellySpawner spawner2 = FindAnyObjectByType<Mg14jellySpawner>();
 
         for (int i = 0; i < level; i++)
         {
@@ -83,10 +92,6 @@ public class Mg14manager : MonoBehaviour
 
         score = 0;
         MiniGameManager.Instance.ResetScore();
-
-        Mg14Spawner spawner = FindObjectOfType<Mg14Spawner>();
-        Mg14jellySpawner spawner2 = FindAnyObjectByType<Mg14jellySpawner>();
-
 
         if (level != 0)
         {

@@ -10,7 +10,7 @@ public class Mg20BlockSpawner : MonoBehaviour
     public GameObject jelly;
 
     [SerializeField]
-    private float BlockSpeed = 2.0f; 
+    private float BlockSpeed = 2.5f; 
 
     [SerializeField]
     private float time_diff = 1.5f;
@@ -23,6 +23,13 @@ public class Mg20BlockSpawner : MonoBehaviour
     float time = 0;
 
     int Blockset;
+
+    Vector2[] spawnPositions = new Vector2[]
+{
+        new Vector2(0f, -5.5f),
+        new Vector2(2.45f, -5.5f),
+        new Vector2(-2.2f, -5.5f),
+};
 
     // Start is called before the first frame update
     void Start()
@@ -124,7 +131,7 @@ public class Mg20BlockSpawner : MonoBehaviour
                 }
 
 
-                if (Random.value < 0.4f) 
+                if (Random.value < 0.75f) 
                 {
                     GameObject new_jelly = Instantiate(jelly);
                     spawnPosition.y += 0.7f;
@@ -147,15 +154,6 @@ public class Mg20BlockSpawner : MonoBehaviour
         
         int randomIndex = Random.Range(0, 3);
 
-        
-        Vector2[] spawnPositions = new Vector2[]
-        {
-        new Vector2(0f, -5.5f),
-        new Vector2(2.45f, -5.5f),
-        new Vector2(-2.2f, -5.5f),
-        };
-
-        
         return spawnPositions[randomIndex];
     }
 

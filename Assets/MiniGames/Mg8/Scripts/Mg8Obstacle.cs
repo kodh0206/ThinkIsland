@@ -31,6 +31,8 @@ public class Mg8Obstacle : MonoBehaviour
             animator.SetBool("PlayerHit", true);
 
             Mg8manager.instance.GameLevelDown();
+
+            Mg8manager.instance.achievementFail = true;
             
         }
         

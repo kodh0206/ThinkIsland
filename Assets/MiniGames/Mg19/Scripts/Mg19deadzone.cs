@@ -29,6 +29,8 @@ public class Mg19deadzone : MonoBehaviour
             ShakeCamera();
 
             StartCoroutine(ResetPlayerPosition());
+
+            Mg19manager.instance.achievementFail = true;
         }
     }
 

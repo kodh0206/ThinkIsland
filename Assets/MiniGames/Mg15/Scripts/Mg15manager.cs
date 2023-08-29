@@ -7,8 +7,12 @@ public class Mg15manager : MonoBehaviour
 {
     public static Mg15manager instance = null;
 
+    public bool achievementFail;
+
+
     public int level;
 
+    Mg15Spawner spawner;
 
     private int score = 0; // score=jelly 
     public bool isGameOver = false;
@@ -24,16 +28,27 @@ public class Mg15manager : MonoBehaviour
     void Start()
     {
         level = 0;
-        level = MiniGameManager.Instance.LoadDifficulty() - 1;
+        level = MiniGameManager.Instance.LoadDifficulty();
         score = MiniGameManager.Instance.LoadScore();
 
+        spawner = FindObjectOfType<Mg15Spawner>();
+
         GameLevelsetting();
+
+        // 초기화
+		achievementFail = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Update()
     {
-
+        if (!achievementFail)
+        {
+            AchievementManager achievementManager = FindObjectOfType<AchievementManager>();
+            if (achievementManager != null)
+            {
+                achievementManager.IncrementAchievement("14", 1);
+            }
+        }
     }
 
     public void AddScore()
@@ -46,9 +61,6 @@ public class Mg15manager : MonoBehaviour
             level += 1;
             MiniGameManager.Instance.IncreaseDifficulty();
 
-            Mg15Spawner spawner = FindObjectOfType<Mg15Spawner>();
-
-
             if (spawner != null)
             {
                 spawner.IncreaseSpeed();  // decrease interval
@@ -60,9 +72,6 @@ public class Mg15manager : MonoBehaviour
 
     public void GameLevelsetting() //start and level setting
     {
-
-        Mg15Spawner spawner = FindObjectOfType<Mg15Spawner>();
-        
 
         for (int i = 0; i < level; i++)
         {
@@ -79,7 +88,6 @@ public class Mg15manager : MonoBehaviour
         score = 0;
         MiniGameManager.Instance.ResetScore();
 
-        Mg15Spawner spawner = FindObjectOfType<Mg15Spawner>();
 
         if (level != 0)
         {

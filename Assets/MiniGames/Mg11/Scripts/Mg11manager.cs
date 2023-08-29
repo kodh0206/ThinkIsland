@@ -8,11 +8,15 @@ public class Mg11manager : MonoBehaviour
 {
     public static Mg11manager instance = null;
 
+    public bool achievementFail;
+
+
     public int level;
 
+    Mg11Spawner spawner;
+    Mg11jellySpawner spawner2;
 
-
-    private int score = 0; // score=jelly ½ºÄÚ¾î¿¡ ÀÌÀü °ÔÀÓÀÇ Á©¸®°ªÀ» ³ÖÀ¸¸é ¼Óµµ Á¶Á¤°¡´É
+    private int score = 0; // score=jelly ï¿½ï¿½ï¿½Ú¾î¿¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Óµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     public bool isGameOver = false;
 
     void Awake()
@@ -26,16 +30,28 @@ public class Mg11manager : MonoBehaviour
     void Start()
     {
         level = 0;
-        level = MiniGameManager.Instance.LoadDifficulty() - 1;
+        level = MiniGameManager.Instance.LoadDifficulty();
         score = MiniGameManager.Instance.LoadScore();
 
+        spawner = FindObjectOfType<Mg11Spawner>();
+        spawner2 = FindObjectOfType<Mg11jellySpawner>();
+
         GameLevelsetting();
+
+        // ì´ˆê¸°í™”
+		achievementFail = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Update()
     {
-
+        if (!achievementFail)
+        {
+            AchievementManager achievementManager = FindObjectOfType<AchievementManager>();
+            if (achievementManager != null)
+            {
+                achievementManager.IncrementAchievement("10", 1);
+            }
+        }
     }
 
     public void AddScore()
@@ -48,8 +64,6 @@ public class Mg11manager : MonoBehaviour
             level += 1;
             MiniGameManager.Instance.IncreaseDifficulty();
 
-            Mg11Spawner spawner = FindObjectOfType<Mg11Spawner>();
-            Mg11jellySpawner spawner2 = FindObjectOfType<Mg11jellySpawner>();
 
             if (spawner != null)
             {
@@ -66,12 +80,10 @@ public class Mg11manager : MonoBehaviour
     public void GameLevelsetting() //start and level setting
     {
 
-        Mg11Spawner spawner = FindObjectOfType<Mg11Spawner>();
-        Mg11jellySpawner spawner2 = FindObjectOfType<Mg11jellySpawner>();
         for (int i = 0; i < level; i++)
         {
 
-            spawner.IncreaseSpeed(); // °ÔÀÓ º°·Î ³­ÀÌµµ¸¦ ·¹º§¿¡ µû¶ó ³­ÀÌµµ Á¶Àý
+            spawner.IncreaseSpeed(); // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½
             spawner2.IncreaseSpeed();
         }
 
@@ -83,8 +95,6 @@ public class Mg11manager : MonoBehaviour
         score = 0;
         MiniGameManager.Instance.ResetScore();
 
-        Mg11Spawner spawner = FindObjectOfType<Mg11Spawner>();
-        Mg11jellySpawner spawner2 = FindObjectOfType<Mg11jellySpawner>();
 
 
         if (level != 0)

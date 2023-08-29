@@ -29,6 +29,8 @@ public class Mg9Obstacle : MonoBehaviour
             AudioManager.Instance.PlayPoop();
             
             other.gameObject.GetComponent<Mg9Player>().GetHit();
+
+            Mg9manager.instance.achievementFail = true;
         }
     }
     public void SetSpeed(float speed)

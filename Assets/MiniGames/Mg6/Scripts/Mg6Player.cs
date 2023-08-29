@@ -193,6 +193,8 @@ public class Mg6Player : MonoBehaviour
         
         StartCoroutine(DisableControlAndResetColor());
 
+        Mg6manager.instance.achievementFail = true;
+
     }
 
     private IEnumerator DisableControlAndResetColor()

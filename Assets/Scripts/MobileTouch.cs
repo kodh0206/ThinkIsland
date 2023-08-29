@@ -5,7 +5,7 @@ using System;
 public class MobileTouch : MonoBehaviour
 {  
     private Vector3 targetPosition;
-    private Camera camera;
+
     private Vector3 minPosition = new Vector3(-32, -20, -20);
     private Vector3 maxPosition = new Vector3(28, 30, 20);
     private Vector3 springVelocity = Vector3.zero;
@@ -16,17 +16,14 @@ public class MobileTouch : MonoBehaviour
     public float inertiaDuration = 1.0f;
     public float springStrength = 10.0f;
     public float springDamping = 1.0f;
-    float scalingFactor = 0.5f;
+
     private Vector3 moveVelocity = Vector3.zero;
     private bool isMoving = false;
     private Vector2 prePos, curPos, movePosDiff;
     private float targetOrthoSize;
-    float smoothFactor = 0.1f;
-    public float maxDelta = 5f;
-    private Vector3 currentVelocity = Vector3.zero; // 추가
-    float smoothTime = 0.1f; // 움직임의 시간
+
     void Start()
-    {  
+    {   Camera.main.orthographicSize = 10f;
         targetPosition = Camera.main.transform.position; // 초기값 설정
     }
 void Update()

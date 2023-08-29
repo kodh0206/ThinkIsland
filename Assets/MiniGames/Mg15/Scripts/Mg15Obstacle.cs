@@ -53,6 +53,8 @@ public class Mg15Obstacle : MonoBehaviour
         {   
             AudioManager.Instance.ObstacleFly();
             other.gameObject.GetComponent<Mg15Player>().GetHit();
+
+            Mg15manager.instance.achievementFail = true;
         }
     }
 

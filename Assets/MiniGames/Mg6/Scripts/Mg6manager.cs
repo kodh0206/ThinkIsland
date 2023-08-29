@@ -7,9 +7,13 @@ public class Mg6manager : MonoBehaviour
 {
     public static Mg6manager instance = null;
 
+    public bool achievementFail;
 
 
-    
+
+    Mg6Spawner spawner;
+    Mg6JellySpawner spawner2;
+
 
     public int level;
 
@@ -28,16 +32,28 @@ public class Mg6manager : MonoBehaviour
     {
         level = 1;
 
-        level = MiniGameManager.Instance.LoadDifficulty() - 1;
+        level = MiniGameManager.Instance.LoadDifficulty();
         score = MiniGameManager.Instance.LoadScore();
 
+        spawner = FindObjectOfType<Mg6Spawner>();
+        spawner2 = FindObjectOfType<Mg6JellySpawner>();
+
         GameLevelsetting();
+
+        // 초기화
+		achievementFail = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Update()
     {
-
+        if (!achievementFail)
+        {
+            AchievementManager achievementManager = FindObjectOfType<AchievementManager>();
+            if (achievementManager != null)
+            {
+                achievementManager.IncrementAchievement("5", 1);
+            }
+        }
     }
 
     public void AddScore()
@@ -50,8 +66,6 @@ public class Mg6manager : MonoBehaviour
             level += 1;
             MiniGameManager.Instance.IncreaseDifficulty();
 
-            Mg6Spawner spawner = FindObjectOfType<Mg6Spawner>();
-            Mg6JellySpawner spawner2 = FindObjectOfType<Mg6JellySpawner>();
 
             if (spawner != null)
             {
@@ -68,8 +82,7 @@ public class Mg6manager : MonoBehaviour
     public void GameLevelsetting() //start and level setting
     {
 
-        Mg6Spawner spawner = FindObjectOfType<Mg6Spawner>();
-        Mg6JellySpawner spawner2 = FindObjectOfType<Mg6JellySpawner>();
+
         for (int i = 0; i < level; i++)
         {
 
@@ -84,10 +97,6 @@ public class Mg6manager : MonoBehaviour
 
         score = 0;
         MiniGameManager.Instance.ResetScore();
-
-        Mg6Spawner spawner = FindObjectOfType<Mg6Spawner>();
-        Mg6JellySpawner spawner2 = FindObjectOfType<Mg6JellySpawner>();
-
 
         if (level != 0)
         {

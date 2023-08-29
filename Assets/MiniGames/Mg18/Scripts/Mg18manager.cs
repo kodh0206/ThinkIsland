@@ -7,8 +7,15 @@ public class Mg18manager : MonoBehaviour
 {
     public static Mg18manager instance = null;
 
+    public bool achievementFail;
+
+
     public int level;
-    
+
+    Mg18ObstacleSpawner spawner;
+    Mg18GroundSpawner spawner2;
+    Mg18jellySpawner spawner3;
+    Mg18MovingBack BackGround;
 
     private int score = 0; 
     public bool isGameOver = false;
@@ -24,16 +31,29 @@ public class Mg18manager : MonoBehaviour
     void Start()
     {
         level = 0;
-        level = MiniGameManager.Instance.LoadDifficulty() - 1;
+        level = MiniGameManager.Instance.LoadDifficulty();
         score = MiniGameManager.Instance.LoadScore();
+        Mg18ObstacleSpawner spawner = FindObjectOfType<Mg18ObstacleSpawner>();
+        Mg18GroundSpawner spawner2 = FindAnyObjectByType<Mg18GroundSpawner>();
+        Mg18jellySpawner spawner3 = FindAnyObjectByType<Mg18jellySpawner>();
+        Mg18MovingBack BackGround = FindObjectOfType<Mg18MovingBack>();
 
         GameLevelsetting();
+
+        // 초기화
+		achievementFail = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Update()
     {
-
+        if (!achievementFail)
+        {
+            AchievementManager achievementManager = FindObjectOfType<AchievementManager>();
+            if (achievementManager != null)
+            {
+                achievementManager.IncrementAchievement("17", 1);
+            }
+        }
     }
 
     public void AddScore()
@@ -46,11 +66,7 @@ public class Mg18manager : MonoBehaviour
             level += 1;
             MiniGameManager.Instance.IncreaseDifficulty();
 
-            Mg18ObstacleSpawner spawner = FindObjectOfType<Mg18ObstacleSpawner>();
-            Mg18GroundSpawner spawner2 = FindAnyObjectByType<Mg18GroundSpawner>();
-            Mg18jellySpawner spawner3 =FindAnyObjectByType<Mg18jellySpawner>();
 
-            Mg18MovingBack BackGround= FindObjectOfType<Mg18MovingBack>();
 
             if (spawner != null)
             {
@@ -65,11 +81,7 @@ public class Mg18manager : MonoBehaviour
     public void GameLevelsetting() //start and level setting
     {
 
-        Mg18ObstacleSpawner spawner = FindObjectOfType<Mg18ObstacleSpawner>();
-        Mg18GroundSpawner spawner2 = FindAnyObjectByType<Mg18GroundSpawner>();
-        Mg18jellySpawner spawner3 = FindAnyObjectByType<Mg18jellySpawner>();
 
-        Mg18MovingBack BackGround = FindObjectOfType<Mg18MovingBack>();
 
         for (int i = 0; i < level; i++)
         {
@@ -89,11 +101,6 @@ public class Mg18manager : MonoBehaviour
         score = 0;
         MiniGameManager.Instance.ResetScore();
 
-        Mg18ObstacleSpawner spawner = FindObjectOfType<Mg18ObstacleSpawner>();
-        Mg18GroundSpawner spawner2 = FindAnyObjectByType<Mg18GroundSpawner>();
-        Mg18jellySpawner spawner3 = FindAnyObjectByType<Mg18jellySpawner>();
-
-        Mg18MovingBack BackGround = FindObjectOfType<Mg18MovingBack>();
 
         if (level != 0)
         {

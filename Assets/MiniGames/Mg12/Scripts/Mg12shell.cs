@@ -30,6 +30,8 @@ public class Mg12shell : MonoBehaviour
         {
             Mg12manager.instance.GameLevelDown();
             other.gameObject.GetComponent<Mg12Player>().GetHit();
+
+            Mg12manager.instance.achievementFail = true;
         }
 
         if (other.gameObject.CompareTag("Rock"))
@@ -43,7 +45,7 @@ public class Mg12shell : MonoBehaviour
             if (HItCount == 2)
             {
                 float randomValue = Random.value;
-                if (randomValue < 0.5f)
+                if (randomValue < 0.75f)
                 {
                     Vector3 shellPosition = transform.position;
                     Instantiate(jellyinShell, shellPosition, Quaternion.identity);

@@ -7,7 +7,13 @@ public class Mg5manager : MonoBehaviour
 {
     public static Mg5manager instance = null;
 
+    public bool achievementFail;
+
+
     public int level;
+
+    ObstacleSpawner spawner;
+    Mg5jellyspawner spawner2;
 
     [SerializeField]
     private GameObject GameOverPanel;
@@ -26,18 +32,27 @@ public class Mg5manager : MonoBehaviour
     {
         level = 0;
 
-        level = MiniGameManager.Instance.LoadDifficulty() - 1;
+        level = MiniGameManager.Instance.LoadDifficulty() ;
         score = MiniGameManager.Instance.LoadScore();
-
+        spawner = FindObjectOfType<ObstacleSpawner>();
+        spawner2 = FindObjectOfType<Mg5jellyspawner>();
         GameLevelsetting();
+
+        // 초기화
+		achievementFail = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Update()
     {
-
+        if (!achievementFail)
+        {
+            AchievementManager achievementManager = FindObjectOfType<AchievementManager>();
+            if (achievementManager != null)
+            {
+                achievementManager.IncrementAchievement("4", 1);
+            }
+        }
     }
-
     public void AddScore()
 {
     score += 1;
@@ -46,14 +61,14 @@ public class Mg5manager : MonoBehaviour
 
         if (score % 5 == 0)
     {
-        ObstacleSpawner spawner = FindObjectOfType<ObstacleSpawner>();
 
         if (spawner != null)
         {
             level += 1;
                 MiniGameManager.Instance.IncreaseDifficulty();
                 spawner.IncreaseSpeed();
-        }
+                spawner2.IncreaseSpeed();
+            }
     }
 }
 
@@ -61,8 +76,6 @@ public class Mg5manager : MonoBehaviour
     public void GameLevelsetting() //start and level setting
     {
 
-        ObstacleSpawner spawner = FindObjectOfType<ObstacleSpawner>();
-        Mg5jellyspawner spawner2 = FindObjectOfType<Mg5jellyspawner>();
         for (int i = 0; i < level; i++)
         {
 
@@ -77,10 +90,6 @@ public class Mg5manager : MonoBehaviour
 
         score = 0;
         MiniGameManager.Instance.ResetScore();
-
-        ObstacleSpawner spawner = FindObjectOfType<ObstacleSpawner>();
-        Mg5jellyspawner spawner2 = FindObjectOfType<Mg5jellyspawner>();
-
 
         if (level != 0)
         {

@@ -28,6 +28,8 @@ public class Mg20Deadzone : MonoBehaviour
             playerEntered = true;
             ShakeCamera();
             StartCoroutine(ResetPlayerPosition());
+
+            Mg20manager.instance.achievementFail = true;
         }
     }
 

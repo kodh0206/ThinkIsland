@@ -8,11 +8,17 @@ public class Mg20manager : MonoBehaviour
     // Start is called before the first frame update
     public static Mg20manager instance = null;
 
+    public bool achievementFail;
+
+
     public int level;
 
 
-    private int score = 0; 
-   
+    private int score = 0;
+
+    Mg20BlockSpawner spawner;
+    Mg20ChimneyMove chimney;
+
 
     void Awake()
     {
@@ -25,16 +31,27 @@ public class Mg20manager : MonoBehaviour
     void Start()
     {
         level = 0;
-        level = MiniGameManager.Instance.LoadDifficulty() - 1;
+        level = MiniGameManager.Instance.LoadDifficulty();
         score = MiniGameManager.Instance.LoadScore();
+        spawner = FindObjectOfType<Mg20BlockSpawner>();
+        chimney = FindObjectOfType<Mg20ChimneyMove>();
 
         GameLevelsetting();
+
+        // 초기화
+		achievementFail = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Update()
     {
-
+        if (!achievementFail)
+        {
+            AchievementManager achievementManager = FindObjectOfType<AchievementManager>();
+            if (achievementManager != null)
+            {
+                achievementManager.IncrementAchievement("19", 1);
+            }
+        }
     }
 
     public void AddScore()
@@ -44,8 +61,7 @@ public class Mg20manager : MonoBehaviour
 
         if (score % 5 == 0 && (level <4))
         {
-            Mg20BlockSpawner spawner = FindObjectOfType<Mg20BlockSpawner>();
-            Mg20ChimneyMove chimney = FindObjectOfType<Mg20ChimneyMove>();
+
 
             level += 1;
             MiniGameManager.Instance.IncreaseDifficulty();
@@ -62,8 +78,7 @@ public class Mg20manager : MonoBehaviour
     public void GameLevelsetting() //start and level setting
     {
 
-        Mg20BlockSpawner spawner = FindObjectOfType<Mg20BlockSpawner>();
-        Mg20ChimneyMove chimney = FindObjectOfType<Mg20ChimneyMove>();
+
 
         for (int i = 0; i < level; i++)
         {
@@ -81,8 +96,7 @@ public class Mg20manager : MonoBehaviour
         score = 0;
         MiniGameManager.Instance.ResetScore();
 
-        Mg20BlockSpawner spawner = FindObjectOfType<Mg20BlockSpawner>();
-        Mg20ChimneyMove chimney = FindObjectOfType<Mg20ChimneyMove>();
+
         if (level != 0)
         {
             level -= 1;

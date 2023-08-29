@@ -8,9 +8,13 @@ public class Mg10manager : MonoBehaviour
 {
     public static Mg10manager instance = null;
 
+    public bool achievementFail;
+
+
     public int level;
 
-    
+    Mg10Spawner spawner;
+    Mg10jellySpawner spawner2;
 
     private int score = 0; // score=jelly 
     public bool isGameOver = false;
@@ -26,16 +30,28 @@ public class Mg10manager : MonoBehaviour
     void Start()
     {
         level = 0;
-        level = MiniGameManager.Instance.LoadDifficulty() - 1;
+        level = MiniGameManager.Instance.LoadDifficulty();
         score = MiniGameManager.Instance.LoadScore();
 
+        spawner = FindObjectOfType<Mg10Spawner>();
+        spawner2 = FindObjectOfType<Mg10jellySpawner>();
+
         GameLevelsetting();
+
+        // 초기화
+		achievementFail = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Update()
     {
-
+        if (!achievementFail)
+        {
+            AchievementManager achievementManager = FindObjectOfType<AchievementManager>();
+            if (achievementManager != null)
+            {
+                achievementManager.IncrementAchievement("9", 1);
+            }
+        }
     }
 
     public void AddScore()
@@ -49,9 +65,6 @@ public class Mg10manager : MonoBehaviour
             level += 1;
             MiniGameManager.Instance.IncreaseDifficulty();
 
-            Mg10Spawner spawner = FindObjectOfType<Mg10Spawner>();
-            Mg10jellySpawner spawner2 = FindObjectOfType<Mg10jellySpawner>();
-
             if (spawner != null)
             {
                 spawner.IncreaseSpeed();  // decrease interval
@@ -64,8 +77,6 @@ public class Mg10manager : MonoBehaviour
     public void GameLevelsetting() //start and level setting
     {
 
-        Mg10Spawner spawner = FindObjectOfType<Mg10Spawner>();
-        Mg10jellySpawner spawner2 = FindObjectOfType<Mg10jellySpawner>();
         for (int i = 0; i < level; i++)
         {
 
@@ -81,8 +92,6 @@ public class Mg10manager : MonoBehaviour
         score = 0;
         MiniGameManager.Instance.ResetScore();
 
-        Mg10Spawner spawner = FindObjectOfType<Mg10Spawner>();
-        Mg10jellySpawner spawner2 = FindObjectOfType<Mg10jellySpawner>();
 
 
         if (level != 0)

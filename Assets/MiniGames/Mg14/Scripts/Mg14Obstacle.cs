@@ -11,6 +11,8 @@ public class Mg14Obstacle : MonoBehaviour
            AudioManager.Instance.Rock2();
             
             other.gameObject.GetComponent<Mg14Player>().GetHit();
+
+            Mg14manager.instance.achievementFail = true;
         }
 
     }
