@@ -52,6 +52,8 @@ public class Mg16Fish2 : MonoBehaviour
         {
             mg16Player.GetHit();
             playerIsTrigger = true;
+
+            Mg16Manager.instance.achievementFail = true;
         }
     }
 

@@ -6,6 +6,7 @@ public class Mg11Obstacle : MonoBehaviour
 {
 
 
+    
     public float obstacleSpeed = 5f; 
 
     void Start()
@@ -45,6 +46,8 @@ public class Mg11Obstacle : MonoBehaviour
             spawner2.GetHit();
 
             Destroy(gameObject);
+
+            Mg11manager.instance.achievementFail = true;
         }
     }
 

@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 public class MiniGame3Manager : MonoBehaviour
 {
     public static MiniGame3Manager instance = null;
+
+    public bool achievementFail;
     
     private int score = 0;
 
@@ -28,16 +30,26 @@ public class MiniGame3Manager : MonoBehaviour
         
         level = 0; // level setting
 
-        level=MiniGameManager.Instance.LoadDifficulty()-1;
+        level=MiniGameManager.Instance.LoadDifficulty();
         score= MiniGameManager.Instance.LoadScore();
 
         GameLevelsetting();
+
+        // 초기화
+        achievementFail = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Update()
     {
-        
+        // 10초 내 똥과 닿지 않았을 경우
+        if (!achievementFail)
+        {
+            AchievementManager achievementManager = FindObjectOfType<AchievementManager>();
+            if (achievementManager != null)
+            {
+                achievementManager.IncrementAchievement("2", 1);
+            }
+        }
     }
 
     public void AddScore() 

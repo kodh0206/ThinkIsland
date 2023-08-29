@@ -8,7 +8,13 @@ public class Mg8manager : MonoBehaviour
 {
     public static Mg8manager instance = null;
 
+    public bool achievementFail;
+
+
     public int level;
+
+    Mg8Spawner spawner;
+    Mg8jellySpawner spawner2;
 
     [SerializeField]
     private GameObject GameOverPanel;
@@ -27,16 +33,28 @@ public class Mg8manager : MonoBehaviour
     void Start()
     {
         level = 0;
-        level = MiniGameManager.Instance.LoadDifficulty() - 1;
+        level = MiniGameManager.Instance.LoadDifficulty();
         score = MiniGameManager.Instance.LoadScore();
 
+        spawner = FindObjectOfType<Mg8Spawner>();
+        spawner2 = FindObjectOfType<Mg8jellySpawner>();
+
         GameLevelsetting();
+
+        // 초기화
+		achievementFail = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Update()
     {
-
+        if (!achievementFail)
+        {
+            AchievementManager achievementManager = FindObjectOfType<AchievementManager>();
+            if (achievementManager != null)
+            {
+                achievementManager.IncrementAchievement("7", 1);
+            }
+        }
     }
 
     public void AddScore()
@@ -49,9 +67,6 @@ public class Mg8manager : MonoBehaviour
 
             level += 1;
             MiniGameManager.Instance.IncreaseDifficulty();
-
-            Mg8Spawner spawner = FindObjectOfType<Mg8Spawner>();
-            Mg8jellySpawner spawner2 = FindObjectOfType<Mg8jellySpawner>();
 
             if (spawner != null)
             {
@@ -68,8 +83,6 @@ public class Mg8manager : MonoBehaviour
     public void GameLevelsetting() //start and level setting
     {
 
-        Mg8Spawner spawner = FindObjectOfType<Mg8Spawner>();
-        Mg8jellySpawner spawner2 = FindObjectOfType<Mg8jellySpawner>();
         for (int i = 0; i < level; i++)
         {
 
@@ -84,9 +97,6 @@ public class Mg8manager : MonoBehaviour
 
         score = 0;
         MiniGameManager.Instance.ResetScore();
-
-        Mg8Spawner spawner = FindObjectOfType<Mg8Spawner>();
-        Mg8jellySpawner spawner2 = FindObjectOfType<Mg8jellySpawner>();
 
 
         if (level != 0)

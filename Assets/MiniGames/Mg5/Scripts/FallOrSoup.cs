@@ -28,6 +28,8 @@ public class FallOrSoup : MonoBehaviour
             playerEntered = true;
             ShakeCamera();
             StartCoroutine(ResetPlayerPosition());
+
+            Mg5manager.instance.achievementFail = true;
         }
     }
 

@@ -7,6 +7,7 @@ public class Mg1Manager : MonoBehaviour
 {
     public static Mg1Manager instance = null;
 
+    public bool achievementFail = false;
 
     public int level;
 
@@ -35,7 +36,23 @@ public class Mg1Manager : MonoBehaviour
         score = MiniGameManager.Instance.LoadScore();
 
         GameLevelsetting();
+
+        achievementFail = false;
     }
+
+    public void Update()
+    {
+        // 10초 내 소 or 똥과 닿지 않았을 경우
+        if (!achievementFail)
+        {
+            AchievementManager achievementManager = FindObjectOfType<AchievementManager>();
+            if (achievementManager != null)
+            {
+                achievementManager.IncrementAchievement("0", 1);
+            }
+        }
+    }
+
 
     public void AddScore()
     {

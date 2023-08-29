@@ -1,11 +1,14 @@
 using UnityEngine;
 using System;
-
+using System.Collections;
+using TMPro;
 
 public class MobileTouch : MonoBehaviour
 {  
+    public TextMeshProUGUI orthoSizeText;
+    private bool initialZoomOutCompleted = false;
     private Vector3 targetPosition;
-    private Camera camera;
+
     private Vector3 minPosition = new Vector3(-32, -20, -20);
     private Vector3 maxPosition = new Vector3(28, 30, 20);
     private Vector3 springVelocity = Vector3.zero;
@@ -16,26 +19,48 @@ public class MobileTouch : MonoBehaviour
     public float inertiaDuration = 1.0f;
     public float springStrength = 10.0f;
     public float springDamping = 1.0f;
-    float scalingFactor = 0.5f;
+
     private Vector3 moveVelocity = Vector3.zero;
     private bool isMoving = false;
     private Vector2 prePos, curPos, movePosDiff;
     private float targetOrthoSize;
-    float smoothFactor = 0.1f;
-    public float maxDelta = 5f;
-    private Vector3 currentVelocity = Vector3.zero; // 추가
-    float smoothTime = 0.1f; // 움직임의 시간
+
     void Start()
-    {  
-        targetPosition = Camera.main.transform.position; // 초기값 설정
+    {   
+    
+        GameObject cameraObject = GameObject.FindWithTag("MainCamera");  // "MainCamera" 태그가 붙은 오브젝트를 찾습니다.
+    if (cameraObject != null)  // 해당 오브젝트가 존재하는 경우
+    {
+        Camera mainCamera = cameraObject.GetComponent<Camera>();  // Camera 컴포넌트를 가져옵니다.
+        if (mainCamera != null)  // Camera 컴포넌트가 존재하는 경우
+        {
+            Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, Mathf.Clamp(targetOrthoSize, minOrthographicSize, maxOrthographicSize), Time.deltaTime * 5f); // 초기 줌 크기를 설정합니다.
+            StartCoroutine(InitialZoomOut(mainCamera));  // 줌아웃을 시작합니다.
+        }
+        else
+        {
+            Debug.LogError("Camera component not found on object with MainCamera tag!");
+        }
+    }
+    else
+    {
+        Debug.LogError("Object with MainCamera tag not found!");
+    }
     }
 void Update()
     {
+
+       
 #if UNITY_ANDROID && !UNITY_EDITOR
         TouchMove_Zoom();
 #else
         MouseMove_Zoom();
 #endif
+ if (!initialZoomOutCompleted)  // 줌아웃이 완료되지 않았다면 움직이지 않음
+    {
+        return;
+    }
+   
     }
     void LateUpdate()
     {
@@ -68,7 +93,25 @@ void Update()
         Camera.main.transform.position = pos;
     }
     }
+IEnumerator InitialZoomOut(Camera camera)
+{   
+    isMoving = true;
 
+    float initialSize = camera.orthographicSize;
+    float targetSize = 5f;  // 목표 줌 크기
+    float duration = 2f;  // 줌아웃에 걸리는 시간
+
+    float elapsed = 0f;
+    while (elapsed < duration)
+    {
+        camera.orthographicSize = Mathf.Lerp(initialSize, targetSize, elapsed / duration);
+        elapsed += Time.deltaTime;
+        yield return null;
+    }
+    camera.orthographicSize = targetSize;
+    targetOrthoSize = targetSize;  // 새로운 줌 목표값을 설정
+    isMoving = false;
+}
 void TouchMove_Zoom()
 {
     // 줌 (두 손가락) 처리 부분은 그대로 유지
@@ -118,7 +161,8 @@ void TouchMove_Zoom()
 
     void MouseMove_Zoom()
     {
-       if (Input.GetMouseButtonDown(0))
+    
+    if (Input.GetMouseButtonDown(0))
     {
         prePos = Input.mousePosition;
         isMoving = true;
@@ -128,7 +172,6 @@ void TouchMove_Zoom()
         curPos = Input.mousePosition;
         Vector3 deltaPosition = new Vector3(curPos.x - prePos.x, curPos.y - prePos.y, 0) * moveSpeed * Time.deltaTime;
         Camera.main.transform.position -= deltaPosition;
-
         prePos = Input.mousePosition;
         moveVelocity = deltaPosition / Time.deltaTime; // 이동 속도를 적절하게 설정합니다.
     }

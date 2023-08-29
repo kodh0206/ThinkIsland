@@ -48,10 +48,12 @@ public class Mg17shell : MonoBehaviour
 
             ShakeCamera();
 
+            Mg17manager.instance.achievementFail = true;
+
             if (HItCount == 1)
             {
                 float randomValue = Random.value;
-                if (randomValue < 0.7f)
+                if (randomValue < 0.85f)
                 {
                     Vector3 shellPosition = transform.position;
                     Instantiate(jellyinShell, shellPosition, Quaternion.identity);

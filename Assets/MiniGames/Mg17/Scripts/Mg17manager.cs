@@ -7,6 +7,11 @@ public class Mg17manager : MonoBehaviour
 {
     public static Mg17manager instance = null;
 
+    public bool achievementFail;
+
+
+    Mg17Spawner spawner;
+    Mg17RockSpawner spawner2;
 
     public int level;
 
@@ -24,16 +29,27 @@ public class Mg17manager : MonoBehaviour
     void Start()
     {
         level = 0;
-        level = MiniGameManager.Instance.LoadDifficulty() - 1;
+        level = MiniGameManager.Instance.LoadDifficulty();
         score = MiniGameManager.Instance.LoadScore();
+        spawner = FindObjectOfType<Mg17Spawner>();
+        spawner2 = FindAnyObjectByType<Mg17RockSpawner>();
 
         GameLevelsetting();
+
+        // 초기화
+		achievementFail = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Update()
     {
-
+        if (!achievementFail)
+        {
+            AchievementManager achievementManager = FindObjectOfType<AchievementManager>();
+            if (achievementManager != null)
+            {
+                achievementManager.IncrementAchievement("16", 1);
+            }
+        }
     }
 
     public void AddScore()
@@ -46,8 +62,6 @@ public class Mg17manager : MonoBehaviour
             level += 1;
             MiniGameManager.Instance.IncreaseDifficulty();
 
-            Mg17Spawner spawner = FindObjectOfType<Mg17Spawner>();
-            Mg17RockSpawner spawner2= FindAnyObjectByType<Mg17RockSpawner>();
 
             if (spawner != null)
             {
@@ -62,10 +76,6 @@ public class Mg17manager : MonoBehaviour
 
     public void GameLevelsetting() //start and level setting
     {
-
-        Mg17Spawner spawner = FindObjectOfType<Mg17Spawner>();
-        Mg17RockSpawner spawner2 = FindAnyObjectByType<Mg17RockSpawner>();
-
 
         for (int i = 0; i < level; i++)
         {
@@ -83,8 +93,6 @@ public class Mg17manager : MonoBehaviour
         score = 0;
         MiniGameManager.Instance.ResetScore();
 
-        Mg17Spawner spawner = FindObjectOfType<Mg17Spawner>();
-        Mg17RockSpawner spawner2 = FindAnyObjectByType<Mg17RockSpawner>();
 
         if (level != 0)
         {

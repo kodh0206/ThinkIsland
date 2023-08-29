@@ -68,15 +68,24 @@ public class GameController : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         Application.targetFrameRate = 60;
+
+        AchievementManager achievementManager = FindObjectOfType<AchievementManager>();
+        if (achievementManager != null)
+        {
+            achievementManager.IncrementAchievement("33", level);
+        }
     }
         
     
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    // public void Update()
+    // {
+    //     AchievementManager achievementManager = FindObjectOfType<AchievementManager>();
+    //     if (achievementManager != null)
+    //     {
+    //         achievementManager.IncrementAchievement("33", level);
+    //     }
+    // }
 
     void LoadData(){
         
@@ -91,6 +100,12 @@ public class GameController : MonoBehaviour
         while (current_experience >= expToLevelUp[level-1])
         {
             LevelUp();
+
+            AchievementManager achievementManager = FindObjectOfType<AchievementManager>();
+            if (achievementManager != null)
+            {
+                achievementManager.IncrementAchievement("33", 1);
+            }
         }
        
     }

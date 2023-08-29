@@ -25,6 +25,8 @@ public class Mg18deadzone : MonoBehaviour
             playerEntered = true;
             ShakeCamera();
             StartCoroutine(ResetPlayerPosition());
+
+            Mg18manager.instance.achievementFail = true;
         }
     }
 

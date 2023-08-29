@@ -163,6 +163,16 @@ public class BetaManager : MonoBehaviour
     {
         GameController.Instance.curentgold += value;
         moneyText.text = GameController.Instance.curentgold.ToString();
+
+        // 작물 수확 합계 10000 골드 달성
+        if (value > 0)
+        {
+            AchievementManager achievementManager = FindObjectOfType<AchievementManager>();
+            if (achievementManager != null)
+            {
+                achievementManager.IncrementAchievement("21", value);
+            }
+        }
     }
 
      public void SelectPlot(Field plot)
@@ -230,7 +240,7 @@ public class BetaManager : MonoBehaviour
 
     public void LoadClassScene()
     {   AudioManager.Instance.PlayPressed();
-        SceneManager.LoadSceneAsync("ClassScene");
+        SceneManager.LoadScene("ClassScene");
     }
     void ExitGame()
     {

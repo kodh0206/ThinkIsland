@@ -5,7 +5,7 @@ public class ScrollManager : MonoBehaviour
 {
     public RectTransform content;
 
-    public void Awake()
+    private void Update() 
     {
         AdjustContentSize();
     }

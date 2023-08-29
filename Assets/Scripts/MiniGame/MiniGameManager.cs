@@ -6,7 +6,6 @@ using UnityEngine.UI;
 using TMPro;
 using System;
 using DG.Tweening;
-using Unity.VisualScripting;
 
 public class MiniGameManager : MonoBehaviour
 {   
@@ -37,10 +36,15 @@ public class MiniGameManager : MonoBehaviour
 
      public int obstacleHitCount;
     public float obstacleHitTimer;
-    public int difficultyLevel;
-    public int maxDifficultyLevel = 4;
-    public int minDifficultyLevel = 1;
+
+    public int difficultyLevel=0;
+    public int maxDifficultyLevel = 3;
+    public int minDifficultyLevel = 0;
     public int GameScore = 0;
+
+    public Sprite[] LevelSprites = new Sprite[3];
+
+    public bool isPaused = false;
     private void Awake()
     {
     if (_instance != null && _instance != this)
@@ -91,7 +95,13 @@ public class MiniGameManager : MonoBehaviour
     }
 
     private void Update()
-    {
+    {   
+          if (isPaused)
+        {
+            // 게임이 일시 정지된 상태이므로 아무런 처리도 하지 않음
+            return;
+        }
+
         if (isMiniGameScene)
         {
             timer += Time.deltaTime;
@@ -316,6 +326,7 @@ private IEnumerator Fade(float finalAlpha)
         if (difficultyLevel < maxDifficultyLevel)
         {
             difficultyLevel++;
+            ChangeLevelUI();
         }
     }
 
@@ -324,6 +335,7 @@ private IEnumerator Fade(float finalAlpha)
         if (difficultyLevel > minDifficultyLevel)
         {
             difficultyLevel--;
+            ChangeLevelUI();
         }
     }
 
@@ -344,6 +356,28 @@ private IEnumerator Fade(float finalAlpha)
         return GameScore;
     }
 
+    private void ChangeLevelUI()
+    {
+        Debug.Log("레벨스프라이트변경시작");
+        MiniGameLevelShow.Instance.ShowNowLevel(difficultyLevel);
 
+
+    }
+
+    public void TogglePause()
+    {
+        isPaused = !isPaused;
+
+        if (isPaused)
+        {
+            Time.timeScale = 0f; // 일시 정지
+             AudioManager.Instance.audioSource.Pause(); // BGM도 일시 정지
+        }
+        else
+        {
+            Time.timeScale = 1f; // 일시 정지 해제
+             AudioManager.Instance.audioSource.UnPause(); // BGM도 일시 정지
+        }
+    }
 
 }

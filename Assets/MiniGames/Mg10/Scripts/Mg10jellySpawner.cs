@@ -46,12 +46,22 @@ public class Mg10jellySpawner : MonoBehaviour
     {
         jellySpeed += 2.0f; // 젤리의 스피드 증가
         time_diff -= 0.1f; // 젤리의 생성 간격 감소
+        GameObject[] jellyObjects = GameObject.FindGameObjectsWithTag("jelly"); //FindAllJellyTag
+        foreach (var jellyObject in jellyObjects)
+        {
+            jellyObject.GetComponent<Mg10jelly>().SetSpeed(jellySpeed);
+        }
     }
 
     public void DecreaseSpeed()
     {
         jellySpeed -= 2.0f; // 젤리의 스피드 증가
         time_diff += 0.1f; // 젤리의 생성 간격 감소
+        GameObject[] jellyObjects = GameObject.FindGameObjectsWithTag("jelly"); //FindAllJellyTag
+        foreach (var jellyObject in jellyObjects)
+        {
+            jellyObject.GetComponent<Mg10jelly>().SetSpeed(jellySpeed);
+        }
     }
 
 

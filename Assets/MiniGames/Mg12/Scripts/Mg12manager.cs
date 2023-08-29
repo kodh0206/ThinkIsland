@@ -7,7 +7,13 @@ public class Mg12manager : MonoBehaviour
 {
     public static Mg12manager instance = null;
 
+    public bool achievementFail;
+
+
     public int level;
+
+    Mg12Spawner spawner;
+    Mg12RockSpawner spawner2;
 
     private int score = 0; 
     public bool isGameOver = false;
@@ -24,10 +30,28 @@ public class Mg12manager : MonoBehaviour
     void Start()
     {
         level = 0;
-        level = MiniGameManager.Instance.LoadDifficulty() - 1;
+        level = MiniGameManager.Instance.LoadDifficulty();
         score = MiniGameManager.Instance.LoadScore();
 
+        spawner = FindObjectOfType<Mg12Spawner>();
+        spawner2 = FindAnyObjectByType<Mg12RockSpawner>();
+
         GameLevelsetting();
+
+        // 초기화
+		achievementFail = false;
+    }
+
+    public void Update()
+    {
+        if (!achievementFail)
+        {
+            AchievementManager achievementManager = FindObjectOfType<AchievementManager>();
+            if (achievementManager != null)
+            {
+                achievementManager.IncrementAchievement("11", 1);
+            }
+        }
     }
 
 
@@ -42,8 +66,6 @@ public class Mg12manager : MonoBehaviour
             level += 1;
             MiniGameManager.Instance.IncreaseDifficulty();
 
-            Mg12Spawner spawner = FindObjectOfType<Mg12Spawner>();
-            Mg12RockSpawner spawner2= FindAnyObjectByType<Mg12RockSpawner>();
 
             if (spawner != null)
             {
@@ -59,15 +81,11 @@ public class Mg12manager : MonoBehaviour
     public void GameLevelsetting() //start and level setting
     {
 
-        Mg12Spawner spawner = FindObjectOfType<Mg12Spawner>();
-        Mg12RockSpawner spawner2 = FindAnyObjectByType<Mg12RockSpawner>();
-
         for (int i = 0; i < level; i++)
         {
 
             spawner.IncreaseSpeed();
             spawner2.IncreaseSpeed();
-
 
         }
 
@@ -78,10 +96,6 @@ public class Mg12manager : MonoBehaviour
 
         score = 0;
         MiniGameManager.Instance.ResetScore();
-
-        Mg12Spawner spawner = FindObjectOfType<Mg12Spawner>();
-        Mg12RockSpawner spawner2 = FindAnyObjectByType<Mg12RockSpawner>();
-
 
         if (level != 0)
         {

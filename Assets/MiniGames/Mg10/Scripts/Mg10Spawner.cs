@@ -86,11 +86,7 @@ public class Mg10Spawner : MonoBehaviour
         {
             groundObject.GetComponent<Mg10Obstacle>().SetSpeed(Mg10ObstacleSpeed);
         }
-        GameObject[] jellyObjects = GameObject.FindGameObjectsWithTag("jelly"); //FindAllJellyTag
-        foreach (var jellyObject in jellyObjects)
-        {
-            jellyObject.GetComponent<Mg10jelly>().SetSpeed(Mg10ObstacleSpeed);
-        }
+
     }
 
     public void DecreaseSpeed()
@@ -101,11 +97,7 @@ public class Mg10Spawner : MonoBehaviour
         {
             obstacleObject.GetComponent<Mg10Obstacle>().SetSpeed(Mg10ObstacleSpeed);
         }
-        GameObject[] jellyObjects = GameObject.FindGameObjectsWithTag("jelly"); //FindAllJellyTag
-        foreach (var jellyObject in jellyObjects)
-        {
-            jellyObject.GetComponent<Mg10jelly>().SetSpeed(Mg10ObstacleSpeed);
-        }
+        
     }
 
     public void GetHit()

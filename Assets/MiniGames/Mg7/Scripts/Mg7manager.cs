@@ -8,7 +8,8 @@ public class Mg7manager : MonoBehaviour
     public static Mg7manager instance = null;
 
 
-    
+    public bool achievementFail;
+
 
     [SerializeField]
     private GameObject GameOverPanel;
@@ -17,6 +18,9 @@ public class Mg7manager : MonoBehaviour
 
     private int score = 0; 
     public bool isGameOver = false;
+
+    Mg7Spawner spawner;
+    Mg7jellySpanwer spawner2;
 
     void Awake()
     {
@@ -30,16 +34,27 @@ public class Mg7manager : MonoBehaviour
     {
         level = 0;
 
-        level = MiniGameManager.Instance.LoadDifficulty() - 1;
+        level = MiniGameManager.Instance.LoadDifficulty();
         score = MiniGameManager.Instance.LoadScore();
+        spawner = FindObjectOfType<Mg7Spawner>();
+        spawner2 = FindObjectOfType<Mg7jellySpanwer>();
 
         GameLevelsetting();
+
+        // 초기화
+		achievementFail = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Update()
     {
-
+        if (!achievementFail)
+        {
+            AchievementManager achievementManager = FindObjectOfType<AchievementManager>();
+            if (achievementManager != null)
+            {
+                achievementManager.IncrementAchievement("6", 1);
+            }
+        }
     }
 
     public void AddScore()
@@ -53,8 +68,7 @@ public class Mg7manager : MonoBehaviour
             level += 1;
             MiniGameManager.Instance.IncreaseDifficulty();
 
-            Mg7Spawner spawner = FindObjectOfType<Mg7Spawner>();
-            Mg7jellySpanwer spawner2 = FindObjectOfType<Mg7jellySpanwer>();
+
 
             if (spawner != null)
             {
@@ -68,8 +82,6 @@ public class Mg7manager : MonoBehaviour
     public void GameLevelsetting() //start and level setting
     {
 
-        Mg7Spawner spawner = FindObjectOfType<Mg7Spawner>();
-        Mg7jellySpanwer spawner2 = FindObjectOfType<Mg7jellySpanwer>();
         for (int i = 0; i < level; i++)
         {
 
@@ -85,8 +97,6 @@ public class Mg7manager : MonoBehaviour
         score = 0;
         MiniGameManager.Instance.ResetScore();
 
-        Mg7Spawner spawner = FindObjectOfType<Mg7Spawner>();
-        Mg7jellySpanwer spawner2 = FindObjectOfType<Mg7jellySpanwer>();
 
 
         if (level != 0)

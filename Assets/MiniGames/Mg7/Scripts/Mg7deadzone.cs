@@ -30,6 +30,7 @@ public class Mg7deadzone : MonoBehaviour
             StartCoroutine(ResetPlayerPosition());
 
             Mg7manager.instance.GameLevelDown(); //player out and level down
+            Mg7manager.instance.achievementFail = true;
 
         }
     }

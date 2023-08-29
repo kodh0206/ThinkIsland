@@ -10,7 +10,7 @@ public class AchievementPanel : MonoBehaviour
 
     private void Start()
     {
-        // 초기 로드시 AchievementManager에서 모든 업적을 로드하여 표시
+        // 초기 로드시 AchievementManager에서 모든 업적을 로드하여 표시 -> 업적 달성 진행 중일 경우에만 로드하여 표시
         LoadAchievements();
     }
 
@@ -20,15 +20,19 @@ public class AchievementPanel : MonoBehaviour
 
         foreach (Achievement achievement in AchievementManager.Instance.achievements)
         {
-            GameObject newAchievementUI = Instantiate(achievementPrefab, contentPanel);
-            AchievementDefinition achievementDefinition = newAchievementUI.GetComponent<AchievementDefinition>();
-
-            if (achievementDefinition)
+            // 업적 달성 진행 중일 경우
+            if (achievement.currentAmount > 0)
             {
-                achievementDefinition.SetAchievement(achievement);
-            }
+                GameObject newAchievementUI = Instantiate(achievementPrefab, contentPanel);
+                AchievementDefinition achievementDefinition = newAchievementUI.GetComponent<AchievementDefinition>();
 
-            achievementUIObjects.Add(newAchievementUI);
+                if (achievementDefinition)
+                {
+                    achievementDefinition.SetAchievement(achievement);
+                }
+
+                achievementUIObjects.Add(newAchievementUI);
+            }
         }
     }
 

@@ -116,6 +116,14 @@ public class Field : MonoBehaviour
     else if(state == PlotState.HARVEST)
     {       Debug.Log("수확 완료!");
             Harvest();
+
+            // 작물 수확
+            AchievementManager achievementManager = FindObjectOfType<AchievementManager>();
+            if (achievementManager != null)
+            {
+                // 첫 작물 수확
+                achievementManager.IncrementAchievement("20", 1);
+            }
     }
 
     if(fm.isWaterSelected)

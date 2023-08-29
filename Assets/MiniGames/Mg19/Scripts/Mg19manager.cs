@@ -8,10 +8,13 @@ public class Mg19manager : MonoBehaviour
     // Start is called before the first frame update
     public static Mg19manager instance = null;
 
+    public bool achievementFail;
+
+
     public int level;
 
 
-   
+    Mg19blockSpanwer spawner;
 
     private int score = 0; 
     public bool isGameOver = false;
@@ -27,16 +30,26 @@ public class Mg19manager : MonoBehaviour
     void Start()
     {
         level = 0;
-        level = MiniGameManager.Instance.LoadDifficulty() - 1;
+        level = MiniGameManager.Instance.LoadDifficulty();
         score = MiniGameManager.Instance.LoadScore();
+        Mg19blockSpanwer spawner = FindObjectOfType<Mg19blockSpanwer>();
 
         GameLevelsetting();
+
+        // 초기화
+		achievementFail = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Update()
     {
-
+        if (!achievementFail)
+        {
+            AchievementManager achievementManager = FindObjectOfType<AchievementManager>();
+            if (achievementManager != null)
+            {
+                achievementManager.IncrementAchievement("18", 1);
+            }
+        }
     }
 
     public void AddScore()
@@ -50,8 +63,6 @@ public class Mg19manager : MonoBehaviour
             level += 1;
             MiniGameManager.Instance.IncreaseDifficulty();
 
-            Mg19blockSpanwer spawner = FindObjectOfType<Mg19blockSpanwer>();
-
 
             if (spawner != null)
             {
@@ -63,9 +74,6 @@ public class Mg19manager : MonoBehaviour
 
     public void GameLevelsetting() //start and level setting
     {
-
-        Mg19blockSpanwer spawner = FindObjectOfType<Mg19blockSpanwer>();
-
 
         for (int i = 0; i < level; i++)
         {
@@ -80,7 +88,6 @@ public class Mg19manager : MonoBehaviour
         score = 0;
         MiniGameManager.Instance.ResetScore();
 
-        Mg19blockSpanwer spawner = FindObjectOfType<Mg19blockSpanwer>();
         if (level != 0)
         {
             level -= 1;

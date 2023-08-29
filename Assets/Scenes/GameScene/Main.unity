@@ -191,6 +191,231 @@ MonoBehaviour:
   m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
+--- !u!1 &41008680
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 41008681}
+  - component: {fileID: 41008684}
+  - component: {fileID: 41008682}
+  - component: {fileID: 41008685}
+  - component: {fileID: 41008683}
+  m_Layer: 5
+  m_Name: Level
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &41008681
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 41008680}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1164479920}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -50.00003}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.49999997}
+--- !u!212 &41008682
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 41008680}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 10
+  m_Sprite: {fileID: -1430888627, guid: 5d93731179f4f9544a3bc8db557450c5, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!114 &41008683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 41008680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3d6a7719a4d9d543b2585a66fb6be9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Level: {fileID: -1430888627, guid: 5d93731179f4f9544a3bc8db557450c5, type: 3}
+  LevelSprite:
+  - {fileID: -316505733, guid: 5d93731179f4f9544a3bc8db557450c5, type: 3}
+  - {fileID: -558737271, guid: 5d93731179f4f9544a3bc8db557450c5, type: 3}
+  - {fileID: -627364897, guid: 5d93731179f4f9544a3bc8db557450c5, type: 3}
+  - {fileID: 74471114, guid: 5d93731179f4f9544a3bc8db557450c5, type: 3}
+  Changesprite: {fileID: 0}
+--- !u!222 &41008684
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 41008680}
+  m_CullTransparentMesh: 1
+--- !u!114 &41008685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 41008680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -1430888627, guid: 5d93731179f4f9544a3bc8db557450c5, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 1
+  m_PixelsPerUnitMultiplier: 16
+--- !u!1 &176869563
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 176869564}
+  - component: {fileID: 176869566}
+  - component: {fileID: 176869565}
+  m_Layer: 5
+  m_Name: Background
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &176869564
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 176869563}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 549032041}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 20, y: 20}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &176869565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 176869563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -493580140, guid: 5d93731179f4f9544a3bc8db557450c5, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &176869566
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 176869563}
+  m_CullTransparentMesh: 1
 --- !u!1001 &191666038
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -223,6 +448,16 @@ PrefabInstance:
       propertyPath: jellySoundEffect
       value: 
       objectReference: {fileID: 8300000, guid: 160fe1c5ab236744599db5c373e4a3d8, type: 3}
+    - target: {fileID: 8568531993772909538, guid: cb1effd25b4147b488109dc79ce41383,
+        type: 3}
+      propertyPath: maxDifficultyLevel
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8568531993772909538, guid: cb1effd25b4147b488109dc79ce41383,
+        type: 3}
+      propertyPath: minDifficultyLevel
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8568531993772909538, guid: cb1effd25b4147b488109dc79ce41383,
         type: 3}
       propertyPath: bgmClips.Array.size
@@ -887,6 +1122,172 @@ MonoBehaviour:
   - Mg19
   - Mg20
   current_language: Korean
+--- !u!1 &549032040
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 549032041}
+  - component: {fileID: 549032042}
+  m_Layer: 5
+  m_Name: Toggle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &549032041
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 549032040}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 4, y: 4, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 176869564}
+  m_Father: {fileID: 1164479920}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 43.06006, y: -40.109985}
+  m_SizeDelta: {x: 20, y: 20}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &549032042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 549032040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 2
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 176869565}
+  toggleTransition: 1
+  graphic: {fileID: 0}
+  m_Group: {fileID: 0}
+  onValueChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_IsOn: 1
+--- !u!1 &618305929
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 618305932}
+  - component: {fileID: 618305931}
+  - component: {fileID: 618305930}
+  m_Layer: 5
+  m_Name: PauseText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &618305930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 618305929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 61165c170c0b97c48a9bf5be5ee0f5b6, type: 3}
+    m_FontSize: 50
+    m_FontStyle: 1
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 60
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: PAUSED
+--- !u!222 &618305931
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 618305929}
+  m_CullTransparentMesh: 1
+--- !u!224 &618305932
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 618305929}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1164479920}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0.0000076293945, y: 103}
+  m_SizeDelta: {x: 448.2039, y: 87.362}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &676116286
 GameObject:
   m_ObjectHideFlags: 0
@@ -917,7 +1318,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 441155130}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &676116288
 MonoBehaviour:
@@ -1010,7 +1411,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1164479920}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1120,7 +1521,7 @@ PrefabInstance:
     - target: {fileID: 4094011683184477044, guid: d536fa71dd00cf349a228e41212ace48,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4094011683184477044, guid: d536fa71dd00cf349a228e41212ace48,
         type: 3}
@@ -1343,8 +1744,11 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 41008681}
   - {fileID: 1640547857}
   - {fileID: 693161820}
+  - {fileID: 618305932}
+  - {fileID: 549032041}
   m_Father: {fileID: 441155130}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1368,6 +1772,11 @@ MonoBehaviour:
   miniGameManager: {fileID: 1387901433}
   totalJelly: {fileID: 1640547860}
   CountDown: {fileID: 693161818}
+  pauseResumeButton: {fileID: 549032042}
+  pauseResumeButtonText: {fileID: 618305930}
+  selectedSprite: {fileID: 155004953, guid: 5d93731179f4f9544a3bc8db557450c5, type: 3}
+  defaultSprite: {fileID: -493580140, guid: 5d93731179f4f9544a3bc8db557450c5, type: 3}
+  sprite: {fileID: 176869565}
 --- !u!1 &1287766748
 GameObject:
   m_ObjectHideFlags: 0
@@ -1819,7 +2228,7 @@ MonoBehaviour:
     requiredAmount: 1
     currentAmount: 0
     unlocked: 0
-    icon: {fileID: 0}
+    achievementIcon: {fileID: 21300000, guid: 30f6fc6612fbbd24dab84773e6ebcb85, type: 3}
     level: 0
   - achievementName: "'\uB808\uD504 \uC57C\uC2E0'"
     description: "10\uCD08\uB3D9\uC548 \uCD95\uAD6C\uACF5 \uC218\uBE44 \uC2E4\uD328
@@ -1828,7 +2237,7 @@ MonoBehaviour:
     requiredAmount: 1
     currentAmount: 0
     unlocked: 0
-    icon: {fileID: 0}
+    achievementIcon: {fileID: 21300000, guid: 5bdc7437c4f81bf40989a345295d216a, type: 3}
     level: 0
   - achievementName: "\uB625\uD53C\uD558\uAE30 \uB2EC\uC778 "
     description: "10\uCD08\uB3D9\uC548 \uB625 \uC811\uCD09 \uD69F\uC218 0\uD68C \uC720\uC9C0 "
@@ -1836,7 +2245,7 @@ MonoBehaviour:
     requiredAmount: 1
     currentAmount: 0
     unlocked: 0
-    icon: {fileID: 0}
+    achievementIcon: {fileID: 21300000, guid: feebdc935cab5db4f81d3cd450f2396d, type: 3}
     level: 0
   - achievementName: "\uBE44\uD589\uAE30 \uD0C0\uACE0 \uAC00\uC694~"
     description: "10\uCD08\uB3D9\uC548 \uD654\uBA74 \uC774\uD0C8 \uD69F\uC218 0\uD68C
@@ -1845,7 +2254,7 @@ MonoBehaviour:
     requiredAmount: 1
     currentAmount: 0
     unlocked: 0
-    icon: {fileID: 0}
+    achievementIcon: {fileID: 21300000, guid: dc1903bbae08e2e449972ea44e50de57, type: 3}
     level: 0
   - achievementName: "\uAD6C\uB984\uD0C0\uACE0 \uD558\uB298 \uB0B4\uB824\uAC00\uAE30
       \uB2EC\uC778 "
@@ -1855,7 +2264,7 @@ MonoBehaviour:
     requiredAmount: 1
     currentAmount: 0
     unlocked: 0
-    icon: {fileID: 0}
+    achievementIcon: {fileID: 21300000, guid: 8d425d3554937d746b4b5a3ced214f58, type: 3}
     level: 0
   - achievementName: "\uAC70\uBBF8 \uD53C\uD574 \uB192\uC774\uB6F0\uAE30 \uB2EC\uC778 "
     description: "10\uCD08\uB3D9\uC548 \uAC70\uBBF8 \uC811\uCD09 \uD69F\uC218 0\uD68C
@@ -1864,7 +2273,7 @@ MonoBehaviour:
     requiredAmount: 1
     currentAmount: 0
     unlocked: 0
-    icon: {fileID: 0}
+    achievementIcon: {fileID: 21300000, guid: c72014effe038d54d9c9ad5bb62d96c8, type: 3}
     level: 0
   - achievementName: "\uC5F4\uAE30\uAD6C\uD0C0\uACE0 \uBC24\uD558\uB298 \uB0A0\uAE30 "
     description: "10\uCD08\uB3D9\uC548 \uD654\uBA74 \uC774\uD0C8 \uD69F\uC218 0\uD68C
@@ -1873,7 +2282,7 @@ MonoBehaviour:
     requiredAmount: 1
     currentAmount: 0
     unlocked: 0
-    icon: {fileID: 0}
+    achievementIcon: {fileID: 21300000, guid: 560cab8607c89194095ce192fda2d752, type: 3}
     level: 0
   - achievementName: "\uBC8C\uC9D1\uD53C\uD574 \uC824\uB9AC\uB530\uAE30 \uB2EC\uC778 "
     description: "10\uCD08\uB3D9\uC548 \uBC8C\uC9D1 \uC811\uCD09 \uD69F\uC218 0\uD68C
@@ -1882,7 +2291,7 @@ MonoBehaviour:
     requiredAmount: 1
     currentAmount: 0
     unlocked: 0
-    icon: {fileID: 0}
+    achievementIcon: {fileID: 21300000, guid: 32670b3e55e4ba947a18e753379e9035, type: 3}
     level: 0
   - achievementName: "\uBC14\uB2F7\uC18D\uC5D0\uC11C \uD5E4\uC5C4\uCE58\uAE30 \uB2EC\uC778 "
     description: "10\uCD08\uB3D9\uC548 \uD574\uD30C\uB9AC \uC811\uCD09 \uD69F\uC218
@@ -1891,7 +2300,7 @@ MonoBehaviour:
     requiredAmount: 1
     currentAmount: 0
     unlocked: 0
-    icon: {fileID: 0}
+    achievementIcon: {fileID: 21300000, guid: 4d8ff8a1be22df543b7a8bc55c508ff8, type: 3}
     level: 0
   - achievementName: "\uC2A4\uD0A4\uD0C0\uAE30 \uB2EC\uC778 "
     description: "10\uCD08\uB3D9\uC548 \uBC14\uC704 \uB610\uB294 \uB098\uBB34 \uC811\uCD09
@@ -1900,7 +2309,7 @@ MonoBehaviour:
     requiredAmount: 1
     currentAmount: 0
     unlocked: 0
-    icon: {fileID: 0}
+    achievementIcon: {fileID: 21300000, guid: 7c820a18eaa80e84a8c543cce4918a94, type: 3}
     level: 0
   - achievementName: "\uAE4C\uB9C8\uADC0\uB85C\uBD80\uD130 \uC54C \uC9C0\uD0A4\uAE30
       \uB2EC\uC778 "
@@ -1910,7 +2319,7 @@ MonoBehaviour:
     requiredAmount: 1
     currentAmount: 0
     unlocked: 0
-    icon: {fileID: 0}
+    achievementIcon: {fileID: 21300000, guid: f971a35e76b03b245a4f6840acdb6f30, type: 3}
     level: 0
   - achievementName: "\uAC15\uAC00\uC5D0\uC11C \uC870\uAC1C \uBD80\uC218\uAE30 \uB2EC\uC778 "
     description: "10\uCD08\uB3D9\uC548 \uC870\uAC1C \uC811\uCD09 \uD69F\uC218 0\uD68C
@@ -1919,7 +2328,7 @@ MonoBehaviour:
     requiredAmount: 1
     currentAmount: 0
     unlocked: 0
-    icon: {fileID: 0}
+    achievementIcon: {fileID: 21300000, guid: 08c6863337cc88d4fb370c7c85d6a908, type: 3}
     level: 0
   - achievementName: "\uD29C\uBE0C\uD0C0\uACE0 \uD638\uC218 \uB3CC\uC544\uB2E4\uB2C8\uAE30
       \uB2EC\uC778 "
@@ -1929,7 +2338,7 @@ MonoBehaviour:
     requiredAmount: 1
     currentAmount: 0
     unlocked: 0
-    icon: {fileID: 0}
+    achievementIcon: {fileID: 21300000, guid: 095684d97e747a446934d21cfce31833, type: 3}
     level: 0
   - achievementName: "\uB098\uBB34\uB07C\uB9AC \uC624\uACE0\uAC00\uBA70 \uC824\uB9AC\uBA39\uAE30
       \uB2EC\uC778 "
@@ -1939,7 +2348,7 @@ MonoBehaviour:
     requiredAmount: 1
     currentAmount: 0
     unlocked: 0
-    icon: {fileID: 0}
+    achievementIcon: {fileID: 21300000, guid: c8efb99969b4de44b9a7ee8fa8eea5cf, type: 3}
     level: 0
   - achievementName: "\uB208\uB369\uC774 \uD53C\uD558\uAE30 \uB2EC\uC778 "
     description: "10\uCD08\uB3D9\uC548 \uB208\uB369\uC774 \uC811\uCD09 \uD69F\uC218
@@ -1948,7 +2357,7 @@ MonoBehaviour:
     requiredAmount: 1
     currentAmount: 0
     unlocked: 0
-    icon: {fileID: 0}
+    achievementIcon: {fileID: 21300000, guid: 0d3fa4ebf93991d4ca72ebdb718a80c6, type: 3}
     level: 0
   - achievementName: "\uBC30\uD130\uB9AC\uB85C \uB09A\uC2DC\uD558\uAE30 \uB2EC\uC778 "
     description: "10\uCD08\uB3D9\uC548 \uBCF5\uC5B4 \uC811\uCD09 \uD69F\uC218 0\uD68C
@@ -1957,7 +2366,7 @@ MonoBehaviour:
     requiredAmount: 1
     currentAmount: 0
     unlocked: 0
-    icon: {fileID: 0}
+    achievementIcon: {fileID: 21300000, guid: fc6477db335d2e24b9f3705331beb7b3, type: 3}
     level: 0
   - achievementName: "\uB0A0\uC544\uC624\uB294 \uB3C4\uD1A0\uB9AC \uBD80\uC218\uAE30
       \uB2EC\uC778 "
@@ -1967,7 +2376,7 @@ MonoBehaviour:
     requiredAmount: 1
     currentAmount: 0
     unlocked: 0
-    icon: {fileID: 0}
+    achievementIcon: {fileID: 21300000, guid: 3954474a6462f51458cbfd133dddd66d, type: 3}
     level: 0
   - achievementName: "\uAF2C\uB9AC\uB85C \uD5E4\uC5C4\uCE58\uACE0 \uD558\uB298 \uB0A0\uAE30
       \uB2EC\uC778 "
@@ -1977,7 +2386,7 @@ MonoBehaviour:
     requiredAmount: 1
     currentAmount: 0
     unlocked: 0
-    icon: {fileID: 0}
+    achievementIcon: {fileID: 21300000, guid: 92eca6198ec2d204eb27723d9307ad9d, type: 3}
     level: 0
   - achievementName: "\uAF43 \uBC1F\uACE0 \uC810\uD504\uD574 \uC624\uB974\uAE30 \uB2EC\uC778 "
     description: "10\uCD08\uB3D9\uC548 \uD654\uBA74 \uC774\uD0C8 \uD69F\uC218 0\uD68C
@@ -1986,7 +2395,7 @@ MonoBehaviour:
     requiredAmount: 1
     currentAmount: 0
     unlocked: 0
-    icon: {fileID: 0}
+    achievementIcon: {fileID: 21300000, guid: 045e4a979d7ff3944a98f38c5d1a3b72, type: 3}
     level: 0
   - achievementName: "\uBB34\uB108\uC9C0\uB294 \uAD74\uB69D \uB0B4\uB824\uC624\uAE30
       \uB2EC\uC778 "
@@ -1996,7 +2405,7 @@ MonoBehaviour:
     requiredAmount: 1
     currentAmount: 0
     unlocked: 0
-    icon: {fileID: 0}
+    achievementIcon: {fileID: 21300000, guid: ac898813969d1dc4daea7b74fe3163c2, type: 3}
     level: 0
   - achievementName: "\uB18D\uC0AC \uC785\uBB38 "
     description: "\uCCAB \uC791\uBB3C \uC218\uD655 \uC644\uB8CC "
@@ -2004,7 +2413,7 @@ MonoBehaviour:
     requiredAmount: 1
     currentAmount: 0
     unlocked: 0
-    icon: {fileID: 0}
+    achievementIcon: {fileID: 21300000, guid: 75152274bf2a6f645a4b88428870fb0d, type: 3}
     level: 0
   - achievementName: "\uB18D\uC0AC \uC804\uBB38\uAC00 "
     description: "\uC791\uBB3C \uC218\uD655 \uD569\uACC4 10000 \uACE8\uB4DC \uB2EC\uC131 "
@@ -2012,7 +2421,7 @@ MonoBehaviour:
     requiredAmount: 10000
     currentAmount: 0
     unlocked: 0
-    icon: {fileID: 0}
+    achievementIcon: {fileID: 21300000, guid: 75152274bf2a6f645a4b88428870fb0d, type: 3}
     level: 0
   - achievementName: "\uBAA9\uCD95 \uC785\uBB38 "
     description: "\uCCAB \uAC00\uCD95 \uC0DD\uC0B0\uBB3C \uC218\uD655 \uC644\uB8CC "
@@ -2020,7 +2429,7 @@ MonoBehaviour:
     requiredAmount: 1
     currentAmount: 0
     unlocked: 0
-    icon: {fileID: 0}
+    achievementIcon: {fileID: 21300000, guid: fd065c8bf9fd0f5448d15c2cbb283c7b, type: 3}
     level: 0
   - achievementName: "\uBAA9\uCD95 \uC804\uBB38\uAC00 "
     description: "\uAC00\uCD95 \uC218\uD655 \uD569\uACC4 10000 \uACE8\uB4DC \uB2EC\uC131 "
@@ -2028,7 +2437,7 @@ MonoBehaviour:
     requiredAmount: 10000
     currentAmount: 0
     unlocked: 0
-    icon: {fileID: 0}
+    achievementIcon: {fileID: 21300000, guid: 1c44099291181f147a6be75ab2e3b10e, type: 3}
     level: 0
   - achievementName: "\uCC44\uAD11 \uC785\uBB38 "
     description: "\uCCAB \uAD11\uB9E5 \uC218\uD655 \uC644\uB8CC "
@@ -2036,7 +2445,7 @@ MonoBehaviour:
     requiredAmount: 1
     currentAmount: 0
     unlocked: 0
-    icon: {fileID: 0}
+    achievementIcon: {fileID: 21300000, guid: 1c44099291181f147a6be75ab2e3b10e, type: 3}
     level: 0
   - achievementName: "\uCC44\uAD11 \uC804\uBB38\uAC00 "
     description: "\uAD11\uB9E5 \uC218\uD655 \uD569\uACC4 1000 \uC824\uB9AC \uB2EC\uC131 "
@@ -2044,7 +2453,7 @@ MonoBehaviour:
     requiredAmount: 10000
     currentAmount: 0
     unlocked: 0
-    icon: {fileID: 0}
+    achievementIcon: {fileID: 21300000, guid: 1c44099291181f147a6be75ab2e3b10e, type: 3}
     level: 0
   - achievementName: "\uACE8\uB4E0\uBCA8 "
     description: "8\uBB38\uC81C \uBAA8\uB450 \uC815\uB2F5 "
@@ -2052,7 +2461,7 @@ MonoBehaviour:
     requiredAmount: 8
     currentAmount: 0
     unlocked: 0
-    icon: {fileID: 0}
+    achievementIcon: {fileID: 21300000, guid: 6bee3021eebf1d940855f505d3d8b5cb, type: 3}
     level: 0
   - achievementName: "\uCC99\uCC99\uBC15\uC0AC "
     description: "\uCD1D\uD569 100\uBB38\uC81C \uC815\uB2F5 "
@@ -2060,7 +2469,7 @@ MonoBehaviour:
     requiredAmount: 100
     currentAmount: 0
     unlocked: 0
-    icon: {fileID: 0}
+    achievementIcon: {fileID: 21300000, guid: 0b53894d7f0ce8e459f64eecacab8bd1, type: 3}
     level: 0
   - achievementName: "\uC2DC\uC791\uC12C \uCE5C\uAD6C\uB4E4 "
     description: "\uCE90\uB9AD\uD130 4\uB9C8\uB9AC \uC218\uC9D1 "
@@ -2068,7 +2477,7 @@ MonoBehaviour:
     requiredAmount: 4
     currentAmount: 0
     unlocked: 0
-    icon: {fileID: 0}
+    achievementIcon: {fileID: 21300000, guid: 28ff73509a4e1804ba9d3965e33ba8f5, type: 3}
     level: 0
   - achievementName: "\uBAA9\uCD95\uC12C \uCE5C\uAD6C\uB4E4 "
     description: "\uCE90\uB9AD\uD130 8\uB9C8\uB9AC \uC218\uC9D1 "
@@ -2076,7 +2485,7 @@ MonoBehaviour:
     requiredAmount: 8
     currentAmount: 0
     unlocked: 0
-    icon: {fileID: 0}
+    achievementIcon: {fileID: 21300000, guid: c80bf2f9398f5ff4fb9c0703db520acf, type: 3}
     level: 0
   - achievementName: "\uC0AC\uB9C9\uC12C \uCE5C\uAD6C\uB4E4 "
     description: "\uCE90\uB9AD\uD130 12\uB9C8\uB9AC \uC218\uC9D1 "
@@ -2084,7 +2493,7 @@ MonoBehaviour:
     requiredAmount: 12
     currentAmount: 0
     unlocked: 0
-    icon: {fileID: 0}
+    achievementIcon: {fileID: 21300000, guid: 13d82dfd44b66ed42a7592caeb892d0b, type: 3}
     level: 0
   - achievementName: "\uACA8\uC6B8\uC12C \uCE5C\uAD6C\uB4E4 "
     description: "\uCE90\uB9AD\uD130 16\uB9C8\uB9AC \uC218\uC9D1 "
@@ -2092,7 +2501,7 @@ MonoBehaviour:
     requiredAmount: 16
     currentAmount: 0
     unlocked: 0
-    icon: {fileID: 0}
+    achievementIcon: {fileID: 21300000, guid: cec5b294b0f68824ca975dda37b114c4, type: 3}
     level: 0
   - achievementName: "\uC5F4\uB300\uC12C \uCE5C\uAD6C\uB4E4 "
     description: "\uCE90\uB9AD\uD130 20\uB9C8\uB9AC \uC218\uC9D1 "
@@ -2100,7 +2509,7 @@ MonoBehaviour:
     requiredAmount: 20
     currentAmount: 0
     unlocked: 0
-    icon: {fileID: 0}
+    achievementIcon: {fileID: 21300000, guid: c84f47e1c5f4c1846ba4ef14bfbe170b, type: 3}
     level: 0
   - achievementName: "\uCD5C\uC885 \uB808\uBCA8\uC744 \uB2EC\uC131\uD55C \uC790 "
     description: "Lv.50 \uB2EC\uC131 "
@@ -2108,7 +2517,7 @@ MonoBehaviour:
     requiredAmount: 50
     currentAmount: 0
     unlocked: 0
-    icon: {fileID: 0}
+    achievementIcon: {fileID: 21300000, guid: 7522211b016096b408eea82c25082335, type: 3}
     level: 0
 --- !u!4 &1484442878
 Transform:
@@ -2156,7 +2565,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1164479920}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}

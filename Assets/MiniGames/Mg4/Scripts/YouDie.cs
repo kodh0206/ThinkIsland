@@ -25,6 +25,8 @@ public class YouDie : MonoBehaviour
             ShakeCamera();
             StartCoroutine(ResetPlayerPosition());
         }
+
+        Mg4manager.instance.achievementFail = true;
     }
 
     IEnumerator ResetPlayerPosition()
