@@ -28,22 +28,20 @@ public class Building : MonoBehaviour
     private void Update()
     {
         // 모든 터치에 대해서 반복문 실행
-  foreach (Touch touch in Input.touches)
-{
-    if (touch.phase == TouchPhase.Began)
+       foreach (Touch touch in Input.touches)
     {
-        Vector3 touchPosWorld = Camera.main.ScreenToWorldPoint(touch.position);
-        Vector2 touchPosWorld2D = new Vector2(touchPosWorld.x, touchPosWorld.y);
-        RaycastHit2D hitInformation = Physics2D.Raycast(touchPosWorld2D, Vector2.zero); // Change here
-
-        if (hitInformation.collider == boxCollider)
+        if (touch.phase == TouchPhase.Began)
         {
-            ToggleUpgradeButton();
+            Vector3 touchPosWorld = Camera.main.ScreenToWorldPoint(touch.position);
+            Vector2 touchPosWorld2D = new Vector2(touchPosWorld.x, touchPosWorld.y);
+            RaycastHit2D hitInformation = Physics2D.Raycast(touchPosWorld2D, Camera.main.transform.forward);
+
+            if (hitInformation.collider == boxCollider)
+            {
+                ToggleUpgradeButton();
+            }
         }
     }
-}
-
-
     }
 
     private void OnMouseDown()
