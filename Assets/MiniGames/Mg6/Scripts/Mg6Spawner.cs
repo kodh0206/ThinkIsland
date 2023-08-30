@@ -51,13 +51,13 @@ public class Mg6Spawner : MonoBehaviour
 
     public void IncreaseSpeed()
     {
-        Mg6ObstacleSpeed += 2.0f; // 장애물의 스피드 증가
+        Mg6ObstacleSpeed += 1.0f; // 장애물의 스피드 증가
         time_diff -= 0.1f; // 장애물의 생선 간격 감소
     }
 
     public void DecreaseSpeed()
     {
-        Mg6ObstacleSpeed -= 2.0f; // 장애물의 스피드 증가
+        Mg6ObstacleSpeed -= 1.0f; // 장애물의 스피드 증가
         time_diff += 0.1f; // 장애물의 생선 간격 감소
     }
 

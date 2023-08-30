@@ -7,7 +7,7 @@ public class Mg7jellySpanwer : MonoBehaviour
     public GameObject jelly;
 
     [SerializeField]
-    private float jellySpeed = 5.0f; // 젤리의 초기 스피드
+    private float jellySpeed = 3.0f; // 젤리의 초기 스피드
 
     [SerializeField]
     private float time_diff = 1.3f;

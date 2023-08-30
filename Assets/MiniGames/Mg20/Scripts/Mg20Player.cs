@@ -52,11 +52,11 @@ public class Mg20Player : MonoBehaviour
 
         if (RightButton)
         {
-            horizontalInput = 1f;
+            horizontalInput = 1.1f;
         }
         else if (LeftButton)
         {
-            horizontalInput = -1f;
+            horizontalInput = -1.1f;
         }
 
         // 움직임 계산
@@ -65,5 +65,9 @@ public class Mg20Player : MonoBehaviour
 
         // 움직임 적용
         rb.velocity = movement;
+        if (rb.velocity.y < -5f)
+        {
+            rb.velocity = new Vector2(moveX, -5f); ;
+        }
     }
 }

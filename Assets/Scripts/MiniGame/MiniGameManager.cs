@@ -37,7 +37,7 @@ public class MiniGameManager : MonoBehaviour
      public int obstacleHitCount;
     public float obstacleHitTimer;
 
-    public int difficultyLevel;
+    public int difficultyLevel=0;
     public int maxDifficultyLevel = 3;
     public int minDifficultyLevel = 0;
     public int GameScore = 0;
