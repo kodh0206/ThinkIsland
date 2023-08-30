@@ -49,7 +49,7 @@ public class Roulette : MonoBehaviour
     public AudioClip spin;
     public AudioClip reward;
 
-    public TextMeshPro jellyCounter;
+    public TextMeshProUGUI jellyCounter;
     void Awake() // Or you can use Start() method
 	{
 		audioSource = GetComponent<AudioSource>();
@@ -71,7 +71,8 @@ public class Roulette : MonoBehaviour
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {  jellyCounter.text =GameController.Instance.currentjellyCount.ToString();
+    {  
+        jellyCounter.text =GameController.Instance.currentjellyCount.ToString();
        roulettePieceData = new List<RoulettePieceData>
 	{
     new RoulettePieceData { icon = gold, description = "Gold 300", rewardType = "Gold", rewardAmount = 300, chance = 25 },

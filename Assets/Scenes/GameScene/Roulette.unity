@@ -5431,7 +5431,7 @@ MonoBehaviour:
   rouletteSpinClip: {fileID: 8300000, guid: b6b560fbae4c46140a0c7a8994400a8b, type: 3}
   spin: {fileID: 8300000, guid: b6b560fbae4c46140a0c7a8994400a8b, type: 3}
   reward: {fileID: 8300000, guid: 95e27043fbd6fd44aac05cc8d783e21c, type: 3}
-  jellyCounter: {fileID: 0}
+  jellyCounter: {fileID: 451820207}
 --- !u!82 &1716809418
 AudioSource:
   m_ObjectHideFlags: 0
