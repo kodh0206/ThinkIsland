@@ -1932,6 +1932,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03f0eff370c597b4288e2ffc03724c2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  achievementFail: 0
   level: 0
   isGameOver: 0
 --- !u!4 &1604309621
@@ -2119,6 +2120,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Mg19Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6220064884522582389, guid: 84813535ae398d74398510e7ca67c21e,
+        type: 3}
+      propertyPath: jump
+      value: 
+      objectReference: {fileID: 8300000, guid: 25e340dbf910ce043890f106e2be141c, type: 3}
+    - target: {fileID: 6220064884522582389, guid: 84813535ae398d74398510e7ca67c21e,
+        type: 3}
+      propertyPath: RightButton
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6220064884522582390, guid: 84813535ae398d74398510e7ca67c21e,
         type: 3}

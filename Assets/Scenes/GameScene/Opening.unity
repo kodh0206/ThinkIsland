@@ -2231,13 +2231,17 @@ MonoBehaviour:
   - {fileID: 8300000, guid: b72f23a6cfcc45d46b3c0e6e2b993231, type: 3}
   - {fileID: 8300000, guid: 35e057415feb0e3418d0e63839b6d0d3, type: 3}
   - {fileID: 8300000, guid: 891f3344e8a3c664c86a8a702add84e6, type: 3}
+  - {fileID: 8300000, guid: 9942ed0392aae9c4486687e2c7fb82b7, type: 3}
+  - {fileID: 8300000, guid: 44544d3e9b8b30649baaeb6735bb8bf0, type: 3}
   - {fileID: 8300000, guid: 428f6d49b844e8f4b9a8185bbee6fe65, type: 3}
+  - {fileID: 8300000, guid: aaafa13945f6e2740a4fd353877bc0f8, type: 3}
   - {fileID: 8300000, guid: 349a6a2015c4d82459c3e37f592cb452, type: 3}
+  - {fileID: 8300000, guid: 39d2574dcea542042b5daa3c9cb5c9ca, type: 3}
   audioSource: {fileID: 1910548228}
   jellySoundEffect: {fileID: 8300000, guid: ec97987466c95c049a6099899beb61fd, type: 3}
   MainBgm: {fileID: 8300000, guid: f97a3512173ed80458f0e91e857be1fe, type: 3}
   ClassBgm: {fileID: 8300000, guid: 8d2e03a483be46b49a10642bc38da147, type: 3}
-  poop: {fileID: 8300000, guid: 68436fe82aaf2e649b00f13ac54d68c0, type: 3}
+  poop: {fileID: 8300000, guid: 3f5174d74c8ba9d48b0b6a8bd4cda41d, type: 3}
   cow: {fileID: 8300000, guid: 6f9bbd7334b39e040a063579033146d8, type: 3}
   goalKeep: {fileID: 8300000, guid: c248d9768307440479674e678705d0b6, type: 3}
   goal: {fileID: 8300000, guid: 6e446f0416529dd41951607036351bf0, type: 3}
@@ -2249,8 +2253,8 @@ MonoBehaviour:
   capsulebreak: {fileID: 8300000, guid: 9d737f6c7df44a548bf445b89d67af0f, type: 3}
   breakPlatform: {fileID: 8300000, guid: b68f4ff3d7675034884650089be309d4, type: 3}
   minigamebegin: {fileID: 8300000, guid: 056d445653e100f458668acd24ba277e, type: 3}
-  eggBreak: {fileID: 8300000, guid: bf84d949641ed644db900b78db4eb0d2, type: 3}
-  beeHive: {fileID: 8300000, guid: cdf2b607e8df76746a566107d84036f1, type: 3}
+  eggBreak: {fileID: 8300000, guid: eecbcf91d396ed9418ad9211eccccd47, type: 3}
+  beeHive: {fileID: 8300000, guid: b56653f898b52f8478b046d7d1875de2, type: 3}
   right: {fileID: 8300000, guid: a53d923ff57e35b48afae8162b0b1e2a, type: 3}
   wrong: {fileID: 8300000, guid: 606d708f71d339a42996ebe285d697d1, type: 3}
   finish: {fileID: 8300000, guid: f0a096511a2987e4a97fa67e41368c8a, type: 3}

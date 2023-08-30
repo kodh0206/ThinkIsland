@@ -363,6 +363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcbd673437a941749b3e0e1de11e7d98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  achievementFail: 0
   score: 40
   level: 0
 --- !u!1 &236438422
@@ -4383,6 +4384,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5060015112284970629, guid: 4cc88aec61f65f048af9ab2318adb0f7,
         type: 3}
+      propertyPath: spalash
+      value: 
+      objectReference: {fileID: 8300000, guid: 6f8720e3d811724478bb871b52e14fe7, type: 3}
+    - target: {fileID: 5060015112284970629, guid: 4cc88aec61f65f048af9ab2318adb0f7,
+        type: 3}
       propertyPath: animator
       value: 
       objectReference: {fileID: 850192417}
@@ -4392,6 +4398,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1885792089, guid: 11656aa966d997542a3b3c7096999fdc,
         type: 3}
+    - target: {fileID: 5060015112284970629, guid: 4cc88aec61f65f048af9ab2318adb0f7,
+        type: 3}
+      propertyPath: electricity
+      value: 
+      objectReference: {fileID: 8300000, guid: e21ccaf1ad0631143942844077f36a8b, type: 3}
     - target: {fileID: 5060015112284970629, guid: 4cc88aec61f65f048af9ab2318adb0f7,
         type: 3}
       propertyPath: electricity1
@@ -9024,7 +9035,7 @@ MonoBehaviour:
   sparkEffect: {fileID: 3549495820810313615, guid: 386f51e69fa02fb4387acd256225429c,
     type: 3}
   moveSpeed: 3
-  electricity: {fileID: 8300000, guid: 73d2ffd6a3c5e8f47abcbff9095dfd66, type: 3}
+  electricity: {fileID: 8300000, guid: e21ccaf1ad0631143942844077f36a8b, type: 3}
   blinkInterval: 0.125
   minAlpha: 0.3
   maxAlpha: 1
