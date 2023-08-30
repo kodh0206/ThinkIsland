@@ -2228,7 +2228,7 @@ MonoBehaviour:
     requiredAmount: 1
     currentAmount: 0
     unlocked: 0
-    icon: {fileID: 0}
+    achievementIcon: {fileID: 21300000, guid: 30f6fc6612fbbd24dab84773e6ebcb85, type: 3}
     level: 0
   - achievementName: "'\uB808\uD504 \uC57C\uC2E0'"
     description: "10\uCD08\uB3D9\uC548 \uCD95\uAD6C\uACF5 \uC218\uBE44 \uC2E4\uD328
@@ -2237,7 +2237,7 @@ MonoBehaviour:
     requiredAmount: 1
     currentAmount: 0
     unlocked: 0
-    icon: {fileID: 0}
+    achievementIcon: {fileID: 21300000, guid: 5bdc7437c4f81bf40989a345295d216a, type: 3}
     level: 0
   - achievementName: "\uB625\uD53C\uD558\uAE30 \uB2EC\uC778 "
     description: "10\uCD08\uB3D9\uC548 \uB625 \uC811\uCD09 \uD69F\uC218 0\uD68C \uC720\uC9C0 "
@@ -2245,7 +2245,7 @@ MonoBehaviour:
     requiredAmount: 1
     currentAmount: 0
     unlocked: 0
-    icon: {fileID: 0}
+    achievementIcon: {fileID: 21300000, guid: feebdc935cab5db4f81d3cd450f2396d, type: 3}
     level: 0
   - achievementName: "\uBE44\uD589\uAE30 \uD0C0\uACE0 \uAC00\uC694~"
     description: "10\uCD08\uB3D9\uC548 \uD654\uBA74 \uC774\uD0C8 \uD69F\uC218 0\uD68C
@@ -2254,7 +2254,7 @@ MonoBehaviour:
     requiredAmount: 1
     currentAmount: 0
     unlocked: 0
-    icon: {fileID: 0}
+    achievementIcon: {fileID: 21300000, guid: dc1903bbae08e2e449972ea44e50de57, type: 3}
     level: 0
   - achievementName: "\uAD6C\uB984\uD0C0\uACE0 \uD558\uB298 \uB0B4\uB824\uAC00\uAE30
       \uB2EC\uC778 "
@@ -2264,7 +2264,7 @@ MonoBehaviour:
     requiredAmount: 1
     currentAmount: 0
     unlocked: 0
-    icon: {fileID: 0}
+    achievementIcon: {fileID: 21300000, guid: 8d425d3554937d746b4b5a3ced214f58, type: 3}
     level: 0
   - achievementName: "\uAC70\uBBF8 \uD53C\uD574 \uB192\uC774\uB6F0\uAE30 \uB2EC\uC778 "
     description: "10\uCD08\uB3D9\uC548 \uAC70\uBBF8 \uC811\uCD09 \uD69F\uC218 0\uD68C
@@ -2273,7 +2273,7 @@ MonoBehaviour:
     requiredAmount: 1
     currentAmount: 0
     unlocked: 0
-    icon: {fileID: 0}
+    achievementIcon: {fileID: 21300000, guid: c72014effe038d54d9c9ad5bb62d96c8, type: 3}
     level: 0
   - achievementName: "\uC5F4\uAE30\uAD6C\uD0C0\uACE0 \uBC24\uD558\uB298 \uB0A0\uAE30 "
     description: "10\uCD08\uB3D9\uC548 \uD654\uBA74 \uC774\uD0C8 \uD69F\uC218 0\uD68C
@@ -2282,7 +2282,7 @@ MonoBehaviour:
     requiredAmount: 1
     currentAmount: 0
     unlocked: 0
-    icon: {fileID: 0}
+    achievementIcon: {fileID: 21300000, guid: 560cab8607c89194095ce192fda2d752, type: 3}
     level: 0
   - achievementName: "\uBC8C\uC9D1\uD53C\uD574 \uC824\uB9AC\uB530\uAE30 \uB2EC\uC778 "
     description: "10\uCD08\uB3D9\uC548 \uBC8C\uC9D1 \uC811\uCD09 \uD69F\uC218 0\uD68C
@@ -2291,7 +2291,7 @@ MonoBehaviour:
     requiredAmount: 1
     currentAmount: 0
     unlocked: 0
-    icon: {fileID: 0}
+    achievementIcon: {fileID: 21300000, guid: 32670b3e55e4ba947a18e753379e9035, type: 3}
     level: 0
   - achievementName: "\uBC14\uB2F7\uC18D\uC5D0\uC11C \uD5E4\uC5C4\uCE58\uAE30 \uB2EC\uC778 "
     description: "10\uCD08\uB3D9\uC548 \uD574\uD30C\uB9AC \uC811\uCD09 \uD69F\uC218
@@ -2300,7 +2300,7 @@ MonoBehaviour:
     requiredAmount: 1
     currentAmount: 0
     unlocked: 0
-    icon: {fileID: 0}
+    achievementIcon: {fileID: 21300000, guid: 4d8ff8a1be22df543b7a8bc55c508ff8, type: 3}
     level: 0
   - achievementName: "\uC2A4\uD0A4\uD0C0\uAE30 \uB2EC\uC778 "
     description: "10\uCD08\uB3D9\uC548 \uBC14\uC704 \uB610\uB294 \uB098\uBB34 \uC811\uCD09
@@ -2309,7 +2309,7 @@ MonoBehaviour:
     requiredAmount: 1
     currentAmount: 0
     unlocked: 0
-    icon: {fileID: 0}
+    achievementIcon: {fileID: 21300000, guid: 7c820a18eaa80e84a8c543cce4918a94, type: 3}
     level: 0
   - achievementName: "\uAE4C\uB9C8\uADC0\uB85C\uBD80\uD130 \uC54C \uC9C0\uD0A4\uAE30
       \uB2EC\uC778 "
@@ -2319,7 +2319,7 @@ MonoBehaviour:
     requiredAmount: 1
     currentAmount: 0
     unlocked: 0
-    icon: {fileID: 0}
+    achievementIcon: {fileID: 21300000, guid: f971a35e76b03b245a4f6840acdb6f30, type: 3}
     level: 0
   - achievementName: "\uAC15\uAC00\uC5D0\uC11C \uC870\uAC1C \uBD80\uC218\uAE30 \uB2EC\uC778 "
     description: "10\uCD08\uB3D9\uC548 \uC870\uAC1C \uC811\uCD09 \uD69F\uC218 0\uD68C
@@ -2328,7 +2328,7 @@ MonoBehaviour:
     requiredAmount: 1
     currentAmount: 0
     unlocked: 0
-    icon: {fileID: 0}
+    achievementIcon: {fileID: 21300000, guid: 08c6863337cc88d4fb370c7c85d6a908, type: 3}
     level: 0
   - achievementName: "\uD29C\uBE0C\uD0C0\uACE0 \uD638\uC218 \uB3CC\uC544\uB2E4\uB2C8\uAE30
       \uB2EC\uC778 "
@@ -2338,7 +2338,7 @@ MonoBehaviour:
     requiredAmount: 1
     currentAmount: 0
     unlocked: 0
-    icon: {fileID: 0}
+    achievementIcon: {fileID: 21300000, guid: 095684d97e747a446934d21cfce31833, type: 3}
     level: 0
   - achievementName: "\uB098\uBB34\uB07C\uB9AC \uC624\uACE0\uAC00\uBA70 \uC824\uB9AC\uBA39\uAE30
       \uB2EC\uC778 "
@@ -2348,7 +2348,7 @@ MonoBehaviour:
     requiredAmount: 1
     currentAmount: 0
     unlocked: 0
-    icon: {fileID: 0}
+    achievementIcon: {fileID: 21300000, guid: c8efb99969b4de44b9a7ee8fa8eea5cf, type: 3}
     level: 0
   - achievementName: "\uB208\uB369\uC774 \uD53C\uD558\uAE30 \uB2EC\uC778 "
     description: "10\uCD08\uB3D9\uC548 \uB208\uB369\uC774 \uC811\uCD09 \uD69F\uC218
@@ -2357,7 +2357,7 @@ MonoBehaviour:
     requiredAmount: 1
     currentAmount: 0
     unlocked: 0
-    icon: {fileID: 0}
+    achievementIcon: {fileID: 21300000, guid: 0d3fa4ebf93991d4ca72ebdb718a80c6, type: 3}
     level: 0
   - achievementName: "\uBC30\uD130\uB9AC\uB85C \uB09A\uC2DC\uD558\uAE30 \uB2EC\uC778 "
     description: "10\uCD08\uB3D9\uC548 \uBCF5\uC5B4 \uC811\uCD09 \uD69F\uC218 0\uD68C
@@ -2366,7 +2366,7 @@ MonoBehaviour:
     requiredAmount: 1
     currentAmount: 0
     unlocked: 0
-    icon: {fileID: 0}
+    achievementIcon: {fileID: 21300000, guid: fc6477db335d2e24b9f3705331beb7b3, type: 3}
     level: 0
   - achievementName: "\uB0A0\uC544\uC624\uB294 \uB3C4\uD1A0\uB9AC \uBD80\uC218\uAE30
       \uB2EC\uC778 "
@@ -2376,7 +2376,7 @@ MonoBehaviour:
     requiredAmount: 1
     currentAmount: 0
     unlocked: 0
-    icon: {fileID: 0}
+    achievementIcon: {fileID: 21300000, guid: 3954474a6462f51458cbfd133dddd66d, type: 3}
     level: 0
   - achievementName: "\uAF2C\uB9AC\uB85C \uD5E4\uC5C4\uCE58\uACE0 \uD558\uB298 \uB0A0\uAE30
       \uB2EC\uC778 "
@@ -2386,7 +2386,7 @@ MonoBehaviour:
     requiredAmount: 1
     currentAmount: 0
     unlocked: 0
-    icon: {fileID: 0}
+    achievementIcon: {fileID: 21300000, guid: 92eca6198ec2d204eb27723d9307ad9d, type: 3}
     level: 0
   - achievementName: "\uAF43 \uBC1F\uACE0 \uC810\uD504\uD574 \uC624\uB974\uAE30 \uB2EC\uC778 "
     description: "10\uCD08\uB3D9\uC548 \uD654\uBA74 \uC774\uD0C8 \uD69F\uC218 0\uD68C
@@ -2395,7 +2395,7 @@ MonoBehaviour:
     requiredAmount: 1
     currentAmount: 0
     unlocked: 0
-    icon: {fileID: 0}
+    achievementIcon: {fileID: 21300000, guid: 045e4a979d7ff3944a98f38c5d1a3b72, type: 3}
     level: 0
   - achievementName: "\uBB34\uB108\uC9C0\uB294 \uAD74\uB69D \uB0B4\uB824\uC624\uAE30
       \uB2EC\uC778 "
@@ -2405,7 +2405,7 @@ MonoBehaviour:
     requiredAmount: 1
     currentAmount: 0
     unlocked: 0
-    icon: {fileID: 0}
+    achievementIcon: {fileID: 21300000, guid: ac898813969d1dc4daea7b74fe3163c2, type: 3}
     level: 0
   - achievementName: "\uB18D\uC0AC \uC785\uBB38 "
     description: "\uCCAB \uC791\uBB3C \uC218\uD655 \uC644\uB8CC "
@@ -2413,7 +2413,7 @@ MonoBehaviour:
     requiredAmount: 1
     currentAmount: 0
     unlocked: 0
-    icon: {fileID: 0}
+    achievementIcon: {fileID: 21300000, guid: 75152274bf2a6f645a4b88428870fb0d, type: 3}
     level: 0
   - achievementName: "\uB18D\uC0AC \uC804\uBB38\uAC00 "
     description: "\uC791\uBB3C \uC218\uD655 \uD569\uACC4 10000 \uACE8\uB4DC \uB2EC\uC131 "
@@ -2421,7 +2421,7 @@ MonoBehaviour:
     requiredAmount: 10000
     currentAmount: 0
     unlocked: 0
-    icon: {fileID: 0}
+    achievementIcon: {fileID: 21300000, guid: 75152274bf2a6f645a4b88428870fb0d, type: 3}
     level: 0
   - achievementName: "\uBAA9\uCD95 \uC785\uBB38 "
     description: "\uCCAB \uAC00\uCD95 \uC0DD\uC0B0\uBB3C \uC218\uD655 \uC644\uB8CC "
@@ -2429,7 +2429,7 @@ MonoBehaviour:
     requiredAmount: 1
     currentAmount: 0
     unlocked: 0
-    icon: {fileID: 0}
+    achievementIcon: {fileID: 21300000, guid: fd065c8bf9fd0f5448d15c2cbb283c7b, type: 3}
     level: 0
   - achievementName: "\uBAA9\uCD95 \uC804\uBB38\uAC00 "
     description: "\uAC00\uCD95 \uC218\uD655 \uD569\uACC4 10000 \uACE8\uB4DC \uB2EC\uC131 "
@@ -2437,7 +2437,7 @@ MonoBehaviour:
     requiredAmount: 10000
     currentAmount: 0
     unlocked: 0
-    icon: {fileID: 0}
+    achievementIcon: {fileID: 21300000, guid: 1c44099291181f147a6be75ab2e3b10e, type: 3}
     level: 0
   - achievementName: "\uCC44\uAD11 \uC785\uBB38 "
     description: "\uCCAB \uAD11\uB9E5 \uC218\uD655 \uC644\uB8CC "
@@ -2445,7 +2445,7 @@ MonoBehaviour:
     requiredAmount: 1
     currentAmount: 0
     unlocked: 0
-    icon: {fileID: 0}
+    achievementIcon: {fileID: 21300000, guid: 1c44099291181f147a6be75ab2e3b10e, type: 3}
     level: 0
   - achievementName: "\uCC44\uAD11 \uC804\uBB38\uAC00 "
     description: "\uAD11\uB9E5 \uC218\uD655 \uD569\uACC4 1000 \uC824\uB9AC \uB2EC\uC131 "
@@ -2453,7 +2453,7 @@ MonoBehaviour:
     requiredAmount: 10000
     currentAmount: 0
     unlocked: 0
-    icon: {fileID: 0}
+    achievementIcon: {fileID: 21300000, guid: 1c44099291181f147a6be75ab2e3b10e, type: 3}
     level: 0
   - achievementName: "\uACE8\uB4E0\uBCA8 "
     description: "8\uBB38\uC81C \uBAA8\uB450 \uC815\uB2F5 "
@@ -2461,7 +2461,7 @@ MonoBehaviour:
     requiredAmount: 8
     currentAmount: 0
     unlocked: 0
-    icon: {fileID: 0}
+    achievementIcon: {fileID: 21300000, guid: 6bee3021eebf1d940855f505d3d8b5cb, type: 3}
     level: 0
   - achievementName: "\uCC99\uCC99\uBC15\uC0AC "
     description: "\uCD1D\uD569 100\uBB38\uC81C \uC815\uB2F5 "
@@ -2469,7 +2469,7 @@ MonoBehaviour:
     requiredAmount: 100
     currentAmount: 0
     unlocked: 0
-    icon: {fileID: 0}
+    achievementIcon: {fileID: 21300000, guid: 0b53894d7f0ce8e459f64eecacab8bd1, type: 3}
     level: 0
   - achievementName: "\uC2DC\uC791\uC12C \uCE5C\uAD6C\uB4E4 "
     description: "\uCE90\uB9AD\uD130 4\uB9C8\uB9AC \uC218\uC9D1 "
@@ -2477,7 +2477,7 @@ MonoBehaviour:
     requiredAmount: 4
     currentAmount: 0
     unlocked: 0
-    icon: {fileID: 0}
+    achievementIcon: {fileID: 21300000, guid: 28ff73509a4e1804ba9d3965e33ba8f5, type: 3}
     level: 0
   - achievementName: "\uBAA9\uCD95\uC12C \uCE5C\uAD6C\uB4E4 "
     description: "\uCE90\uB9AD\uD130 8\uB9C8\uB9AC \uC218\uC9D1 "
@@ -2485,7 +2485,7 @@ MonoBehaviour:
     requiredAmount: 8
     currentAmount: 0
     unlocked: 0
-    icon: {fileID: 0}
+    achievementIcon: {fileID: 21300000, guid: c80bf2f9398f5ff4fb9c0703db520acf, type: 3}
     level: 0
   - achievementName: "\uC0AC\uB9C9\uC12C \uCE5C\uAD6C\uB4E4 "
     description: "\uCE90\uB9AD\uD130 12\uB9C8\uB9AC \uC218\uC9D1 "
@@ -2493,7 +2493,7 @@ MonoBehaviour:
     requiredAmount: 12
     currentAmount: 0
     unlocked: 0
-    icon: {fileID: 0}
+    achievementIcon: {fileID: 21300000, guid: 13d82dfd44b66ed42a7592caeb892d0b, type: 3}
     level: 0
   - achievementName: "\uACA8\uC6B8\uC12C \uCE5C\uAD6C\uB4E4 "
     description: "\uCE90\uB9AD\uD130 16\uB9C8\uB9AC \uC218\uC9D1 "
@@ -2501,7 +2501,7 @@ MonoBehaviour:
     requiredAmount: 16
     currentAmount: 0
     unlocked: 0
-    icon: {fileID: 0}
+    achievementIcon: {fileID: 21300000, guid: cec5b294b0f68824ca975dda37b114c4, type: 3}
     level: 0
   - achievementName: "\uC5F4\uB300\uC12C \uCE5C\uAD6C\uB4E4 "
     description: "\uCE90\uB9AD\uD130 20\uB9C8\uB9AC \uC218\uC9D1 "
@@ -2509,7 +2509,7 @@ MonoBehaviour:
     requiredAmount: 20
     currentAmount: 0
     unlocked: 0
-    icon: {fileID: 0}
+    achievementIcon: {fileID: 21300000, guid: c84f47e1c5f4c1846ba4ef14bfbe170b, type: 3}
     level: 0
   - achievementName: "\uCD5C\uC885 \uB808\uBCA8\uC744 \uB2EC\uC131\uD55C \uC790 "
     description: "Lv.50 \uB2EC\uC131 "
@@ -2517,7 +2517,7 @@ MonoBehaviour:
     requiredAmount: 50
     currentAmount: 0
     unlocked: 0
-    icon: {fileID: 0}
+    achievementIcon: {fileID: 21300000, guid: 7522211b016096b408eea82c25082335, type: 3}
     level: 0
 --- !u!4 &1484442878
 Transform:

@@ -22,9 +22,16 @@ public class Demo : MonoBehaviour
 
 	private void EndOfSpin(RoulettePieceData selectedData)
 	{
-		  buttonSpin.interactable = false;
 		spriteAnimation.Func_StopUIAnim();
+		if (GameController.Instance.currentjellyCount < 10)
+     	{
+			buttonSpin.interactable = false;
+    		
+     	}
+	
+		
     Debug.Log($"{selectedData.index}:{selectedData.description}");
+	buttonSpin.interactable = true;
     
   
 	}

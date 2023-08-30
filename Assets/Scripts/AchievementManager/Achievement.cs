@@ -1,4 +1,5 @@
 using UnityEngine.UI;
+using UnityEngine;
 [System.Serializable]
 public class Achievement
 {
@@ -8,7 +9,7 @@ public class Achievement
     public int requiredAmount;
     public int currentAmount;
     public bool unlocked;
-    public Image icon;
+    public Sprite achievementIcon; 
     public int level;
 
     public void UpdateLevel()
