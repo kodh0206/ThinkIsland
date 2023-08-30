@@ -71,7 +71,7 @@ public class Mg7Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.LeftArrow) || LeftButton)
         {
-            StartMakeTeer();
+            //StartMakeTeer();
             JumpWithAngle(135f);
             if (direc >0)
             {
@@ -83,7 +83,7 @@ public class Mg7Player : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.RightArrow)||RightButton)
         {
-            StartMakeTeer();
+            //StartMakeTeer();
             JumpWithAngle(45f);
             if (direc < 4)
             {
