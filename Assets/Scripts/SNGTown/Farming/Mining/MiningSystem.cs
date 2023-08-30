@@ -12,7 +12,7 @@ public class MiningSystem : MonoBehaviour
     private int jellyMiningTime = 10;
     private int jellyMiningAmount = 1;
     private int miningMachineLevel=0;
-    public int[] jellyLimitPerLevel={18,20,23,27,31};
+    public int[] jellyLimitPerLevel={18,21,28,42,73};
 
     public TextMeshProUGUI time;
     public TextMeshProUGUI ajelly;

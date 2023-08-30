@@ -18,6 +18,7 @@ public class EggManager : MonoBehaviour
     public TextMeshProUGUI timerText;
     public Button harvestButton;
 
+    public int percent=0;
     private void Start()
     {
         LoadData();
@@ -40,15 +41,22 @@ public class EggManager : MonoBehaviour
 
     public void OnHarvestButtonClicked()
     {
-        if (isHarvestable)
+    if (isHarvestable)
+    {
+        int currentGold = fixedGoldAmount;
+
+        // percent가 0이 아닐 때만 적용
+        if (percent != 0)
         {
-            int currentGold = fixedGoldAmount;
-            isHarvestable = false;
-            harvestButton.interactable = false;
-            lastHarvestTime = DateTime.Now;
-            SaveData();
-            goldText.text = "Gold: " + currentGold;
+            currentGold += (int)(fixedGoldAmount * (1+(percent * 0.01f)));
         }
+
+        isHarvestable = false;
+        harvestButton.interactable = false;
+        lastHarvestTime = DateTime.Now;
+        SaveData();
+        goldText.text = "Gold: " + currentGold;
+    }
     }
 
     private void SaveData()
@@ -82,7 +90,7 @@ public class EggManager : MonoBehaviour
     {
         if (isHarvestable)
         {
-            timerText.text = "Ready to Harvest!";
+            timerText.text = "Harvest!";
         }
         else
         {

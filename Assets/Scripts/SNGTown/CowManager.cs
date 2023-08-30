@@ -13,11 +13,12 @@ public class CowManager : MonoBehaviour
     public bool isHarvestable = false;
     public DateTime lastHarvestTime;
 
+    public float percentage=0;
     // UI Components
     public TextMeshProUGUI goldText;
     public TextMeshProUGUI timerText;
     public Button harvestButton;
-
+    public int percent;
     private void Start()
     {
         LoadData();
@@ -40,15 +41,23 @@ public class CowManager : MonoBehaviour
 
     public void OnHarvestButtonClicked()
     {
-        if (isHarvestable)
+    
+    if (isHarvestable)
+    {
+        int currentGold = fixedGoldAmount;
+
+        // percent가 0이 아닐 때만 적용
+        if (percent != 0)
         {
-            int currentGold = fixedGoldAmount;
-            isHarvestable = false;
-            harvestButton.interactable = false;
-            lastHarvestTime = DateTime.Now;
-            SaveData();
-            goldText.text = "Gold: " + currentGold;
+            currentGold += (int)(fixedGoldAmount * (1+(percent * 0.01f)));
         }
+
+        isHarvestable = false;
+        harvestButton.interactable = false;
+        lastHarvestTime = DateTime.Now;
+        SaveData();
+        goldText.text = "Gold: " + currentGold;
+    }
     }
 
     private void SaveData()
@@ -82,7 +91,7 @@ public class CowManager : MonoBehaviour
     {
         if (isHarvestable)
         {
-            timerText.text = "Ready to Harvest!";
+            timerText.text = "Harvest!";
         }
         else
         {
