@@ -6,6 +6,8 @@ using System;
 using System.Linq;
 using Random = UnityEngine.Random;
 using UnityEngine.SceneManagement;
+using TMPro;
+
 public class Roulette : MonoBehaviour
 {
 	[SerializeField]
@@ -46,6 +48,8 @@ public class Roulette : MonoBehaviour
 	private AudioSource audioSource; // Add this line to declare AudioSource
     public AudioClip spin;
     public AudioClip reward;
+
+    public TextMeshPro jellyCounter;
     void Awake() // Or you can use Start() method
 	{
 		audioSource = GetComponent<AudioSource>();
@@ -67,7 +71,7 @@ public class Roulette : MonoBehaviour
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
+    {  jellyCounter.text =GameController.Instance.currentjellyCount.ToString();
        roulettePieceData = new List<RoulettePieceData>
 	{
     new RoulettePieceData { icon = gold, description = "Gold 300", rewardType = "Gold", rewardAmount = 300, chance = 25 },
@@ -176,7 +180,7 @@ public class Roulette : MonoBehaviour
 
         // 젤리 10개 지불
         GameController.Instance.currentjellyCount -= 10;
-
+        jellyCounter.text =GameController.Instance.currentjellyCount.ToString();
         StartCoroutine(OnSpin(targetAngle, action));
     }
     else

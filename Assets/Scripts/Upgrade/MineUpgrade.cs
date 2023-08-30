@@ -9,7 +9,8 @@ public class MineUpgrade : MonoBehaviour
     public int[] upgradEffect = new int[4] {5,10,15,20};
     public Button[] upgradeButtons;  // UI 버튼들
     private void Start()
-    {
+    {           
+        LoadUpgradeLevel();  // 게임 시작 시 저장된 업그레이드 레벨을 불러옵니다.
         UpdateButtonStates();
     }
 
@@ -23,6 +24,7 @@ public class MineUpgrade : MonoBehaviour
             currentLevel = level;  // 레밸 증가
             MiniGameManager.Instance.jellypercentage=upgradEffect[level-1]; //효과변경 
             UpdateButtonStates();  // 버튼 상태 갱신
+            SaveUpgradeLevel();  // 업그레이드 후 레벨을 저장합니다.
         }
     }
 
@@ -42,5 +44,19 @@ public class MineUpgrade : MonoBehaviour
     public void AddGold(int amount)
     {
         GameController.Instance.curentgold+= amount;
+    }
+
+        private void SaveUpgradeLevel()
+    {
+        ES3.Save<int>("MineUpgradeLevel", currentLevel);
+    }
+
+    // 저장된 업그레이드 레벨을 불러오는 함수
+    private void LoadUpgradeLevel()
+    {
+        if (ES3.KeyExists("MineUpgradeLevel"))
+        {
+            currentLevel = ES3.Load<int>("MineUpgradeLevel");
+        }
     }
 }
