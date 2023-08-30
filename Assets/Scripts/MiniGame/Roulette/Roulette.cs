@@ -152,23 +152,40 @@ public class Roulette : MonoBehaviour
 	}
  public void Spin(UnityAction<RoulettePieceData> action=null)
     {  
-  if ( isSpinning == true ) return;
+    if (GameController.Instance.currentjellyCount >= 10)
+    {
+        // 이미 회전 중이라면 return
+        if (isSpinning == true) return;
 
-		// 룰렛의 결과 값 선택
-		selectedIndex = GetRandomIndex();
-		// 선택된 결과의 중심 각도
-		float angle			= pieceAngle * selectedIndex;
-		// 정확히 중심이 아닌 결과 값 범위 안의 임의의 각도 선택
-		float leftOffset	= (angle - halfPieceAngleWithPaddings) % 360;
-		float rightOffset	= (angle + halfPieceAngleWithPaddings) % 360;
-		float randomAngle	=  Random.Range(leftOffset, rightOffset);
+        // 룰렛의 결과 값 선택
+        selectedIndex = GetRandomIndex();
 
-		// 목표 각도(targetAngle) = 결과 각도 + 360 * 회전 시간 * 회전 속도
-		int	  rotateSpeed	= 2;
-		float targetAngle	= (randomAngle + 360 * spinDursation * rotateSpeed);
+        // 선택된 결과의 중심 각도
+        float angle = pieceAngle * selectedIndex;
 
-		isSpinning = true;
-		StartCoroutine(OnSpin(targetAngle, action));
+        // 정확히 중심이 아닌 결과 값 범위 안의 임의의 각도 선택
+        float leftOffset = (angle - halfPieceAngleWithPaddings) % 360;
+        float rightOffset = (angle + halfPieceAngleWithPaddings) % 360;
+        float randomAngle = Random.Range(leftOffset, rightOffset);
+
+        // 목표 각도(targetAngle) = 결과 각도 + 360 * 회전 시간 * 회전 속도
+        int rotateSpeed = 2;
+        float targetAngle = (randomAngle + 360 * spinDuration * rotateSpeed);
+
+        isSpinning = true;
+
+        // 젤리 10개 지불
+        GameController.Instance.currentjellyCount -= 10;
+
+        StartCoroutine(OnSpin(targetAngle, action));
+    }
+    else
+    {   
+        
+        // 젤리가 부족하므로 메인 메뉴로 돌아갑니다.
+        Debug.Log("Not enough jelly to spin the wheel. Returning to main menu.");
+        StartCoroutine(WaitAndLoadMainScene(0));  // 0초 대기 후 메인 메뉴로 돌아갑니다.
+    }
     }
 private IEnumerator OnSpin(float end, UnityAction<RoulettePieceData> action)
 {
@@ -245,8 +262,10 @@ private IEnumerator OnSpin(float end, UnityAction<RoulettePieceData> action)
         default:
             break;
     }
-
+     if (GameController.Instance.currentjellyCount < 10)
+     {
     StartCoroutine(WaitAndLoadMainScene(2f));
+     }
 }
 
 private IEnumerator WaitAndLoadMainScene(float waitTime)
