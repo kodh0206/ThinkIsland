@@ -63265,6 +63265,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b35eb0deda991774ca357c5fbe8763af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  orthoSizeText: {fileID: 0}
   moveSpeed: 1
   scrollSpeed: 10
   minOrthographicSize: 5
@@ -63272,7 +63273,6 @@ MonoBehaviour:
   inertiaDuration: 1
   springStrength: 10
   springDamping: 1
-  maxDelta: 5
 --- !u!1 &1130271114
 GameObject:
   m_ObjectHideFlags: 0

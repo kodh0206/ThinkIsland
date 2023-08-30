@@ -28,7 +28,7 @@ public class AchievementDefinition : MonoBehaviour
     {
         if (achievementInstance == null) return;
 
-        //iconDisplay.sprite = achievementInstance.icon.sprite;
+        iconDisplay.sprite = achievementInstance.achievementIcon;
         achievementNameText.text = achievementInstance.achievementName;
         descriptionText.text = achievementInstance.description;
 
