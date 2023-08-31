@@ -13,6 +13,8 @@ public class GameController : MonoBehaviour
     public string currentmbrId;
     public string currentprgsCd;
     
+    //심사위원 제출용 변수 
+    public bool isDeveloperMode =false;
     //해금될 농작물리스트 
     public List<CropData> CropList = new List<CropData>();
     public int currentjellyCount;
@@ -87,9 +89,6 @@ public class GameController : MonoBehaviour
     //     }
     // }
 
-    void LoadData(){
-        
-    }
 
 
        public void GainExperience(int amount)
@@ -133,5 +132,65 @@ public class GameController : MonoBehaviour
         curentgold += amount;
     }
 
+        void LoadData(){
+        if (ES3.KeyExists("currentmbrId"))
+            currentmbrId = ES3.Load<string>("currentmbrId");
+        if (ES3.KeyExists("currentprgsCd"))
+            currentprgsCd = ES3.Load<string>("currentprgsCd");
+        if (ES3.KeyExists("currentjellyCount"))
+            currentjellyCount = ES3.Load<int>("currentjellyCount");
+        if (ES3.KeyExists("curentgold"))
+            curentgold = ES3.Load<int>("curentgold");
+        if (ES3.KeyExists("currentActionPoints"))
+            currentActionPoints = ES3.Load<int>("currentActionPoints");
+        if (ES3.KeyExists("maximumActionPoints"))
+            maximumActionPoints = ES3.Load<int>("maximumActionPoints");
+        if (ES3.KeyExists("level"))
+            level = ES3.Load<int>("level");
+        if (ES3.KeyExists("current_experience"))
+            current_experience = ES3.Load<int>("current_experience");
+        if (ES3.KeyExists("max_experience"))
+            max_experience = ES3.Load<int>("max_experience");
+        if (ES3.KeyExists("current_language"))
+            current_language = ES3.Load<string>("current_language");
+        if (ES3.KeyExists("currentUnlockedAbilities"))
+            currentUnlockedAbilities = ES3.Load<List<string>>("currentUnlockedAbilities");
+        if (ES3.KeyExists("currentUnlockedBuildings"))
+            currentUnlockedBuildings = ES3.Load<List<string>>("currentUnlockedBuildings");
+        if (ES3.KeyExists("currentUnlockedCrops"))
+            currentUnlockedCrops = ES3.Load<List<CropData>>("currentUnlockedCrops");
+        if (ES3.KeyExists("unlockedLivestock"))
+            unlockedLivestock = ES3.Load<List<string>>("unlockedLivestock");
+        if (ES3.KeyExists("ownedFields"))
+            ownedFields = ES3.Load<List<string>>("ownedFields");
+        if (ES3.KeyExists("ownedPastures"))
+            ownedPastures = ES3.Load<List<string>>("ownedPastures");
+        if (ES3.KeyExists("upgradedElements"))
+            upgradedElements = ES3.Load<List<string>>("upgradedElements");
+        if (ES3.KeyExists("unlockedMiniGames"))
+            unlockedMiniGames = ES3.Load<List<string>>("unlockedMiniGames");
+    }
+        
     
+    public void SaveData()
+    {
+        ES3.Save("currentmbrId", currentmbrId);
+        ES3.Save("currentprgsCd", currentprgsCd);
+        ES3.Save("currentjellyCount", currentjellyCount);
+        ES3.Save("curentgold", curentgold);
+        ES3.Save("currentActionPoints", currentActionPoints);
+        ES3.Save("maximumActionPoints", maximumActionPoints);
+        ES3.Save("level", level);
+        ES3.Save("current_experience", current_experience);
+        ES3.Save("max_experience", max_experience);
+        ES3.Save("current_language", current_language);
+        ES3.Save("currentUnlockedAbilities", currentUnlockedAbilities);
+        ES3.Save("currentUnlockedBuildings", currentUnlockedBuildings);
+        ES3.Save("currentUnlockedCrops", currentUnlockedCrops);
+        ES3.Save("unlockedLivestock", unlockedLivestock);
+        ES3.Save("ownedFields", ownedFields);
+        ES3.Save("ownedPastures", ownedPastures);
+        ES3.Save("upgradedElements", upgradedElements);
+        ES3.Save("unlockedMiniGames", unlockedMiniGames);
+    }
 }
