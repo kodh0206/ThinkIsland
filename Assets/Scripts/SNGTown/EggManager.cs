@@ -7,8 +7,7 @@ using TMPro;
 
 public class EggManager : MonoBehaviour
 {   
-    private static EggManager _instance;
-    public static EggManager Instance { get { return _instance; } }
+    
     public int fixedGoldAmount = 100;
     public bool isHarvestable = false;
     public DateTime lastHarvestTime;
@@ -19,6 +18,10 @@ public class EggManager : MonoBehaviour
     public Button harvestButton;
 
     public int percent=0;
+
+
+
+
     private void Start()
     {
         LoadData();
@@ -50,7 +53,10 @@ public class EggManager : MonoBehaviour
         {
             currentGold += (int)(fixedGoldAmount * (1+(percent * 0.01f)));
         }
-
+        else
+        {
+            currentGold += fixedGoldAmount;
+        }
         isHarvestable = false;
         harvestButton.interactable = false;
         lastHarvestTime = DateTime.Now;

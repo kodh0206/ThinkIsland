@@ -7,18 +7,25 @@ using TMPro;
 
 public class CowManager : MonoBehaviour
 {   
-     private static CowManager _instance;
+    private static CowManager _instance;
     public static CowManager Instance { get { return _instance; } }
     public int fixedGoldAmount = 100;
     public bool isHarvestable = false;
     public DateTime lastHarvestTime;
 
-    public float percentage=0;
     // UI Components
     public TextMeshProUGUI goldText;
     public TextMeshProUGUI timerText;
     public Button harvestButton;
     public int percent;
+    
+
+
+
+
+
+
+
     private void Start()
     {
         LoadData();
@@ -51,7 +58,10 @@ public class CowManager : MonoBehaviour
         {
             currentGold += (int)(fixedGoldAmount * (1+(percent * 0.01f)));
         }
-
+        else
+        {
+            currentGold += fixedGoldAmount;
+        }
         isHarvestable = false;
         harvestButton.interactable = false;
         lastHarvestTime = DateTime.Now;

@@ -19,6 +19,12 @@ public class MiningSystem : MonoBehaviour
 
     private DateTime lastSessionTime;
 
+
+
+
+
+
+
     private void Start()
     {
         LoadGameData();

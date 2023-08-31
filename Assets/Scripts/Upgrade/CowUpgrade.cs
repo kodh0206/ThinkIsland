@@ -10,6 +10,7 @@ public class CowUpgrade : MonoBehaviour
     public int[] upgradeEffect = new int[4]{5,15,30,50};
     public Button[] upgradeButtons;  // UI 버튼 배열
 
+    [SerializeField] CowManager cowManager;
     private void Start()
     {
         LoadUpgradeLevel();  // 게임 시작할 때 저장된 업그레이드 레벨 불러오기
@@ -23,7 +24,7 @@ public class CowUpgrade : MonoBehaviour
         {
             GameController.Instance.curentgold -= upgradeCosts[level - 1];  // 골드 차감
             currentLevel = level;  // 레벨 증가
-            CowManager.Instance.percent = upgradeEffect[level - 1];  // CowManager 클래스의 업그레이드 함수 호출
+            cowManager.percent = upgradeEffect[level - 1];  // CowManager 클래스의 업그레이드 함수 호출
             UpdateButtonStates();  // 버튼 상태 갱신
             SaveUpgradeLevel();  // 업그레이드 레벨 저장
         }

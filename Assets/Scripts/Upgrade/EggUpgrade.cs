@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class EggUpgrade : MonoBehaviour
-{
+{   
+    [SerializeField] EggManager eggManager;
     public int currentLevel = 0;  // 현재 레벨
     public int maxLevel = 4;  // 최대 레벨
     public int[] upgradeCosts = new int[4] { 50, 150, 400, 1000 };  // 각 레벨의 업그레이드 비용
@@ -24,7 +25,7 @@ public class EggUpgrade : MonoBehaviour
         {
             GameController.Instance.curentgold -= upgradeCosts[level - 1];  // 골드 차감
             currentLevel = level;  // 레벨 증가
-            EggManager.Instance.percent = upgradeEffect[level - 1];  // EggManager 클래스의 업그레이드 함수 호출
+            eggManager.percent = upgradeEffect[level - 1];  // EggManager 클래스의 업그레이드 함수 호출
             UpdateButtonStates();  // 버튼 상태 갱신
             SaveUpgradeLevel();  // 업그레이드 레벨 저장
         }
