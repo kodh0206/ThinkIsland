@@ -4137,7 +4137,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2074699616}
         m_TargetAssemblyTypeName: ShopButtonClick, Assembly-CSharp
-        m_MethodName: ShowMiningPanel
+        m_MethodName: ShowAgriculturePanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
