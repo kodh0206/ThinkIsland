@@ -203,7 +203,6 @@ GameObject:
   - component: {fileID: 41008684}
   - component: {fileID: 41008682}
   - component: {fileID: 41008685}
-  - component: {fileID: 41008683}
   m_Layer: 5
   m_Name: Level
   m_TagString: Untagged
@@ -283,25 +282,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &41008683
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 41008680}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3d6a7719a4d9d543b2585a66fb6be9e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Level: {fileID: -1430888627, guid: 5d93731179f4f9544a3bc8db557450c5, type: 3}
-  LevelSprite:
-  - {fileID: -316505733, guid: 5d93731179f4f9544a3bc8db557450c5, type: 3}
-  - {fileID: -558737271, guid: 5d93731179f4f9544a3bc8db557450c5, type: 3}
-  - {fileID: -627364897, guid: 5d93731179f4f9544a3bc8db557450c5, type: 3}
-  - {fileID: 74471114, guid: 5d93731179f4f9544a3bc8db557450c5, type: 3}
-  Changesprite: {fileID: 0}
 --- !u!222 &41008684
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1027,6 +1007,7 @@ GameObject:
   - component: {fileID: 313971568}
   - component: {fileID: 313971570}
   - component: {fileID: 313971569}
+  - component: {fileID: 313971571}
   m_Layer: 5
   m_Name: BlackImage
   m_TagString: Untagged
@@ -1093,6 +1074,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 313971567}
   m_CullTransparentMesh: 1
+--- !u!114 &313971571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 313971567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3d6a7719a4d9d543b2585a66fb6be9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Level: {fileID: -1430888627, guid: 5d93731179f4f9544a3bc8db557450c5, type: 3}
+  LevelSprite:
+  - {fileID: -316505733, guid: 5d93731179f4f9544a3bc8db557450c5, type: 3}
+  - {fileID: -558737271, guid: 5d93731179f4f9544a3bc8db557450c5, type: 3}
+  - {fileID: -627364897, guid: 5d93731179f4f9544a3bc8db557450c5, type: 3}
+  - {fileID: 74471114, guid: 5d93731179f4f9544a3bc8db557450c5, type: 3}
+  Changesprite: {fileID: 41008685}
+  BlackBoard: {fileID: 313971569}
 --- !u!4 &441155130 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8568531993772909539, guid: cb1effd25b4147b488109dc79ce41383,

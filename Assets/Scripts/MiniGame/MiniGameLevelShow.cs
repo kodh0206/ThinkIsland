@@ -10,8 +10,9 @@ public class MiniGameLevelShow : MonoBehaviour
     public Sprite Level;
     public Sprite[] LevelSprite = new Sprite[4];
     public static MiniGameLevelShow Instance { get; private set; }
-
+    
     public Image Changesprite;
+    public Image BlackBoard;
 
     // Ŭ������ �ٸ� ��� ������ �Լ� ��...
 
@@ -26,7 +27,7 @@ public class MiniGameLevelShow : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        Changesprite = GetComponent<Image>();
+        BlackBoard.enabled=false;
         Changesprite.enabled = false;
     }
     void Start()
@@ -50,13 +51,15 @@ public class MiniGameLevelShow : MonoBehaviour
     private IEnumerator ChangeSprite(int difficulty)
     {
         Debug.Log("������������Ʈ�������3");
-
+        
         Changesprite.sprite = LevelSprite[difficulty];
+        BlackBoard.enabled=true;
         Changesprite.enabled = true; // �̹����� Ȱ��ȭ�Ͽ� ���̵��� ��
 
         yield return new WaitForSeconds(1f);
 
-        Changesprite.enabled = false; // �̹����� ��Ȱ��ȭ�Ͽ� ����
+        Changesprite.enabled = false;
+        BlackBoard.enabled=false; // �̹����� ��Ȱ��ȭ�Ͽ� ����
     }
 
 }
