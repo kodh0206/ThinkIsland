@@ -53,32 +53,33 @@ public class BetaManager : MonoBehaviour
         // 싱글톤 초기화
 
         miniGame =GameObject.Find("MiniGameManager").GetComponent<MiniGameManager>();
-        gameController = GameObject.Find("GameManager").GetComponent<GameController>();
+        // gameController = GameObject.Find("GameManager").GetComponent<GameController>();
     }
 
     private void Start()
     {
         play1.onClick.AddListener(StartMiniGame);
         RadioButton.onClick.AddListener(gotoRadio);
-        money =gameController.curentgold;
+        money =GameController.Instance.curentgold;
         moneyText.text = money.ToString();
-        jelly =gameController.currentjellyCount;
+        jelly =GameController.Instance.currentjellyCount;
         jellyText.text = jelly.ToString();
 
-        energy.text =gameController.currentActionPoints.ToString();
+        energy.text =GameController.Instance.currentActionPoints.ToString();
         WaterButton.onClick.AddListener(SelectWater);
 
-        levelText.text = "LV: " + gameController.level.ToString();
-        currentExpText.text = "EXP: " + gameController.current_experience.ToString() + " / ";
-        MaxExpText.text = gameController.expToLevelUp[gameController.level-1].ToString();
+        levelText.text = "LV: " + GameController.Instance.level.ToString();
+        currentExpText.text = "EXP: " + GameController.Instance.current_experience.ToString() + " / ";
+        MaxExpText.text = GameController.Instance.expToLevelUp[GameController.Instance.level-1].ToString();
 
     }   
 
    
     private void Update()
     {
-    jelly =gameController.currentjellyCount;
-    money = gameController.curentgold;
+    jelly =GameController.Instance.currentjellyCount;
+    money = GameController.Instance.curentgold;
+    moneyText.text = money.ToString();
     jellyText.text = jelly.ToString();
     }
     
@@ -232,9 +233,9 @@ public class BetaManager : MonoBehaviour
     }
     public void UpdateLevelAndExpUI()
     {
-    levelText.text = "LV: " + gameController.level.ToString();
-    currentExpText.text = "EXP: " + gameController.current_experience.ToString() + " / ";
-    MaxExpText.text = gameController.expToLevelUp[gameController.level].ToString();
+    levelText.text = "LV: " + GameController.Instance.level.ToString();
+    currentExpText.text = "EXP: " + GameController.Instance.current_experience.ToString() + " / ";
+    MaxExpText.text = GameController.Instance.expToLevelUp[GameController.Instance.level].ToString();
     }
 
 
