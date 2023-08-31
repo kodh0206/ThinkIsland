@@ -13,11 +13,11 @@ public class MiniGameLevelShow : MonoBehaviour
 
     public Image Changesprite;
 
-    // Å¬·¡½ºÀÇ ´Ù¸¥ ¸â¹ö º¯¼ö³ª ÇÔ¼ö µî...
+    // Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½ ï¿½ï¿½...
 
     private void Awake()
     {
-        // Instance ¼³Á¤
+        // Instance ï¿½ï¿½ï¿½ï¿½
         if (Instance == null)
         {
             Instance = this;
@@ -42,21 +42,21 @@ public class MiniGameLevelShow : MonoBehaviour
 
     public void ShowNowLevel(int difficulty)
     {
-        Debug.Log("·¹º§½ºÇÁ¶óÀÌÆ®º¯°æ½ÃÀÛ2");
+        Debug.Log("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½2");
         StartCoroutine(ChangeSprite(difficulty));
-        Debug.Log("·¹º§½ºÇÁ¶óÀÌÆ®º¯°æ³¡");
+        Debug.Log("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½æ³¡");
     }
 
     private IEnumerator ChangeSprite(int difficulty)
     {
-        Debug.Log("·¹º§½ºÇÁ¶óÀÌÆ®º¯°æ½ÃÀÛ3");
+        Debug.Log("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½3");
 
         Changesprite.sprite = LevelSprite[difficulty];
-        Changesprite.enabled = true; // ÀÌ¹ÌÁö¸¦ È°¼ºÈ­ÇÏ¿© º¸ÀÌµµ·Ï ÇÔ
+        Changesprite.enabled = true; // ï¿½Ì¹ï¿½ï¿½ï¿½ï¿½ï¿½ È°ï¿½ï¿½È­ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½
 
         yield return new WaitForSeconds(1f);
 
-        Changesprite.enabled = false; // ÀÌ¹ÌÁö¸¦ ºñÈ°¼ºÈ­ÇÏ¿© ¼û±è
+        Changesprite.enabled = false; // ï¿½Ì¹ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È°ï¿½ï¿½È­ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½
     }
 
 }
