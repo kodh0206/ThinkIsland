@@ -23,19 +23,14 @@ public class ShopButtonClick : MonoBehaviour
     void Start()
     {
 
-        // 싱글톤 초기화
-        gameController = GameObject.Find("GameManager").GetComponent<GameController>();
-
-        // 상점 위 돈, 젤리, 에너지와 현 돈, 젤리, 에너지 연동
-        money.text = gameController.curentgold.ToString();
-        jelly.text = gameController.currentjellyCount.ToString();
-        energy.text = gameController.currentActionPoints.ToString();
-
     }
 
     void Update()
     {
-        
+        // 상점 위 돈, 젤리, 에너지와 현 돈, 젤리, 에너지 연동
+        money.text = GameController.Instance.curentgold.ToString();
+        jelly.text = GameController.Instance.currentjellyCount.ToString();
+        energy.text = GameController.Instance.currentActionPoints.ToString();
     }
 
     public void ShopCloseButtonClick()

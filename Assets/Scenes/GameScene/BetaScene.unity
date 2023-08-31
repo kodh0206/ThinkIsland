@@ -53227,7 +53227,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1000
+  m_text: 400
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cd7f3899890bef543b371244918da391, type: 2}
   m_sharedMaterial: {fileID: -3972499677267993656, guid: cd7f3899890bef543b371244918da391,
@@ -60498,7 +60498,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentLevel: 0
   maxLevel: 4
-  upgradeCosts: 64000000c80000002c01000090010000
+  upgradeCosts: 320000009600000090010000e8030000
   upgradEffect: 050000000a0000000f00000014000000
   upgradeButtons:
   - {fileID: 758548424}
@@ -62552,7 +62552,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1000
+  m_text: 150
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cd7f3899890bef543b371244918da391, type: 2}
   m_sharedMaterial: {fileID: -3972499677267993656, guid: cd7f3899890bef543b371244918da391,
@@ -77015,7 +77015,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1000
+  m_text: '50
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cd7f3899890bef543b371244918da391, type: 2}
   m_sharedMaterial: {fileID: -3972499677267993656, guid: cd7f3899890bef543b371244918da391,
