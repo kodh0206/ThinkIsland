@@ -86861,10 +86861,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sngCanvas: {fileID: 541314960}
   mobileTouchScript: {fileID: 1129654346}
+  gameController: {fileID: 0}
   buildingPanel: {fileID: 2138098005}
   agriculturePanel: {fileID: 531790417}
   livestockPanel: {fileID: 1253719743}
   miningPanel: {fileID: 459596737}
+  money: {fileID: 1852927704}
+  jelly: {fileID: 476688782}
+  energy: {fileID: 372164647}
 --- !u!1001 &2078380264
 PrefabInstance:
   m_ObjectHideFlags: 0

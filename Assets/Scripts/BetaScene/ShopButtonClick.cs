@@ -1,20 +1,36 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class ShopButtonClick : MonoBehaviour
 {
-   public GameObject sngCanvas;
+    public GameObject sngCanvas;
     public MonoBehaviour mobileTouchScript;
+    public GameController gameController;
 
     public GameObject buildingPanel; // 건물 패널
     public GameObject agriculturePanel; // 농업 패널
     public GameObject livestockPanel; // 축산 패널
     public GameObject miningPanel; // 광산 패널
 
+    // 상점 위 텍스트
+    public TextMeshProUGUI money;
+    public TextMeshProUGUI jelly;
+    public TextMeshProUGUI energy;
+
     void Start()
     {
-        
+
+        // 싱글톤 초기화
+        gameController = GameObject.Find("GameManager").GetComponent<GameController>();
+
+        // 상점 위 돈, 젤리, 에너지와 현 돈, 젤리, 에너지 연동
+        money.text = gameController.curentgold.ToString();
+        jelly.text = gameController.currentjellyCount.ToString();
+        energy.text = gameController.currentActionPoints.ToString();
+
     }
 
     void Update()
