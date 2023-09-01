@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class MiniGameLevelShow : MonoBehaviour
 {
+    Animator changespriteAnimator;
 
-
+    public SpriteRenderer spriteRenderer;
     public Sprite Level;
     public Sprite[] LevelSprite = new Sprite[4];
     public static MiniGameLevelShow Instance { get; private set; }
@@ -14,11 +16,13 @@ public class MiniGameLevelShow : MonoBehaviour
     public Image Changesprite;
     public Image BlackBoard;
 
-    // Ŭ������ �ٸ� ��� ������ �Լ� ��...
+    public float minAlpha = 0.3f;
+    public float maxAlpha = 1f;
+
 
     private void Awake()
     {
-        // Instance ����
+
         if (Instance == null)
         {
             Instance = this;
@@ -29,6 +33,7 @@ public class MiniGameLevelShow : MonoBehaviour
         }
         BlackBoard.enabled=false;
         Changesprite.enabled = false;
+        changespriteAnimator = Changesprite.GetComponent<Animator>();
     }
     void Start()
     {
@@ -43,23 +48,52 @@ public class MiniGameLevelShow : MonoBehaviour
 
     public void ShowNowLevel(int difficulty)
     {
-        Debug.Log("������������Ʈ�������2");
+
         StartCoroutine(ChangeSprite(difficulty));
-        Debug.Log("������������Ʈ���泡");
+
     }
 
     private IEnumerator ChangeSprite(int difficulty)
     {
-        Debug.Log("������������Ʈ�������3");
-        
-        Changesprite.sprite = LevelSprite[difficulty];
-        BlackBoard.enabled=true;
-        Changesprite.enabled = true; // �̹����� Ȱ��ȭ�Ͽ� ���̵��� ��
 
-        yield return new WaitForSeconds(1f);
+        
+        
+        BlackBoard.enabled=true;
+        Changesprite.enabled = true;
+        
+        Blink();
+        yield return new WaitForSeconds(0.2f);
+        BlinkEnd();
+        changespriteAnimator.SetInteger("Level", difficulty);
+        yield return new WaitForSeconds(0.5f);
+
+        Changesprite.sprite = LevelSprite[difficulty];
+
+        yield return new WaitForSeconds(0.2f);
+
 
         Changesprite.enabled = false;
-        BlackBoard.enabled=false; // �̹����� ��Ȱ��ȭ�Ͽ� ����
+        BlackBoard.enabled=false; 
+    }
+
+
+    public void Blink()
+    {
+        Changesprite.color = new Color(
+                Changesprite.color.r,
+                Changesprite.color.g,
+                Changesprite.color.b,
+                minAlpha);
+
+    }
+
+    public void BlinkEnd()
+    {
+        Changesprite.color = new Color(
+            Changesprite.color.r,
+            Changesprite.color.g,
+            Changesprite.color.b,
+            maxAlpha);
     }
 
 }
