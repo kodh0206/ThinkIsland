@@ -12,6 +12,9 @@ public class NumberParticle : MonoBehaviour
     private SpriteRenderer tensRenderer; // 십의 자리 숫자를 위한 렌더러
     [SerializeField]
     private SpriteRenderer onesRenderer; // 일의 자리 숫자를 위한 렌더러
+    [SerializeField]
+    private SpriteRenderer fxRenderer; // 일의 자리 숫자를 위한 렌더러
+    
 
     private float bobbingSpeed = 1f;  // 숫자 움직임 속도
     private float bobbingAmount = 0.1f;  // 움직임 범위
@@ -44,6 +47,9 @@ public class NumberParticle : MonoBehaviour
     // 일의 자리 숫자 스프라이트 설정
     onesRenderer.sprite = numberSprites[ones];
 
+    // 뒤에 생기는 Fx 켜짐
+    fxRenderer.enabled = true;
+
     // 파티클의 위치 설정
     transform.position = position;
 
@@ -75,7 +81,10 @@ public class NumberParticle : MonoBehaviour
 
             Color onesColor = onesRenderer.color;
             onesRenderer.color = new Color(onesColor.r, onesColor.g, onesColor.b, alpha);
-
+            
+            Color fxColor = fxRenderer.color;
+            fxRenderer.color = new Color(fxColor.r, fxColor.g, fxColor.b, alpha);
+            
             elapsedTime += Time.deltaTime;
             yield return null;
         }
