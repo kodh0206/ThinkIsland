@@ -261,9 +261,7 @@ public class WJ_Sample_Class : MonoBehaviour
 
                         // 여기에 원하는 로직 추가 애니메이션 사운드 효과
                         AudioManager.Instance.PlayRight();
-                         #if UNITY_ANDROID || UNITY_IOS
-                            Handheld.Vibrate();
-                        #endif
+                        Vibration.Instance.Vibrate();
                     }
                 else 
                     {
@@ -272,9 +270,7 @@ public class WJ_Sample_Class : MonoBehaviour
                         // 여기에 원하는 로직 추가
                          wrongAnswerCount++; 
                         AudioManager.Instance.PlayWrong();
-                         #if UNITY_ANDROID || UNITY_IOS
-                            Handheld.Vibrate();
-                        #endif
+                        Vibration.Instance.Vibrate();
                     }
                    if (wrongAnswerCount >= 3)
                     {   warningPanel.SetActive(true);
