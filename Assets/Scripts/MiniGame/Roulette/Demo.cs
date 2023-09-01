@@ -7,8 +7,8 @@ public class Demo : MonoBehaviour
 	private	Roulette	roulette;
 	[SerializeField]
 	private	Button		buttonSpin;
-	[SerializeField]
-    private UISpriteAnimation spriteAnimation;  // 애니메이션 컴포넌트 참조 추가
+	[SerializeField] GameObject rewardPanel;
+    [SerializeField]private UISpriteAnimation spriteAnimation;  // 애니메이션 컴포넌트 참조 추가
 
 	private void Awake()
 	{
@@ -28,7 +28,7 @@ public class Demo : MonoBehaviour
 			buttonSpin.interactable = false;
     		
      	}
-	
+	rewardPanel.SetActive(true);
 		
     Debug.Log($"{selectedData.index}:{selectedData.description}");
 	buttonSpin.interactable = true;
