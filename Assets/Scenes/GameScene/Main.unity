@@ -1112,8 +1112,16 @@ MonoBehaviour:
   Level: {fileID: -1614388536, guid: 2b967acab9802654e9c224b709d21f93, type: 3}
   LevelSprite:
   - {fileID: -1614388536, guid: 2b967acab9802654e9c224b709d21f93, type: 3}
+  - {fileID: -1036094673, guid: 2b967acab9802654e9c224b709d21f93, type: 3}
+  - {fileID: 383050018, guid: 2b967acab9802654e9c224b709d21f93, type: 3}
+  - {fileID: -2135578017, guid: 2b967acab9802654e9c224b709d21f93, type: 3}
   - {fileID: -280636648, guid: 2b967acab9802654e9c224b709d21f93, type: 3}
+  - {fileID: -1424970043, guid: 2b967acab9802654e9c224b709d21f93, type: 3}
+  - {fileID: -2001959007, guid: 2b967acab9802654e9c224b709d21f93, type: 3}
+  - {fileID: -352714812, guid: 2b967acab9802654e9c224b709d21f93, type: 3}
   - {fileID: -362757375, guid: 2b967acab9802654e9c224b709d21f93, type: 3}
+  - {fileID: -1831417810, guid: 2b967acab9802654e9c224b709d21f93, type: 3}
+  - {fileID: -1628750362, guid: 2b967acab9802654e9c224b709d21f93, type: 3}
   - {fileID: 1896311447, guid: 2b967acab9802654e9c224b709d21f93, type: 3}
   Changesprite: {fileID: 41008685}
   BlackBoard: {fileID: 313971569}
