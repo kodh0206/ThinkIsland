@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 using TMPro;
 using System;
 using Random = UnityEngine.Random;
+using UnityEngine.TerrainTools;
 
 public class WJ_Sample_Class : MonoBehaviour
 {
@@ -37,12 +38,14 @@ public class WJ_Sample_Class : MonoBehaviour
     int rightanswers; //맞춘 레밸 
     int energy; //획득한 에너지
     int gold; // 획득한 골드 
+    private int wrongAnswerCount = 0;
 
     [Header("For Debug")]
     [SerializeField] WJ_DisplayText     wj_displayText;         //�ؽ�Ʈ ǥ�ÿ�(�ʼ�X)
     [SerializeField] Button             getLearningButton;      //���� �޾ƿ��� ��ư
     [SerializeField] GameObject         resultPanel;
     [SerializeField] GameObject         diagnosisPanel;
+    [SerializeField] GameObject         warningPanel;
 
     //(20+ 맞춘갯수*(에너지총량-20)/8)
     private void Awake()
@@ -243,7 +246,7 @@ public class WJ_Sample_Class : MonoBehaviour
                         // 정답일 때의 로직
                         Debug.Log("정답입니다!"); 
                         rightanswers+=1;
-
+                        wrongAnswerCount = 0;
                         AchievementManager achievementManager = FindObjectOfType<AchievementManager>();
                         if (achievementManager != null)
                         {
@@ -258,8 +261,26 @@ public class WJ_Sample_Class : MonoBehaviour
                         // 오답일 때의 로직
                         Debug.Log("틀렸습니다!");
                         // 여기에 원하는 로직 추가
+                         wrongAnswerCount++; 
                         AudioManager.Instance.PlayWrong();
                     }
+                   if (wrongAnswerCount >= 3)
+                    {   warningPanel.SetActive(true);
+                    for(int i=0; i<4; i++){
+                        btAnsr[i].interactable =false;
+                    }
+                        Debug.Log("3문제 연속 틀렸습니다! 제대로 풀어주세요.");
+                        wrongAnswerCount = 0;  // 경고를 주고 틀린 횟수 초기화
+                    }
+
+                // 문제 푸는 시간이 2초 이하인지 체크
+                if (questionSolveTime <= 2.0f)
+                {   for(int i=0; i<4; i++){
+                        btAnsr[i].interactable =false;
+                    }
+                    warningPanel.SetActive(true);
+                    Debug.Log("너무 빨리 풀었습니다! 제대로 풀어주세요.");
+                }
 
                 isSolvingQuestion = false;
                 currentQuestionIndex++;
@@ -335,6 +356,13 @@ public class WJ_Sample_Class : MonoBehaviour
         RadioPanel.SetActive(true);
         Setup();
         Debug.Log("문제 풀기 on");
+    }
+
+    public void CloseWarningPanel()
+    {for(int i=0; i<4; i++){
+                        btAnsr[i].interactable =true;
+                    }
+        warningPanel.SetActive(false);
     }
     #endregion
 }
