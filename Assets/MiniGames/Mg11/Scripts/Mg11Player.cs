@@ -30,6 +30,10 @@ public class Mg11Player : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
 
+    public float blinkInterval = 0.125f; //blink
+    public float minAlpha = 0.3f; // 최소 알파값 (반투명 상태)
+    public float maxAlpha = 1f;   // 최대 알파값 (불투명 상태)
+
     public void RightClick()
     {
         LeftButton = false;
@@ -133,7 +137,13 @@ public class Mg11Player : MonoBehaviour
         Mg11egg.instance.EggBreak();
 
 
-        yield return new WaitForSeconds(2f);
+        for (int i = 0; i < 8; i++) //Blink
+        {
+            Blink();
+            yield return new WaitForSeconds(blinkInterval);
+            BlinkEnd();
+            yield return new WaitForSeconds(blinkInterval);
+        }
 
         SetHitEffVisibility(hitEff, false);
 
@@ -161,6 +171,25 @@ public class Mg11Player : MonoBehaviour
     {
         Vibration.Instance.Vibrate();
         myCamera.transform.DOShakePosition(1.5f, 0.2f, 10); 
+    }
+
+    public void Blink()
+    {
+        spriteRenderer.color = new Color(
+                spriteRenderer.color.r,
+                spriteRenderer.color.g,
+                spriteRenderer.color.b,
+                minAlpha); // 반투명 상태로 설정
+
+    }
+
+    public void BlinkEnd()
+    {
+        spriteRenderer.color = new Color(
+            spriteRenderer.color.r,
+            spriteRenderer.color.g,
+            spriteRenderer.color.b,
+            maxAlpha); // 불투명 상태로 설정
     }
 
 }
