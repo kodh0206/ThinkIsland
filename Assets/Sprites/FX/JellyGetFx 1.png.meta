@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 655a06ab35ff4a84bbced5b05f450d9d
+guid: fd8a5b978e45bbd41ad0998e0ebff108
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -129,13 +129,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: JellyGetFx_0
+      name: JellyGetFx 1_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 16
-        width: 16
-        height: 16
+        y: 64
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -143,20 +143,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 067ccf501709fca4fa921ed0e2f8eb53
-      internalID: -1870778908
+      spriteID: 29d74834c308a7e4d947f0c2bc916af8
+      internalID: -937441364
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: JellyGetFx_1
+      name: JellyGetFx 1_1
       rect:
         serializedVersion: 2
-        x: 16
-        y: 16
-        width: 16
-        height: 16
+        x: 64
+        y: 64
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -164,20 +164,62 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c50c2ba6846162f4188c839fae51b0ba
-      internalID: 912418939
+      spriteID: bbdcb01f8194e22449803bec981de1d5
+      internalID: -385826326
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: JellyGetFx_2
+      name: JellyGetFx 1_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 580d1ed9c25dc5a4fa826e1fb1bb5a6f
+      internalID: 1384540789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JellyGetFx 1_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec585ed4c1b6e2342a6b3dbca6cb2251
+      internalID: 365147818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JellyGetFx 1_4
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 16
-        height: 16
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -185,20 +227,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6774203b6be901a4785e6d29574d3b01
-      internalID: 1728325526
+      spriteID: d1bd5f87de9796249a05a54d5292a1b8
+      internalID: -133326740
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: JellyGetFx_3
+      name: JellyGetFx 1_5
       rect:
         serializedVersion: 2
-        x: 16
+        x: 64
         y: 0
-        width: 16
-        height: 16
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -206,8 +248,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 304554208b84ce44f875b0290e171195
-      internalID: 1958337804
+      spriteID: 19bb7fb2f5f99b944a646b6e9cc7ca9b
+      internalID: 988585967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JellyGetFx 1_6
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a533d78caf77b3c418097638a0e50dfe
+      internalID: -1428721729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JellyGetFx 1_7
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d12df6b0138024459a9321e8a0ee29f
+      internalID: 2037735827
       vertices: []
       indices: 
       edges: []
@@ -223,10 +307,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      JellyGetFx_0: -1870778908
-      JellyGetFx_1: 912418939
-      JellyGetFx_2: 1728325526
-      JellyGetFx_3: 1958337804
+      JellyGetFx 1_0: -937441364
+      JellyGetFx 1_1: -385826326
+      JellyGetFx 1_2: 1384540789
+      JellyGetFx 1_3: 365147818
+      JellyGetFx 1_4: -133326740
+      JellyGetFx 1_5: 988585967
+      JellyGetFx 1_6: -1428721729
+      JellyGetFx 1_7: 2037735827
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
