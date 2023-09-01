@@ -23,27 +23,13 @@ public class GameController : MonoBehaviour
     public int maximumActionPoints; //최대에너지 
     public int level=1;
     public int[] expToLevelUp = {
-       /* 5, 37, 60, 78, 92,104,115,124,133,140, //1~10
+        5, 37, 60, 78, 92,104,115,124,133,140, //1~10
         147,154,159,165,170,175,175,179,184,188,//11~20
         192,195,199,202,205,209,212,214,217,220,//21~30
         222,225,227,230,232,234,237,239,241,243,//31~40
         245,247,248,250,252,254,256,257,259,260,//41~50
-        262,264,265,267,268,269,271,272,274,275,//51~60
-        276,277,279,280,282,282,284,285,286,287,//61~70
-        288,289,290,292,293,294,295,296,297,298,//71~80
-        299,300,301,302,303,303,304,305,306,307,//81~90
-        308,309,310,311,311,312,313,314,315 //90~99
-        */
-        1,2,3,4,5,6,7,8,9,10,
-        11,12,13,14,15,16,17,18,19,
-        20,21,22,23,24,25,26,27,28,29,
-        30,31,32,33,34,35,36,37,38,39
-        ,40,41,42,43,44,45,46,47,48,49
-        ,50,51,52,53,54,55,56,57,58,59
-        ,50,51,52,53,54,55,56,57,58,59
-        ,50,51,52,53,54,55,56,57,58,59
-        ,50,51,52,53,54,55,56,57,58,59
-        ,50,51,52,53,54,55,56,57,58,59
+       
+      
         }; 
         // 각 레벨별 필요한 경험치
     public int current_experience;
@@ -69,6 +55,7 @@ public class GameController : MonoBehaviour
         _instance = this;
         DontDestroyOnLoad(gameObject);
 
+        LoadData();
         Application.targetFrameRate = 60;
 
         AchievementManager achievementManager = FindObjectOfType<AchievementManager>();
@@ -122,17 +109,16 @@ public class GameController : MonoBehaviour
     // ...
 
     // Get the reward data for the new level
-     RewardManager.Instance.GetRewardForLevel(level);
-   
+    RewardManager.Instance.GetRewardForLevel(level);
     
     }
 
-      public void AddGold(int amount)
+    public void AddGold(int amount)
     {
         curentgold += amount;
     }
 
-        void LoadData(){
+    void LoadData(){
         if (ES3.KeyExists("currentmbrId"))
             currentmbrId = ES3.Load<string>("currentmbrId");
         if (ES3.KeyExists("currentprgsCd"))
@@ -192,5 +178,16 @@ public class GameController : MonoBehaviour
         ES3.Save("ownedPastures", ownedPastures);
         ES3.Save("upgradedElements", upgradedElements);
         ES3.Save("unlockedMiniGames", unlockedMiniGames);
+    }
+
+      private void OnApplicationQuit()
+    {
+        SaveData();
+    }
+
+    public void Reset()
+    {   
+        ES3.DeleteFile();
+        PlayerPrefs.DeleteAll();
     }
 }
