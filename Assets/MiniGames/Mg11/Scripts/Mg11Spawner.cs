@@ -20,7 +20,7 @@ public class Mg11Spawner : MonoBehaviour
 
     float time = 0;
 
-    float timeindex;
+    float timeindex=1.5f;
 
     // Start is called before the first frame update
     void Start()
@@ -88,12 +88,14 @@ public class Mg11Spawner : MonoBehaviour
     {
         Mg11ObstacleSpeed += 1.0f; // 장애물의 스피드 증가
         time_diff -= 0.1f; // 장애물의 생성 간격 감소
+        timeindex -= 0.1f;
     }
 
     public void DecreaseSpeed()
     {
         Mg11ObstacleSpeed -= 1.0f; // 장애물의 스피드 증가
         time_diff += 0.1f; // 장애물의 생성 간격 감소
+        timeindex += 0.1f;
     }
 
     public void GetHit()
@@ -104,11 +106,10 @@ public class Mg11Spawner : MonoBehaviour
     private IEnumerator DisableSpawning()
     {
         // 생성 멈춤
-        timeindex = time_diff;
         time_diff = Mathf.Infinity;
 
         // 대기 시간
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.5f);
 
         // 생성 재개
         time_diff = timeindex;
