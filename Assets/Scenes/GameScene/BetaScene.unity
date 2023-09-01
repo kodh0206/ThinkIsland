@@ -4821,13 +4821,13 @@ PrefabInstance:
     - target: {fileID: 7156422653426995375, guid: 73afa29f1dedd014e994563ccd482119,
         type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7156422653426995375, guid: 73afa29f1dedd014e994563ccd482119,
         type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 260965951}
+      objectReference: {fileID: 260965955}
     - target: {fileID: 7156422653426995375, guid: 73afa29f1dedd014e994563ccd482119,
         type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
@@ -4835,8 +4835,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7156422653426995375, guid: 73afa29f1dedd014e994563ccd482119,
         type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnVibeToggleChanged
+      objectReference: {fileID: 0}
+    - target: {fileID: 7156422653426995375, guid: 73afa29f1dedd014e994563ccd482119,
+        type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UnityEngine.GameObject, UnityEngine
+      value: SettingsButtonClick, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7156422653426995375, guid: 73afa29f1dedd014e994563ccd482119,
+        type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7156422654277662961, guid: 73afa29f1dedd014e994563ccd482119,
         type: 3}
@@ -4881,7 +4891,7 @@ PrefabInstance:
     - target: {fileID: 7156422654561450794, guid: 73afa29f1dedd014e994563ccd482119,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7156422654561450799, guid: 73afa29f1dedd014e994563ccd482119,
         type: 3}
