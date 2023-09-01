@@ -102,8 +102,9 @@ public class Field : MonoBehaviour
 
     private void OnMouseDown()
     {   
+    AudioManager.Instance.PlayFieldClick();
     Debug.Log("클릭!"+GetInstanceID());
-     if(state == PlotState.LOCKED)
+    if(state == PlotState.LOCKED)
     {
         fm.UnlockPlot(this, 200); // Unlock this plot for 200 dollars
         Debug.Log("토지해금");
@@ -146,7 +147,8 @@ public class Field : MonoBehaviour
    public void Plant(CropData cropData)
 {
     if (state == PlotState.EMPTY)
-    {
+    {   
+        AudioManager.Instance.PlayStartFarming();
         state = PlotState.PLANTING;
         currentCropData = cropData;
         timeLeft = cropData.TimesToGrow;
@@ -158,7 +160,8 @@ public class Field : MonoBehaviour
     private void Harvest()
     {
         if (state == PlotState.HARVEST)
-        {
+        {   
+            AudioManager.Instance.PlayHarvest();
             fm.Transaction(currentCropData.sellPrice);
             currentCropData = null;
             cropSprite.sprite = null;
@@ -190,7 +193,8 @@ public class Field : MonoBehaviour
     public void Unlock()
 {
     if (state == PlotState.LOCKED)
-    {
+    {   
+       
         ChangeState(PlotState.EMPTY);
     }
 }
@@ -198,6 +202,7 @@ public class Field : MonoBehaviour
 public void GiveWater()
 {
    isDry=false;
+   AudioManager.Instance.PlayWater();
 }
 
 private void OnEnable()

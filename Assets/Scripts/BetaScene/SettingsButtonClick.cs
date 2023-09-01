@@ -83,7 +83,7 @@ public class SettingsButtonClick : MonoBehaviour
     {
 
         Debug.Log("Vibe Toggle value changed to: " + isOn);
-        UpdateToggleImage(sfxToggle, isOn);
+        UpdateToggleImage(vibeToggle, isOn);
         Vibration.Instance.isVibrate =!isOn;
     }
     public void SettingCloseButtonClick()

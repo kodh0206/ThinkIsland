@@ -164,7 +164,7 @@ public class BetaManager : MonoBehaviour
     {
         GameController.Instance.curentgold += value;
         moneyText.text = GameController.Instance.curentgold.ToString();
-
+        AudioManager.Instance.PlayCoin();
         // 작물 수확 합계 10000 골드 달성
         if (value > 0)
         {
@@ -198,7 +198,7 @@ public class BetaManager : MonoBehaviour
                 // Deselect the crop and plot
                 selectPlant = null;
                 selectPlot = null;
-
+                AudioManager.Instance.PlayStartFarming();
                 storeManager.storePanel.SetActive(false);
             }
             else
@@ -225,6 +225,7 @@ public class BetaManager : MonoBehaviour
 
     private void  SelectWater()
     {   Debug.Log("물 선택!");
+        AudioManager.Instance.PlayWater();
         isWaterSelected = !isWaterSelected;  
     }
     public void UpdateJellyText()
