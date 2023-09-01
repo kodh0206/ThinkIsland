@@ -57698,7 +57698,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'stat : scrollbar'
+  m_text: "\uC824\uB9AC \uD68D\uB4DD 0\uAC1C\r\n\uACE8\uB4DC \uD68D\uB4DD 0\uACE8\uB4DC\r\n\uD0D0\uD5D8\uBB3C
+    \uC785\uC7A5 0\uD68C\r\n\uC7A5\uC560\uBB3C \uCDA9\uB3CC\uC5C6\uC774 \uD074\uB9AC\uC5B4
+    0\uD68C\r\n\uD034\uC988 \uC815\uB2F5 0\uD68C\r\n\uACE8\uB4E0\uBCA8 0\uD68C\r\n\uB9F5
+    \uD655\uC7A5 \uB2E8\uACC4 0\uB2E8\uACC4\r\n\uCE90\uB9AD\uD130 \uC218\uC9D1 \uC9C4\uD589\uB3C4
+    0/20\uB9C8\uB9AC\r\n\uC5C5\uC801 \uB2EC\uC131 \uC9C4\uD589\uB3C4 0/0\uAC1C\r\n\uAC8C\uC784
+    \uD50C\uB808\uC774\uD0C0\uC784 0.0\uC2DC\uAC04"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cd7f3899890bef543b371244918da391, type: 2}
   m_sharedMaterial: {fileID: -3972499677267993656, guid: cd7f3899890bef543b371244918da391,
@@ -57765,7 +57770,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &730608797
