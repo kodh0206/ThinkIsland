@@ -9,6 +9,9 @@ public class Mg11egg : MonoBehaviour
 
     private Animator animator;
 
+    Mg11Spawner spawner;
+    Mg11jellySpawner spawner2;
+
     void Awake()
     {
         if (instance == null)
@@ -19,6 +22,8 @@ public class Mg11egg : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+        spawner = FindObjectOfType<Mg11Spawner>();
+        spawner2 = FindObjectOfType<Mg11jellySpawner>();
     }
     // Update is called once per frame
     void Update()
@@ -29,6 +34,8 @@ public class Mg11egg : MonoBehaviour
     public void EggBreak()
     {
         animator.SetBool("Break", true);
+        spawner.GetHit();
+        spawner2.GetHit();
 
         GameObject[] ObstacleObjects = GameObject.FindGameObjectsWithTag("Obstacle"); // Àå¾Ö¹° ÆÄ±«
         foreach (var ObstacleObject in ObstacleObjects)

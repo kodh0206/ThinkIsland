@@ -20,6 +20,8 @@ public class Mg11Spawner : MonoBehaviour
 
     float time = 0;
 
+    float timeindex;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -102,12 +104,13 @@ public class Mg11Spawner : MonoBehaviour
     private IEnumerator DisableSpawning()
     {
         // 생성 멈춤
+        timeindex = time_diff;
         time_diff = Mathf.Infinity;
 
         // 대기 시간
         yield return new WaitForSeconds(2f);
 
         // 생성 재개
-        time_diff = 1.5f;
+        time_diff = timeindex;
     }
 }
