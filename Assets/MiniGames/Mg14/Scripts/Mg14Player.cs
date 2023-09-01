@@ -206,6 +206,7 @@ public class Mg14Player : MonoBehaviour
 
     public void ShakeCamera()
     {
+        Vibration.Instance.Vibrate();
         myCamera.transform.DOShakePosition(1.5f, 0.6f, 15);  // 카메라를 1초 동안, 강도 0.4로 20번 흔듭니다.
     }
 

@@ -25,6 +25,7 @@ public class jelly : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            Vibration.Instance.Vibrate();
             MiniGameManager.Instance.AddJelly();
            int newScore =MiniGameManager.Instance.totalJelly;
 

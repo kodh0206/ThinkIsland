@@ -123,6 +123,7 @@ public class Mg8Player : MonoBehaviour
 
     public void ShakeCamera()
     {
+        Vibration.Instance.Vibrate();
         myCamera.transform.DOShakePosition(2f, 0.2f, 40);  
     }
 

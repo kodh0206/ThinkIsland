@@ -26,6 +26,7 @@ public class Mg18jelly : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            Vibration.Instance.Vibrate();
             MiniGameManager.Instance.AddJelly();
             Mg18manager.instance.AddScore();
 

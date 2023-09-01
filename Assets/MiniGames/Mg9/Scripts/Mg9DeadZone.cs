@@ -67,6 +67,7 @@ public class Mg9DeadZone : MonoBehaviour
 
     public void ShakeCamera()
     {
+        Vibration.Instance.Vibrate();
         myCamera.transform.DOShakePosition(1.0f, 0.6f, 10);  
     }
 }

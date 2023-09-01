@@ -179,6 +179,7 @@ public class Mg12Player : MonoBehaviour
 
     public void ShakeCamera()
     {
+        Vibration.Instance.Vibrate();
         myCamera.transform.DOShakePosition(1.0f, 0.6f, 10); 
     }
 
