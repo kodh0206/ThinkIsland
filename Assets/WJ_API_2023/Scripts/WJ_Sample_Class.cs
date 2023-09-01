@@ -282,7 +282,7 @@ public class WJ_Sample_Class : MonoBehaviour
                     }
 
                 // 문제 푸는 시간이 2초 이하인지 체크
-                if (questionSolveTime <= 2.0f)
+                if (questionSolveTime <= 1.0f)
                 {   for(int i=0; i<4; i++){
                         btAnsr[i].interactable =false;
                     }
