@@ -36,7 +36,8 @@ public class Mg2Jelly : MonoBehaviour
                 foreach (Collider2D collider in colliders)
                 {
                     if (collider.gameObject.CompareTag("Player"))
-                    {      
+                    {
+                        Vibration.Instance.Vibrate();
                         MiniGameManager.Instance.AddJelly();
                         int newScore =MiniGameManager.Instance.totalJelly;
 
