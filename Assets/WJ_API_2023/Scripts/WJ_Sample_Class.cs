@@ -214,12 +214,18 @@ public class WJ_Sample_Class : MonoBehaviour
                         // 정답일 때의 로직
                         Debug.Log("정답입니다!");
                         // 여기에 원하는 로직 추가 애니메이션 사운드 효과
+                        #if UNITY_ANDROID || UNITY_IOS
+                            Handheld.Vibrate();
+                        #endif
                         AudioManager.Instance.PlayRight();
                     }
                 else 
                     {
                         // 오답일 때의 로직
-                        Debug.Log("틀렸습니다!");
+                        Debug.Log("틀렸습니다!"); 
+                        #if UNITY_ANDROID || UNITY_IOS
+                            Handheld.Vibrate();
+                        #endif
                         AudioManager.Instance.PlayWrong();
                         // 여기에 원하는 로직 추가
                     }
@@ -255,6 +261,9 @@ public class WJ_Sample_Class : MonoBehaviour
 
                         // 여기에 원하는 로직 추가 애니메이션 사운드 효과
                         AudioManager.Instance.PlayRight();
+                         #if UNITY_ANDROID || UNITY_IOS
+                            Handheld.Vibrate();
+                        #endif
                     }
                 else 
                     {
@@ -263,6 +272,9 @@ public class WJ_Sample_Class : MonoBehaviour
                         // 여기에 원하는 로직 추가
                          wrongAnswerCount++; 
                         AudioManager.Instance.PlayWrong();
+                         #if UNITY_ANDROID || UNITY_IOS
+                            Handheld.Vibrate();
+                        #endif
                     }
                    if (wrongAnswerCount >= 3)
                     {   warningPanel.SetActive(true);
