@@ -57714,7 +57714,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC824\uB9AC \uD68D\uB4DD 0\uAC1C\r\n\uACE8\uB4DC \uD68D\uB4DD 0\uACE8\uB4DC\r\n\uD0D0\uD5D8\uBB3C
+  m_text: "\uC824\uB9AC \uD68D\uB4DD 0\uAC1C\r\n\uACE8\uB4DC \uD68D\uB4DD 0\uACE8\uB4DC\r\n\uD0D0\uD5D8
     \uC785\uC7A5 0\uD68C\r\n\uC7A5\uC560\uBB3C \uCDA9\uB3CC\uC5C6\uC774 \uD074\uB9AC\uC5B4
     0\uD68C\r\n\uD034\uC988 \uC815\uB2F5 0\uD68C\r\n\uACE8\uB4E0\uBCA8 0\uD68C\r\n\uB9F5
     \uD655\uC7A5 \uB2E8\uACC4 0\uB2E8\uACC4\r\n\uCE90\uB9AD\uD130 \uC218\uC9D1 \uC9C4\uD589\uB3C4
@@ -58046,6 +58046,18 @@ MonoBehaviour:
       - m_Target: {fileID: 541314966}
         m_TargetAssemblyTypeName: SNGButtonClick, Assembly-CSharp
         m_MethodName: ProfileButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1781991765}
+        m_TargetAssemblyTypeName: ProfileButtonClick, Assembly-CSharp
+        m_MethodName: ProfileTextChange
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -80249,6 +80261,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sngCanvas: {fileID: 541314960}
   mobileTouchScript: {fileID: 1129654346}
+  textMeshProUGUI: {fileID: 730608796}
 --- !u!1 &1783413343
 GameObject:
   m_ObjectHideFlags: 0

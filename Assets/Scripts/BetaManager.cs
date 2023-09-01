@@ -90,6 +90,9 @@ public class BetaManager : MonoBehaviour
         AudioManager.Instance.StartMiniGame();
         miniGame.StartMiniGameWithAudio();
         GameController.Instance.currentActionPoints -= 20; // 게임 시작에 필요한 활동력 감소
+
+        // 프로필창 업데이트
+        GameController.Instance.playMiniGame += 1;
     }
     else // 활동력이 20 미만일 경우
     {

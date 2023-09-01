@@ -43,7 +43,23 @@ public class GameController : MonoBehaviour
     public List<string> upgradedElements;
     public List<string> unlockedMiniGames;
     public string current_language ="Korean";
-    // Start is called before the first frame update
+    
+
+    // 프로필 관련 변수 초기화
+    public int jellyCount = 0; // 젤리 획득
+    public int goldAmount = 0; // 골드 획득
+    public int playMiniGame = 0;// 탐험 입장 (미니게임 플레이 횟수)
+    public int noCrashObject = 0;// 장애물 충돌없이 클리어
+    public int quizCorrect = 0;// 퀴즈 정답
+    public int goldenBell = 0;// 골든벨
+    public int mapExtend = 0;// 맵 확장 단계
+    public int charCollectionProgress = 0;// 캐릭터 수집 진행도
+    public int achievementProgress = 0;// 업적 달성 진행도
+    public int playTime = 0;// 게임 플레이타임
+
+
+
+
     void Awake()
     {
         if (_instance != null && _instance != this)
