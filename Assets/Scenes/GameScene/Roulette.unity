@@ -246,6 +246,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roulette: {fileID: 1716809417}
   buttonSpin: {fileID: 1482816858}
+  rewardPanel: {fileID: 340448343}
   spriteAnimation: {fileID: 264882219}
 --- !u!1 &90707815
 GameObject:
@@ -686,7 +687,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &340448344
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5357,9 +5358,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1214294886}
+      - m_Target: {fileID: 67068027}
         m_TargetAssemblyTypeName: UISpriteAnimation, Assembly-CSharp
-        m_MethodName: Func_PlayUIAnim
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6598,6 +6599,9 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  rewardButton: {fileID: 1764261016}
+  spriteAnimation: {fileID: 1214294886}
+  rewardPanel: {fileID: 340448343}
   color1: {r: 1, g: 0, b: 0, a: 1}
   color2: {r: 0, g: 0, b: 1, a: 1}
   gold: {fileID: -462858225, guid: 5d93731179f4f9544a3bc8db557450c5, type: 3}
@@ -6786,9 +6790,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1214294886}
-        m_TargetAssemblyTypeName: UISpriteAnimation, Assembly-CSharp
-        m_MethodName: Func_PlayUIAnim
+      - m_Target: {fileID: 1716809417}
+        m_TargetAssemblyTypeName: Roulette, Assembly-CSharp
+        m_MethodName: RewardAnim
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

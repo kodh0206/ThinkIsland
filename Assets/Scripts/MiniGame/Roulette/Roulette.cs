@@ -7,7 +7,7 @@ using System.Linq;
 using Random = UnityEngine.Random;
 using UnityEngine.SceneManagement;
 using TMPro;
-
+using UnityEngine.UI;
 public class Roulette : MonoBehaviour
 {
 	[SerializeField]
@@ -28,6 +28,9 @@ public class Roulette : MonoBehaviour
 	[SerializeField]
 	private	AnimationCurve		spinningCurve;				// ȸ�� �ӵ� ��� ���� �׷���
 
+    public Button rewardButton;
+    [SerializeField] UISpriteAnimation spriteAnimation;
+    [SerializeField] GameObject rewardPanel;
 	private	float				pieceAngle;					// ���� �ϳ��� ��ġ�Ǵ� ����
 	private	float				halfPieceAngle;				// ���� �ϳ��� ��ġ�Ǵ� ������ ���� ũ��
 	private	float				halfPieceAngleWithPaddings;	// ���� ���⸦ ������ Padding�� ���Ե� ���� ũ��
@@ -194,31 +197,56 @@ public class Roulette : MonoBehaviour
     }
 private IEnumerator OnSpin(float end, UnityAction<RoulettePieceData> action)
 {
-    float current = 0;
+  float current = 0;
     float percent = 0;
     
     audioSource.clip = spin;
     audioSource.Play();  // 룰렛이 회전하기 시작하면 소리를 재생합니다.
-    // 변형된 반복문 조건
-    while ( percent < 1 )
-		{
-			current += Time.deltaTime;
-			percent = current / spinDuration;
 
-			float z = Mathf.Lerp(0, end, spinningCurve.Evaluate(percent));
-			spinningRoulette.rotation = Quaternion.Euler(0, 0, z);
+    while (percent < 1)
+    {
+        current += Time.deltaTime;
+        percent = current / spinDuration;
 
-			yield return null;
-		}
-    Debug.Log("Spin completed. Selected index: " + selectedIndex); // 추가된 디버깅 로그
+        float z = Mathf.Lerp(0, end, spinningCurve.Evaluate(percent));
+        spinningRoulette.rotation = Quaternion.Euler(0, 0, z);
+
+        yield return null;
+    }
+
+    // 리스트가 비어 있는지 확인
+    if (roulettePieceData.Count == 0)
+    {
+        Debug.LogError("roulettePieceData is empty.");
+        yield break;  // 코루틴을 중단합니다.
+    }
+
+    Debug.Log("Spin completed. Selected index: " + selectedIndex); 
     isSpinning = false;
 
-    if ( action != null ) action.Invoke(roulettePieceData[selectedIndex]);
+    if (action != null) action.Invoke(roulettePieceData[selectedIndex]);
 
     // 보상 처리 부분
     RoulettePieceData selectedReward = roulettePieceData[selectedIndex];
-    Debug.Log("Selected reward: " + selectedReward.description); // 추가된 디버깅 로그
-    roulettePieceData.RemoveAt(selectedIndex);
+    Debug.Log("Selected reward: " + selectedReward.description); 
+
+    // 아이템 제거 전에도 한 번 더 확인
+    if (roulettePieceData.Count > 0)
+    {
+    if (roulettePieceData[selectedIndex].rewardType != "Gold")
+    {
+        roulettePieceData.RemoveAt(selectedIndex);
+    }
+    else
+    {
+    Debug.LogError("Cannot remove item. roulettePieceData is empty.");
+    }
+    }
+    
+    else
+    {
+        Debug.LogError("Cannot remove item. roulettePieceData is empty.");
+    }
 
     // Find the reward in the newRewards list that matches the selected reward
     LevelRewardData rewardToRemove = RewardManager.Instance.GetMatchedNewReward(selectedReward.description);
@@ -227,10 +255,12 @@ private IEnumerator OnSpin(float end, UnityAction<RoulettePieceData> action)
     {
         RewardManager.Instance.RemoveFromNewRewards(rewardToRemove);
     }
-     audioSource.Stop();
-     audioSource.PlayOneShot(reward);
-     // 보상 유형에 따라 다른 작업을 수행합니다.
-     switch (selectedReward.rewardType)
+    
+    spriteAnimation.m_SpriteArray[spriteAnimation.m_SpriteArray.Length-1] = selectedReward.icon;
+    audioSource.Stop();
+
+    // 보상 유형에 따라 다른 작업을 수행합니다.
+    switch (selectedReward.rewardType)
     {
         case "Gold":
             // 골드 보상 처리
@@ -238,7 +268,7 @@ private IEnumerator OnSpin(float end, UnityAction<RoulettePieceData> action)
             GameController.Instance.curentgold += selectedReward.rewardAmount;
             break;
         case "Crop":
-             CropData newCrop = GameController.Instance.CropList.Find(c => c.plantName == selectedReward.description);
+            CropData newCrop = GameController.Instance.CropList.Find(c => c.plantName == selectedReward.description);
             if (newCrop != null)
             {
                 GameController.Instance.currentUnlockedCrops.Add(newCrop);
@@ -258,19 +288,15 @@ private IEnumerator OnSpin(float end, UnityAction<RoulettePieceData> action)
                 GameController.Instance.unlockedMiniGames.Add(selectedReward.description);
                 MiniGameManager.Instance.AddMiniGame(selectedReward.description);
                 Debug.Log("Unlocked new minigame: " + selectedReward.description);
-
-
-                
             }
             break;
-               
         default:
             break;
     }
-     if (GameController.Instance.currentjellyCount < 10)
-     {
-    StartCoroutine(WaitAndLoadMainScene(2f));
-     }
+    UpdateRouletteWheel();
+
+    yield return null;
+     
 }
 
 private IEnumerator WaitAndLoadMainScene(float waitTime)
@@ -340,6 +366,49 @@ private void ResetRouletteWheel()
 		return new Color32(r, g, b, 255);
 	}
 
+    public void RewardAnim()
+    {   rewardButton.interactable =false;
+        spriteAnimation.Func_PlayUIAnim();
+        audioSource.PlayOneShot(reward);
+       StartCoroutine(DisablePanelAfterSeconds(7f));
 
+   
+    }
+
+     IEnumerator DisablePanelAfterSeconds(float seconds)
+    {   
+        yield return new WaitForSeconds(seconds);
+        spriteAnimation.Func_ResetUIAnim();
+         rewardButton.interactable = true;
+        rewardPanel.SetActive(false);
+
+    if (GameController.Instance.currentjellyCount < 10)
+     {
+    StartCoroutine(WaitAndLoadMainScene(2f));
+     }
+    }
+
+    public void UpdateRouletteWheel()
+{
+    // 기존 룰렛 섹션과 선을 제거
+    foreach (Transform child in pieceParent)
+    {
+        Destroy(child.gameObject);
+    }
+
+    foreach (Transform child in lineParent)
+    {
+        Destroy(child.gameObject);
+    }
+
+    // 룰렛 데이터를 업데이트 (이 부분은 여러분의 로직에 따라 다를 수 있습니다)
+    // 예: roulettePieceData = FetchNewRouletteData();
+
+    // 새로운 룰렛 섹션과 선을 생성
+    SpawnPiecesAndLines();
+
+    // 새로운 룰렛 데이터로 가중치와 인덱스를 다시 계산
+    CalculateWeightsAndIndices();
+}
 }
 

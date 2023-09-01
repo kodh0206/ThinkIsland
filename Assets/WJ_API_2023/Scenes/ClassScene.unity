@@ -431,6 +431,82 @@ MonoBehaviour:
   showOnStart: 0
   popDuration: 0.8
   endScale: {x: 1, y: 1, z: 1}
+--- !u!1 &36376435
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 36376438}
+  - component: {fileID: 36376437}
+  - component: {fileID: 36376436}
+  m_Layer: 5
+  m_Name: OXIndicator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &36376436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 36376435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 1414896872, guid: 5d93731179f4f9544a3bc8db557450c5, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &36376437
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 36376435}
+  m_CullTransparentMesh: 1
+--- !u!224 &36376438
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 36376435}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2104761063}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -1.8443, y: -61.5}
+  m_SizeDelta: {x: 16, y: 13.2692}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &93872026
 GameObject:
   m_ObjectHideFlags: 0
@@ -646,6 +722,10 @@ MonoBehaviour:
   solving: {fileID: 0}
   goldText: {fileID: 1320126638}
   energyText: {fileID: 2032773061}
+  OXindicator: {fileID: 36376436}
+  O: {fileID: 1177233533, guid: ad98dd1e095e68d489c92544a130dd85, type: 3}
+  X: {fileID: -1145896543, guid: ad98dd1e095e68d489c92544a130dd85, type: 3}
+  idle: {fileID: 1843507198, guid: 5d93731179f4f9544a3bc8db557450c5, type: 3}
   wj_displayText: {fileID: 0}
   getLearningButton: {fileID: 2013001154}
   resultPanel: {fileID: 773534265}
@@ -12005,6 +12085,7 @@ RectTransform:
   - {fileID: 8327141616038179767}
   - {fileID: 896466368}
   - {fileID: 1196351081}
+  - {fileID: 36376438}
   m_Father: {fileID: 1834287366}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

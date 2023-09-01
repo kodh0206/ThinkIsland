@@ -32,7 +32,7 @@ public class Mg19manager : MonoBehaviour
         level = 0;
         level = MiniGameManager.Instance.LoadDifficulty();
         score = MiniGameManager.Instance.LoadScore();
-        Mg19blockSpanwer spawner = FindObjectOfType<Mg19blockSpanwer>();
+        spawner = FindObjectOfType<Mg19blockSpanwer>();
 
         GameLevelsetting();
 

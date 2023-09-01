@@ -30,6 +30,10 @@ public class WJ_Sample_Class : MonoBehaviour
     TEXDraw[] textAnsr;                  //���� ��ư�� �ؽ�Ʈ(��TextDraw�� ���� �ʿ�)
     [SerializeField] TextMeshProUGUI goldText;
     [SerializeField] TextMeshProUGUI energyText;
+    [SerializeField] Image OXindicator;
+    [SerializeField] Sprite O;
+    [SerializeField] Sprite X;
+    [SerializeField] Sprite idle;
     [Header("Status")]
     int     currentQuestionIndex;
     bool    isSolvingQuestion;
@@ -76,7 +80,7 @@ public class WJ_Sample_Class : MonoBehaviour
     }
 
     private void Setup()
-    {    
+    {   OXindicator.sprite =idle;
         switch (currentStatus)
         {
             case CurrentStatus.WAITING:
@@ -208,11 +212,11 @@ public class WJ_Sample_Class : MonoBehaviour
             case CurrentStatus.DIAGNOSIS:
                 isCorrect   = textAnsr[_idx].text.CompareTo(wj_conn.cDiagnotics.data.qstCransr) == 0 ? true : false;
                 ansrCwYn    = isCorrect ? "Y" : "N";
-
                 if(isCorrect) 
                     {
                         // 정답일 때의 로직
                         Debug.Log("정답입니다!");
+                        OXindicator.sprite=O;
                         // 여기에 원하는 로직 추가 애니메이션 사운드 효과
                         #if UNITY_ANDROID || UNITY_IOS
                             Handheld.Vibrate();
@@ -222,6 +226,7 @@ public class WJ_Sample_Class : MonoBehaviour
                 else 
                     {
                         // 오답일 때의 로직
+                        OXindicator.sprite=X;
                         Debug.Log("틀렸습니다!"); 
                         #if UNITY_ANDROID || UNITY_IOS
                             Handheld.Vibrate();
@@ -229,13 +234,13 @@ public class WJ_Sample_Class : MonoBehaviour
                         AudioManager.Instance.PlayWrong();
                         // 여기에 원하는 로직 추가
                     }
-
+    
                 isSolvingQuestion = false;
 
                 wj_conn.Diagnosis_SelectAnswer(textAnsr[_idx].text, ansrCwYn, (int)(questionSolveTime * 1000));
 
                 //wj_displayText.SetState("Time", textAnsr[_idx].text, ansrCwYn, questionSolveTime + " ��");
-
+                OXindicator.sprite =idle;
                 panel_question.SetActive(false);
                 questionSolveTime = 0;
 
@@ -248,7 +253,8 @@ public class WJ_Sample_Class : MonoBehaviour
                 isCorrect   = textAnsr[_idx].text.CompareTo(wj_conn.cLearnSet.data.qsts[currentQuestionIndex].qstCransr) == 0 ? true : false;
                 ansrCwYn    = isCorrect ? "Y" : "N";
                 if(isCorrect) 
-                    {
+                    {   
+                        OXindicator.sprite=O;
                         // 정답일 때의 로직
                         Debug.Log("정답입니다!"); 
                         rightanswers+=1;
@@ -264,7 +270,7 @@ public class WJ_Sample_Class : MonoBehaviour
                         Vibration.Instance.Vibrate();
                     }
                 else 
-                    {
+                    {   OXindicator.sprite=X;
                         // 오답일 때의 로직
                         Debug.Log("틀렸습니다!");
                         // 여기에 원하는 로직 추가
@@ -292,13 +298,13 @@ public class WJ_Sample_Class : MonoBehaviour
 
                 isSolvingQuestion = false;
                 currentQuestionIndex++;
-
+                OXindicator.sprite=idle;
                 wj_conn.Learning_SelectAnswer(currentQuestionIndex, textAnsr[_idx].text, ansrCwYn, (int)(questionSolveTime * 1000));
 
                 //wj_displayText.SetState("����Ǯ�� ��", textAnsr[_idx].text, ansrCwYn, questionSolveTime + " ��");
 
                 if (currentQuestionIndex >= 8) 
-                {   
+                {   OXindicator.sprite=idle;
                     AudioManager.Instance.PlayFinished();
                     energy = 20+ 20 + rightanswers * (100- 20) / 8; //(GameController.Instance.maximumActionPoints- 20) / 8;
                     gold = 200+ (rightanswers*10);
@@ -311,7 +317,7 @@ public class WJ_Sample_Class : MonoBehaviour
                     resultPanel.SetActive(true);
                     //wj_displayText.SetState("����Ǯ�� �Ϸ�", "", "", "");
                     getLearningButton.interactable = true;
-
+                    
                     // 8문제를 모두 맞춘 경우
                     AchievementManager achievementManager = FindObjectOfType<AchievementManager>();
                     if (rightanswers == 8)

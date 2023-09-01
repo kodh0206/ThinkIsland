@@ -2773,6 +2773,7 @@ MonoBehaviour:
   isTrigger: 1
   isPlayerReset: 0
   RightButton: 0
+  myCamera: {fileID: 155540876}
   level: 1
   walkingSound: {fileID: 8300000, guid: d6126007cb866a64085fe85aa85884fd, type: 3}
   jumpSound: {fileID: 8300000, guid: 25e340dbf910ce043890f106e2be141c, type: 3}
@@ -5634,6 +5635,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09bb8dbf2bbc1d04798c33aa926dace4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  achievementFail: 0
   level: 0
   scoreText: {fileID: 0}
   GameOverPanel: {fileID: 0}
