@@ -20,7 +20,8 @@ public class Mg1Jelly : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-        MiniGameManager.Instance.AddJelly();
+            Vibration.Instance.Vibrate();
+            MiniGameManager.Instance.AddJelly();
         int newScore =MiniGameManager.Instance.totalJelly;
         // 파티클 시스템 인스턴스 생성
         NumberParticle numberParticleInstance = Instantiate(numberParticlePrefab, transform.position, Quaternion.identity);

@@ -4790,6 +4790,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7156422653184033013, guid: 73afa29f1dedd014e994563ccd482119,
         type: 3}
+      propertyPath: m_SpriteState.m_SelectedSprite
+      value: 
+      objectReference: {fileID: -1129490764, guid: 5d93731179f4f9544a3bc8db557450c5,
+        type: 3}
+    - target: {fileID: 7156422653184033013, guid: 73afa29f1dedd014e994563ccd482119,
+        type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 6
       objectReference: {fileID: 0}
@@ -4891,7 +4897,7 @@ PrefabInstance:
     - target: {fileID: 7156422654561450794, guid: 73afa29f1dedd014e994563ccd482119,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7156422654561450799, guid: 73afa29f1dedd014e994563ccd482119,
         type: 3}

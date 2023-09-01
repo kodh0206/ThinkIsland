@@ -14,6 +14,7 @@ public class Mg3jelly : MonoBehaviour
     {
         if (other.gameObject.tag == "Player" ) //poop2 is jelly
         {
+            Vibration.Instance.Vibrate();
             MiniGameManager.Instance.AddJelly();
             int newScore =MiniGameManager.Instance.totalJelly;
             // 파티클 시스템 인스턴스 생성

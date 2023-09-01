@@ -692,7 +692,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0.2, y: 0.2}
-  m_AnchoredPosition: {x: 510.50012, y: 288.5}
+  m_AnchoredPosition: {x: 510.50018, y: 288.5}
   m_SizeDelta: {x: 1027, y: 577}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &721788655
@@ -2180,6 +2180,11 @@ MonoBehaviour:
   onOff: {fileID: 8300000, guid: ab963ae08583f6e4ca2a45c22c39f0c5, type: 3}
   pressed: {fileID: 8300000, guid: 9ca32534ce0131d428cdd941b4e0a6e4, type: 3}
   purchased: {fileID: 8300000, guid: d3b4fa718e7d34944ad2f6775189efaf, type: 3}
+  startFarming: {fileID: 8300000, guid: 08b9a4f5b24e6144287d0f4248c25e2e, type: 3}
+  fieldClick: {fileID: 8300000, guid: d6228d1639336f947b337b7750ef2e97, type: 3}
+  water: {fileID: 8300000, guid: 6deae508bbbc30746a366667a8957958, type: 3}
+  coin: {fileID: 8300000, guid: b7bbc664f858ca343bae9b5b75c039e4, type: 3}
+  harvest: {fileID: 8300000, guid: 6ca22e0d0f2d4504eb10521cc77807d0, type: 3}
   miniGameExchange: {fileID: 8300000, guid: 0dbde8f91e6e12648ab9975f30c85e2f, type: 3}
   isBGMOn: 1
   isSFXOn: 1

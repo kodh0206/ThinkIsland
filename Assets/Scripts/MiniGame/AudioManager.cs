@@ -41,7 +41,11 @@ public class AudioManager : MonoBehaviour
     public AudioClip pressed; //버튼 클릭
     public AudioClip purchased; //구매버튼
 
-
+    public AudioClip startFarming;
+    public AudioClip fieldClick;
+    public AudioClip water;
+    public AudioClip coin;
+    public AudioClip harvest;
 
     // 
     public AudioClip miniGameExchange;
@@ -288,6 +292,44 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+     public void PlayWater()
+    {
+         if(isSFXOn)
+        {
+             audioSource.PlayOneShot(water);
+        }
+    }
+
+    public void PlayFieldClick()
+    {
+         if(isSFXOn)
+        {
+            audioSource.PlayOneShot(fieldClick);
+        }
+    }
+
+    public void PlayCoin()
+    {
+         if(isSFXOn)
+        {
+            audioSource.PlayOneShot(coin);
+        }
+    }
+
+    public void PlayStartFarming()
+    {
+         if(isSFXOn)
+        {
+            audioSource.PlayOneShot(startFarming);
+        }
+    }
+    public void PlayHarvest()
+    {
+        if(isSFXOn)
+        {
+            audioSource.PlayOneShot(harvest);
+        }
+    }
     public void PlayPressed()
     {
          if(isSFXOn)
