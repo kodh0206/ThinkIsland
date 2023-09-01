@@ -30,7 +30,7 @@ public class Mg11egg : MonoBehaviour
     {
         animator.SetBool("Break", true);
 
-        GameObject[] ObstacleObjects = GameObject.FindGameObjectsWithTag("Obstacle"); //ÇÊµå ÆÄ±«
+        GameObject[] ObstacleObjects = GameObject.FindGameObjectsWithTag("Obstacle"); // Àå¾Ö¹° ÆÄ±«
         foreach (var ObstacleObject in ObstacleObjects)
         {
             Destroy(ObstacleObject);
