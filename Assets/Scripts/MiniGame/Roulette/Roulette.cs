@@ -296,7 +296,7 @@ private IEnumerator OnSpin(float end, UnityAction<RoulettePieceData> action)
     }
     UpdateRouletteWheel();  // 룰렛 판 업데이트
 
-    ResetRouletteWheel();  // 룰렛 판 초기화. 이 부분을 추가합니다.
+    
 
     yield return null;
      
@@ -415,15 +415,7 @@ private void ResetRouletteWheel()
     public void UpdateRouletteWheel()
 {
     // 기존 룰렛 섹션과 선을 제거
-    foreach (Transform child in pieceParent)
-    {
-        Destroy(child.gameObject);
-    }
-
-    foreach (Transform child in lineParent)
-    {
-        Destroy(child.gameObject);
-    }
+    ResetRouletteWheel();
 
     // 룰렛 데이터를 업데이트 (이 부분은 여러분의 로직에 따라 다를 수 있습니다)
     // 예: roulettePieceData = FetchNewRouletteData();
