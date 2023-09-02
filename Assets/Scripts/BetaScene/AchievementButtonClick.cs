@@ -8,8 +8,6 @@ public class AchievementButtonClick : MonoBehaviour
     public GameObject sngCanvas;
     public MonoBehaviour mobileTouchScript;
 
-    int activatedCharacterCount = 0; // 활성화된 characterObjects의 수를 저장할 변수
-
     void Start()
     {
         AchievementManager achievementManager = FindObjectOfType<AchievementManager>();

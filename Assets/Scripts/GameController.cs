@@ -79,18 +79,16 @@ public class GameController : MonoBehaviour
         {
             achievementManager.IncrementAchievement("33", level);
         }
+
+        // 프로필창 업데이트 (캐릭터 수집 진행도)
+        charCollectionProgress = unlockedMiniGames.Count;
     }
         
     
 
-    // public void Update()
-    // {
-    //     AchievementManager achievementManager = FindObjectOfType<AchievementManager>();
-    //     if (achievementManager != null)
-    //     {
-    //         achievementManager.IncrementAchievement("33", level);
-    //     }
-    // }
+    public void Update()
+    {
+    }
 
 
 

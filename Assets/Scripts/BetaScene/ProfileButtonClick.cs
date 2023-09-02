@@ -14,6 +14,9 @@ public class ProfileButtonClick : MonoBehaviour
     // 프로필 버튼이 클릭될 때마다 갱신
     public void ProfileTextChange()
     {
+
+        // GameController.Instance.charCollectionProgress = GameController.Instance.unlockedMiniGames.Count;
+
         string updatedText = $"젤리 획득 {GameController.Instance.jellyCount}개\n" +
                             $"골드 획득 {GameController.Instance.goldAmount}골드\n" +
                             $"탐험 입장 {GameController.Instance.playMiniGame}회\n" +

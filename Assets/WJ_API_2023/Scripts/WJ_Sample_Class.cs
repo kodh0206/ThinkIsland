@@ -265,6 +265,9 @@ public class WJ_Sample_Class : MonoBehaviour
                             achievementManager.IncrementAchievement("27", 1);
                         }
 
+                        // 프로필창 업데이트 (퀴즈 정답)
+                        GameController.Instance.quizCorrect += 1;
+
                         // 여기에 원하는 로직 추가 애니메이션 사운드 효과
                         AudioManager.Instance.PlayRight();
                         Vibration.Instance.Vibrate();
@@ -326,6 +329,9 @@ public class WJ_Sample_Class : MonoBehaviour
                         {
                             achievementManager.IncrementAchievement("26", 8);
                         }
+
+                        // 프로필창 업데이트 (골든벨)
+                        GameController.Instance.goldenBell += 1;
                     }
                 }
                 else GetLearning(currentQuestionIndex);

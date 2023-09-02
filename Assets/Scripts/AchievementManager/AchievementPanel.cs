@@ -32,6 +32,9 @@ public class AchievementPanel : MonoBehaviour
                 }
 
                 achievementUIObjects.Add(newAchievementUI);
+
+                // 프로필창 업데이트 (업적 달성 진행도)
+                GameController.Instance.achievementProgress += 1;
             }
         }
     }
