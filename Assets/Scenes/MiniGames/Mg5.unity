@@ -152,6 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f3abca11cc51aa4e8aa8e909e23b989, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  achievementFail: 0
   level: 0
   GameOverPanel: {fileID: 0}
   isGameOver: 0
@@ -1651,7 +1652,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1378383633}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.3561, y: -6.29, z: 0.027851738}
+  m_LocalPosition: {x: -0.3561, y: -10, z: 0.027851738}
   m_LocalScale: {x: 54.492706, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
