@@ -51,7 +51,7 @@ public class Roulette : MonoBehaviour
 	private AudioSource audioSource; // Add this line to declare AudioSource
     public AudioClip spin;
     public AudioClip reward;
-
+    private bool isAnimating = false;
     public TextMeshProUGUI jellyCounter;
     void Awake() // Or you can use Start() method
 	{
@@ -367,10 +367,20 @@ private void ResetRouletteWheel()
 	}
 
     public void RewardAnim()
-    {   rewardButton.interactable =false;
+    {   if (!isAnimating) // 애니메이션이 실행 중이지 않을 때
+    {
+        rewardButton.interactable = false;
         spriteAnimation.Func_PlayUIAnim();
         audioSource.PlayOneShot(reward);
-       StartCoroutine(DisablePanelAfterSeconds(7f));
+        StartCoroutine(DisablePanelAfterSeconds(3f));
+        isAnimating = true;
+    }
+    else // 애니메이션이 실행 중일 때
+    {
+        // 마지막 프레임으로 이동하는 코드 (이 부분은 애니메이션 시스템에 따라 다르다)
+        spriteAnimation.SkipToEnd(); // 이 함수는 실제로는 애니메이션 시스템에 따라 다를 수 있습니다.
+        isAnimating = false; // 애니메이션 상태를 다시 false로 설정
+    }
 
    
     }
@@ -378,10 +388,10 @@ private void ResetRouletteWheel()
      IEnumerator DisablePanelAfterSeconds(float seconds)
     {   
         yield return new WaitForSeconds(seconds);
-        spriteAnimation.Func_ResetUIAnim();
-         rewardButton.interactable = true;
-        rewardPanel.SetActive(false);
-
+    spriteAnimation.Func_ResetUIAnim(); // 애니메이션을 초기 상태로 되돌린다.
+    rewardButton.interactable = true;
+    rewardPanel.SetActive(false);
+    isAnimating = false; // 애니메이션 상태를 다시 false로 설정
     if (GameController.Instance.currentjellyCount < 10)
      {
     StartCoroutine(WaitAndLoadMainScene(2f));

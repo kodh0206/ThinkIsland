@@ -54,4 +54,12 @@ public class UISpriteAnimation : MonoBehaviour
         m_IndexSprite = 0; // 인덱스를 초기화
         m_Image.sprite = m_SpriteArray[m_IndexSprite]; // 첫 번째 스프라이트로 설정
     }
+
+    public void SkipToEnd()
+{
+    Func_StopUIAnim(); // 현재 진행 중인 애니메이션을 중지
+    m_IndexSprite = m_SpriteArray.Length - 1; // 마지막 스프라이트의 인덱스로 설정
+    m_Image.sprite = m_SpriteArray[m_IndexSprite]; // 마지막 스프라이트로 설정
+    IsDone = true; // 애니메이션이 끝났음을 표시
+}
 }

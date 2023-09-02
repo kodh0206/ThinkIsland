@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class SceneController : MonoBehaviour
 {
+    public Button replayButton;
     public Button playButton;
     public LogoMovement logoMovement;
     public float delayBeforeLoading = 2f; // 로딩 전 대기 시간 (애니메이션이 끝나는 시간과 맞추어 설정)
@@ -14,7 +16,12 @@ public class SceneController : MonoBehaviour
     public float fadeSpeed = 1f; // 화면이 어두워지는 속도
      
     private void Start()
-    {
+    {  replayButton.onClick.AddListener(Replay);
+         if (PlayerPrefs.GetInt("hasPlayed") == 1)
+         {
+            replayButton.gameObject.SetActive(true);
+         }
+
         // 게임 시작시에 Play 버튼을 비활성화합니다.
         playButton.interactable = false;
 
@@ -45,6 +52,18 @@ public class SceneController : MonoBehaviour
         
         StartCoroutine(LoadSceneAfterDelay());
 
+    }
+
+    public void Replay()
+    { AudioManager.Instance.StartMiniGame();
+        // 'hasPlayed' 값을 0으로 설정하여 다시 오프닝 컷신을 볼 수 있도록 함
+    PlayerPrefs.SetInt("hasPlayed", 0);
+    PlayerPrefs.Save(); // 변경 사항을 저장
+    sceneToLoad ="OpeningCutScene";
+    replayButton.interactable=false;
+
+    // 씬을 로드하기 전에 fade out 애니메이션을 실행
+    StartCoroutine(LoadSceneAfterDelay());
     }
 
     IEnumerator LoadSceneAfterDelay()
