@@ -147,7 +147,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41550f9fbd5e756489eb7cf386787a6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myCamera: {fileID: 184243439435294912, guid: 1d370eba0f61d334098af7539e50ba45, type: 3}
+  myCamera: {fileID: 6688231316470098708, guid: 1d370eba0f61d334098af7539e50ba45,
+    type: 3}
   obstacleSpeed: 5
   jellyinShell: {fileID: 7303273743629567743, guid: 614c5e292efeee646a84d1ef5aef77c5,
     type: 3}
