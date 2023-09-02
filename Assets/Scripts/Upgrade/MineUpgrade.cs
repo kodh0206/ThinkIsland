@@ -23,6 +23,7 @@ public class MineUpgrade : MonoBehaviour
             GameController.Instance.curentgold -= upgradeCosts[level - 1];  // 골드 소모
             currentLevel = level;  // 레밸 증가
             miningSystem.UpgradeMiningMachine();
+            AudioManager.Instance.Playpurchased();
             UpdateButtonStates();  // 버튼 상태 갱신
             SaveUpgradeLevel();  // 업그레이드 후 레벨을 저장합니다.
         }

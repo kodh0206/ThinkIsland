@@ -26,6 +26,7 @@ public class EggUpgrade : MonoBehaviour
             GameController.Instance.curentgold -= upgradeCosts[level - 1];  // 골드 차감
             currentLevel = level;  // 레벨 증가
             eggManager.percent = upgradeEffect[level - 1];  // EggManager 클래스의 업그레이드 함수 호출
+            AudioManager.Instance.Playpurchased();
             UpdateButtonStates();  // 버튼 상태 갱신
             SaveUpgradeLevel();  // 업그레이드 레벨 저장
         }

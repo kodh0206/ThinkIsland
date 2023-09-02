@@ -47,6 +47,8 @@ public class AudioManager : MonoBehaviour
     public AudioClip coin;
     public AudioClip harvest;
 
+    public AudioClip speedUp;
+    public AudioClip speedDown;
     // 
     public AudioClip miniGameExchange;
 
@@ -89,6 +91,7 @@ public class AudioManager : MonoBehaviour
         if(isBGMOn)
         {
         audioSource.clip = ClassBgm;
+        audioSource.loop = true; 
         audioSource.Play();
         }
     }
@@ -113,6 +116,7 @@ public class AudioManager : MonoBehaviour
         {
         audioSource = GetComponent<AudioSource>();
         audioSource.clip = MainBgm;
+        audioSource.loop = true;  
         audioSource.Play();
         }
     }
@@ -345,7 +349,21 @@ public class AudioManager : MonoBehaviour
              audioSource.PlayOneShot(purchased);
         }
     }
-    
+    public void PlaySpeedUp()
+    {
+        if(isSFXOn)
+        {
+            audioSource.PlayOneShot(speedUp);
+        }
+    }    
+
+     public void PlaySpeedDown()
+    {
+        if(isSFXOn)
+        {
+            audioSource.PlayOneShot(speedDown);
+        }
+    } 
      //문제 푸는 장면
     public void PlayRight()
     {
@@ -394,8 +412,9 @@ public class AudioManager : MonoBehaviour
     public void PlayBGM()
     {
         if(!audioSource.isPlaying)
-        {
+        {   
             audioSource.clip = MainBgm;
+            audioSource.loop = true; 
             audioSource.Play();
         }
     }

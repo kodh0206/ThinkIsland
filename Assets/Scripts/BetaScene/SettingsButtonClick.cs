@@ -81,13 +81,13 @@ public class SettingsButtonClick : MonoBehaviour
 
     public void OnVibeToggleChanged(bool isOn)
     {
-
+        AudioManager.Instance.PlayOnOff();
         Debug.Log("Vibe Toggle value changed to: " + isOn);
         UpdateToggleImage(vibeToggle, isOn);
         Vibration.Instance.isVibrate =!isOn;
     }
     public void SettingCloseButtonClick()
-    {
+    {   AudioManager.Instance.PlayPressed();
         gameObject.SetActive(false);
         sngCanvas.SetActive(true);
         mobileTouchScript.enabled = true;

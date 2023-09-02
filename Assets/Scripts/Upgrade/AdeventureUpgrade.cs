@@ -23,6 +23,7 @@ public class AdeventureUpgrade : MonoBehaviour
             
             currentLevel = level;  // 레밸 증가
             MiniGameManager.Instance.jellypercentage=upgradEffect[level-1]; //효과변경 
+            AudioManager.Instance.Playpurchased();
             UpdateButtonStates();  // 버튼 상태 갱신
         }
     }
