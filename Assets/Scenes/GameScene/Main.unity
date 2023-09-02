@@ -1194,7 +1194,21 @@ MonoBehaviour:
   currentmbrId: 
   currentprgsCd: 
   isDeveloperMode: 0
-  CropList: []
+  CropList:
+  - {fileID: 11400000, guid: 034ee9d1f7497ff43a3c086ea4358602, type: 2}
+  - {fileID: 11400000, guid: 182eba07f264b4c44a7dfc40e70ce729, type: 2}
+  - {fileID: 11400000, guid: 872d296771f378e449b99c7a07f549d3, type: 2}
+  - {fileID: 11400000, guid: 1ca47dd0651a69f4080157168ce20d76, type: 2}
+  - {fileID: 11400000, guid: 0eafc041e2bbe9b4ca6cd85930c7963c, type: 2}
+  - {fileID: 11400000, guid: da137712d9ea2f94b98dbb54b8a49645, type: 2}
+  - {fileID: 11400000, guid: 90fce2f657115d34aa513414a2f56230, type: 2}
+  - {fileID: 11400000, guid: cc291471c35b0514ea412693fadad0ba, type: 2}
+  - {fileID: 11400000, guid: 36123589f8881074c8e600e602a82303, type: 2}
+  - {fileID: 11400000, guid: 6bbb4ca72528c044db943e84aaf42b4c, type: 2}
+  - {fileID: 11400000, guid: 768f10401d162a048adbc12a6d506eb9, type: 2}
+  - {fileID: 11400000, guid: f3f5c70dc5397e840ae74a39fc024fdc, type: 2}
+  - {fileID: 11400000, guid: 64255d5b9b0ec6849b9fa70182433d59, type: 2}
+  - {fileID: 11400000, guid: c7a0e635424379143bec9ac947ce5407, type: 2}
   currentjellyCount: 0
   curentgold: 1000
   currentActionPoints: 0
@@ -1234,6 +1248,16 @@ MonoBehaviour:
   - Mg19
   - Mg20
   current_language: Korean
+  jellyCount: 0
+  goldAmount: 0
+  playMiniGame: 0
+  noCrashObject: 0
+  quizCorrect: 0
+  goldenBell: 0
+  mapExtend: 0
+  charCollectionProgress: 0
+  achievementProgress: 0
+  playTime: 0
 --- !u!1 &549032040
 GameObject:
   m_ObjectHideFlags: 0
