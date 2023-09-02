@@ -1210,6 +1210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c986a7569fc862a4c8bf7bf903167987, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  achievementFail: 0
   level: 0
   isGameOver: 0
 --- !u!1 &516360465
@@ -3399,6 +3400,11 @@ PrefabInstance:
       propertyPath: myCamera
       value: 
       objectReference: {fileID: 1765250174}
+    - target: {fileID: 7522947119185603768, guid: a384d43b309002c49ba58f54e1fe5847,
+        type: 3}
+      propertyPath: IsJumping
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7522947119185603771, guid: a384d43b309002c49ba58f54e1fe5847,
         type: 3}
       propertyPath: m_RootOrder

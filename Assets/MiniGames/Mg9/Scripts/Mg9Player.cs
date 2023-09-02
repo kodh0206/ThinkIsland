@@ -22,7 +22,7 @@ public class Mg9Player : MonoBehaviour
     private bool RightButton = false;
     private bool LeftButton = false;
 
-    public bool IsJumping=false;
+    public bool IsJumping=true;
 
     private AudioSource audioSource;
     public AudioClip jump;
