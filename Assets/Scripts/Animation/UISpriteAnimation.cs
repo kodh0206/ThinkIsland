@@ -23,7 +23,18 @@ public class UISpriteAnimation : MonoBehaviour
         IsDone = false;
         StartCoroutine(Func_PlayAnimUI());
     }
+public void Func_PlayRewardUIAnim()
+    {
+        // 이미 재생 중이면 애니메이션을 중지하고 초기화
+        if (!IsDone)
+        {
+            Func_StopUIAnim();
 
+        }
+
+        IsDone = false;
+        StartCoroutine(Func_PlayAnimUI());
+    }
     public void Func_StopUIAnim()
     {
         IsDone = true;

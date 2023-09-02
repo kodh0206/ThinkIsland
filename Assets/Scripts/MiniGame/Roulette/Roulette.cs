@@ -9,7 +9,8 @@ using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine.UI;
 public class Roulette : MonoBehaviour
-{
+{  
+     private int buttonPressCount = 0;
 	[SerializeField]
 	private	Transform			piecePrefab;				// �귿�� ǥ�õǴ� ���� ������
 	[SerializeField]
@@ -293,7 +294,9 @@ private IEnumerator OnSpin(float end, UnityAction<RoulettePieceData> action)
         default:
             break;
     }
-    UpdateRouletteWheel();
+    UpdateRouletteWheel();  // 룰렛 판 업데이트
+
+    ResetRouletteWheel();  // 룰렛 판 초기화. 이 부분을 추가합니다.
 
     yield return null;
      
@@ -367,21 +370,32 @@ private void ResetRouletteWheel()
 	}
 
     public void RewardAnim()
-    {   if (!isAnimating) // 애니메이션이 실행 중이지 않을 때
-    {
-        rewardButton.interactable = false;
-        spriteAnimation.Func_PlayUIAnim();
-        audioSource.PlayOneShot(reward);
-        StartCoroutine(DisablePanelAfterSeconds(3f));
-        isAnimating = true;
-    }
-    else // 애니메이션이 실행 중일 때
-    {
-        // 마지막 프레임으로 이동하는 코드 (이 부분은 애니메이션 시스템에 따라 다르다)
-        spriteAnimation.SkipToEnd(); // 이 함수는 실제로는 애니메이션 시스템에 따라 다를 수 있습니다.
-        isAnimating = false; // 애니메이션 상태를 다시 false로 설정
-    }
+    {  buttonPressCount++;  // 버튼을 누를 때마다 카운트 증가
 
+    // 1번 눌렀을 때
+    if (buttonPressCount == 1)
+    {
+        // 애니메이션이 실행 중이지 않을 때
+        if (!isAnimating)
+        {
+            rewardButton.interactable = false;
+            spriteAnimation.Func_PlayRewardUIAnim();
+            audioSource.PlayOneShot(reward);
+            StartCoroutine(DisablePanelAfterSeconds(4f));
+            isAnimating = true;
+        }
+    }
+    // 2번 눌렀을 때
+    else if (buttonPressCount == 2)
+    {
+        // 애니메이션이 실행 중일 때
+        if (isAnimating)
+        {
+            spriteAnimation.SkipToEnd(); // 마지막 프레임으로 이동
+            isAnimating = false;
+        }
+        buttonPressCount = 0;  // 카운트 초기화
+    }
    
     }
 

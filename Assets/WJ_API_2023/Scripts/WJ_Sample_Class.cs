@@ -11,7 +11,7 @@ using Random = UnityEngine.Random;
 using UnityEngine.TerrainTools;
 
 public class WJ_Sample_Class : MonoBehaviour
-{
+{   
     [SerializeField] WJ_Connector       wj_conn;
     [SerializeField] CurrentStatus      currentStatus;//진단평가 통과 여부
     public CurrentStatus                CurrentStatus => currentStatus;
