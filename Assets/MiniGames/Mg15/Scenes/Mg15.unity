@@ -208,8 +208,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 37036508}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0365, y: -4.52, z: 0}
-  m_LocalScale: {x: 19.341904, y: 1, z: 1}
+  m_LocalPosition: {x: 0.076, y: -4.52, z: 0}
+  m_LocalScale: {x: 23.100586, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -658,8 +658,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 417579323}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.2, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.2065, y: 0.2, z: 0}
+  m_LocalScale: {x: 1.0172814, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1184171803}
@@ -3297,6 +3297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6b9d362e99a7084eb1117b2206c2a58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  achievementFail: 0
   level: 0
   isGameOver: 0
 --- !u!4 &1957169597
@@ -3543,6 +3544,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2253918753666154389, guid: 7f241daea5b596a4e98ae64f7a3b78cf,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3463461483579280990, guid: 7f241daea5b596a4e98ae64f7a3b78cf,
         type: 3}

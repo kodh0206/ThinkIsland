@@ -39,7 +39,7 @@ public class Mg15Obstacle : MonoBehaviour
 
         if (other.gameObject.CompareTag("jelly"))
         {
-            Destroy(rb);
+            Destroy(gameObject);
         }
 
             if (other.gameObject.CompareTag("stair"))
