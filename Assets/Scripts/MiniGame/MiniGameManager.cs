@@ -284,15 +284,7 @@ private IEnumerator Fade(float finalAlpha)
 
     public void MiniGameFinished()
     {   
-        // if (기존 추가가 되어 있지 않으면)
-        // for (리스트)
-        // if (achievementFail==false)
-        // achievementManager.IncrementAchievement("0", 1);
-
-        // foreach (string miniGameScene in remainingMiniGameScenes)
-        // {
-        //     Debug.Log("미니게임 이름: " + miniGameScene);
-        // }
+        // Mg18manager.instance.CheckAchievementFail();
 
         
         StartNextMiniGame();

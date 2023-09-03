@@ -52,6 +52,18 @@ public class MiniGame3Manager : MonoBehaviour
         // }
     }
 
+    public void CheckAchievementFail()
+    {
+        if (!achievementFail)
+        {
+            AchievementManager achievementManager = FindObjectOfType<AchievementManager>();
+            if (achievementManager != null)
+            {
+                achievementManager.IncrementAchievement("2", 1);
+            }
+        }
+    }
+
     public void AddScore() 
     {
         score += 1; // for level Controll

@@ -50,6 +50,18 @@ public class Mg2manager : MonoBehaviour
         // }
     }
 
+    public void CheckAchievementFail()
+    {
+        if (!achievementFail)
+        {
+            AchievementManager achievementManager = FindObjectOfType<AchievementManager>();
+            if (achievementManager != null)
+            {
+                achievementManager.IncrementAchievement("1", 1);
+            }
+        }
+    }
+
 
     public void AddScore()
     {

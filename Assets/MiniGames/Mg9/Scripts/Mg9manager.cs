@@ -57,6 +57,18 @@ public class Mg9manager : MonoBehaviour
         // }
     }
 
+    public void CheckAchievementFail()
+    {
+        if (!achievementFail)
+        {
+            AchievementManager achievementManager = FindObjectOfType<AchievementManager>();
+            if (achievementManager != null)
+            {
+                achievementManager.IncrementAchievement("8", 1);
+            }
+        }
+    }
+
     public void AddScore()
     {
         score += 1;

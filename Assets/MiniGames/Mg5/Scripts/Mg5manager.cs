@@ -53,6 +53,19 @@ public class Mg5manager : MonoBehaviour
         //     }
         // }
     }
+
+    public void CheckAchievementFail()
+    {
+        if (!achievementFail)
+        {
+            AchievementManager achievementManager = FindObjectOfType<AchievementManager>();
+            if (achievementManager != null)
+            {
+                achievementManager.IncrementAchievement("4", 1);
+            }
+        }
+    }
+
     public void AddScore()
 {
     score += 1;
