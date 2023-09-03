@@ -10,6 +10,9 @@ public class CowUpgrade : MonoBehaviour
     public int[] upgradeEffect = new int[4]{5,15,30,50};
     public Button[] upgradeButtons;  // UI 버튼 배열
 
+    // 팝업창 관련
+    public GameObject popup;
+
     [SerializeField] CowManager cowManager;
     private void Start()
     {
@@ -28,6 +31,11 @@ public class CowUpgrade : MonoBehaviour
             AudioManager.Instance.Playpurchased();
             UpdateButtonStates();  // 버튼 상태 갱신
             SaveUpgradeLevel();  // 업그레이드 레벨 저장
+        }
+        else
+        {
+            // 팝업창 활성화
+            popup.SetActive(true);
         }
     }
 

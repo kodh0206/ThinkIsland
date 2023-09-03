@@ -8,6 +8,10 @@ public class AdeventureUpgrade : MonoBehaviour
     public int[] upgradeCosts = new int[4] { 50, 150, 400, 1000 };  // 각 레밸의 업그레이드 비용
     public int[] upgradEffect = new int[4] {5,10,15,20};
     public Button[] upgradeButtons;  // UI 버튼들
+
+    // 팝업창 관련
+    public GameObject popup;
+    
     private void Start()
     {
         UpdateButtonStates();
@@ -25,6 +29,11 @@ public class AdeventureUpgrade : MonoBehaviour
             MiniGameManager.Instance.jellypercentage=upgradEffect[level-1]; //효과변경 
             AudioManager.Instance.Playpurchased();
             UpdateButtonStates();  // 버튼 상태 갱신
+        }
+        else
+        {
+            // 팝업창 활성화
+            popup.SetActive(true);
         }
     }
 

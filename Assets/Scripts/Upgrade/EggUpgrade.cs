@@ -12,6 +12,9 @@ public class EggUpgrade : MonoBehaviour
     public int[] upgradeEffect = new int[4] { 5, 15, 30, 50 };  // 각 레벨의 업그레이드 효과
     public Button[] upgradeButtons;  // UI 버튼 배열
 
+    // 팝업창 관련
+    public GameObject popup;
+
     private void Start()
     {
         LoadUpgradeLevel();  // 게임 시작할 때 저장된 업그레이드 레벨 불러오기
@@ -29,6 +32,11 @@ public class EggUpgrade : MonoBehaviour
             AudioManager.Instance.Playpurchased();
             UpdateButtonStates();  // 버튼 상태 갱신
             SaveUpgradeLevel();  // 업그레이드 레벨 저장
+        }
+        else
+        {
+            // 팝업창 활성화
+            popup.SetActive(true);
         }
     }
 

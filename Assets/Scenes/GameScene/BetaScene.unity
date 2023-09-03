@@ -2092,6 +2092,7 @@ MonoBehaviour:
   - {fileID: 2141197113}
   - {fileID: 787391564}
   - {fileID: 539541860}
+  popup: {fileID: 134763651}
   cowManager: {fileID: 541314968}
 --- !u!1 &139672196
 GameObject:
@@ -56643,6 +56644,7 @@ MonoBehaviour:
   - {fileID: 1405339388}
   - {fileID: 1783413347}
   - {fileID: 1483392238}
+  popup: {fileID: 134763651}
 --- !u!1 &586994611
 GameObject:
   m_ObjectHideFlags: 0
@@ -62321,6 +62323,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  popup: {fileID: 134763651}
 --- !u!1 &942102063
 GameObject:
   m_ObjectHideFlags: 0
@@ -69087,6 +69090,7 @@ MonoBehaviour:
   - {fileID: 483891196}
   - {fileID: 2077171700}
   - {fileID: 229279161}
+  popup: {fileID: 134763651}
   cowManager: {fileID: 541314968}
 --- !u!114 &1324906049
 MonoBehaviour:
