@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,6 +21,8 @@ public class MIniGameUI : MonoBehaviour
     public Image sprite;
 
     public Image BlackBoard;
+
+
 
     private void Awake()
 {
