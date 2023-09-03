@@ -2997,6 +2997,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5157370235923106902, guid: 143f5a68d58263c45b01dc1d4b2bb4b6,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 695ac09ac848f18438e3bac381a9afe9, type: 3}
     - target: {fileID: 8410458713747744712, guid: 143f5a68d58263c45b01dc1d4b2bb4b6,
         type: 3}
       propertyPath: m_Points.Array.data[2].x
@@ -3076,7 +3081,7 @@ PrefabInstance:
         type: 3}
       propertyPath: jump
       value: 
-      objectReference: {fileID: 8300000, guid: 4f8e4708be6a71c4283f5f0db863b8ff, type: 3}
+      objectReference: {fileID: 8300000, guid: 695ac09ac848f18438e3bac381a9afe9, type: 3}
     - target: {fileID: 8410458713747744717, guid: 143f5a68d58263c45b01dc1d4b2bb4b6,
         type: 3}
       propertyPath: m_Name
@@ -3089,6 +3094,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4649617973165384601, guid: 143f5a68d58263c45b01dc1d4b2bb4b6, type: 3}
+    - {fileID: 5157370235923106902, guid: 143f5a68d58263c45b01dc1d4b2bb4b6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 143f5a68d58263c45b01dc1d4b2bb4b6, type: 3}
 --- !u!1 &8410458714215142918 stripped
 GameObject:

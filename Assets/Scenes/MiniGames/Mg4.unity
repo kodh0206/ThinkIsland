@@ -2541,6 +2541,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abeb50231c0308b42a126038dd856d75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  achievementFail: 0
   level: 0
   scoreText: {fileID: 812997077}
   GameOverPanel: {fileID: 0}
@@ -2561,7 +2562,7 @@ PrefabInstance:
         type: 3}
       propertyPath: jump
       value: 
-      objectReference: {fileID: 8300000, guid: 4f8e4708be6a71c4283f5f0db863b8ff, type: 3}
+      objectReference: {fileID: 8300000, guid: 695ac09ac848f18438e3bac381a9afe9, type: 3}
     - target: {fileID: 2326193998242831593, guid: 13389751379d6fc4fbc53dacbc8302ca,
         type: 3}
       propertyPath: m_Constraints
