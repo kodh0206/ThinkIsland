@@ -35,7 +35,7 @@ public class Mg4manager : MonoBehaviour
     void Start()
     {
         level= 0;
-
+        MiniGameManager.Instance.WriteGameNO(4);
         level = MiniGameManager.Instance.LoadDifficulty();
         score = MiniGameManager.Instance.LoadScore();
 
@@ -49,6 +49,18 @@ public class Mg4manager : MonoBehaviour
     }
 
     public void Update()
+    {
+        // if (!achievementFail)
+        // {
+        //     AchievementManager achievementManager = FindObjectOfType<AchievementManager>();
+        //     if (achievementManager != null)
+        //     {
+        //         achievementManager.IncrementAchievement("3", 1);
+        //     }
+        // }
+    }
+
+    public void CheckAchievementFail()
     {
         if (!achievementFail)
         {

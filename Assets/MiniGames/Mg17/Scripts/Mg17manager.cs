@@ -29,10 +29,12 @@ public class Mg17manager : MonoBehaviour
     void Start()
     {
         level = 0;
+        MiniGameManager.Instance.WriteGameNO(17);
         level = MiniGameManager.Instance.LoadDifficulty();
         score = MiniGameManager.Instance.LoadScore();
         spawner = FindObjectOfType<Mg17Spawner>();
         spawner2 = FindAnyObjectByType<Mg17RockSpawner>();
+
 
         GameLevelsetting();
 
@@ -41,6 +43,18 @@ public class Mg17manager : MonoBehaviour
     }
 
     public void Update()
+    {
+        // if (!achievementFail)
+        // {
+        //     AchievementManager achievementManager = FindObjectOfType<AchievementManager>();
+        //     if (achievementManager != null)
+        //     {
+        //         achievementManager.IncrementAchievement("16", 1);
+        //     }
+        // }
+    }
+
+    public void CheckAchievementFail()
     {
         if (!achievementFail)
         {

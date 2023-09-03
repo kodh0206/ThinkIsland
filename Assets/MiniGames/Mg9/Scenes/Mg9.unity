@@ -263,7 +263,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0.13333334}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -419,12 +419,12 @@ PrefabInstance:
     - target: {fileID: 4818156702656564890, guid: 67c0af9a01f0735458736198c1be5395,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.4341834
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 4818156702656564890, guid: 67c0af9a01f0735458736198c1be5395,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.052362
+      value: 2.79
       objectReference: {fileID: 0}
     - target: {fileID: 4818156702656564890, guid: 67c0af9a01f0735458736198c1be5395,
         type: 3}
@@ -608,7 +608,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0.13333334}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1092,7 +1092,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0.13333334}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1210,6 +1210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c986a7569fc862a4c8bf7bf903167987, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  achievementFail: 0
   level: 0
   isGameOver: 0
 --- !u!1 &516360465
@@ -2265,7 +2266,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -2513,7 +2514,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0.13333334}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -2650,12 +2651,12 @@ PrefabInstance:
     - target: {fileID: 4473458497745979741, guid: 8e25358b5036b4b439dfc8aaf5220d82,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.707175
+      value: 7.79
       objectReference: {fileID: 0}
     - target: {fileID: 4473458497745979741, guid: 8e25358b5036b4b439dfc8aaf5220d82,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.6532168
+      value: -2.7
       objectReference: {fileID: 0}
     - target: {fileID: 4473458497745979741, guid: 8e25358b5036b4b439dfc8aaf5220d82,
         type: 3}
@@ -3399,6 +3400,11 @@ PrefabInstance:
       propertyPath: myCamera
       value: 
       objectReference: {fileID: 1765250174}
+    - target: {fileID: 7522947119185603768, guid: a384d43b309002c49ba58f54e1fe5847,
+        type: 3}
+      propertyPath: IsJumping
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7522947119185603771, guid: a384d43b309002c49ba58f54e1fe5847,
         type: 3}
       propertyPath: m_RootOrder
@@ -3407,12 +3413,12 @@ PrefabInstance:
     - target: {fileID: 7522947119185603771, guid: a384d43b309002c49ba58f54e1fe5847,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.98
+      value: -7.88
       objectReference: {fileID: 0}
     - target: {fileID: 7522947119185603771, guid: a384d43b309002c49ba58f54e1fe5847,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.08
+      value: -2.97
       objectReference: {fileID: 0}
     - target: {fileID: 7522947119185603771, guid: a384d43b309002c49ba58f54e1fe5847,
         type: 3}

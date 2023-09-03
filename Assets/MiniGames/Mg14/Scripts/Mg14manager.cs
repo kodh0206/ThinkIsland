@@ -30,6 +30,7 @@ public class Mg14manager : MonoBehaviour
     void Start()
     {
         level = 0;
+        MiniGameManager.Instance.WriteGameNO(14);
         level = MiniGameManager.Instance.LoadDifficulty();
         score = MiniGameManager.Instance.LoadScore();
         spawner = FindObjectOfType<Mg14Spawner>();
@@ -41,6 +42,18 @@ public class Mg14manager : MonoBehaviour
     }
 
     public void Update()
+    {
+        // if (!achievementFail)
+        // {
+        //     AchievementManager achievementManager = FindObjectOfType<AchievementManager>();
+        //     if (achievementManager != null)
+        //     {
+        //         achievementManager.IncrementAchievement("13", 1);
+        //     }
+        // }
+    }
+
+    public void CheckAchievementFail()
     {
         if (!achievementFail)
         {

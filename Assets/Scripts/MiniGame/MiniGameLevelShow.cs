@@ -36,30 +36,22 @@ public class MiniGameLevelShow : MonoBehaviour
         Changesprite.enabled = false;
         changespriteAnimator = Changesprite.GetComponent<Animator>();
     }
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void ShowNowLevel(int difficulty ,bool changelevel)
     {
         if (changelevel)
-        {
+        {   AudioManager.Instance.PlaySpeedUp();
             switch (difficulty)
             {
                 case 1: 
+                    
                     StartCoroutine(ChangeSprite0_1());
                     break;
                 case 2:
+                    
                     StartCoroutine(ChangeSprite1_2());
                     break;
                 case 3:
+                    
                     StartCoroutine(ChangeSprite2_3());
                     break;
             }
@@ -67,16 +59,19 @@ public class MiniGameLevelShow : MonoBehaviour
             StartCoroutine(ChangeSprite(difficulty));
         }
         else
-        {
+        {   AudioManager.Instance.PlaySpeedDown();
             switch (difficulty)
             {
                 case 0:
+                    
                     StartCoroutine(ChangeSprite1_0());
                     break;
                 case 1:
+                    
                     StartCoroutine(ChangeSprite2_1());
                     break;
                 case 2:
+                 
                     StartCoroutine(ChangeSprite3_2());
                     break;
             }

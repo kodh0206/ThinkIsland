@@ -32,6 +32,7 @@ public class Mg16Manager : MonoBehaviour
     private void Start()
     {
         level = 0;
+        MiniGameManager.Instance.WriteGameNO(16);
         level = MiniGameManager.Instance.LoadDifficulty();
         score = MiniGameManager.Instance.LoadScore();
 
@@ -49,6 +50,18 @@ public class Mg16Manager : MonoBehaviour
     }
 
     public void Update()
+    {
+        // if (!achievementFail)
+        // {
+        //     AchievementManager achievementManager = FindObjectOfType<AchievementManager>();
+        //     if (achievementManager != null)
+        //     {
+        //         achievementManager.IncrementAchievement("15", 1);
+        //     }
+        // }
+    }
+
+    public void CheckAchievementFail()
     {
         if (!achievementFail)
         {

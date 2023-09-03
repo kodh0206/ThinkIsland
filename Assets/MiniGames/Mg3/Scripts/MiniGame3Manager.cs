@@ -29,8 +29,8 @@ public class MiniGame3Manager : MonoBehaviour
     {
         
         level = 0; // level setting
-
-        level=MiniGameManager.Instance.LoadDifficulty();
+        MiniGameManager.Instance.WriteGameNO(3);
+        level =MiniGameManager.Instance.LoadDifficulty();
         score= MiniGameManager.Instance.LoadScore();
 
         GameLevelsetting();
@@ -41,7 +41,19 @@ public class MiniGame3Manager : MonoBehaviour
 
     public void Update()
     {
-        // 10초 내 똥과 닿지 않았을 경우
+        // // 10초 내 똥과 닿지 않았을 경우
+        // if (!achievementFail)
+        // {
+        //     AchievementManager achievementManager = FindObjectOfType<AchievementManager>();
+        //     if (achievementManager != null)
+        //     {
+        //         achievementManager.IncrementAchievement("2", 1);
+        //     }
+        // }
+    }
+
+    public void CheckAchievementFail()
+    {
         if (!achievementFail)
         {
             AchievementManager achievementManager = FindObjectOfType<AchievementManager>();

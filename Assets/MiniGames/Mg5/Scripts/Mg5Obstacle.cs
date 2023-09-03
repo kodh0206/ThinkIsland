@@ -12,7 +12,7 @@ public class Mg5Obstacle : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
 
-    private float fadeDuration = 20.0f;
+    private float fadeDuration = 12.0f;
     private float fadeTimer = 0.0f;
 
 

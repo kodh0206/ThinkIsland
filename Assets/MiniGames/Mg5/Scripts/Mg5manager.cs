@@ -31,7 +31,7 @@ public class Mg5manager : MonoBehaviour
     void Start()
     {
         level = 0;
-
+        MiniGameManager.Instance.WriteGameNO(5);
         level = MiniGameManager.Instance.LoadDifficulty() ;
         score = MiniGameManager.Instance.LoadScore();
         spawner = FindObjectOfType<ObstacleSpawner>();
@@ -44,6 +44,18 @@ public class Mg5manager : MonoBehaviour
 
     public void Update()
     {
+        // if (!achievementFail)
+        // {
+        //     AchievementManager achievementManager = FindObjectOfType<AchievementManager>();
+        //     if (achievementManager != null)
+        //     {
+        //         achievementManager.IncrementAchievement("4", 1);
+        //     }
+        // }
+    }
+
+    public void CheckAchievementFail()
+    {
         if (!achievementFail)
         {
             AchievementManager achievementManager = FindObjectOfType<AchievementManager>();
@@ -53,6 +65,7 @@ public class Mg5manager : MonoBehaviour
             }
         }
     }
+
     public void AddScore()
 {
     score += 1;

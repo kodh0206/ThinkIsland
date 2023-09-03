@@ -31,18 +31,32 @@ public class Mg1Manager : MonoBehaviour
     void Start()
     {
         level= 1;
-
+        MiniGameManager.Instance.WriteGameNO(1);
         level = MiniGameManager.Instance.LoadDifficulty();
         score = MiniGameManager.Instance.LoadScore();
+        
 
         GameLevelsetting();
 
         achievementFail = false;
+
     }
 
     public void Update()
     {
-        // 10초 내 소 or 똥과 닿지 않았을 경우
+        // // 10초 내 소 or 똥과 닿지 않았을 경우
+        // if (!achievementFail)
+        // {
+        //     AchievementManager achievementManager = FindObjectOfType<AchievementManager>();
+        //     if (achievementManager != null)
+        //     {
+        //         achievementManager.IncrementAchievement("0", 1);
+        //     }
+        // }
+    }
+
+    public void CheckAchievementFail()
+    {
         if (!achievementFail)
         {
             AchievementManager achievementManager = FindObjectOfType<AchievementManager>();

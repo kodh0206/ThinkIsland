@@ -27,10 +27,10 @@ public class Mg2manager : MonoBehaviour
     {
         score = 0;
         level = 0;
-
+        MiniGameManager.Instance.WriteGameNO(2);
         level = MiniGameManager.Instance.LoadDifficulty() ;
         score = MiniGameManager.Instance.LoadScore();
-
+        MiniGameManager.Instance.WriteGameNO(2);
         GameLevelsetting();
 
         // 초기화
@@ -39,7 +39,19 @@ public class Mg2manager : MonoBehaviour
 
     public void Update()
     {
-        // 10초 내 축구공 수비 실패 횟수가 0인 경우
+        // // 10초 내 축구공 수비 실패 횟수가 0인 경우
+        // if (!achievementFail)
+        // {
+        //     AchievementManager achievementManager = FindObjectOfType<AchievementManager>();
+        //     if (achievementManager != null)
+        //     {
+        //         achievementManager.IncrementAchievement("1", 1);
+        //     }
+        // }
+    }
+
+    public void CheckAchievementFail()
+    {
         if (!achievementFail)
         {
             AchievementManager achievementManager = FindObjectOfType<AchievementManager>();

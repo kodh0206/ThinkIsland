@@ -18,7 +18,8 @@ public class Mg13Spawner : MonoBehaviour
     private int maxNumObstaclesToSpawn = 1; // �ִ� ���� ��ֹ� ����
 
     Vector2[] spawnPositions;
-       
+
+    float EXTimediff;
 
     float time = 0;
     void Awake()
@@ -95,6 +96,7 @@ public class Mg13Spawner : MonoBehaviour
 
     private IEnumerator DisableSpawning()
     {
+        EXTimediff = time_diff;
         // ���� ����
         time_diff = Mathf.Infinity;
 
@@ -102,6 +104,6 @@ public class Mg13Spawner : MonoBehaviour
         yield return new WaitForSeconds(2f);
 
         // ���� �簳
-        time_diff = 1.5f;
+        time_diff = EXTimediff;
     }
 }

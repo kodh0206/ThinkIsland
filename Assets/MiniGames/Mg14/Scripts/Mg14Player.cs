@@ -79,9 +79,9 @@ public class Mg14Player : MonoBehaviour
             monkey_right = true;
             RightButton = false;
             canJump = false;
-            FlipSprite();
             RightJump();
-            
+            FlipSprite();
+
         }
         if (monkey_right&& canJump && (Input.GetKeyDown(KeyCode.LeftArrow) ||LeftButton))
         {
@@ -89,9 +89,8 @@ public class Mg14Player : MonoBehaviour
             monkey_right = false;
             LeftButton = false;
             canJump = false;
-            FlipSprite();
             LeftJump();
-            
+            FlipSprite();
         }
     }
 

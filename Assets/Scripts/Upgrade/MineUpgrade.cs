@@ -8,6 +8,10 @@ public class MineUpgrade : MonoBehaviour
     public int maxLevel = 4;  // 최대 레밸
     public int[] upgradeCosts = new int[4] { 50, 150, 400, 1000 };  // 각 레밸의 업그레이드 비용
     public Button[] upgradeButtons;  // UI 버튼들
+    
+    // 팝업창 관련
+    public GameObject popup;
+
     private void Start()
     {           
         LoadUpgradeLevel();  // 게임 시작 시 저장된 업그레이드 레벨을 불러옵니다.
@@ -23,9 +27,16 @@ public class MineUpgrade : MonoBehaviour
             GameController.Instance.curentgold -= upgradeCosts[level - 1];  // 골드 소모
             currentLevel = level;  // 레밸 증가
             miningSystem.UpgradeMiningMachine();
+            AudioManager.Instance.Playpurchased();
             UpdateButtonStates();  // 버튼 상태 갱신
             SaveUpgradeLevel();  // 업그레이드 후 레벨을 저장합니다.
         }
+        else
+        {
+            // 팝업창 활성화
+            // popup.SetActive(true);
+        }
+
     }
 
     // 버튼 활성화/비활성화 상태를 갱신

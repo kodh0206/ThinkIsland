@@ -1,5 +1,9 @@
 fileFormatVersion: 2
-guid: 34409c05ae5795c44a34cd7478874dd6
+<<<<<<<< HEAD:Assets/Plugins/Pixel Crushers/Common/Scripts/CommonAssemblyDefinitions.unitypackage.meta
+guid: 7e820500c76d6684599afcadc84655db
+========
+guid: d8b3d7a9976f31e469566554cda6dc23
+>>>>>>>> NewMaster:Assets/Scenes/DialogScene/Dialog1.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

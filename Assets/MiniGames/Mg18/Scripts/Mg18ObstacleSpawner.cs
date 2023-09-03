@@ -61,13 +61,15 @@ public class Mg18ObstacleSpawner : MonoBehaviour
 
     public void IncreaseSpeed()
     {
-        Mg18ObstacleSpeed += 1.0f; // 장애물의 스피드 증가
+        Mg18ObstacleSpeed += 1.5f; // 장애물의 스피드 증가
+        time_diff -= 0.1f;
         ChangeAllSpeed();
     }
 
     public void DecreaseSpeed()
     {
-        Mg18ObstacleSpeed -= 1.0f; // 장애물의 스피드 증가
+        Mg18ObstacleSpeed -= 1.5f; // 장애물의 스피드 증가
+        time_diff += 0.1f;
         ChangeAllSpeed();
     }
 

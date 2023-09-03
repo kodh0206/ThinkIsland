@@ -35,7 +35,7 @@ public class Mg20manager : MonoBehaviour
         score = MiniGameManager.Instance.LoadScore();
         spawner = FindObjectOfType<Mg20BlockSpawner>();
         chimney = FindObjectOfType<Mg20ChimneyMove>();
-
+        MiniGameManager.Instance.WriteGameNO(20);
         GameLevelsetting();
 
         // 초기화
@@ -43,6 +43,18 @@ public class Mg20manager : MonoBehaviour
     }
 
     public void Update()
+    {
+        // if (!achievementFail)
+        // {
+        //     AchievementManager achievementManager = FindObjectOfType<AchievementManager>();
+        //     if (achievementManager != null)
+        //     {
+        //         achievementManager.IncrementAchievement("19", 1);
+        //     }
+        // }
+    }
+
+    public void CheckAchievementFail()
     {
         if (!achievementFail)
         {

@@ -25,7 +25,7 @@ public class ProfileButtonClick : MonoBehaviour
                             $"골든벨 {GameController.Instance.goldenBell}회\n" +
                             $"맵 확장 단계 {GameController.Instance.mapExtend}단계\n" +
                             $"캐릭터 수집 진행도 {GameController.Instance.charCollectionProgress}/20마리\n" +
-                            $"업적 달성 진행도 {GameController.Instance.achievementProgress}/0개\n" +
+                            $"업적 달성 진행도 {GameController.Instance.achievementProgress}개\n" +
                             $"게임 플레이타임 {GameController.Instance.playTime}시간";
 
     

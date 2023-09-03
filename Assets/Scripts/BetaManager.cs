@@ -45,6 +45,9 @@ public class BetaManager : MonoBehaviour
     public Button WaterButton;
     public bool isWaterSelected = false;
 
+    // 팝업창 관련
+    public GameObject popup;
+
     
 
 
@@ -98,6 +101,7 @@ public class BetaManager : MonoBehaviour
     {
         AudioManager.Instance.PlayError(); // 활동력 부족 효과음 재생
         // 게임 시작 못하게 하기, 필요에 따라 경고 메시지 표시 등 추가 처리 가능
+        OpenPopup();
     }
        
     }
@@ -220,6 +224,7 @@ public class BetaManager : MonoBehaviour
         }
         else
         {
+            OpenPopup();
             Debug.Log("Not enough money to unlock this plot");
         }
 
@@ -251,4 +256,20 @@ public class BetaManager : MonoBehaviour
     {
         Application.Quit();
     }
+
+
+    // 팝업창 관련 함수
+
+    public void OpenPopup()
+    {
+        // 팝업창 활성화
+        popup.SetActive(true);
+    }
+
+    public void ClosePopup()
+    {
+        // 팝업창 비활성화
+        popup.SetActive(false);
+    }
+
 }

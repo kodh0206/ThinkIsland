@@ -17,6 +17,9 @@ public class Field : MonoBehaviour
     private ES3File saveFile;
     public BetaManager fm;
 
+    // 팝업창 관련
+    public GameObject popup;
+
     bool isDry =true; //처음에는 땅이 말라져있음
     public GameObject vegetablePanel;
     private void Awake()

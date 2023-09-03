@@ -9,7 +9,8 @@ using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine.UI;
 public class Roulette : MonoBehaviour
-{
+{  
+     private int buttonPressCount = 0;
 	[SerializeField]
 	private	Transform			piecePrefab;				// �귿�� ǥ�õǴ� ���� ������
 	[SerializeField]
@@ -51,7 +52,7 @@ public class Roulette : MonoBehaviour
 	private AudioSource audioSource; // Add this line to declare AudioSource
     public AudioClip spin;
     public AudioClip reward;
-
+    private bool isAnimating = false;
     public TextMeshProUGUI jellyCounter;
     void Awake() // Or you can use Start() method
 	{
@@ -231,21 +232,13 @@ private IEnumerator OnSpin(float end, UnityAction<RoulettePieceData> action)
     Debug.Log("Selected reward: " + selectedReward.description); 
 
     // 아이템 제거 전에도 한 번 더 확인
-    if (roulettePieceData.Count > 0)
-    {
-    if (roulettePieceData[selectedIndex].rewardType != "Gold")
-    {
+  if (roulettePieceData.Count > 0) {
+    if (roulettePieceData[selectedIndex].rewardType != "Gold") {
         roulettePieceData.RemoveAt(selectedIndex);
     }
-    else
-    {
+    } 
+    else {
     Debug.LogError("Cannot remove item. roulettePieceData is empty.");
-    }
-    }
-    
-    else
-    {
-        Debug.LogError("Cannot remove item. roulettePieceData is empty.");
     }
 
     // Find the reward in the newRewards list that matches the selected reward
@@ -293,7 +286,9 @@ private IEnumerator OnSpin(float end, UnityAction<RoulettePieceData> action)
         default:
             break;
     }
-    UpdateRouletteWheel();
+    UpdateRouletteWheel();  // 룰렛 판 업데이트
+
+    
 
     yield return null;
      
@@ -367,21 +362,43 @@ private void ResetRouletteWheel()
 	}
 
     public void RewardAnim()
-    {   rewardButton.interactable =false;
-        spriteAnimation.Func_PlayUIAnim();
-        audioSource.PlayOneShot(reward);
-       StartCoroutine(DisablePanelAfterSeconds(7f));
-
+    {  spriteAnimation.Func_ResetUIAnim();
+        buttonPressCount++;  // 버튼을 누를 때마다 카운트 증가
+        
+    // 1번 눌렀을 때
+    if (buttonPressCount == 1)
+    {   
+        // 애니메이션이 실행 중이지 않을 때
+        if (!isAnimating)
+        {
+            rewardButton.interactable = false;
+            spriteAnimation.Func_PlayRewardUIAnim();
+            audioSource.PlayOneShot(reward);
+            StartCoroutine(DisablePanelAfterSeconds(4f));
+            isAnimating = true;
+        }
+    }
+    // 2번 눌렀을 때
+    else if (buttonPressCount == 2)
+    {
+        // 애니메이션이 실행 중일 때
+        if (isAnimating)
+        {
+            spriteAnimation.SkipToEnd(); // 마지막 프레임으로 이동
+            isAnimating = false;
+        }
+        buttonPressCount = 0;  // 카운트 초기화
+    }
    
     }
 
      IEnumerator DisablePanelAfterSeconds(float seconds)
     {   
         yield return new WaitForSeconds(seconds);
-        spriteAnimation.Func_ResetUIAnim();
-         rewardButton.interactable = true;
-        rewardPanel.SetActive(false);
-
+    spriteAnimation.Func_ResetUIAnim(); // 애니메이션을 초기 상태로 되돌린다.
+    rewardButton.interactable = true;
+    rewardPanel.SetActive(false);
+    isAnimating = false; // 애니메이션 상태를 다시 false로 설정
     if (GameController.Instance.currentjellyCount < 10)
      {
     StartCoroutine(WaitAndLoadMainScene(2f));
@@ -391,6 +408,7 @@ private void ResetRouletteWheel()
     public void UpdateRouletteWheel()
 {
     // 기존 룰렛 섹션과 선을 제거
+       // Destroy all the roulette pieces and lines
     foreach (Transform child in pieceParent)
     {
         Destroy(child.gameObject);
@@ -401,14 +419,36 @@ private void ResetRouletteWheel()
         Destroy(child.gameObject);
     }
 
+    List<LevelRewardData> newRewards = RewardManager.Instance.GetNewRewards();
+
+    // LevelRewardData를 RoulettePieceData로 변환
+    List<RoulettePieceData> convertedRewards = RewardManager.Instance.ConvertLevelRewardsToPieces(newRewards);
+
+    // roulettePieceData를 초기화하고 새로운 보상 데이터를 추가한다.
+    roulettePieceData.Clear();
+
+      roulettePieceData = new List<RoulettePieceData>
+	{
+    new RoulettePieceData { icon = gold, description = "Gold 300", rewardType = "Gold", rewardAmount = 300, chance = 25 },
+    new RoulettePieceData { icon = gold, description = "Gold 500", rewardType = "Gold", rewardAmount = 500, chance = 35 },
+    new RoulettePieceData { icon = gold, description = "Gold 1000", rewardType = "Gold", rewardAmount = 1000, chance = 40 }
+	};
+    roulettePieceData.AddRange(convertedRewards);
     // 룰렛 데이터를 업데이트 (이 부분은 여러분의 로직에 따라 다를 수 있습니다)
     // 예: roulettePieceData = FetchNewRouletteData();
 
     // 새로운 룰렛 섹션과 선을 생성
+    pieceAngle = 360 / roulettePieceData.Count;
+    halfPieceAngle = pieceAngle * 0.5f;
+    halfPieceAngleWithPaddings = halfPieceAngle - (halfPieceAngle * 0.25f);
+
     SpawnPiecesAndLines();
 
     // 새로운 룰렛 데이터로 가중치와 인덱스를 다시 계산
     CalculateWeightsAndIndices();
+
+   
+    
 }
 }
 

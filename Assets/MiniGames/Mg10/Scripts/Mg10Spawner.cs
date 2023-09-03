@@ -27,7 +27,7 @@ public class Mg10Spawner : MonoBehaviour
     [SerializeField]
     private int maxNumObstaclesToSpawn = 1; // 최대 생성 장애물 개수
 
-    
+    float time_diffEX;
 
     // Start is called before the first frame update
     void Start()
@@ -107,6 +107,7 @@ public class Mg10Spawner : MonoBehaviour
 
     private IEnumerator DisableSpawning()
     {
+        time_diffEX = time_diff;
         // 생성 멈춤
         time_diff = Mathf.Infinity;
 
@@ -114,7 +115,7 @@ public class Mg10Spawner : MonoBehaviour
         yield return new WaitForSeconds(2f);
 
         // 생성 재개
-        time_diff = 1.5f;
+        time_diff = time_diffEX;
     }
 
 

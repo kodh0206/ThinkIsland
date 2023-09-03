@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {   
-    [SerializeField]
-    GameSaveManager gameSaveManager;
-    [SerializeField]
-    
+
     private static GameController _instance;
     public static GameController Instance { get { return _instance; } }
     public string currentmbrId;
@@ -34,17 +31,12 @@ public class GameController : MonoBehaviour
         // 각 레벨별 필요한 경험치
     public int current_experience;
     public int max_experience;
-    public List<string> currentUnlockedAbilities;
-    public List<string> currentUnlockedBuildings;
     public List<CropData> currentUnlockedCrops;
-    public List<string> unlockedLivestock;
-    public List<string> ownedFields;
-    public List<string> ownedPastures;
-    public List<string> upgradedElements;
     public List<string> unlockedMiniGames;
     public string current_language ="Korean";
     
-
+    
+    
     // 프로필 관련 변수 초기화
     public int jellyCount = 0; // 젤리 획득
     public int goldAmount = 0; // 골드 획득
@@ -58,6 +50,13 @@ public class GameController : MonoBehaviour
     public int playTime = 0;// 게임 플레이타임
 
 
+    
+    public bool isLiveStockIslandUnlocked =false;
+    public bool isDesertIslandUnlocked=false;
+
+    public bool isWinterlandUnlocked =false;
+
+    public bool isTropicLandUnlocked =false; 
 
 
     void Awake()
@@ -82,14 +81,14 @@ public class GameController : MonoBehaviour
 
         // 프로필창 업데이트 (캐릭터 수집 진행도)
         charCollectionProgress = unlockedMiniGames.Count;
+
+    if (isDeveloperMode)  // 마스터 모드가 활성화되었는지 확인
+        {
+            UnlockEverything();  // 모든 것을 해금하는 함수 호출
+        }
     }
         
     
-
-    public void Update()
-    {
-    }
-
 
 
        public void GainExperience(int amount)
@@ -124,6 +123,22 @@ public class GameController : MonoBehaviour
 
     // Get the reward data for the new level
     RewardManager.Instance.GetRewardForLevel(level);
+    if (level == 10) {
+        isLiveStockIslandUnlocked = true;
+        Debug.Log("목축섬 해금!");
+    }
+    if (level == 20) {
+        isDesertIslandUnlocked = true;
+        Debug.Log("사막섬 해금!");
+    }
+    if (level == 30) {
+        isWinterlandUnlocked = true;
+        Debug.Log("겨울섬 해금!");
+    }
+    if (level == 40) {
+        isTropicLandUnlocked = true;
+        Debug.Log("열대섬 해금!");
+    }
     
     }
 
@@ -153,46 +168,54 @@ public class GameController : MonoBehaviour
             max_experience = ES3.Load<int>("max_experience");
         if (ES3.KeyExists("current_language"))
             current_language = ES3.Load<string>("current_language");
-        if (ES3.KeyExists("currentUnlockedAbilities"))
-            currentUnlockedAbilities = ES3.Load<List<string>>("currentUnlockedAbilities");
-        if (ES3.KeyExists("currentUnlockedBuildings"))
-            currentUnlockedBuildings = ES3.Load<List<string>>("currentUnlockedBuildings");
-        if (ES3.KeyExists("currentUnlockedCrops"))
-            currentUnlockedCrops = ES3.Load<List<CropData>>("currentUnlockedCrops");
-        if (ES3.KeyExists("unlockedLivestock"))
-            unlockedLivestock = ES3.Load<List<string>>("unlockedLivestock");
-        if (ES3.KeyExists("ownedFields"))
-            ownedFields = ES3.Load<List<string>>("ownedFields");
-        if (ES3.KeyExists("ownedPastures"))
-            ownedPastures = ES3.Load<List<string>>("ownedPastures");
-        if (ES3.KeyExists("upgradedElements"))
-            upgradedElements = ES3.Load<List<string>>("upgradedElements");
         if (ES3.KeyExists("unlockedMiniGames"))
             unlockedMiniGames = ES3.Load<List<string>>("unlockedMiniGames");
     }
         
     
-    public void SaveData()
+   public void SaveData()
+{   
+    if(isDeveloperMode ==false)
     {
-        ES3.Save("currentmbrId", currentmbrId);
-        ES3.Save("currentprgsCd", currentprgsCd);
-        ES3.Save("currentjellyCount", currentjellyCount);
-        ES3.Save("curentgold", curentgold);
-        ES3.Save("currentActionPoints", currentActionPoints);
-        ES3.Save("maximumActionPoints", maximumActionPoints);
-        ES3.Save("level", level);
-        ES3.Save("current_experience", current_experience);
-        ES3.Save("max_experience", max_experience);
-        ES3.Save("current_language", current_language);
-        ES3.Save("currentUnlockedAbilities", currentUnlockedAbilities);
-        ES3.Save("currentUnlockedBuildings", currentUnlockedBuildings);
-        ES3.Save("currentUnlockedCrops", currentUnlockedCrops);
-        ES3.Save("unlockedLivestock", unlockedLivestock);
-        ES3.Save("ownedFields", ownedFields);
-        ES3.Save("ownedPastures", ownedPastures);
-        ES3.Save("upgradedElements", upgradedElements);
-        ES3.Save("unlockedMiniGames", unlockedMiniGames);
+    // 기존 코드
+    ES3.Save("currentmbrId", currentmbrId);
+    ES3.Save("currentprgsCd", currentprgsCd);
+    ES3.Save("currentjellyCount", currentjellyCount);
+    ES3.Save("curentgold", curentgold);
+    ES3.Save("currentActionPoints", currentActionPoints);
+    ES3.Save("maximumActionPoints", maximumActionPoints);
+    ES3.Save("level", level);
+    ES3.Save("current_experience", current_experience);
+    ES3.Save("max_experience", max_experience);
+    ES3.Save("current_language", current_language);
+    ES3.Save("currentUnlockedCrops", currentUnlockedCrops);
+    ES3.Save("unlockedMiniGames", unlockedMiniGames);
+
+    // 새로 추가한 섬 해금 상태 저장
+    ES3.Save("isLiveStockIslandUnlocked", isLiveStockIslandUnlocked);
+    ES3.Save("isDesertIslandUnlocked", isDesertIslandUnlocked);
+    ES3.Save("isWinterlandUnlocked", isWinterlandUnlocked);
+    ES3.Save("isTropicLandUnlocked", isTropicLandUnlocked);
     }
+}
+
+    void UnlockEverything()
+{   
+    isDeveloperMode = true;
+    // 모든 농작물 해금
+    currentUnlockedCrops = new List<CropData>(CropList);
+
+    // 모든 미니게임 해금 (미니게임 리스트를 가정)
+    unlockedMiniGames = new List<string> { /* 모든 미니게임 리스트 */ };
+
+    // 모든 섬 해금
+    isLiveStockIslandUnlocked = true;
+    isDesertIslandUnlocked = true;
+    isWinterlandUnlocked = true;
+    isTropicLandUnlocked = true;
+
+    // 필요한 경우 여기에 추가 코드를 작성
+}
 
       private void OnApplicationQuit()
     {

@@ -1190,50 +1190,71 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba6cd41d5855afa44a669d78ef7894e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameSaveManager: {fileID: 512944221}
   currentmbrId: 
   currentprgsCd: 
   isDeveloperMode: 0
-  CropList: []
+  CropList:
+  - {fileID: 11400000, guid: 034ee9d1f7497ff43a3c086ea4358602, type: 2}
+  - {fileID: 11400000, guid: 182eba07f264b4c44a7dfc40e70ce729, type: 2}
+  - {fileID: 11400000, guid: 872d296771f378e449b99c7a07f549d3, type: 2}
+  - {fileID: 11400000, guid: 1ca47dd0651a69f4080157168ce20d76, type: 2}
+  - {fileID: 11400000, guid: 0eafc041e2bbe9b4ca6cd85930c7963c, type: 2}
+  - {fileID: 11400000, guid: da137712d9ea2f94b98dbb54b8a49645, type: 2}
+  - {fileID: 11400000, guid: 90fce2f657115d34aa513414a2f56230, type: 2}
+  - {fileID: 11400000, guid: cc291471c35b0514ea412693fadad0ba, type: 2}
+  - {fileID: 11400000, guid: 36123589f8881074c8e600e602a82303, type: 2}
+  - {fileID: 11400000, guid: 6bbb4ca72528c044db943e84aaf42b4c, type: 2}
+  - {fileID: 11400000, guid: 768f10401d162a048adbc12a6d506eb9, type: 2}
+  - {fileID: 11400000, guid: f3f5c70dc5397e840ae74a39fc024fdc, type: 2}
+  - {fileID: 11400000, guid: 64255d5b9b0ec6849b9fa70182433d59, type: 2}
+  - {fileID: 11400000, guid: c7a0e635424379143bec9ac947ce5407, type: 2}
   currentjellyCount: 0
   curentgold: 1000
   currentActionPoints: 0
   maximumActionPoints: 100
   level: 1
-  expToLevelUp: 0100000005000000250000003c0000004e0000005c00000068000000730000007c000000850000008c000000930000009a000000a9000000a5000000aa000000af000000b3000000b8000000bc000000c0000000c3000000c7000000ca000000cd000000d1000000d4000000d6000000d9000000dc000000de000000e1000000e3000000e6000000e8000000ea000000ed000000ef000000f1000000f3000000f5000000f7000000f8000000fa000000fc000000fe000000000100000101000003010000040100000601000008010000090100000b0100000c0100000d0100000f010000100100001201000013010000140100001501000017010000180100001a0100001a0100001c0100001d0100001e0100001f0100002001000021010000220100002401000025010000260100002701000028010000290100002a0100002b0100002c0100002d0100002e0100002f0100002f01000030010000310100003201000033010000340100003501000036010000370100003701000038010000390100003a0100003b010000
+  expToLevelUp: 0100000005000000250000003c0000004e0000005c00000068000000730000007c000000850000008c000000930000009a000000a9000000a5000000aa000000af000000b3000000b8000000bc000000c0000000c3000000c7000000ca000000cd000000d1000000d4000000d6000000d9000000dc000000de000000e1000000e3000000e6000000e8000000ea000000ed000000ef000000f1000000f3000000f5000000f7000000f8000000fa000000fc000000fe00000000010000010100000301000004010000
   current_experience: 0
   max_experience: 0
-  currentUnlockedAbilities: []
-  currentUnlockedBuildings: []
   currentUnlockedCrops:
   - {fileID: 11400000, guid: c7a0e635424379143bec9ac947ce5407, type: 2}
   - {fileID: 11400000, guid: 872d296771f378e449b99c7a07f549d3, type: 2}
-  unlockedLivestock: []
-  ownedFields: []
-  ownedPastures: []
-  upgradedElements: []
   unlockedMiniGames:
   - Mg1
-  - Mg2
   - Mg3
-  - Mg4
-  - Mg5
-  - Mg6
-  - Mg7
-  - Mg8
-  - Mg9
-  - Mg10
-  - Mg11
   - Mg12
+  - Mg8
+  - Mg2
   - Mg13
   - Mg14
-  - Mg15
   - Mg16
-  - Mg17
-  - Mg18
-  - Mg19
+  - Mg7
   - Mg20
+  - Mg9
+  - Mg18
+  - Mg5
+  - Mg10
+  - Mg15
+  - Mg4
+  - Mg11
+  - Mg17
+  - Mg19
+  - Mg6
   current_language: Korean
+  jellyCount: 0
+  goldAmount: 0
+  playMiniGame: 0
+  noCrashObject: 0
+  quizCorrect: 0
+  goldenBell: 0
+  mapExtend: 0
+  charCollectionProgress: 0
+  achievementProgress: 0
+  playTime: 0
+  isLiveStockIslandUnlocked: 0
+  isDesertIslandUnlocked: 0
+  isWinterlandUnlocked: 0
+  isTropicLandUnlocked: 0
 --- !u!1 &549032040
 GameObject:
   m_ObjectHideFlags: 0
@@ -1265,7 +1286,7 @@ RectTransform:
   m_Children:
   - {fileID: 176869564}
   m_Father: {fileID: 1164479920}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -1387,18 +1408,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 618305929}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1164479920}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0000076293945, y: 103}
-  m_SizeDelta: {x: 448.2039, y: 87.362}
+  m_AnchoredPosition: {x: 0, y: 68.544}
+  m_SizeDelta: {x: 1280, y: 170.27}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &676116286
 GameObject:
@@ -1859,6 +1880,7 @@ RectTransform:
   - {fileID: 313971568}
   - {fileID: 1640547857}
   - {fileID: 693161820}
+  - {fileID: 1768535553}
   - {fileID: 618305932}
   - {fileID: 549032041}
   m_Father: {fileID: 441155130}
@@ -1889,6 +1911,7 @@ MonoBehaviour:
   selectedSprite: {fileID: 949759345, guid: 5d93731179f4f9544a3bc8db557450c5, type: 3}
   defaultSprite: {fileID: -1850238919, guid: 5d93731179f4f9544a3bc8db557450c5, type: 3}
   sprite: {fileID: 176869565}
+  BlackBoard: {fileID: 1768535555}
 --- !u!1 &1287766748
 GameObject:
   m_ObjectHideFlags: 0
@@ -1942,8 +1965,8 @@ MonoBehaviour:
   - level: 10
     unlockedCrop: EggPlant
     CropIcon: {fileID: -1343537995, guid: f6ea1f6459d8be74f97c67100560193b, type: 3}
-    unlockedMiniGame: Mg2
-    MiniGameIcon: {fileID: 2028143131, guid: 159c33f0fa1a9bc4daf0bd929855a4ad, type: 3}
+    unlockedMiniGame: None
+    MiniGameIcon: {fileID: 0}
   - level: 11
     unlockedCrop: Wheat
     CropIcon: {fileID: -216092168, guid: f6ea1f6459d8be74f97c67100560193b, type: 3}
@@ -2618,6 +2641,82 @@ MonoBehaviour:
   m_Text: '0
 
 '
+--- !u!1 &1768535552
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1768535553}
+  - component: {fileID: 1768535556}
+  - component: {fileID: 1768535555}
+  m_Layer: 5
+  m_Name: BlackImage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1768535553
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1768535552}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1164479920}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -6.320076}
+  m_SizeDelta: {x: 1280, y: 320}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1768535555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1768535552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.20000002, g: 0.20000002, b: 0.20000002, a: 0.53333336}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1768535556
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1768535552}
+  m_CullTransparentMesh: 1
 --- !u!1 &1957141525
 GameObject:
   m_ObjectHideFlags: 0

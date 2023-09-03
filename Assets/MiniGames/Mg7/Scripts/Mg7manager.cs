@@ -33,7 +33,7 @@ public class Mg7manager : MonoBehaviour
     void Start()
     {
         level = 0;
-
+        MiniGameManager.Instance.WriteGameNO(7);
         level = MiniGameManager.Instance.LoadDifficulty();
         score = MiniGameManager.Instance.LoadScore();
         spawner = FindObjectOfType<Mg7Spawner>();
@@ -46,6 +46,18 @@ public class Mg7manager : MonoBehaviour
     }
 
     public void Update()
+    {
+        // if (!achievementFail)
+        // {
+        //     AchievementManager achievementManager = FindObjectOfType<AchievementManager>();
+        //     if (achievementManager != null)
+        //     {
+        //         achievementManager.IncrementAchievement("6", 1);
+        //     }
+        // }
+    }
+
+    public void CheckAchievementFail()
     {
         if (!achievementFail)
         {
