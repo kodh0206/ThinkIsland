@@ -27,17 +27,17 @@ public class SNGislandManager : MonoBehaviour
         bool isTropicLandUnlocked = GameController.Instance.isTropicLandUnlocked;
 
         // 각 오브젝트를 활성화 또는 비활성화
-        water1.SetActive(isLiveStockIslandUnlocked);
-        field1.SetActive(!isLiveStockIslandUnlocked);
+        water1.SetActive(!isLiveStockIslandUnlocked);
+        field1.SetActive(isLiveStockIslandUnlocked);
 
-        water2.SetActive(isDesertIslandUnlocked);
-        field2.SetActive(!isDesertIslandUnlocked);
+        water2.SetActive(!isDesertIslandUnlocked);
+        field2.SetActive(isDesertIslandUnlocked);
 
-        water3.SetActive(isWinterlandUnlocked);
-        field3.SetActive(!isWinterlandUnlocked);
+        water3.SetActive(!isWinterlandUnlocked);
+        field3.SetActive(isWinterlandUnlocked);
 
-        water4.SetActive(isTropicLandUnlocked);
-        field4.SetActive(!isTropicLandUnlocked);
+        water4.SetActive(!isTropicLandUnlocked);
+        field4.SetActive(isTropicLandUnlocked);
     }
    
 

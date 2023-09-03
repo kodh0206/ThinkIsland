@@ -1,5 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream
 guid: ff1a185e3112c5548bd7185c42fbcdfa
+=======
+<<<<<<< HEAD
+guid: cbaee7ad4e6d6d741a38278222ab28e9
+=======
+guid: ff1a185e3112c5548bd7185c42fbcdfa
+>>>>>>> 090421c8aabd9e52ce51bc5fffed99fc12bc07a4
+>>>>>>> Stashed changes
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
