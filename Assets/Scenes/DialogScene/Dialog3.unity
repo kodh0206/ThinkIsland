@@ -221,7 +221,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &347658049
 MonoBehaviour:
@@ -814,7 +814,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1111408368
 GameObject:
@@ -1152,53 +1152,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -200}
   m_SizeDelta: {x: 1000, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1308964303
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1308964304}
-  - component: {fileID: 1308964305}
-  m_Layer: 0
-  m_Name: DialogSystem01
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1308964304
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1308964303}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.8932676, y: 2.8860009, z: 4.9384575}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1308964305
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1308964303}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7197bca0c89904c439e6657b400575e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speakers: []
-  dialogs: []
-  isAutoStart: 1
 --- !u!1 &1361056169
 GameObject:
   m_ObjectHideFlags: 0
@@ -1302,6 +1255,156 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1553611744
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1553611747}
+  - component: {fileID: 1553611746}
+  - component: {fileID: 1553611745}
+  m_Layer: 0
+  m_Name: DialogSystem02Eng
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1553611745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1553611744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69beb381e244f92449b8c4cf954630e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TrackedObjects:
+  - rid: 5999490769650188288
+  references:
+    version: 2
+    RefIds:
+    - rid: 5999490769650188288
+      type: {class: TrackedMonoBehaviourObject, ns: UnityEngine.Localization.PropertyVariants.TrackedObjects,
+        asm: Unity.Localization}
+      data:
+        m_Target: {fileID: 1553611746}
+        m_TrackedProperties:
+          items:
+          - rid: 5999490769650188289
+          - rid: 5999490769650188290
+        m_UpdateType: 1
+        m_Changed:
+          m_PersistentCalls:
+            m_Calls: []
+    - rid: 5999490769650188289
+      type: {class: IntTrackedProperty, ns: UnityEngine.Localization.PropertyVariants.TrackedProperties,
+        asm: Unity.Localization}
+      data:
+        m_PropertyPath: dialogs.Array.data[9].speakerIndex
+        m_VariantData:
+        - localeIdentifier:
+            m_Code: en
+          value: 2
+    - rid: 5999490769650188290
+      type: {class: LocalizedStringProperty, ns: UnityEngine.Localization.PropertyVariants.TrackedProperties,
+        asm: Unity.Localization}
+      data:
+        m_Localized:
+          m_TableReference:
+            m_TableCollectionName: 
+          m_TableEntryReference:
+            m_KeyId: 0
+            m_Key: 
+          m_FallbackState: 0
+          m_WaitForCompletion: 0
+          m_LocalVariables: []
+        m_PropertyPath: dialogs.Array.data[5].name
+--- !u!114 &1553611746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1553611744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7197bca0c89904c439e6657b400575e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speakers:
+  - spriteRenderer: {fileID: 889417020}
+    imageDialog: {fileID: 1260007579}
+    textName: {fileID: 2095372493}
+    textDialogue: {fileID: 419875206}
+    objectArrow: {fileID: 1221850015}
+  - spriteRenderer: {fileID: 1878772177}
+    imageDialog: {fileID: 503532927}
+    textName: {fileID: 2043655368}
+    textDialogue: {fileID: 2089978895}
+    objectArrow: {fileID: 1584136985}
+  - spriteRenderer: {fileID: 889417020}
+    imageDialog: {fileID: 597907371}
+    textName: {fileID: 1891329221}
+    textDialogue: {fileID: 1636711811}
+    objectArrow: {fileID: 1239693901}
+  dialogs:
+  - speakerIndex: 0
+    name: Teemo
+    dialogue: "\rHmmm~? The ground here seems to have a different color. I wonder
+      what it could be?"
+  - speakerIndex: 1
+    name: ReserPanda
+    dialogue: "\rOh, Teemo! Are you also interested in farming?"
+  - speakerIndex: 0
+    name: Teemo
+    dialogue: Farming?
+  - speakerIndex: 1
+    name: ReserPanda
+    dialogue: "\rIf you buy seeds and plant them in the visible field here, then
+      wait..."
+  - speakerIndex: 0
+    name: Teemo
+    dialogue: "\rWait for what...?"
+  - speakerIndex: 1
+    name: ReserPanda
+    dialogue: "\rYou can harvest the crops and get more gold!"
+  - speakerIndex: 0
+    name: Teemo
+    dialogue: Really? Wow~ That's amazing!
+  - speakerIndex: 1
+    name: ReserPanda
+    dialogue: Each island has a field for growing crops, so it would be a waste not
+      to use it, right?
+  - speakerIndex: 1
+    name: ReserPanda
+    dialogue: "\rIf you press the field and buy seeds, you can grow crops. Why don't
+      you give it a try too!"
+  - speakerIndex: 2
+    name: System
+    dialogue: "\rNow, try farming yourself!"
+  isAutoStart: 1
+--- !u!4 &1553611747
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1553611744}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.8932676, y: 2.8860009, z: 4.9384575}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1584136985
 GameObject:
   m_ObjectHideFlags: 0
@@ -1600,7 +1703,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1878772176
 GameObject:
@@ -1988,7 +2091,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2035533733
 GameObject:
@@ -2020,7 +2123,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2035533735
 MonoBehaviour:
@@ -2036,7 +2139,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogSystem01: {fileID: 347658047}
   textCountdown: {fileID: 0}
-  dialogSystem02: {fileID: 0}
+  dialogSystem02: {fileID: 1553611746}
 --- !u!1 &2043655366
 GameObject:
   m_ObjectHideFlags: 0
