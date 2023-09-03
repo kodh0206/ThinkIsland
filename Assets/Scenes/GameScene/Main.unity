@@ -1225,6 +1225,21 @@ MonoBehaviour:
   - Mg12
   - Mg8
   - Mg2
+  - Mg13
+  - Mg14
+  - Mg16
+  - Mg7
+  - Mg20
+  - Mg9
+  - Mg18
+  - Mg5
+  - Mg10
+  - Mg15
+  - Mg4
+  - Mg11
+  - Mg17
+  - Mg19
+  - Mg6
   current_language: Korean
   jellyCount: 0
   goldAmount: 0
@@ -1950,7 +1965,7 @@ MonoBehaviour:
   - level: 10
     unlockedCrop: EggPlant
     CropIcon: {fileID: -1343537995, guid: f6ea1f6459d8be74f97c67100560193b, type: 3}
-    unlockedMiniGame: 
+    unlockedMiniGame: None
     MiniGameIcon: {fileID: 0}
   - level: 11
     unlockedCrop: Wheat

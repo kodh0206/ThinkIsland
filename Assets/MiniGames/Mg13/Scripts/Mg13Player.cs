@@ -12,7 +12,7 @@ public class Mg13Player : MonoBehaviour
     public SpriteRenderer spriteRenderer;
 
     public float moveSpeed = 5.0f;
-    public float rotateSpeed = 180.0f;
+    public float rotateSpeed = 260.0f;
     private float currentRotation;
 
     public float blinkInterval = 0.125f; //blink

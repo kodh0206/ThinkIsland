@@ -174,7 +174,9 @@ public class GameController : MonoBehaviour
         
     
    public void SaveData()
-{
+{   
+    if(isDeveloperMode ==false)
+    {
     // 기존 코드
     ES3.Save("currentmbrId", currentmbrId);
     ES3.Save("currentprgsCd", currentprgsCd);
@@ -194,6 +196,7 @@ public class GameController : MonoBehaviour
     ES3.Save("isDesertIslandUnlocked", isDesertIslandUnlocked);
     ES3.Save("isWinterlandUnlocked", isWinterlandUnlocked);
     ES3.Save("isTropicLandUnlocked", isTropicLandUnlocked);
+    }
 }
 
     void UnlockEverything()
