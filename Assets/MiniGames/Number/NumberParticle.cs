@@ -13,7 +13,7 @@ public class NumberParticle : MonoBehaviour
     [SerializeField]
     private SpriteRenderer onesRenderer; // 일의 자리 숫자를 위한 렌더러
     [SerializeField]
-    private SpriteRenderer fxRenderer; // 일의 자리 숫자를 위한 렌더러
+    private SpriteRenderer fxRenderer; // 젤리 먹은 이펙트를 위한 렌더러
     
 
     private float bobbingSpeed = 1f;  // 숫자 움직임 속도
