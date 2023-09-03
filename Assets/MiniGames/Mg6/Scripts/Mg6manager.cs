@@ -46,14 +46,14 @@ public class Mg6manager : MonoBehaviour
 
     public void Update()
     {
-        if (!achievementFail)
-        {
-            AchievementManager achievementManager = FindObjectOfType<AchievementManager>();
-            if (achievementManager != null)
-            {
-                achievementManager.IncrementAchievement("5", 1);
-            }
-        }
+        // if (!achievementFail)
+        // {
+        //     AchievementManager achievementManager = FindObjectOfType<AchievementManager>();
+        //     if (achievementManager != null)
+        //     {
+        //         achievementManager.IncrementAchievement("5", 1);
+        //     }
+        // }
     }
 
     public void AddScore()

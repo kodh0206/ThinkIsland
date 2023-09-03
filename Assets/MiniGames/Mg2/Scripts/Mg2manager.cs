@@ -39,15 +39,15 @@ public class Mg2manager : MonoBehaviour
 
     public void Update()
     {
-        // 10초 내 축구공 수비 실패 횟수가 0인 경우
-        if (!achievementFail)
-        {
-            AchievementManager achievementManager = FindObjectOfType<AchievementManager>();
-            if (achievementManager != null)
-            {
-                achievementManager.IncrementAchievement("1", 1);
-            }
-        }
+        // // 10초 내 축구공 수비 실패 횟수가 0인 경우
+        // if (!achievementFail)
+        // {
+        //     AchievementManager achievementManager = FindObjectOfType<AchievementManager>();
+        //     if (achievementManager != null)
+        //     {
+        //         achievementManager.IncrementAchievement("1", 1);
+        //     }
+        // }
     }
 
 
