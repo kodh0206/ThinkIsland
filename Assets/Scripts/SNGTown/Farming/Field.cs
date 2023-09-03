@@ -17,6 +17,9 @@ public class Field : MonoBehaviour
     private ES3File saveFile;
     public BetaManager fm;
 
+    // 팝업창 관련
+    public GameObject popup;
+
     bool isDry =true; //처음에는 땅이 말라져있음
     public GameObject vegetablePanel;
     private void Awake()
@@ -108,6 +111,9 @@ public class Field : MonoBehaviour
     {
         fm.UnlockPlot(this, 200); // Unlock this plot for 200 dollars
         Debug.Log("토지해금");
+
+        // 팝업창 활성화
+        popup.SetActive(true);
     }
     if(state == PlotState.EMPTY)
     {   fm.selectPlot =this;
