@@ -82,7 +82,7 @@ public class Mg18GroundSpawner : MonoBehaviour
     public void IncreaseSpeed()
     {
         Mg18movigGroundSpeed += 1.0f; // 바닥의 스피드 증가
-
+        time_diff -= 0.1f;
         GameObject[] groundObjects = GameObject.FindGameObjectsWithTag("Ground"); //Find all GroundTag
         foreach (var groundObject in groundObjects)
         {
@@ -93,7 +93,7 @@ public class Mg18GroundSpawner : MonoBehaviour
     public void DecreaseSpeed()
     {
         Mg18movigGroundSpeed -= 1.0f; // 바닥의 스피드 증가
-
+        time_diff += 0.1f;
         GameObject[] groundObjects = GameObject.FindGameObjectsWithTag("Ground"); //Find all GroundTag
         foreach (var groundObject in groundObjects)
         {
