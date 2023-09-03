@@ -1,3 +1,4 @@
+using Language.Lua;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -22,7 +23,7 @@ public class MIniGameUI : MonoBehaviour
 
     public Image BlackBoard;
 
-
+    bool Korean = true;
 
     private void Awake()
 {
@@ -88,71 +89,142 @@ public class MIniGameUI : MonoBehaviour
 
     public void minigameinstruction(int minigameNO)
     {
-        switch (minigameNO)
+        Korean = GameController.Instance.isKorean;
+        if (Korean)
         {
-            case 1:
-                pauseResumeButtonText.text = "왼쪽으로 이동, 오른쪽버튼으로 점프!";
-                break;
-            case 2:
-                pauseResumeButtonText.text = "좌우로 움직여 공을 막아라!";
-                break;
-            case 3:
-                pauseResumeButtonText.text = "좌우로 움직여 똥을 피하라!";
-                break;
-            case 4:
-                pauseResumeButtonText.text = "버튼을 눌러 새를 피해 날아라!";
-                break;
-            case 5:
-                pauseResumeButtonText.text = "좌우로 움직여 안전하게 구름을 밟아라!";
-                break;
-            case 6:
-                pauseResumeButtonText.text = "버튼을 눌러 기를 모아 점프!";
-                break;
-            case 7:
-                pauseResumeButtonText.text = "좌우로 날아 올라 구름을 피해 날아라!";
-                break;
-            case 8:
-                pauseResumeButtonText.text = "좌우로 높이를 조절해 벌을 피해라!";
-                break;
-            case 9:
-                pauseResumeButtonText.text = "오른쪽버튼으로 점프! 왼쪽버튼으로 수영하라!";
-                break;
-            case 10:
-                pauseResumeButtonText.text = "좌우로 움직이며 장애물을 피해 산을 내려가라!";
-                break;
-            case 11:
-                pauseResumeButtonText.text = "좌우로 움직여 까마귀를 막고 젤리를 먹어라!";
-                break;
-            case 12:
-                pauseResumeButtonText.text = "위아래로 움직이며 돌을 던져 조개를 부수고 젤리를 먹어라!";
-                break;
-            case 13:
-                pauseResumeButtonText.text = "좌우로 움직이며 해엄쳐 돌을 피해라!";
-                break;
-            case 14:
-                pauseResumeButtonText.text = "좌우로 나무 사이를 뛰며 돌을 피해라!";
-                break;
-            case 15:
-                pauseResumeButtonText.text = "좌우로 움직여 날아오는 눈을 피해 젤리를 먹어라!";
-                break;
-            case 16:
-                pauseResumeButtonText.text = "좌우로 움직이며 복어를 피해 젤리를 먹어라!";
-                break;
-            case 17:
-                pauseResumeButtonText.text = "좌우로 움직이며 도토리를 부숴 젤리를 먹어라!";
-                break;
-            case 18:
-                pauseResumeButtonText.text = "점프하며 구름을 밟고 다시마를 피해라! 물에 떨어지면 점프가 힘드니 주의!";
-                break;
-            case 19:
-                pauseResumeButtonText.text = "좌우로 움직이며 꽃을 밟아 올라가라! 양쪽 끝으로 가면 반대편으로 갈 수 있다!";
-                break;
-            case 20:
-                pauseResumeButtonText.text = "좌우로 움직이며 부서지는 발판을 주의하며 내려가라!";
-                break;
-
+            switch (minigameNO)
+            {
+                case 1:
+                    pauseResumeButtonText.text = "왼쪽버튼으로 이동, 오른쪽버튼으로 점프!";
+                    break;
+                case 2:
+                    pauseResumeButtonText.text = "좌우로 움직여 공을 막아라!";
+                    break;
+                case 3:
+                    pauseResumeButtonText.text = "좌우로 움직여 똥을 피하라!";
+                    break;
+                case 4:
+                    pauseResumeButtonText.text = "버튼을 눌러 새를 피해 날아라!";
+                    break;
+                case 5:
+                    pauseResumeButtonText.text = "좌우로 움직여 안전하게 구름을 밟아라!";
+                    break;
+                case 6:
+                    pauseResumeButtonText.text = "버튼을 눌러 힘을 모아 점프!";
+                    break;
+                case 7:
+                    pauseResumeButtonText.text = "좌우로 날아 올라 구름을 피해 날아라!";
+                    break;
+                case 8:
+                    pauseResumeButtonText.text = "좌우로 높이를 조절해 벌을 피해라!";
+                    break;
+                case 9:
+                    pauseResumeButtonText.text = "오른쪽버튼으로 점프! 왼쪽버튼으로 수영하라!";
+                    break;
+                case 10:
+                    pauseResumeButtonText.text = "좌우로 움직이며 장애물을 피해 산을 내려가라!";
+                    break;
+                case 11:
+                    pauseResumeButtonText.text = "좌우로 움직여 까마귀를 막고 젤리를 먹어라!";
+                    break;
+                case 12:
+                    pauseResumeButtonText.text = "위아래로 움직이며 돌을 던져 조개를 부수고 젤리를 먹어라!";
+                    break;
+                case 13:
+                    pauseResumeButtonText.text = "좌우로 움직이며 해엄쳐 돌을 피해라!";
+                    break;
+                case 14:
+                    pauseResumeButtonText.text = "좌우로 나무 사이를 뛰며 돌을 피해라!";
+                    break;
+                case 15:
+                    pauseResumeButtonText.text = "좌우로 움직여 날아오는 눈을 피해 젤리를 먹어라!";
+                    break;
+                case 16:
+                    pauseResumeButtonText.text = "좌우로 움직이며 복어를 피해 젤리를 먹어라!";
+                    break;
+                case 17:
+                    pauseResumeButtonText.text = "좌우로 움직이며 도토리를 부숴 젤리를 먹어라!";
+                    break;
+                case 18:
+                    pauseResumeButtonText.text = "점프하며 구름을 밟고 다시마를 피해라! 물에 떨어지면 점프가 힘드니 주의!";
+                    break;
+                case 19:
+                    pauseResumeButtonText.text = "좌우로 움직이며 꽃을 밟아 올라가라! 양쪽 끝으로 가면 반대편으로 갈 수 있다!";
+                    break;
+                case 20:
+                    pauseResumeButtonText.text = "좌우로 움직이며 부서지는 발판을 주의하며 내려가라!";
+                    break;
+            }
+            
         }
-        
+        else
+        {
+            switch (minigameNO)
+            {
+                case 1:
+                    pauseResumeButtonText.text = "Move with the left button, jump with the right button!";
+                    break;
+                case 2:
+                    pauseResumeButtonText.text = "Move left and right to block the balls!";
+                    break;
+                case 3:
+                    pauseResumeButtonText.text = "Move left and right to avoid the poop!";
+                    break;
+                case 4:
+                    pauseResumeButtonText.text = "Press the button to make the bird fly and avoid obstacles!";
+                    break;
+                case 5:
+                    pauseResumeButtonText.text = "Move left and right to safely step on the clouds!";
+                    break;
+                case 6:
+                    pauseResumeButtonText.text = "Press the button to gather strength and jump!";
+                    break;
+                case 7:
+                    pauseResumeButtonText.text = "Fly up left and right, avoiding the clouds!";
+                    break;
+                case 8:
+                    pauseResumeButtonText.text = "Adjust your height left and right to avoid the bees!";
+                    break;
+                case 9:
+                    pauseResumeButtonText.text = "Jump with the right button! Swim with the left button!";
+                    break;
+                case 10:
+                    pauseResumeButtonText.text = "Move left and right to avoid obstacles and descend the mountain!";
+                    break;
+                case 11:
+                    pauseResumeButtonText.text = "Move left and right to block the crows and eat the jelly!";
+                    break;
+                case 12:
+                    pauseResumeButtonText.text = "Move up and down to throw stones, break shells, and eat jelly!";
+                    break;
+                case 13:
+                    pauseResumeButtonText.text = "Move left and right to swim and avoid the rocks!";
+                    break;
+                case 14:
+                    pauseResumeButtonText.text = "Jump between the trees left and right to avoid the rocks!";
+                    break;
+                case 15:
+                    pauseResumeButtonText.text = "Move left and right to avoid the incoming snow and eat the jelly!";
+                    break;
+                case 16:
+                    pauseResumeButtonText.text = "Move left and right to avoid the pufferfish and eat the jelly!";
+                    break;
+                case 17:
+                    pauseResumeButtonText.text = "Move left and right to break the acorns and eat the jelly!";
+                    break;
+                case 18:
+                    pauseResumeButtonText.text = "Jump to step on clouds and avoid seaweed! Be careful not to fall into the water, as jumping becomes difficult!";
+                    break;
+                case 19:
+                    pauseResumeButtonText.text = "Move left and right to step on the flowers and climb up! If you reach either end, you can move to the other side!";
+                    break;
+                case 20:
+                    pauseResumeButtonText.text = "Move left and right, and carefully descend while watching out for the breaking platforms!";
+                    break;
+            }
+        }
+
+
     }
 
 }
