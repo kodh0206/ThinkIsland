@@ -13,12 +13,21 @@ public class Dialogtest : MonoBehaviour
     [SerializeField]
     private DialogSystem dialogSystem02;
 
+    bool Korean = false;
+
     private IEnumerator Start()
     {
         //textCountdown.gameObject.SetActive(false);
-
+        Korean = false;
         // 첫 번째 대사 분기 시작
-        yield return new WaitUntil(() => dialogSystem01.UpdateDialog());
+        if (Korean)
+        {
+            yield return new WaitUntil(() => dialogSystem01.UpdateDialog());
+        }
+        else
+        {
+            yield return new WaitUntil(() => dialogSystem02.UpdateDialog());
+        }
 
         //// 대사 분기 사이에 원하는 행동을 추가할 수 있다.
         //// 캐릭터를 움직이거나 아이템을 획득하는 등의.. 현재는 5-4-3-2-1 카운트 다운 실행
