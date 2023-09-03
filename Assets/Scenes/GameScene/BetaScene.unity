@@ -1921,7 +1921,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &134763652
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55560,6 +55560,7 @@ MonoBehaviour:
   storeManager: {fileID: 2562462739614009300}
   WaterButton: {fileID: 2562462740124216621}
   isWaterSelected: 0
+  popup: {fileID: 134763651}
 --- !u!114 &541314966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -92651,9 +92652,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: WJ_Sample_Class, Assembly-CSharp
-        m_MethodName: GoBackToMainMenu
+      - m_Target: {fileID: 541314965}
+        m_TargetAssemblyTypeName: BetaManager, Assembly-CSharp
+        m_MethodName: ClosePopup
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
