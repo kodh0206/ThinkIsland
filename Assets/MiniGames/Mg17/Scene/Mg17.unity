@@ -2659,6 +2659,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2ccb81bb4fbd7b48b3f211ffd276f7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  achievementFail: 0
   level: 0
   isGameOver: 0
 --- !u!4 &1774504886
@@ -2761,6 +2762,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Main Camera
+      objectReference: {fileID: 0}
+    - target: {fileID: 6921259171672956541, guid: a1e0884e80fe8944d8f1ce358e6d6118,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6921259171672956543, guid: a1e0884e80fe8944d8f1ce358e6d6118,
         type: 3}
