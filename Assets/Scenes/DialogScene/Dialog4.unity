@@ -207,7 +207,7 @@ MonoBehaviour:
       \uBC84\uD2BC\uC744 \uB20C\uB7EC \uACE8\uB4DC\uB85C \uAD50\uD658\uD560 \uC218
       \uC788\uC5B4! \uAE30\uC5B5\uD574\uC918~!"
   - speakerIndex: 2
-    name: narration
+    name: System
     dialogue: "\uC774\uC81C \uBAA9\uCD95 \uAE30\uB2A5\uC744 \uC0AC\uC6A9\uD560 \uC218
       \uC788\uC2B5\uB2C8\uB2E4!"
   isAutoStart: 1
@@ -314,7 +314,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -30, y: 10}
+  m_AnchoredPosition: {x: -30, y: -20}
   m_SizeDelta: {x: -180, y: -140}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &383028425
