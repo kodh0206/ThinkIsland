@@ -48,6 +48,7 @@ public class GameController : MonoBehaviour
     public int achievementProgress = 0;// 업적 달성 진행도
     public int playTime = 0;// 게임 플레이타임
 
+    public int hasFarm =0;;
 
     
     public bool isLiveStockIslandUnlocked =false;
@@ -56,7 +57,7 @@ public class GameController : MonoBehaviour
     public bool isWinterlandUnlocked =false;
 
     public bool isTropicLandUnlocked =false;
-    private string current_language;
+
 
     void Awake()
     {
@@ -88,7 +89,7 @@ public class GameController : MonoBehaviour
     }
         
     
-
+  
  
        public void GainExperience(int amount)
     {

@@ -24,7 +24,7 @@ public class OpeningCutSceneController : MonoBehaviour
     private void OnVideoEnded(VideoPlayer vp)
     {
         // 비디오 재생이 끝나면 메인 씬으로 전환합니다.
-        SceneManager.LoadScene("Main");
+        SceneManager.LoadScene("Dialog1");
         PlayerPrefs.SetInt("hasPlayed", 1);
         PlayerPrefs.Save();
     }

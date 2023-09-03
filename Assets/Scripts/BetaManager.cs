@@ -84,10 +84,36 @@ public class BetaManager : MonoBehaviour
     money = GameController.Instance.curentgold;
     moneyText.text = money.ToString();
     jellyText.text = jelly.ToString();
+    if(GameController.Instance.playMiniGame==1)
+    {
+         SceneManager.LoadScene("Dialog2")
     }
     
+    if(GameController.Instance.hasFarm==1)
+    {
+         SceneManager.LoadScene("Dialog3")
+    }
+
+
+    if(GameController.Instance.hasFarm==true)
+    {
+         SceneManager.LoadScene("Dialog3")
+    }
+
+    if(GameController.Instance.level ==10)
+    {
+        SceneManager.LoadScene("Dialog4")
+    }
+
+     if(GameController.Instance.level ==20)
+    {
+        SceneManager.LoadScene("Dialog5")
+    }
+    }
+
     void StartMiniGame()
-    {  if (GameController.Instance.currentActionPoints >= 20) // 활동력이 20 이상일 경우
+    {  
+        if (GameController.Instance.currentActionPoints >= 20) // 활동력이 20 이상일 경우
     {
         play1.interactable = false; // 여러 클릭 방지
         AudioManager.Instance.StartMiniGame();
