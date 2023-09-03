@@ -39,6 +39,7 @@ public class NumberParticle : MonoBehaviour
     }
     else 
     {
+            fxRenderer.transform.position = new Vector3(position.x-0.18f,position.y,position.z);
         // 숫자가 두 자리일 때 십의 자리 숫자를 활성화 및 스프라이트 설정
         tensRenderer.enabled = true;
         tensRenderer.sprite = numberSprites[tens];
