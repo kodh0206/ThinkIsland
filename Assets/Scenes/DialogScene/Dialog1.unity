@@ -173,6 +173,7 @@ GameObject:
   m_Component:
   - component: {fileID: 347658048}
   - component: {fileID: 347658047}
+  - component: {fileID: 347658049}
   m_Layer: 0
   m_Name: DialogSystem02
   m_TagString: Untagged
@@ -211,57 +212,36 @@ MonoBehaviour:
   dialogs:
   - speakerIndex: 0
     name: "\uD2F0\uBAA8"
-    dialogue: "\uBC84\uC12F\uCC98\uB7FC \uC0DD\uACBC\uB294\uB370, \uC824\uB9AC\uB97C
-      \uBA39\uC744 \uC218 \uC788\uB124...?"
-  - speakerIndex: 1
-    name: "\uBC84\uC12F\uB3CC"
-    dialogue: 1111001 1110101 1101101 1101101 1111001
+    dialogue: "\uAC19\uC774 \uC6B0\uC8FC\uC120\uC744 \uD0C0\uACE0\uC628 \uCE5C\uAD6C\uB4E4\uC740
+      \uBB34\uC0AC\uD560\uAE4C?"
   - speakerIndex: 0
     name: "\uD2F0\uBAA8"
-    dialogue: "\uBB50\uB77C\uACE0 \uD558\uB294\uC9C0 \uC798 \uBAA8\uB974\uACA0\uC9C0\uB9CC,
-      \uB9D0\uC744 \uD558\uB294 \uAC78 \uBCF4\uB2C8 \uC5B4\uB290 \uC815\uB3C4 \uB300\uD654\uB3C4
-      \uB420 \uAC83 \uAC19\uACE0. \uADF8\uB098\uB9C8 \uB2E4\uD589\uC774\uB124."
-  - speakerIndex: 0
-    name: "\uD2F0\uBAA8"
-    dialogue: "\uD639\uC2DC \uB098\uB791 \uBE44\uC2B7\uD558\uAC8C \uC0DD\uAE34 \uB140\uC11D\uB4E4\uC744
-      \uBCF8 \uC801 \uC788\uC5B4?"
+    dialogue: "\uB108\uBB34 \uAC71\uC815\uB3FC..."
   - speakerIndex: 1
     name: "\uBC84\uC12F\uB3CC\uC774"
-    dialogue: 1011101010110000 111111 1011100011101000
+    dialogue: "\uD1A0\uB2E5\uD1A0\uB2E5"
   - speakerIndex: 0
     name: "\uD2F0\uBAA8"
-    dialogue: "\uC74C! \uC5ED\uC2DC \uBABB \uC54C\uC544\uB4E3\uACA0\uB124... \uB0B4
-      \uB9D0\uC744 \uC54C\uC544\uB4E4\uC740 \uAC83\uC778\uC9C0\uB3C4 \uBAA8\uB974\uACA0\uACE0."
-  - speakerIndex: 2
-    name: 
-    dialogue: "(\uC824\uB9AC\uB97C \uB2E4 \uBA39\uC740 \uBC84\uC12F\uB3CC\uC774\uB4E4\uC774
-      \uBB34\uC804\uAE30\uB97C \uB4E4\uACE0\uC628\uB2E4.)"
+    dialogue: "\uC544! \uADF8\uB807\uC9C0!"
   - speakerIndex: 0
     name: "\uD2F0\uBAA8"
-    dialogue: "\uC5B4\uB77C? \uBB34\uC804\uAE30? \uADF8\uAC78 \uC65C \uB108\uD76C\uB4E4\uC774?"
+    dialogue: "\uBC84\uC12F\uB3CC\uC774\uB4E4\uC544! \uC824\uB9AC\uB97C \uC904\uD14C\uB2C8\uAE4C
+      \uCE5C\uAD6C\uB4E4\uC744 \uCC3E\uB294 \uAC78 \uB3C4\uC640\uC904\uB798?"
   - speakerIndex: 1
     name: "\uBC84\uC12F\uB3CC\uC774"
-    dialogue: 1101010101011000 1011001010011000
+    dialogue: "\uC824\uB9AC... \uB044\uB355\uB044\uB355"
   - speakerIndex: 0
     name: "\uD2F0\uBAA8"
-    dialogue: "\uC824\uB9AC\uB97C \uC900 \uAC83\uC5D0 \uB300\uD55C \uBCF4\uB2F5\uC778\uAC00?
-      \uADF8\uB7F0\uB370 \uC5B4\uB5BB\uAC8C \uB0B4\uAC00 \uC9C0\uAE08 \uD544\uC694\uD55C
-      \uAC78 \uAC00\uC838\uC640 \uC900 \uAC70\uC9C0? \uC6B0\uC5F0\uC778\uAC00?"
+    dialogue: "\uC88B\uC558\uC5B4! \uB099\uC2EC\uD558\uACE0 \uC788\uC744 \uB54C\uAC00
+      \uC544\uB2C8\uC57C!"
+  - speakerIndex: 1
+    name: "\uBC84\uC12F\uB3CC\uC774"
+    dialogue: "\uC77C\uB2E8 \uB3CC\uC544\uB2E4\uB2C8\uBA74\uC11C \uC824\uB9AC\uB97C
+      \uAD6C\uD574\uBCFC\uAC8C!"
   - speakerIndex: 2
-    name: 0
-    dialogue: "\uBC84\uC12F\uB3CC\uC774\uB4E4\uC774 \uAC00\uC838\uC628 \uBB34\uC804\uAE30\uB97C
-      \uC0B4\uD540\uB2E4."
-  - speakerIndex: 0
-    name: "\uD2F0\uBAA8"
-    dialogue: "\uD6C4\uC6B0... \uADF8\uB798\uB3C4 \uBB34\uC804\uAE30\uAC00 \uBA40\uCA61\uD574
-      \uBCF4\uC5EC\uC11C \uB2E4\uD589\uC774..."
-  - speakerIndex: 2
-    name: "\uBB34\uC804\uAE30"
-    dialogue: "\uD53C\uC735......"
-  - speakerIndex: 0
-    name: "\uD2F0\uBAA8"
-    dialogue: "\uADF8, \uADF8\uB798\uB3C4 \uC5F0\uAE30\uAC00 \uB098\uC9C0\uB9CC \uBD80\uD488\uB9CC
-      \uBA40\uCA61\uD558\uBA74 \uB418\uB2C8\uAE4C! \uACE0\uCE60 \uC218\uB9CC \uC788\uB2E4\uBA74!"
+    name: ' '
+    dialogue: "PLAY \uBC84\uD2BC\uC744 \uB20C\uB7EC\uC11C \uB354 \uB9CE\uC740 \uC824\uB9AC\uB97C
+      \uBAA8\uC544\uBCF4\uC790!"
   isAutoStart: 1
 --- !u!4 &347658048
 Transform:
@@ -278,6 +258,59 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &347658049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 347658046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69beb381e244f92449b8c4cf954630e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TrackedObjects:
+  - rid: 5999490769650188288
+  references:
+    version: 2
+    RefIds:
+    - rid: 5999490769650188288
+      type: {class: TrackedMonoBehaviourObject, ns: UnityEngine.Localization.PropertyVariants.TrackedObjects,
+        asm: Unity.Localization}
+      data:
+        m_Target: {fileID: 347658047}
+        m_TrackedProperties:
+          items:
+          - rid: 5999490769650188289
+          - rid: 5999490769650188290
+        m_UpdateType: 1
+        m_Changed:
+          m_PersistentCalls:
+            m_Calls: []
+    - rid: 5999490769650188289
+      type: {class: IntTrackedProperty, ns: UnityEngine.Localization.PropertyVariants.TrackedProperties,
+        asm: Unity.Localization}
+      data:
+        m_PropertyPath: dialogs.Array.data[9].speakerIndex
+        m_VariantData:
+        - localeIdentifier:
+            m_Code: en
+          value: 2
+    - rid: 5999490769650188290
+      type: {class: LocalizedStringProperty, ns: UnityEngine.Localization.PropertyVariants.TrackedProperties,
+        asm: Unity.Localization}
+      data:
+        m_Localized:
+          m_TableReference:
+            m_TableCollectionName: 
+          m_TableEntryReference:
+            m_KeyId: 0
+            m_Key: 
+          m_FallbackState: 0
+          m_WaitForCompletion: 0
+          m_LocalVariables: []
+        m_PropertyPath: dialogs.Array.data[5].name
 --- !u!1 &419875204
 GameObject:
   m_ObjectHideFlags: 0
@@ -342,8 +375,8 @@ MonoBehaviour:
 
     New Text'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0fe0b51b6029121479a27cf896125993, type: 2}
-  m_sharedMaterial: {fileID: 243918697986993339, guid: 0fe0b51b6029121479a27cf896125993,
+  m_fontAsset: {fileID: 11400000, guid: cd7f3899890bef543b371244918da391, type: 2}
+  m_sharedMaterial: {fileID: -3972499677267993656, guid: cd7f3899890bef543b371244918da391,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -798,8 +831,8 @@ MonoBehaviour:
 
     New Text'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0fe0b51b6029121479a27cf896125993, type: 2}
-  m_sharedMaterial: {fileID: 243918697986993339, guid: 0fe0b51b6029121479a27cf896125993,
+  m_fontAsset: {fileID: 11400000, guid: cd7f3899890bef543b371244918da391, type: 2}
+  m_sharedMaterial: {fileID: -3972499677267993656, guid: cd7f3899890bef543b371244918da391,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1548,8 +1581,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0fe0b51b6029121479a27cf896125993, type: 2}
-  m_sharedMaterial: {fileID: 243918697986993339, guid: 0fe0b51b6029121479a27cf896125993,
+  m_fontAsset: {fileID: 11400000, guid: cd7f3899890bef543b371244918da391, type: 2}
+  m_sharedMaterial: {fileID: -3972499677267993656, guid: cd7f3899890bef543b371244918da391,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2059,8 +2092,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uBC84\uC12F\uB3CC\uC774"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0fe0b51b6029121479a27cf896125993, type: 2}
-  m_sharedMaterial: {fileID: 243918697986993339, guid: 0fe0b51b6029121479a27cf896125993,
+  m_fontAsset: {fileID: 11400000, guid: cd7f3899890bef543b371244918da391, type: 2}
+  m_sharedMaterial: {fileID: -3972499677267993656, guid: cd7f3899890bef543b371244918da391,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2199,8 +2232,8 @@ MonoBehaviour:
 
     New Text'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0fe0b51b6029121479a27cf896125993, type: 2}
-  m_sharedMaterial: {fileID: 243918697986993339, guid: 0fe0b51b6029121479a27cf896125993,
+  m_fontAsset: {fileID: 11400000, guid: cd7f3899890bef543b371244918da391, type: 2}
+  m_sharedMaterial: {fileID: -3972499677267993656, guid: cd7f3899890bef543b371244918da391,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2335,8 +2368,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uD2F0\uBAA8\n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0fe0b51b6029121479a27cf896125993, type: 2}
-  m_sharedMaterial: {fileID: 243918697986993339, guid: 0fe0b51b6029121479a27cf896125993,
+  m_fontAsset: {fileID: 11400000, guid: cd7f3899890bef543b371244918da391, type: 2}
+  m_sharedMaterial: {fileID: -3972499677267993656, guid: cd7f3899890bef543b371244918da391,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
