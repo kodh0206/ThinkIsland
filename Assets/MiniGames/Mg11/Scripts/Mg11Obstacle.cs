@@ -5,18 +5,19 @@ using UnityEngine;
 public class Mg11Obstacle : MonoBehaviour
 {
 
+    Vector2 direction;
+    SpriteRenderer spriteRenderer;
 
-    
     public float obstacleSpeed = 5f; 
 
     void Start()
     {
-
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
     {
-        Vector2 direction = -transform.position.normalized; 
+        direction = -transform.position.normalized; 
 
         
         transform.Translate(direction * obstacleSpeed * Time.deltaTime);
@@ -26,7 +27,9 @@ public class Mg11Obstacle : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
+            obstacleSpeed = -obstacleSpeed;
+            spriteRenderer.flipX = !spriteRenderer.flipX;
         }
 
         else if (other.gameObject.tag == "egg")
