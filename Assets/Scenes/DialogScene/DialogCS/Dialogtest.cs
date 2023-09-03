@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -13,12 +14,13 @@ public class Dialogtest : MonoBehaviour
     [SerializeField]
     private DialogSystem dialogSystem02;
 
-    bool Korean = false;
+    bool Korean = true;
 
     private IEnumerator Start()
     {
         //textCountdown.gameObject.SetActive(false);
-        Korean = false;
+        
+        Korean = GameController.Instance.isKorean;
         // 첫 번째 대사 분기 시작
         if (Korean)
         {
