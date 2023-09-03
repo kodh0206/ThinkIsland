@@ -97,7 +97,7 @@ public class DialogSystem : MonoBehaviour
                     // SetActiveObjects()에 캐릭터 이미지를 보이지 않게 하는 부분이 없기 때문에 별도로 호출
                     speakers[i].spriteRenderer.gameObject.SetActive(false);
                 }
-                Debug.Log("다이얼로그 종료");
+                Debug.Log("dialogend");
                 return true;
             }
         }
