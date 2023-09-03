@@ -72,8 +72,79 @@ public class MIniGameUI : MonoBehaviour
         else
         {
             pauseResumeButtonText.gameObject.SetActive(true);
+            minigameinstruction(miniGameManager.ReadGameNo());
             miniGameManager.TogglePause(); // 미니게임의 재개
         }
+    }
+
+
+    public void minigameinstruction(int minigameNO)
+    {
+        switch (minigameNO)
+        {
+            case 1:
+                pauseResumeButtonText.text = "1";
+                break;
+            case 2:
+                pauseResumeButtonText.text = "2";
+                break;
+            case 3:
+                pauseResumeButtonText.text = "3";
+                break;
+            case 4:
+                pauseResumeButtonText.text = "4";
+                break;
+            case 5:
+                pauseResumeButtonText.text = "5";
+                break;
+            case 6:
+                pauseResumeButtonText.text = "6";
+                break;
+            case 7:
+                pauseResumeButtonText.text = "7";
+                break;
+            case 8:
+                pauseResumeButtonText.text = "8";
+                break;
+            case 9:
+                pauseResumeButtonText.text = "9";
+                break;
+            case 10:
+                pauseResumeButtonText.text = "10";
+                break;
+            case 11:
+                pauseResumeButtonText.text = "11";
+                break;
+            case 12:
+                pauseResumeButtonText.text = "12";
+                break;
+            case 13:
+                pauseResumeButtonText.text = "13";
+                break;
+            case 14:
+                pauseResumeButtonText.text = "14";
+                break;
+            case 15:
+                pauseResumeButtonText.text = "15";
+                break;
+            case 16:
+                pauseResumeButtonText.text = "16";
+                break;
+            case 17:
+                pauseResumeButtonText.text = "17";
+                break;
+            case 18:
+                pauseResumeButtonText.text = "18";
+                break;
+            case 19:
+                pauseResumeButtonText.text = "19";
+                break;
+            case 20:
+                pauseResumeButtonText.text = "20";
+                break;
+
+        }
+        
     }
 
 }

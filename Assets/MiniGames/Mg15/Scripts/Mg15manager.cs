@@ -28,6 +28,7 @@ public class Mg15manager : MonoBehaviour
     void Start()
     {
         level = 0;
+        MiniGameManager.Instance.WriteGameNO(15);
         level = MiniGameManager.Instance.LoadDifficulty();
         score = MiniGameManager.Instance.LoadScore();
 

@@ -27,10 +27,10 @@ public class Mg2manager : MonoBehaviour
     {
         score = 0;
         level = 0;
-
+        MiniGameManager.Instance.WriteGameNO(2);
         level = MiniGameManager.Instance.LoadDifficulty() ;
         score = MiniGameManager.Instance.LoadScore();
-
+        MiniGameManager.Instance.WriteGameNO(2);
         GameLevelsetting();
 
         // 초기화
