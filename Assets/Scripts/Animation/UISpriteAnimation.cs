@@ -69,7 +69,6 @@ public void Func_PlayRewardUIAnim()
             if (m_IndexSprite >= m_SpriteArray.Length)
             {
                 IsDone = true; // 애니메이션이 끝났으므로 플래그를 설정
-                Func_ResetUIAnim();
                 break; // 루프 종료
             }
 
