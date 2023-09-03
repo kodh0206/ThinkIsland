@@ -36,6 +36,7 @@ public class Mg10Camera : MonoBehaviour
     public void ShakeCamera()
     {
         hit= true;
+        Vibration.Instance.Vibrate();
         myCamera.transform.DOShakePosition(1f, 1f);  
     }
 

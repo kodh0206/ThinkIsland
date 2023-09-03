@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,6 +22,7 @@ public class Mg1Player : MonoBehaviour
     public bool isPlayerReset = false;
     public bool RightButton = false;
 
+    public Camera myCamera;
 
     public int level;
 
@@ -187,6 +189,7 @@ public class Mg1Player : MonoBehaviour
 
         if (transform.position.x < -12)
         {
+            ShakeCamera();
             PlayerReset();
         }
     }
@@ -224,5 +227,9 @@ public class Mg1Player : MonoBehaviour
             spriteRenderer.color.b,
             maxAlpha); // 불투명 상태로 설정
     }
-
+    public void ShakeCamera()
+    {
+        Vibration.Instance.Vibrate();
+        myCamera.transform.DOShakePosition(1, 0.5f);
+    }
 }

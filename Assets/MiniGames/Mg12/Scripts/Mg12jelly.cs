@@ -28,6 +28,7 @@ public class Mg12jelly : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            Vibration.Instance.Vibrate();
             MiniGameManager.Instance.AddJelly();
             Mg12manager.instance.AddScore();
 

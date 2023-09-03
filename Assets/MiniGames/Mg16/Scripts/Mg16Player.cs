@@ -138,6 +138,7 @@ public class Mg16Player : MonoBehaviour
     }
     public void ShakeCamera()
     {
+        Vibration.Instance.Vibrate();
         myCamera.transform.DOShakePosition(1.5f, 0.2f, 40);  // 카메라를 1초 동안, 강도 0.4로 20번 흔듭니다.
     }
 

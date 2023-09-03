@@ -13,6 +13,8 @@ public class GameController : MonoBehaviour
     public string currentmbrId;
     public string currentprgsCd;
     
+    //심사위원 제출용 변수 
+    public bool isDeveloperMode =false;
     //해금될 농작물리스트 
     public List<CropData> CropList = new List<CropData>();
     public int currentjellyCount;
@@ -21,27 +23,13 @@ public class GameController : MonoBehaviour
     public int maximumActionPoints; //최대에너지 
     public int level=1;
     public int[] expToLevelUp = {
-       /* 5, 37, 60, 78, 92,104,115,124,133,140, //1~10
+        5, 37, 60, 78, 92,104,115,124,133,140, //1~10
         147,154,159,165,170,175,175,179,184,188,//11~20
         192,195,199,202,205,209,212,214,217,220,//21~30
         222,225,227,230,232,234,237,239,241,243,//31~40
         245,247,248,250,252,254,256,257,259,260,//41~50
-        262,264,265,267,268,269,271,272,274,275,//51~60
-        276,277,279,280,282,282,284,285,286,287,//61~70
-        288,289,290,292,293,294,295,296,297,298,//71~80
-        299,300,301,302,303,303,304,305,306,307,//81~90
-        308,309,310,311,311,312,313,314,315 //90~99
-        */
-        1,2,3,4,5,6,7,8,9,10,
-        11,12,13,14,15,16,17,18,19,
-        20,21,22,23,24,25,26,27,28,29,
-        30,31,32,33,34,35,36,37,38,39
-        ,40,41,42,43,44,45,46,47,48,49
-        ,50,51,52,53,54,55,56,57,58,59
-        ,50,51,52,53,54,55,56,57,58,59
-        ,50,51,52,53,54,55,56,57,58,59
-        ,50,51,52,53,54,55,56,57,58,59
-        ,50,51,52,53,54,55,56,57,58,59
+       
+      
         }; 
         // 각 레벨별 필요한 경험치
     public int current_experience;
@@ -55,7 +43,23 @@ public class GameController : MonoBehaviour
     public List<string> upgradedElements;
     public List<string> unlockedMiniGames;
     public string current_language ="Korean";
-    // Start is called before the first frame update
+    
+
+    // 프로필 관련 변수 초기화
+    public int jellyCount = 0; // 젤리 획득
+    public int goldAmount = 0; // 골드 획득
+    public int playMiniGame = 0;// 탐험 입장 (미니게임 플레이 횟수)
+    public int noCrashObject = 0;// 장애물 충돌없이 클리어
+    public int quizCorrect = 0;// 퀴즈 정답
+    public int goldenBell = 0;// 골든벨
+    public int mapExtend = 0;// 맵 확장 단계
+    public int charCollectionProgress = 0;// 캐릭터 수집 진행도
+    public int achievementProgress = 0;// 업적 달성 진행도
+    public int playTime = 0;// 게임 플레이타임
+
+
+
+
     void Awake()
     {
         if (_instance != null && _instance != this)
@@ -67,6 +71,7 @@ public class GameController : MonoBehaviour
         _instance = this;
         DontDestroyOnLoad(gameObject);
 
+        LoadData();
         Application.targetFrameRate = 60;
 
         AchievementManager achievementManager = FindObjectOfType<AchievementManager>();
@@ -74,22 +79,17 @@ public class GameController : MonoBehaviour
         {
             achievementManager.IncrementAchievement("33", level);
         }
+
+        // 프로필창 업데이트 (캐릭터 수집 진행도)
+        charCollectionProgress = unlockedMiniGames.Count;
     }
         
     
 
-    // public void Update()
-    // {
-    //     AchievementManager achievementManager = FindObjectOfType<AchievementManager>();
-    //     if (achievementManager != null)
-    //     {
-    //         achievementManager.IncrementAchievement("33", level);
-    //     }
-    // }
-
-    void LoadData(){
-        
+    public void Update()
+    {
     }
+
 
 
        public void GainExperience(int amount)
@@ -123,15 +123,85 @@ public class GameController : MonoBehaviour
     // ...
 
     // Get the reward data for the new level
-     RewardManager.Instance.GetRewardForLevel(level);
-   
+    RewardManager.Instance.GetRewardForLevel(level);
     
     }
 
-      public void AddGold(int amount)
+    public void AddGold(int amount)
     {
         curentgold += amount;
     }
 
+    void LoadData(){
+        if (ES3.KeyExists("currentmbrId"))
+            currentmbrId = ES3.Load<string>("currentmbrId");
+        if (ES3.KeyExists("currentprgsCd"))
+            currentprgsCd = ES3.Load<string>("currentprgsCd");
+        if (ES3.KeyExists("currentjellyCount"))
+            currentjellyCount = ES3.Load<int>("currentjellyCount");
+        if (ES3.KeyExists("curentgold"))
+            curentgold = ES3.Load<int>("curentgold");
+        if (ES3.KeyExists("currentActionPoints"))
+            currentActionPoints = ES3.Load<int>("currentActionPoints");
+        if (ES3.KeyExists("maximumActionPoints"))
+            maximumActionPoints = ES3.Load<int>("maximumActionPoints");
+        if (ES3.KeyExists("level"))
+            level = ES3.Load<int>("level");
+        if (ES3.KeyExists("current_experience"))
+            current_experience = ES3.Load<int>("current_experience");
+        if (ES3.KeyExists("max_experience"))
+            max_experience = ES3.Load<int>("max_experience");
+        if (ES3.KeyExists("current_language"))
+            current_language = ES3.Load<string>("current_language");
+        if (ES3.KeyExists("currentUnlockedAbilities"))
+            currentUnlockedAbilities = ES3.Load<List<string>>("currentUnlockedAbilities");
+        if (ES3.KeyExists("currentUnlockedBuildings"))
+            currentUnlockedBuildings = ES3.Load<List<string>>("currentUnlockedBuildings");
+        if (ES3.KeyExists("currentUnlockedCrops"))
+            currentUnlockedCrops = ES3.Load<List<CropData>>("currentUnlockedCrops");
+        if (ES3.KeyExists("unlockedLivestock"))
+            unlockedLivestock = ES3.Load<List<string>>("unlockedLivestock");
+        if (ES3.KeyExists("ownedFields"))
+            ownedFields = ES3.Load<List<string>>("ownedFields");
+        if (ES3.KeyExists("ownedPastures"))
+            ownedPastures = ES3.Load<List<string>>("ownedPastures");
+        if (ES3.KeyExists("upgradedElements"))
+            upgradedElements = ES3.Load<List<string>>("upgradedElements");
+        if (ES3.KeyExists("unlockedMiniGames"))
+            unlockedMiniGames = ES3.Load<List<string>>("unlockedMiniGames");
+    }
+        
     
+    public void SaveData()
+    {
+        ES3.Save("currentmbrId", currentmbrId);
+        ES3.Save("currentprgsCd", currentprgsCd);
+        ES3.Save("currentjellyCount", currentjellyCount);
+        ES3.Save("curentgold", curentgold);
+        ES3.Save("currentActionPoints", currentActionPoints);
+        ES3.Save("maximumActionPoints", maximumActionPoints);
+        ES3.Save("level", level);
+        ES3.Save("current_experience", current_experience);
+        ES3.Save("max_experience", max_experience);
+        ES3.Save("current_language", current_language);
+        ES3.Save("currentUnlockedAbilities", currentUnlockedAbilities);
+        ES3.Save("currentUnlockedBuildings", currentUnlockedBuildings);
+        ES3.Save("currentUnlockedCrops", currentUnlockedCrops);
+        ES3.Save("unlockedLivestock", unlockedLivestock);
+        ES3.Save("ownedFields", ownedFields);
+        ES3.Save("ownedPastures", ownedPastures);
+        ES3.Save("upgradedElements", upgradedElements);
+        ES3.Save("unlockedMiniGames", unlockedMiniGames);
+    }
+
+      private void OnApplicationQuit()
+    {
+        SaveData();
+    }
+
+    public void Reset()
+    {   
+        ES3.DeleteFile();
+        PlayerPrefs.DeleteAll();
+    }
 }

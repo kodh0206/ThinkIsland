@@ -53,32 +53,33 @@ public class BetaManager : MonoBehaviour
         // 싱글톤 초기화
 
         miniGame =GameObject.Find("MiniGameManager").GetComponent<MiniGameManager>();
-        gameController = GameObject.Find("GameManager").GetComponent<GameController>();
+        // gameController = GameObject.Find("GameManager").GetComponent<GameController>();
     }
 
     private void Start()
     {
         play1.onClick.AddListener(StartMiniGame);
         RadioButton.onClick.AddListener(gotoRadio);
-        money =gameController.curentgold;
+        money =GameController.Instance.curentgold;
         moneyText.text = money.ToString();
-        jelly =gameController.currentjellyCount;
+        jelly =GameController.Instance.currentjellyCount;
         jellyText.text = jelly.ToString();
 
-        energy.text =gameController.currentActionPoints.ToString();
+        energy.text =GameController.Instance.currentActionPoints.ToString();
         WaterButton.onClick.AddListener(SelectWater);
 
-        levelText.text = "LV: " + gameController.level.ToString();
-        currentExpText.text = "EXP: " + gameController.current_experience.ToString() + " / ";
-        MaxExpText.text = gameController.expToLevelUp[gameController.level-1].ToString();
+        levelText.text = "LV: " + GameController.Instance.level.ToString();
+        currentExpText.text = "EXP: " + GameController.Instance.current_experience.ToString() + " / ";
+        MaxExpText.text = GameController.Instance.expToLevelUp[GameController.Instance.level-1].ToString();
 
     }   
 
    
     private void Update()
     {
-    jelly =gameController.currentjellyCount;
-    money = gameController.curentgold;
+    jelly =GameController.Instance.currentjellyCount;
+    money = GameController.Instance.curentgold;
+    moneyText.text = money.ToString();
     jellyText.text = jelly.ToString();
     }
     
@@ -89,6 +90,9 @@ public class BetaManager : MonoBehaviour
         AudioManager.Instance.StartMiniGame();
         miniGame.StartMiniGameWithAudio();
         GameController.Instance.currentActionPoints -= 20; // 게임 시작에 필요한 활동력 감소
+
+        // 프로필창 업데이트 (탐험 입장)
+        GameController.Instance.playMiniGame += 1;
     }
     else // 활동력이 20 미만일 경우
     {
@@ -163,7 +167,7 @@ public class BetaManager : MonoBehaviour
     {
         GameController.Instance.curentgold += value;
         moneyText.text = GameController.Instance.curentgold.ToString();
-
+        AudioManager.Instance.PlayCoin();
         // 작물 수확 합계 10000 골드 달성
         if (value > 0)
         {
@@ -197,7 +201,7 @@ public class BetaManager : MonoBehaviour
                 // Deselect the crop and plot
                 selectPlant = null;
                 selectPlot = null;
-
+                AudioManager.Instance.PlayStartFarming();
                 storeManager.storePanel.SetActive(false);
             }
             else
@@ -224,6 +228,7 @@ public class BetaManager : MonoBehaviour
 
     private void  SelectWater()
     {   Debug.Log("물 선택!");
+        AudioManager.Instance.PlayWater();
         isWaterSelected = !isWaterSelected;  
     }
     public void UpdateJellyText()
@@ -232,9 +237,9 @@ public class BetaManager : MonoBehaviour
     }
     public void UpdateLevelAndExpUI()
     {
-    levelText.text = "LV: " + gameController.level.ToString();
-    currentExpText.text = "EXP: " + gameController.current_experience.ToString() + " / ";
-    MaxExpText.text = gameController.expToLevelUp[gameController.level].ToString();
+    levelText.text = "LV: " + GameController.Instance.level.ToString();
+    currentExpText.text = "EXP: " + GameController.Instance.current_experience.ToString() + " / ";
+    MaxExpText.text = GameController.Instance.expToLevelUp[GameController.Instance.level].ToString();
     }
 
 

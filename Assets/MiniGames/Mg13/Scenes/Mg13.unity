@@ -747,6 +747,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8abfaa47b47b73c4b8c934306a8c5b59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  achievementFail: 0
   level: 0
   isGameOver: 0
 --- !u!1 &755056628
@@ -13519,6 +13520,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 612886624020768476, guid: bde294b9df1d10a489968ce1511d5c85,
         type: 3}
+    - target: {fileID: 8796019015519096978, guid: 0d9aa667093aba343802163d8b770bf7,
+        type: 3}
+      propertyPath: myCamera
+      value: 
+      objectReference: {fileID: 790558884}
     - target: {fileID: 8796019015519096978, guid: 0d9aa667093aba343802163d8b770bf7,
         type: 3}
       propertyPath: swimming

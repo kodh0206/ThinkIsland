@@ -38,6 +38,7 @@ public class VegetableItem : MonoBehaviour
     if(GameController.Instance.curentgold >= plant.purchasePrice) // if the player has enough money
     {   fm.SelectPlant(plant);
         fm.PlantSelectedCrop();// Plant the vegetable
+        AudioManager.Instance.PlayCoin();
         Debug.Log(plant.plantName+"구매!"+"수익 : "+plant.sellPrice);
         
         //selectionIndicator.enabled = true;

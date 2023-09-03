@@ -17,7 +17,7 @@ public class UISpriteAnimation : MonoBehaviour
         if (!IsDone)
         {
             Func_StopUIAnim();
-            m_IndexSprite = 0;
+            Func_ResetUIAnim();
         }
 
         IsDone = false;
@@ -45,5 +45,12 @@ public class UISpriteAnimation : MonoBehaviour
             m_Image.sprite = m_SpriteArray[m_IndexSprite];
             m_IndexSprite += 1;
         }
+    }
+
+    
+    public void Func_ResetUIAnim()
+    {
+        m_IndexSprite = 0; // 인덱스를 초기화
+        m_Image.sprite = m_SpriteArray[m_IndexSprite]; // 첫 번째 스프라이트로 설정
     }
 }

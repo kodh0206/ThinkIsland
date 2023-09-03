@@ -16,20 +16,21 @@ public class SettingsButtonClick : MonoBehaviour
     void Start()
     {
 
-         bool isBGMOn = AudioManager.Instance.isBGMOn;
+    bool isBGMOn = AudioManager.Instance.isBGMOn;
     bool isSFXOn = AudioManager.Instance.isSFXOn;
-
+    bool isVibeOn =Vibration.Instance.isVibrate;
     bgmToggle.isOn = !isBGMOn;
     sfxToggle.isOn = !isSFXOn;
-
+    vibeToggle.isOn = !isVibeOn;
     // 토글의 스프라이트 이미지도 업데이트합니다.
     UpdateToggleImage(bgmToggle, !isBGMOn);
     UpdateToggleImage(sfxToggle, !isSFXOn);
-
+    UpdateToggleImage(vibeToggle, !isVibeOn);
     bgmToggle.onValueChanged.AddListener(OnBGMToggleChanged);
     sfxToggle.onValueChanged.AddListener(OnSFXToggleChanged);
-        bgmToggle.onValueChanged.AddListener(OnBGMToggleChanged);
-        sfxToggle.onValueChanged.AddListener(OnSFXToggleChanged);
+    vibeToggle.onValueChanged.AddListener(OnVibeToggleChanged);
+    bgmToggle.onValueChanged.AddListener(OnBGMToggleChanged);
+    sfxToggle.onValueChanged.AddListener(OnSFXToggleChanged);
     }
  void UpdateToggleImage(Toggle toggle, bool isOn)
     {
@@ -76,6 +77,14 @@ public class SettingsButtonClick : MonoBehaviour
         UpdateToggleImage(sfxToggle, isOn);
 
         AudioManager.Instance.isSFXOn = !isOn; 
+    }
+
+    public void OnVibeToggleChanged(bool isOn)
+    {
+
+        Debug.Log("Vibe Toggle value changed to: " + isOn);
+        UpdateToggleImage(vibeToggle, isOn);
+        Vibration.Instance.isVibrate =!isOn;
     }
     public void SettingCloseButtonClick()
     {

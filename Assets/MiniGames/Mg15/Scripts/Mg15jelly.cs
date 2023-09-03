@@ -46,7 +46,8 @@ public class Mg15jelly : MonoBehaviour
         }
 
         if (other.gameObject.CompareTag("Player"))
-        {   
+        {
+            Vibration.Instance.Vibrate();
             MiniGameManager.Instance.AddJelly();
             Mg15manager.instance.AddScore();
 

@@ -114,6 +114,7 @@ public class Mg15Player : MonoBehaviour
 
     public void ShakeCamera()
     {
+        Vibration.Instance.Vibrate();
         myCamera.transform.DOShakePosition(1.5f, 0.6f, 20);  
     }
 

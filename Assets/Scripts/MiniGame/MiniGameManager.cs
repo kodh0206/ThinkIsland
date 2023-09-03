@@ -326,7 +326,7 @@ private IEnumerator Fade(float finalAlpha)
         if (difficultyLevel < maxDifficultyLevel)
         {
             difficultyLevel++;
-            ChangeLevelUI();
+            ChangeLevelUI(true);
         }
     }
 
@@ -335,7 +335,7 @@ private IEnumerator Fade(float finalAlpha)
         if (difficultyLevel > minDifficultyLevel)
         {
             difficultyLevel--;
-            ChangeLevelUI();
+            ChangeLevelUI(false);
         }
     }
 
@@ -356,10 +356,10 @@ private IEnumerator Fade(float finalAlpha)
         return GameScore;
     }
 
-    private void ChangeLevelUI()
+    private void ChangeLevelUI(bool levelchange)
     {
         Debug.Log("레벨스프라이트변경시작");
-        MiniGameLevelShow.Instance.ShowNowLevel(difficultyLevel);
+        MiniGameLevelShow.Instance.ShowNowLevel(difficultyLevel, levelchange);
 
 
     }

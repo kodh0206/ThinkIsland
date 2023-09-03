@@ -147,6 +147,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f9a97c7d6d54034898545e6dc72196e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myCamera: {fileID: 2413148982615502281, guid: db66c2b811f53e8468d88b20c21a5fa5,
+    type: 3}
   stunEffect: {fileID: 612886624020768476, guid: 22ac35fcb897e754c9f03864874a3252,
     type: 3}
   moveSpeed: 5
@@ -156,6 +158,9 @@ MonoBehaviour:
   canJump: 1
   monkeyjump: {fileID: 8300000, guid: a9d477aedb6648742b33aab6862fde4f, type: 3}
   monkeyfall: {fileID: 8300000, guid: 2f66f8de22bb3084e865bc96bbfae4ec, type: 3}
+  blinkInterval: 0.125
+  minAlpha: 0.3
+  maxAlpha: 1
 --- !u!82 &4637877494753295316
 AudioSource:
   m_ObjectHideFlags: 0
