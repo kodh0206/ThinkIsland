@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using TMPro;
 using System;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 public class MiniGameManager : MonoBehaviour
 {   
@@ -284,6 +285,12 @@ private IEnumerator Fade(float finalAlpha)
 
     public void MiniGameFinished()
     {   
+        string currentSceneName = SceneManager.GetActiveScene().name;
+        if (currentSceneName == "Mg1")
+        {
+            Mg1Manager.instance.CheckAchievementFail();
+        }
+        
         // Mg18manager.instance.CheckAchievementFail();
 
         
