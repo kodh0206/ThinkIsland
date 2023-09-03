@@ -32,6 +32,7 @@ public class Mg16Manager : MonoBehaviour
     private void Start()
     {
         level = 0;
+        MiniGameManager.Instance.WriteGameNO(16);
         level = MiniGameManager.Instance.LoadDifficulty();
         score = MiniGameManager.Instance.LoadScore();
 

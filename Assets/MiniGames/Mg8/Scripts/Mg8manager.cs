@@ -33,6 +33,7 @@ public class Mg8manager : MonoBehaviour
     void Start()
     {
         level = 0;
+        MiniGameManager.Instance.WriteGameNO(8);
         level = MiniGameManager.Instance.LoadDifficulty();
         score = MiniGameManager.Instance.LoadScore();
 

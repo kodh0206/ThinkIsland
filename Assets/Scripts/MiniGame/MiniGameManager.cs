@@ -45,6 +45,9 @@ public class MiniGameManager : MonoBehaviour
     public Sprite[] LevelSprites = new Sprite[3];
 
     public bool isPaused = false;
+
+    public int nowMINIGAME = 1;
+
     private void Awake()
     {
     if (_instance != null && _instance != this)
@@ -389,6 +392,16 @@ private IEnumerator Fade(float finalAlpha)
             Time.timeScale = 1f; // 일시 정지 해제
              AudioManager.Instance.audioSource.UnPause(); // BGM도 일시 정지
         }
+    }
+
+    public void WriteGameNO(int NO)
+    {
+        nowMINIGAME = NO;
+    }
+
+    public int ReadGameNo()
+    {
+        return nowMINIGAME;
     }
 
 }

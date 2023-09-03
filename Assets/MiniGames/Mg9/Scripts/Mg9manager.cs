@@ -30,6 +30,8 @@ public class Mg9manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        level = 0;
+        MiniGameManager.Instance.WriteGameNO(9);
         level = MiniGameManager.Instance.LoadDifficulty();
         score = MiniGameManager.Instance.LoadScore();
 

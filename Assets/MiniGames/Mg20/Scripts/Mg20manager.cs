@@ -35,7 +35,7 @@ public class Mg20manager : MonoBehaviour
         score = MiniGameManager.Instance.LoadScore();
         spawner = FindObjectOfType<Mg20BlockSpawner>();
         chimney = FindObjectOfType<Mg20ChimneyMove>();
-
+        MiniGameManager.Instance.WriteGameNO(20);
         GameLevelsetting();
 
         // 초기화

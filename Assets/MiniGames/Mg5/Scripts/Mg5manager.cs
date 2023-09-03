@@ -31,7 +31,7 @@ public class Mg5manager : MonoBehaviour
     void Start()
     {
         level = 0;
-
+        MiniGameManager.Instance.WriteGameNO(5);
         level = MiniGameManager.Instance.LoadDifficulty() ;
         score = MiniGameManager.Instance.LoadScore();
         spawner = FindObjectOfType<ObstacleSpawner>();

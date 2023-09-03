@@ -33,7 +33,7 @@ public class Mg7manager : MonoBehaviour
     void Start()
     {
         level = 0;
-
+        MiniGameManager.Instance.WriteGameNO(7);
         level = MiniGameManager.Instance.LoadDifficulty();
         score = MiniGameManager.Instance.LoadScore();
         spawner = FindObjectOfType<Mg7Spawner>();

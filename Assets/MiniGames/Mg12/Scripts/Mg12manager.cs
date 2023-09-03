@@ -30,6 +30,7 @@ public class Mg12manager : MonoBehaviour
     void Start()
     {
         level = 0;
+        MiniGameManager.Instance.WriteGameNO(12);
         level = MiniGameManager.Instance.LoadDifficulty();
         score = MiniGameManager.Instance.LoadScore();
 
