@@ -145,7 +145,7 @@ public class MIniGameUI : MonoBehaviour
                 pauseResumeButtonText.text = "점프하며 구름을 밟고 다시마를 피해라! 물에 떨어지면 점프가 힘드니 주의!";
                 break;
             case 19:
-                pauseResumeButtonText.text = "좌우로 움직이며 꽃을 밟아 올라가라!";
+                pauseResumeButtonText.text = "좌우로 움직이며 꽃을 밟아 올라가라! 양쪽 끝으로 가면 반대편으로 갈 수 있다!";
                 break;
             case 20:
                 pauseResumeButtonText.text = "좌우로 움직이며 부서지는 발판을 주의하며 내려가라!";
