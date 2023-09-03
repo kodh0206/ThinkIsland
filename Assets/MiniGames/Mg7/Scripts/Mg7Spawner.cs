@@ -64,14 +64,22 @@ public class Mg7Spawner : MonoBehaviour
     {
         Mg7ObstacleSpeed += 1.0f; // 장애물의 스피드 증가
         time_diff -= 0.1f; // 장애물의 생성 간격 감소
-
+        GameObject[] obstacleObjects = GameObject.FindGameObjectsWithTag("obstacle"); //Find all obstacleTag
+        foreach (var obstacleObject in obstacleObjects)
+        {
+            obstacleObject.GetComponent<Mg7Obstacle>().SetSpeed(Mg7ObstacleSpeed);
+        }
     }
 
     public void DecreaseSpeed()
     {
         Mg7ObstacleSpeed -= 1.0f; // 장애물의 스피드 감소
         time_diff += 0.1f; // 장애물의 생성 간격 증가
-
+        GameObject[] obstacleObjects = GameObject.FindGameObjectsWithTag("obstacle"); //Find all obstacleTag
+        foreach (var obstacleObject in obstacleObjects)
+        {
+            obstacleObject.GetComponent<Mg7Obstacle>().SetSpeed(Mg7ObstacleSpeed);
+        }
     }
 
 

@@ -44,12 +44,22 @@ public class Mg7jellySpanwer : MonoBehaviour
     {
         jellySpeed += 1.0f; // 젤리의 스피드 증가
         time_diff -= 0.1f;
+        GameObject[] jellyObjects = GameObject.FindGameObjectsWithTag("jelly"); //FindAllJellyTag
+        foreach (var jellyObject in jellyObjects)
+        {
+            jellyObject.GetComponent<Mg7jelly>().SetSpeed(jellySpeed);
+        }
     }
 
     public void DecreaseSpeed()
     {
         jellySpeed -= 1.0f; // 젤리의 스피드 증가
         time_diff += 0.1f;
+        GameObject[] jellyObjects = GameObject.FindGameObjectsWithTag("jelly"); //FindAllJellyTag
+        foreach (var jellyObject in jellyObjects)
+        {
+            jellyObject.GetComponent<Mg7jelly>().SetSpeed(jellySpeed);
+        }
     }
 
 }
