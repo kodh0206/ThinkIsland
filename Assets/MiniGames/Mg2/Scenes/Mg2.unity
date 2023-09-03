@@ -7982,6 +7982,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Jelly
       objectReference: {fileID: 0}
+    - target: {fileID: 3074300581840252970, guid: 11ad85c09b86e0a49bc1feb94aa76d0c,
+        type: 3}
+      propertyPath: m_TagString
+      value: jelly
+      objectReference: {fileID: 0}
     - target: {fileID: 3074300581840252983, guid: 11ad85c09b86e0a49bc1feb94aa76d0c,
         type: 3}
       propertyPath: m_RootOrder
