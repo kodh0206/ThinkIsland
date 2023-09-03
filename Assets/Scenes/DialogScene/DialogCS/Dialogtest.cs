@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Dialogtest : MonoBehaviour
 {
@@ -40,6 +41,7 @@ public class Dialogtest : MonoBehaviour
 
         yield return new WaitForSeconds(2);
         Debug.Log("Dialog End");
+        SceneManager.LoadScene("Main");
         //이후 씬 전환 SceneChange
 
     }
