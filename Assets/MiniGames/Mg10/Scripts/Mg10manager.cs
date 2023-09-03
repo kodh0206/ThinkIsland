@@ -45,14 +45,14 @@ public class Mg10manager : MonoBehaviour
 
     public void Update()
     {
-        // if (!achievementFail)
-        // {
-        //     AchievementManager achievementManager = FindObjectOfType<AchievementManager>();
-        //     if (achievementManager != null)
-        //     {
-        //         achievementManager.IncrementAchievement("9", 1);
-        //     }
-        // }
+        if (!achievementFail)
+        {
+            AchievementManager achievementManager = FindObjectOfType<AchievementManager>();
+            if (achievementManager != null)
+            {
+                achievementManager.IncrementAchievement("9", 1);
+            }
+        }
     }
 
     public void CheckAchievementFail()

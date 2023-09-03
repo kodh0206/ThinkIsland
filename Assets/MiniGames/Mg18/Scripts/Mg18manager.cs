@@ -47,14 +47,14 @@ public class Mg18manager : MonoBehaviour
 
     public void Update()
     {
-        // if (!achievementFail)
-        // {
-        //     AchievementManager achievementManager = FindObjectOfType<AchievementManager>();
-        //     if (achievementManager != null)
-        //     {
-        //         achievementManager.IncrementAchievement("17", 1);
-        //     }
-        // }
+        if (!achievementFail)
+        {
+            AchievementManager achievementManager = FindObjectOfType<AchievementManager>();
+            if (achievementManager != null)
+            {
+                achievementManager.IncrementAchievement("17", 1);
+            }
+        }
     }
 
     public void CheckAchievementFail()
