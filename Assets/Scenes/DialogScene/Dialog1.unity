@@ -244,7 +244,7 @@ MonoBehaviour:
       \uBAA8\uC544\uBCF4\uC790!"
   - speakerIndex: 2
     name: System
-    dialogue: "\uADF8\uB9AC\uACE0 \uBAA8\uC740 \uC824\uB9AC\uB97C \uBC84\uC12F\uB3CC\uC774\uC5D0\uAC8C
+    dialogue: "\uBAA8\uC740 \uC824\uB9AC\uB97C \uBC84\uC12F\uB3CC\uC774\uC5D0\uAC8C
       \uC8FC\uACE0 \uCE5C\uAD6C\uB97C \uCC3E\uC790!"
   isAutoStart: 1
 --- !u!4 &347658048
@@ -798,7 +798,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -30, y: 10}
+  m_AnchoredPosition: {x: -30, y: -20}
   m_SizeDelta: {x: -180, y: -140}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &563323735
