@@ -71,7 +71,7 @@ public class Mg18jellySpawner : MonoBehaviour
     public void IncreaseSpeed()
     {
         jellySpeed += 1.0f; // 장애물의 스피드 증가
-
+        time_diff -= 0.1f;
         GameObject[] jellyObjects = GameObject.FindGameObjectsWithTag("jelly"); //FindAllJellyTag
         foreach (var jellyObject in jellyObjects)
         {
@@ -91,7 +91,7 @@ public class Mg18jellySpawner : MonoBehaviour
     public void DecreaseSpeed()
     {
         jellySpeed -= 1.0f; // 장애물의 스피드 증가
-
+        time_diff += 0.1f;
         GameObject[] jellyObjects = GameObject.FindGameObjectsWithTag("jelly"); //FindAllJellyTag
         foreach (var jellyObject in jellyObjects)
         {
