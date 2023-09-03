@@ -33,7 +33,7 @@ public void Func_PlayRewardUIAnim()
         }
 
         IsDone = false;
-        StartCoroutine(Func_PlayAnimUI());
+        StartCoroutine(Func_PlayRewardAnimUI());
     }
     public void Func_StopUIAnim()
     {
@@ -57,8 +57,28 @@ public void Func_PlayRewardUIAnim()
             m_Image.sprite = m_SpriteArray[m_IndexSprite];
             m_IndexSprite += 1;
         }
-    }
 
+        
+    }
+       IEnumerator Func_PlayRewardAnimUI()
+    {
+        while (!IsDone)
+        {
+            yield return new WaitForSeconds(m_Speed);
+
+            if (m_IndexSprite >= m_SpriteArray.Length)
+            {
+                IsDone = true; // 애니메이션이 끝났으므로 플래그를 설정
+                Func_ResetUIAnim();
+                break; // 루프 종료
+            }
+
+            m_Image.sprite = m_SpriteArray[m_IndexSprite];
+            m_IndexSprite += 1;
+        }
+
+        
+    }
     
     public void Func_ResetUIAnim()
     {

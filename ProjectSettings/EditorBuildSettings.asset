@@ -83,6 +83,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameScene/Roulette.unity
     guid: 03e785584d3073842b1424c98dd550d3
+  - enabled: 1
+    path: Assets/Scenes/DialogScene/Dialog1.unity
+    guid: 3762d373773b6734395e4905e767a400
+  - enabled: 1
+    path: Assets/Scenes/DialogScene/Dialog2.unity
+    guid: c15fc1ea3270d594da9ce1797189a5cc
+  - enabled: 1
+    path: Assets/Scenes/DialogScene/Dialog3.unity
+    guid: 564d441f5fc141c44ae0a2c2e64168d4
+  - enabled: 1
+    path: Assets/Scenes/DialogScene/Dialog4.unity
+    guid: 7e820500c76d6684599afcadc84655db
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: aceb417d8eb5085449bdb8b86355b21a,
       type: 2}
