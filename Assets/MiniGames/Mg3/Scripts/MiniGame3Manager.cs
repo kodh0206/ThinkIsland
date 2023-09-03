@@ -41,15 +41,15 @@ public class MiniGame3Manager : MonoBehaviour
 
     public void Update()
     {
-        // // 10초 내 똥과 닿지 않았을 경우
-        // if (!achievementFail)
-        // {
-        //     AchievementManager achievementManager = FindObjectOfType<AchievementManager>();
-        //     if (achievementManager != null)
-        //     {
-        //         achievementManager.IncrementAchievement("2", 1);
-        //     }
-        // }
+        // 10초 내 똥과 닿지 않았을 경우
+        if (!achievementFail)
+        {
+            AchievementManager achievementManager = FindObjectOfType<AchievementManager>();
+            if (achievementManager != null)
+            {
+                achievementManager.IncrementAchievement("2", 1);
+            }
+        }
     }
 
     public void CheckAchievementFail()
