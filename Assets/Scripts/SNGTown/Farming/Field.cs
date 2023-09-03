@@ -111,9 +111,6 @@ public class Field : MonoBehaviour
     {
         fm.UnlockPlot(this, 200); // Unlock this plot for 200 dollars
         Debug.Log("토지해금");
-
-        // 팝업창 활성화
-        popup.SetActive(true);
     }
     if(state == PlotState.EMPTY)
     {   fm.selectPlot =this;

@@ -33,7 +33,7 @@ public class AdeventureUpgrade : MonoBehaviour
         else
         {
             // 팝업창 활성화
-            popup.SetActive(true);
+            // popup.SetActive(true);
         }
     }
 

@@ -224,6 +224,7 @@ public class BetaManager : MonoBehaviour
         }
         else
         {
+            OpenPopup();
             Debug.Log("Not enough money to unlock this plot");
         }
 
