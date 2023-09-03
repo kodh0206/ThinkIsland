@@ -42,14 +42,7 @@ public class Mg15manager : MonoBehaviour
 
     public void Update()
     {
-        if (!achievementFail)
-        {
-            AchievementManager achievementManager = FindObjectOfType<AchievementManager>();
-            if (achievementManager != null)
-            {
-                achievementManager.IncrementAchievement("14", 1);
-            }
-        }
+        Invoke("CheckAchievementFail", 9.5f);
     }
 
     public void CheckAchievementFail()
