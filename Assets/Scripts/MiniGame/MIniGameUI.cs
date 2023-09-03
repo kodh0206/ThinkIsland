@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,7 +21,7 @@ public class MIniGameUI : MonoBehaviour
     public Sprite defaultSprite;  // Default 상태의 스프라이트 //켜져있음
     public Image sprite;
 
-
+    public Image BlackBoard;
 
     private void Awake()
 {
@@ -67,12 +68,17 @@ public class MIniGameUI : MonoBehaviour
         if (isToggled)
         {
             pauseResumeButtonText.gameObject.SetActive(false);
+            minigameinstruction(miniGameManager.ReadGameNo());
+            BlackBoard.enabled = false;
+
             miniGameManager.TogglePause(); // 미니게임의 일시 정지
         }
         else
         {
             pauseResumeButtonText.gameObject.SetActive(true);
             minigameinstruction(miniGameManager.ReadGameNo());
+            BlackBoard.enabled = true;
+            
             miniGameManager.TogglePause(); // 미니게임의 재개
         }
     }
