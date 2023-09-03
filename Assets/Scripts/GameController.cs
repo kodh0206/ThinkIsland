@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System;
 public class GameController : MonoBehaviour
 {   
 
@@ -33,8 +33,7 @@ public class GameController : MonoBehaviour
     public int max_experience;
     public List<CropData> currentUnlockedCrops;
     public List<string> unlockedMiniGames;
-    public string current_language ="Korean";
-    
+    public bool isKorean =true;
     
     
     // 프로필 관련 변수 초기화
@@ -56,8 +55,8 @@ public class GameController : MonoBehaviour
 
     public bool isWinterlandUnlocked =false;
 
-    public bool isTropicLandUnlocked =false; 
-
+    public bool isTropicLandUnlocked =false;
+    private string current_language;
 
     void Awake()
     {
@@ -90,7 +89,7 @@ public class GameController : MonoBehaviour
         
     
 
-
+ 
        public void GainExperience(int amount)
     {
         current_experience += amount;
@@ -216,6 +215,8 @@ public class GameController : MonoBehaviour
 
     // 필요한 경우 여기에 추가 코드를 작성
 }
+
+
 
       private void OnApplicationQuit()
     {

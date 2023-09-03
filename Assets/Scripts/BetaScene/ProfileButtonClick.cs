@@ -16,8 +16,8 @@ public class ProfileButtonClick : MonoBehaviour
     {
 
         // GameController.Instance.charCollectionProgress = GameController.Instance.unlockedMiniGames.Count;
-
-        string updatedText = $"젤리 획득 {GameController.Instance.jellyCount}개\n" +
+        if(GameController.Instance.isKorean)
+                {string updatedText = $"젤리 획득 {GameController.Instance.jellyCount}개\n" +
                             $"골드 획득 {GameController.Instance.goldAmount}골드\n" +
                             $"탐험 입장 {GameController.Instance.playMiniGame}회\n" +
                             $"장애물 충돌없이 클리어 {GameController.Instance.noCrashObject}회\n" +
@@ -27,16 +27,27 @@ public class ProfileButtonClick : MonoBehaviour
                             $"캐릭터 수집 진행도 {GameController.Instance.charCollectionProgress}/20마리\n" +
                             $"업적 달성 진행도 {GameController.Instance.achievementProgress}개\n" +
                             $"게임 플레이타임 {GameController.Instance.playTime}시간";
+                             textMeshProUGUI.text = updatedText;
+                }
 
-    
+        else{
+            string updatedText = $"Jelly Obtained {GameController.Instance.jellyCount}개\n" +
+                        $"Gold Earned {GameController.Instance.goldAmount}골드\n" +
+                        $"Adventures Entered: {GameController.Instance.playMiniGame} times\n" +
+                        $"Cleared Without Crashing: {GameController.Instance.noCrashObject} times\n" +
+                        $"Quiz Correct: {GameController.Instance.quizCorrect} times\n" +
+                        $"Golden Bells: {GameController.Instance.goldenBell} times\n" +
+                        $"Map Extension Level: {GameController.Instance.mapExtend} levels\n" +
+                        $"Character Collection Progress: {GameController.Instance.charCollectionProgress}/20\n" +
+                        $"Achievements Completed: {GameController.Instance.achievementProgress}\n" +
+                        $"Game Play Time: {GameController.Instance.playTime} hours";
+
+                            textMeshProUGUI.text = updatedText;
+        }
         // TextMeshPro 객체에 업데이트된 문자열 할당
-        textMeshProUGUI.text = updatedText;
-    }
-
-    void Update()
-    {
         
     }
+
 
     public void ProfileCloseButtonClick()
     {   AudioManager.Instance.PlayPressed();
