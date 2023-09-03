@@ -134,7 +134,7 @@ public class Mg2Player : MonoBehaviour
         }
 
         // Wait for 2 seconds
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(0.5f);
 
         // Change color back to white
         if (spriteRenderer != null)
@@ -152,7 +152,7 @@ public class Mg2Player : MonoBehaviour
         isStunned = true;
         // 보더콜리 넘어지는 스프라이트로 1.5초 변경
         SwapAnimation();
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(0.2f);
         isStunned = false;
     }
 
@@ -165,7 +165,7 @@ public class Mg2Player : MonoBehaviour
     {
         // 넘어지는 애니메이션으로 변경
         anim.SetBool("isSlide", true);
-        yield return new WaitForSeconds(1.5f); // 1초 대기
+        yield return new WaitForSeconds(0.5f); // 1초 대기
         // 기존 애니메이션으로 복원
         anim.SetBool("isSlide", false);
     }

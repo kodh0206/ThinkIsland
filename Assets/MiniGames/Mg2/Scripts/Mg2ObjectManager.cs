@@ -24,8 +24,8 @@ public class Mg2ObjectManager : MonoBehaviour
         ball.SetActive(true);
         jelly.SetActive(false);
 
-        timer = 0.0f;
-        waitingTime = 3f;
+        timer = 1.0f;
+        waitingTime = 2.5f;
     }
     private void Update()
     {
