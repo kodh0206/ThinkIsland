@@ -39,6 +39,7 @@ public class Dialogtest : MonoBehaviour
         //textCountdown.text = "The End";
 
         yield return new WaitForSeconds(2);
+        Debug.Log("Dialog End");
         //이후 씬 전환 SceneChange
 
     }
