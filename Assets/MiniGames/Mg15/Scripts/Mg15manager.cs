@@ -41,14 +41,14 @@ public class Mg15manager : MonoBehaviour
 
     public void Update()
     {
-        if (!achievementFail)
-        {
-            AchievementManager achievementManager = FindObjectOfType<AchievementManager>();
-            if (achievementManager != null)
-            {
-                achievementManager.IncrementAchievement("14", 1);
-            }
-        }
+        // if (!achievementFail)
+        // {
+        //     AchievementManager achievementManager = FindObjectOfType<AchievementManager>();
+        //     if (achievementManager != null)
+        //     {
+        //         achievementManager.IncrementAchievement("14", 1);
+        //     }
+        // }
     }
 
     public void AddScore()

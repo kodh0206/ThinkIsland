@@ -50,14 +50,14 @@ public class Mg4manager : MonoBehaviour
 
     public void Update()
     {
-        if (!achievementFail)
-        {
-            AchievementManager achievementManager = FindObjectOfType<AchievementManager>();
-            if (achievementManager != null)
-            {
-                achievementManager.IncrementAchievement("3", 1);
-            }
-        }
+        // if (!achievementFail)
+        // {
+        //     AchievementManager achievementManager = FindObjectOfType<AchievementManager>();
+        //     if (achievementManager != null)
+        //     {
+        //         achievementManager.IncrementAchievement("3", 1);
+        //     }
+        // }
     }
 
     public void AddScore()

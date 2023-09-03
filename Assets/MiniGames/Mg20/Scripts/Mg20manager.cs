@@ -44,14 +44,14 @@ public class Mg20manager : MonoBehaviour
 
     public void Update()
     {
-        if (!achievementFail)
-        {
-            AchievementManager achievementManager = FindObjectOfType<AchievementManager>();
-            if (achievementManager != null)
-            {
-                achievementManager.IncrementAchievement("19", 1);
-            }
-        }
+        // if (!achievementFail)
+        // {
+        //     AchievementManager achievementManager = FindObjectOfType<AchievementManager>();
+        //     if (achievementManager != null)
+        //     {
+        //         achievementManager.IncrementAchievement("19", 1);
+        //     }
+        // }
     }
 
     public void AddScore()
