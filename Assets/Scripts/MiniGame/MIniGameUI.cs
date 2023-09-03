@@ -69,7 +69,7 @@ public class MIniGameUI : MonoBehaviour
         {
             pauseResumeButtonText.gameObject.SetActive(false);
             minigameinstruction(miniGameManager.ReadGameNo());
-            BlackBoard.enabled = false;
+            BlackBoard.gameObject.SetActive(false);
 
             miniGameManager.TogglePause(); // 미니게임의 일시 정지
         }
@@ -77,8 +77,9 @@ public class MIniGameUI : MonoBehaviour
         {
             pauseResumeButtonText.gameObject.SetActive(true);
             minigameinstruction(miniGameManager.ReadGameNo());
-            BlackBoard.enabled = true;
-            
+            BlackBoard.gameObject.SetActive(true);
+
+
             miniGameManager.TogglePause(); // 미니게임의 재개
         }
     }
