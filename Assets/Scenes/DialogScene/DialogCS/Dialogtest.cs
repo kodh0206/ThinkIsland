@@ -13,12 +13,12 @@ public class Dialogtest : MonoBehaviour
     [SerializeField]
     private DialogSystem dialogSystem02;
 
-    bool Korean = true;
+    bool Korean = false;
 
     private IEnumerator Start()
     {
         //textCountdown.gameObject.SetActive(false);
-
+        Korean = false;
         // 첫 번째 대사 분기 시작
         if (Korean)
         {
